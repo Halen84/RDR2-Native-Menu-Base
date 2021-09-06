@@ -12,7 +12,7 @@
 /*
 ######################################################
 # RDR2 UI Library
-# Made by TuffyTown
+# Made by TuffyTown (Halen84)
 # Credits: Alexander Blade - ScriptHook SDK
 # ====================================================
 # GitHub: https://github.com/Halen84/RDR2-UI-Library
