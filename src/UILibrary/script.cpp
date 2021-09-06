@@ -15,7 +15,7 @@
 # Made by TuffyTown
 # Credits: Alexander Blade - ScriptHook SDK
 # ====================================================
-# GitHub:
+# GitHub: https://github.com/Halen84/RDR2-UI-Library
 # License: MIT
 ######################################################
 */
