@@ -58,6 +58,7 @@ int backPrompt;
 
 double pageIndex = 0.0; // Current Page
 int selectedIndex = 0; // Selected Item
+int previousIndex = 0;
 
 bool enabled = false;
 bool justOpened = false;
@@ -102,6 +103,7 @@ void update()
 		play_frontend_sound("SELECT", "HUD_SHOP_SOUNDSET");
 		if (pageIndex == 0.0) {
 			pageIndex = selectedIndex + 1.0;
+			previousIndex = selectedIndex;
 			selectedIndex = 0;
 		} else {
 			if (DoesOptionHavePage(pageIndex, selectedIndex)) {
@@ -117,7 +119,7 @@ void update()
 
 	if (HUD::_UIPROMPT_HAS_STANDARD_MODE_COMPLETED(backPrompt, 0)) {
 		play_frontend_sound("BACK", "HUD_SHOP_SOUNDSET");
-		selectedIndex = 0;
+		selectedIndex = previousIndex;
 		if (pageIndex == 0.0) {
 			enabled = false;
 			justClosed = true;

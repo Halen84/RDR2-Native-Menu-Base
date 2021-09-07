@@ -48,9 +48,9 @@ void DrawPage(double pageIndex)
 	else if (pageIndex == 2.0) {
 		SetHeader("PAGE 2 HEADER");
 		SetSubHeader("Page 2 Sub Header");
-		DrawListOption("Page 1 - Option 1", 0);
-		DrawListOption("Page 1 - Option 2", 1);
-		DrawListOption("Page 1 - Option 3", 2);
+		DrawListOption("Page 2 - Option 1", 0);
+		DrawListOption("Page 2 - Option 2", 1);
+		DrawListOption("Page 2 - Option 3", 2);
 		optionsInThisPage = 3;
 	}
 
