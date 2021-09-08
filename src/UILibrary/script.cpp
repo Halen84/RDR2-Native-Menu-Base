@@ -49,6 +49,7 @@
 	- To execute code when an option is pressed/toggled, see menuitemfunctions.cpp
 	- menu.cpp is where sprites are drawn
 	- If you would like to implement scrolling, see menu.cpp (DrawListOption)
+	- Be sure to change your output directory, as its set to my custom one
 */
 #pragma endregion
 
@@ -57,19 +58,13 @@ int selectPrompt;
 int backPrompt;
 
 double pageIndex = 0.0; // Current Page
+double previousPageIndex = 0.0;
 int selectedIndex = 0; // Selected Item
 int previousIndex = 0;
 
 bool enabled = false;
 bool justOpened = false;
 bool justClosed = false;
-
-
-void draw_text_element(std::string text, float posX, float posY, float scaleX, float scaleY)
-{
-	UIDEBUG::_BG_SET_TEXT_SCALE(scaleX, scaleY);
-	UIDEBUG::_BG_DISPLAY_TEXT(MISC::VAR_STRING(10, "LITERAL_STRING", _strdup(text.c_str())), posX, posY);
-}
 
 
 void play_frontend_sound(const char* name, const char* soundset)
@@ -89,8 +84,7 @@ void update()
 	// Drawing Pages
 	DrawPage(pageIndex);
 	int numOptions = GetNumOptionsInCurrentPage();
-	// todo: find color closer to ingame color
-	DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), "body", "c0c0c0", "CENTER", 0, 20, -0.515, 0.187f + (numOptions * 0.053f));
+	DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), "body", "7e7e7e", "CENTER", 0, 20, -0.51, 0.18f + (numOptions * 0.053f)); // c0c0c0
 
 
 	// Footer
@@ -108,7 +102,9 @@ void update()
 		} else {
 			if (DoesOptionHavePage(pageIndex, selectedIndex)) {
 				// Pages inside of pages are indexed by decimals so thats why its a double
-				pageIndex += 0.1;
+				previousPageIndex = pageIndex;
+				pageIndex += (selectedIndex / 10.0) + 0.1;
+				// There still is a bug with pages insides of pages currently. I'll get to it sometime. Sorry lol
 			} else if (DoesOptionHaveToggle(pageIndex, selectedIndex)) {
 				OnToggle();
 			} else {
@@ -125,12 +121,11 @@ void update()
 			justClosed = true;
 			pageIndex = 0.0;
 		} else {
-			pageIndex -= 0.1;
-			// Since we subtract 0.1, we will go back too much if we are on page x.0 and end up on page x.9 if that makes sense
-			// So just check the if the tenths place is 9
-			if ((int)(pageIndex * 10) % 10 == 9) {
+			if ((int)(pageIndex * 10) % 10 == 0) {
 				pageIndex = 0.0;
+				return;
 			}
+			pageIndex = previousPageIndex;
 		}
 	}
 

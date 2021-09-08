@@ -7,7 +7,7 @@
 #include "script.h"
 
 bool initialized = false;
-std::map<double, std::map<int, std::function<void(bool toggle)>>> functions;
+std::map<double, std::map<int, std::function<void(bool)>>> functions;
 
 // This is where you will write your functions when an option is toggled/pressed
 

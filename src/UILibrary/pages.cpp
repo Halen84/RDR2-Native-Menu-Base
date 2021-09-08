@@ -37,11 +37,12 @@ void DrawPage(double pageIndex)
 	else if (pageIndex == 1.1) {
 		SetHeader("PAGE 1.1 HEADER");
 		SetSubHeader("Page 1.1 Sub Header");
-		DrawToggleOption("Page 1.1 - Toggle Option 1", pageIndex, 0);
-		DrawToggleOption("Page 1.1 - Toggle Option 2", pageIndex, 1);
-		DrawToggleOption("Page 1.1 - Toggle Option 3", pageIndex, 2);
-		DrawToggleOption("Page 1.1 - Toggle Option 4", pageIndex, 3);
-		DrawToggleOption("Page 1.1 - Toggle Option 5", pageIndex, 4);
+		// Remember, DrawListOption and DrawToggleOption are different!
+		DrawToggleOption("Page 1.1 - Toggle Option 1", 0);
+		DrawToggleOption("Page 1.1 - Toggle Option 2", 1);
+		DrawToggleOption("Page 1.1 - Toggle Option 3", 2);
+		DrawToggleOption("Page 1.1 - Toggle Option 4", 3);
+		DrawToggleOption("Page 1.1 - Toggle Option 5", 4);
 		optionsInThisPage = 5;
 	}
 
@@ -135,8 +136,9 @@ void OnToggle()
 	double pageIndex = GetCurrentPageIndex();
 	int selectedIndex = GetCurrentSelectedIndex();
 	
-	// lol
+	// If it doesn't exist in the hashmap, add it
 	toggleStates[pageIndex][selectedIndex] = GetTextState(pageIndex, selectedIndex) == "On" ? true : false;
+	// Reverse state
 	toggleStates[pageIndex][selectedIndex] = !toggleStates[pageIndex][selectedIndex];
 
 	textStates[pageIndex][selectedIndex] = toggleStates[pageIndex][selectedIndex] == true ? "On" : "Off";

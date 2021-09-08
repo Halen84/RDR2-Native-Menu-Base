@@ -36,9 +36,10 @@ void DrawListOption(std::string text, int index)
 }
 
 
-void DrawToggleOption(std::string text, double pageIndex, int index)
+void DrawToggleOption(std::string text, int index)
 {
 	// GRAPHICS::DRAW_SPRITE("generic_textures", "tick", 0.255, 0.25f + (index * INCREMENT), 0.018, 0.035, 0, 255, 255, 255, 255, false);
+	double pageIndex = GetCurrentPageIndex();
 
 	DrawListOption(text, index);
 	std::string toggleText = GetTextState(pageIndex, index);
