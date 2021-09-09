@@ -27,12 +27,21 @@ void DrawCSSText(std::string text, std::string font, std::string color, std::str
 
 void DrawListOption(std::string text, int index)
 {
-	// int selectedIndex = GetCurrentSelectedIndex();
-	// int numOptions = GetNumOptionsInCurrentPage();
+	int selectedIndex = GetCurrentSelectedIndex();
 
-	// Scrolling would be implemented here I believe, but I have no idea how.
-	GRAPHICS::DRAW_SPRITE("generic_textures", "selection_box_bg_1c", 0.16, 0.25f + (index * INCREMENT), 0.22, 0.05, 0, 32, 32, 32, 200, false);
-	DrawCSSText(text, "body", "FFFFFF", "LEFT", 0, 22, 0.04, 0.195f + (index * INCREMENT));
+scrolling implemented
+	if (selectedIndex <= 7 && index <= 7) {
+		
+
+		GRAPHICS::DRAW_SPRITE("generic_textures", "selection_box_bg_1c", 0.16, 0.25f + (index * INCREMENT), 0.22, 0.05, 0, 32, 32, 32, 200, false);
+		DrawCSSText(text, "body", "FFFFFF", "LEFT", 0, 22, 0.04, 0.195f + (index * INCREMENT));
+	}
+	else if ((index > (selectedIndex - 8)) && index <= selectedIndex) {
+		GRAPHICS::DRAW_SPRITE("generic_textures", "selection_box_bg_1c", 0.16, 0.25f + ((index - (selectedIndex - 7)) * INCREMENT), 0.22, 0.05, 0, 32, 32, 32, 200, false);
+
+		DrawCSSText(text, "body", "FFFFFF", "LEFT", 0, 22, 0.04, 0.195f + ((index - (selectedIndex - 7)) * INCREMENT));
+
+	}
 }
 
 
@@ -60,10 +69,18 @@ void DrawSelectionBox()
 	int index = GetCurrentSelectedIndex();
 
 	// Left, Right, Top, Bottom
-	GRAPHICS::DRAW_SPRITE("menu_textures", "crafting_highlight_l", 0.05, 0.25f + (index * INCREMENT), 0.01, 0.052, 0, 255, 0, 0, 255, false);
-	GRAPHICS::DRAW_SPRITE("menu_textures", "crafting_highlight_r", 0.27, 0.25f + (index * INCREMENT), 0.01, 0.052, 0, 255, 0, 0, 255, false);
-	GRAPHICS::DRAW_SPRITE("menu_textures", "crafting_highlight_t", 0.16, 0.23f + (index * INCREMENT), 0.221, 0.02, 0, 255, 0, 0, 255, false);
-	GRAPHICS::DRAW_SPRITE("menu_textures", "crafting_highlight_b", 0.16, 0.27f + (index * INCREMENT), 0.22, 0.02, 0, 255, 0, 0, 255, false);
+		if (index >= 7) {
+			GRAPHICS::DRAW_SPRITE("menu_textures", "crafting_highlight_l", 0.05, 0.25f + ((7 * INCREMENT)), 0.01, 0.052, 0, 255, 0, 0, 255, false);
+			GRAPHICS::DRAW_SPRITE("menu_textures", "crafting_highlight_r", 0.27, 0.25f + ((7 * INCREMENT)), 0.01, 0.052, 0, 255, 0, 0, 255, false);
+			GRAPHICS::DRAW_SPRITE("menu_textures", "crafting_highlight_t", 0.16, 0.23f + ((7 * INCREMENT)), 0.221, 0.02, 0, 255, 0, 0, 255, false);
+			GRAPHICS::DRAW_SPRITE("menu_textures", "crafting_highlight_b", 0.16, 0.27f + ((7 * INCREMENT)), 0.22, 0.02, 0, 255, 0, 0, 255, false);
+		}
+		else {
+			GRAPHICS::DRAW_SPRITE("menu_textures", "crafting_highlight_l", 0.05, 0.25f + ((index * INCREMENT)), 0.01, 0.052, 0, 255, 0, 0, 255, false);
+			GRAPHICS::DRAW_SPRITE("menu_textures", "crafting_highlight_r", 0.27, 0.25f + ((index * INCREMENT)), 0.01, 0.052, 0, 255, 0, 0, 255, false);
+			GRAPHICS::DRAW_SPRITE("menu_textures", "crafting_highlight_t", 0.16, 0.23f + ((index * INCREMENT)), 0.221, 0.02, 0, 255, 0, 0, 255, false);
+			GRAPHICS::DRAW_SPRITE("menu_textures", "crafting_highlight_b", 0.16, 0.27f + ((index * INCREMENT)), 0.22, 0.02, 0, 255, 0, 0, 255, false);
+		}
 }
 
 
