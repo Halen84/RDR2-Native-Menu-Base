@@ -84,6 +84,9 @@ void update()
 	// Drawing Pages
 	DrawPage(pageIndex);
 	int numOptions = GetNumOptionsInCurrentPage();
+	if(numOptions >= 8)
+		DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), "body", "7e7e7e", "CENTER", 0, 20, -0.51, 0.18f + (8 * 0.053f)); // c0c0c0
+	else
 	DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), "body", "7e7e7e", "CENTER", 0, 20, -0.51, 0.18f + (numOptions * 0.053f)); // c0c0c0
 
 
