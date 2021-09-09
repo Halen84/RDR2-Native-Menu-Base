@@ -23,16 +23,12 @@
 
 // If you have any improvements you would like to make, feel free to make a pull request via GitHub.
 // If you find any bugs with this library, please make an issue report or pull request if you know how to fix it.
+// Be sure to check for updates to this library!
 
 
  #pragma region INFO
 /*
-	- If you want to have more than 8 page options (scrolling), you'll have to implement it yourself because I couldn't figure it out.
-	  If you figure this out, please make a pull request via GitHub and I'll gladly implement it. See menu.cpp
-
-	- Sorry for not having this feature and or any other missed features.
-
-	- My current theory is to get perfect ui, scrolling, etc, I would have to use DATABINDING namespace. Lol idk.
+	- My current theory is to get perfect ui, etc, I would have to use DATABINDING namespace. Lol idk.
 	  Ive looked through the decompiled scripts and it looks like it would work based on the context, but I have no idea how to use the functions.
 	  There is no good documentation on them!
 
@@ -48,7 +44,6 @@
 	- To change the footer text, see footer.cpp
 	- To execute code when an option is pressed/toggled, see menuitemfunctions.cpp
 	- menu.cpp is where sprites are drawn
-	- If you would like to implement scrolling, see menu.cpp (DrawListOption)
 	- Be sure to change your output directory, as its set to my custom one
 */
 #pragma endregion
@@ -84,10 +79,12 @@ void update()
 	// Drawing Pages
 	DrawPage(pageIndex);
 	int numOptions = GetNumOptionsInCurrentPage();
-	if(numOptions >= 8)
-		DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), "body", "7e7e7e", "CENTER", 0, 20, -0.51, 0.18f + (8 * 0.053f)); // c0c0c0
-	else
-	DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), "body", "7e7e7e", "CENTER", 0, 20, -0.51, 0.18f + (numOptions * 0.053f)); // c0c0c0
+	if (numOptions >= 8) {
+		// c0c0c0
+		DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), "body", "7e7e7e", "CENTER", 0, 20, -0.51, 0.18f + (8 * 0.053f));
+	} else {
+		DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), "body", "7e7e7e", "CENTER", 0, 20, -0.51, 0.18f + (numOptions * 0.053f));
+	}
 
 
 	// Footer
