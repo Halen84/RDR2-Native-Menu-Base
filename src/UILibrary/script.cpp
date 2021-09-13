@@ -13,7 +13,7 @@
 ######################################################
 # RDR2 UI Library
 # Made by TuffyTown (Halen84)
-# Credits: Alexander Blade - ScriptHook SDK
+# Credits: Alexander Blade (ScriptHook SDK), GitHub Contributors
 # ====================================================
 # GitHub: https://github.com/Halen84/RDR2-UI-Library
 # License: MIT
@@ -21,22 +21,11 @@
 */
 
 
+// I am NOT very good at C++, but I tried my best. So please ignore bad and inconsistent code :(
 // If you have any improvements you would like to make, feel free to make a pull request via GitHub.
 // If you find any bugs with this library, please make an issue report or pull request if you know how to fix it.
-// Be sure to check for updates to this library!
+// Be sure to check for updates!
 
-
- #pragma region INFO
-/*
-	- My current theory is to get perfect ui, etc, I would have to use DATABINDING namespace. Lol idk.
-	  Ive looked through the decompiled scripts and it looks like it would work based on the context, but I have no idea how to use the functions.
-	  There is no good documentation on them!
-
-	- I probably should've used OOP
-
-	- I am NOT very good at C++, but I tried my best. So please ignore bad and inconsistent code :(
-*/
-#pragma endregion
 
  #pragma region Help
 /*
@@ -54,6 +43,7 @@ int backPrompt;
 
 double pageIndex = 0.0; // Current Page
 double previousPageIndex = 0.0;
+
 int selectedIndex = 0; // Selected Item
 int previousIndex = 0;
 
@@ -80,10 +70,9 @@ void update()
 	DrawPage(pageIndex);
 	int numOptions = GetNumOptionsInCurrentPage();
 	if (numOptions >= 8) {
-		// c0c0c0
-		DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), "body", "7e7e7e", "CENTER", 0, 20, -0.51, 0.18f + (8 * 0.053f));
+		DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), "body", "a0a0a0", "CENTER", 0, 20, -0.51, 0.18f + (8 * 0.053f));
 	} else {
-		DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), "body", "7e7e7e", "CENTER", 0, 20, -0.51, 0.18f + (numOptions * 0.053f));
+		DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), "body", "a0a0a0", "CENTER", 0, 20, -0.51, 0.18f + (numOptions * 0.053f));
 	}
 
 
@@ -104,7 +93,7 @@ void update()
 				// Pages inside of pages are indexed by decimals so thats why its a double
 				previousPageIndex = pageIndex;
 				pageIndex += (selectedIndex / 10.0) + 0.1;
-				// There still is a bug with pages insides of pages currently. I'll get to it sometime. Sorry lol
+				// Note: There is still a bug with pages insides of pages currently. Should still "mostly" work however.
 			} else if (DoesOptionHaveToggle(pageIndex, selectedIndex)) {
 				OnToggle();
 			} else {
@@ -176,7 +165,6 @@ void main()
 	const int TOGGLE_KEY = VK_NUMPAD9;
 	bool firstTimeActivation = true;
 
-	// Didn't care to look for text hash, so I made them myself
 	CreateControlAction(selectPrompt, MISC::GET_HASH_KEY("INPUT_GAME_MENU_ACCEPT"), MISC::VAR_STRING(10, "LITERAL_STRING", "Select"));
 	CreateControlAction(backPrompt, MISC::GET_HASH_KEY("INPUT_GAME_MENU_CANCEL"), MISC::VAR_STRING(10, "LITERAL_STRING", "Back"));
 
@@ -190,7 +178,7 @@ void main()
 			MAP::DISPLAY_RADAR(!enabled);
 			if (firstTimeActivation) {
 				firstTimeActivation = false;
-				//ShowSubtitle("Made by TuffyTown");
+				//ShowSubtitle("First time opening menu");
 			}
 		}
 

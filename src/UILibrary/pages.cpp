@@ -7,6 +7,7 @@
 #include "pages.h"
 #include "menuitemfunctions.h"
 
+// todo: automate this...
 int optionsInThisPage;
 
 void DrawPage(double pageIndex)
@@ -37,7 +38,6 @@ void DrawPage(double pageIndex)
 	else if (pageIndex == 1.1) {
 		SetHeader("PAGE 1.1 HEADER");
 		SetSubHeader("Page 1.1 Sub Header");
-		// Remember, DrawListOption and DrawToggleOption are different!
 		DrawToggleOption("Page 1.1 - Toggle Option 1", 0);
 		DrawToggleOption("Page 1.1 - Toggle Option 2", 1);
 		DrawToggleOption("Page 1.1 - Toggle Option 3", 2);

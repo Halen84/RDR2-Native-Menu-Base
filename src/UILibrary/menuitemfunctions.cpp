@@ -7,6 +7,7 @@
 #include "script.h"
 
 bool initialized = false;
+// The function parameters need improvements instead of only accepting a boolean
 std::map<double, std::map<int, std::function<void(bool)>>> functions;
 
 // This is where you will write your functions when an option is toggled/pressed
