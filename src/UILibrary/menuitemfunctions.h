@@ -2,4 +2,4 @@
 
 #pragma once
 
-void CallFunction(double pageIndex, int selectedIndex, bool toggle);
+void CallFunction(double pageIndex, int selectedIndex, bool toggle, int index);

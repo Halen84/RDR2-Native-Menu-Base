@@ -2,6 +2,7 @@
 
 #include <string>
 #include <map>
+#include <vector>
 #include "script.h"
 #include "menu.h"
 #include "pages.h"
@@ -15,7 +16,7 @@ void DrawPage(double pageIndex)
 	if (pageIndex == 0.0) {
 		SetHeader("HEADER");
 		SetSubHeader("Sub Header");
-		DrawListOption("Page 1", 0);
+		DrawListOption("Examples", 0);
 		DrawListOption("Page 2", 1);
 		DrawListOption("Page 3", 2);
 		DrawListOption("Page 4", 3);
@@ -29,17 +30,25 @@ void DrawPage(double pageIndex)
 	else if (pageIndex == 1.0) {
 		SetHeader("PAGE 1 HEADER");
 		SetSubHeader("Page 1 Sub Header");
-		DrawListOption("Page 1 - Option 1", 0);
-		DrawListOption("Page 1 - Option 2", 1);
-		DrawListOption("Page 1 - Option 3", 2);
+		DrawListOption("Toggle Examples", 0);
+		DrawListOption("Example Button", 1);
+		DrawListOption("Example Button", 2);
 		optionsInThisPage = 3;
 	}
 
 	else if (pageIndex == 1.1) {
 		SetHeader("PAGE 1.1 HEADER");
 		SetSubHeader("Page 1.1 Sub Header");
-		DrawToggleOption("Page 1.1 - Toggle Option 1", 0);
-		DrawToggleOption("Page 1.1 - Toggle Option 2", 1);
+
+		// Add options with static text
+		DrawToggleOption("Multiple Options", 0);
+		AddMultipleOptions("BaseText ", 0, 10);
+
+		// Add options with unique text
+		DrawToggleOption("Single Options", 1);
+		AddSingleOption("First", 1); AddSingleOption("Second", 1); AddSingleOption("Third", 1);
+
+		// You can also not add any options for just On and Off
 		DrawToggleOption("Page 1.1 - Toggle Option 3", 2);
 		DrawToggleOption("Page 1.1 - Toggle Option 4", 3);
 		DrawToggleOption("Page 1.1 - Toggle Option 5", 4);
@@ -113,36 +122,119 @@ void DrawPage(double pageIndex)
 
 void OnSelect()
 {
-	CallFunction(GetCurrentPageIndex(), GetCurrentSelectedIndex(), false);
+	CallFunction(GetCurrentPageIndex(), GetCurrentSelectedIndex(), false, -1);
 }
 
 
- #pragma region Toggle Option States
+ #pragma region Toggle Option Hashmaps
+// SORRY FOR CONFUSING AND SIMILAR NAMES
 
-std::map<double, std::map<int, bool>> toggleStates;
+// On and Off booleans
+std::map<double, std::map<int, bool>> enabledStates;
 
+// On and Off text states
 std::map<double, std::map<int, std::string>> textStates
 {
+	// If you want something to be on by default...
 	{1.1, {
-		{0, "Off"}, {1, "Off"}, {2, "Off"}, {3, "Off"}, {4, "Off"}
+		{2, "On"},
 	}},
 };
+
+std::map<double, std::map<int, std::vector<std::string>>> toggleTexts;
+
+// Toggle selection
+std::map<double, std::map<int, int>> toggleSelection;
 
  #pragma endregion
 
 
-void OnToggle()
+std::string get_enabled_text(double pageIndex, int index)
+{
+	if (!textStates[pageIndex][index].empty()) {
+		return textStates[pageIndex][index];
+	}
+	else {
+		textStates[pageIndex][index] = enabledStates[pageIndex][index] == true ? "On" : "Off";
+		return textStates[pageIndex][index];
+	}
+}
+
+
+void OnToggle(bool left, bool right)
 {
 	double pageIndex = GetCurrentPageIndex();
 	int selectedIndex = GetCurrentSelectedIndex();
-	
-	// If it doesn't exist in the hashmap, add it
-	toggleStates[pageIndex][selectedIndex] = GetTextState(pageIndex, selectedIndex) == "On" ? true : false;
-	// Reverse state
-	toggleStates[pageIndex][selectedIndex] = !toggleStates[pageIndex][selectedIndex];
 
-	textStates[pageIndex][selectedIndex] = toggleStates[pageIndex][selectedIndex] == true ? "On" : "Off";
-	CallFunction(pageIndex, selectedIndex, toggleStates[pageIndex][selectedIndex]);
+	if (toggleTexts[pageIndex][selectedIndex].empty()) { // Using "On" and "Off"
+		// If it doesn't exist in the hashmap, add it. Doesn't matter if it already exists.
+		enabledStates[pageIndex][selectedIndex] = get_enabled_text(pageIndex, selectedIndex) == "On" ? true : false;
+
+		// Reverse state
+		enabledStates[pageIndex][selectedIndex] = !enabledStates[pageIndex][selectedIndex];
+
+		textStates[pageIndex][selectedIndex] = enabledStates[pageIndex][selectedIndex] == true ? "On" : "Off";
+		CallFunction(pageIndex, selectedIndex, enabledStates[pageIndex][selectedIndex], -1);
+	} else {
+		if (right) {
+			toggleSelection[pageIndex][selectedIndex] += 1;
+			if (toggleSelection[pageIndex][selectedIndex] > toggleTexts[pageIndex][selectedIndex].size() - 1) {
+				toggleSelection[pageIndex][selectedIndex] = 0;
+			}
+		} else if (left) {
+			toggleSelection[pageIndex][selectedIndex] -= 1;
+			if (toggleSelection[pageIndex][selectedIndex] < 0) {
+				toggleSelection[pageIndex][selectedIndex] = (int)toggleTexts[pageIndex][selectedIndex].size() - 1;
+			}
+		}
+		CallFunction(pageIndex, selectedIndex, false, toggleSelection[pageIndex][selectedIndex]);
+	}
+}
+
+
+void AddSingleOption(std::string text, int index)
+{
+	double pageIndex = GetCurrentPageIndex();
+	bool match = false;
+	// Is this optimal?
+	for (std::string& element : toggleTexts[pageIndex][index]) {
+		if (element == text) {
+			match = true;
+			break;
+		}
+	}
+	if (!match) {
+		toggleTexts[pageIndex][index].push_back(text);
+	}
+}
+
+
+void AddMultipleOptions(std::string baseText, int index, int numberOfOptions)
+{
+	double pageIndex = GetCurrentPageIndex();
+	if (toggleTexts[pageIndex][index].empty()) {
+		for (int i = 0; i < numberOfOptions; i++) {
+			toggleTexts[pageIndex][index].push_back(baseText + std::to_string(i)); // If you want text to start at 1 then add +1
+		}
+	}
+}
+
+
+std::string GetText(int index)
+{
+	double pageIndex = GetCurrentPageIndex();
+
+	if (toggleTexts[pageIndex][index].empty()) {
+		return get_enabled_text(pageIndex, index);
+	}
+
+	int pos = GetToggleSelectionIndex(pageIndex, index);
+
+	if (pos >= 0 && pos <= toggleTexts[pageIndex][index].size() - 1) {
+		return toggleTexts[pageIndex][index].at(pos);
+	} else {
+		return "INDEX OUT OF RANGE"; // Shouldn't be possible to reach, but just in case
+	}
 }
 
 
@@ -174,5 +266,5 @@ bool DoesOptionHaveToggle(double pageIndex, int selectedIndex)
 }
 
 
-std::string GetTextState(double pageIndex, int selectedIndex) { return textStates[pageIndex][selectedIndex]; }
+int GetToggleSelectionIndex(double pageIndex, int index) { return toggleSelection[pageIndex][index]; }
 int GetNumOptionsInCurrentPage() { return optionsInThisPage; }

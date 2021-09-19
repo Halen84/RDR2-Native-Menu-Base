@@ -10,14 +10,14 @@
 
 
 /*
-######################################################
+################################################################
 # RDR2 UI Library
 # Made by TuffyTown (Halen84)
 # Credits: Alexander Blade (ScriptHook SDK), GitHub Contributors
-# ====================================================
+# ==============================================================
 # GitHub: https://github.com/Halen84/RDR2-UI-Library
 # License: MIT
-######################################################
+################################################################
 */
 
 
@@ -32,7 +32,7 @@
 	- To change how pages are drawn, see pages.cpp
 	- To change the footer text, see footer.cpp
 	- To execute code when an option is pressed/toggled, see menuitemfunctions.cpp
-	- menu.cpp is where sprites are drawn
+	- menu.cpp is where sprites and text are drawn
 	- Be sure to change your output directory, as its set to my custom one
 */
 #pragma endregion
@@ -70,9 +70,9 @@ void update()
 	DrawPage(pageIndex);
 	int numOptions = GetNumOptionsInCurrentPage();
 	if (numOptions >= 8) {
-		DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), "body", "a0a0a0", "CENTER", 0, 20, -0.51, 0.18f + (8 * 0.053f));
+		DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), "body3", "909090", "RIGHT", 0, 1401, 20, -0.51, 0.18f + (8 * 0.053f));
 	} else {
-		DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), "body", "a0a0a0", "CENTER", 0, 20, -0.51, 0.18f + (numOptions * 0.053f));
+		DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), "body3", "909090", "RIGHT", 0, 1401, 20, -0.51, 0.18f + (numOptions * 0.053f));
 	}
 
 
@@ -95,7 +95,7 @@ void update()
 				pageIndex += (selectedIndex / 10.0) + 0.1;
 				// Note: There is still a bug with pages insides of pages currently. Should still "mostly" work however.
 			} else if (DoesOptionHaveToggle(pageIndex, selectedIndex)) {
-				OnToggle();
+				OnToggle(false, true);
 			} else {
 				OnSelect();
 			}
@@ -136,18 +136,17 @@ void update()
 		play_frontend_sound("NAV_DOWN", "Ledger_Sounds");
 	}
 	
-	// Not sure why left & right only work this way
 	if (PAD::IS_DISABLED_CONTROL_JUST_PRESSED(0, MISC::GET_HASH_KEY("INPUT_GAME_MENU_LEFT"))) {
 		if (DoesOptionHaveToggle(pageIndex, selectedIndex)) {
 			play_frontend_sound("NAV_LEFT", "PAUSE_MENU_SOUNDSET");
-			OnToggle();
+			OnToggle(true, false);
 		}
 	}
 
 	if (PAD::IS_DISABLED_CONTROL_JUST_PRESSED(0, MISC::GET_HASH_KEY("INPUT_GAME_MENU_RIGHT"))) {
 		if (DoesOptionHaveToggle(pageIndex, selectedIndex)) {
 			play_frontend_sound("NAV_RIGHT", "PAUSE_MENU_SOUNDSET");
-			OnToggle();
+			OnToggle(false, true);
 		}
 	}
 
