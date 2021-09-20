@@ -62,22 +62,22 @@ void play_frontend_sound(const char* name, const char* soundset)
 void update()
 {
 	// Background & Header Texture
-	GRAPHICS::DRAW_SPRITE("generic_textures", "inkroller_1a", 0.16, 0.5, 0.3, 0.95, 0.0, 0, 0, 0, 230, false);
-	GRAPHICS::DRAW_SPRITE("generic_textures", "menu_header_1a", 0.16, 0.1, 0.23, 0.1, 0, 255, 255, 255, 255, false);
-	
+	DrawSprite("generic_textures", "inkroller_1a", BG_X_OFFSET, BG_Y_OFFSET, BG_WIDTH, BG_HEIGHT, 0.0, 0, 0, 0, 230, false);
+	DrawSprite("generic_textures", "menu_header_1a", TOP_HEADER_X_POS, TOP_HEADER_Y_POS, TOP_HEADER_WIDTH, TOP_HEADER_HEIGHT, 0, 255, 255, 255, 255, false);
+
 
 	// Drawing Pages
 	DrawPage(pageIndex);
 	int numOptions = GetNumOptionsInCurrentPage();
 	if (numOptions >= 8) {
-		DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), "body3", "909090", "RIGHT", 0, 1401, 20, -0.51, 0.18f + (8 * 0.053f));
+		DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), Font::Hapna, 0x90, 0x90, 0x90, 0xff, Alignment::Right, 20, 519, 254 + (8 * 57));	
 	} else {
-		DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), "body3", "909090", "RIGHT", 0, 1401, 20, -0.51, 0.18f + (numOptions * 0.053f));
+		DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), Font::Hapna, 0x90, 0x90, 0x90, 0xff, Alignment::Right, 20, 519, 254 + (numOptions * 57));
 	}
 
 
 	// Footer
-	GRAPHICS::DRAW_SPRITE("generic_textures", "menu_bar", 0.16, 0.9, 0.22, 0.001, 0, 255, 255, 255, 175, false);
+	DrawSprite("generic_textures", "menu_bar", FOOTER_LINE_X_POS, FOOTER_LINE_Y_POS, FOOTER_LINE_WIDTH, FOOTER_LINE_HEIGHT, 0, 255, 255, 255, 175, false);
 	UpdateFooter();
 
 
