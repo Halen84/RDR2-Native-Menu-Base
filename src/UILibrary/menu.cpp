@@ -3,24 +3,22 @@
 #include <string>
 #include "script.h"
 #include "pages.h"
+#include <vector>
 
-// Y Increment for sprite and text position
-const float INCREMENT = 0.053f;
+void DrawCSSText(std::string text, Font font, int R, int G, int B, int A, Alignment align, int textSize, float X, float Y, int WrapWidth = 0, int LetterSpacing = 0) {
+	std::vector<std::string> FontListStrings = { "util", "catalog5", "body1", "body", "Debug_REG", "catalog4", "chalk", "catalog1", "ledger", "title", "wantedPostersGeneric", "gtaCash", "gamername", "handwritten"};
+	std::string _font = FontListStrings[static_cast<int>(font)];
 
-void DrawCSSText(std::string text, std::string font, std::string color, std::string align, int leading, int rightMargin, int textSize, float X, float Y)
-{
-	font = "'$" + font + "'";
-	color = "'#" + color + "'";
-	align = "'" + align + "'";
-	std::string _leading = "'" + std::to_string(leading) + "'";
-	std::string _rightMargin = "'" + std::to_string(rightMargin) + "'";
-	std::string size = "'" + std::to_string(textSize) + "'";
+	 float x = (X / SCREEN_WIDTH);
+	 if(align == Alignment::Right) { x = 0.0f;}
+	 if(align == Alignment::Center) { x = -1.0f + (x * 2.0f); }
+	 float y = (Y) / SCREEN_HEIGHT;
+		
+     HUD::_SET_TEXT_COLOR(R, G, B, A);
 
-	// https://www.rdr2mods.com/forums/topic/649-changing-draw_text-font/
-	std::string textTemplate = "<TEXTFORMAT LEADING=" + _leading + " RIGHTMARGIN=" + _rightMargin + "><FONT FACE=" + font + " COLOR=" + color + "><P ALIGN=" + align + "> <FONT SIZE=" + size + ">" + text + "</P></FONT></TEXTFORMAT>";
-
-	const char* insertTemplate = MISC::VAR_STRING(10, "LITERAL_STRING", _strdup(textTemplate.c_str()));
-	UIDEBUG::_BG_DISPLAY_TEXT(MISC::VAR_STRING(42, "COLOR_STRING", 0, insertTemplate), X, Y);
+	
+std::string cap = "<TEXTFORMAT RIGHTMARGIN ='" + (align == Alignment::Right ? std::to_string(static_cast<int>(SCREEN_WIDTH) - static_cast<int>(X)) : (WrapWidth != 0 ? std::to_string(static_cast<int>(SCREEN_WIDTH) - (static_cast<int>(X) + WrapWidth)) : "0")) + "'><P ALIGN='" + (align == Alignment::Left ? "left" : align == Alignment::Right ? "right" : "center") +  "'><font face='$" + _font + "' letterspacing ='" + std::to_string(LetterSpacing) + "' size='" + std::to_string(textSize) + "'>~s~" + text + "</font></P><TEXTFORMAT>";
+	UIDEBUG::_BG_DISPLAY_TEXT(MISC::VAR_STRING(10, "LITERAL_STRING", static_cast<char*>(_strdup(cap.c_str()))), x, y);
 }
 
 
@@ -30,12 +28,11 @@ void DrawListOption(std::string text, int index)
 
 	// todo: might want to think about making these smaller ever so slightly?
 	if (selectedIndex <= 7 && index <= 7) {
-		GRAPHICS::DRAW_SPRITE("generic_textures", "selection_box_bg_1c", 0.16, 0.25f + (index * INCREMENT), 0.22, 0.05, 0, 32, 32, 32, 200, false);
-		DrawCSSText(text, "body", "FFFFFF", "LEFT", 0, 0, 22, 0.04, 0.195f + (index * INCREMENT));
-	}
-	else if ((index > (selectedIndex - 8)) && index <= selectedIndex) {
-		GRAPHICS::DRAW_SPRITE("generic_textures", "selection_box_bg_1c", 0.16, 0.25f + ((index - (selectedIndex - 7)) * INCREMENT), 0.22, 0.05, 0, 32, 32, 32, 200, false);
-		DrawCSSText(text, "body", "FFFFFF", "LEFT", 0, 0, 22, 0.04, 0.195f + ((index - (selectedIndex - 7)) * INCREMENT));
+		DrawSprite("generic_textures", "selection_box_bg_1c", 307, 270 + (index * INCREMENT), 422, 54, 0, 32, 32, 32, 200, true);
+		DrawCSSText(text, Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Left, 22, 112, 254 + (index * INCREMENT));
+	} else if ((index > (selectedIndex - 8)) && index <= selectedIndex) {
+		DrawSprite("generic_textures", "selection_box_bg_1c", 307, 270 + ((index - (selectedIndex - 7)) * INCREMENT), 422, 54, 0, 32, 32, 32, 200, true);
+		DrawCSSText(text, Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Left, 22, 112, 254 + ((index - (selectedIndex - 7)) * INCREMENT));
 	}
 }
 
@@ -48,11 +45,9 @@ void DrawToggleOption(std::string text, int index)
 	std::string toggleText = GetText(index);
 
 	if (GetCurrentSelectedIndex() == index) {
-		std::string textTemplate = "<TEXTFORMAT RIGHTMARGIN='1416'><FONT FACE='$body' COLOR='#FFFFFF' SIZE='22'><P ALIGN='RIGHT'><img src='img://menu_textures/selection_arrow_left' height='18' width='18'/> "+ toggleText +" <img src='img://menu_textures/selection_arrow_right' height='18' width='18'/></P></FONT></TEXTFORMAT>";
-		const char* insertTemplate = MISC::VAR_STRING(10, "LITERAL_STRING", _strdup(textTemplate.c_str()));
-		UIDEBUG::_BG_DISPLAY_TEXT(MISC::VAR_STRING(42, "COLOR_STRING", 0, insertTemplate), 0.15f, 0.235f + (index * INCREMENT));
+	DrawCSSText("<img src='img://menu_textures/selection_arrow_left' height='18' width='18'/> " + toggleText + " <img src='img://menu_textures/selection_arrow_right' height='18' width='18'/>", Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Right, 22, 504, 254 + (index * INCREMENT));
 	} else {
-		DrawCSSText(toggleText, "body", "FFFFFF", "RIGHT", 0, 1420, 22, 0.1f, 0.195f + (index * INCREMENT));
+	DrawCSSText(toggleText, Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Right, 22, 500, 254 + (index * INCREMENT));
 	}
 }
 
@@ -63,16 +58,15 @@ void DrawSelectionBox()
 
 	// Left, Right, Top, Bottom
 	if (index >= 7) {
-		GRAPHICS::DRAW_SPRITE("menu_textures", "crafting_highlight_l", 0.05, 0.25f + (7 * INCREMENT), 0.01, 0.052, 0, 255, 0, 0, 255, false);
-		GRAPHICS::DRAW_SPRITE("menu_textures", "crafting_highlight_r", 0.27, 0.25f + (7 * INCREMENT), 0.01, 0.052, 0, 255, 0, 0, 255, false);
-		GRAPHICS::DRAW_SPRITE("menu_textures", "crafting_highlight_t", 0.16, 0.229f + (7 * INCREMENT), 0.221, 0.02, 0, 255, 0, 0, 255, false);
-		GRAPHICS::DRAW_SPRITE("menu_textures", "crafting_highlight_b", 0.16, 0.273f + (7 * INCREMENT), 0.221, 0.02, 0, 255, 0, 0, 255, false);
-	}
-	else {
-		GRAPHICS::DRAW_SPRITE("menu_textures", "crafting_highlight_l", 0.05, 0.25f + (index * INCREMENT), 0.01, 0.052, 0, 255, 0, 0, 255, false);
-		GRAPHICS::DRAW_SPRITE("menu_textures", "crafting_highlight_r", 0.27, 0.25f + (index * INCREMENT), 0.01, 0.052, 0, 255, 0, 0, 255, false);
-		GRAPHICS::DRAW_SPRITE("menu_textures", "crafting_highlight_t", 0.16, 0.229f + (index * INCREMENT), 0.221, 0.02, 0, 255, 0, 0, 255, false);
-		GRAPHICS::DRAW_SPRITE("menu_textures", "crafting_highlight_b", 0.16, 0.273f + (index * INCREMENT), 0.221, 0.02, 0, 255, 0, 0, 255, false);
+		DrawSprite("menu_textures", "crafting_highlight_l",  96, 270 + (7 * INCREMENT), 19 , 56 , 0, 255, 0, 0, 255, true);
+		DrawSprite("menu_textures", "crafting_highlight_r", 518, 270 + (7 * INCREMENT), 19 , 56 , 0, 255, 0, 0, 255, true);
+		DrawSprite("menu_textures", "crafting_highlight_t", 307, 247 + (7 * INCREMENT), 424, 22 , 0, 255, 0, 0, 255, true);
+		DrawSprite("menu_textures", "crafting_highlight_b", 307, 295 + (7 * INCREMENT), 424, 22 , 0, 255, 0, 0, 255, true);
+	} else {
+		DrawSprite("menu_textures", "crafting_highlight_l",  96, 270 + (index * INCREMENT), 19 , 56, 0, 255, 0, 0, 255, true);
+		DrawSprite("menu_textures", "crafting_highlight_r", 518, 270 + (index * INCREMENT), 19 , 56, 0, 255, 0, 0, 255, true);
+		DrawSprite("menu_textures", "crafting_highlight_t", 307, 247 + (index * INCREMENT), 424, 22, 0, 255, 0, 0, 255, true);
+		DrawSprite("menu_textures", "crafting_highlight_b", 307, 295 + (index * INCREMENT), 424, 22, 0, 255, 0, 0, 255, true);
 	}
 }
 
@@ -91,21 +85,18 @@ void CreateControlAction(Prompt& prompt, Hash control, const char* text)
 }
 
 
-void SetHeader(std::string text, int fontSize)
-{
-	DrawCSSText(text, "title2", "FFFFFF", "CENTER", 0, 0, fontSize, -0.688, 0.057);
+void SetHeader(std::string text, int fontSize) {
+	DrawCSSText(text, Font::Lino, 0xff, 0xff, 0xff, 0xff, Alignment::Center, fontSize,  BG_X_OFFSET + (BG_WIDTH * 0.5f), 118);
 }
 
 
-void SetSubHeader(std::string text)
-{
-	DrawCSSText(text, "title2", "FFFFFF", "CENTER", 0, 0, 23, -0.688, 0.125);
+void SetSubHeader(std::string text) {
+	DrawCSSText(text, Font::Lino, 0xff, 0xff, 0xff, 0xff, Alignment::Center, 23, BG_X_OFFSET + (BG_WIDTH * 0.5f), 118 + 84);
 }
 
 
-void SetFooter(std::string text)
-{
-	DrawCSSText(text, "body", "FFFFFF", "CENTER", -10, 0, 20, -0.69, 0.87);
+void SetFooter(std::string text) {
+	DrawCSSText(text, Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Center, 20, BG_X_OFFSET + (BG_WIDTH * 0.5f), 940);
 }
 
 
