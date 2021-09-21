@@ -6,7 +6,7 @@
 #include "script.h"
 
 // Draws CSS styled text
-void DrawCSSText(std::string text, Font font, int R, int G, int B, int A, Alignment align, int textSize, float X, float Y, int WrapWidth = 0, int LetterSpacing = 0);
+void DrawCSSText(std::string text, Font font, int R, int G, int B, int A, Alignment align, int textSize, float X, float Y, int wrapWidth = 0, int letterSpacing = 0);
 void DrawListOption(std::string text, int index);
 // On & Off Toggle Option
 void DrawToggleOption(std::string text, int index);

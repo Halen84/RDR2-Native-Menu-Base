@@ -1,8 +1,4 @@
-/*
-	THIS FILE IS A PART OF RDR 2 SCRIPT HOOK SDK
-				http://dev-c.com
-			(C) Alexander Blade 2019
-*/
+// Licensed under the MIT License.
 
 #pragma once
 
@@ -28,6 +24,7 @@ enum class Font : int {
 	Gamertag,
 	DreamerScript,
 };
+
 enum class Alignment : int {
 	Left,
 	Center,
@@ -45,27 +42,28 @@ const float BG_HEIGHT   = 1026.0f;
 const float TOP_HEADER_WIDTH  = 442.0f; 
 const float TOP_HEADER_HEIGHT = 108.0f;
 const float TOP_HEADER_X_POS = BG_X_OFFSET + ((BG_WIDTH * 0.5f) - (TOP_HEADER_WIDTH * 0.5f));
-const float TOP_HEADER_Y_POS = BG_Y_OFFSET + ((BG_WIDTH - TOP_HEADER_WIDTH) * 0.5f);
+const float TOP_HEADER_Y_POS = BG_Y_OFFSET + ((BG_WIDTH - TOP_HEADER_WIDTH) * 0.2f);
 
 const float FOOTER_LINE_WIDTH  = 422.0f; 
-const float FOOTER_LINE_HEIGHT = 1.0f;
+const float FOOTER_LINE_HEIGHT = 2.0f;
 const float FOOTER_LINE_X_POS = BG_X_OFFSET + ((BG_WIDTH * 0.5f) - (FOOTER_LINE_WIDTH * 0.5f));
 const float FOOTER_LINE_Y_POS = BG_Y_OFFSET + (BG_HEIGHT - ((BG_WIDTH - FOOTER_LINE_WIDTH) * 0.5f));
 
 // Y Increment for sprite and text position
 const float INCREMENT = (SCREEN_HEIGHT * 0.053f); // const float INCREMENT = 57;
 
-inline void DrawSprite(const char* textureDict, const char* textureName, float screenX, float screenY, float width, float height, float heading, int red, int green, int blue, int alpha, BOOL Centered) {
-		screenX /= SCREEN_WIDTH;
-		screenY /= SCREEN_HEIGHT;
-		width   /= SCREEN_WIDTH;
-		height  /= SCREEN_HEIGHT;
-		if (!Centered) {
-			screenX += width * 0.5f;
-			screenY += height * 0.5f;
-      }
-		GRAPHICS::DRAW_SPRITE(textureDict, textureName, screenX, screenY, width, height, heading, red, green, blue, alpha, false);
+inline void DrawSprite(const char* textureDict, const char* textureName, float screenX, float screenY, float width, float height, float heading, int red, int green, int blue, int alpha, BOOL centered)
+{
+	screenX /= SCREEN_WIDTH;
+	screenY /= SCREEN_HEIGHT;
+	width   /= SCREEN_WIDTH;
+	height  /= SCREEN_HEIGHT;
+	if (!centered) {
+		screenX += width * 0.5f;
+		screenY += height * 0.5f;
 	}
+	GRAPHICS::DRAW_SPRITE(textureDict, textureName, screenX, screenY, width, height, heading, red, green, blue, alpha, false);
+}
 
 void ScriptMain();
 

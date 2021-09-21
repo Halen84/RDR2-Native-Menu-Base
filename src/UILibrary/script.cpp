@@ -27,12 +27,13 @@
 // Be sure to check for updates!
 
 
- #pragma region Help
+ #pragma region Help & Info
 /*
 	- To change how pages are drawn, see pages.cpp
 	- To change the footer text, see footer.cpp
 	- To execute code when an option is pressed/toggled, see menuitemfunctions.cpp
 	- menu.cpp is where sprites and text are drawn
+	- script.h contains some enums and constants
 	- Be sure to change your output directory, as its set to my custom one
 */
 #pragma endregion
@@ -70,14 +71,14 @@ void update()
 	DrawPage(pageIndex);
 	int numOptions = GetNumOptionsInCurrentPage();
 	if (numOptions >= 8) {
-		DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), Font::Hapna, 0x90, 0x90, 0x90, 0xff, Alignment::Right, 20, 519, 254 + (8 * 57));	
+		DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), Font::Hapna, 0x90, 0x90, 0x90, 230, Alignment::Right, 20, 519.0f, 242.0f + (8 * 57.0f), 0, -1);
 	} else {
-		DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), Font::Hapna, 0x90, 0x90, 0x90, 0xff, Alignment::Right, 20, 519, 254 + (numOptions * 57));
+		DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), Font::Hapna, 0x90, 0x90, 0x90, 230, Alignment::Right, 20, 519.0f, 242.0f + (numOptions * 57.0f), 0, -1);
 	}
 
 
 	// Footer
-	DrawSprite("generic_textures", "menu_bar", FOOTER_LINE_X_POS, FOOTER_LINE_Y_POS, FOOTER_LINE_WIDTH, FOOTER_LINE_HEIGHT, 0, 255, 255, 255, 175, false);
+	GRAPHICS::DRAW_SPRITE("generic_textures", "menu_bar", 0.16, 0.9, 0.22, 0.001, 0, 255, 255, 255, 175, false); // Footer didn't draw right with new wrapper
 	UpdateFooter();
 
 
@@ -154,7 +155,6 @@ void update()
 }
 
 
-// Underutilized lol
 int GetCurrentSelectedIndex() { return selectedIndex; }
 double GetCurrentPageIndex() { return pageIndex; }
 
