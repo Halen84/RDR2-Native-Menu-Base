@@ -9,7 +9,7 @@ void UpdateFooter(bool override)
 	double pageIndex = GetCurrentPageIndex();
 	int selectedIndex = GetCurrentSelectedIndex();
 
-	static std::map<double, std::map<int, std::string>> footerData
+	static std::map<const double, std::map<const int, const std::string>> footerData
 	{
 		// Main Menu
 		{0.0, {

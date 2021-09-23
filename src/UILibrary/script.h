@@ -50,7 +50,7 @@ const float FOOTER_LINE_X_POS = BG_X_OFFSET + ((BG_WIDTH * 0.5f) - (FOOTER_LINE_
 const float FOOTER_LINE_Y_POS = BG_Y_OFFSET + (BG_HEIGHT - ((BG_WIDTH - FOOTER_LINE_WIDTH) * 0.5f));
 
 // Y Increment for sprite and text position
-const float INCREMENT = (SCREEN_HEIGHT * 0.053f); // const float INCREMENT = 57;
+const float INCREMENT = (SCREEN_HEIGHT * 0.051f); // const float INCREMENT = 55;
 
 inline void DrawSprite(const char* textureDict, const char* textureName, float screenX, float screenY, float width, float height, float heading, int red, int green, int blue, int alpha, BOOL centered)
 {

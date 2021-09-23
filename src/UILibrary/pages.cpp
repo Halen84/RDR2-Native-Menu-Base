@@ -142,10 +142,7 @@ std::map<double, std::map<int, std::string>> textStates
 };
 
 std::map<double, std::map<int, std::vector<std::string>>> toggleTexts;
-
-// Toggle selection
 std::map<double, std::map<int, int>> toggleSelection;
-
  #pragma endregion
 
 
