@@ -163,14 +163,15 @@ double GetCurrentPageIndex() { return pageIndex; }
 void main()
 {
 	const int TOGGLE_KEY = VK_NUMPAD9;
+	const char* CONTROLLER_TOGGLE_KEY = "INPUT_FRONTEND_RS"; // Right Stick
 	bool firstTimeActivation = true;
 
-	CreateControlAction(selectPrompt, MISC::GET_HASH_KEY("INPUT_GAME_MENU_ACCEPT"), MISC::VAR_STRING(10, "LITERAL_STRING", "Select"));
-	CreateControlAction(backPrompt, MISC::GET_HASH_KEY("INPUT_GAME_MENU_CANCEL"), MISC::VAR_STRING(10, "LITERAL_STRING", "Back"));
+	CreateUIPrompt(selectPrompt, MISC::GET_HASH_KEY("INPUT_GAME_MENU_ACCEPT"), MISC::VAR_STRING(10, "LITERAL_STRING", "Select"));
+	CreateUIPrompt(backPrompt, MISC::GET_HASH_KEY("INPUT_GAME_MENU_CANCEL"), MISC::VAR_STRING(10, "LITERAL_STRING", "Back"));
 
 	while (true)
 	{
-		if (IsKeyJustUp(TOGGLE_KEY)) {
+		if (IsKeyJustUp(TOGGLE_KEY) || PAD::IS_CONTROL_JUST_PRESSED(0, MISC::GET_HASH_KEY(CONTROLLER_TOGGLE_KEY))) {
 			enabled = !enabled;
 			justOpened = enabled;
 			justClosed = !justOpened;
@@ -184,6 +185,16 @@ void main()
 
 		if (enabled) {
 			update();
+			if (!PAD::_IS_USING_KEYBOARD(0)) {
+				// Disable common DPad inputs
+				PAD::DISABLE_CONTROL_ACTION(0, MISC::GET_HASH_KEY("INPUT_WHISTLE"), true);
+				PAD::DISABLE_CONTROL_ACTION(0, MISC::GET_HASH_KEY("INPUT_WHISTLE_HORSEBACK"), true);
+				PAD::DISABLE_CONTROL_ACTION(0, MISC::GET_HASH_KEY("INPUT_SELECT_RADAR_MODE"), true);
+				PAD::DISABLE_CONTROL_ACTION(0, MISC::GET_HASH_KEY("INPUT_REVEAL_HUD"), true);
+				PAD::DISABLE_CONTROL_ACTION(0, MISC::GET_HASH_KEY("INPUT_PLAYER_MENU"), true);
+				PAD::DISABLE_CONTROL_ACTION(0, MISC::GET_HASH_KEY("INPUT_OPEN_JOURNAL"), true);
+				PAD::DISABLE_CONTROL_ACTION(0, MISC::GET_HASH_KEY("INPUT_OPEN_SATCHEL_MENU"), true);
+			}
 			if (justOpened) {
 				justOpened = false;
 				play_frontend_sound("MENU_ENTER", "HUD_PLAYER_MENU");

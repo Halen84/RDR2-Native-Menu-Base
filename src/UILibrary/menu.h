@@ -14,7 +14,7 @@ void DrawToggleOption(std::string text, int index);
 void DrawSelectionBox();
 
 // Creates a new UI prompt
-void CreateControlAction(Prompt& prompt, Hash control, const char* text);
+void CreateUIPrompt(Prompt& prompt, Hash control, const char* promptText);
 
 void SetHeader(std::string text, int fontSize = 45);
 void SetSubHeader(std::string text);

@@ -62,7 +62,7 @@ void DrawSelectionBox()
 		DrawSprite("menu_textures", "crafting_highlight_l",  86, 270 + (7 * INCREMENT), 19, 59, 0, 255, 0, 0, 255, true);
 		DrawSprite("menu_textures", "crafting_highlight_r", 534, 270 + (7 * INCREMENT), 19, 59, 0, 255, 0, 0, 255, true);
 		DrawSprite("menu_textures", "crafting_highlight_t", 310, 247 + (7 * INCREMENT), TOP_HEADER_WIDTH + 6.0f, 22 , 0, 255, 0, 0, 255, true);
-		DrawSprite("menu_textures", "crafting_highlight_b", 309, 293 + (7 * INCREMENT), TOP_HEADER_WIDTH + 6.0f, 22 , 0, 255, 0, 0, 255, true);
+		DrawSprite("menu_textures", "crafting_highlight_b", 310, 293 + (7 * INCREMENT), TOP_HEADER_WIDTH + 6.0f, 22 , 0, 255, 0, 0, 255, true);
 	} else {
 		DrawSprite("menu_textures", "crafting_highlight_l",  86, 270 + (index * INCREMENT), 19, 59, 0, 255, 0, 0, 255, true);
 		DrawSprite("menu_textures", "crafting_highlight_r", 534, 270 + (index * INCREMENT), 19, 59, 0, 255, 0, 0, 255, true);
@@ -72,12 +72,12 @@ void DrawSelectionBox()
 }
 
 
-void CreateControlAction(Prompt& prompt, Hash control, const char* text)
+void CreateUIPrompt(Prompt& prompt, Hash control, const char* promptText)
 {
 	prompt = HUD::_UIPROMPT_REGISTER_BEGIN();
 	HUD::_0xF4A5C4509BF923B1(prompt, 0);
 	HUD::_UIPROMPT_SET_CONTROL_ACTION(prompt, control);
-	HUD::_UIPROMPT_SET_TEXT(prompt, text);
+	HUD::_UIPROMPT_SET_TEXT(prompt, promptText);
 	HUD::_UIPROMPT_SET_STANDARD_MODE(prompt, 1);
 	HUD::_UIPROMPT_REGISTER_END(prompt);
 
