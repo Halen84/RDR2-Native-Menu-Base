@@ -65,7 +65,7 @@ bool func_exists(double pageIndex, int selectedIndex)
 	if (functions[pageIndex][selectedIndex]) {
 		return true;
 	} else {
-		ShowSubtitle("FUNCTION DOES NOT EXIST AT THIS INDEX (" + std::to_string(pageIndex).substr(0, 4) + ", " + std::to_string(selectedIndex) + ")");
+		ShowSubtitle("~COLOR_RED~FUNCTION DOES NOT EXIST AT THIS INDEX (" + std::to_string(pageIndex).substr(0, 4) + ", " + std::to_string(selectedIndex) + ")~COLOR_RED~");
 		return false;
 	}
 }

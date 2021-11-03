@@ -8,11 +8,10 @@
 #include "pages.h"
 #include "menuitemfunctions.h"
 
-// todo: automate this...
-int optionsInThisPage;
-
-void DrawPage(double pageIndex)
+void DrawPage()
 {
+	double pageIndex = GetCurrentPageIndex();
+
 	if (pageIndex == 0.0) {
 		SetHeader("HEADER");
 		SetSubHeader("Sub Header");
@@ -24,7 +23,6 @@ void DrawPage(double pageIndex)
 		DrawListOption("Page 6", 5);
 		DrawListOption("Page 7", 6);
 		DrawListOption("Page 8", 7);
-		optionsInThisPage = 8;
 	}
 
 	else if (pageIndex == 1.0) {
@@ -33,7 +31,6 @@ void DrawPage(double pageIndex)
 		DrawListOption("Toggle Examples", 0);
 		DrawListOption("Example Button", 1);
 		DrawListOption("Example Button", 2);
-		optionsInThisPage = 3;
 	}
 
 	else if (pageIndex == 1.1) {
@@ -52,7 +49,6 @@ void DrawPage(double pageIndex)
 		DrawToggleOption("Page 1.1 - Toggle Option 3", 2);
 		DrawToggleOption("Page 1.1 - Toggle Option 4", 3);
 		DrawToggleOption("Page 1.1 - Toggle Option 5", 4);
-		optionsInThisPage = 5;
 	}
 
 	else if (pageIndex == 2.0) {
@@ -61,7 +57,6 @@ void DrawPage(double pageIndex)
 		DrawListOption("Page 2 - Option 1", 0);
 		DrawListOption("Page 2 - Option 2", 1);
 		DrawListOption("Page 2 - Option 3", 2);
-		optionsInThisPage = 3;
 	}
 
 	else if (pageIndex == 3.0) {
@@ -70,7 +65,6 @@ void DrawPage(double pageIndex)
 		DrawListOption("Page 3 - Option 1", 0);
 		DrawListOption("Page 3 - Option 2", 1);
 		DrawListOption("Page 3 - Option 3", 2);
-		optionsInThisPage = 3;
 	}
 
 	else if (pageIndex == 4.0) {
@@ -79,7 +73,6 @@ void DrawPage(double pageIndex)
 		DrawListOption("Page 4 - Option 1", 0);
 		DrawListOption("Page 4 - Option 2", 1);
 		DrawListOption("Page 4 - Option 3", 2);
-		optionsInThisPage = 3;
 	}
 
 	else if (pageIndex == 5.0) {
@@ -88,7 +81,6 @@ void DrawPage(double pageIndex)
 		DrawListOption("Page 5 - Option 1", 0);
 		DrawListOption("Page 5 - Option 2", 1);
 		DrawListOption("Page 5 - Option 3", 2);
-		optionsInThisPage = 3;
 	}
 
 	else if (pageIndex == 6.0) {
@@ -97,7 +89,6 @@ void DrawPage(double pageIndex)
 		DrawListOption("Page 6 - Option 1", 0);
 		DrawListOption("Page 6 - Option 2", 1);
 		DrawListOption("Page 6 - Option 3", 2);
-		optionsInThisPage = 3;
 	}
 
 	else if (pageIndex == 7.0) {
@@ -106,7 +97,6 @@ void DrawPage(double pageIndex)
 		DrawListOption("Page 7 - Option 1", 0);
 		DrawListOption("Page 7 - Option 2", 1);
 		DrawListOption("Page 7 - Option 3", 2);
-		optionsInThisPage = 3;
 	}
 
 	else if (pageIndex == 8.0) {
@@ -115,7 +105,6 @@ void DrawPage(double pageIndex)
 		DrawListOption("Page 8 - Option 1", 0);
 		DrawListOption("Page 8 - Option 2", 1);
 		DrawListOption("Page 8 - Option 3", 2);
-		optionsInThisPage = 3;
 	}
 }
 
@@ -230,7 +219,7 @@ std::string GetText(int index)
 	if (pos >= 0 && pos <= toggleTexts[pageIndex][index].size() - 1) {
 		return toggleTexts[pageIndex][index].at(pos);
 	} else {
-		return "INDEX OUT OF RANGE"; // Shouldn't be possible to reach, but just in case
+		return "~COLOR_RED~INDEX OUT OF RANGE~COLOR_RED~"; // Shouldn't be possible to reach, but just in case
 	}
 }
 
@@ -264,4 +253,3 @@ bool DoesOptionHaveToggle(double pageIndex, int selectedIndex)
 
 
 int GetToggleSelectionIndex(double pageIndex, int index) { return toggleSelection[pageIndex][index]; }
-int GetNumOptionsInCurrentPage() { return optionsInThisPage; }

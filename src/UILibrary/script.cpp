@@ -21,10 +21,11 @@
 */
 
 
+// Feel free to completely rewrite this entire thing lmao
 // I am NOT very good at C++, but I tried my best. So please ignore bad and inconsistent code :(
 // If you have any improvements you would like to make, feel free to make a pull request via GitHub.
 // If you find any bugs with this library, please make an issue report or pull request if you know how to fix it.
-// Be sure to check for updates!
+// Be sure to check for updates for this library and Natives DB!
 
 
  #pragma region Help & Info
@@ -68,12 +69,12 @@ void update()
 
 
 	// Drawing Pages
-	DrawPage(pageIndex);
+	DrawPage();
 	int numOptions = GetNumOptionsInCurrentPage();
 	if (numOptions >= 8) {
-		DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), Font::Hapna, 0x90, 0x90, 0x90, 230, Alignment::Right, 20, 529.0f, 242.0f + (8 * 55.0f), 0, -1);
+		DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), Font::Hapna, 0x90, 0x90, 0x90, 230, Alignment::Right, 20, 529.0f, 242.0f + (8 * INCREMENT), 0, 0);
 	} else {
-		DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), Font::Hapna, 0x90, 0x90, 0x90, 230, Alignment::Right, 20, 529.0f, 242.0f + (numOptions * 55.0f), 0, -1);
+		DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), Font::Hapna, 0x90, 0x90, 0x90, 230, Alignment::Right, 20, 529.0f, 242.0f + (numOptions * INCREMENT), 0, 0);
 	}
 
 
@@ -163,7 +164,7 @@ double GetCurrentPageIndex() { return pageIndex; }
 void main()
 {
 	const int TOGGLE_KEY = VK_NUMPAD9;
-	const char* CONTROLLER_TOGGLE_KEY = "INPUT_FRONTEND_RS"; // Right Stick
+	const char* CONTROLLER_TOGGLE_KEY = "INPUT_FRONTEND_RS"; // Right Stick (you should probably change this)
 	bool firstTimeActivation = true;
 
 	CreateUIPrompt(selectPrompt, MISC::GET_HASH_KEY("INPUT_GAME_MENU_ACCEPT"), MISC::VAR_STRING(10, "LITERAL_STRING", "Select"));
@@ -175,8 +176,6 @@ void main()
 			enabled = !enabled;
 			justOpened = enabled;
 			justClosed = !justOpened;
-
-			MAP::DISPLAY_RADAR(!enabled);
 			if (firstTimeActivation) {
 				firstTimeActivation = false;
 				//ShowSubtitle("First time opening menu");
@@ -198,11 +197,13 @@ void main()
 			if (justOpened) {
 				justOpened = false;
 				play_frontend_sound("MENU_ENTER", "HUD_PLAYER_MENU");
+				MAP::DISPLAY_RADAR(false);
 			}
 		} else {
 			if (justClosed) {
 				justClosed = false;
 				play_frontend_sound("MENU_CLOSE", "HUD_PLAYER_MENU");
+				MAP::DISPLAY_RADAR(true);
 			}
 		}
 

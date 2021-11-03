@@ -5,18 +5,22 @@
 #include "pages.h"
 #include <vector>
 
+int optionsInThisPage = 0;
+double page = 0.0;
+
 void DrawCSSText(std::string text, Font font, int R, int G, int B, int A, Alignment align, int textSize, float X, float Y, int wrapWidth = 0, int letterSpacing = 0)
 {
 	std::vector<std::string> fontList = { "util", "catalog5", "body1", "body", "Debug_REG", "catalog4", "chalk", "catalog1", "ledger", "title", "wantedPostersGeneric", "gtaCash", "gamername", "handwritten"};
 	std::string _font = fontList[static_cast<int>(font)];
 
 	float x = (X / SCREEN_WIDTH);
+	float y = (Y) / SCREEN_HEIGHT;
 	if (align == Alignment::Right) { x = 0.0f; }
 	if (align == Alignment::Center) { x = -1.0f + (x * 2.0f); }
-	float y = (Y) / SCREEN_HEIGHT;
 	
-	HUD::_SET_TEXT_COLOR(R, G, B, A);
-	
+	//HUD::_SET_TEXT_COLOR(R, G, B, A);
+	UIDEBUG::_BG_SET_TEXT_COLOR(R, G, B, A);
+
 	std::string cap = "<TEXTFORMAT RIGHTMARGIN ='" + (align == Alignment::Right ? std::to_string(static_cast<int>(SCREEN_WIDTH) - static_cast<int>(X)) : (wrapWidth != 0 ? std::to_string(static_cast<int>(SCREEN_WIDTH) - (static_cast<int>(X) + wrapWidth)) : "0")) 
 		+ "'><P ALIGN='" + (align == Alignment::Left ? "left" : align == Alignment::Right ? "right" : "center") +  "'><font face='$" + _font + "' letterspacing ='" + std::to_string(letterSpacing) + "' size='" + std::to_string(textSize) + "'>~s~" + text + "</font></P><TEXTFORMAT>";
 
@@ -26,8 +30,11 @@ void DrawCSSText(std::string text, Font font, int R, int G, int B, int A, Alignm
 
 void DrawListOption(std::string text, int index)
 {
-	int selectedIndex = GetCurrentSelectedIndex();
+	if (GetCurrentPageIndex() != page) { optionsInThisPage = 1; }
+	if (index >= optionsInThisPage) { optionsInThisPage = index + 1; }
+	page = GetCurrentPageIndex();
 
+	int selectedIndex = GetCurrentSelectedIndex();
 	if (selectedIndex <= 7 && index <= 7) {
 		DrawSprite("generic_textures", "selection_box_bg_1c", 310, 270 + (index * INCREMENT), TOP_HEADER_WIDTH, 52, 0, 32, 32, 32, 200, true);
 		DrawCSSText(text, Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Left, 22, 98, 254 + (index * INCREMENT));
@@ -86,18 +93,18 @@ void CreateUIPrompt(Prompt& prompt, Hash control, const char* promptText)
 }
 
 
-void SetHeader(std::string text, int fontSize) {
-	DrawCSSText(text, Font::Lino, 0xff, 0xff, 0xff, 0xff, Alignment::Center, fontSize,  BG_X_OFFSET + (BG_WIDTH * 0.5f), 80);
+void SetHeader(std::string text, int fontSize, float yPos = 80) {
+	DrawCSSText(text, Font::Lino, 0xff, 0xff, 0xff, 0xff, Alignment::Center, fontSize,  BG_X_OFFSET + (BG_WIDTH * 0.5f), yPos);
 }
 
 
 void SetSubHeader(std::string text) {
-	DrawCSSText(text, Font::Lino, 0xff, 0xff, 0xff, 0xff, Alignment::Center, 23, BG_X_OFFSET + (BG_WIDTH * 0.5f), 80 + 92);
+	DrawCSSText(text, Font::Lino, 0xff, 0xff, 0xff, 0xff, Alignment::Center, 23, BG_X_OFFSET + (BG_WIDTH * 0.5f), 172);
 }
 
 
 void SetFooter(std::string text) {
-	DrawCSSText(text, Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Center, 20, BG_X_OFFSET + (BG_WIDTH * 0.5f), 980);
+	DrawCSSText(text, Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Center, 20, BG_X_OFFSET + (BG_WIDTH * 0.5f), 975);
 }
 
 
@@ -108,3 +115,5 @@ void ShowSubtitle(const std::string& str)
 	UILOG::_UILOG_CLEAR_HAS_DISPLAYED_CACHED_OBJECTIVE();
 	UILOG::_UILOG_CLEAR_CACHED_OBJECTIVE();
 }
+
+int GetNumOptionsInCurrentPage() { return optionsInThisPage; }

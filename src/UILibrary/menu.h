@@ -16,9 +16,10 @@ void DrawSelectionBox();
 // Creates a new UI prompt
 void CreateUIPrompt(Prompt& prompt, Hash control, const char* promptText);
 
-void SetHeader(std::string text, int fontSize = 45);
+void SetHeader(std::string text, int fontSize = 45, float yPos = 80);
 void SetSubHeader(std::string text);
 void SetFooter(std::string text);
 
 // OBJ hint
 void ShowSubtitle(const std::string& str);
+int GetNumOptionsInCurrentPage();
