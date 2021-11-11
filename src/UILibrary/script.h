@@ -52,19 +52,6 @@ const float FOOTER_LINE_Y_POS = BG_Y_OFFSET + (BG_HEIGHT - ((BG_WIDTH - FOOTER_L
 // Y Increment for sprite and text position
 const float INCREMENT = (SCREEN_HEIGHT * 0.051f); // const float INCREMENT = 55;
 
-inline void DrawSprite(const char* textureDict, const char* textureName, float screenX, float screenY, float width, float height, float heading, int red, int green, int blue, int alpha, BOOL centered)
-{
-	screenX /= SCREEN_WIDTH;
-	screenY /= SCREEN_HEIGHT;
-	width   /= SCREEN_WIDTH;
-	height  /= SCREEN_HEIGHT;
-	if (!centered) {
-		screenX += width * 0.5f;
-		screenY += height * 0.5f;
-	}
-	GRAPHICS::DRAW_SPRITE(textureDict, textureName, screenX, screenY, width, height, heading, red, green, blue, alpha, false);
-}
-
 void ScriptMain();
 
 int GetCurrentSelectedIndex();

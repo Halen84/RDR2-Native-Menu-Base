@@ -53,8 +53,8 @@ void UpdateFooter(bool override)
 
 	// Add 3 spaces after a newline \n to center properly?
 	if (!override) {
-		SetFooter(footerData[pageIndex][selectedIndex]);
+		Header::SetFooter(footerData[pageIndex][selectedIndex]);
 	} else {
-		SetFooter("Override Footer"); // This footer will always be shown if override = true
+		Header::SetFooter("Override Footer"); // This footer will always be shown if override = true
 	}
 }

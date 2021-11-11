@@ -2,19 +2,43 @@
 
 #include <string>
 #include "script.h"
-#include "pages.h"
+#include "menu.h"
+#include "menuitemfunctions.h"
 #include <vector>
+#include <map>
+
+ #pragma region Hash Maps
+
+// Keeps track of text options for each toggle
+std::map<double, std::map<int, std::vector<std::string>>> toggleTextOptions;
+
+// Keeps track of what selection you are on for toggle options
+std::map<double, std::map<int, int>> toggleSelectionIndex;
+
+// Holds values for whether an option has a page
+std::map<double, std::map<int, bool>> map_doesOptionHavePage;
+
+// Holds values for whether an option has a toggle
+std::map<double, std::map<int, bool>> map_doesOptionHaveToggle;
+
+#pragma endregion
 
 int optionsInThisPage = 0;
 double page = 0.0;
 
-void DrawCSSText(std::string text, Font font, int R, int G, int B, int A, Alignment align, int textSize, float X, float Y, int wrapWidth = 0, int letterSpacing = 0)
+
+////////////////////
+// DRAW NAMESPACE //
+//////////////////// 
+
+
+void Draw::DrawCSSText(std::string text, Font font, int R, int G, int B, int A, Alignment align, int textSize, float X, float Y, int wrapWidth, int letterSpacing)
 {
 	std::vector<std::string> fontList = { "util", "catalog5", "body1", "body", "Debug_REG", "catalog4", "chalk", "catalog1", "ledger", "title", "wantedPostersGeneric", "gtaCash", "gamername", "handwritten"};
 	std::string _font = fontList[static_cast<int>(font)];
 
 	float x = (X / SCREEN_WIDTH);
-	float y = (Y) / SCREEN_HEIGHT;
+	float y = (Y / SCREEN_HEIGHT);
 	if (align == Alignment::Right) { x = 0.0f; }
 	if (align == Alignment::Center) { x = -1.0f + (x * 2.0f); }
 	
@@ -28,13 +52,18 @@ void DrawCSSText(std::string text, Font font, int R, int G, int B, int A, Alignm
 }
 
 
-void DrawListOption(std::string text, int index)
+void Draw::DrawOption(std::string text, int index, bool bHasPage, bool bIsToggleOption)
 {
-	if (GetCurrentPageIndex() != page) { optionsInThisPage = 1; }
-	if (index >= optionsInThisPage) { optionsInThisPage = index + 1; }
-	page = GetCurrentPageIndex();
-
+	double pageIndex = GetCurrentPageIndex();
 	int selectedIndex = GetCurrentSelectedIndex();
+
+	// Get number of options in the page via highest index
+	if (pageIndex != page) { optionsInThisPage = 1; }
+	if (index >= optionsInThisPage) { optionsInThisPage = index + 1; }
+	page = pageIndex;
+
+
+	// Only draw background if index is in range of selectedIndex
 	if (selectedIndex <= 7 && index <= 7) {
 		DrawSprite("generic_textures", "selection_box_bg_1c", 310, 270 + (index * INCREMENT), TOP_HEADER_WIDTH, 52, 0, 32, 32, 32, 200, true);
 		DrawCSSText(text, Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Left, 22, 98, 254 + (index * INCREMENT));
@@ -42,26 +71,44 @@ void DrawListOption(std::string text, int index)
 		DrawSprite("generic_textures", "selection_box_bg_1c", 310, 270 + ((index - (selectedIndex - 7)) * INCREMENT), TOP_HEADER_WIDTH, 52, 0, 32, 32, 32, 200, true);
 		DrawCSSText(text, Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Left, 22, 98, 254 + ((index - (selectedIndex - 7)) * INCREMENT));
 	}
-}
 
-// todo: maybe add parameters for default on and off text?
-void DrawToggleOption(std::string text, int index)
-{
-	double pageIndex = GetCurrentPageIndex();
 
-	DrawListOption(text, index);
-	std::string toggleText = GetText(index);
+	if (map_doesOptionHaveToggle[pageIndex].find(index) == map_doesOptionHaveToggle[pageIndex].end()) {
+		map_doesOptionHaveToggle[pageIndex][index] = bIsToggleOption;
+	}
+	if (map_doesOptionHavePage[pageIndex].find(index) == map_doesOptionHavePage[pageIndex].end()) {
+		map_doesOptionHavePage[pageIndex][index] = bHasPage;
+	}
 
-	if (GetCurrentSelectedIndex() == index) {
-		DrawCSSText("<img src='img://menu_textures/selection_arrow_left' height='18' width='18'/> " + toggleText + " <img src='img://menu_textures/selection_arrow_right' height='18' width='18'/>", Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Right, 22, 520, 254 + (index * INCREMENT));
-	} else {
-		DrawCSSText(toggleText, Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Right, 22, 520, 254 + (index * INCREMENT));
+
+	// bIsToggleOption and bHasPage cannot both be true. Nothing will show up.
+	if (bIsToggleOption && !bHasPage) {
+		std::string curText = "";
+		int toggleIndex = 0;
+
+		// Make sure it's not empty, then set values accordingly
+		if (!toggleSelectionIndex[pageIndex].empty()) {
+			toggleIndex = toggleSelectionIndex[pageIndex][index];
+		}
+		if (!toggleTextOptions[pageIndex][index].empty()) {
+			curText = toggleTextOptions[pageIndex][index][toggleIndex];
+		}
+		
+		// Draw arrows if we are selecting [index]
+		if (selectedIndex == index) {
+			DrawCSSText("<img src='img://menu_textures/selection_arrow_left' height='18' width='18'/> " + curText + " <img src='img://menu_textures/selection_arrow_right' height='18' width='18'/>", Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Right, 22, 520, 254 + (index * INCREMENT));
+		} else {
+			DrawCSSText(curText, Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Right, 22, 520, 254 + (index * INCREMENT));
+		}
 	}
 }
 
 
-void DrawSelectionBox()
+void Draw::DrawSelectionBox()
 {
+	// TODO: Make sure next or previous index exists. If not, skip over it.
+	// TODO: Micro adjust these and fix it up a little
+
 	int index = GetCurrentSelectedIndex();
 
 	// Left, Right, Top, Bottom
@@ -79,7 +126,95 @@ void DrawSelectionBox()
 }
 
 
-void CreateUIPrompt(Prompt& prompt, Hash control, const char* promptText)
+////////////////////
+// MENU NAMESPACE //
+//////////////////// 
+
+
+void Menu::AddOptionsToToggle(int index, std::vector<std::string> options)
+{
+	// TODO: Make it so you can add more options without this call.
+	// (you can if you manually add it via hashmap)
+
+	double pageIndex = GetCurrentPageIndex();
+	if (DoesOptionHaveToggle(pageIndex, index)) {
+		if (toggleTextOptions[pageIndex][index].empty()) {
+			toggleTextOptions[pageIndex][index] = options;
+		}
+	}
+}
+
+
+void Menu::AddOptionsToToggle(int index, int numberOfOptions, std::string baseText)
+{
+	double pageIndex = GetCurrentPageIndex();
+	if (DoesOptionHaveToggle(pageIndex, index)) {
+		if (toggleTextOptions[pageIndex][index].empty()) {
+			for (int i = 0; i < numberOfOptions; i++) {
+				// If you want text to start at 1, then add +1 to (i)
+				toggleTextOptions[pageIndex][index].push_back(baseText + std::to_string(i));
+			}
+		}
+	}
+}
+
+
+void Menu::SetToggleSelection(double pageIndex, int toggleIndex, int newPos)
+{
+	if (DoesOptionHaveToggle(pageIndex, toggleIndex)) {
+		toggleSelectionIndex[pageIndex][toggleIndex] = newPos;
+	}
+}
+
+
+void Menu::SetTextAtPos(std::string newText, double pageIndex, int toggleIndex, int pos)
+{
+	if (DoesOptionHaveToggle(pageIndex, toggleIndex)) {
+		toggleTextOptions[pageIndex][toggleIndex][pos] = newText;
+	}
+}
+
+
+int Menu::GetToggleSelection(double pageIndex, int toggleIndex)
+{
+	if (DoesOptionHaveToggle(pageIndex, toggleIndex)) {
+		return toggleSelectionIndex[pageIndex][toggleIndex];
+	}
+
+	return -1; // Invalid
+}
+
+
+void Menu::OnSelect()
+{
+	// When enter is pressed
+	CallFunction(GetCurrentPageIndex(), GetCurrentSelectedIndex(), false, GetCurrentSelectedIndex());
+}
+
+
+void Menu::OnToggle(bool left, bool right)
+{
+	double pageIndex = GetCurrentPageIndex();
+	int selectedIndex = GetCurrentSelectedIndex();
+
+	if (left) {
+		toggleSelectionIndex[pageIndex][selectedIndex] -= 1;
+		if (toggleSelectionIndex[pageIndex][selectedIndex] < 0) {
+			toggleSelectionIndex[pageIndex][selectedIndex] = (int)toggleTextOptions[pageIndex][selectedIndex].size() - 1;
+		}
+	} else if (right) {
+		toggleSelectionIndex[pageIndex][selectedIndex] += 1;
+		if (toggleSelectionIndex[pageIndex][selectedIndex] > toggleTextOptions[pageIndex][selectedIndex].size() - 1) {
+			toggleSelectionIndex[pageIndex][selectedIndex] = 0;;
+		}
+	}
+
+	// When a toggle is changed
+	CallFunction(pageIndex, selectedIndex, false, toggleSelectionIndex[pageIndex][selectedIndex]);
+}
+
+
+void Menu::CreateUIPrompt(Prompt& prompt, Hash control, const char* promptText)
 {
 	prompt = HUD::_UIPROMPT_REGISTER_BEGIN();
 	HUD::_0xF4A5C4509BF923B1(prompt, 0);
@@ -93,19 +228,50 @@ void CreateUIPrompt(Prompt& prompt, Hash control, const char* promptText)
 }
 
 
-void SetHeader(std::string text, int fontSize, float yPos = 80) {
-	DrawCSSText(text, Font::Lino, 0xff, 0xff, 0xff, 0xff, Alignment::Center, fontSize,  BG_X_OFFSET + (BG_WIDTH * 0.5f), yPos);
+bool Menu::DoesOptionHavePage(double pageIndex, int index)
+{
+	if (map_doesOptionHavePage[pageIndex].find(index) != map_doesOptionHavePage[pageIndex].end()) {
+		return map_doesOptionHavePage[pageIndex][index];
+	}
+
+	return false;
 }
 
 
-void SetSubHeader(std::string text) {
-	DrawCSSText(text, Font::Lino, 0xff, 0xff, 0xff, 0xff, Alignment::Center, 23, BG_X_OFFSET + (BG_WIDTH * 0.5f), 172);
+bool Menu::DoesOptionHaveToggle(double pageIndex, int index)
+{
+	if (map_doesOptionHaveToggle[pageIndex].find(index) != map_doesOptionHaveToggle[pageIndex].end()) {
+		return map_doesOptionHaveToggle[pageIndex][index];
+	}
+
+	return false;
 }
 
 
-void SetFooter(std::string text) {
-	DrawCSSText(text, Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Center, 20, BG_X_OFFSET + (BG_WIDTH * 0.5f), 975);
+int Menu::GetNumOptionsInCurrentPage() { return optionsInThisPage; }
+
+
+//////////////////////
+// HEADER NAMESPACE //
+//////////////////////
+
+
+void Header::SetHeader(std::string text, int fontSize, float yPos) {
+	Draw::DrawCSSText(text, Font::Lino, 0xff, 0xff, 0xff, 0xff, Alignment::Center, fontSize,  BG_X_OFFSET + (BG_WIDTH * 0.5f), yPos);
 }
+
+
+void Header::SetSubHeader(std::string text) {
+	Draw::DrawCSSText(text, Font::Lino, 0xff, 0xff, 0xff, 0xff, Alignment::Center, 23, BG_X_OFFSET + (BG_WIDTH * 0.5f), 172);
+}
+
+
+void Header::SetFooter(std::string text) {
+	Draw::DrawCSSText(text, Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Center, 20, BG_X_OFFSET + (BG_WIDTH * 0.5f), 975);
+}
+
+
+// NO NAMESPACE
 
 
 void ShowSubtitle(const std::string& str)
@@ -115,5 +281,3 @@ void ShowSubtitle(const std::string& str)
 	UILOG::_UILOG_CLEAR_HAS_DISPLAYED_CACHED_OBJECTIVE();
 	UILOG::_UILOG_CLEAR_CACHED_OBJECTIVE();
 }
-
-int GetNumOptionsInCurrentPage() { return optionsInThisPage; }

@@ -1,0 +1,46 @@
+[Latest Update] Nov 10, 2021
+
+- DrawListOption() and DrawToggleOption() have been replaced with DrawOption()
+
+- AddSingleOption() and AddMultipleOptions() have been replaced with AddOptionsToToggle() (+1 overload)
+
+- DoesOptionHavePage() and DoesOptionHaveToggle() are now automatic and have been moved to menu.cpp
+
+- DrawSprite() has been moved to menu.h
+
+- Most functions in menu.h are now in different namespaces for organization purposes (Draw, Header, Menu)
+
+- New functions in menu.cpp (SetToggleSelection, SetTextAtPos, GetToggleSelection)
+
+- Pages.cpp has been converted to specifically only to draw and create pages.
+  Functions from there have either been moved to menu.cpp or deleted. By default, the only defined function is DrawPage()
+
+- Improved examples of how to execute code when an option is pressed
+
+- Updated natives.h
+
+
+----------------------------------------------Previous Updates----------------------------------------------
+
+Nov 2, 2021
+- Small fixes and changes
+
+
+Oct 5, 2021
+- Controller Support
+
+
+Sep 20, 2021 [dont-att-me #3]
+- Re-implemented DrawCSSText, Included DRAW_SPRITE wrapper
+
+
+Sep 19, 2021
+- Toggle Option Support
+
+
+Sep 9, 2021 [iJamesss #1]
+- Implemented Scrolling
+
+
+Sep 6, 2021
+- Release

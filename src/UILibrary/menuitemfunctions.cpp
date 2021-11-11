@@ -14,48 +14,134 @@ std::map<double, std::map<int, std::function<void(bool, int)>>> functions;
 
 #pragma region Page 1
 // Parameters like this means they're unused
-void ListOption1_1(bool, int)
+void ExampleBtn1(bool, int)
 {
-	ShowSubtitle("Option 2 Pressed");
+	ShowSubtitle("Example Button 1 Pressed");
 }
 
-void ListOption1_2(bool, int)
+void ExampleBtn2(bool, int)
 {
-	ShowSubtitle("Option 3 Pressed");
+	ShowSubtitle("Example Button 2 Pressed");
 }
 #pragma endregion
+
 
 #pragma region Page 1.1
-void ToggleOption1_0(bool, int index)
+void ToggleOption0(bool, int index)
 {
+	// Menu::GetToggleSelection(GetCurrentPageIndex(), 0) will return same value as index
 	ShowSubtitle(std::to_string(index));
 }
 
-void ToggleOption1_1(bool, int index)
+void ToggleOption1(bool, int index)
 {
+	// Menu::GetToggleSelection(GetCurrentPageIndex(), 1) will return same value as index
 	ShowSubtitle(std::to_string(index));
-}
-
-void ToggleOption1_2(bool toggle, int)
-{
-	ShowSubtitle(toggle == true ? "On" : "Off");
 }
 #pragma endregion
 
-#pragma region Page 2
-void ListOption2_0(bool, int)
-{
-	ShowSubtitle("Option 1 Pressed");
-}
 
-void ListOption2_1(bool, int)
+#pragma region Page 2.1
+void ChangeWeather(bool, int index)
 {
-	ShowSubtitle("Option 2 Pressed");
-}
+	Hash weatherType;
+	std::string weatherName;
 
-void ListOption2_2(bool, int)
-{
-	ShowSubtitle("Option 3 Pressed");
+	// Set weatherType using switch case
+	switch (index)
+	{
+		case 0:
+			weatherType = MISC::GET_HASH_KEY("HIGHPRESSURE");
+			weatherName = "High Pressure";
+			break;
+		case 1:
+			weatherType = MISC::GET_HASH_KEY("RAIN");
+			weatherName = "Rain";
+			break;
+		case 2:
+			weatherType = MISC::GET_HASH_KEY("SNOW");
+			weatherName = "Snow";
+			break;
+		case 3:
+			weatherType = MISC::GET_HASH_KEY("MISTY");
+			weatherName = "Misty";
+			break;
+		case 4:
+			weatherType = MISC::GET_HASH_KEY("FOG");
+			weatherName = "Fog";
+			break;
+		case 5:
+			weatherType = MISC::GET_HASH_KEY("SUNNY");
+			weatherName = "Sunny";
+			break;
+		case 6:
+			weatherType = MISC::GET_HASH_KEY("CLOUDS");
+			weatherName = "Clouds";
+			break;
+		case 7:
+			weatherType = MISC::GET_HASH_KEY("OVERCAST");
+			weatherName = "Overcast";
+			break;
+		case 8:
+			weatherType = MISC::GET_HASH_KEY("THUNDERSTORM");
+			weatherName = "Thunderstorm";
+			break;
+		case 9:
+			weatherType = MISC::GET_HASH_KEY("HURRICANE");
+			weatherName = "Hurricane";
+			break;
+		case 10:
+			weatherType = MISC::GET_HASH_KEY("THUNDER");
+			weatherName = "Thunder";
+			break;
+		case 11:
+			weatherType = MISC::GET_HASH_KEY("SHOWER");
+			weatherName = "Shower";
+			break;
+		case 12:
+			weatherType = MISC::GET_HASH_KEY("BLIZZARD");
+			weatherName = "Blizzard";
+			break;
+		case 13:
+			weatherType = MISC::GET_HASH_KEY("SNOWLIGHT");
+			weatherName = "Snow Light";
+			break;
+		case 14:
+			weatherType = MISC::GET_HASH_KEY("WHITEOUT");
+			weatherName = "Whiteout";
+			break;
+		case 15:
+			weatherType = MISC::GET_HASH_KEY("HAIL");
+			weatherName = "Hail";
+			break;
+		case 16:
+			weatherType = MISC::GET_HASH_KEY("SLEET");
+			weatherName = "Sleet";
+			break;
+		case 17:
+			weatherType = MISC::GET_HASH_KEY("DRIZZLE");
+			weatherName = "Drizzle";
+			break;
+		case 18:
+			weatherType = MISC::GET_HASH_KEY("SANDSTORM");
+			weatherName = "Sandstorm";
+			break;
+		case 19:
+			weatherType = MISC::GET_HASH_KEY("OVERCASTDARK");
+			weatherName = "Overcast Dark";
+			break;
+		case 20:
+			weatherType = MISC::GET_HASH_KEY("GROUNDBLIZZARD");
+			weatherName = "Ground Blizzard";
+			break;
+		default:
+			weatherType = MISC::GET_HASH_KEY("SUNNY");
+			weatherName = "Sunny";
+			break;
+	}
+
+	MISC::SET_WEATHER_TYPE(weatherType, true, true, false, 0.0f, false);
+	ShowSubtitle("Changed weather to: " + weatherName);
 }
 #pragma endregion
 
@@ -65,7 +151,7 @@ bool func_exists(double pageIndex, int selectedIndex)
 	if (functions[pageIndex][selectedIndex]) {
 		return true;
 	} else {
-		ShowSubtitle("~COLOR_RED~FUNCTION DOES NOT EXIST AT THIS INDEX (" + std::to_string(pageIndex).substr(0, 4) + ", " + std::to_string(selectedIndex) + ")~COLOR_RED~");
+		ShowSubtitle("~COLOR_RED~FUNCTION DOES NOT EXIST AT THIS INDEX (" + std::to_string(pageIndex).substr(0, 4) + ", " + std::to_string(selectedIndex) + ")~s~");
 		return false;
 	}
 }
@@ -73,23 +159,21 @@ bool func_exists(double pageIndex, int selectedIndex)
 
 void init(double pageIndex, int selectedIndex, bool toggle, int index)
 {
-	// Page 1 - Option 2
-	functions[1.0][1] = &ListOption1_1;
-	// Page 1 - Option 3
-	functions[1.0][2] = &ListOption1_2;
+	// Page 1
+	functions[1.0][1] = &ExampleBtn1;
+	functions[1.0][2] = &ExampleBtn2;
 
-	// Page 1.1 - Toggle Option 1
-	functions[1.1][0] = &ToggleOption1_0;
-	functions[1.1][1] = &ToggleOption1_1;
-	functions[1.1][2] = &ToggleOption1_2;
+	// Page 1.1
+	functions[1.1][0] = &ToggleOption0;
+	functions[1.1][1] = &ToggleOption1;
 
-	functions[2.0][0] = &ListOption2_0;
-	functions[2.0][1] = &ListOption2_1;
-	functions[2.0][2] = &ListOption2_2;
+	for (int i = 0; i <= 20; i++) {
+		// Page 2.1
+		functions[2.1][i] = &ChangeWeather;
+	}
 
-	// Continue to assign functions in the hashmap like I did above
-	// Please rename the functions to your liking
-	// !! I couldn't figure out a better way to do this !!
+	// Continue to assign functions like I did above where [pageIndex][index]
+	// !! I couldn't figure out a better way to do this. This needs to be improved !!
 
 	initialized = true;
 	if (func_exists(pageIndex, selectedIndex)) {
