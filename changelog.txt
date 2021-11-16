@@ -1,26 +1,21 @@
-[Latest Update] Nov 10, 2021
-
-- DrawListOption() and DrawToggleOption() have been replaced with DrawOption()
-
-- AddSingleOption() and AddMultipleOptions() have been replaced with AddOptionsToToggle() (+1 overload)
-
-- DoesOptionHavePage() and DoesOptionHaveToggle() are now automatic and have been moved to menu.cpp
-
-- DrawSprite() has been moved to menu.h
-
-- Most functions in menu.h are now in different namespaces for organization purposes (Draw, Header, Menu)
-
-- New functions in menu.cpp (SetToggleSelection, SetTextAtPos, GetToggleSelection)
-
-- Pages.cpp has been converted to specifically only to draw and create pages.
-  Functions from there have either been moved to menu.cpp or deleted. By default, the only defined function is DrawPage()
-
-- Improved examples of how to execute code when an option is pressed
-
-- Updated natives.h
-
+[Latest Update] Nov 16, 2021
+- GetCurrentPageIndex() and GetCurrentSelectedIndex() are now pointers
+- Added new function Menu::GetTextAtCurrentSelection()
 
 ----------------------------------------------Previous Updates----------------------------------------------
+
+Nov 10, 2021
+- DrawListOption() and DrawToggleOption() have been replaced with DrawOption()
+- AddSingleOption() and AddMultipleOptions() have been replaced with AddOptionsToToggle() (+1 overload)
+- DoesOptionHavePage() and DoesOptionHaveToggle() are now automatic and have been moved to menu.cpp
+- DrawSprite() has been moved to menu.h
+- Most functions in menu.h are now in different namespaces for organization purposes (Draw, Header, Menu)
+- New functions in menu.cpp (SetToggleSelection, SetTextAtPos, GetToggleSelection)
+- Pages.cpp has been converted to specifically only to draw and create pages.
+   Functions from there have either been moved to menu.cpp or deleted. By default, the only defined function is DrawPage()
+- Improved examples of how to execute code when an option is pressed
+- Updated natives.h
+
 
 Nov 2, 2021
 - Small fixes and changes

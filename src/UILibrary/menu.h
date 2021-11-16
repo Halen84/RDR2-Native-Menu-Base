@@ -48,6 +48,8 @@ namespace Menu
 
 	void SetToggleSelection(double pageIndex, int toggleIndex, int newPos);
 	void SetTextAtPos(std::string newText, double pageIndex, int toggleIndex, int pos);
+	// Get text at current selected index
+	std::string GetTextAtCurrentSelection();
 	int GetToggleSelection(double pageIndex, int toggleIndex);
 
 	void OnSelect();

@@ -6,8 +6,10 @@
 
 void UpdateFooter(bool override)
 {
-	double pageIndex = GetCurrentPageIndex();
-	int selectedIndex = GetCurrentSelectedIndex();
+	double pageIndex = *GetCurrentPageIndex();
+	int selectedIndex = *GetCurrentSelectedIndex();
+
+	// Remember that Header::SetFooter(string text) is a thing
 
 	static std::map<const double, std::map<const int, const std::string>> footerData
 	{
@@ -30,25 +32,7 @@ void UpdateFooter(bool override)
 			{0, "Description 1"}, {1, "Description 2"}, {2, "Description 3"}
 		}},
 
-		{4.0, {
-			{0, "Description 1"}, {1, "Description 2"}, {2, "Description 3"}
-		}},
-
-		{5.0, {
-			{0, "Description 1"}, {1, "Description 2"}, {2, "Description 3"}
-		}},
-
-		{6.0, {
-			{0, "Description 1"}, {1, "Description 2"}, {2, "Description 3"}
-		}},
-
-		{7.0, {
-			{0, "Description 1"}, {1, "Description 2"}, {2, "Description 3"}
-		}},
-
-		{8.0, {
-			{0, "Description 1"}, {1, "Description 2"}, {2, "Description 3"}
-		}},
+		// And so on...
 	};
 
 	// Add 3 spaces after a newline \n to center properly?

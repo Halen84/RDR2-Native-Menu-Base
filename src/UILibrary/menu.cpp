@@ -25,6 +25,7 @@ std::map<double, std::map<int, bool>> map_doesOptionHaveToggle;
 
 int optionsInThisPage = 0;
 double page = 0.0;
+std::string textAtThisSelection = "";
 
 
 ////////////////////
@@ -54,8 +55,8 @@ void Draw::DrawCSSText(std::string text, Font font, int R, int G, int B, int A, 
 
 void Draw::DrawOption(std::string text, int index, bool bHasPage, bool bIsToggleOption)
 {
-	double pageIndex = GetCurrentPageIndex();
-	int selectedIndex = GetCurrentSelectedIndex();
+	double pageIndex = *GetCurrentPageIndex();
+	int selectedIndex = *GetCurrentSelectedIndex();
 
 	// Get number of options in the page via highest index
 	if (pageIndex != page) { optionsInThisPage = 1; }
@@ -80,6 +81,9 @@ void Draw::DrawOption(std::string text, int index, bool bHasPage, bool bIsToggle
 		map_doesOptionHavePage[pageIndex][index] = bHasPage;
 	}
 
+	if (selectedIndex == index) {
+		textAtThisSelection = text;
+	}
 
 	// bIsToggleOption and bHasPage cannot both be true. Nothing will show up.
 	if (bIsToggleOption && !bHasPage) {
@@ -109,7 +113,7 @@ void Draw::DrawSelectionBox()
 	// TODO: Make sure next or previous index exists. If not, skip over it.
 	// TODO: Micro adjust these and fix it up a little
 
-	int index = GetCurrentSelectedIndex();
+	int index = *GetCurrentSelectedIndex();
 
 	// Left, Right, Top, Bottom
 	if (index >= 7) {
@@ -136,7 +140,7 @@ void Menu::AddOptionsToToggle(int index, std::vector<std::string> options)
 	// TODO: Make it so you can add more options without this call.
 	// (you can if you manually add it via hashmap)
 
-	double pageIndex = GetCurrentPageIndex();
+	double pageIndex = *GetCurrentPageIndex();
 	if (DoesOptionHaveToggle(pageIndex, index)) {
 		if (toggleTextOptions[pageIndex][index].empty()) {
 			toggleTextOptions[pageIndex][index] = options;
@@ -147,7 +151,7 @@ void Menu::AddOptionsToToggle(int index, std::vector<std::string> options)
 
 void Menu::AddOptionsToToggle(int index, int numberOfOptions, std::string baseText)
 {
-	double pageIndex = GetCurrentPageIndex();
+	double pageIndex = *GetCurrentPageIndex();
 	if (DoesOptionHaveToggle(pageIndex, index)) {
 		if (toggleTextOptions[pageIndex][index].empty()) {
 			for (int i = 0; i < numberOfOptions; i++) {
@@ -175,27 +179,33 @@ void Menu::SetTextAtPos(std::string newText, double pageIndex, int toggleIndex, 
 }
 
 
+std::string Menu::GetTextAtCurrentSelection()
+{
+	return textAtThisSelection;
+}
+
+
 int Menu::GetToggleSelection(double pageIndex, int toggleIndex)
 {
 	if (DoesOptionHaveToggle(pageIndex, toggleIndex)) {
 		return toggleSelectionIndex[pageIndex][toggleIndex];
 	}
 
-	return -1; // Invalid
+	return 0; // Fallback
 }
 
 
 void Menu::OnSelect()
 {
 	// When enter is pressed
-	CallFunction(GetCurrentPageIndex(), GetCurrentSelectedIndex(), false, GetCurrentSelectedIndex());
+	CallFunction(*GetCurrentPageIndex(), *GetCurrentSelectedIndex(), false, *GetCurrentSelectedIndex());
 }
 
 
 void Menu::OnToggle(bool left, bool right)
 {
-	double pageIndex = GetCurrentPageIndex();
-	int selectedIndex = GetCurrentSelectedIndex();
+	double pageIndex = *GetCurrentPageIndex();
+	int selectedIndex = *GetCurrentSelectedIndex();
 
 	if (left) {
 		toggleSelectionIndex[pageIndex][selectedIndex] -= 1;

@@ -168,8 +168,8 @@ void update()
 }
 
 
-int GetCurrentSelectedIndex() { return selectedIndex; }
-double GetCurrentPageIndex() { return pageIndex; }
+int* GetCurrentSelectedIndex() { return &selectedIndex; }
+double* GetCurrentPageIndex() { return &pageIndex; }
 
 
 void main()

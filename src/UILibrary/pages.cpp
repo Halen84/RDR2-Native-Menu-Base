@@ -9,7 +9,7 @@
 
 void DrawPage()
 {
-	double pageIndex = GetCurrentPageIndex();
+	double pageIndex = *GetCurrentPageIndex();
 
 	if (pageIndex == 0.0) {
 		Header::SetHeader("HEADER");

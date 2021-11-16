@@ -45,98 +45,76 @@ void ToggleOption1(bool, int index)
 void ChangeWeather(bool, int index)
 {
 	Hash weatherType;
-	std::string weatherName;
+	std::string weatherName = Menu::GetTextAtCurrentSelection();
 
 	// Set weatherType using switch case
 	switch (index)
 	{
 		case 0:
 			weatherType = MISC::GET_HASH_KEY("HIGHPRESSURE");
-			weatherName = "High Pressure";
 			break;
 		case 1:
 			weatherType = MISC::GET_HASH_KEY("RAIN");
-			weatherName = "Rain";
 			break;
 		case 2:
 			weatherType = MISC::GET_HASH_KEY("SNOW");
-			weatherName = "Snow";
 			break;
 		case 3:
 			weatherType = MISC::GET_HASH_KEY("MISTY");
-			weatherName = "Misty";
 			break;
 		case 4:
 			weatherType = MISC::GET_HASH_KEY("FOG");
-			weatherName = "Fog";
 			break;
 		case 5:
 			weatherType = MISC::GET_HASH_KEY("SUNNY");
-			weatherName = "Sunny";
 			break;
 		case 6:
 			weatherType = MISC::GET_HASH_KEY("CLOUDS");
-			weatherName = "Clouds";
 			break;
 		case 7:
 			weatherType = MISC::GET_HASH_KEY("OVERCAST");
-			weatherName = "Overcast";
 			break;
 		case 8:
 			weatherType = MISC::GET_HASH_KEY("THUNDERSTORM");
-			weatherName = "Thunderstorm";
 			break;
 		case 9:
 			weatherType = MISC::GET_HASH_KEY("HURRICANE");
-			weatherName = "Hurricane";
 			break;
 		case 10:
 			weatherType = MISC::GET_HASH_KEY("THUNDER");
-			weatherName = "Thunder";
 			break;
 		case 11:
 			weatherType = MISC::GET_HASH_KEY("SHOWER");
-			weatherName = "Shower";
 			break;
 		case 12:
 			weatherType = MISC::GET_HASH_KEY("BLIZZARD");
-			weatherName = "Blizzard";
 			break;
 		case 13:
 			weatherType = MISC::GET_HASH_KEY("SNOWLIGHT");
-			weatherName = "Snow Light";
 			break;
 		case 14:
 			weatherType = MISC::GET_HASH_KEY("WHITEOUT");
-			weatherName = "Whiteout";
 			break;
 		case 15:
 			weatherType = MISC::GET_HASH_KEY("HAIL");
-			weatherName = "Hail";
 			break;
 		case 16:
 			weatherType = MISC::GET_HASH_KEY("SLEET");
-			weatherName = "Sleet";
 			break;
 		case 17:
 			weatherType = MISC::GET_HASH_KEY("DRIZZLE");
-			weatherName = "Drizzle";
 			break;
 		case 18:
 			weatherType = MISC::GET_HASH_KEY("SANDSTORM");
-			weatherName = "Sandstorm";
 			break;
 		case 19:
 			weatherType = MISC::GET_HASH_KEY("OVERCASTDARK");
-			weatherName = "Overcast Dark";
 			break;
 		case 20:
 			weatherType = MISC::GET_HASH_KEY("GROUNDBLIZZARD");
-			weatherName = "Ground Blizzard";
 			break;
 		default:
 			weatherType = MISC::GET_HASH_KEY("SUNNY");
-			weatherName = "Sunny";
 			break;
 	}
 

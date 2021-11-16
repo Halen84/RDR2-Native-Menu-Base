@@ -54,5 +54,5 @@ const float INCREMENT = (SCREEN_HEIGHT * 0.051f); // const float INCREMENT = 55;
 
 void ScriptMain();
 
-int GetCurrentSelectedIndex();
-double GetCurrentPageIndex();
+int* GetCurrentSelectedIndex();
+double* GetCurrentPageIndex();
