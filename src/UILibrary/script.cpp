@@ -13,6 +13,7 @@
 ################################################################
 # RDR2 UI Library
 # Made by TuffyTown (Halen84)
+# Uses in-game sprites to make similar menus to how they are in-game
 # Credits: Alexander Blade (ScriptHook SDK), GitHub Contributors
 # ==============================================================
 # GitHub: https://github.com/Halen84/RDR2-UI-Library
@@ -31,11 +32,10 @@
  #pragma region Help & Info
 /*
 	- To create and draw pages, see pages.cpp
-	- To change the footer text, see footer.cpp
-	- To execute code when an option is pressed/toggled, see menuitemfunctions.cpp
+	- To change the footer text, see footer.cpp or use Header::SetFooter()
+	- To execute code when an option is pressed/toggled, see functions.cpp
 	- menu.cpp is basically the core UI functionality
 	- script.h contains some enums and constants
-	- Be sure to change your output directory, as its set to my custom one
 */
 #pragma endregion
 
@@ -70,7 +70,6 @@ void update()
 	Draw::DrawSprite("generic_textures", "menu_header_1a", TOP_HEADER_X_POS, TOP_HEADER_Y_POS, TOP_HEADER_WIDTH, TOP_HEADER_HEIGHT, 0, 255, 255, 255, 255, false);
 
 
-
 	// Drawing Pages
 	DrawPage();
 	int numOptions = Menu::GetNumOptionsInCurrentPage();
@@ -81,15 +80,13 @@ void update()
 	}
 
 
-
 	// Footer
 	// Doesn't draw right with Draw::DrawSprite for some reason
 	GRAPHICS::DRAW_SPRITE("generic_textures", "menu_bar", 0.16, 0.9, 0.23, 0.001, 0, 255, 255, 255, 175, false);
 	UpdateFooter();
 
 
-
-	// Page Handling & Input
+	// Navigation
 	if (HUD::_UIPROMPT_HAS_STANDARD_MODE_COMPLETED(selectPrompt, 0)) {
 		play_frontend_sound("SELECT", "HUD_SHOP_SOUNDSET");
 		bool bHasPage = Menu::DoesOptionHavePage(pageIndex, selectedIndex);
@@ -175,15 +172,17 @@ double* GetCurrentPageIndex() { return &pageIndex; }
 void main()
 {
 	const int TOGGLE_KEY = VK_NUMPAD9;
-	const char* CONTROLLER_TOGGLE_KEY = "INPUT_FRONTEND_RS"; // Right Stick (you should probably change this)
+	const char* CONTROLLER_INPUT_1 = "INPUT_COVER"; // RB (R1)
+	const char* CONTROLLER_INPUT_2 = "INPUT_CONTEXT_B"; // B (O)
 	bool firstTimeActivation = true;
 
-	Menu::CreateUIPrompt(selectPrompt, MISC::GET_HASH_KEY("INPUT_GAME_MENU_ACCEPT"), MISC::VAR_STRING(10, "LITERAL_STRING", "Select"));
-	Menu::CreateUIPrompt(backPrompt, MISC::GET_HASH_KEY("INPUT_GAME_MENU_CANCEL"), MISC::VAR_STRING(10, "LITERAL_STRING", "Back"));
+	CreateUIPrompt(selectPrompt, MISC::GET_HASH_KEY("INPUT_GAME_MENU_ACCEPT"), MISC::VAR_STRING(10, "LITERAL_STRING", "Select"));
+	CreateUIPrompt(backPrompt, MISC::GET_HASH_KEY("INPUT_GAME_MENU_CANCEL"), MISC::VAR_STRING(10, "LITERAL_STRING", "Back"));
 
 	while (true)
 	{
-		if (IsKeyJustUp(TOGGLE_KEY) || PAD::IS_CONTROL_JUST_PRESSED(0, MISC::GET_HASH_KEY(CONTROLLER_TOGGLE_KEY))) {
+		// Press toggle key or RB + B for controller to open menu
+		if (IsKeyJustUp(TOGGLE_KEY) || (PAD::IS_CONTROL_PRESSED(0, MISC::GET_HASH_KEY(CONTROLLER_INPUT_1)) && PAD::IS_CONTROL_PRESSED(0, MISC::GET_HASH_KEY(CONTROLLER_INPUT_2)) && !PAD::_IS_USING_KEYBOARD(0))) {
 			enabled = !enabled;
 			justOpened = enabled;
 			justClosed = !justOpened;

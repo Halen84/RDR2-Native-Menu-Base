@@ -6,7 +6,6 @@
 #include <vector>
 #include "script.h"
 
-
 namespace Draw
 {
 	// Draw CSS styled text
@@ -18,6 +17,7 @@ namespace Draw
 	// Draws a selection box around currently selected item
 	void DrawSelectionBox();
 
+	// GRAPHICS::DRAW_SPRITE
 	inline void DrawSprite(const char* textureDict, const char* textureName, float screenX, float screenY, float width, float height, float heading, int red, int green, int blue, int alpha, BOOL centered)
 	{
 		screenX /= SCREEN_WIDTH;
@@ -43,24 +43,30 @@ namespace Menu
 {
 	// Add options to a toggle with std::vector<string>
 	void AddOptionsToToggle(int index, std::vector<std::string> options);
+
 	// Add options to a toggle with static text
 	void AddOptionsToToggle(int index, int numberOfOptions, std::string baseText);
 
 	void SetToggleSelection(double pageIndex, int toggleIndex, int newPos);
+
 	void SetTextAtPos(std::string newText, double pageIndex, int toggleIndex, int pos);
+
+	// Set the functon that will be called when this option is pressed/toggled
+	void SetFunction(double pageIndex, int index, void(*func)(), int numberOfOptionsThatUseThisFunction = 1);
+
 	// Get text at current selected index
 	std::string GetTextAtCurrentSelection();
+
 	int GetToggleSelection(double pageIndex, int toggleIndex);
 
 	void OnSelect();
 	void OnToggle(bool left, bool right);
 
-	void CreateUIPrompt(Prompt& prompt, Hash control, const char* promptText);
 	bool DoesOptionHavePage(double pageIndex, int index);
 	bool DoesOptionHaveToggle(double pageIndex, int index);
 	int GetNumOptionsInCurrentPage();
 }
 
-
+void CreateUIPrompt(Prompt& prompt, Hash control, const char* promptText);
 // Objective Hint
 void ShowSubtitle(const std::string& str);

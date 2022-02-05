@@ -1,25 +1,21 @@
 // Licensed under the MIT License.
 
-#include <map>
-#include <functional>
-#include <string>
+
 #include "menu.h"
 #include "script.h"
 
-bool initialized = false;
-// TODO: VARIABLE NUMBER OF ARGS FOR MORE FUNCTIONALITY
-std::map<double, std::map<int, std::function<void(bool, int)>>> functions;
 
 // This is where you will write your functions when an option is toggled/pressed
+// Remember to add your new functions to function.h!
+
 
 #pragma region Page 1
-// Parameters like this means they're unused
-void ExampleBtn1(bool, int)
+void ExampleBtn1()
 {
 	ShowSubtitle("Example Button 1 Pressed");
 }
 
-void ExampleBtn2(bool, int)
+void ExampleBtn2()
 {
 	ShowSubtitle("Example Button 2 Pressed");
 }
@@ -27,27 +23,27 @@ void ExampleBtn2(bool, int)
 
 
 #pragma region Page 1.1
-void ToggleOption0(bool, int index)
+void ToggleOption0()
 {
-	// Menu::GetToggleSelection(GetCurrentPageIndex(), 0) will return same value as index
-	ShowSubtitle(std::to_string(index));
+	int pos = Menu::GetToggleSelection(*GetCurrentPageIndex(), 0);
+	ShowSubtitle(std::to_string(pos) + " - Toggle Option Vector");
 }
 
-void ToggleOption1(bool, int index)
+void ToggleOption1()
 {
-	// Menu::GetToggleSelection(GetCurrentPageIndex(), 1) will return same value as index
-	ShowSubtitle(std::to_string(index));
+	int pos = Menu::GetToggleSelection(*GetCurrentPageIndex(), 1);
+	ShowSubtitle(std::to_string(pos) + " - Toggle Option Static");
 }
 #pragma endregion
 
 
 #pragma region Page 2.1
-void ChangeWeather(bool, int index)
+void ChangeWeather()
 {
+	int index = *GetCurrentSelectedIndex();
 	Hash weatherType;
 	std::string weatherName = Menu::GetTextAtCurrentSelection();
 
-	// Set weatherType using switch case
 	switch (index)
 	{
 		case 0:
@@ -122,51 +118,3 @@ void ChangeWeather(bool, int index)
 	ShowSubtitle("Changed weather to: " + weatherName);
 }
 #pragma endregion
-
-
-bool func_exists(double pageIndex, int selectedIndex)
-{
-	if (functions[pageIndex][selectedIndex]) {
-		return true;
-	} else {
-		ShowSubtitle("~COLOR_RED~FUNCTION DOES NOT EXIST AT THIS INDEX (" + std::to_string(pageIndex).substr(0, 4) + ", " + std::to_string(selectedIndex) + ")~s~");
-		return false;
-	}
-}
-
-
-void init(double pageIndex, int selectedIndex, bool toggle, int index)
-{
-	// Page 1
-	functions[1.0][1] = &ExampleBtn1;
-	functions[1.0][2] = &ExampleBtn2;
-
-	// Page 1.1
-	functions[1.1][0] = &ToggleOption0;
-	functions[1.1][1] = &ToggleOption1;
-
-	for (int i = 0; i <= 20; i++) {
-		// Page 2.1
-		functions[2.1][i] = &ChangeWeather;
-	}
-
-	// Continue to assign functions like I did above where [pageIndex][index]
-	// !! I couldn't figure out a better way to do this. This needs to be improved !!
-
-	initialized = true;
-	if (func_exists(pageIndex, selectedIndex)) {
-		functions[pageIndex][selectedIndex](toggle, index);
-	}	
-}
-
-
-void CallFunction(double pageIndex, int selectedIndex, bool toggle, int index)
-{
-	if (!initialized) {
-		init(pageIndex, selectedIndex, toggle, index);
-	} else {
-		if (func_exists(pageIndex, selectedIndex)) {
-			functions[pageIndex][selectedIndex](toggle, index);
-		}
-	}
-}

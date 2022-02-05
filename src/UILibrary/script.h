@@ -5,24 +5,23 @@
 #include "..\..\inc\natives.h"
 #include "..\..\inc\types.h"
 #include "..\..\inc\enums.h"
-
 #include "..\..\inc\main.h"
 
 enum class Font : int {
-	Arial,
-	Cabrito,
-	DroidSerif,
-	Hapna,
-	Helvetica,
-	Catalogue,
-	Chalk,
-	Gothica,
-	Ledger,
-	Lino,
-	Turri,
-	Redemption,
-	Gamertag,
-	DreamerScript,
+	Arial,			// $util
+	Cabrito,		// $catalog5
+	DroidSerif,		// $body1
+	Hapna,			// $body
+	Helvetica,		// $Debug_REG
+	Catalogue,		// $catalog4
+	Chalk,			// $chalk
+	Gothica,		// $catalog1
+	Ledger,			// $ledger
+	Lino,			// $title
+	Turri,			// $wantedPostersGeneric
+	Redemption,		// $gtaCash
+	Gamertag,		// $gamername
+	DreamerScript,	// $handwritten
 };
 
 enum class Alignment : int {
@@ -50,9 +49,8 @@ const float FOOTER_LINE_X_POS = BG_X_OFFSET + ((BG_WIDTH * 0.5f) - (FOOTER_LINE_
 const float FOOTER_LINE_Y_POS = BG_Y_OFFSET + (BG_HEIGHT - ((BG_WIDTH - FOOTER_LINE_WIDTH) * 0.5f));
 
 // Y Increment for sprite and text position
-const float INCREMENT = (SCREEN_HEIGHT * 0.051f); // const float INCREMENT = 55;
+const float INCREMENT = (SCREEN_HEIGHT * 0.051f); // 55;
 
 void ScriptMain();
-
 int* GetCurrentSelectedIndex();
 double* GetCurrentPageIndex();

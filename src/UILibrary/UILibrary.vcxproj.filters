@@ -7,7 +7,7 @@
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="pages.cpp" />
     <ClCompile Include="footer.cpp" />
-    <ClCompile Include="menuitemfunctions.cpp" />
+    <ClCompile Include="functions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\inc\enums.h">
@@ -27,7 +27,7 @@
     <ClInclude Include="menu.h" />
     <ClInclude Include="pages.h" />
     <ClInclude Include="footer.h" />
-    <ClInclude Include="menuitemfunctions.h" />
+    <ClInclude Include="functions.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">

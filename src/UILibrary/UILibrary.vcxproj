@@ -11,7 +11,7 @@
     <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
-    <ClCompile Include="menuitemfunctions.cpp" />
+    <ClCompile Include="functions.cpp" />
     <ClCompile Include="pages.cpp" />
     <ClCompile Include="script.cpp" />
   </ItemGroup>
@@ -23,7 +23,7 @@
     <ClInclude Include="footer.h" />
     <ClInclude Include="keyboard.h" />
     <ClInclude Include="menu.h" />
-    <ClInclude Include="menuitemfunctions.h" />
+    <ClInclude Include="functions.h" />
     <ClInclude Include="pages.h" />
     <ClInclude Include="script.h" />
   </ItemGroup>
@@ -38,7 +38,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>

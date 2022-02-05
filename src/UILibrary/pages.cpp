@@ -3,6 +3,7 @@
 #include <string>
 #include "script.h"
 #include "menu.h"
+#include "functions.h"
 
 // This file is specifically for drawing and creating pages.
 // Might be a good idea to separate pages using #region
@@ -31,7 +32,10 @@ void DrawPage()
 		Header::SetSubHeader("Examples");
 		Draw::DrawOption("Toggle Option Examples", 0, true);
 		Draw::DrawOption("Example Button 1", 1);
+		Menu::SetFunction(pageIndex, 1, ExampleBtn1);
+
 		Draw::DrawOption("Example Button 2", 2);
+		Menu::SetFunction(pageIndex, 2, ExampleBtn2);
 	}
 
 	else if (pageIndex == 1.1) {
@@ -40,9 +44,11 @@ void DrawPage()
 
 		Draw::DrawOption("Toggle Option - Vector", 0, false, true);
 		Menu::AddOptionsToToggle(0, std::vector<std::string>{"Red", "Dead", "Redemption", "2"});
+		Menu::SetFunction(pageIndex, 0, ToggleOption0);
 
 		Draw::DrawOption("Toggle Option - Static", 1, false, true);
 		Menu::AddOptionsToToggle(1, 10, "BaseText "); // This will create 10 options
+		Menu::SetFunction(pageIndex, 1, ToggleOption1);
 	}
 	#pragma endregion
 
@@ -78,6 +84,7 @@ void DrawPage()
 		Draw::DrawOption("Sandstorm", 18);
 		Draw::DrawOption("Overcast Dark", 19);
 		Draw::DrawOption("Ground Blizzard", 20);
+		Menu::SetFunction(pageIndex, 0, ChangeWeather, 20); // High Pressure + options 1-20 will use function ChangeWeather()
 	}
 	#pragma endregion
 

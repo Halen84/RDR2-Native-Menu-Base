@@ -3,7 +3,6 @@
 #include <string>
 #include "script.h"
 #include "menu.h"
-#include "menuitemfunctions.h"
 #include <vector>
 #include <map>
 
@@ -20,6 +19,9 @@ std::map<double, std::map<int, bool>> map_doesOptionHavePage;
 
 // Holds values for whether an option has a toggle
 std::map<double, std::map<int, bool>> map_doesOptionHaveToggle;
+
+// Holds values for what function will be called for an option
+std::map<double, std::map<int, void(*)()>> map_optionFunctions;
 
 #pragma endregion
 
@@ -43,13 +45,18 @@ void Draw::DrawCSSText(std::string text, Font font, int R, int G, int B, int A, 
 	if (align == Alignment::Right) { x = 0.0f; }
 	if (align == Alignment::Center) { x = -1.0f + (x * 2.0f); }
 	
-	//HUD::_SET_TEXT_COLOR(R, G, B, A);
 	UIDEBUG::_BG_SET_TEXT_COLOR(R, G, B, A);
+
+	// Use this native instead of UIDEBUG:: if you want your menu to be compatible with game version <= 1311.12
+	//HUD::_SET_TEXT_COLOR(R, G, B, A);
 
 	std::string cap = "<TEXTFORMAT RIGHTMARGIN ='" + (align == Alignment::Right ? std::to_string(static_cast<int>(SCREEN_WIDTH) - static_cast<int>(X)) : (wrapWidth != 0 ? std::to_string(static_cast<int>(SCREEN_WIDTH) - (static_cast<int>(X) + wrapWidth)) : "0")) 
 		+ "'><P ALIGN='" + (align == Alignment::Left ? "left" : align == Alignment::Right ? "right" : "center") +  "'><font face='$" + _font + "' letterspacing ='" + std::to_string(letterSpacing) + "' size='" + std::to_string(textSize) + "'>~s~" + text + "</font></P><TEXTFORMAT>";
 
 	UIDEBUG::_BG_DISPLAY_TEXT(MISC::VAR_STRING(10, "LITERAL_STRING", static_cast<char*>(_strdup(cap.c_str()))), x, y);
+
+	// Use this native instead of UIDEBUG:: if you want your menu to be compatible with game version <= 1311.12
+	//HUD::_DISPLAY_TEXT(MISC::VAR_STRING(10, "LITERAL_STRING", static_cast<char*>(_strdup(cap.c_str()))), x, y);
 }
 
 
@@ -179,6 +186,20 @@ void Menu::SetTextAtPos(std::string newText, double pageIndex, int toggleIndex, 
 }
 
 
+// TODO: template<typename... Args>
+void Menu::SetFunction(double pageIndex, int index, void(*func)(/*Args... args*/), int numberOfOptionsThatUseThisFunction)
+{
+	if (!map_optionFunctions[pageIndex][index]) {
+		map_optionFunctions[pageIndex][index] = func;
+		if (numberOfOptionsThatUseThisFunction > 1) {
+			for (int i = 0; i < numberOfOptionsThatUseThisFunction + 1; i++) {
+				map_optionFunctions[pageIndex][index + i] = func;
+			}
+		}
+	}
+}
+
+
 std::string Menu::GetTextAtCurrentSelection()
 {
 	return textAtThisSelection;
@@ -191,14 +212,21 @@ int Menu::GetToggleSelection(double pageIndex, int toggleIndex)
 		return toggleSelectionIndex[pageIndex][toggleIndex];
 	}
 
-	return 0; // Fallback
+	return 0; // Always return 0 because toggle doesn't exist
 }
 
 
 void Menu::OnSelect()
 {
-	// When enter is pressed
-	CallFunction(*GetCurrentPageIndex(), *GetCurrentSelectedIndex(), false, *GetCurrentSelectedIndex());
+	double pageIndex = *GetCurrentPageIndex();
+	int selectedIndex = *GetCurrentSelectedIndex();
+
+	// Enter has been pressed
+	if (map_optionFunctions[pageIndex][selectedIndex]) {
+		map_optionFunctions[pageIndex][selectedIndex]();
+	} else {
+		ShowSubtitle("~COLOR_RED~No function was assigned at this index (" + std::to_string(pageIndex).substr(0,4) + " - " + std::to_string(selectedIndex) + ")~s~");
+	}
 }
 
 
@@ -215,26 +243,16 @@ void Menu::OnToggle(bool left, bool right)
 	} else if (right) {
 		toggleSelectionIndex[pageIndex][selectedIndex] += 1;
 		if (toggleSelectionIndex[pageIndex][selectedIndex] > toggleTextOptions[pageIndex][selectedIndex].size() - 1) {
-			toggleSelectionIndex[pageIndex][selectedIndex] = 0;;
+			toggleSelectionIndex[pageIndex][selectedIndex] = 0;
 		}
 	}
 
-	// When a toggle is changed
-	CallFunction(pageIndex, selectedIndex, false, toggleSelectionIndex[pageIndex][selectedIndex]);
-}
-
-
-void Menu::CreateUIPrompt(Prompt& prompt, Hash control, const char* promptText)
-{
-	prompt = HUD::_UIPROMPT_REGISTER_BEGIN();
-	HUD::_0xF4A5C4509BF923B1(prompt, 0);
-	HUD::_UIPROMPT_SET_CONTROL_ACTION(prompt, control);
-	HUD::_UIPROMPT_SET_TEXT(prompt, promptText);
-	HUD::_UIPROMPT_SET_STANDARD_MODE(prompt, 1);
-	HUD::_UIPROMPT_REGISTER_END(prompt);
-
-	HUD::_UIPROMPT_SET_VISIBLE(prompt, false);
-	HUD::_UIPROMPT_SET_ENABLED(prompt, false);
+	// Toggle has been changed
+	if (map_optionFunctions[pageIndex][selectedIndex]) {
+		map_optionFunctions[pageIndex][selectedIndex]();
+	} else {
+		ShowSubtitle("~COLOR_RED~No function was assigned at this index (" + std::to_string(pageIndex).substr(0,4) + " - " + std::to_string(selectedIndex) + ")~s~");
+	}
 }
 
 
@@ -283,6 +301,18 @@ void Header::SetFooter(std::string text) {
 
 // NO NAMESPACE
 
+void CreateUIPrompt(Prompt& prompt, Hash control, const char* promptText)
+{
+	prompt = HUD::_UIPROMPT_REGISTER_BEGIN();
+	HUD::_0xF4A5C4509BF923B1(prompt, 0);
+	HUD::_UIPROMPT_SET_CONTROL_ACTION(prompt, control);
+	HUD::_UIPROMPT_SET_TEXT(prompt, promptText);
+	HUD::_UIPROMPT_SET_STANDARD_MODE(prompt, 1);
+	HUD::_UIPROMPT_REGISTER_END(prompt);
+
+	HUD::_UIPROMPT_SET_VISIBLE(prompt, false);
+	HUD::_UIPROMPT_SET_ENABLED(prompt, false);
+}
 
 void ShowSubtitle(const std::string& str)
 {
