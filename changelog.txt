@@ -1,9 +1,14 @@
-[Latest Update] Feb 5, 2022
+[Latest Update] Feb 6, 2022
+- Added another function example
+- Moved Font and Alignment enums to enums.h
+
+----------------------------------------------Previous Updates----------------------------------------------
+
+Feb 5, 2022
 - Rewrite of how menu options use and call functions
 - Renamed menuitemfunctions.cpp and .h to functions.cpp and .h
 - Changed default key to open menu on controller (RB + B)
 
-----------------------------------------------Previous Updates----------------------------------------------
 
 Nov 16, 2021
 - GetCurrentPageIndex() and GetCurrentSelectedIndex() are now pointers

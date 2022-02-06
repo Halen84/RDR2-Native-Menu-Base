@@ -7,29 +7,6 @@
 #include "..\..\inc\enums.h"
 #include "..\..\inc\main.h"
 
-enum class Font : int {
-	Arial,			// $util
-	Cabrito,		// $catalog5
-	DroidSerif,		// $body1
-	Hapna,			// $body
-	Helvetica,		// $Debug_REG
-	Catalogue,		// $catalog4
-	Chalk,			// $chalk
-	Gothica,		// $catalog1
-	Ledger,			// $ledger
-	Lino,			// $title
-	Turri,			// $wantedPostersGeneric
-	Redemption,		// $gtaCash
-	Gamertag,		// $gamername
-	DreamerScript,	// $handwritten
-};
-
-enum class Alignment : int {
-	Left,
-	Center,
-	Right
-};
-
 const float SCREEN_WIDTH = 1920.0f;
 const float SCREEN_HEIGHT = 1080.0f;
 

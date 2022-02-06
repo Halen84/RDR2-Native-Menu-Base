@@ -7,3 +7,4 @@ void ExampleBtn2();
 void ToggleOption0();
 void ToggleOption1();
 void ChangeWeather();
+void ChangeTime();

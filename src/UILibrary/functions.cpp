@@ -117,4 +117,29 @@ void ChangeWeather()
 	MISC::SET_WEATHER_TYPE(weatherType, true, true, false, 0.0f, false);
 	ShowSubtitle("Changed weather to: " + weatherName);
 }
+
+void ChangeTime()
+{
+	int selectedIndex = *GetCurrentSelectedIndex();
+	int pos = Menu::GetToggleSelection(*GetCurrentPageIndex(), selectedIndex);
+
+	int hrs = CLOCK::GET_CLOCK_HOURS();
+	int min = CLOCK::GET_CLOCK_MINUTES();
+	int sec = CLOCK::GET_CLOCK_SECONDS();
+
+	switch (selectedIndex)
+	{
+		case 0:
+			CLOCK::SET_CLOCK_TIME(pos, min, sec); // Change hour
+			break;
+		case 1:
+			CLOCK::SET_CLOCK_TIME(hrs, pos, sec); // Change minute
+			break;
+		case 2:
+			CLOCK::SET_CLOCK_TIME(hrs, min, pos); // Change second
+			break;
+		default:
+			break;
+	}
+}
 #pragma endregion

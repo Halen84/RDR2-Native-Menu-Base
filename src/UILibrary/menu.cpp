@@ -81,6 +81,11 @@ void Draw::DrawOption(std::string text, int index, bool bHasPage, bool bIsToggle
 	}
 
 
+	// bIsToggleOption and bHasPage cannot both be true
+	if (bIsToggleOption && bHasPage) {
+		bHasPage = false;
+	}
+
 	if (map_doesOptionHaveToggle[pageIndex].find(index) == map_doesOptionHaveToggle[pageIndex].end()) {
 		map_doesOptionHaveToggle[pageIndex][index] = bIsToggleOption;
 	}
@@ -92,7 +97,6 @@ void Draw::DrawOption(std::string text, int index, bool bHasPage, bool bIsToggle
 		textAtThisSelection = text;
 	}
 
-	// bIsToggleOption and bHasPage cannot both be true. Nothing will show up.
 	if (bIsToggleOption && !bHasPage) {
 		std::string curText = "";
 		int toggleIndex = 0;
@@ -105,7 +109,7 @@ void Draw::DrawOption(std::string text, int index, bool bHasPage, bool bIsToggle
 			curText = toggleTextOptions[pageIndex][index][toggleIndex];
 		}
 		
-		// Draw arrows if we are selecting [index]
+		// Only draw arrows if we are selecting [index]
 		if (selectedIndex == index) {
 			DrawCSSText("<img src='img://menu_textures/selection_arrow_left' height='18' width='18'/> " + curText + " <img src='img://menu_textures/selection_arrow_right' height='18' width='18'/>", Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Right, 22, 520, 254 + (index * INCREMENT));
 		} else {

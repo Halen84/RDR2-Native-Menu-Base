@@ -99,7 +99,7 @@ void update()
 			// Pages inside of pages are indexed by decimals so thats why its a double
 			previousPageIndex = pageIndex;
 			previousIndex = selectedIndex;
-			pageIndex += (selectedIndex / 10.0) + 0.1;
+			pageIndex += (selectedIndex / 10.0) + 0.1; // TODO: Test with 0.01
 		}
 		else if (bHasPage && !bHasToggle && pageIndex == 0.0) {
 			pageIndex = selectedIndex + 1.0;
@@ -111,6 +111,7 @@ void update()
 			Menu::OnSelect();
 		}
 		else if (!bHasPage && bHasToggle) {
+			// Enter has been pressed, but this option is a toggle. Go right.
 			Menu::OnToggle(false, true);
 		}
 	}

@@ -55,9 +55,9 @@ void DrawPage()
 	#pragma region Page 2
 	else if (pageIndex == 2.0) {
 		Header::SetHeader("FUNCTIONS");
-		Header::SetSubHeader("Executing Functions");
+		Header::SetSubHeader("Function Examples");
 		Draw::DrawOption("Change Weather", 0, true);
-		// More to come maybe..?
+		Draw::DrawOption("Change Time", 1, true);
 	}
 
 	else if (pageIndex == 2.1) {
@@ -85,6 +85,24 @@ void DrawPage()
 		Draw::DrawOption("Overcast Dark", 19);
 		Draw::DrawOption("Ground Blizzard", 20);
 		Menu::SetFunction(pageIndex, 0, ChangeWeather, 20); // High Pressure + options 1-20 will use function ChangeWeather()
+	}
+	
+	else if (pageIndex == 2.2) {
+		Header::SetHeader("TIME");
+		Header::SetSubHeader("Change Time");
+
+		Draw::DrawOption("Hour", 0, false, true);
+		Menu::AddOptionsToToggle(0, 24, "");
+		Menu::SetToggleSelection(pageIndex, 0, CLOCK::GET_CLOCK_HOURS());
+		Menu::SetFunction(pageIndex, 0, ChangeTime, 2); // Hour + minute and second will use function ChangeTime()
+
+		Draw::DrawOption("Minute", 1, false, true);
+		Menu::AddOptionsToToggle(1, 60, "");
+		Menu::SetToggleSelection(pageIndex, 1, CLOCK::GET_CLOCK_MINUTES());
+
+		Draw::DrawOption("Second", 2, false, true);
+		Menu::AddOptionsToToggle(2, 60, "");
+		Menu::SetToggleSelection(pageIndex, 2, CLOCK::GET_CLOCK_SECONDS());
 	}
 	#pragma endregion
 
