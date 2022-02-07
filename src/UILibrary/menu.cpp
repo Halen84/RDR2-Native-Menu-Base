@@ -307,15 +307,15 @@ void Header::SetFooter(std::string text) {
 
 void CreateUIPrompt(Prompt& prompt, Hash control, const char* promptText)
 {
-	prompt = HUD::_UIPROMPT_REGISTER_BEGIN();
-	HUD::_0xF4A5C4509BF923B1(prompt, 0);
-	HUD::_UIPROMPT_SET_CONTROL_ACTION(prompt, control);
-	HUD::_UIPROMPT_SET_TEXT(prompt, promptText);
-	HUD::_UIPROMPT_SET_STANDARD_MODE(prompt, 1);
-	HUD::_UIPROMPT_REGISTER_END(prompt);
+	prompt = HUD::_UI_PROMPT_REGISTER_BEGIN();
+	HUD::_UI_PROMPT_SET_TYPE(prompt, 0);
+	HUD::_UI_PROMPT_SET_CONTROL_ACTION(prompt, control);
+	HUD::_UI_PROMPT_SET_TEXT(prompt, promptText);
+	HUD::_UI_PROMPT_SET_STANDARD_MODE(prompt, 1);
+	HUD::_UI_PROMPT_REGISTER_END(prompt);
 
-	HUD::_UIPROMPT_SET_VISIBLE(prompt, false);
-	HUD::_UIPROMPT_SET_ENABLED(prompt, false);
+	HUD::_UI_PROMPT_SET_VISIBLE(prompt, false);
+	HUD::_UI_PROMPT_SET_ENABLED(prompt, false);
 }
 
 void ShowSubtitle(const std::string& str)

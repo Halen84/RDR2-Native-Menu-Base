@@ -87,7 +87,7 @@ void update()
 
 
 	// Navigation
-	if (HUD::_UIPROMPT_HAS_STANDARD_MODE_COMPLETED(selectPrompt, 0)) {
+	if (HUD::_UI_PROMPT_HAS_STANDARD_MODE_COMPLETED(selectPrompt, 0)) {
 		play_frontend_sound("SELECT", "HUD_SHOP_SOUNDSET");
 		bool bHasPage = Menu::DoesOptionHavePage(pageIndex, selectedIndex);
 		bool bHasToggle = Menu::DoesOptionHaveToggle(pageIndex, selectedIndex);
@@ -116,7 +116,7 @@ void update()
 		}
 	}
 
-	if (HUD::_UIPROMPT_HAS_STANDARD_MODE_COMPLETED(backPrompt, 0)) {
+	if (HUD::_UI_PROMPT_HAS_STANDARD_MODE_COMPLETED(backPrompt, 0)) {
 		play_frontend_sound("BACK", "HUD_SHOP_SOUNDSET");
 		selectedIndex = previousIndex;
 		if (pageIndex == 0.0) {
@@ -218,10 +218,10 @@ void main()
 			}
 		}
 
-		HUD::_UIPROMPT_SET_VISIBLE(selectPrompt, enabled);
-		HUD::_UIPROMPT_SET_ENABLED(selectPrompt, enabled);
-		HUD::_UIPROMPT_SET_VISIBLE(backPrompt, enabled);
-		HUD::_UIPROMPT_SET_ENABLED(backPrompt, enabled);
+		HUD::_UI_PROMPT_SET_VISIBLE(selectPrompt, enabled);
+		HUD::_UI_PROMPT_SET_ENABLED(selectPrompt, enabled);
+		HUD::_UI_PROMPT_SET_VISIBLE(backPrompt, enabled);
+		HUD::_UI_PROMPT_SET_ENABLED(backPrompt, enabled);
 
 		WAIT(0);
 	}

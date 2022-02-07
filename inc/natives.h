@@ -1,6 +1,6 @@
 #pragma once
 
-// Generated Wed, 10 Nov 2021
+// Generated Mon, 07 Feb 2022
 // https://alloc8or.re/rdr3/nativedb/
 
 #ifndef NATIVE_DECL
@@ -54,21 +54,25 @@ namespace BUILTIN
 
 namespace AICOVERPOINT
 {
-	NATIVE_DECL Any _0x53E4D0C079CA6855(Any p0) { return invoke<Any>(0x53E4D0C079CA6855, p0); } // 0x53E4D0C079CA6855 b1207
-	NATIVE_DECL Any _0xC276FE69DDA22BAD(Any p0) { return invoke<Any>(0xC276FE69DDA22BAD, p0); } // 0xC276FE69DDA22BAD b1207
-	NATIVE_DECL Any _0x5F5B1B7E8E8F94C6(Any p0) { return invoke<Any>(0x5F5B1B7E8E8F94C6, p0); } // 0x5F5B1B7E8E8F94C6 b1207
+	NATIVE_DECL Entity _0x53E4D0C079CA6855(ScrHandle handle) { return invoke<Entity>(0x53E4D0C079CA6855, handle); } // 0x53E4D0C079CA6855 b1207
+	NATIVE_DECL BOOL _DOES_COVER_POINT_EXIST(ScrHandle handle) { return invoke<BOOL>(0xC276FE69DDA22BAD, handle); } // 0xC276FE69DDA22BAD b1207
+	NATIVE_DECL int _0x5F5B1B7E8E8F94C6(Ped ped) { return invoke<int>(0x5F5B1B7E8E8F94C6, ped); } // 0x5F5B1B7E8E8F94C6 b1207
 	NATIVE_DECL void TASK_ENTER_COVER(Ped ped) { invoke<Void>(0x4972A022AE6DAFA1, ped); } // 0x4972A022AE6DAFA1 b1207
 	NATIVE_DECL void TASK_EXIT_COVER(Ped ped) { invoke<Void>(0x2BC4A6D92D140112, ped); } // 0x2BC4A6D92D140112 b1207
-	NATIVE_DECL Any _0x957D7E750216D74B(Any p0) { return invoke<Any>(0x957D7E750216D74B, p0); } // 0x957D7E750216D74B b1207
+	NATIVE_DECL int _0x957D7E750216D74B(Ped ped) { return invoke<int>(0x957D7E750216D74B, ped); } // 0x957D7E750216D74B b1207
 	NATIVE_DECL void _0x89783FDDF079C88D(Any p0) { invoke<Void>(0x89783FDDF079C88D, p0); } // 0x89783FDDF079C88D b1207
-	NATIVE_DECL void _0x64340DC208D671D5(Any p0) { invoke<Void>(0x64340DC208D671D5, p0); } // 0x64340DC208D671D5 b1207
-	NATIVE_DECL void _0x7A1FDCF35EAA140F(Any p0) { invoke<Void>(0x7A1FDCF35EAA140F, p0); } // 0x7A1FDCF35EAA140F b1207
-	NATIVE_DECL void _0x2A31D13C5F021D0D(Any p0) { invoke<Void>(0x2A31D13C5F021D0D, p0); } // 0x2A31D13C5F021D0D b1207
-	NATIVE_DECL void _0x3C7A9C2C953128FE(Any p0) { invoke<Void>(0x3C7A9C2C953128FE, p0); } // 0x3C7A9C2C953128FE b1207
+	// coverLayer: see levels_0/levels/rdr3/coverlayers
+	NATIVE_DECL void _0x64340DC208D671D5(const char* coverLayer) { invoke<Void>(0x64340DC208D671D5, coverLayer); } // 0x64340DC208D671D5 b1207
+	// coverLayer: see levels_0/levels/rdr3/coverlayers
+	NATIVE_DECL void _0x7A1FDCF35EAA140F(const char* coverLayer) { invoke<Void>(0x7A1FDCF35EAA140F, coverLayer); } // 0x7A1FDCF35EAA140F b1207
+	// Makes ped flinch (if in cover) like they have been shot at
+	NATIVE_DECL void _0x2A31D13C5F021D0D(Ped ped) { invoke<Void>(0x2A31D13C5F021D0D, ped); } // 0x2A31D13C5F021D0D b1207
+	NATIVE_DECL void _0x3C7A9C2C953128FE(Ped ped) { invoke<Void>(0x3C7A9C2C953128FE, ped); } // 0x3C7A9C2C953128FE b1207
 	NATIVE_DECL void _0xEBA51A294C73292E(Any p0) { invoke<Void>(0xEBA51A294C73292E, p0); } // 0xEBA51A294C73292E b1207
-	NATIVE_DECL void _0x140B3CB1D424A945(Any p0, Any p1) { invoke<Void>(0x140B3CB1D424A945, p0, p1); } // 0x140B3CB1D424A945 b1207
-	NATIVE_DECL Any _0x8CBE916CFC64AD5C(Any p0) { return invoke<Any>(0x8CBE916CFC64AD5C, p0); } // 0x8CBE916CFC64AD5C b1207
-	NATIVE_DECL void _0x1A7A802B2301EDC0(Any p0) { invoke<Void>(0x1A7A802B2301EDC0, p0); } // 0x1A7A802B2301EDC0 b1207
+	// weaponHash can also be -1
+	NATIVE_DECL void _0x140B3CB1D424A945(Ped ped, Hash weaponHash) { invoke<Void>(0x140B3CB1D424A945, ped, weaponHash); } // 0x140B3CB1D424A945 b1207
+	NATIVE_DECL BOOL _0x8CBE916CFC64AD5C(Ped ped) { return invoke<BOOL>(0x8CBE916CFC64AD5C, ped); } // 0x8CBE916CFC64AD5C b1207
+	NATIVE_DECL void _0x1A7A802B2301EDC0(Ped ped) { invoke<Void>(0x1A7A802B2301EDC0, ped); } // 0x1A7A802B2301EDC0 b1207
 	NATIVE_DECL void _0x733077295AB51304(Any p0) { invoke<Void>(0x733077295AB51304, p0); } // 0x733077295AB51304 b1207
 	NATIVE_DECL ScrHandle _ADD_SCRIPTED_COVER_POINT(Any* data) { return invoke<ScrHandle>(0x975BD6351648935F, data); } // 0x975BD6351648935F b1207
 }
@@ -104,6 +108,7 @@ namespace AITRANSPORT
 	// 	TCF_0x933ECD3F,
 	// 	TCF_0x18513A34
 	// };
+	// https://github.com/femga/rdr3_discoveries/tree/master/AI/TRANSPORT_CONFIG_FLAGS
 	NATIVE_DECL void SET_TRANSPORT_CONFIG_FLAG(Entity transportEntity, int flagId, BOOL value) { invoke<Void>(0xBA8818212633500A, transportEntity, flagId, value); } // 0xBA8818212633500A b1207
 	// flagId: see SET_TRANSPORT_CONFIG_FLAG
 	NATIVE_DECL BOOL GET_TRANSPORT_CONFIG_FLAG(Entity transportEntity, int flagId, BOOL p2) { return invoke<BOOL>(0xF382C92CCC1CCDBC, transportEntity, flagId, p2); } // 0xF382C92CCC1CCDBC b1207
@@ -129,13 +134,14 @@ namespace AITRANSPORT
 	NATIVE_DECL void _0x4B6C9A43F7D9109B(Any p0, Any p1) { invoke<Void>(0x4B6C9A43F7D9109B, p0, p1); } // 0x4B6C9A43F7D9109B b1207
 	NATIVE_DECL Any _0x159EF5B6EDCE00E8(Any p0, Any p1) { return invoke<Any>(0x159EF5B6EDCE00E8, p0, p1); } // 0x159EF5B6EDCE00E8 b1207
 	NATIVE_DECL Any _0xDC44F405A6B98D03(Any p0, Any p1) { return invoke<Any>(0xDC44F405A6B98D03, p0, p1); } // 0xDC44F405A6B98D03 b1207
-	NATIVE_DECL Any _0x2E2E06023D07631E(Any p0, Any p1) { return invoke<Any>(0x2E2E06023D07631E, p0, p1); } // 0x2E2E06023D07631E b1207
+	NATIVE_DECL BOOL _IS_TRANSPORT_SEAT_OCCUPIED(Entity transportEntity, int seatIndex) { return invoke<BOOL>(0x2E2E06023D07631E, transportEntity, seatIndex); } // 0x2E2E06023D07631E b1207
 	NATIVE_DECL Any _0x43FF27FC1829C202(Any p0, Any p1) { return invoke<Any>(0x43FF27FC1829C202, p0, p1); } // 0x43FF27FC1829C202 b1207
-	NATIVE_DECL Ped _0xFFEC4B0A1A3ED515(Entity transportEntity, int seatIndex) { return invoke<Ped>(0xFFEC4B0A1A3ED515, transportEntity, seatIndex); } // 0xFFEC4B0A1A3ED515 b1207
+	// seatIndex: see CREATE_PED_INSIDE_VEHICLE
+	NATIVE_DECL Ped _GET_PED_IN_TRANSPORT_SEAT(Entity transportEntity, int seatIndex) { return invoke<Ped>(0xFFEC4B0A1A3ED515, transportEntity, seatIndex); } // 0xFFEC4B0A1A3ED515 b1207
 	NATIVE_DECL BOOL IS_PED_ENTERING_TRANSPORT(Ped ped, Entity transportEntity, BOOL p2) { return invoke<BOOL>(0x619E63980BFC0096, ped, transportEntity, p2); } // 0x619E63980BFC0096 b1207
 	NATIVE_DECL BOOL IS_PED_EXITING_TRANSPORT(Ped ped, Entity transportEntity) { return invoke<BOOL>(0x660639BC60157048, ped, transportEntity); } // 0x660639BC60157048 b1207
-	NATIVE_DECL void _0x4248AB2EEB3C75AD(Any p0, Any p1, Any p2) { invoke<Void>(0x4248AB2EEB3C75AD, p0, p1, p2); } // 0x4248AB2EEB3C75AD b1207
-	NATIVE_DECL void _0xB7079F4C72896756(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0xB7079F4C72896756, p0, p1, p2, p3, p4); } // 0xB7079F4C72896756 b1207
+	NATIVE_DECL void _0x4248AB2EEB3C75AD(Entity transportEntity, Ped ped, BOOL p2) { invoke<Void>(0x4248AB2EEB3C75AD, transportEntity, ped, p2); } // 0x4248AB2EEB3C75AD b1207
+	NATIVE_DECL void _SET_PED_USE_TRANSPORT_SEAT_PREFERENCE(Ped ped, Entity transportEntity, int preferenceSlot, int p3, int seatIndex) { invoke<Void>(0xB7079F4C72896756, ped, transportEntity, preferenceSlot, p3, seatIndex); } // 0xB7079F4C72896756 b1207
 	NATIVE_DECL void _0x5639FBEA922788DA(Any p0) { invoke<Void>(0x5639FBEA922788DA, p0); } // 0x5639FBEA922788DA b1207
 	NATIVE_DECL void _0x67F7CEAC2391E114(Any p0, Any p1) { invoke<Void>(0x67F7CEAC2391E114, p0, p1); } // 0x67F7CEAC2391E114 b1207
 	NATIVE_DECL void _0x8C8371EDFAF014A0(Any p0, Any p1) { invoke<Void>(0x8C8371EDFAF014A0, p0, p1); } // 0x8C8371EDFAF014A0 b1207
@@ -152,13 +158,13 @@ namespace ANIMSCENE
 	NATIVE_DECL void _CLEAR_ANIM_SCENE_WAS_SKIPPED(AnimScene animScene) { invoke<Void>(0x8A8208AE92BF87A5, animScene); } // 0x8A8208AE92BF87A5 b1207
 	NATIVE_DECL BOOL DOES_ANIM_SCENE_EXIST(AnimScene animScene) { return invoke<BOOL>(0x25557E324489393C, animScene); } // 0x25557E324489393C b1207
 	NATIVE_DECL BOOL _DOES_ENTITY_WITH_ID_EXIST_IN_ANIM_SCENE(AnimScene animScene, const char* entityId) { return invoke<BOOL>(0x6F1F0B17109309DA, animScene, entityId); } // 0x6F1F0B17109309DA b1207
-	NATIVE_DECL Any _0x9D1ECA9337BE9FC3(Any p0, Any p1) { return invoke<Any>(0x9D1ECA9337BE9FC3, p0, p1); } // 0x9D1ECA9337BE9FC3 b1207
+	NATIVE_DECL BOOL _DOES_ANIM_SCENE_OWNERSHIP_OF_ENTITY_EXIST(AnimScene animScene, const char* entityName) { return invoke<BOOL>(0x9D1ECA9337BE9FC3, animScene, entityName); } // 0x9D1ECA9337BE9FC3 b1207
 	NATIVE_DECL void LOAD_ANIM_SCENE(AnimScene animScene) { invoke<Void>(0xAF068580194D9DC7, animScene); } // 0xAF068580194D9DC7 b1207
 	NATIVE_DECL BOOL IS_ANIM_SCENE_LOADED(AnimScene animScene, BOOL p1, BOOL p2) { return invoke<BOOL>(0x477122B8D05E7968, animScene, p1, p2); } // 0x477122B8D05E7968 b1207
 	NATIVE_DECL BOOL _IS_ANIM_SCENE_LOADING(AnimScene animScene, BOOL p1) { return invoke<BOOL>(0x59606519FF9D3EC2, animScene, p1); } // 0x59606519FF9D3EC2 b1207
-	NATIVE_DECL Any _0xF8D1D2DAB6007EEF(Any p0, Any p1) { return invoke<Any>(0xF8D1D2DAB6007EEF, p0, p1); } // 0xF8D1D2DAB6007EEF b1207
+	NATIVE_DECL BOOL _IS_ANIM_SCENE_METADATA_ASSET_IN_RANGE_LOADING(AnimScene animScene, BOOL p1) { return invoke<BOOL>(0xF8D1D2DAB6007EEF, animScene, p1); } // 0xF8D1D2DAB6007EEF b1207
 	NATIVE_DECL BOOL IS_ANIM_SCENE_METADATA_LOADED(AnimScene animScene, BOOL p1) { return invoke<BOOL>(0x95531A4A20CCE7BC, animScene, p1); } // 0x95531A4A20CCE7BC b1207
-	NATIVE_DECL Any _0x9E036D5204FFBBC8(Any p0, Any p1) { return invoke<Any>(0x9E036D5204FFBBC8, p0, p1); } // 0x9E036D5204FFBBC8 b1207
+	NATIVE_DECL int _GET_ANIM_SCENE_PLAYBACK_LIST_PHASE_AUDIO_LOAD_STRESS(AnimScene animScene, const char* phaseName) { return invoke<int>(0x9E036D5204FFBBC8, animScene, phaseName); } // 0x9E036D5204FFBBC8 b1207
 	NATIVE_DECL void START_ANIM_SCENE(AnimScene animScene) { invoke<Void>(0xF4D94AF761768700, animScene); } // 0xF4D94AF761768700 b1207
 	NATIVE_DECL void RESET_ANIM_SCENE(AnimScene animScene, const char* p1) { invoke<Void>(0x8FDF221F13537936, animScene, p1); } // 0x8FDF221F13537936 b1207
 	NATIVE_DECL void ABORT_ANIM_SCENE(AnimScene animScene, BOOL p1) { invoke<Void>(0x718CF1328D20C2B3, animScene, p1); } // 0x718CF1328D20C2B3 b1207
@@ -169,15 +175,15 @@ namespace ANIMSCENE
 	NATIVE_DECL BOOL HAS_ANIM_SCENE_EXITED(AnimScene animScene, BOOL p1) { return invoke<BOOL>(0xF94692EB9DC15D74, animScene, p1); } // 0xF94692EB9DC15D74 b1207
 	NATIVE_DECL Any _0x73616E64696C132E(Any p0, Any p1) { return invoke<Any>(0x73616E64696C132E, p0, p1); } // 0x73616E64696C132E b1207
 	NATIVE_DECL BOOL IS_ANIM_SCENE_IN_SECTION(AnimScene animScene, const char* sectionName, BOOL p2) { return invoke<BOOL>(0x8D81E7824B7753F7, animScene, sectionName, p2); } // 0x8D81E7824B7753F7 b1207
-	NATIVE_DECL Any _0x4CDFFE3189EBDBD0(Any p0) { return invoke<Any>(0x4CDFFE3189EBDBD0, p0); } // 0x4CDFFE3189EBDBD0 b1207
-	NATIVE_DECL Any _0x34A0671BE613D3D0(Any p0) { return invoke<Any>(0x34A0671BE613D3D0, p0); } // 0x34A0671BE613D3D0 b1207
+	NATIVE_DECL BOOL _IS_ANIM_SCENE_SKIPPABLE(AnimScene animScene) { return invoke<BOOL>(0x4CDFFE3189EBDBD0, animScene); } // 0x4CDFFE3189EBDBD0 b1207
+	NATIVE_DECL BOOL _IS_ANIM_SCENE_ABORTED(AnimScene animScene) { return invoke<BOOL>(0x34A0671BE613D3D0, animScene); } // 0x34A0671BE613D3D0 b1207
 	NATIVE_DECL Any _0xD70C7A30412F8FA0(Any p0) { return invoke<Any>(0xD70C7A30412F8FA0, p0); } // 0xD70C7A30412F8FA0 b1207
 	NATIVE_DECL Any _0x9AAE3C1148A09BCA(Any p0) { return invoke<Any>(0x9AAE3C1148A09BCA, p0); } // 0x9AAE3C1148A09BCA b1207
 	NATIVE_DECL Any _0xA96619FE85159ED2(Any p0) { return invoke<Any>(0xA96619FE85159ED2, p0); } // 0xA96619FE85159ED2 b1207
 	NATIVE_DECL void FADE_ANIM_SCENE_AUDIO_IN(AnimScene animScene, float p1) { invoke<Void>(0xA41351EA2A18A0AD, animScene, p1); } // 0xA41351EA2A18A0AD b1207
 	NATIVE_DECL void FADE_ANIM_SCENE_AUDIO_OUT(AnimScene animScene, float p1) { invoke<Void>(0x323E3AD772BA5D57, animScene, p1); } // 0x323E3AD772BA5D57 b1207
 	NATIVE_DECL void BLOCK_ANIM_SCENE_FADING_NEXT_FRAME(BOOL p0, BOOL p1) { invoke<Void>(0x1B70811D3BF75DB9, p0, p1); } // 0x1B70811D3BF75DB9 b1207
-	NATIVE_DECL void SET_ANIM_SCENE_ORIGIN(AnimScene animScene, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { invoke<Void>(0x020894BF17A02EF2, animScene, p1, p2, p3, p4, p5, p6, p7); } // 0x020894BF17A02EF2 b1207
+	NATIVE_DECL void SET_ANIM_SCENE_ORIGIN(AnimScene animScene, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, int order) { invoke<Void>(0x020894BF17A02EF2, animScene, posX, posY, posZ, rotX, rotY, rotZ, order); } // 0x020894BF17A02EF2 b1207
 	NATIVE_DECL void GET_ANIM_SCENE_ORIGIN(AnimScene animScene, Vector3* position, Vector3* rotation, int order) { invoke<Void>(0xADF1D53F3B1FE0A7, animScene, position, rotation, order); } // 0xADF1D53F3B1FE0A7 b1207
 	NATIVE_DECL void SET_ANIM_SCENE_PAUSED(AnimScene animScene, BOOL toggle) { invoke<Void>(0xD6824B7D24DC0CE0, animScene, toggle); } // 0xD6824B7D24DC0CE0 b1207
 	NATIVE_DECL BOOL _IS_ANIM_SCENE_PAUSED(AnimScene animScene) { return invoke<BOOL>(0x4B4038796F0D6566, animScene); } // 0x4B4038796F0D6566 b1207
@@ -191,7 +197,8 @@ namespace ANIMSCENE
 	NATIVE_DECL BOOL IS_ENTITY_EXITING_ANIM_SCENE_THIS_FRAME(AnimScene animScene, const char* entityName) { return invoke<BOOL>(0x005E6F28DD7ED58D, animScene, entityName); } // 0x005E6F28DD7ED58D b1207
 	NATIVE_DECL BOOL COULD_ANIM_SCENE_ENTITY_REACH_EXIT_NEXT_FRAME(AnimScene animScene, const char* entityName, Any p2, Any p3) { return invoke<BOOL>(0x73616E64696C616E, animScene, entityName, p2, p3); } // 0x73616E64696C616E b1207
 	NATIVE_DECL BOOL HAS_ENTITY_EXITED_ANIM_SCENE(AnimScene animScene, const char* entityName) { return invoke<BOOL>(0xB89FCFF19DAFFF28, animScene, entityName); } // 0xB89FCFF19DAFFF28 b1207
-	NATIVE_DECL Any _0x337F1CC8EE895601(Any p0, Any p1) { return invoke<Any>(0x337F1CC8EE895601, p0, p1); } // 0x337F1CC8EE895601 b1207
+	// _HAS_L* (?)
+	NATIVE_DECL BOOL _HAS_ENTITY_ENTERED_ANIM_SCENE(AnimScene animScene, const char* entityName) { return invoke<BOOL>(0x337F1CC8EE895601, animScene, entityName); } // 0x337F1CC8EE895601 b1207
 	NATIVE_DECL Ped _GET_ANIM_SCENE_PED(AnimScene animScene, const char* name, BOOL isNetwork) { return invoke<Ped>(0xE5822422197BBBA3, animScene, name, isNetwork); } // 0xE5822422197BBBA3 b1207
 	NATIVE_DECL Object _GET_ANIM_SCENE_OBJECT(AnimScene animScene, const char* name, BOOL isNetwork) { return invoke<Object>(0xFB5674687A1B2814, animScene, name, isNetwork); } // 0xFB5674687A1B2814 b1207
 	NATIVE_DECL Vehicle _GET_ANIM_SCENE_VEHICLE(AnimScene animScene, const char* name, BOOL isNetwork) { return invoke<Vehicle>(0x430EE0A19BC5A287, animScene, name, isNetwork); } // 0x430EE0A19BC5A287 b1207
@@ -211,34 +218,45 @@ namespace ANIMSCENE
 	NATIVE_DECL BOOL CHECK_OWNERSHIP_OF_ANIM_SCENE(AnimScene animScene) { return invoke<BOOL>(0x661B8683611B9B97, animScene); } // 0x661B8683611B9B97 b1207
 	NATIVE_DECL void SET_ANIM_SCENE_PLAYBACK_LIST(AnimScene animScene, const char* playbackListName) { invoke<Void>(0xAB5E7CAB074D6B84, animScene, playbackListName); } // 0xAB5E7CAB074D6B84 b1207
 	NATIVE_DECL Any _0x1C5D33A4293E6DDE(Any p0, Any p1) { return invoke<Any>(0x1C5D33A4293E6DDE, p0, p1); } // 0x1C5D33A4293E6DDE b1207
-	NATIVE_DECL Any _0xA9016536015DE29D(Any p0, Any p1) { return invoke<Any>(0xA9016536015DE29D, p0, p1); } // 0xA9016536015DE29D b1207
+	NATIVE_DECL BOOL _DOES_ANIM_SCENE_PLAY_LIST_EXIST(AnimScene animScene, const char* playbackListName) { return invoke<BOOL>(0xA9016536015DE29D, animScene, playbackListName); } // 0xA9016536015DE29D b1207
 	NATIVE_DECL void SET_ANIM_SCENE_PLAY_LIST(AnimScene animScene, const char* playlistName, BOOL p2) { invoke<Void>(0x15598CFB25F3DC7E, animScene, playlistName, p2); } // 0x15598CFB25F3DC7E b1207
-	NATIVE_DECL BOOL _0x1F0E401031E20146(AnimScene animScene, const char* phaseName) { return invoke<BOOL>(0x1F0E401031E20146, animScene, phaseName); } // 0x1F0E401031E20146 b1207
+	NATIVE_DECL BOOL _IS_ANIM_SCENE_PLAYBACK_LIST_PHASE_ACTIVE(AnimScene animScene, const char* phaseName) { return invoke<BOOL>(0x1F0E401031E20146, animScene, phaseName); } // 0x1F0E401031E20146 b1207
 	NATIVE_DECL BOOL REQUEST_ANIM_SCENE_PLAY_LIST(AnimScene animScene, const char* playlistName) { return invoke<BOOL>(0xDF7B5144E25CD3FE, animScene, playlistName); } // 0xDF7B5144E25CD3FE b1207
 	NATIVE_DECL BOOL _RELEASE_ANIM_SCENE_PLAY_LIST(AnimScene animScene, const char* playlistName) { return invoke<BOOL>(0xAE6ADA8FE7E84ACC, animScene, playlistName); } // 0xAE6ADA8FE7E84ACC b1207
-	NATIVE_DECL Any _0xAE5ADA4FE3E21ADC(Any p0) { return invoke<Any>(0xAE5ADA4FE3E21ADC, p0); } // 0xAE5ADA4FE3E21ADC b1207
+	NATIVE_DECL Hash _GET_ANIM_SCENE_DICT(AnimScene animScene) { return invoke<Hash>(0xAE5ADA4FE3E21ADC, animScene); } // 0xAE5ADA4FE3E21ADC b1207
 	NATIVE_DECL Any _0x1407F5115FB9583E(Any p0, Any p1) { return invoke<Any>(0x1407F5115FB9583E, p0, p1); } // 0x1407F5115FB9583E b1207
-	NATIVE_DECL BOOL _0x23E33CB9F4A3F547(AnimScene animScene, const char* phaseName) { return invoke<BOOL>(0x23E33CB9F4A3F547, animScene, phaseName); } // 0x23E33CB9F4A3F547 b1207
-	NATIVE_DECL BOOL _0x0DF57F86FE71DBE5(AnimScene animScene, const char* phaseName) { return invoke<BOOL>(0x0DF57F86FE71DBE5, animScene, phaseName); } // 0x0DF57F86FE71DBE5 b1207
+	NATIVE_DECL BOOL _IS_ANIM_SCENE_PLAYBACK_LIST_PHASE_LOADED(AnimScene animScene, const char* phaseName) { return invoke<BOOL>(0x23E33CB9F4A3F547, animScene, phaseName); } // 0x23E33CB9F4A3F547 b1207
+	NATIVE_DECL BOOL _IS_ANIM_SCENE_PLAYBACK_LIST_PHASE_LOADING(AnimScene animScene, const char* phaseName) { return invoke<BOOL>(0x0DF57F86FE71DBE5, animScene, phaseName); } // 0x0DF57F86FE71DBE5 b1207
 	NATIVE_DECL void _0x1AD896BF43619551() { invoke<Void>(0x1AD896BF43619551); } // 0x1AD896BF43619551 b1207
 	NATIVE_DECL int GET_ANIM_SCENE_CURRENT_ACTIVE_CAMERA_COUNT(AnimScene animScene) { return invoke<int>(0x4822A65D5AF64E69, animScene); } // 0x4822A65D5AF64E69 b1207
 	NATIVE_DECL Any _0x5D7BFDA2290B4E39(Any p0) { return invoke<Any>(0x5D7BFDA2290B4E39, p0); } // 0x5D7BFDA2290B4E39 b1207
-	NATIVE_DECL Any _0xFDFC14799373283F(Any p0) { return invoke<Any>(0xFDFC14799373283F, p0); } // 0xFDFC14799373283F b1207
-	NATIVE_DECL Any _0xB727A847862CB00A(Any p0) { return invoke<Any>(0xB727A847862CB00A, p0); } // 0xB727A847862CB00A b1207
-	NATIVE_DECL Any _0xA1300DE03E5D1973(Any p0) { return invoke<Any>(0xA1300DE03E5D1973, p0); } // 0xA1300DE03E5D1973 b1207
-	NATIVE_DECL void _0x53CB3970BA02E3CC(Any p0) { invoke<Void>(0x53CB3970BA02E3CC, p0); } // 0x53CB3970BA02E3CC b1207
-	NATIVE_DECL void _0xB1A196BAFE650402(Any p0, Any p1) { invoke<Void>(0xB1A196BAFE650402, p0, p1); } // 0xB1A196BAFE650402 b1207
-	NATIVE_DECL void _0xAE6DE22DE0ED4554(Any p0, Any p1) { invoke<Void>(0xAE6DE22DE0ED4554, p0, p1); } // 0xAE6DE22DE0ED4554 b1207
+	// MGM stands for MiniGameMoments.
+	NATIVE_DECL BOOL _IS_MGM_SYSTEM_LOADED(const char* mgmFilename) { return invoke<BOOL>(0xFDFC14799373283F, mgmFilename); } // 0xFDFC14799373283F b1207
+	// Used to request MiniGameMoments Assets.
+	// 
+	// mgmFilename's:
+	// Poker
+	// PokerArthur
+	// PokerArthurCamp
+	// PokerJohn
+	// PokerJohnCamp
+	NATIVE_DECL BOOL _LOAD_MGM_ASSETS(const char* mgmFilename) { return invoke<BOOL>(0xB727A847862CB00A, mgmFilename); } // 0xB727A847862CB00A b1207
+	// Returns mgmHandle
+	NATIVE_DECL int _CREATE_MGM_SYSTEM(const char* mgmFilename) { return invoke<int>(0xA1300DE03E5D1973, mgmFilename); } // 0xA1300DE03E5D1973 b1207
+	NATIVE_DECL void _DELETE_MGM_SYSTEM(int mgmHandle) { invoke<Void>(0x53CB3970BA02E3CC, mgmHandle); } // 0x53CB3970BA02E3CC b1207
+	NATIVE_DECL void _0xB1A196BAFE650402(int mgmHandle, Ped ped) { invoke<Void>(0xB1A196BAFE650402, mgmHandle, ped); } // 0xB1A196BAFE650402 b1207
+	NATIVE_DECL void _0xAE6DE22DE0ED4554(int mgmHandle, Ped ped) { invoke<Void>(0xAE6DE22DE0ED4554, mgmHandle, ped); } // 0xAE6DE22DE0ED4554 b1207
 	NATIVE_DECL Any _0x61B2AAEF645DDAF0(Any p0, Any p1, Any p2, Any p3, Any p4) { return invoke<Any>(0x61B2AAEF645DDAF0, p0, p1, p2, p3, p4); } // 0x61B2AAEF645DDAF0 b1207
 	NATIVE_DECL void _0x07706C4CC9C6CC9E(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x07706C4CC9C6CC9E, p0, p1, p2, p3, p4); } // 0x07706C4CC9C6CC9E b1207
-	NATIVE_DECL void _0x3641FCD53E59B335(Any p0, Any p1, Any p2) { invoke<Void>(0x3641FCD53E59B335, p0, p1, p2); } // 0x3641FCD53E59B335 b1207
-	NATIVE_DECL void _0x99B2A2E3655DEAF1(Any p0, Any p1) { invoke<Void>(0x99B2A2E3655DEAF1, p0, p1); } // 0x99B2A2E3655DEAF1 b1207
-	NATIVE_DECL void _0xBC781D24AA11F179(Any p0) { invoke<Void>(0xBC781D24AA11F179, p0); } // 0xBC781D24AA11F179 b1207
+	// p2: MINIGAME_GET_SECONDARY_VOICE_STRING
+	NATIVE_DECL void _0x3641FCD53E59B335(int mgmHandle, Ped ped, const char* secondaryVoiceString) { invoke<Void>(0x3641FCD53E59B335, mgmHandle, ped, secondaryVoiceString); } // 0x3641FCD53E59B335 b1207
+	NATIVE_DECL void _SET_BREAKOUT_ARCHETYPE(Ped ped, const char* archetype) { invoke<Void>(0x99B2A2E3655DEAF1, ped, archetype); } // 0x99B2A2E3655DEAF1 b1207
+	NATIVE_DECL void _CLEAR_BREAKOUT_ARCHETYPE(Ped ped) { invoke<Void>(0xBC781D24AA11F179, ped); } // 0xBC781D24AA11F179 b1207
 	NATIVE_DECL Any _0x3B393716C3FD8237(Any p0) { return invoke<Any>(0x3B393716C3FD8237, p0); } // 0x3B393716C3FD8237 b1207
 	NATIVE_DECL void _0xE12D7B4B959644CD() { invoke<Void>(0xE12D7B4B959644CD); } // 0xE12D7B4B959644CD b1207
 	NATIVE_DECL void _0xC1193521E3B9FADD(Any p0, Any p1) { invoke<Void>(0xC1193521E3B9FADD, p0, p1); } // 0xC1193521E3B9FADD b1207
-	NATIVE_DECL void _0x7C709C01D43D94CD() { invoke<Void>(0x7C709C01D43D94CD); } // 0x7C709C01D43D94CD b1207
-	NATIVE_DECL void _0x41AFA5F228B0B6B0() { invoke<Void>(0x41AFA5F228B0B6B0); } // 0x41AFA5F228B0B6B0 b1207
+	NATIVE_DECL void _REQUEST_PHOTO_MODE_FREEZE() { invoke<Void>(0x7C709C01D43D94CD); } // 0x7C709C01D43D94CD b1207
+	NATIVE_DECL void _REQUEST_PHOTO_MODE_DEFREEZE() { invoke<Void>(0x41AFA5F228B0B6B0); } // 0x41AFA5F228B0B6B0 b1207
 	NATIVE_DECL Any _0x2DB524750DC41ED4() { return invoke<Any>(0x2DB524750DC41ED4); } // 0x2DB524750DC41ED4 b1207
 	NATIVE_DECL Any _0xEA41D44A8D42057B() { return invoke<Any>(0xEA41D44A8D42057B); } // 0xEA41D44A8D42057B b1207
 	// Pauses all script threads except the one that called it.
@@ -250,7 +268,7 @@ namespace ANIMSCENE
 namespace _NAMESPACE4
 {
 	// nullsub, doesn't do anything
-	NATIVE_DECL void _0xC31C44C43B48FDE3(Any* gamerHandle, int p1) { invoke<Void>(0xC31C44C43B48FDE3, gamerHandle, p1); } // 0xC31C44C43B48FDE3 b1207
+	NATIVE_DECL void _0xC31C44C43B48FDE3(Any* gamerHandle, int badSportBehaviorType) { invoke<Void>(0xC31C44C43B48FDE3, gamerHandle, badSportBehaviorType); } // 0xC31C44C43B48FDE3 b1207
 }
 
 namespace ATTRIBUTE
@@ -282,7 +300,7 @@ namespace ATTRIBUTE
 	// 	PA_UNRULINESS,
 	// 	SA_DIRTINESSSKIN
 	// };
-	NATIVE_DECL void SET_ATTRIBUTE_BASE_RANK(Ped ped, int attributeIndex, int p2) { invoke<Void>(0x5DA12E025D47D4E5, ped, attributeIndex, p2); } // 0x5DA12E025D47D4E5 b1207
+	NATIVE_DECL void SET_ATTRIBUTE_BASE_RANK(Ped ped, int attributeIndex, int newValue) { invoke<Void>(0x5DA12E025D47D4E5, ped, attributeIndex, newValue); } // 0x5DA12E025D47D4E5 b1207
 	// attributeIndex: see SET_ATTRIBUTE_BASE_RANK
 	NATIVE_DECL int GET_ATTRIBUTE_RANK(Ped ped, int attributeIndex) { return invoke<int>(0xA4C8E23E29040DE0, ped, attributeIndex); } // 0xA4C8E23E29040DE0 b1207
 	// attributeIndex: see SET_ATTRIBUTE_BASE_RANK
@@ -292,7 +310,7 @@ namespace ATTRIBUTE
 	// attributeIndex: see SET_ATTRIBUTE_BASE_RANK
 	NATIVE_DECL int GET_MAX_ATTRIBUTE_RANK(Ped ped, int attributeIndex) { return invoke<int>(0x704674A0535A471D, ped, attributeIndex); } // 0x704674A0535A471D b1207
 	// attributeIndex: see SET_ATTRIBUTE_BASE_RANK
-	NATIVE_DECL void SET_ATTRIBUTE_BONUS_RANK(Ped ped, int attributeIndex, int p2) { invoke<Void>(0x920F9488BD115EFB, ped, attributeIndex, p2); } // 0x920F9488BD115EFB b1207
+	NATIVE_DECL void SET_ATTRIBUTE_BONUS_RANK(Ped ped, int attributeIndex, int newValue) { invoke<Void>(0x920F9488BD115EFB, ped, attributeIndex, newValue); } // 0x920F9488BD115EFB b1207
 	// attributeIndex: see SET_ATTRIBUTE_BASE_RANK
 	NATIVE_DECL int GET_DEFAULT_ATTRIBUTE_RANK(Ped ped, int attributeIndex) { return invoke<int>(0x958DD43D41F89A47, ped, attributeIndex); } // 0x958DD43D41F89A47 b1207
 	// attributeIndex: see SET_ATTRIBUTE_BASE_RANK
@@ -333,40 +351,66 @@ namespace ATTRIBUTE
 	NATIVE_DECL BOOL _IS_ATTRIBUTE_CORE_OVERPOWERED(Ped ped, int coreIndex) { return invoke<BOOL>(0x200373A8DF081F22, ped, coreIndex); } // 0x200373A8DF081F22 b1207
 	NATIVE_DECL float _GET_ATTRIBUTE_OVERPOWER_SECONDS_LEFT(Ped ped, int attributeIndex) { return invoke<float>(0x4C9F782180712742, ped, attributeIndex); } // 0x4C9F782180712742 b1207
 	NATIVE_DECL float _GET_ATTRIBUTE_CORE_OVERPOWER_SECONDS_LEFT(Ped ped, int coreIndex) { return invoke<float>(0xB429F58803D285B1, ped, coreIndex); } // 0xB429F58803D285B1 b1207
-	NATIVE_DECL void _0x7E2C766ADB2C5F1A(Any p0, Any p1) { invoke<Void>(0x7E2C766ADB2C5F1A, p0, p1); } // 0x7E2C766ADB2C5F1A b1207
+	NATIVE_DECL void _START_ITEM_PREVIEW(Any p0, Any p1) { invoke<Void>(0x7E2C766ADB2C5F1A, p0, p1); } // 0x7E2C766ADB2C5F1A b1207
 	NATIVE_DECL void STOP_ITEM_PREVIEW() { invoke<Void>(0xD962F8579D702DB5); } // 0xD962F8579D702DB5 b1207
-	NATIVE_DECL void _SET_CORE_ICON(int type) { invoke<Void>(0xA4D3A1C008F250DF, type); } // 0xA4D3A1C008F250DF b1207
-	NATIVE_DECL void _START_PERIODIC_ICON(int type) { invoke<Void>(0xFB6E111908502871, type); } // 0xFB6E111908502871 b1207
-	NATIVE_DECL void _STOP_PERIODIC_ICON(int type) { invoke<Void>(0x3FC4C027FD0936F4, type); } // 0x3FC4C027FD0936F4 b1207
+	// Displays status effects on core icons (includes warnings).
+	// 
+	// enum eUiRpgStatusEffect
+	// {
+	// 	STATUS_NONE,
+	// 	STATUS_COLD,
+	// 	STATUS_HOT,
+	// 	STATUS_OVERFED,
+	// 	STATUS_DIRTY,
+	// 	STATUS_SNAKE_VENOM,
+	// 	STATUS_ARROW_WOUNDED,
+	// 	STATUS_ARROW_DRAINED,
+	// 	STATUS_ARROW_DISORIENTED,
+	// 	STATUS_ARROW_TRACKED,
+	// 	STATUS_ARROW_CONFUSION,
+	// 	STATUS_UNDERWEIGHT,
+	// 	STATUS_OVERWEIGHT,
+	// 	STATUS_SICK_1,
+	// 	STATUS_SICK_2,
+	// 	STATUS_PREDATOR_INVULNERABLE
+	// };
+	NATIVE_DECL void _SET_STATUS_EFFECT_CORE_ICON(int statusEffectType) { invoke<Void>(0xA4D3A1C008F250DF, statusEffectType); } // 0xA4D3A1C008F250DF b1207
+	// Starts core periodic icon.
+	// statusEffectType: see 0xA4D3A1C008F250DF
+	NATIVE_DECL void _SET_STATUS_EFFECT_PERIODIC_ICON(int statusEffectType) { invoke<Void>(0xFB6E111908502871, statusEffectType); } // 0xFB6E111908502871 b1207
+	// Stops periodic icon.
+	// statusEffectType: see 0xA4D3A1C008F250DF
+	NATIVE_DECL void _STOP_STATUS_EFFECT_PERIODIC_ICON(int statusEffectType) { invoke<Void>(0x3FC4C027FD0936F4, statusEffectType); } // 0x3FC4C027FD0936F4 b1207
 }
 
 namespace AUDIO
 {
 	NATIVE_DECL void _0x7455CD705F7E933E() { invoke<Void>(0x7455CD705F7E933E); } // 0x7455CD705F7E933E b1207
 	NATIVE_DECL void CLEAR_CONVERSATION_HISTORY() { invoke<Void>(0x33D51F801CB16E4F); } // 0x33D51F801CB16E4F b1207
-	NATIVE_DECL void _0xEF51242E35242B47(Any p0) { invoke<Void>(0xEF51242E35242B47, p0); } // 0xEF51242E35242B47 b1207
-	NATIVE_DECL BOOL CREATE_NEW_SCRIPTED_CONVERSATION(const char* p0) { return invoke<BOOL>(0xD2C91A0B572AAE56, p0); } // 0xD2C91A0B572AAE56 0xB2BC25F8 b1207
+	NATIVE_DECL void _CLEAR_CONVERSATION_HISTORY_FOR_SCRIPTED_CONVERSATION(const char* convoRoot) { invoke<Void>(0xEF51242E35242B47, convoRoot); } // 0xEF51242E35242B47 b1207
+	NATIVE_DECL BOOL CREATE_NEW_SCRIPTED_CONVERSATION(const char* convoRoot) { return invoke<BOOL>(0xD2C91A0B572AAE56, convoRoot); } // 0xD2C91A0B572AAE56 0xB2BC25F8 b1207
 	NATIVE_DECL Any _0xDF947FE0D551684E(Any p0, Any p1) { return invoke<Any>(0xDF947FE0D551684E, p0, p1); } // 0xDF947FE0D551684E b1207
 	NATIVE_DECL void ADD_PED_TO_CONVERSATION(const char* p0, Ped ped, const char* p2) { invoke<Void>(0x95D9F4BC443956E7, p0, ped, p2); } // 0x95D9F4BC443956E7 0xF8D5EB86 b1207
 	NATIVE_DECL void _0xA2323A2EAE32A290(Any p0, Any p1, Any p2) { invoke<Void>(0xA2323A2EAE32A290, p0, p1, p2); } // 0xA2323A2EAE32A290 b1207
 	NATIVE_DECL Any _0x79F9C57B8D0DFE90(Any p0, Any p1) { return invoke<Any>(0x79F9C57B8D0DFE90, p0, p1); } // 0x79F9C57B8D0DFE90 b1207
-	NATIVE_DECL void START_SCRIPT_CONVERSATION(const char* p0, BOOL p1, BOOL p2, BOOL p3) { invoke<Void>(0x6B17C62C9635D2DC, p0, p1, p2, p3); } // 0x6B17C62C9635D2DC 0xE5DE7D9D b1207
-	NATIVE_DECL void PRELOAD_SCRIPT_CONVERSATION(const char* p0, BOOL p1, BOOL p2, BOOL p3) { invoke<Void>(0x3B3CAD6166916D87, p0, p1, p2, p3); } // 0x3B3CAD6166916D87 0xDDF5C579 b1207
-	NATIVE_DECL void START_PRELOADED_CONVERSATION(const char* p0) { invoke<Void>(0x23641AFE870AF385, p0); } // 0x23641AFE870AF385 0xA170261B b1207
+	NATIVE_DECL void START_SCRIPT_CONVERSATION(const char* convoRoot, BOOL p1, BOOL p2, BOOL clone) { invoke<Void>(0x6B17C62C9635D2DC, convoRoot, p1, p2, clone); } // 0x6B17C62C9635D2DC 0xE5DE7D9D b1207
+	NATIVE_DECL void PRELOAD_SCRIPT_CONVERSATION(const char* convoRoot, BOOL p1, BOOL p2, BOOL clone) { invoke<Void>(0x3B3CAD6166916D87, convoRoot, p1, p2, clone); } // 0x3B3CAD6166916D87 0xDDF5C579 b1207
+	NATIVE_DECL void START_PRELOADED_CONVERSATION(const char* convoRoot) { invoke<Void>(0x23641AFE870AF385, convoRoot); } // 0x23641AFE870AF385 0xA170261B b1207
 	NATIVE_DECL Any _0x0CB3D1919E8D7CBA(Any p0) { return invoke<Any>(0x0CB3D1919E8D7CBA, p0); } // 0x0CB3D1919E8D7CBA b1207
 	NATIVE_DECL Any _0xFE5C6177064BD390(Any p0) { return invoke<Any>(0xFE5C6177064BD390, p0); } // 0xFE5C6177064BD390 b1207
-	NATIVE_DECL Any _0xD89504D9D7D5057D(Any p0) { return invoke<Any>(0xD89504D9D7D5057D, p0); } // 0xD89504D9D7D5057D b1207
+	NATIVE_DECL BOOL _IS_SCRIPTED_CONVERSATION_CREATED(const char* convoRoot) { return invoke<BOOL>(0xD89504D9D7D5057D, convoRoot); } // 0xD89504D9D7D5057D b1207
 	NATIVE_DECL Any _0x5A13586A9447931F(Any p0) { return invoke<Any>(0x5A13586A9447931F, p0); } // 0x5A13586A9447931F b1207
-	NATIVE_DECL BOOL IS_SCRIPTED_CONVERSATION_LOADED(const char* p0) { return invoke<BOOL>(0xDF0D54BE7A776737, p0); } // 0xDF0D54BE7A776737 0xE1870EA9 b1207
+	NATIVE_DECL BOOL IS_SCRIPTED_CONVERSATION_LOADED(const char* convoRoot) { return invoke<BOOL>(0xDF0D54BE7A776737, convoRoot); } // 0xDF0D54BE7A776737 0xE1870EA9 b1207
 	NATIVE_DECL Any _0xA2CAC9DEF0195E6F(Any p0) { return invoke<Any>(0xA2CAC9DEF0195E6F, p0); } // 0xA2CAC9DEF0195E6F b1207
 	NATIVE_DECL BOOL IS_SCRIPTED_CONVERSATION_PLAYING(const char* p0) { return invoke<BOOL>(0x1ECC76792F661CF5, p0); } // 0x1ECC76792F661CF5 b1207
 	NATIVE_DECL Any _0xF01C570E0A0A1E67(Any p0) { return invoke<Any>(0xF01C570E0A0A1E67, p0); } // 0xF01C570E0A0A1E67 b1207
 	NATIVE_DECL Any _0x847748AE5D7B1071(Any p0) { return invoke<Any>(0x847748AE5D7B1071, p0); } // 0x847748AE5D7B1071 b1207
+	// _IS_SCRIPTED_CONVERSATION_*
 	NATIVE_DECL Any _0xD0730C1FA40348D9(Any p0) { return invoke<Any>(0xD0730C1FA40348D9, p0); } // 0xD0730C1FA40348D9 b1207
 	NATIVE_DECL int GET_CURRENT_SCRIPTED_CONVERSATION_LINE(const char* p0) { return invoke<int>(0x480357EE890C295A, p0); } // 0x480357EE890C295A 0x9620E41F b1207
 	NATIVE_DECL void PAUSE_SCRIPTED_CONVERSATION(const char* p0, BOOL p1, BOOL p2, BOOL p3, BOOL p4) { invoke<Void>(0x8530AD776CD72B12, p0, p1, p2, p3, p4); } // 0x8530AD776CD72B12 0xE2C9C6F8 b1207
 	NATIVE_DECL void RESTART_SCRIPTED_CONVERSATION(const char* p0) { invoke<Void>(0x9AEB285D1818C9AC, p0); } // 0x9AEB285D1818C9AC 0x6CB24B56 b1207
-	NATIVE_DECL void _0x36559148B78853B3(Any p0, Any p1, Any p2) { invoke<Void>(0x36559148B78853B3, p0, p1, p2); } // 0x36559148B78853B3 b1207
+	NATIVE_DECL void _0x36559148B78853B3(Any p0, BOOL p1, Any p2) { invoke<Void>(0x36559148B78853B3, p0, p1, p2); } // 0x36559148B78853B3 b1207
 	NATIVE_DECL int STOP_SCRIPTED_CONVERSATION(const char* p0, BOOL p1, BOOL p2) { return invoke<int>(0xD79DEEFB53455EBA, p0, p1, p2); } // 0xD79DEEFB53455EBA 0xAB77DA7D b1207
 	NATIVE_DECL void SKIP_TO_NEXT_SCRIPTED_CONVERSATION_LINE(const char* p0) { invoke<Void>(0x9663FE6B7A61EB00, p0); } // 0x9663FE6B7A61EB00 0x85C98304 b1207
 	NATIVE_DECL Any _0xF336E9F989B3518F(Any p0) { return invoke<Any>(0xF336E9F989B3518F, p0); } // 0xF336E9F989B3518F b1207
@@ -374,7 +418,7 @@ namespace AUDIO
 	NATIVE_DECL Any _0x152ED1B56E8F1F50(Any p0, Any p1) { return invoke<Any>(0x152ED1B56E8F1F50, p0, p1); } // 0x152ED1B56E8F1F50 b1207
 	NATIVE_DECL Any _0x935DBD96D4A3DA1F(Any p0, Any p1) { return invoke<Any>(0x935DBD96D4A3DA1F, p0, p1); } // 0x935DBD96D4A3DA1F b1207
 	NATIVE_DECL Any _0x295859EB18F48D82(Any p0) { return invoke<Any>(0x295859EB18F48D82, p0); } // 0x295859EB18F48D82 b1207
-	NATIVE_DECL void _0x40CA665AB9D8D505(const char* p0, int p1) { invoke<Void>(0x40CA665AB9D8D505, p0, p1); } // 0x40CA665AB9D8D505 b1207
+	NATIVE_DECL void _0x40CA665AB9D8D505(const char* convoRoot, int singleLineIndex) { invoke<Void>(0x40CA665AB9D8D505, convoRoot, singleLineIndex); } // 0x40CA665AB9D8D505 b1207
 	NATIVE_DECL void _0xF232C2C546AC16D0(Any p0) { invoke<Void>(0xF232C2C546AC16D0, p0); } // 0xF232C2C546AC16D0 b1207
 	NATIVE_DECL void _0x1E6F9A9FE1A99F36(Any p0) { invoke<Void>(0x1E6F9A9FE1A99F36, p0); } // 0x1E6F9A9FE1A99F36 b1207
 	// nullsub, doesn't do anything
@@ -387,26 +431,34 @@ namespace AUDIO
 	NATIVE_DECL int GET_SOUND_ID() { return invoke<int>(0x430386FE9BF80B45); } // 0x430386FE9BF80B45 0x6AE0AD56 b1207
 	NATIVE_DECL void RELEASE_SOUND_ID(int soundId) { invoke<Void>(0x353FC880830B88FA, soundId); } // 0x353FC880830B88FA 0x9C080899 b1207
 	NATIVE_DECL void PLAY_SOUND(const char* audioName, const char* audioRef, BOOL p2, Any p3, BOOL p4, Any p5) { invoke<Void>(0x7FF4944CC209192D, audioName, audioRef, p2, p3, p4, p5); } // 0x7FF4944CC209192D 0xB6E1917F b1207
+	// https://github.com/femga/rdr3_discoveries/tree/master/audio/frontend_soundsets
 	NATIVE_DECL void PLAY_SOUND_FRONTEND(const char* audioName, const char* audioRef, BOOL p2, Any p3) { invoke<Void>(0x67C540AA08E4A6F5, audioName, audioRef, p2, p3); } // 0x67C540AA08E4A6F5 0x2E458F74 b1207
-	NATIVE_DECL void _0xE8EAFF7B41EDD291(Any p0, Any p1, Any p2) { invoke<Void>(0xE8EAFF7B41EDD291, p0, p1, p2); } // 0xE8EAFF7B41EDD291 b1207
+	// item: value returned from 0x2E1CDC1FF3B8473E
+	// soundSet: HUD_SHOP_SOUNDSET, COMPANIONS_ROBBERIES_SOUNDSET
+	NATIVE_DECL void _PLAY_SOUND_FROM_ITEM(Hash item, Hash soundSet, Any p2) { invoke<Void>(0xE8EAFF7B41EDD291, item, soundSet, p2); } // 0xE8EAFF7B41EDD291 b1207
 	NATIVE_DECL void PLAY_SOUND_FROM_ENTITY(const char* audioName, Entity entity, const char* audioRef, BOOL isNetwork, Any p4, Any p5) { invoke<Void>(0x6FB1DA3CA9DA7D90, audioName, entity, audioRef, isNetwork, p4, p5); } // 0x6FB1DA3CA9DA7D90 b1207
 	NATIVE_DECL void _PLAY_SOUND_FROM_POSITION(const char* audioName, float x, float y, float z, const char* audioRef, BOOL isNetwork, Any p6, BOOL p7, Any p8) { invoke<Void>(0xCCE219C922737BFA, audioName, x, y, z, audioRef, isNetwork, p6, p7, p8); } // 0xCCE219C922737BFA b1207
 	NATIVE_DECL void _STOP_SOUND_WITH_NAME(const char* audioName, const char* audioRef) { invoke<Void>(0x0F2A2175734926D8, audioName, audioRef); } // 0x0F2A2175734926D8 b1207
 	NATIVE_DECL Any _0x580D71DFE0088E34(Any p0, Any p1) { return invoke<Any>(0x580D71DFE0088E34, p0, p1); } // 0x580D71DFE0088E34 b1207
-	NATIVE_DECL Any _0x6DF942C4179BE5AB(Any p0, Any p1) { return invoke<Any>(0x6DF942C4179BE5AB, p0, p1); } // 0x6DF942C4179BE5AB b1207
+	// item: FUSE, value returned from 0x2E1CDC1FF3B8473E
+	// soundSet: HUD_SHOP_SOUNDSET, COMPANIONS_ROBBERIES_SOUNDSET
+	NATIVE_DECL BOOL _IS_SCRIPTED_AUDIO_CUSTOM(Hash item, Hash soundSet) { return invoke<BOOL>(0x6DF942C4179BE5AB, item, soundSet); } // 0x6DF942C4179BE5AB b1207
 	NATIVE_DECL void _0x9821B68CD3E05F2B(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x9821B68CD3E05F2B, p0, p1, p2, p3); } // 0x9821B68CD3E05F2B b1207
-	NATIVE_DECL void _0x9963681A8BC69BF3(Ped ped, const char* whistleConfig, float value) { invoke<Void>(0x9963681A8BC69BF3, ped, whistleConfig, value); } // 0x9963681A8BC69BF3 b1207
+	// whistleConfig: Ped.WhistlePitch (0.0 - 1.0), Ped.WhistleClarity (0.0 - 1.0), Ped.WhistleShape (0.0 - 10.0)
+	NATIVE_DECL void _SET_WHISTLE_CONFIG_FOR_PED(Ped ped, const char* whistleConfig, float value) { invoke<Void>(0x9963681A8BC69BF3, ped, whistleConfig, value); } // 0x9963681A8BC69BF3 b1207
 	NATIVE_DECL void _0x2E31ACA7477CF00F(Any p0, Any p1, Any p2) { invoke<Void>(0x2E31ACA7477CF00F, p0, p1, p2); } // 0x2E31ACA7477CF00F b1207
 	NATIVE_DECL void _0xCE5D0FFE83939AF1(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xCE5D0FFE83939AF1, p0, p1, p2, p3); } // 0xCE5D0FFE83939AF1 b1207
-	NATIVE_DECL void _0xF1C5310FEAA36B48(int soundId, const char* soundName, Entity entity, const char* soundsetName, BOOL p4, Any p5) { invoke<Void>(0xF1C5310FEAA36B48, soundId, soundName, entity, soundsetName, p4, p5); } // 0xF1C5310FEAA36B48 b1207
-	NATIVE_DECL void _0xDCF5BA95BBF0FABA(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { invoke<Void>(0xDCF5BA95BBF0FABA, p0, p1, p2, p3, p4, p5, p6, p7, p8); } // 0xDCF5BA95BBF0FABA b1207
+	// Params: p5 seems to be always 0
+	NATIVE_DECL void _PLAY_SOUND_FROM_ENTITY_WITH_SET(int soundId, const char* soundName, Entity entity, const char* soundsetName, BOOL p4, Any p5) { invoke<Void>(0xF1C5310FEAA36B48, soundId, soundName, entity, soundsetName, p4, p5); } // 0xF1C5310FEAA36B48 b1207
+	NATIVE_DECL void _0xDCF5BA95BBF0FABA(int soundId, const char* soundName, float x, float y, float z, const char* soundsetName, Any p6, Any p7, BOOL p8) { invoke<Void>(0xDCF5BA95BBF0FABA, soundId, soundName, x, y, z, soundsetName, p6, p7, p8); } // 0xDCF5BA95BBF0FABA b1207
 	NATIVE_DECL void _0x0286617C8FC50A53(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x0286617C8FC50A53, p0, p1, p2, p3); } // 0x0286617C8FC50A53 b1207
 	NATIVE_DECL void _0x3210BCB36AF7621B(int soundId) { invoke<Void>(0x3210BCB36AF7621B, soundId); } // 0x3210BCB36AF7621B b1207
 	NATIVE_DECL void _0x503703EC1781B7D6(Any p0, Any p1, Any p2) { invoke<Void>(0x503703EC1781B7D6, p0, p1, p2); } // 0x503703EC1781B7D6 b1207
 	NATIVE_DECL BOOL PREPARE_SOUND(const char* soundName, const char* soundsetName, int soundId) { return invoke<BOOL>(0xE368E8422C860BA7, soundName, soundsetName, soundId); } // 0xE368E8422C860BA7 b1207
-	NATIVE_DECL void _0x9D746964E0CF2C5F(Any p0, Any p1) { invoke<Void>(0x9D746964E0CF2C5F, p0, p1); } // 0x9D746964E0CF2C5F b1207
+	NATIVE_DECL void _RELEASE_SHARD_SOUNDS(const char* soundName, const char* soundsetName) { invoke<Void>(0x9D746964E0CF2C5F, soundName, soundsetName); } // 0x9D746964E0CF2C5F b1207
+	// https://github.com/femga/rdr3_discoveries/tree/master/audio/soundsets
 	NATIVE_DECL BOOL PREPARE_SOUNDSET(const char* soundsetName, BOOL p1) { return invoke<BOOL>(0xD9130842D7226045, soundsetName, p1); } // 0xD9130842D7226045 b1207
-	NATIVE_DECL void _0x531A78D6BF27014B(Any p0) { invoke<Void>(0x531A78D6BF27014B, p0); } // 0x531A78D6BF27014B b1207
+	NATIVE_DECL void _RELEASE_SOUNDSET(const char* soundsetName) { invoke<Void>(0x531A78D6BF27014B, soundsetName); } // 0x531A78D6BF27014B b1207
 	NATIVE_DECL BOOL PREPARE_SOUND_WITH_ENTITY(const char* soundName, Entity entity, const char* soundsetName, int soundId) { return invoke<BOOL>(0x4AD019591E94C064, soundName, entity, soundsetName, soundId); } // 0x4AD019591E94C064 b1207
 	NATIVE_DECL void _0x3E93DDDCBB6111E4(Any p0, Any p1) { invoke<Void>(0x3E93DDDCBB6111E4, p0, p1); } // 0x3E93DDDCBB6111E4 b1207
 	NATIVE_DECL Any _0x714A0EA7DE1167BE(const char* audioName, const char* soundsetName) { return invoke<Any>(0x714A0EA7DE1167BE, audioName, soundsetName); } // 0x714A0EA7DE1167BE b1207
@@ -432,13 +484,14 @@ namespace AUDIO
 	// _PLAY_AMBIENT_SPEECH1(PLAYER_PED_ID(), (Any*)&params);
 	// 
 	// Old name: _PLAY_AMBIENT_SPEECH1
+	// https://github.com/femga/rdr3_discoveries/tree/master/audio/audio_banks
 	NATIVE_DECL BOOL PLAY_PED_AMBIENT_SPEECH_NATIVE(Ped ped, Any* params) { return invoke<BOOL>(0x8E04FEDD28D42462, ped, params); } // 0x8E04FEDD28D42462 0x5C57B85D b1207
 	// Old name: _PLAY_AMBIENT_SPEECH_AT_COORDS
 	NATIVE_DECL BOOL PLAY_AMBIENT_SPEECH_FROM_POSITION_NATIVE(float x, float y, float z, Any* params) { return invoke<BOOL>(0xED640017ED337E45, x, y, z, params); } // 0xED640017ED337E45 0xA1A1402E b1207
 	NATIVE_DECL Any _0x72E4D1C4639BC465(Any p0, Any p1) { return invoke<Any>(0x72E4D1C4639BC465, p0, p1); } // 0x72E4D1C4639BC465 b1207
 	NATIVE_DECL Any _0xB18FEC133C7C6C69(Any p0) { return invoke<Any>(0xB18FEC133C7C6C69, p0); } // 0xB18FEC133C7C6C69 b1207
 	NATIVE_DECL void _0xDC93F0948F2C28F4(Any p0) { invoke<Void>(0xDC93F0948F2C28F4, p0); } // 0xDC93F0948F2C28F4 b1207
-	NATIVE_DECL void _0x0D7FD6A55FD63AEF(Any p0, Any p1, Any p2) { invoke<Void>(0x0D7FD6A55FD63AEF, p0, p1, p2); } // 0x0D7FD6A55FD63AEF b1207
+	NATIVE_DECL void _0x0D7FD6A55FD63AEF(int p0, int p1, BOOL p2) { invoke<Void>(0x0D7FD6A55FD63AEF, p0, p1, p2); } // 0x0D7FD6A55FD63AEF b1207
 	NATIVE_DECL void _0x660A8F876DF1D4F8(Any p0) { invoke<Void>(0x660A8F876DF1D4F8, p0); } // 0x660A8F876DF1D4F8 b1207
 	NATIVE_DECL void _0x380A2E353AD30917(Any p0, Any p1, Any p2) { invoke<Void>(0x380A2E353AD30917, p0, p1, p2); } // 0x380A2E353AD30917 b1207
 	NATIVE_DECL void _0x0FAF7171BF613B80(Any p0) { invoke<Void>(0x0FAF7171BF613B80, p0); } // 0x0FAF7171BF613B80 b1207
@@ -450,27 +503,28 @@ namespace AUDIO
 	NATIVE_DECL void _0x2651DDC0EA269073(int ropeId, float p1) { invoke<Void>(0x2651DDC0EA269073, ropeId, p1); } // 0x2651DDC0EA269073 b1207
 	NATIVE_DECL void SET_AMBIENT_VOICE_NAME(Ped ped, const char* name) { invoke<Void>(0x6C8065A3B780185B, ped, name); } // 0x6C8065A3B780185B 0xBD2EA1A1 b1207
 	// Hashes: VOFX_PLAYER_MALE01, VOFX_PLAYER_MALE02, VOFX_PLAYER_MALE03, VOFX_PLAYER_FEMALE01, VOFX_PLAYER_FEMALE02, VOFX_PLAYER_FEMALE03
-	NATIVE_DECL void _0x2703EFB583F0949A(Ped ped, Hash voice) { invoke<Void>(0x2703EFB583F0949A, ped, voice); } // 0x2703EFB583F0949A b1207
-	NATIVE_DECL void STOP_CURRENT_PLAYING_SPEECH(Any p0, Any p1) { invoke<Void>(0x79D2F0E66F81D90D, p0, p1); } // 0x79D2F0E66F81D90D 0x5B7463F4 b1207
-	NATIVE_DECL void STOP_CURRENT_PLAYING_AMBIENT_SPEECH(Any p0, Any p1) { invoke<Void>(0xB8BEC0CA6F0EDB0F, p0, p1); } // 0xB8BEC0CA6F0EDB0F 0xBB8E64BF b1207
+	NATIVE_DECL void _SET_VOFX_PED_VOICE(Ped ped, Hash voice) { invoke<Void>(0x2703EFB583F0949A, ped, voice); } // 0x2703EFB583F0949A b1207
+	NATIVE_DECL void STOP_CURRENT_PLAYING_SPEECH(Ped ped, Any p1) { invoke<Void>(0x79D2F0E66F81D90D, ped, p1); } // 0x79D2F0E66F81D90D 0x5B7463F4 b1207
+	NATIVE_DECL void STOP_CURRENT_PLAYING_AMBIENT_SPEECH(Ped ped, Any p1) { invoke<Void>(0xB8BEC0CA6F0EDB0F, ped, p1); } // 0xB8BEC0CA6F0EDB0F 0xBB8E64BF b1207
 	NATIVE_DECL BOOL IS_AMBIENT_SPEECH_PLAYING(Ped ped) { return invoke<BOOL>(0x9072C8B49907BFAD, ped); } // 0x9072C8B49907BFAD 0x1972E8AA b1207
 	NATIVE_DECL BOOL IS_SCRIPTED_SPEECH_PLAYING(Any p0) { return invoke<BOOL>(0xCC9AA18DCC7084F4, p0); } // 0xCC9AA18DCC7084F4 0x2C653904 b1207
 	NATIVE_DECL BOOL IS_ANY_SPEECH_PLAYING(Ped ped) { return invoke<BOOL>(0x729072355FA39EC9, ped); } // 0x729072355FA39EC9 0x2B74A6D6 b1207
 	NATIVE_DECL Any _0x2B101AD9F651243A() { return invoke<Any>(0x2B101AD9F651243A); } // 0x2B101AD9F651243A b1207
 	NATIVE_DECL Any _0x4A98E228A936DBCC(Any p0) { return invoke<Any>(0x4A98E228A936DBCC, p0); } // 0x4A98E228A936DBCC b1207
 	NATIVE_DECL Any _0x6BFFB7C276866996(Any p0) { return invoke<Any>(0x6BFFB7C276866996, p0); } // 0x6BFFB7C276866996 b1207
-	NATIVE_DECL BOOL _CAN_PED_SPEAK(Ped ped, const char* speechName, BOOL unk) { return invoke<BOOL>(0x49B99BF3FDA89A7A, ped, speechName, unk); } // 0x49B99BF3FDA89A7A 0x8BD5F11E b1207
+	// Checks if the ped can play the speech or has the speech file, last parameter is usually false.
+	NATIVE_DECL BOOL DOES_CONTEXT_EXIST_FOR_THIS_PED(Ped ped, const char* speechName, BOOL unk) { return invoke<BOOL>(0x49B99BF3FDA89A7A, ped, speechName, unk); } // 0x49B99BF3FDA89A7A 0x8BD5F11E b1207
 	NATIVE_DECL Any _0xF0EE69F500952FA5(Any p0) { return invoke<Any>(0xF0EE69F500952FA5, p0); } // 0xF0EE69F500952FA5 b1207
 	NATIVE_DECL Any _0x9D6DEC9791A4E501(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0x9D6DEC9791A4E501, p0, p1, p2, p3); } // 0x9D6DEC9791A4E501 b1207
 	// Not implemented.
 	NATIVE_DECL void _0x864A842B86993851(Ped ped) { invoke<Void>(0x864A842B86993851, ped); } // 0x864A842B86993851 b1207
-	NATIVE_DECL BOOL IS_PED_IN_CURRENT_CONVERSATION(Any p0, Any p1, Any p2) { return invoke<BOOL>(0x049E937F18F4020C, p0, p1, p2); } // 0x049E937F18F4020C 0x7B2F0743 b1207
-	NATIVE_DECL Any _0x54B187F111D9C6F8(Any p0, Any p1) { return invoke<Any>(0x54B187F111D9C6F8, p0, p1); } // 0x54B187F111D9C6F8 b1207
+	NATIVE_DECL BOOL IS_PED_IN_CURRENT_CONVERSATION(const char* p0, Ped ped, Any p2) { return invoke<BOOL>(0x049E937F18F4020C, p0, ped, p2); } // 0x049E937F18F4020C 0x7B2F0743 b1207
+	NATIVE_DECL BOOL _IS_PED_IN_ANY_CONVERSATION(Ped ped, BOOL p1) { return invoke<BOOL>(0x54B187F111D9C6F8, ped, p1); } // 0x54B187F111D9C6F8 b1207
 	NATIVE_DECL void SET_PED_IS_DRUNK(Ped ped, BOOL toggle) { invoke<Void>(0x95D2D383D5396B8A, ped, toggle); } // 0x95D2D383D5396B8A 0xD2EA77A3 b1207
 	NATIVE_DECL void _0x3A00D87B20A2A5E4(Any p0, Any p1) { invoke<Void>(0x3A00D87B20A2A5E4, p0, p1); } // 0x3A00D87B20A2A5E4 b1207
 	NATIVE_DECL void _0xD47D47EFBF103FB8(Any p0, Any p1) { invoke<Void>(0xD47D47EFBF103FB8, p0, p1); } // 0xD47D47EFBF103FB8 b1207
-	NATIVE_DECL void PLAY_ANIMAL_VOCALIZATION(Ped pedHandle, const char* vocalizationName, BOOL p2) { invoke<Void>(0xEE066C7006C49C0A, pedHandle, vocalizationName, p2); } // 0xEE066C7006C49C0A 0x498849F3 b1207
-	NATIVE_DECL void _0x0E53530D9B2DB01D(Any p0, Any p1, Any p2) { invoke<Void>(0x0E53530D9B2DB01D, p0, p1, p2); } // 0x0E53530D9B2DB01D b1311
+	NATIVE_DECL void PLAY_ANIMAL_VOCALIZATION(Ped ped, const char* vocalizationName, BOOL p2) { invoke<Void>(0xEE066C7006C49C0A, ped, vocalizationName, p2); } // 0xEE066C7006C49C0A 0x498849F3 b1207
+	NATIVE_DECL void _PLAY_ANIMAL_VOCALIZATION_PHEROMONE_VIAL_RESPONSE(Ped ped, Hash p1, BOOL p2) { invoke<Void>(0x0E53530D9B2DB01D, ped, p1, p2); } // 0x0E53530D9B2DB01D b1311
 	NATIVE_DECL BOOL IS_ANIMAL_VOCALIZATION_PLAYING(Ped pedHandle) { return invoke<BOOL>(0xC265DF9FB44A9FBD, pedHandle); } // 0xC265DF9FB44A9FBD 0x0CBAF2EF b1207
 	// Not implemented.
 	NATIVE_DECL void SET_ANIMAL_MOOD(Ped animal, int mood) { invoke<Void>(0xCC97B29285B1DC3B, animal, mood); } // 0xCC97B29285B1DC3B 0x3EA7C6CB b1207
@@ -480,31 +534,31 @@ namespace AUDIO
 	NATIVE_DECL void SET_STATIC_EMITTER_ENABLED(const char* emitterName, BOOL toggle) { invoke<Void>(0x399D2D3B33F1B8EB, emitterName, toggle); } // 0x399D2D3B33F1B8EB 0x91F72E92 b1207
 	NATIVE_DECL void PLAY_END_CREDITS_MUSIC(BOOL play) { invoke<Void>(0xCD536C4D33DCC900, play); } // 0xCD536C4D33DCC900 0x8E88B3CC b1207
 	NATIVE_DECL Any _0x7678FE0455ED1145(Any p0, Any p1, Any p2) { return invoke<Any>(0x7678FE0455ED1145, p0, p1, p2); } // 0x7678FE0455ED1145 b1207
-	NATIVE_DECL Any _0xFFE9C53DEEA3DB0B(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return invoke<Any>(0xFFE9C53DEEA3DB0B, p0, p1, p2, p3, p4, p5, p6); } // 0xFFE9C53DEEA3DB0B b1207
+	NATIVE_DECL Any _0xFFE9C53DEEA3DB0B(Any p0, Any p1, float x, float y, float z, BOOL isSrlLoaded, Any p6) { return invoke<Any>(0xFFE9C53DEEA3DB0B, p0, p1, x, y, z, isSrlLoaded, p6); } // 0xFFE9C53DEEA3DB0B b1207
 	NATIVE_DECL void _0x5E3CCF03995388B5(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x5E3CCF03995388B5, p0, p1, p2, p3); } // 0x5E3CCF03995388B5 b1207
 	NATIVE_DECL void _0x43037ABFE214A851() { invoke<Void>(0x43037ABFE214A851); } // 0x43037ABFE214A851 b1207
-	NATIVE_DECL void SET_AMBIENT_ZONE_STATE(const char* zoneName, BOOL p1, BOOL p2) { invoke<Void>(0xBDA07E5950085E46, zoneName, p1, p2); } // 0xBDA07E5950085E46 0x2849CAC9 b1207
+	NATIVE_DECL void SET_AMBIENT_ZONE_STATE(const char* zoneName, BOOL isEnabled, BOOL p2) { invoke<Void>(0xBDA07E5950085E46, zoneName, isEnabled, p2); } // 0xBDA07E5950085E46 0x2849CAC9 b1207
 	NATIVE_DECL void CLEAR_AMBIENT_ZONE_STATE(const char* zoneName, BOOL p1) { invoke<Void>(0x218DD44AAAC964FF, zoneName, p1); } // 0x218DD44AAAC964FF 0xCDFF3C82 b1207
-	NATIVE_DECL void SET_AMBIENT_ZONE_LIST_STATE(Any* p0, BOOL p1, BOOL p2) { invoke<Void>(0x9748FA4DE50CCE3E, p0, p1, p2); } // 0x9748FA4DE50CCE3E 0xBF80B412 b1207
-	NATIVE_DECL void CLEAR_AMBIENT_ZONE_LIST_STATE(Any* p0, BOOL p1) { invoke<Void>(0x120C48C614909FA4, p0, p1); } // 0x120C48C614909FA4 0x38B9B8D4 b1207
+	NATIVE_DECL void SET_AMBIENT_ZONE_LIST_STATE(const char* ambientZone, BOOL p1, BOOL p2) { invoke<Void>(0x9748FA4DE50CCE3E, ambientZone, p1, p2); } // 0x9748FA4DE50CCE3E 0xBF80B412 b1207
+	NATIVE_DECL void CLEAR_AMBIENT_ZONE_LIST_STATE(const char* ambientZone, BOOL p1) { invoke<Void>(0x120C48C614909FA4, ambientZone, p1); } // 0x120C48C614909FA4 0x38B9B8D4 b1207
 	NATIVE_DECL void SET_AMBIENT_ZONE_STATE_PERSISTENT(const char* ambientZone, BOOL p1, BOOL p2) { invoke<Void>(0x1D6650420CEC9D3B, ambientZone, p1, p2); } // 0x1D6650420CEC9D3B 0xC1FFB672 b1207
 	NATIVE_DECL void SET_AMBIENT_ZONE_LIST_STATE_PERSISTENT(const char* ambientZone, BOOL p1, BOOL p2) { invoke<Void>(0xF3638DAE8C4045E1, ambientZone, p1, p2); } // 0xF3638DAE8C4045E1 0x5F5A2605 b1207
-	NATIVE_DECL void _0x3743CE6948194349(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x3743CE6948194349, p0, p1, p2, p3, p4); } // 0x3743CE6948194349 b1207
+	NATIVE_DECL void _SET_AMBIENT_ZONE_POSITION(const char* ambientZone, float x, float y, float z, float heading) { invoke<Void>(0x3743CE6948194349, ambientZone, x, y, z, heading); } // 0x3743CE6948194349 b1207
 	// Checks whether the horn of a vehicle is currently played.
 	NATIVE_DECL BOOL IS_HORN_ACTIVE(Vehicle vehicle) { return invoke<BOOL>(0x9D6BFC12B05C6121, vehicle); } // 0x9D6BFC12B05C6121 0x20E2BDD0 b1207
 	NATIVE_DECL void _0xFD461D0ABA5559B1(Any p0, Any p1) { invoke<Void>(0xFD461D0ABA5559B1, p0, p1); } // 0xFD461D0ABA5559B1 b1207
-	NATIVE_DECL BOOL IS_STREAM_PLAYING(Any p0) { return invoke<BOOL>(0xD11FA52EB849D978, p0); } // 0xD11FA52EB849D978 0xF1F51A14 b1207
+	NATIVE_DECL BOOL IS_STREAM_PLAYING(int streamId) { return invoke<BOOL>(0xD11FA52EB849D978, streamId); } // 0xD11FA52EB849D978 0xF1F51A14 b1207
 	NATIVE_DECL BOOL LOAD_STREAM(const char* streamName, const char* soundSet) { return invoke<BOOL>(0x1F1F957154EC51DF, streamName, soundSet); } // 0x1F1F957154EC51DF 0x0D89599D b1207
-	NATIVE_DECL void PLAY_STREAM_FROM_PED(Any p0, Any p1) { invoke<Void>(0x89049DD63C08B5D1, p0, p1); } // 0x89049DD63C08B5D1 0xA1D7FABE b1207
-	NATIVE_DECL void PLAY_STREAM_FRONTEND(Any p0) { invoke<Void>(0x58FCE43488F9F5F4, p0); } // 0x58FCE43488F9F5F4 0x2C2A16BC b1207
-	NATIVE_DECL void PLAY_STREAM_FROM_POSITION(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x21442F412E8DE56B, p0, p1, p2, p3); } // 0x21442F412E8DE56B 0x6FE5D865 b1207
+	NATIVE_DECL void PLAY_STREAM_FROM_PED(Ped ped, int streamId) { invoke<Void>(0x89049DD63C08B5D1, ped, streamId); } // 0x89049DD63C08B5D1 0xA1D7FABE b1207
+	NATIVE_DECL void PLAY_STREAM_FRONTEND(int streamId) { invoke<Void>(0x58FCE43488F9F5F4, streamId); } // 0x58FCE43488F9F5F4 0x2C2A16BC b1207
+	NATIVE_DECL void PLAY_STREAM_FROM_POSITION(float x, float y, float z, int streamId) { invoke<Void>(0x21442F412E8DE56B, x, y, z, streamId); } // 0x21442F412E8DE56B 0x6FE5D865 b1207
 	NATIVE_DECL void _0x3A3BE6B920525237(Any p0, Any p1) { invoke<Void>(0x3A3BE6B920525237, p0, p1); } // 0x3A3BE6B920525237 b1207
-	NATIVE_DECL void STOP_STREAM(Any p0) { invoke<Void>(0xA4718A1419D18151, p0); } // 0xA4718A1419D18151 0xD1E364DE b1207
+	NATIVE_DECL void STOP_STREAM(int streamId) { invoke<Void>(0xA4718A1419D18151, streamId); } // 0xA4718A1419D18151 0xD1E364DE b1207
 	NATIVE_DECL void STOP_PED_SPEAKING(Ped ped, BOOL shaking) { invoke<Void>(0x9D64D7405520E3D3, ped, shaking); } // 0x9D64D7405520E3D3 0xFF92B49D b1207
 	NATIVE_DECL void DISABLE_PED_PAIN_AUDIO(Ped ped, BOOL toggle) { invoke<Void>(0xA9A41C1E940FB0E8, ped, toggle); } // 0xA9A41C1E940FB0E8 0x3B8E2D5F b1207
 	NATIVE_DECL BOOL IS_AMBIENT_SPEECH_DISABLED(Ped ped) { return invoke<BOOL>(0x932C2D096A2C3FFF, ped); } // 0x932C2D096A2C3FFF 0x109D1F89 b1207
-	NATIVE_DECL Any _0xB2DE3AEBE31150E2(Any p0, Any p1) { return invoke<Any>(0xB2DE3AEBE31150E2, p0, p1); } // 0xB2DE3AEBE31150E2 b1207
-	NATIVE_DECL void _0x6378A235374B852F(Any p0, Any p1) { invoke<Void>(0x6378A235374B852F, p0, p1); } // 0x6378A235374B852F b1207
+	NATIVE_DECL Any SET_IS_SCRIPTED_SPEECH_DISABLED(Ped ped, BOOL disabled) { return invoke<Any>(0xB2DE3AEBE31150E2, ped, disabled); } // 0xB2DE3AEBE31150E2 b1207
+	NATIVE_DECL void _BLOCK_SPEECH_CONTEXT(const char* context, BOOL block) { invoke<Void>(0x6378A235374B852F, context, block); } // 0x6378A235374B852F b1207
 	NATIVE_DECL void _0x87E6302FC61208CC(Any p0) { invoke<Void>(0x87E6302FC61208CC, p0); } // 0x87E6302FC61208CC b1207
 	NATIVE_DECL void SET_HORN_ENABLED(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x76D683C108594D0E, vehicle, toggle); } // 0x76D683C108594D0E 0x6EB92D05 b1207
 	NATIVE_DECL void SET_AUDIO_VEHICLE_PRIORITY(Vehicle vehicle, Any p1) { invoke<Void>(0xE5564483E407F914, vehicle, p1); } // 0xE5564483E407F914 0x271A9766 b1207
@@ -512,12 +566,13 @@ namespace AUDIO
 	NATIVE_DECL void _FORCE_VEHICLE_ENGINE_AUDIO(Vehicle vehicle, const char* audioName) { invoke<Void>(0x4F0C413926060B38, vehicle, audioName); } // 0x4F0C413926060B38 0x33B0B007 b1207
 	// nullsub, doesn't do anything
 	NATIVE_DECL void SET_GPS_ACTIVE(BOOL active) { invoke<Void>(0x3BD3F52BA9B1E4E8, active); } // 0x3BD3F52BA9B1E4E8 0x0FC3379A b1207
-	NATIVE_DECL Any _0x6339C1EA3979B5F7(Any p0, Any p1) { return invoke<Any>(0x6339C1EA3979B5F7, p0, p1); } // 0x6339C1EA3979B5F7 b1207
-	NATIVE_DECL void _0x9428447DED71FC7E(Any p0) { invoke<Void>(0x9428447DED71FC7E, p0); } // 0x9428447DED71FC7E b1207
-	NATIVE_DECL Any _0xAC84686C06184B0D(const char* p0, const char* p1) { return invoke<Any>(0xAC84686C06184B0D, p0, p1); } // 0xAC84686C06184B0D b1207
+	NATIVE_DECL BOOL _START_AUDIO_SCENESET(const char* audioName, const char* sceneset) { return invoke<BOOL>(0x6339C1EA3979B5F7, audioName, sceneset); } // 0x6339C1EA3979B5F7 b1207
+	NATIVE_DECL void _STOP_AUDIO_SCENESET(const char* sceneset) { invoke<Void>(0x9428447DED71FC7E, sceneset); } // 0x9428447DED71FC7E b1207
+	NATIVE_DECL BOOL _SET_AUDIO_SCENESET(const char* audioName, const char* sceneset) { return invoke<BOOL>(0xAC84686C06184B0D, audioName, sceneset); } // 0xAC84686C06184B0D b1207
 	NATIVE_DECL BOOL START_AUDIO_SCENE(const char* scene) { return invoke<BOOL>(0x013A80FC08F6E4F2, scene); } // 0x013A80FC08F6E4F2 0xE48D757B b1207
 	NATIVE_DECL Any _0xDC2F83A0612CA34D(Any p0) { return invoke<Any>(0xDC2F83A0612CA34D, p0); } // 0xDC2F83A0612CA34D b1207
 	NATIVE_DECL void STOP_AUDIO_SCENE(const char* scene) { invoke<Void>(0xDFE8422B3B94E688, scene); } // 0xDFE8422B3B94E688 0xA08D8C58 b1207
+	// _STOP_AUDIO_*
 	NATIVE_DECL void _0x6AB944DF68B512D3(Any p0) { invoke<Void>(0x6AB944DF68B512D3, p0); } // 0x6AB944DF68B512D3 b1207
 	NATIVE_DECL void STOP_AUDIO_SCENES() { invoke<Void>(0xBAC7FC81A75EC1A1); } // 0xBAC7FC81A75EC1A1 0xF6C7342A b1207
 	NATIVE_DECL BOOL IS_AUDIO_SCENE_ACTIVE(const char* scene) { return invoke<BOOL>(0xB65B60556E2A9225, scene); } // 0xB65B60556E2A9225 0xACBED05C b1207
@@ -529,10 +584,10 @@ namespace AUDIO
 	NATIVE_DECL Any _0xE600F61F54A444A6() { return invoke<Any>(0xE600F61F54A444A6); } // 0xE600F61F54A444A6 b1207
 	NATIVE_DECL BOOL AUDIO_IS_SCRIPTED_MUSIC_PLAYING() { return invoke<BOOL>(0x845FFC3A4FEEFA3E); } // 0x845FFC3A4FEEFA3E 0x86E995D1 b1207
 	NATIVE_DECL Hash _0xBE28DB99556FF8D9(Entity entity) { return invoke<Hash>(0xBE28DB99556FF8D9, entity); } // 0xBE28DB99556FF8D9 b1207
-	NATIVE_DECL void _0x8E901B65206C2D3E(Any p0) { invoke<Void>(0x8E901B65206C2D3E, p0); } // 0x8E901B65206C2D3E b1207
-	NATIVE_DECL void _0xC4CFCE4C656EF480(Any p0) { invoke<Void>(0xC4CFCE4C656EF480, p0); } // 0xC4CFCE4C656EF480 b1207
+	NATIVE_DECL void _0x8E901B65206C2D3E(Ped ped) { invoke<Void>(0x8E901B65206C2D3E, ped); } // 0x8E901B65206C2D3E b1207
+	NATIVE_DECL void _0xC4CFCE4C656EF480(Ped ped) { invoke<Void>(0xC4CFCE4C656EF480, ped); } // 0xC4CFCE4C656EF480 b1207
 	NATIVE_DECL void _0xABDB4863D3D72021(Entity entity, Any p1, Any p2, float p3, Any p4) { invoke<Void>(0xABDB4863D3D72021, entity, p1, p2, p3, p4); } // 0xABDB4863D3D72021 b1207
-	NATIVE_DECL void _0xB93A769B8B726950(Any p0, Hash p1) { invoke<Void>(0xB93A769B8B726950, p0, p1); } // 0xB93A769B8B726950 b1207
+	NATIVE_DECL void _0xB93A769B8B726950(Ped ped, Hash p1) { invoke<Void>(0xB93A769B8B726950, ped, p1); } // 0xB93A769B8B726950 b1207
 	NATIVE_DECL void _0xE891504B2F0E2DBA(Any p0, Any p1) { invoke<Void>(0xE891504B2F0E2DBA, p0, p1); } // 0xE891504B2F0E2DBA b1207
 	NATIVE_DECL void _0x9EB779765E68C52E(Any p0, Any p1) { invoke<Void>(0x9EB779765E68C52E, p0, p1); } // 0x9EB779765E68C52E b1207
 	NATIVE_DECL void _0xE9694B2D6CB87B06(Entity entity, Any p1) { invoke<Void>(0xE9694B2D6CB87B06, entity, p1); } // 0xE9694B2D6CB87B06 b1232
@@ -540,7 +595,7 @@ namespace AUDIO
 	NATIVE_DECL Any _0xC68C02DE259C927C(Any p0) { return invoke<Any>(0xC68C02DE259C927C, p0); } // 0xC68C02DE259C927C b1232
 	NATIVE_DECL Any _0x2FFF4A78384AFFDF(Entity entity) { return invoke<Any>(0x2FFF4A78384AFFDF, entity); } // 0x2FFF4A78384AFFDF b1436
 	NATIVE_DECL AnimScene _0x62377977E4F08668(Entity entity) { return invoke<AnimScene>(0x62377977E4F08668, entity); } // 0x62377977E4F08668 b1436
-	NATIVE_DECL Any _0x2DBBF0C5E19383EE(Any p0) { return invoke<Any>(0x2DBBF0C5E19383EE, p0); } // 0x2DBBF0C5E19383EE b1232
+	NATIVE_DECL Any _GET_PED_SONG_INDEX_HOST(Ped ped) { return invoke<Any>(0x2DBBF0C5E19383EE, ped); } // 0x2DBBF0C5E19383EE b1232
 	NATIVE_DECL Any _0xD05A460328560477(Any p0) { return invoke<Any>(0xD05A460328560477, p0); } // 0xD05A460328560477 b1232
 	NATIVE_DECL void _0x8D29FDF565DED9AE(Any p0, Any p1, Any p2) { invoke<Void>(0x8D29FDF565DED9AE, p0, p1, p2); } // 0x8D29FDF565DED9AE b1232
 	NATIVE_DECL void _0x448F2647DD6F2E27(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x448F2647DD6F2E27, p0, p1, p2, p3, p4); } // 0x448F2647DD6F2E27 b1232
@@ -549,6 +604,7 @@ namespace AUDIO
 	NATIVE_DECL void _0xBC07CA8FD710E7FD(Any p0, Any p1) { invoke<Void>(0xBC07CA8FD710E7FD, p0, p1); } // 0xBC07CA8FD710E7FD b1232
 	NATIVE_DECL BOOL PREPARE_MUSIC_EVENT(const char* eventName) { return invoke<BOOL>(0x1E5185B72EF5158A, eventName); } // 0x1E5185B72EF5158A 0x534A5C1C b1207
 	NATIVE_DECL BOOL CANCEL_MUSIC_EVENT(const char* eventName) { return invoke<BOOL>(0x5B17A90291133DA5, eventName); } // 0x5B17A90291133DA5 0x89FF942D b1207
+	// https://github.com/femga/rdr3_discoveries/blob/master/audio/music_events/music_events.lua
 	NATIVE_DECL BOOL TRIGGER_MUSIC_EVENT(const char* eventName) { return invoke<BOOL>(0x706D57B0F50DA710, eventName); } // 0x706D57B0F50DA710 0xB6094948 b1207
 	NATIVE_DECL Any _0x05D6195FB4D428F4(Any p0) { return invoke<Any>(0x05D6195FB4D428F4, p0); } // 0x05D6195FB4D428F4 b1207
 	NATIVE_DECL int GET_MUSIC_PLAYTIME() { return invoke<int>(0xE7A0D23DC414507B); } // 0xE7A0D23DC414507B 0xD633C809 b1207
@@ -556,8 +612,7 @@ namespace AUDIO
 	NATIVE_DECL void _0x149AEE66F0CB3A99(float p0, float p1) { invoke<Void>(0x149AEE66F0CB3A99, p0, p1); } // 0x149AEE66F0CB3A99 0xE64F97A0 b1207
 	NATIVE_DECL void _0xDAD6CD07CAA4F382() { invoke<Void>(0xDAD6CD07CAA4F382); } // 0xDAD6CD07CAA4F382 b1207
 	NATIVE_DECL void _0x8BF907833BE275DE(float p0, float p1) { invoke<Void>(0x8BF907833BE275DE, p0, p1); } // 0x8BF907833BE275DE b1207
-	// FORCE_*
-	NATIVE_DECL void _0x062D5EAD4DA2FA6A() { invoke<Void>(0x062D5EAD4DA2FA6A); } // 0x062D5EAD4DA2FA6A 0xD87AF337 b1207
+	NATIVE_DECL void FORCE_PED_PANIC_WALLA() { invoke<Void>(0x062D5EAD4DA2FA6A); } // 0x062D5EAD4DA2FA6A 0xD87AF337 b1207
 	NATIVE_DECL void _0x138ADB94F8B90616() { invoke<Void>(0x138ADB94F8B90616); } // 0x138ADB94F8B90616 b1207
 	// Something like UPDATE_PED_*
 	NATIVE_DECL void _0xBF4DC1784BE94DFA(Ped ped, BOOL p1, Hash hash) { invoke<Void>(0xBF4DC1784BE94DFA, ped, p1, hash); } // 0xBF4DC1784BE94DFA b1207
@@ -578,7 +633,8 @@ namespace AUDIO
 	NATIVE_DECL void _0x7E176C676F8652A9(Any p0) { invoke<Void>(0x7E176C676F8652A9, p0); } // 0x7E176C676F8652A9 b1207
 	NATIVE_DECL Any _0x2B9C37C01BF25EDB(Any p0) { return invoke<Any>(0x2B9C37C01BF25EDB, p0); } // 0x2B9C37C01BF25EDB b1207
 	NATIVE_DECL Any _0xA6A3A3F96B8B030E() { return invoke<Any>(0xA6A3A3F96B8B030E); } // 0xA6A3A3F96B8B030E b1207
-	NATIVE_DECL Any _0x0556C784FA056628(Any p0, Any p1) { return invoke<Any>(0x0556C784FA056628, p0, p1); } // 0x0556C784FA056628 b1207
+	// Creates stream and returns streamId handle to be used with PLAY_STREAM_* natives
+	NATIVE_DECL int _GET_LOADED_STREAM_ID_FROM_CREATION(const char* streamName, const char* soundSet) { return invoke<int>(0x0556C784FA056628, streamName, soundSet); } // 0x0556C784FA056628 b1207
 	NATIVE_DECL Any _0xC369E2234E34A0CA(Any p0, Any p1) { return invoke<Any>(0xC369E2234E34A0CA, p0, p1); } // 0xC369E2234E34A0CA b1207
 	NATIVE_DECL void _0x35B8C070E0C16E2F(Any p0, Any p1) { invoke<Void>(0x35B8C070E0C16E2F, p0, p1); } // 0x35B8C070E0C16E2F b1207
 	NATIVE_DECL void _0xE7E6CB8B713ED190() { invoke<Void>(0xE7E6CB8B713ED190); } // 0xE7E6CB8B713ED190 b1207
@@ -602,6 +658,7 @@ namespace BOUNTY
 {
 	NATIVE_DECL BOOL _BOUNTY_REQUEST_PAY_OFF_BOUNTY(Any* outRpcGuid) { return invoke<BOOL>(0x537CE992BD2D7BCB, outRpcGuid); } // 0x537CE992BD2D7BCB b1207
 	NATIVE_DECL BOOL _BOUNTY_REQUEST_PAY_OFF_BOUNTY_EX(Any* outRpcGuid, Hash p1, Hash costType) { return invoke<BOOL>(0x587BCEC31D64F382, outRpcGuid, p1, costType); } // 0x587BCEC31D64F382 b1232
+	// crimeType: see _REPORT_CRIME
 	NATIVE_DECL BOOL _BOUNTY_REQUEST_SELF_REPORT_CRIME(Any* outRpcGuid, Hash crimeType, BOOL p2) { return invoke<BOOL>(0x188B748861B5BA17, outRpcGuid, crimeType, p2); } // 0x188B748861B5BA17 b1207
 	NATIVE_DECL BOOL _BOUNTY_REQUEST_SELF_REPORT_KILLED_BY_BOUNTY_HUNTER(Any* outRpcGuid) { return invoke<BOOL>(0xB462D69D406A2602, outRpcGuid); } // 0xB462D69D406A2602 b1207
 	NATIVE_DECL BOOL BOUNTY_GET_BOUNTY_ON_PLAYER(Any* gamerHandle, Any* bountyData) { return invoke<BOOL>(0x4EF23E04A0C8FF51, gamerHandle, bountyData); } // 0x4EF23E04A0C8FF51 b1207
@@ -617,9 +674,11 @@ namespace BOUNTY
 	NATIVE_DECL void _BOUNTY_CANCEL_LEGENDARY_MISSION() { invoke<Void>(0x2BA1BCC99826CDA2); } // 0x2BA1BCC99826CDA2 b1207
 	NATIVE_DECL BOOL BOUNTY_GET_WANTED_POSTER_SLOT(Hash p0, Hash p1, Any* p2) { return invoke<BOOL>(0xB395A44A0C7CA615, p0, p1, p2); } // 0xB395A44A0C7CA615 b1207
 	NATIVE_DECL BOOL BOUNTY_GET_LEGENDARY_TARGET(Any p0, Any* p1) { return invoke<BOOL>(0x85E4D7B225A30ED1, p0, p1); } // 0x85E4D7B225A30ED1 b1207
+	// _BOUNTY_C* or _BOUNTY_GET_*
 	NATIVE_DECL BOOL _0x86EC5F83867C4B70(Any* p0) { return invoke<BOOL>(0x86EC5F83867C4B70, p0); } // 0x86EC5F83867C4B70 b1436
-	NATIVE_DECL Any BOUNTY_GET_COOLDOWN_COLLECTION(Any* p0) { return invoke<Any>(0x8FAF4D262FABA99C, p0); } // 0x8FAF4D262FABA99C b1207
+	NATIVE_DECL BOOL BOUNTY_GET_COOLDOWN_COLLECTION(Any* p0) { return invoke<BOOL>(0x8FAF4D262FABA99C, p0); } // 0x8FAF4D262FABA99C b1207
 	NATIVE_DECL BOOL _BOUNTY_REQUEST_BECOME_TARGET_OF_CHARACTER_BOUNTY_HUNT(Any* outRpcGuid) { return invoke<BOOL>(0xB096547D61868254, outRpcGuid); } // 0xB096547D61868254 b1207
+	// _BOUNTY_IS_* or _BOUNTY_REQUEST_*
 	NATIVE_DECL BOOL _0x27D3A0E1FE090A43(Any* p0) { return invoke<BOOL>(0x27D3A0E1FE090A43, p0); } // 0x27D3A0E1FE090A43 b1207
 	NATIVE_DECL BOOL _BOUNTY_REQUEST_CLAIM_CHARACTER_BOUNTY(Any* outRpcGuid, int p1, Any* p2) { return invoke<BOOL>(0xA9C3B0F746375162, outRpcGuid, p1, p2); } // 0xA9C3B0F746375162 b1207
 	NATIVE_DECL BOOL _BOUNTY_REQUEST_POSSE_LEADER_CLAIM_CHARACTER_BOUNTY(Any* outRpcGuid, int p1, Any* p2) { return invoke<BOOL>(0x5B53CA0E2AC3FF45, outRpcGuid, p1, p2); } // 0x5B53CA0E2AC3FF45 b1207
@@ -631,7 +690,9 @@ namespace BOUNTY
 	NATIVE_DECL void _BOUNTY_CLEAR_BEING_TARGET() { invoke<Void>(0x932DB3C05A7465D1); } // 0x932DB3C05A7465D1 b1207
 	NATIVE_DECL BOOL _BOUNTY_REQUEST_SERVED_FULL_JAIL_SENTENCE(Any* outRpcGuid) { return invoke<BOOL>(0x3F73AED12A5EF0FF, outRpcGuid); } // 0x3F73AED12A5EF0FF b1207
 	NATIVE_DECL BOOL _BOUNTY_REQUEST_BRIBE_JAIL_GUARD(Any* outRpcGuid, int p1) { return invoke<BOOL>(0x28717806D3BDD0D0, outRpcGuid, p1); } // 0x28717806D3BDD0D0 b1207
+	// _BOUNTY_GET_*
 	NATIVE_DECL int _0xF8BCC5ECA33AC9C1() { return invoke<int>(0xF8BCC5ECA33AC9C1); } // 0xF8BCC5ECA33AC9C1 b1207
+	// _BOUNTY_GET_*
 	NATIVE_DECL int _0xD6A67E2FF373D0E3(int p0) { return invoke<int>(0xD6A67E2FF373D0E3, p0); } // 0xD6A67E2FF373D0E3 b1355
 }
 
@@ -640,17 +701,21 @@ namespace BRAIN
 	// Registers a script for any object with a specific model hash.
 	NATIVE_DECL void REGISTER_OBJECT_SCRIPT_BRAIN(const char* scriptName, Hash modelHash, int p2, float activationRange, int p4, int p5) { invoke<Void>(0x16AF9B4EEAC3B305, scriptName, modelHash, p2, activationRange, p4, p5); } // 0x16AF9B4EEAC3B305 0xB6BCC608 b1207
 	// Returns threadId
-	NATIVE_DECL Any _0x4E4507CC5E4DB869(Entity entity, const char* scriptName, int scriptStackSize, BOOL p3) { return invoke<Any>(0x4E4507CC5E4DB869, entity, scriptName, scriptStackSize, p3); } // 0x4E4507CC5E4DB869 b1207
-	NATIVE_DECL Any _0x6F62FAE266DCFC81(Entity entity, const char* scriptName, int p2, Any* p3, int p4, BOOL p5) { return invoke<Any>(0x6F62FAE266DCFC81, entity, scriptName, p2, p3, p4, p5); } // 0x6F62FAE266DCFC81 b1207
-	NATIVE_DECL void _0x38F1E09224EECA09(Entity entity) { invoke<Void>(0x38F1E09224EECA09, entity); } // 0x38F1E09224EECA09 b1311
-	NATIVE_DECL Entity _0x6818D1A194E29983() { return invoke<Entity>(0x6818D1A194E29983); } // 0x6818D1A194E29983 b1207
+	NATIVE_DECL int _START_PRELOADED_SCRIPT_BRAIN(Entity entity, const char* scriptName, int scriptStackSize, BOOL p3) { return invoke<int>(0x4E4507CC5E4DB869, entity, scriptName, scriptStackSize, p3); } // 0x4E4507CC5E4DB869 b1207
+	// Returns threadId
+	NATIVE_DECL int _START_SCRIPT_BRAIN(Entity entity, const char* scriptName, int p2, Any* p3, int p4, BOOL p5) { return invoke<int>(0x6F62FAE266DCFC81, entity, scriptName, p2, p3, p4, p5); } // 0x6F62FAE266DCFC81 b1207
+	NATIVE_DECL void _REMOVE_SCRIPT_BRAIN_ENTITY(Entity entity) { invoke<Void>(0x38F1E09224EECA09, entity); } // 0x38F1E09224EECA09 b1311
+	NATIVE_DECL Entity _GET_SCRIPT_BRAIN_ENTITY() { return invoke<Entity>(0x6818D1A194E29983); } // 0x6818D1A194E29983 b1207
 	// Common flags: 250, 99999
+	// _SET_SCRIPT_BRAIN*
 	NATIVE_DECL void _0xA6AC35DB4A7957A8(int flag) { invoke<Void>(0xA6AC35DB4A7957A8, flag); } // 0xA6AC35DB4A7957A8 b1207
 	// Called with flag 0 before 0xA6AC35DB4A7957A8 in net_entity_brain
+	// _SET_SCRIPT_BRAIN*
 	NATIVE_DECL void _0x4AA5EA1EDFB25786(int flag) { invoke<Void>(0x4AA5EA1EDFB25786, flag); } // 0x4AA5EA1EDFB25786 b1207
 	NATIVE_DECL void ENABLE_SCRIPT_BRAIN_SET(int brainSet) { invoke<Void>(0x1CF6E5C6750EADBD, brainSet); } // 0x1CF6E5C6750EADBD 0x2765919F b1207
 	NATIVE_DECL void DISABLE_SCRIPT_BRAIN_SET(int brainSet) { invoke<Void>(0x3F44EA613A5B2676, brainSet); } // 0x3F44EA613A5B2676 0xFBD13FAD b1207
-	NATIVE_DECL void _0xA32B0B05EFF75730() { invoke<Void>(0xA32B0B05EFF75730); } // 0xA32B0B05EFF75730 0xF3A3AB08 b1207
+	NATIVE_DECL void _PREPARE_SCRIPT_BRAIN() { invoke<Void>(0xA32B0B05EFF75730); } // 0xA32B0B05EFF75730 0xF3A3AB08 b1207
+	// _PREPARE*, - _REGISTER*
 	NATIVE_DECL void _0x74C333E34DF74E8A(const char* scriptName) { invoke<Void>(0x74C333E34DF74E8A, scriptName); } // 0x74C333E34DF74E8A 0x29CE8BAA b1207
 }
 
@@ -662,8 +727,8 @@ namespace CAM
 	// If you have created a script (rendering) camera, and want to go back to the 
 	// character (gameplay) camera, call this native with render set to 0.
 	// Setting ease to 1 will smooth the transition.
-	NATIVE_DECL void RENDER_SCRIPT_CAMS(BOOL render, BOOL ease, int easeTime, BOOL p3, BOOL p4, Any p5) { invoke<Void>(0x33281167E4942E4F, render, ease, easeTime, p3, p4, p5); } // 0x33281167E4942E4F 0x74337969 b1207
-	NATIVE_DECL void STOP_RENDERING_SCRIPT_CAMS_USING_CATCH_UP(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0x8C7C7FF7CF0E5153, p0, p1, p2, p3, p4, p5); } // 0x8C7C7FF7CF0E5153 0xD3C08183 b1207
+	NATIVE_DECL void RENDER_SCRIPT_CAMS(BOOL render, BOOL ease, int easeTime, BOOL p3, BOOL p4, int p5) { invoke<Void>(0x33281167E4942E4F, render, ease, easeTime, p3, p4, p5); } // 0x33281167E4942E4F 0x74337969 b1207
+	NATIVE_DECL void STOP_RENDERING_SCRIPT_CAMS_USING_CATCH_UP(BOOL render, float distance, int blendBackSmoothingType, BOOL p3, BOOL p4, BOOL p5) { invoke<Void>(0x8C7C7FF7CF0E5153, render, distance, blendBackSmoothingType, p3, p4, p5); } // 0x8C7C7FF7CF0E5153 0xD3C08183 b1207
 	NATIVE_DECL Cam CREATE_CAM(const char* camName, BOOL p1) { return invoke<Cam>(0xE72CDBA7F0A02DD6, camName, p1); } // 0xE72CDBA7F0A02DD6 0xE9BF2A7D b1207
 	NATIVE_DECL Cam CREATE_CAM_WITH_PARAMS(const char* camName, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, float fov, BOOL p8, int p9) { return invoke<Cam>(0x40C23491CE83708E, camName, posX, posY, posZ, rotX, rotY, rotZ, fov, p8, p9); } // 0x40C23491CE83708E 0x23B02F15 b1207
 	NATIVE_DECL Cam CREATE_CAMERA(Hash camHash, BOOL p1) { return invoke<Cam>(0x57CDF879EA466C46, camHash, p1); } // 0x57CDF879EA466C46 0x5D6739AE b1207
@@ -697,10 +762,11 @@ namespace CAM
 	NATIVE_DECL void SET_CAM_FAR_CLIP(Cam cam, float farClip) { invoke<Void>(0x5E32817BF6302111, cam, farClip); } // 0x5E32817BF6302111 0x0D23E381 b1207
 	NATIVE_DECL void SET_CAM_MOTION_BLUR_STRENGTH(Cam cam, float strength) { invoke<Void>(0x45FD891364181F9E, cam, strength); } // 0x45FD891364181F9E 0xFD6E0D67 b1207
 	NATIVE_DECL void _0xFC3F638BE2B6BB02() { invoke<Void>(0xFC3F638BE2B6BB02); } // 0xFC3F638BE2B6BB02 b1207
-	NATIVE_DECL void _0xE4B7945EF4F1BFB2(Any p0, Any p1) { invoke<Void>(0xE4B7945EF4F1BFB2, p0, p1); } // 0xE4B7945EF4F1BFB2 b1207
+	NATIVE_DECL void _0xE4B7945EF4F1BFB2(Cam cam, float* p1) { invoke<Void>(0xE4B7945EF4F1BFB2, cam, p1); } // 0xE4B7945EF4F1BFB2 b1207
 	NATIVE_DECL void _0x1FC6C727D30FFDDE(Any p0) { invoke<Void>(0x1FC6C727D30FFDDE, p0); } // 0x1FC6C727D30FFDDE b1207
 	// Last param determines if its relative to the Entity
 	NATIVE_DECL void ATTACH_CAM_TO_ENTITY(Cam cam, Entity entity, float xOffset, float yOffset, float zOffset, BOOL isRelative) { invoke<Void>(0xFDC0DF7F6FB0A592, cam, entity, xOffset, yOffset, zOffset, isRelative); } // 0xFDC0DF7F6FB0A592 0xAD7C45F6 b1207
+	// boneIndex: https://github.com/femga/rdr3_discoveries/tree/master/boneNames
 	NATIVE_DECL void ATTACH_CAM_TO_PED_BONE(Cam cam, Ped ped, int boneIndex, float x, float y, float z, BOOL heading) { invoke<Void>(0xDFC1E4A44C0324CA, cam, ped, boneIndex, x, y, z, heading); } // 0xDFC1E4A44C0324CA 0x506BB35C b1207
 	NATIVE_DECL void DETACH_CAM(Cam cam) { invoke<Void>(0x05B41DDBEB559556, cam); } // 0x05B41DDBEB559556 0xF4FBF14A b1207
 	NATIVE_DECL void POINT_CAM_AT_COORD(Cam cam, float x, float y, float z) { invoke<Void>(0x948B39341C3A40C2, cam, x, y, z); } // 0x948B39341C3A40C2 0x914BC21A b1207
@@ -733,7 +799,8 @@ namespace CAM
 	NATIVE_DECL void STOP_CAM_SHAKING(Cam cam, BOOL p1) { invoke<Void>(0xB78CC4B4706614B0, cam, p1); } // 0xB78CC4B4706614B0 0x40D0EB87 b1207
 	NATIVE_DECL BOOL PLAY_CAM_ANIM(Cam cam, const char* animName, const char* animDictionary, float x, float y, float z, float xRot, float yRot, float zRot, BOOL p9, int p10) { return invoke<BOOL>(0xA263DDF694D563F6, cam, animName, animDictionary, x, y, z, xRot, yRot, zRot, p9, p10); } // 0xA263DDF694D563F6 0xBCEFB87E b1207
 	NATIVE_DECL void _0xCF69EA05CD9C33C9() { invoke<Void>(0xCF69EA05CD9C33C9); } // 0xCF69EA05CD9C33C9 b1207
-	NATIVE_DECL Any _0x20389408F0E93B9A() { return invoke<Any>(0x20389408F0E93B9A); } // 0x20389408F0E93B9A b1207
+	// Only used in R* Script camera_photomode
+	NATIVE_DECL BOOL _IS_ANIM_SCENE_CAM_ACTIVE() { return invoke<BOOL>(0x20389408F0E93B9A); } // 0x20389408F0E93B9A b1207
 	NATIVE_DECL BOOL IS_SCREEN_FADED_OUT() { return invoke<BOOL>(0xF5472C80DF2FF847); } // 0xF5472C80DF2FF847 0x9CAA05FA b1207
 	NATIVE_DECL BOOL IS_SCREEN_FADED_IN() { return invoke<BOOL>(0x37F9A426FBCF4AF2); } // 0x37F9A426FBCF4AF2 0x4F37276D b1207
 	NATIVE_DECL BOOL IS_SCREEN_FADING_OUT() { return invoke<BOOL>(0x02F39BEFE7B88D00); } // 0x02F39BEFE7B88D00 0x79275A57 b1207
@@ -746,11 +813,15 @@ namespace CAM
 	// 
 	// duration: The time the fade should take, in milliseconds.
 	NATIVE_DECL void DO_SCREEN_FADE_OUT(int duration) { invoke<Void>(0x40C719A5E410B9E4, duration); } // 0x40C719A5E410B9E4 0x89D01805 b1207
-	NATIVE_DECL Any _0x81DCFD13CF39920E() { return invoke<Any>(0x81DCFD13CF39920E); } // 0x81DCFD13CF39920E b1207
-	NATIVE_DECL void _0x69D65E89FFD72313(BOOL p0, BOOL p1) { invoke<Void>(0x69D65E89FFD72313, p0, p1); } // 0x69D65E89FFD72313 b1207
-	NATIVE_DECL void _0xE296208C273BD7F0(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0xE296208C273BD7F0, p0, p1, p2, p3, p4, p5); } // 0xE296208C273BD7F0 b1207
-	NATIVE_DECL void _0xC64ABC0676AF262B() { invoke<Void>(0xC64ABC0676AF262B); } // 0xC64ABC0676AF262B b1207
-	NATIVE_DECL Any _0xA2B1C7EF759A63CE() { return invoke<Any>(0xA2B1C7EF759A63CE); } // 0xA2B1C7EF759A63CE b1207
+	// More info: https://en.wikipedia.org/wiki/Letterboxing_(filming)
+	NATIVE_DECL BOOL HAS_LETTER_BOX() { return invoke<BOOL>(0x81DCFD13CF39920E); } // 0x81DCFD13CF39920E b1207
+	// Creates Cinematic Black Bars (at top and bottom)
+	// Disable instantly: false/false, Enable instantly: true/true
+	NATIVE_DECL void _REQUEST_LETTER_BOX_NOW(BOOL p0, BOOL p1) { invoke<Void>(0x69D65E89FFD72313, p0, p1); } // 0x69D65E89FFD72313 b1207
+	NATIVE_DECL void _REQUEST_LETTER_BOX_OVERTIME(int p0, int p1, BOOL p2, int p3, BOOL p4, BOOL p5) { invoke<Void>(0xE296208C273BD7F0, p0, p1, p2, p3, p4, p5); } // 0xE296208C273BD7F0 b1207
+	NATIVE_DECL void _FORCE_LETTER_BOX_THIS_UPDATE() { invoke<Void>(0xC64ABC0676AF262B); } // 0xC64ABC0676AF262B b1207
+	// More info: see HAS_LETTER_BOX
+	NATIVE_DECL float GET_LETTER_BOX_RATIO() { return invoke<float>(0xA2B1C7EF759A63CE); } // 0xA2B1C7EF759A63CE b1207
 	NATIVE_DECL Any _0x73FF6BE63DC18819() { return invoke<Any>(0x73FF6BE63DC18819); } // 0x73FF6BE63DC18819 b1207
 	NATIVE_DECL Any _0x450769C833D58844() { return invoke<Any>(0x450769C833D58844); } // 0x450769C833D58844 b1207
 	NATIVE_DECL void SET_WIDESCREEN_BORDERS(BOOL p0, int p1) { invoke<Void>(0xD7F4D54CF80AFA34, p0, p1); } // 0xD7F4D54CF80AFA34 0x1A75DC9A b1207
@@ -761,7 +832,7 @@ namespace CAM
 	NATIVE_DECL float GET_GAMEPLAY_CAM_RELATIVE_HEADING() { return invoke<float>(0xC4ABF536048998AA); } // 0xC4ABF536048998AA 0xCAF839C2 b1207
 	// Sets the camera position relative to heading in float from -360 to +360.
 	// 
-	// Heading is alwyas 0 in aiming camera.
+	// Heading is always 0 in aiming camera.
 	NATIVE_DECL void SET_GAMEPLAY_CAM_RELATIVE_HEADING(float heading, float p1) { invoke<Void>(0x5D1EB123EAC5D071, heading, p1); } // 0x5D1EB123EAC5D071 0x20C6217C b1207
 	NATIVE_DECL float GET_GAMEPLAY_CAM_RELATIVE_PITCH() { return invoke<float>(0x99AADEBBA803F827); } // 0x99AADEBBA803F827 0xFC5A4946 b1207
 	// Sets the camera pitch.
@@ -774,17 +845,22 @@ namespace CAM
 	NATIVE_DECL void _0x04084490CC302CFB() { invoke<Void>(0x04084490CC302CFB); } // 0x04084490CC302CFB b1207
 	NATIVE_DECL void _0x1DD95A8D6B24A0C9(BOOL p0) { invoke<Void>(0x1DD95A8D6B24A0C9, p0); } // 0x1DD95A8D6B24A0C9 b1207
 	// Returns true if player is in first person
-	NATIVE_DECL BOOL _0xD1BA66940E94C547() { return invoke<BOOL>(0xD1BA66940E94C547); } // 0xD1BA66940E94C547 b1207
+	NATIVE_DECL BOOL _IS_IN_FULL_FIRST_PERSON_MODE() { return invoke<BOOL>(0xD1BA66940E94C547); } // 0xD1BA66940E94C547 b1207
 	NATIVE_DECL void SHAKE_GAMEPLAY_CAM(const char* shakeName, float intensity) { invoke<Void>(0xD9B31B4650520529, shakeName, intensity); } // 0xD9B31B4650520529 0xF2EFE660 b1207
-	NATIVE_DECL void _0xC3E9E5D4F413B773(Any p0, Any p1) { invoke<Void>(0xC3E9E5D4F413B773, p0, p1); } // 0xC3E9E5D4F413B773 b1207
+	// _RES*
+	NATIVE_DECL void _0xC3E9E5D4F413B773(const char* shakeName, float intensity) { invoke<Void>(0xC3E9E5D4F413B773, shakeName, intensity); } // 0xC3E9E5D4F413B773 b1207
 	NATIVE_DECL BOOL IS_GAMEPLAY_CAM_SHAKING() { return invoke<BOOL>(0xEA4C5F4AA0A4DBEF); } // 0xEA4C5F4AA0A4DBEF 0x3457D681 b1207
-	NATIVE_DECL Any _0x0060B31968E60E41(Any p0) { return invoke<Any>(0x0060B31968E60E41, p0); } // 0x0060B31968E60E41 b1207
+	// shakeNames in script_rel: CORRECTOR_SHAKE, MINIGAME_BOUNTY_SHAKE, POV_DRUNK_SHAKE, DRUNK_SHAKE, MINIGAME_TRAIN_SHAKE
+	// _IS_GAMEPLAY_*
+	NATIVE_DECL BOOL _0x0060B31968E60E41(const char* shakeName) { return invoke<BOOL>(0x0060B31968E60E41, shakeName); } // 0x0060B31968E60E41 b1207
 	// Sets the amplitude for the gameplay (i.e. 3rd or 1st) camera to shake.
 	NATIVE_DECL void SET_GAMEPLAY_CAM_SHAKE_AMPLITUDE(float amplitude) { invoke<Void>(0x570E35F5C4A44838, amplitude); } // 0x570E35F5C4A44838 0x9219D44A b1207
 	NATIVE_DECL void _0xFEFDDC6E8FDF8A75(const char* shakeName, float intensity) { invoke<Void>(0xFEFDDC6E8FDF8A75, shakeName, intensity); } // 0xFEFDDC6E8FDF8A75 b1207
 	NATIVE_DECL void STOP_GAMEPLAY_CAM_SHAKING(BOOL p0) { invoke<Void>(0xE0DE43D290FB65F9, p0); } // 0xE0DE43D290FB65F9 0xFD569E4E b1207
+	// script_rel: DRUNK_SHAKE, REINFORCED_LASSO_STRUGGLE_SHAKE, CORRECTOR_SHAKE, MINIGAME_BOUNTY_SHAKE, HAND_SHAKE, MINIGAME_TRAIN_SHAKE
+	// script_mp_rel: DRUNK_SHAKE, REINFORCED_LASSO_STRUGGLE_SHAKE
 	NATIVE_DECL void _0x4285804FD65D8066(const char* shakeName, BOOL p1) { invoke<Void>(0x4285804FD65D8066, shakeName, p1); } // 0x4285804FD65D8066 b1207
-	NATIVE_DECL void SET_GAMEPLAY_CAM_FOLLOW_PED_THIS_UPDATE(Any p0) { invoke<Void>(0x82E41D6ADE924FCA, p0); } // 0x82E41D6ADE924FCA 0x7D3007A2 b1207
+	NATIVE_DECL void SET_GAMEPLAY_CAM_FOLLOW_PED_THIS_UPDATE(Ped ped) { invoke<Void>(0x82E41D6ADE924FCA, ped); } // 0x82E41D6ADE924FCA 0x7D3007A2 b1207
 	NATIVE_DECL BOOL IS_GAMEPLAY_CAM_RENDERING() { return invoke<BOOL>(0x8660EA714834E412); } // 0x8660EA714834E412 0x0EF276DA b1207
 	NATIVE_DECL BOOL _0x251241CAEC707106() { return invoke<BOOL>(0x251241CAEC707106); } // 0x251241CAEC707106 0xC0B00C20 b1207
 	NATIVE_DECL BOOL _0x43AB9D5A7D415478() { return invoke<BOOL>(0x43AB9D5A7D415478); } // 0x43AB9D5A7D415478 0x60C23785 b1207
@@ -796,14 +872,15 @@ namespace CAM
 	NATIVE_DECL void _0x18C3DFAC458783BB() { invoke<Void>(0x18C3DFAC458783BB); } // 0x18C3DFAC458783BB b1207
 	NATIVE_DECL void _0xF1A6FEEDF3776EF9() { invoke<Void>(0xF1A6FEEDF3776EF9); } // 0xF1A6FEEDF3776EF9 b1207
 	NATIVE_DECL void _0xE6F364DE6C2FDEFE() { invoke<Void>(0xE6F364DE6C2FDEFE); } // 0xE6F364DE6C2FDEFE b1207
+	// _DISABLE_*
 	NATIVE_DECL void _0x0F1FFEF5D54AE832() { invoke<Void>(0x0F1FFEF5D54AE832); } // 0x0F1FFEF5D54AE832 b1207
 	NATIVE_DECL void _0x3C8F74E8FE751614() { invoke<Void>(0x3C8F74E8FE751614); } // 0x3C8F74E8FE751614 b1207
 	NATIVE_DECL void _0x06557F6D96C86881() { invoke<Void>(0x06557F6D96C86881); } // 0x06557F6D96C86881 b1207
 	NATIVE_DECL BOOL IS_SPHERE_VISIBLE(float x, float y, float z, float radius) { return invoke<BOOL>(0x2E941B5FFA2989C6, x, y, z, radius); } // 0x2E941B5FFA2989C6 0xDD1329E2 b1207
 	NATIVE_DECL Any _0x190F7DA1AC09A8EF() { return invoke<Any>(0x190F7DA1AC09A8EF); } // 0x190F7DA1AC09A8EF b1207
-	NATIVE_DECL void _0xBCDA0BA8762FACB9(Any p0) { invoke<Void>(0xBCDA0BA8762FACB9, p0); } // 0xBCDA0BA8762FACB9 b1207
-	NATIVE_DECL void _0x6C1053C433A573CF(Any p0) { invoke<Void>(0x6C1053C433A573CF, p0); } // 0x6C1053C433A573CF b1207
-	NATIVE_DECL void _0x449995EA846D3FC2(Any p0) { invoke<Void>(0x449995EA846D3FC2, p0); } // 0x449995EA846D3FC2 b1207
+	NATIVE_DECL void _SET_FIRST_PERSON_CAM_INITIAL_ZOOM(float fCamInitialZoom) { invoke<Void>(0xBCDA0BA8762FACB9, fCamInitialZoom); } // 0xBCDA0BA8762FACB9 b1207
+	NATIVE_DECL void _SET_FIRST_PERSON_CAM_INITIAL_HEADING(float fCamInitialHeading) { invoke<Void>(0x6C1053C433A573CF, fCamInitialHeading); } // 0x6C1053C433A573CF b1207
+	NATIVE_DECL void _SET_FIRST_PERSON_CAM_INITIAL_PITCH(float fCamInitialPitch) { invoke<Void>(0x449995EA846D3FC2, fCamInitialPitch); } // 0x449995EA846D3FC2 b1207
 	// minimum: Degrees between -180f and 180f.
 	// maximum: Degrees between -180f and 180f.
 	// 
@@ -819,16 +896,19 @@ namespace CAM
 	// Eg. _CLAMP_GAMEPLAY_CAM_PITCH(0.0f, 0.0f) will set the vertical angle directly behind the player.
 	NATIVE_DECL void _CLAMP_GAMEPLAY_CAM_PITCH(float minimum, float maximum) { invoke<Void>(0x326C7AA308F3DF6A, minimum, maximum); } // 0x326C7AA308F3DF6A 0xFA3A16E7 b1207
 	NATIVE_DECL void _ANIMATE_GAMEPLAY_CAM_ZOOM(float p0, float distance) { invoke<Void>(0x2126C740A4AC370B, p0, distance); } // 0x2126C740A4AC370B 0x77340650 b1207
-	NATIVE_DECL void SET_IN_VEHICLE_CAM_STATE_THIS_UPDATE(Vehicle p0, int p1) { invoke<Void>(0xFA1D5E8D1C3CCD67, p0, p1); } // 0xFA1D5E8D1C3CCD67 0x4B22C5CB b1207
+	NATIVE_DECL void SET_IN_VEHICLE_CAM_STATE_THIS_UPDATE(Vehicle vehicle, int p1) { invoke<Void>(0xFA1D5E8D1C3CCD67, vehicle, p1); } // 0xFA1D5E8D1C3CCD67 0x4B22C5CB b1207
 	NATIVE_DECL void _DISABLE_FIRST_PERSON_CAM_THIS_FRAME() { invoke<Void>(0x9C473089A934C930); } // 0x9C473089A934C930 b1207
 	// nullsub, doesn't do anything
 	NATIVE_DECL void _0x77D65669A05D1A1A() { invoke<Void>(0x77D65669A05D1A1A); } // 0x77D65669A05D1A1A b1207
-	NATIVE_DECL void _0x8910C24B7E0046EC() { invoke<Void>(0x8910C24B7E0046EC); } // 0x8910C24B7E0046EC b1207
+	NATIVE_DECL void _DISABLE_CINEMATIC_MODE_THIS_FRAME() { invoke<Void>(0x8910C24B7E0046EC); } // 0x8910C24B7E0046EC b1207
 	NATIVE_DECL Any _0x74F1D22EFA71FAB8() { return invoke<Any>(0x74F1D22EFA71FAB8); } // 0x74F1D22EFA71FAB8 b1207
 	NATIVE_DECL void _0x718C6ECF5E8CBDD4() { invoke<Void>(0x718C6ECF5E8CBDD4); } // 0x718C6ECF5E8CBDD4 b1207
-	NATIVE_DECL void _0x8370D34BD2E60B73() { invoke<Void>(0x8370D34BD2E60B73); } // 0x8370D34BD2E60B73 b1207
-	NATIVE_DECL void _0x1CFB749AD4317BDE() { invoke<Void>(0x1CFB749AD4317BDE); } // 0x1CFB749AD4317BDE b1207
-	NATIVE_DECL Any _0x90DA5BA5C2635416() { return invoke<Any>(0x90DA5BA5C2635416); } // 0x90DA5BA5C2635416 b1207
+	// Forces camera position to second furthest 3rd person
+	NATIVE_DECL void _FORCE_THIRD_PERSON_CAM_THIS_FRAME() { invoke<Void>(0x8370D34BD2E60B73); } // 0x8370D34BD2E60B73 b1207
+	// Forces camera position to furthest 3rd person
+	NATIVE_DECL void _FORCE_THIRD_PERSON_CAM_FAR_THIS_FRAME() { invoke<Void>(0x1CFB749AD4317BDE); } // 0x1CFB749AD4317BDE b1207
+	// Returns true if first person camera is active in saloon1.ysc
+	NATIVE_DECL BOOL _FORCE_FIRST_PERSON_CAM_THIS_FRAME() { return invoke<BOOL>(0x90DA5BA5C2635416); } // 0x90DA5BA5C2635416 b1207
 	// Does the same as 0x9C473089A934C930
 	NATIVE_DECL void _DISABLE_FIRST_PERSON_CAM_THIS_FRAME_2() { invoke<Void>(0x05AB44D906738426); } // 0x05AB44D906738426 b1207
 	NATIVE_DECL void _0x632BE8D84846FA56() { invoke<Void>(0x632BE8D84846FA56); } // 0x632BE8D84846FA56 b1207
@@ -868,7 +948,7 @@ namespace CAM
 	NATIVE_DECL void _0x1F6EBD94680252CE(Any p0, Any p1) { invoke<Void>(0x1F6EBD94680252CE, p0, p1); } // 0x1F6EBD94680252CE b1207
 	NATIVE_DECL void _0xE28F73212A813E82(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xE28F73212A813E82, p0, p1, p2, p3); } // 0xE28F73212A813E82 b1207
 	NATIVE_DECL void _0x4D2F46D1B28D90FB(Any p0, Any p1) { invoke<Void>(0x4D2F46D1B28D90FB, p0, p1); } // 0x4D2F46D1B28D90FB b1207
-	NATIVE_DECL void _0x65B205BF30C13DDB(Any p0) { invoke<Void>(0x65B205BF30C13DDB, p0); } // 0x65B205BF30C13DDB b1207
+	NATIVE_DECL void _START_CAMERA_ORBIT(Any* p0) { invoke<Void>(0x65B205BF30C13DDB, p0); } // 0x65B205BF30C13DDB b1207
 	NATIVE_DECL void _0x641092322A8852AB() { invoke<Void>(0x641092322A8852AB); } // 0x641092322A8852AB b1207
 	NATIVE_DECL void _0xDB382FE20C2DA222(Any p0) { invoke<Void>(0xDB382FE20C2DA222, p0); } // 0xDB382FE20C2DA222 b1207
 	NATIVE_DECL void _0x2DD3149DC34A3F4C(Any p0) { invoke<Void>(0x2DD3149DC34A3F4C, p0); } // 0x2DD3149DC34A3F4C b1207
@@ -906,6 +986,7 @@ namespace CAM
 	NATIVE_DECL void _0xDF7F5BE9150E47E4(Any p0) { invoke<Void>(0xDF7F5BE9150E47E4, p0); } // 0xDF7F5BE9150E47E4 b1207
 	NATIVE_DECL void _0xB85C13E0BF1F2A1C(Any p0) { invoke<Void>(0xB85C13E0BF1F2A1C, p0); } // 0xB85C13E0BF1F2A1C b1207
 	NATIVE_DECL void _0x066167C63111D8CF(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x066167C63111D8CF, p0, p1, p2, p3, p4); } // 0x066167C63111D8CF b1207
+	// _DISABLE_*
 	NATIVE_DECL void _0xA8BA2E0204D8486F() { invoke<Void>(0xA8BA2E0204D8486F); } // 0xA8BA2E0204D8486F b1355
 	NATIVE_DECL void _0xC3742F1FDF0A6824() { invoke<Void>(0xC3742F1FDF0A6824); } // 0xC3742F1FDF0A6824 b1355
 	NATIVE_DECL void _0x0FF7125F07DEB84F(Any p0, Any p1) { invoke<Void>(0x0FF7125F07DEB84F, p0, p1); } // 0x0FF7125F07DEB84F b1207
@@ -917,27 +998,27 @@ namespace CAM
 	NATIVE_DECL Any _0x465F04F68AD38197(Any p0, Any p1, Any p2) { return invoke<Any>(0x465F04F68AD38197, p0, p1, p2); } // 0x465F04F68AD38197 b1207
 	NATIVE_DECL Any _0xEA113BF9B0C0C5D7(Any p0, Any p1, Any p2) { return invoke<Any>(0xEA113BF9B0C0C5D7, p0, p1, p2); } // 0xEA113BF9B0C0C5D7 b1207
 	NATIVE_DECL void _0xBC016635D6A73B31(Any* p0, Any* p1, Any p2) { invoke<Void>(0xBC016635D6A73B31, p0, p1, p2); } // 0xBC016635D6A73B31 b1207
-	NATIVE_DECL void CINEMATIC_LOCATION_TRIGGER_SCRIPTED_SHOT_EVENT(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x02389579A53C3276, p0, p1, p2, p3); } // 0x02389579A53C3276 b1207
+	NATIVE_DECL void CINEMATIC_LOCATION_TRIGGER_SCRIPTED_SHOT_EVENT(const char* dictionary, const char* shotName, const char* cameraName, Any p3) { invoke<Void>(0x02389579A53C3276, dictionary, shotName, cameraName, p3); } // 0x02389579A53C3276 b1207
 	NATIVE_DECL void _0xA54D643D0773EB65(Any p0, Any p1, Any p2) { invoke<Void>(0xA54D643D0773EB65, p0, p1, p2); } // 0xA54D643D0773EB65 b1207
 	NATIVE_DECL void CINEMATIC_LOCATION_STOP_SCRIPTED_SHOT_EVENT(Any p0, Any p1, Any p2) { invoke<Void>(0x6D4D25C2137FF511, p0, p1, p2); } // 0x6D4D25C2137FF511 b1207
 	NATIVE_DECL Any _0xC3AEBB276825A359(Any* p0, Any* p1, Any p2) { return invoke<Any>(0xC3AEBB276825A359, p0, p1, p2); } // 0xC3AEBB276825A359 b1436
 	NATIVE_DECL Any _0x1D931B7CC0EE3956(Any* p0, Any* p1, Any* p2) { return invoke<Any>(0x1D931B7CC0EE3956, p0, p1, p2); } // 0x1D931B7CC0EE3956 b1436
 	NATIVE_DECL void _0x0E94C95EC3185FA9(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { invoke<Void>(0x0E94C95EC3185FA9, p0, p1, p2, p3, p4, p5, p6); } // 0x0E94C95EC3185FA9 b1207
 	NATIVE_DECL void _0x0B0F914459731F60(Any p0, Any p1) { invoke<Void>(0x0B0F914459731F60, p0, p1); } // 0x0B0F914459731F60 b1311
-	NATIVE_DECL void _0x6A4D224FC7643941(Any p0) { invoke<Void>(0x6A4D224FC7643941, p0); } // 0x6A4D224FC7643941 b1207
-	NATIVE_DECL void _0x798BE43C9393632B(Any p0) { invoke<Void>(0x798BE43C9393632B, p0); } // 0x798BE43C9393632B b1207
-	NATIVE_DECL Any _0xDD0B7C5AE58F721D(Any p0) { return invoke<Any>(0xDD0B7C5AE58F721D, p0); } // 0xDD0B7C5AE58F721D b1207
+	NATIVE_DECL void _LOAD_CAMERA_DATA_DICT(const char* cameraDictionary) { invoke<Void>(0x6A4D224FC7643941, cameraDictionary); } // 0x6A4D224FC7643941 b1207
+	NATIVE_DECL void _UNLOAD_CAMERA_DATA_DICT(const char* cameraDictionary) { invoke<Void>(0x798BE43C9393632B, cameraDictionary); } // 0x798BE43C9393632B b1207
+	NATIVE_DECL BOOL _IS_CAM_DATA_DICT_LOADED(const char* cameraDictionary) { return invoke<BOOL>(0xDD0B7C5AE58F721D, cameraDictionary); } // 0xDD0B7C5AE58F721D b1207
 	NATIVE_DECL Any _0xC285FD21294A1C49(Any p0) { return invoke<Any>(0xC285FD21294A1C49, p0); } // 0xC285FD21294A1C49 b1207
-	NATIVE_DECL void _0xB8B207C34285E978(Any p0) { invoke<Void>(0xB8B207C34285E978, p0); } // 0xB8B207C34285E978 b1207
-	NATIVE_DECL void _0x0A5A4F1979ABB40E(Any p0) { invoke<Void>(0x0A5A4F1979ABB40E, p0); } // 0x0A5A4F1979ABB40E b1207
-	NATIVE_DECL Any _0x927B810E43E99932(Any p0) { return invoke<Any>(0x927B810E43E99932, p0); } // 0x927B810E43E99932 b1207
+	NATIVE_DECL void _CAM_CREATE(const char* cameraDictionary) { invoke<Void>(0xB8B207C34285E978, cameraDictionary); } // 0xB8B207C34285E978 b1207
+	NATIVE_DECL void _CAM_DESTROY(const char* cameraDictionary) { invoke<Void>(0x0A5A4F1979ABB40E, cameraDictionary); } // 0x0A5A4F1979ABB40E b1207
+	NATIVE_DECL BOOL _IS_CAMERA_AVAILABLE(const char* cameraDictionary) { return invoke<BOOL>(0x927B810E43E99932, cameraDictionary); } // 0x927B810E43E99932 b1207
 	NATIVE_DECL Any _0x4138EE36BC3DC0A7(Any p0, Any p1) { return invoke<Any>(0x4138EE36BC3DC0A7, p0, p1); } // 0x4138EE36BC3DC0A7 b1207
 	NATIVE_DECL void _0xFEB8646818294C75(Any p0, Any p1) { invoke<Void>(0xFEB8646818294C75, p0, p1); } // 0xFEB8646818294C75 b1207
 	NATIVE_DECL void _0x29E6655DF3590B0D(Any p0) { invoke<Void>(0x29E6655DF3590B0D, p0); } // 0x29E6655DF3590B0D b1207
-	NATIVE_DECL void _0xAC77757C05DE9E5A(Any p0) { invoke<Void>(0xAC77757C05DE9E5A, p0); } // 0xAC77757C05DE9E5A b1207
+	NATIVE_DECL void _0xAC77757C05DE9E5A(const char* cameraDictionary) { invoke<Void>(0xAC77757C05DE9E5A, cameraDictionary); } // 0xAC77757C05DE9E5A b1207
 	NATIVE_DECL void _0x8E036B41C37D0E5F(Any p0) { invoke<Void>(0x8E036B41C37D0E5F, p0); } // 0x8E036B41C37D0E5F b1207
 	NATIVE_DECL void _0x1D9F72DD4FD9A9D7(Any p0) { invoke<Void>(0x1D9F72DD4FD9A9D7, p0); } // 0x1D9F72DD4FD9A9D7 b1207
-	NATIVE_DECL void _0x7B0279170961A73F(Any p0) { invoke<Void>(0x7B0279170961A73F, p0); } // 0x7B0279170961A73F b1207
+	NATIVE_DECL void _CAM_CREATE_2(const char* cameraDictionary) { invoke<Void>(0x7B0279170961A73F, cameraDictionary); } // 0x7B0279170961A73F b1207
 	NATIVE_DECL void _0x728491FB3DFFEF99(Any p0) { invoke<Void>(0x728491FB3DFFEF99, p0); } // 0x728491FB3DFFEF99 b1207
 	NATIVE_DECL Any _0x14C4A49E36C29E49() { return invoke<Any>(0x14C4A49E36C29E49); } // 0x14C4A49E36C29E49 b1207
 	NATIVE_DECL Any _0xF824530B612FE0CE() { return invoke<Any>(0xF824530B612FE0CE); } // 0xF824530B612FE0CE b1207
@@ -1049,7 +1130,7 @@ namespace COMPANION
 	NATIVE_DECL void _0x7274F84B1501B523(Any p0) { invoke<Void>(0x7274F84B1501B523, p0); } // 0x7274F84B1501B523 b1207
 	NATIVE_DECL Any _0x722FBE08EF5B87BD(Any p0, Any p1, Any p2, Any p3, Any p4) { return invoke<Any>(0x722FBE08EF5B87BD, p0, p1, p2, p3, p4); } // 0x722FBE08EF5B87BD b1207
 	NATIVE_DECL void _0xCBD9EC60495C728C(Any p0) { invoke<Void>(0xCBD9EC60495C728C, p0); } // 0xCBD9EC60495C728C b1207
-	NATIVE_DECL void _0x72B7F65F11FC8896(Any p0) { invoke<Void>(0x72B7F65F11FC8896, p0); } // 0x72B7F65F11FC8896 b1207
+	NATIVE_DECL void _DEACTIVATE_COMPANION_ANALYSIS(int group) { invoke<Void>(0x72B7F65F11FC8896, group); } // 0x72B7F65F11FC8896 b1207
 }
 
 namespace COMPENDIUM
@@ -1132,87 +1213,90 @@ namespace CREW
 
 namespace DATABINDING
 {
-	NATIVE_DECL Any _DATABINDING_GET_DATA_CONTAINER_FROM_PATH(Any p0) { return invoke<Any>(0x0C827D175F1292F2, p0); } // 0x0C827D175F1292F2 b1207
-	NATIVE_DECL Any _DATABINDING_GET_DATA_CONTAINER_FROM_CHILD_INDEX(Any p0, Any p1) { return invoke<Any>(0x0C827D175F1292F3, p0, p1); } // 0x0C827D175F1292F3 b1207
-	NATIVE_DECL Any _0xD7DB94AB78E8EBE4(Any p0, Any p1) { return invoke<Any>(0xD7DB94AB78E8EBE4, p0, p1); } // 0xD7DB94AB78E8EBE4 b1207
-	NATIVE_DECL Any _DATABINDING_ADD_DATA_CONTAINER_FROM_PATH(Any p0, Any p1) { return invoke<Any>(0x0C827D175F1292F4, p0, p1); } // 0x0C827D175F1292F4 b1207
-	NATIVE_DECL Any _DATABINDING_ADD_DATA_CONTAINER_BY_HASH(Any p0, Any p1) { return invoke<Any>(0x98BB14345BB68257, p0, p1); } // 0x98BB14345BB68257 b1207
-	NATIVE_DECL Any _DATABINDING_ADD_DATA_CONTAINER(Any p0, Any p1) { return invoke<Any>(0xEB4F9A3537EEABCD, p0, p1); } // 0xEB4F9A3537EEABCD b1207
-	NATIVE_DECL Any _DATABINDING_ADD_DATA_BOOL_FROM_PATH(Any p0, Any p1, Any p2) { return invoke<Any>(0x37BB86A751148A6A, p0, p1, p2); } // 0x37BB86A751148A6A b1207
-	NATIVE_DECL Any _DATABINDING_ADD_DATA_BOOL_BY_HASH(Any p0, Any p1, Any p2) { return invoke<Any>(0xBC95D3AE2ECA70D6, p0, p1, p2); } // 0xBC95D3AE2ECA70D6 b1207
-	NATIVE_DECL Any _DATABINDING_ADD_DATA_BOOL(Any p0, Any p1, Any p2) { return invoke<Any>(0x58BAA5F635DA2FF4, p0, p1, p2); } // 0x58BAA5F635DA2FF4 b1207
-	NATIVE_DECL Any _DATABINDING_ADD_DATA_INT_BY_HASH(Any p0, Any p1, Any p2) { return invoke<Any>(0x267F9527F4350ADE, p0, p1, p2); } // 0x267F9527F4350ADE b1207
-	NATIVE_DECL Any _DATABINDING_ADD_DATA_INT(Any p0, Any p1, Any p2) { return invoke<Any>(0x307A3247C5457BDE, p0, p1, p2); } // 0x307A3247C5457BDE b1207
-	NATIVE_DECL Any _DATABINDING_ADD_DATA_FLOAT(Any p0, Any p1, Any p2) { return invoke<Any>(0x5154228273ADB9A6, p0, p1, p2); } // 0x5154228273ADB9A6 b1207
-	NATIVE_DECL Any _DATABINDING_ADD_DATA_HASH_BY_HASH(Any p0, Any p1, Hash p2) { return invoke<Any>(0x8E173DFB041993C6, p0, p1, p2); } // 0x8E173DFB041993C6 b1207
-	NATIVE_DECL Any _DATABINDING_ADD_DATA_HASH(Any p0, Any p1, Any p2) { return invoke<Any>(0x8538F1205D60ECA6, p0, p1, p2); } // 0x8538F1205D60ECA6 b1207
+	NATIVE_DECL Any _DATABINDING_GET_DATA_CONTAINER_FROM_PATH(const char* p0) { return invoke<Any>(0x0C827D175F1292F2, p0); } // 0x0C827D175F1292F2 b1207
+	NATIVE_DECL Any _DATABINDING_GET_DATA_CONTAINER_FROM_CHILD_INDEX(Hash entryId, int p1) { return invoke<Any>(0x0C827D175F1292F3, entryId, p1); } // 0x0C827D175F1292F3 b1207
+	NATIVE_DECL Any _0xD7DB94AB78E8EBE4(const char* p0, Hash p1) { return invoke<Any>(0xD7DB94AB78E8EBE4, p0, p1); } // 0xD7DB94AB78E8EBE4 b1207
+	NATIVE_DECL Any _DATABINDING_ADD_DATA_CONTAINER_FROM_PATH(const char* p0, const char* p1) { return invoke<Any>(0x0C827D175F1292F4, p0, p1); } // 0x0C827D175F1292F4 b1207
+	NATIVE_DECL Any _DATABINDING_ADD_DATA_CONTAINER_BY_HASH(Any p0, Hash p1) { return invoke<Any>(0x98BB14345BB68257, p0, p1); } // 0x98BB14345BB68257 b1207
+	// Returns entryId Hash
+	NATIVE_DECL Hash _DATABINDING_ADD_DATA_CONTAINER(Hash entryId, const char* p1) { return invoke<Hash>(0xEB4F9A3537EEABCD, entryId, p1); } // 0xEB4F9A3537EEABCD b1207
+	NATIVE_DECL Any _DATABINDING_ADD_DATA_BOOL_FROM_PATH(const char* p0, const char* p1, BOOL p2) { return invoke<Any>(0x37BB86A751148A6A, p0, p1, p2); } // 0x37BB86A751148A6A b1207
+	NATIVE_DECL Any _DATABINDING_ADD_DATA_BOOL_BY_HASH(Any p0, Hash p1, BOOL p2) { return invoke<Any>(0xBC95D3AE2ECA70D6, p0, p1, p2); } // 0xBC95D3AE2ECA70D6 b1207
+	NATIVE_DECL Any _DATABINDING_ADD_DATA_BOOL(Any p0, const char* p1, BOOL p2) { return invoke<Any>(0x58BAA5F635DA2FF4, p0, p1, p2); } // 0x58BAA5F635DA2FF4 b1207
+	NATIVE_DECL Any _DATABINDING_ADD_DATA_INT_BY_HASH(Any p0, Hash p1, int p2) { return invoke<Any>(0x267F9527F4350ADE, p0, p1, p2); } // 0x267F9527F4350ADE b1207
+	NATIVE_DECL Any _DATABINDING_ADD_DATA_INT(Any p0, const char* p1, Hash p2) { return invoke<Any>(0x307A3247C5457BDE, p0, p1, p2); } // 0x307A3247C5457BDE b1207
+	NATIVE_DECL Any _DATABINDING_ADD_DATA_FLOAT(Any p0, const char* p1, float p2) { return invoke<Any>(0x5154228273ADB9A6, p0, p1, p2); } // 0x5154228273ADB9A6 b1207
+	NATIVE_DECL Any _DATABINDING_ADD_DATA_HASH_BY_HASH(Any p0, Hash p1, Hash p2) { return invoke<Any>(0x8E173DFB041993C6, p0, p1, p2); } // 0x8E173DFB041993C6 b1207
+	NATIVE_DECL Any _DATABINDING_ADD_DATA_HASH(Any p0, const char* p1, Hash p2) { return invoke<Any>(0x8538F1205D60ECA6, p0, p1, p2); } // 0x8538F1205D60ECA6 b1207
 	NATIVE_DECL Any _DATABINDING_ADD_DATA_STRING_FROM_PATH(const char* p0, const char* p1, const char* p2) { return invoke<Any>(0xA381DE86EE170C4A, p0, p1, p2); } // 0xA381DE86EE170C4A b1207
-	NATIVE_DECL Any _DATABINDING_ADD_DATA_STRING_BY_HASH(Any p0, Any p1, Any p2) { return invoke<Any>(0xEAD09E76E22630C3, p0, p1, p2); } // 0xEAD09E76E22630C3 b1207
-	NATIVE_DECL Any _DATABINDING_ADD_DATA_STRING(Any p0, Any p1, Any p2) { return invoke<Any>(0x617FCA1C5652BBAD, p0, p1, p2); } // 0x617FCA1C5652BBAD b1207
-	NATIVE_DECL Any _DATABINDING_ADD_DATA_GANG_ID(Any p0, Any p1, Any p2) { return invoke<Any>(0x7D0F2014DB28DD00, p0, p1, p2); } // 0x7D0F2014DB28DD00 b1207
-	NATIVE_DECL Any _0x7D0F2014DB28DD01(Any p0, Any p1, Any p2) { return invoke<Any>(0x7D0F2014DB28DD01, p0, p1, p2); } // 0x7D0F2014DB28DD01 b1207
-	NATIVE_DECL Any _0x294AF5323F44B053(Any p0, Any p1, Any p2) { return invoke<Any>(0x294AF5323F44B053, p0, p1, p2); } // 0x294AF5323F44B053 b1207
-	NATIVE_DECL Any _DATABINDING_ADD_UI_ITEM_LIST_FROM_PATH(Any p0, Any p1) { return invoke<Any>(0xDB5B9A474148F699, p0, p1); } // 0xDB5B9A474148F699 b1207
-	NATIVE_DECL Any _DATABINDING_ADD_UI_ITEM_LIST_BY_HASH(Any p0, Any p1) { return invoke<Any>(0x3C7799283325181B, p0, p1); } // 0x3C7799283325181B b1207
-	NATIVE_DECL Any _DATABINDING_ADD_UI_ITEM_LIST(Any p0, Any p1) { return invoke<Any>(0xFE74FA57E0CE6824, p0, p1); } // 0xFE74FA57E0CE6824 b1207
-	NATIVE_DECL void _DATABINDING_INSERT_UI_ITEM_TO_LIST_FROM_CONTEXT_STRING_ALIAS(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x5859E970794D92F3, p0, p1, p2, p3); } // 0x5859E970794D92F3 b1207
-	NATIVE_DECL void _DATABINDING_INSERT_UI_ITEM_TO_LIST_FROM_CONTEXT_HASH_ALIAS(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xEE97A05C05F16E41, p0, p1, p2, p3); } // 0xEE97A05C05F16E41 b1207
-	NATIVE_DECL void _DATABINDING_INSERT_UI_ITEM_TO_LIST_FROM_PATH_STRING_ALIAS(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x5740774F608E4FC8, p0, p1, p2, p3); } // 0x5740774F608E4FC8 b1207
-	NATIVE_DECL void _0x6318FB3BE37E11B3(Any p0, Any p1) { invoke<Void>(0x6318FB3BE37E11B3, p0, p1); } // 0x6318FB3BE37E11B3 b1207
-	NATIVE_DECL void _DATABINDING_REMOVE_BINDING_ARRAY_ITEM_BY_DATA_CONTEXT_ID(Any p0, Any p1) { invoke<Void>(0xF68B1726EAF7B285, p0, p1); } // 0xF68B1726EAF7B285 b1207
-	NATIVE_DECL void _DATABINDING_CLEAR_BINDING_ARRAY(Any p0) { invoke<Void>(0xA1F15C1D03DF802D, p0); } // 0xA1F15C1D03DF802D b1207
-	NATIVE_DECL Any _DATABINDING_GET_ITEM_CONTEXT_BY_INDEX(Any p0, Any p1) { return invoke<Any>(0xE96D7F9FEFCC105F, p0, p1); } // 0xE96D7F9FEFCC105F b1207
-	NATIVE_DECL void _DATABINDING_SET_TEMPLATED_UI_ITEM_LIST_SIZE(Any p0, Any p1) { invoke<Void>(0xFE74FA57E0CE6825, p0, p1); } // 0xFE74FA57E0CE6825 b1207
-	NATIVE_DECL void _DATABINDING_SET_TEMPLATED_UI_ITEM_HASH_ALIAS(Any p0, Any p1, Any p2) { invoke<Void>(0x0AE7138D0541F2DE, p0, p1, p2); } // 0x0AE7138D0541F2DE b1207
-	NATIVE_DECL Any _0xD48993A61938C64D(Any p0, Any p1) { return invoke<Any>(0xD48993A61938C64D, p0, p1); } // 0xD48993A61938C64D b1207
-	NATIVE_DECL Any _DATABINDING_ADD_HASH_ARRAY(Any p0, Any p1) { return invoke<Any>(0x52F5F08278EA5D75, p0, p1); } // 0x52F5F08278EA5D75 b1207
-	NATIVE_DECL Any _DATABINDING_ADD_STRING_ARRAY(Any p0, Any p1) { return invoke<Any>(0x1B23E0627BDBFE85, p0, p1); } // 0x1B23E0627BDBFE85 b1207
-	NATIVE_DECL void _0x1919D59E60FD516E(Any p0, Any p1, Any p2) { invoke<Void>(0x1919D59E60FD516E, p0, p1, p2); } // 0x1919D59E60FD516E b1207
-	NATIVE_DECL void _0x7FC60C94C83C5CD7(Any p0, Any p1, Any p2) { invoke<Void>(0x7FC60C94C83C5CD7, p0, p1, p2); } // 0x7FC60C94C83C5CD7 b1207
-	NATIVE_DECL void _0xC900CEC8A172375B(Any p0, Any p1, Any p2) { invoke<Void>(0xC900CEC8A172375B, p0, p1, p2); } // 0xC900CEC8A172375B b1207
-	NATIVE_DECL Any _0x02B21B6BEEDD83CC(Any p0, Any p1) { return invoke<Any>(0x02B21B6BEEDD83CC, p0, p1); } // 0x02B21B6BEEDD83CC b1207
-	NATIVE_DECL Any _0xF47E33F8D2523825(Any p0, Any p1) { return invoke<Any>(0xF47E33F8D2523825, p0, p1); } // 0xF47E33F8D2523825 b1207
-	NATIVE_DECL void _0x3BF0767CF33FCC88(Any p0) { invoke<Void>(0x3BF0767CF33FCC88, p0); } // 0x3BF0767CF33FCC88 b1207
-	NATIVE_DECL Any _DATABINDING_GET_ARRAY_COUNT(Any p0) { return invoke<Any>(0xD23F5DE04FE717E2, p0); } // 0xD23F5DE04FE717E2 b1207
-	template<typename... Args> NATIVE_DECL void _DATABINDING_WRITE_DATA_SCRIPT_VARIABLES(Any p0, Any p1, Args... args) { invoke<Void>(0xAB888B4B91046771, p0, p1, args...); } // 0xAB888B4B91046771 b1207
-	NATIVE_DECL void _DATABINDING_WRITE_DATA_BOOL(Any p0, Any p1) { invoke<Void>(0xAB888B4B91046770, p0, p1); } // 0xAB888B4B91046770 b1207
-	NATIVE_DECL void _DATABINDING_WRITE_DATA_BOOL_FROM_PARENT(Any p0, Any p1, Any p2) { invoke<Void>(0xBDFE546E4C2D0E21, p0, p1, p2); } // 0xBDFE546E4C2D0E21 b1207
-	NATIVE_DECL void _0xBFC83DA249BEFCC9(Any p0, Any p1, Any p2) { invoke<Void>(0xBFC83DA249BEFCC9, p0, p1, p2); } // 0xBFC83DA249BEFCC9 b1207
-	NATIVE_DECL void _DATABINDING_WRITE_DATA_INT(Any p0, Any p1) { invoke<Void>(0x335C3F6B3766B8D9, p0, p1); } // 0x335C3F6B3766B8D9 b1207
-	NATIVE_DECL void _DATABINDING_WRITE_DATA_INT_FROM_PARENT(Any p0, Any p1, Any p2) { invoke<Void>(0x9EFA98238BA08FC4, p0, p1, p2); } // 0x9EFA98238BA08FC4 b1207
-	NATIVE_DECL void _DATABINDING_WRITE_DATA_INT_FROM_PARENT_BY_HASH(Any p0, Any p1, Any p2) { invoke<Void>(0x9D6E10A41D6ED6EC, p0, p1, p2); } // 0x9D6E10A41D6ED6EC b1207
-	NATIVE_DECL void _DATABINDING_WRITE_DATA_FLOAT(Any p0, Any p1) { invoke<Void>(0xDF504BECEB15DA93, p0, p1); } // 0xDF504BECEB15DA93 b1207
-	NATIVE_DECL void _0x05AC9E1E02975AFB(Any p0, Any p1, Any p2) { invoke<Void>(0x05AC9E1E02975AFB, p0, p1, p2); } // 0x05AC9E1E02975AFB b1207
-	NATIVE_DECL void _DATABINDING_WRITE_DATA_HASH_STRING(Any p0, Any p1) { invoke<Void>(0xACDEF586BD71B1FD, p0, p1); } // 0xACDEF586BD71B1FD b1207
-	NATIVE_DECL void _DATABINDING_WRITE_DATA_HASH_STRING_FROM_PARENT(Any p0, Any p1, Any p2) { invoke<Void>(0x0971F04E1EAA7AE8, p0, p1, p2); } // 0x0971F04E1EAA7AE8 b1207
-	NATIVE_DECL void _DATABINDING_WRITE_DATA_HASH_STRING_FROM_PARENT_BY_HASH(Any p0, Any p1, Any p2) { invoke<Void>(0x20209529689E0953, p0, p1, p2); } // 0x20209529689E0953 b1207
-	NATIVE_DECL void _DATABINDING_WRITE_DATA_STRING(Any p0, Any p1) { invoke<Void>(0xE1BD342F2872AEE9, p0, p1); } // 0xE1BD342F2872AEE9 b1207
-	NATIVE_DECL void DATABINDING_WRITE_STRING_FROM_PARENT(Any p0, Any p1, Any p2) { invoke<Void>(0x4FF713B2F17A391E, p0, p1, p2); } // 0x4FF713B2F17A391E b1207
-	NATIVE_DECL void _0xA3BD6FF95E713EE5(Any p0, Any p1, Any p2) { invoke<Void>(0xA3BD6FF95E713EE5, p0, p1, p2); } // 0xA3BD6FF95E713EE5 b1207
-	NATIVE_DECL void _0xC70041408E16BE2D(Any p0, Any p1, Any p2) { invoke<Void>(0xC70041408E16BE2D, p0, p1, p2); } // 0xC70041408E16BE2D b1207
-	NATIVE_DECL void _0xC70041408E16BE2E(Any p0, Any p1, Any p2) { invoke<Void>(0xC70041408E16BE2E, p0, p1, p2); } // 0xC70041408E16BE2E b1207
-	NATIVE_DECL void _0x422179C7F6AD9304(Any p0, Any p1) { invoke<Void>(0x422179C7F6AD9304, p0, p1); } // 0x422179C7F6AD9304 b1207
+	NATIVE_DECL Any _DATABINDING_ADD_DATA_STRING_BY_HASH(Any p0, Hash p1, const char* p2) { return invoke<Any>(0xEAD09E76E22630C3, p0, p1, p2); } // 0xEAD09E76E22630C3 b1207
+	NATIVE_DECL Any _DATABINDING_ADD_DATA_STRING(Any p0, const char* p1, const char* p2) { return invoke<Any>(0x617FCA1C5652BBAD, p0, p1, p2); } // 0x617FCA1C5652BBAD b1207
+	NATIVE_DECL Any _DATABINDING_ADD_DATA_GANG_ID(Any p0, const char* p1, Any gangId) { return invoke<Any>(0x7D0F2014DB28DD00, p0, p1, gangId); } // 0x7D0F2014DB28DD00 b1207
+	NATIVE_DECL Any _DATABINDING_ADD_DATA_POSSE_ID(Any p0, const char* p1, Any posseId) { return invoke<Any>(0x7D0F2014DB28DD01, p0, p1, posseId); } // 0x7D0F2014DB28DD01 b1207
+	NATIVE_DECL Any _0x294AF5323F44B053(Any p0, const char* p1, Any p2) { return invoke<Any>(0x294AF5323F44B053, p0, p1, p2); } // 0x294AF5323F44B053 b1207
+	NATIVE_DECL Any _DATABINDING_ADD_UI_ITEM_LIST_FROM_PATH(const char* p0, const char* p1) { return invoke<Any>(0xDB5B9A474148F699, p0, p1); } // 0xDB5B9A474148F699 b1207
+	NATIVE_DECL Any _DATABINDING_ADD_UI_ITEM_LIST_BY_HASH(Any p0, Hash p1) { return invoke<Any>(0x3C7799283325181B, p0, p1); } // 0x3C7799283325181B b1207
+	NATIVE_DECL Any _DATABINDING_ADD_UI_ITEM_LIST(Any p0, const char* p1) { return invoke<Any>(0xFE74FA57E0CE6824, p0, p1); } // 0xFE74FA57E0CE6824 b1207
+	NATIVE_DECL void _DATABINDING_INSERT_UI_ITEM_TO_LIST_FROM_CONTEXT_STRING_ALIAS(Any p0, int index, const char* p2, Any p3) { invoke<Void>(0x5859E970794D92F3, p0, index, p2, p3); } // 0x5859E970794D92F3 b1207
+	NATIVE_DECL void _DATABINDING_INSERT_UI_ITEM_TO_LIST_FROM_CONTEXT_HASH_ALIAS(Any p0, int index, Hash p2, Any p3) { invoke<Void>(0xEE97A05C05F16E41, p0, index, p2, p3); } // 0xEE97A05C05F16E41 b1207
+	NATIVE_DECL void _DATABINDING_INSERT_UI_ITEM_TO_LIST_FROM_PATH_STRING_ALIAS(Any p0, Any p1, const char* p2, Any p3) { invoke<Void>(0x5740774F608E4FC8, p0, p1, p2, p3); } // 0x5740774F608E4FC8 b1207
+	NATIVE_DECL void _0x6318FB3BE37E11B3(Hash entryId, int index) { invoke<Void>(0x6318FB3BE37E11B3, entryId, index); } // 0x6318FB3BE37E11B3 b1207
+	NATIVE_DECL void _DATABINDING_REMOVE_BINDING_ARRAY_ITEM_BY_DATA_CONTEXT_ID(Any p0, Hash entryId) { invoke<Void>(0xF68B1726EAF7B285, p0, entryId); } // 0xF68B1726EAF7B285 b1207
+	NATIVE_DECL void _DATABINDING_CLEAR_BINDING_ARRAY(Hash entryId) { invoke<Void>(0xA1F15C1D03DF802D, entryId); } // 0xA1F15C1D03DF802D b1207
+	NATIVE_DECL Any _DATABINDING_GET_ITEM_CONTEXT_BY_INDEX(Any p0, int index) { return invoke<Any>(0xE96D7F9FEFCC105F, p0, index); } // 0xE96D7F9FEFCC105F b1207
+	NATIVE_DECL void _DATABINDING_SET_TEMPLATED_UI_ITEM_LIST_SIZE(Any p0, int p1) { invoke<Void>(0xFE74FA57E0CE6825, p0, p1); } // 0xFE74FA57E0CE6825 b1207
+	NATIVE_DECL void _DATABINDING_SET_TEMPLATED_UI_ITEM_HASH_ALIAS(Any p0, int p1, Hash p2) { invoke<Void>(0x0AE7138D0541F2DE, p0, p1, p2); } // 0x0AE7138D0541F2DE b1207
+	NATIVE_DECL Any _0xD48993A61938C64D(Any p0, const char* p1) { return invoke<Any>(0xD48993A61938C64D, p0, p1); } // 0xD48993A61938C64D b1207
+	NATIVE_DECL Any _DATABINDING_ADD_HASH_ARRAY(Any p0, const char* p1) { return invoke<Any>(0x52F5F08278EA5D75, p0, p1); } // 0x52F5F08278EA5D75 b1207
+	NATIVE_DECL Any _DATABINDING_ADD_STRING_ARRAY(Any p0, const char* p1) { return invoke<Any>(0x1B23E0627BDBFE85, p0, p1); } // 0x1B23E0627BDBFE85 b1207
+	NATIVE_DECL void _0x1919D59E60FD516E(Any p0, int p1, int p2) { invoke<Void>(0x1919D59E60FD516E, p0, p1, p2); } // 0x1919D59E60FD516E b1207
+	NATIVE_DECL void _0x7FC60C94C83C5CD7(Any p0, Hash p1, int p2) { invoke<Void>(0x7FC60C94C83C5CD7, p0, p1, p2); } // 0x7FC60C94C83C5CD7 b1207
+	NATIVE_DECL void _0xC900CEC8A172375B(Any p0, const char* p1, int p2) { invoke<Void>(0xC900CEC8A172375B, p0, p1, p2); } // 0xC900CEC8A172375B b1207
+	NATIVE_DECL Any _0x02B21B6BEEDD83CC(Hash entryId, int p1) { return invoke<Any>(0x02B21B6BEEDD83CC, entryId, p1); } // 0x02B21B6BEEDD83CC b1207
+	NATIVE_DECL Any _0xF47E33F8D2523825(Any p0, int p1) { return invoke<Any>(0xF47E33F8D2523825, p0, p1); } // 0xF47E33F8D2523825 b1207
+	NATIVE_DECL void _0x3BF0767CF33FCC88(Hash entryId) { invoke<Void>(0x3BF0767CF33FCC88, entryId); } // 0x3BF0767CF33FCC88 b1207
+	NATIVE_DECL Any _DATABINDING_GET_ARRAY_COUNT(Hash entryId) { return invoke<Any>(0xD23F5DE04FE717E2, entryId); } // 0xD23F5DE04FE717E2 b1207
+	template<typename... Args> NATIVE_DECL void _DATABINDING_WRITE_DATA_SCRIPT_VARIABLES(int p0, int p1, Args... args) { invoke<Void>(0xAB888B4B91046771, p0, p1, args...); } // 0xAB888B4B91046771 b1207
+	NATIVE_DECL void _DATABINDING_WRITE_DATA_BOOL(Any p0, BOOL p1) { invoke<Void>(0xAB888B4B91046770, p0, p1); } // 0xAB888B4B91046770 b1207
+	NATIVE_DECL void _DATABINDING_WRITE_DATA_BOOL_FROM_PARENT(Any p0, const char* p1, BOOL p2) { invoke<Void>(0xBDFE546E4C2D0E21, p0, p1, p2); } // 0xBDFE546E4C2D0E21 b1207
+	// _DATABINDING_WRITE_DATA_*
+	NATIVE_DECL void _0xBFC83DA249BEFCC9(Any p0, Hash p1, Any p2) { invoke<Void>(0xBFC83DA249BEFCC9, p0, p1, p2); } // 0xBFC83DA249BEFCC9 b1207
+	NATIVE_DECL void _DATABINDING_WRITE_DATA_INT(Any p0, int p1) { invoke<Void>(0x335C3F6B3766B8D9, p0, p1); } // 0x335C3F6B3766B8D9 b1207
+	NATIVE_DECL void _DATABINDING_WRITE_DATA_INT_FROM_PARENT(Any p0, const char* p1, int p2) { invoke<Void>(0x9EFA98238BA08FC4, p0, p1, p2); } // 0x9EFA98238BA08FC4 b1207
+	NATIVE_DECL void _DATABINDING_WRITE_DATA_INT_FROM_PARENT_BY_HASH(Any p0, Hash p1, Any p2) { invoke<Void>(0x9D6E10A41D6ED6EC, p0, p1, p2); } // 0x9D6E10A41D6ED6EC b1207
+	NATIVE_DECL void _DATABINDING_WRITE_DATA_FLOAT(Any p0, float p1) { invoke<Void>(0xDF504BECEB15DA93, p0, p1); } // 0xDF504BECEB15DA93 b1207
+	// _DATABINDING_WRITE_DATA_*
+	NATIVE_DECL void _0x05AC9E1E02975AFB(Any p0, const char* p1, float p2) { invoke<Void>(0x05AC9E1E02975AFB, p0, p1, p2); } // 0x05AC9E1E02975AFB b1207
+	NATIVE_DECL void _DATABINDING_WRITE_DATA_HASH_STRING(Any p0, Hash p1) { invoke<Void>(0xACDEF586BD71B1FD, p0, p1); } // 0xACDEF586BD71B1FD b1207
+	NATIVE_DECL void _DATABINDING_WRITE_DATA_HASH_STRING_FROM_PARENT(Any p0, const char* p1, Hash p2) { invoke<Void>(0x0971F04E1EAA7AE8, p0, p1, p2); } // 0x0971F04E1EAA7AE8 b1207
+	NATIVE_DECL void _DATABINDING_WRITE_DATA_HASH_STRING_FROM_PARENT_BY_HASH(Any p0, Hash p1, Any p2) { invoke<Void>(0x20209529689E0953, p0, p1, p2); } // 0x20209529689E0953 b1207
+	NATIVE_DECL void _DATABINDING_WRITE_DATA_STRING(Any p0, const char* p1) { invoke<Void>(0xE1BD342F2872AEE9, p0, p1); } // 0xE1BD342F2872AEE9 b1207
+	NATIVE_DECL void DATABINDING_WRITE_STRING_FROM_PARENT(Any p0, const char* p1, const char* p2) { invoke<Void>(0x4FF713B2F17A391E, p0, p1, p2); } // 0x4FF713B2F17A391E b1207
+	NATIVE_DECL void _DATABINDING_WRITE_STRING_FROM_HASH(Any p0, Hash p1, const char* p2) { invoke<Void>(0xA3BD6FF95E713EE5, p0, p1, p2); } // 0xA3BD6FF95E713EE5 b1207
+	NATIVE_DECL void _DATABINDING_WRITE_DATA_GANG_ID(Any p0, const char* p1, Any gangId) { invoke<Void>(0xC70041408E16BE2D, p0, p1, gangId); } // 0xC70041408E16BE2D b1207
+	NATIVE_DECL void _DATABINDING_WRITE_DATA_POSSE_ID(Any p0, const char* p1, Any posseId) { invoke<Void>(0xC70041408E16BE2E, p0, p1, posseId); } // 0xC70041408E16BE2E b1207
+	NATIVE_DECL void _0x422179C7F6AD9304(Any p0, Any* gamerHandle) { invoke<Void>(0x422179C7F6AD9304, p0, gamerHandle); } // 0x422179C7F6AD9304 b1207
 	NATIVE_DECL Any _DATABINDING_READ_DATA_BOOL(Any p0) { return invoke<Any>(0x5EEFBD4B6D7CD6EB, p0); } // 0x5EEFBD4B6D7CD6EB b1207
-	NATIVE_DECL Any _DATABINDING_READ_DATA_BOOL_FROM_PARENT(Any p0, Any p1) { return invoke<Any>(0xA8EDE09FE07BD77F, p0, p1); } // 0xA8EDE09FE07BD77F b1207
-	NATIVE_DECL Any _DATABINDING_READ_DATA_BOOL_FROM_PARENT_BY_HASH(Any p0, Any p1) { return invoke<Any>(0x4CDC3FDDFAE07EB3, p0, p1); } // 0x4CDC3FDDFAE07EB3 b1207
-	NATIVE_DECL Any DATABINDING_READ_INT(Any p0) { return invoke<Any>(0x570784D782597512, p0); } // 0x570784D782597512 b1207
-	NATIVE_DECL Any _DATABINDING_READ_DATA_INT_FROM_PARENT(Any p0, Any p1) { return invoke<Any>(0xFFC566A4801F6B40, p0, p1); } // 0xFFC566A4801F6B40 b1207
-	NATIVE_DECL Any _DATABINDING_READ_DATA_INT_FROM_PARENT_BY_HASH(Any p0, Any p1) { return invoke<Any>(0xB5F668B648EC0970, p0, p1); } // 0xB5F668B648EC0970 b1207
-	NATIVE_DECL Any _0x5FE444EB67C70AD4(Any p0) { return invoke<Any>(0x5FE444EB67C70AD4, p0); } // 0x5FE444EB67C70AD4 b1207
-	NATIVE_DECL Any _0x81D7183E7A8ECA72(Any p0) { return invoke<Any>(0x81D7183E7A8ECA72, p0); } // 0x81D7183E7A8ECA72 b1207
-	NATIVE_DECL Any _DATABINDING_READ_DATA_HASH_STRING_FROM_PARENT(Any p0, Any p1) { return invoke<Any>(0x9B535990B01B62DE, p0, p1); } // 0x9B535990B01B62DE b1207
-	NATIVE_DECL Any _DATABINDING_READ_DATA_HASH_STRING_FROM_PARENT_BY_HASH(Any p0, Any p1) { return invoke<Any>(0x1F43BC25A119B252, p0, p1); } // 0x1F43BC25A119B252 b1207
+	NATIVE_DECL Any _DATABINDING_READ_DATA_BOOL_FROM_PARENT(Any p0, const char* p1) { return invoke<Any>(0xA8EDE09FE07BD77F, p0, p1); } // 0xA8EDE09FE07BD77F b1207
+	NATIVE_DECL Any _DATABINDING_READ_DATA_BOOL_FROM_PARENT_BY_HASH(Any p0, Hash p1) { return invoke<Any>(0x4CDC3FDDFAE07EB3, p0, p1); } // 0x4CDC3FDDFAE07EB3 b1207
+	NATIVE_DECL int DATABINDING_READ_INT(Any p0) { return invoke<int>(0x570784D782597512, p0); } // 0x570784D782597512 b1207
+	NATIVE_DECL Any _DATABINDING_READ_DATA_INT_FROM_PARENT(Any p0, const char* p1) { return invoke<Any>(0xFFC566A4801F6B40, p0, p1); } // 0xFFC566A4801F6B40 b1207
+	NATIVE_DECL Any _DATABINDING_READ_DATA_INT_FROM_PARENT_BY_HASH(Any p0, Hash p1) { return invoke<Any>(0xB5F668B648EC0970, p0, p1); } // 0xB5F668B648EC0970 b1207
+	NATIVE_DECL float _0x5FE444EB67C70AD4(Hash entryId) { return invoke<float>(0x5FE444EB67C70AD4, entryId); } // 0x5FE444EB67C70AD4 b1207
+	NATIVE_DECL Hash _0x81D7183E7A8ECA72(Hash entryId) { return invoke<Hash>(0x81D7183E7A8ECA72, entryId); } // 0x81D7183E7A8ECA72 b1207
+	NATIVE_DECL Any _DATABINDING_READ_DATA_HASH_STRING_FROM_PARENT(Any p0, const char* p1) { return invoke<Any>(0x9B535990B01B62DE, p0, p1); } // 0x9B535990B01B62DE b1207
+	NATIVE_DECL Any _DATABINDING_READ_DATA_HASH_STRING_FROM_PARENT_BY_HASH(Any p0, Hash p1) { return invoke<Any>(0x1F43BC25A119B252, p0, p1); } // 0x1F43BC25A119B252 b1207
 	NATIVE_DECL Any _DATABINDING_READ_DATA_STRING(Any p0) { return invoke<Any>(0x3D290B5FFA7C5151, p0); } // 0x3D290B5FFA7C5151 b1207
-	NATIVE_DECL Any _DATABINDING_READ_DATA_STRING_FROM_PARENT(Any p0, Any p1) { return invoke<Any>(0x6323AD277C4A2AFB, p0, p1); } // 0x6323AD277C4A2AFB b1207
-	NATIVE_DECL Any _0x6329C34BEE5BFF4B(Any p0, Any p1) { return invoke<Any>(0x6329C34BEE5BFF4B, p0, p1); } // 0x6329C34BEE5BFF4B b1207
-	NATIVE_DECL Any _0xE6AAB897120492D6(Any p0, Any p1) { return invoke<Any>(0xE6AAB897120492D6, p0, p1); } // 0xE6AAB897120492D6 b1207
-	NATIVE_DECL void _0xE6AAB897120492D7(Any p0, Any p1, Any p2) { invoke<Void>(0xE6AAB897120492D7, p0, p1, p2); } // 0xE6AAB897120492D7 b1207
-	NATIVE_DECL void _0xB138CA787F3DD858(Any p0, Any p1, Any p2) { invoke<Void>(0xB138CA787F3DD858, p0, p1, p2); } // 0xB138CA787F3DD858 b1207
+	NATIVE_DECL Any _DATABINDING_READ_DATA_STRING_FROM_PARENT(Any p0, const char* p1) { return invoke<Any>(0x6323AD277C4A2AFB, p0, p1); } // 0x6323AD277C4A2AFB b1207
+	NATIVE_DECL Any _0x6329C34BEE5BFF4B(Any p0, Hash p1) { return invoke<Any>(0x6329C34BEE5BFF4B, p0, p1); } // 0x6329C34BEE5BFF4B b1207
+	NATIVE_DECL Any _0xE6AAB897120492D6(Any p0, const char* p1) { return invoke<Any>(0xE6AAB897120492D6, p0, p1); } // 0xE6AAB897120492D6 b1207
+	NATIVE_DECL void _0xE6AAB897120492D7(Any p0, const char* p1, Any p2) { invoke<Void>(0xE6AAB897120492D7, p0, p1, p2); } // 0xE6AAB897120492D7 b1207
+	NATIVE_DECL void _0xB138CA787F3DD858(Any p0, const char* p1, Any p2) { invoke<Void>(0xB138CA787F3DD858, p0, p1, p2); } // 0xB138CA787F3DD858 b1207
 	NATIVE_DECL BOOL DATABINDING_IS_ENTRY_VALID(Hash entryId) { return invoke<BOOL>(0x1E7130793AAAAB8D, entryId); } // 0x1E7130793AAAAB8D b1207
-	NATIVE_DECL void _DATABINDING_REMOVE_DATA_ENTRY(Any p0) { invoke<Void>(0x0AE9938D0541F2DA, p0); } // 0x0AE9938D0541F2DA b1207
-	NATIVE_DECL void _VIRTUAL_COLLECTION_SET_SIZE(Any p0, Any p1) { invoke<Void>(0x9DCE9B01A93B58BC, p0, p1); } // 0x9DCE9B01A93B58BC b1207
-	NATIVE_DECL void _VIRTUAL_COLLECTION_SET_INTEREST_INDEX(Any p0, Any p1) { invoke<Void>(0x49A8447533308BCF, p0, p1); } // 0x49A8447533308BCF b1207
-	NATIVE_DECL void _VIRTUAL_COLLECTION_ITEM_ADD(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x6DCBF187221CF73D, p0, p1, p2, p3); } // 0x6DCBF187221CF73D b1207
+	NATIVE_DECL void _DATABINDING_REMOVE_DATA_ENTRY(Hash entryId) { invoke<Void>(0x0AE9938D0541F2DA, entryId); } // 0x0AE9938D0541F2DA b1207
+	NATIVE_DECL void _VIRTUAL_COLLECTION_SET_SIZE(Any p0, int size) { invoke<Void>(0x9DCE9B01A93B58BC, p0, size); } // 0x9DCE9B01A93B58BC b1207
+	NATIVE_DECL void _VIRTUAL_COLLECTION_SET_INTEREST_INDEX(Any p0, int interestIndex) { invoke<Void>(0x49A8447533308BCF, p0, interestIndex); } // 0x49A8447533308BCF b1207
+	NATIVE_DECL void _VIRTUAL_COLLECTION_ITEM_ADD(Any p0, int index, Hash p2, Any p3) { invoke<Void>(0x6DCBF187221CF73D, p0, index, p2, p3); } // 0x6DCBF187221CF73D b1207
 	NATIVE_DECL void _VIRTUAL_COLLECTION_RESET(Any p0) { invoke<Void>(0x09D95666ED2B5F60, p0); } // 0x09D95666ED2B5F60 b1207
 	NATIVE_DECL Any _VIRTUAL_COLLECTION_EXISTS(Any p0) { return invoke<Any>(0x37963B56755BFB35, p0); } // 0x37963B56755BFB35 b1207
 }
@@ -1358,15 +1442,15 @@ namespace ENTITY
 	NATIVE_DECL BOOL HAS_ENTITY_BEEN_DAMAGED_BY_ANY_PED(Entity entity) { return invoke<BOOL>(0x9934E9C42D52D87E, entity); } // 0x9934E9C42D52D87E 0x53FD4A25 b1207
 	NATIVE_DECL BOOL HAS_ENTITY_BEEN_DAMAGED_BY_ANY_VEHICLE(Entity entity) { return invoke<BOOL>(0x695D7C26DE65C423, entity); } // 0x695D7C26DE65C423 0x878C2CE0 b1207
 	NATIVE_DECL BOOL HAS_ENTITY_BEEN_DAMAGED_BY_ENTITY(Any p0, Any p1, Any p2, Any p3) { return invoke<BOOL>(0x7B6E7BEC1143AC86, p0, p1, p2, p3); } // 0x7B6E7BEC1143AC86 0x07FC77E0 b1207
-	NATIVE_DECL Any _0x3EC28DA1FFAC9DDD(Entity entity, Any p1, Any p2, Any p3) { return invoke<Any>(0x3EC28DA1FFAC9DDD, entity, p1, p2, p3); } // 0x3EC28DA1FFAC9DDD b1207
-	NATIVE_DECL Any _0xAF72EC7E1B54539B(Any p0) { return invoke<Any>(0xAF72EC7E1B54539B, p0); } // 0xAF72EC7E1B54539B b1311
+	NATIVE_DECL BOOL _0x3EC28DA1FFAC9DDD(Entity entity1, Entity entity2, Any p2, Any p3) { return invoke<BOOL>(0x3EC28DA1FFAC9DDD, entity1, entity2, p2, p3); } // 0x3EC28DA1FFAC9DDD b1207
+	NATIVE_DECL Entity _0xAF72EC7E1B54539B(Entity entity) { return invoke<Entity>(0xAF72EC7E1B54539B, entity); } // 0xAF72EC7E1B54539B b1311
 	NATIVE_DECL BOOL HAS_ENTITY_CLEAR_LOS_TO_ENTITY(Entity entity1, Entity entity2, int traceType) { return invoke<BOOL>(0xFCDFF7B72D23A1AC, entity1, entity2, traceType); } // 0xFCDFF7B72D23A1AC 0x53576FA7 b1207
 	NATIVE_DECL BOOL HAS_ENTITY_CLEAR_LOS_TO_COORD(Entity entity, float x, float y, float z, int flags) { return invoke<BOOL>(0x0C9DBF48C6BA6E4C, entity, x, y, z, flags); } // 0x0C9DBF48C6BA6E4C b1207
 	// Has the entity1 got a clear line of sight to the other entity2 from the direction entity1 is facing.
-	NATIVE_DECL BOOL HAS_ENTITY_CLEAR_LOS_TO_ENTITY_IN_FRONT(Any p0, Any p1, Any p2) { return invoke<BOOL>(0xE88F19660651D566, p0, p1, p2); } // 0xE88F19660651D566 0x210D87C8 b1207
+	NATIVE_DECL BOOL HAS_ENTITY_CLEAR_LOS_TO_ENTITY_IN_FRONT(Entity entity1, Entity entity2, int traceType) { return invoke<BOOL>(0xE88F19660651D566, entity1, entity2, traceType); } // 0xE88F19660651D566 0x210D87C8 b1207
 	NATIVE_DECL BOOL HAS_ENTITY_COLLIDED_WITH_ANYTHING(Entity entity) { return invoke<BOOL>(0xDF18751EC74F90FF, entity); } // 0xDF18751EC74F90FF 0x662A2F41 b1207
-	NATIVE_DECL Any _0x6D58167F62238284(Any p0) { return invoke<Any>(0x6D58167F62238284, p0); } // 0x6D58167F62238284 b1207
-	NATIVE_DECL Any _0xDFC2B226D56D85F6(Any p0, Any p1) { return invoke<Any>(0xDFC2B226D56D85F6, p0, p1); } // 0xDFC2B226D56D85F6 b1207
+	NATIVE_DECL float _0x6D58167F62238284(Vehicle vehicle) { return invoke<float>(0x6D58167F62238284, vehicle); } // 0x6D58167F62238284 b1207
+	NATIVE_DECL float _0xDFC2B226D56D85F6(Any p0, Any p1) { return invoke<float>(0xDFC2B226D56D85F6, p0, p1); } // 0xDFC2B226D56D85F6 b1207
 	NATIVE_DECL float GET_ANIM_DURATION(const char* animDict, const char* animName) { return invoke<float>(0x9FFAF4940A54CC09, animDict, animName); } // 0x9FFAF4940A54CC09 0x8B5E3E3D b1207
 	NATIVE_DECL Entity GET_ENTITY_ATTACHED_TO(Entity entity) { return invoke<Entity>(0x56D713888A566481, entity); } // 0x56D713888A566481 0xFE1589F9 b1207
 	// Gets the current coordinates for a specified entity.
@@ -1385,6 +1469,7 @@ namespace ENTITY
 	// Returns the heading of the entity in degrees. Also know as the "Yaw" of an entity.
 	NATIVE_DECL float GET_ENTITY_HEADING(Entity entity) { return invoke<float>(0xC230DD956E2F5507, entity); } // 0xC230DD956E2F5507 0x972CC383 b1207
 	NATIVE_DECL int GET_ENTITY_HEALTH(Entity entity) { return invoke<int>(0x82368787EA73C0F7, entity); } // 0x82368787EA73C0F7 0x8E3222B7 b1207
+	// Returns (CUR_HEALTH / MAX_HEALTH)
 	NATIVE_DECL float _GET_ENTITY_HEALTH_FLOAT(Entity entity) { return invoke<float>(0x96C638784DB4C815, entity); } // 0x96C638784DB4C815 b1207
 	// Alters entity's health by 'amount'. Can be negative (to drain health).
 	// In the scripts entity2 and weaponHash are unused (zero).
@@ -1393,11 +1478,12 @@ namespace ENTITY
 	NATIVE_DECL void SET_ENTITY_MAX_HEALTH(Entity entity, int value) { invoke<Void>(0x166E7CF68597D8B5, entity, value); } // 0x166E7CF68597D8B5 0x96F84DF8 b1207
 	NATIVE_DECL float GET_ENTITY_HEIGHT(Entity entity, float X, float Y, float Z, BOOL atTop, BOOL inWorldCoords) { return invoke<float>(0x296DEBC84474B375, entity, X, Y, Z, atTop, inWorldCoords); } // 0x296DEBC84474B375 0xEE443481 b1207
 	NATIVE_DECL float GET_ENTITY_HEIGHT_ABOVE_GROUND(Entity entity) { return invoke<float>(0x0D3B5BAEA08F63E9, entity); } // 0x0D3B5BAEA08F63E9 0x57F56A4D b1207
-	NATIVE_DECL void _0xF3FDA9A617A15145(Entity entity, Vector3* minimum, Vector3* maximum) { invoke<Void>(0xF3FDA9A617A15145, entity, minimum, maximum); } // 0xF3FDA9A617A15145 b1207
+	NATIVE_DECL void _GET_ENTITY_WORLD_POSITION_OF_DIMENSIONS(Entity entity, Vector3* minimum, Vector3* maximum) { invoke<Void>(0xF3FDA9A617A15145, entity, minimum, maximum); } // 0xF3FDA9A617A15145 b1207
 	NATIVE_DECL void GET_ENTITY_MATRIX(Entity entity, Vector3* rightVector, Vector3* forwardVector, Vector3* upVector, Vector3* position) { invoke<Void>(0x3A9B1120AF13FBF2, entity, rightVector, forwardVector, upVector, position); } // 0x3A9B1120AF13FBF2 0xEB9EB001 b1207
 	// Returns the model hash from the entity
 	NATIVE_DECL Hash GET_ENTITY_MODEL(Entity entity) { return invoke<Hash>(0xDA76A9F39210D365, entity); } // 0xDA76A9F39210D365 0xDAFCB3EC b1207
 	// Returns the ped's animal type hash: https://alloc8or.re/rdr3/doc/enums/eAnimalType.txt
+	// Combine this with GET_STRING_FROM_HASH_KEY to display localized entity names
 	NATIVE_DECL Hash _GET_PED_ANIMAL_TYPE(Ped ped) { return invoke<Hash>(0x964000D355219FC0, ped); } // 0x964000D355219FC0 b1207
 	NATIVE_DECL BOOL GET_IS_ANIMAL(Entity entity) { return invoke<BOOL>(0x9A100F1CF4546629, entity); } // 0x9A100F1CF4546629 b1207
 	NATIVE_DECL BOOL _GET_IS_BIRD(Entity entity) { return invoke<BOOL>(0xC346A546612C49A9, entity); } // 0xC346A546612C49A9 b1207
@@ -1419,7 +1505,7 @@ namespace ENTITY
 	NATIVE_DECL float GET_ENTITY_SPEED(Entity entity) { return invoke<float>(0xFB6BA510A533DF81, entity); } // 0xFB6BA510A533DF81 0x9E1E4798 b1207
 	NATIVE_DECL Vector3 GET_ENTITY_SPEED_VECTOR(Entity entity, BOOL relative) { return invoke<Vector3>(0xF2DB09816A419DC5, entity, relative); } // 0xF2DB09816A419DC5 0x3ED2B997 b1207
 	NATIVE_DECL float GET_ENTITY_UPRIGHT_VALUE(Entity entity) { return invoke<float>(0x56398BE65160C3BE, entity); } // 0x56398BE65160C3BE 0xF4268190 b1207
-	NATIVE_DECL Vector3 GET_ENTITY_VELOCITY(Any p0, Any p1) { return invoke<Vector3>(0x4805D2B1D8CF94A9, p0, p1); } // 0x4805D2B1D8CF94A9 0xC14C9B6B b1207
+	NATIVE_DECL Vector3 GET_ENTITY_VELOCITY(Entity entity, int p1) { return invoke<Vector3>(0x4805D2B1D8CF94A9, entity, p1); } // 0x4805D2B1D8CF94A9 0xC14C9B6B b1207
 	// Simply returns whatever is passed to it (Regardless of whether the handle is valid or not).
 	NATIVE_DECL Object GET_OBJECT_INDEX_FROM_ENTITY_INDEX(Entity entity) { return invoke<Object>(0x280BBE5601EAA983, entity); } // 0x280BBE5601EAA983 0xBC5A9C58 b1207
 	// Simply returns whatever is passed to it (Regardless of whether the handle is valid or not).
@@ -1427,7 +1513,10 @@ namespace ENTITY
 	// Simply returns whatever is passed to it (Regardless of whether the handle is valid or not).
 	NATIVE_DECL Vehicle GET_VEHICLE_INDEX_FROM_ENTITY_INDEX(Entity entity) { return invoke<Vehicle>(0xDF1E5AAC561AFC59, entity); } // 0xDF1E5AAC561AFC59 0xC69CF43D b1207
 	// Returns the coordinates of an entity-bone.
+	// https://github.com/femga/rdr3_discoveries/tree/master/boneNames
 	NATIVE_DECL Vector3 GET_WORLD_POSITION_OF_ENTITY_BONE(Entity entity, int boneIndex) { return invoke<Vector3>(0x82CFA50E34681CA5, entity, boneIndex); } // 0x82CFA50E34681CA5 0x7C6339DF b1207
+	// Attaches scenario to bone with an offset
+	// _GET_I* - _GET_M*
 	NATIVE_DECL Vector3 _0x5E214112806591EA(Entity entity, int boneIndex) { return invoke<Vector3>(0x5E214112806591EA, entity, boneIndex); } // 0x5E214112806591EA b1207
 	NATIVE_DECL Vector3 _0x3AB3A77672F6473F(Any p0, Any p1, Any p2, Any p3) { return invoke<Vector3>(0x3AB3A77672F6473F, p0, p1, p2, p3); } // 0x3AB3A77672F6473F b1207
 	NATIVE_DECL Player GET_NEAREST_PLAYER_TO_ENTITY(Entity entity, Ped playerPedToIgnore, int flags) { return invoke<Player>(0x990E294FC387FB88, entity, playerPedToIgnore, flags); } // 0x990E294FC387FB88 0xCE17FDEC b1207
@@ -1452,7 +1541,7 @@ namespace ENTITY
 	NATIVE_DECL BOOL IS_ENTITY_AT_COORD(Entity entity, float xPos, float yPos, float zPos, float xSize, float ySize, float zSize, BOOL p7, BOOL p8, int p9) { return invoke<BOOL>(0x5E58342602E94718, entity, xPos, yPos, zPos, xSize, ySize, zSize, p7, p8, p9); } // 0x5E58342602E94718 0xD749B606 b1207
 	// Checks if entity1 is within the box defined by x/y/zSize of entity2.
 	// 
-	// Last three parameters are almost alwasy p5 = 0, p6 = 1, p7 = 0
+	// Last three parameters are almost always p5 = 0, p6 = 1, p7 = 0
 	NATIVE_DECL BOOL IS_ENTITY_AT_ENTITY(Entity entity1, Entity entity2, float xSize, float ySize, float zSize, BOOL p5, BOOL p6, int p7) { return invoke<BOOL>(0xC057F02B837A27F6, entity1, entity2, xSize, ySize, zSize, p5, p6, p7); } // 0xC057F02B837A27F6 0xDABDCB52 b1207
 	NATIVE_DECL BOOL IS_ENTITY_ATTACHED(Entity entity) { return invoke<BOOL>(0xEE6AD63ABF59C0B7, entity); } // 0xEE6AD63ABF59C0B7 0xEC1479D5 b1207
 	NATIVE_DECL BOOL IS_ENTITY_ATTACHED_TO_ANY_OBJECT(Entity entity) { return invoke<BOOL>(0x306C1F6178F01AB3, entity); } // 0x306C1F6178F01AB3 0x0B5DE340 b1207
@@ -1492,7 +1581,7 @@ namespace ENTITY
 	NATIVE_DECL BOOL IS_ENTITY_VISIBLE_TO_SCRIPT(Entity entity) { return invoke<BOOL>(0xF213C724E77F321A, entity); } // 0xF213C724E77F321A 0x5D240E9D b1207
 	NATIVE_DECL void _0x3F08C6163A4AB1D6(Any p0) { invoke<Void>(0x3F08C6163A4AB1D6, p0); } // 0x3F08C6163A4AB1D6 b1207
 	NATIVE_DECL void _0x0DB41D59E0F1502B(Any p0) { invoke<Void>(0x0DB41D59E0F1502B, p0); } // 0x0DB41D59E0F1502B b1207
-	NATIVE_DECL BOOL _0xC8CCDB712FBCBA92(Entity entity) { return invoke<BOOL>(0xC8CCDB712FBCBA92, entity); } // 0xC8CCDB712FBCBA92 b1207
+	NATIVE_DECL BOOL _IS_TRACKED_ENTITY_VISIBLE(Entity entity) { return invoke<BOOL>(0xC8CCDB712FBCBA92, entity); } // 0xC8CCDB712FBCBA92 b1207
 	NATIVE_DECL BOOL IS_ENTITY_OCCLUDED(Entity entity) { return invoke<BOOL>(0x140188E884645624, entity); } // 0x140188E884645624 0x46BC5B40 b1207
 	NATIVE_DECL BOOL WOULD_ENTITY_BE_OCCLUDED(Hash entityModelHash, float x, float y, float z, BOOL p4) { return invoke<BOOL>(0x3546FAB293FF2981, entityModelHash, x, y, z, p4); } // 0x3546FAB293FF2981 0xEA127CBC b1207
 	NATIVE_DECL BOOL IS_ENTITY_WAITING_FOR_WORLD_COLLISION(Entity entity) { return invoke<BOOL>(0x5E1CC2E8DC3111DD, entity); } // 0x5E1CC2E8DC3111DD 0x00AB7A4A b1207
@@ -1532,8 +1621,8 @@ namespace ENTITY
 	// Returns zero if the entity is not a carriable
 	NATIVE_DECL Hash _GET_ENTITY_CARRY_CONFIG(Entity entity) { return invoke<Hash>(0x0FD25587BB306C86, entity); } // 0x0FD25587BB306C86 b1207
 	NATIVE_DECL Any _0x5AFFA9DDC87846F8(Any p0) { return invoke<Any>(0x5AFFA9DDC87846F8, p0); } // 0x5AFFA9DDC87846F8 b1207
-	NATIVE_DECL Any _0x31FEF6A20F00B963(Any p0) { return invoke<Any>(0x31FEF6A20F00B963, p0); } // 0x31FEF6A20F00B963 b1207
-	NATIVE_DECL void _0x399657ED871B3A6C(Entity entity, Hash type) { invoke<Void>(0x399657ED871B3A6C, entity, type); } // 0x399657ED871B3A6C b1207
+	NATIVE_DECL Hash _GET_CARRIABLE_FROM_ENTITY(Entity entity) { return invoke<Hash>(0x31FEF6A20F00B963, entity); } // 0x31FEF6A20F00B963 b1207
+	NATIVE_DECL void _SET_ENTITY_CARCASS_TYPE(Entity entity, Hash type) { invoke<Void>(0x399657ED871B3A6C, entity, type); } // 0x399657ED871B3A6C b1207
 	NATIVE_DECL Any _0x2A77EF9BEC8518F4(Any p0) { return invoke<Any>(0x2A77EF9BEC8518F4, p0); } // 0x2A77EF9BEC8518F4 b1207
 	NATIVE_DECL void _DELETE_CARRIABLE(Entity* entity) { invoke<Void>(0x0D0DB2B6AF19A987, entity); } // 0x0D0DB2B6AF19A987 b1207
 	NATIVE_DECL BOOL _IS_ENTITY_FULLY_LOOTED(Entity entity) { return invoke<BOOL>(0x8DE41E9902E85756, entity); } // 0x8DE41E9902E85756 b1207
@@ -1544,6 +1633,7 @@ namespace ENTITY
 	NATIVE_DECL Any _0x8E10DF0FFA63FB65(Any p0, Any p1, Any p2, Any p3, Any p4) { return invoke<Any>(0x8E10DF0FFA63FB65, p0, p1, p2, p3, p4); } // 0x8E10DF0FFA63FB65 b1207
 	// flagId: see _SET_ENTITY_CARRYING_FLAG
 	NATIVE_DECL BOOL _GET_ENTITY_CARRYING_FLAG(Entity entity, int flagId) { return invoke<BOOL>(0x808077647856DE62, entity, flagId); } // 0x808077647856DE62 b1207
+	// https://github.com/femga/rdr3_discoveries/tree/master/AI/CARRYING_FLAGS
 	// flagId:
 	// enum eCarryingFlag
 	// {
@@ -1571,7 +1661,7 @@ namespace ENTITY
 	NATIVE_DECL Any _0x5744562E973E33CD(Any p0, Any p1, Any p2, Any p3, Any p4) { return invoke<Any>(0x5744562E973E33CD, p0, p1, p2, p3, p4); } // 0x5744562E973E33CD b1207
 	NATIVE_DECL void _0xDD03FC2089AD093C(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xDD03FC2089AD093C, p0, p1, p2, p3); } // 0xDD03FC2089AD093C b1207
 	NATIVE_DECL Any _0xB16C780C51E51E2B(Any p0) { return invoke<Any>(0xB16C780C51E51E2B, p0); } // 0xB16C780C51E51E2B b1207
-	NATIVE_DECL void _0xEF259AA1E097E0AD(Any p0, Any p1) { invoke<Void>(0xEF259AA1E097E0AD, p0, p1); } // 0xEF259AA1E097E0AD b1207
+	NATIVE_DECL void _0xEF259AA1E097E0AD(Entity entity, Any p1) { invoke<Void>(0xEF259AA1E097E0AD, entity, p1); } // 0xEF259AA1E097E0AD b1207
 	NATIVE_DECL void _0xBD94CECFB2D65119(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0xBD94CECFB2D65119, p0, p1, p2, p3, p4, p5); } // 0xBD94CECFB2D65119 b1207
 	NATIVE_DECL void _SET_ENTITY_CUSTOM_PICKUP_RADIUS(Entity entity, float radius) { invoke<Void>(0x482D17E45665DA44, entity, radius); } // 0x482D17E45665DA44 b1207
 	NATIVE_DECL void _0xE75EEA8DB59A9F39(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0xE75EEA8DB59A9F39, p0, p1, p2, p3, p4, p5); } // 0xE75EEA8DB59A9F39 b1207
@@ -1584,10 +1674,11 @@ namespace ENTITY
 	// Attaches entity1 to bone (boneIndex) of entity2.
 	// 
 	// boneIndex - this is different to boneID, use GET_PED_BONE_INDEX to get the index from the ID. use the index for attaching to specific bones. entity1 will be attached to entity2's centre if bone index given doesn't correspond to bone indexes for that entity type.
+	// https://github.com/femga/rdr3_discoveries/tree/master/boneNames
 	// 
 	// useSoftPinning - if set to false attached entity will not detach when fixed
 	// collision - controls collision between the two entities (FALSE disables collision).
-	// isPed - pitch doesnt work when false and roll will only work on negative numbers (only peds)
+	// isPed - pitch doesn't work when false and roll will only work on negative numbers (only peds)
 	// vertexIndex - position of vertex
 	// fixedRot - if false it ignores entity vector 
 	// 
@@ -1605,7 +1696,6 @@ namespace ENTITY
 	// Getter for FREEZE_ENTITY_POSITION
 	NATIVE_DECL BOOL _IS_ENTITY_FROZEN(Entity entity) { return invoke<BOOL>(0x083D497D57B7400F, entity); } // 0x083D497D57B7400F b1207
 	NATIVE_DECL void FREEZE_ENTITY_POSITION(Entity entity, BOOL toggle) { invoke<Void>(0x7D9EFB7AD6B19754, entity, toggle); } // 0x7D9EFB7AD6B19754 0x65C16D57 b1207
-	// SET_ENTITY_*
 	NATIVE_DECL void _SET_ENTITY_CLEANUP_BY_ENGINE(Entity entity, BOOL toggle) { invoke<Void>(0x740CB4F3F602C9F4, entity, toggle); } // 0x740CB4F3F602C9F4 0xD3850671 b1207
 	// Makes the specified entity (ped, vehicle or object) persistent. Persistent entities will not automatically be removed by the engine.
 	NATIVE_DECL void SET_ENTITY_AS_MISSION_ENTITY(Entity entity, BOOL p1, BOOL p2) { invoke<Void>(0xDC19C288082E586E, entity, p1, p2); } // 0xDC19C288082E586E 0x5D1F9E0F b1207
@@ -1619,7 +1709,7 @@ namespace ENTITY
 	// This is an alias of SET_ENTITY_AS_NO_LONGER_NEEDED.
 	NATIVE_DECL void SET_OBJECT_AS_NO_LONGER_NEEDED(Object* object) { invoke<Void>(0x3AE22DEB5BA5A3E6, object); } // 0x3AE22DEB5BA5A3E6 0x3F6B949F b1207
 	NATIVE_DECL void _0x20FAEE47427A4497() { invoke<Void>(0x20FAEE47427A4497); } // 0x20FAEE47427A4497 b1207
-	NATIVE_DECL Any _0x88AD6CC10D8D35B2(Any p0) { return invoke<Any>(0x88AD6CC10D8D35B2, p0); } // 0x88AD6CC10D8D35B2 b1207
+	NATIVE_DECL BOOL _IS_ENTITY_OWNED_BY_THIS_SCRIPT(Entity entity) { return invoke<BOOL>(0x88AD6CC10D8D35B2, entity); } // 0x88AD6CC10D8D35B2 b1207
 	NATIVE_DECL void _0x56E0735D6273B227(Any p0, Any p1) { invoke<Void>(0x56E0735D6273B227, p0, p1); } // 0x56E0735D6273B227 b1207
 	// SET_ENTITY_A*
 	NATIVE_DECL void _0xC0EDEF16D90661EE(Entity entity, float p1) { invoke<Void>(0xC0EDEF16D90661EE, entity, p1); } // 0xC0EDEF16D90661EE b1207
@@ -1641,24 +1731,26 @@ namespace ENTITY
 	NATIVE_DECL void SET_ENTITY_HEADING(Entity entity, float heading) { invoke<Void>(0xCF2B9C0645C4651B, entity, heading); } // 0xCF2B9C0645C4651B 0xE0FF064D b1207
 	NATIVE_DECL void _SET_ENTITY_COORDS_AND_HEADING(Entity entity, float xPos, float yPos, float zPos, float heading, BOOL xAxis, BOOL yAxis, BOOL zAxis) { invoke<Void>(0x203BEFFDBE12E96A, entity, xPos, yPos, zPos, heading, xAxis, yAxis, zAxis); } // 0x203BEFFDBE12E96A b1207
 	NATIVE_DECL void _SET_ENTITY_COORDS_AND_HEADING_NO_OFFSET(Entity entity, float xPos, float yPos, float zPos, float heading, BOOL p5, BOOL p6) { invoke<Void>(0x0918E3565C20F03C, entity, xPos, yPos, zPos, heading, p5, p6); } // 0x0918E3565C20F03C b1207
-	// Sets the entity's health. healthAmount sets the health value to that, and sets the maximum health core value. Setting healthAmount to 0 will kill the entity. Unclear what role p2 serves, but it's either 0 or an entity handle.
-	NATIVE_DECL void SET_ENTITY_HEALTH(Entity entity, int healthAmount, Entity p2) { invoke<Void>(0xAC2767ED8BDFAB15, entity, healthAmount, p2); } // 0xAC2767ED8BDFAB15 b1207
+	// Sets the entity's health. healthAmount sets the health value to that, and sets the maximum health core value. Setting healthAmount to 0 will kill the entity. entityKilledBy parameter can also be 0
+	NATIVE_DECL void SET_ENTITY_HEALTH(Entity entity, int healthAmount, Entity entityKilledBy) { invoke<Void>(0xAC2767ED8BDFAB15, entity, healthAmount, entityKilledBy); } // 0xAC2767ED8BDFAB15 b1207
 	// Sets a ped or an object totally invincible. It doesn't take any kind of damage. Peds will not ragdoll on explosions.
 	NATIVE_DECL void SET_ENTITY_INVINCIBLE(Entity entity, BOOL toggle) { invoke<Void>(0xA5C38736C426FCB8, entity, toggle); } // 0xA5C38736C426FCB8 0xC1213A21 b1207
 	// SET_ENTITY_LO*
 	NATIVE_DECL void _0xAF7F3099B9FEB535(Entity entity, float p1, float p2, float p3) { invoke<Void>(0xAF7F3099B9FEB535, entity, p1, p2, p3); } // 0xAF7F3099B9FEB535 b1207
 	NATIVE_DECL void SET_ENTITY_IS_TARGET_PRIORITY(Entity entity, BOOL p1, float p2) { invoke<Void>(0x0A5D170C44CB2189, entity, p1, p2); } // 0x0A5D170C44CB2189 0x9729EE32 b1207
 	NATIVE_DECL void _0xB38A29CCD5447783(Any p0, Any p1, Any p2) { invoke<Void>(0xB38A29CCD5447783, p0, p1, p2); } // 0xB38A29CCD5447783 b1207
-	NATIVE_DECL void _0x4B436BAC8CBE9B07(Entity entity, int p1, BOOL p2) { invoke<Void>(0x4B436BAC8CBE9B07, entity, p1, p2); } // 0x4B436BAC8CBE9B07 b1207
-	// Most likely the getter for 0x4B436BAC8CBE9B07.
-	NATIVE_DECL int _0xE12F56CB25D9CE23(Entity entity) { return invoke<int>(0xE12F56CB25D9CE23, entity); } // 0xE12F56CB25D9CE23 b1207
+	NATIVE_DECL void _SET_ENTITY_THREAT_TIER(Entity entity, int tier, BOOL p2) { invoke<Void>(0x4B436BAC8CBE9B07, entity, tier, p2); } // 0x4B436BAC8CBE9B07 b1207
+	NATIVE_DECL int _GET_ENTITY_THREAT_TIER(Entity entity) { return invoke<int>(0xE12F56CB25D9CE23, entity); } // 0xE12F56CB25D9CE23 b1207
 	NATIVE_DECL void _0x2D40BCBFE9305DEA(Any p0, Any p1) { invoke<Void>(0x2D40BCBFE9305DEA, p0, p1); } // 0x2D40BCBFE9305DEA b1207
-	NATIVE_DECL void _0xEBDC12861D079ABA(Entity entity, BOOL enabled) { invoke<Void>(0xEBDC12861D079ABA, entity, enabled); } // 0xEBDC12861D079ABA b1207
+	NATIVE_DECL void _SET_ENTITY_LIGHTS_ENABLED(Entity entity, BOOL enabled) { invoke<Void>(0xEBDC12861D079ABA, entity, enabled); } // 0xEBDC12861D079ABA b1207
 	NATIVE_DECL void SET_ENTITY_LOAD_COLLISION_FLAG(Entity entity, BOOL toggle) { invoke<Void>(0x9B9EE31AED48072E, entity, toggle); } // 0x9B9EE31AED48072E 0xC52F295B b1207
 	NATIVE_DECL BOOL HAS_COLLISION_LOADED_AROUND_ENTITY(Entity entity) { return invoke<BOOL>(0xBEB1600952B9CF5C, entity); } // 0xBEB1600952B9CF5C 0x851687F9 b1207
-	NATIVE_DECL BOOL _0x6BFBDC46139C45AB(float xPos, float yPos, float zPos) { return invoke<BOOL>(0x6BFBDC46139C45AB, xPos, yPos, zPos); } // 0x6BFBDC46139C45AB b1207
+	// Old name: _HAS_COLLISION_LOADED_AT_COORDS
+	NATIVE_DECL BOOL HAS_COLLISION_LOADED_AROUND_POSITION(float xPos, float yPos, float zPos) { return invoke<BOOL>(0x6BFBDC46139C45AB, xPos, yPos, zPos); } // 0x6BFBDC46139C45AB b1207
 	NATIVE_DECL void SET_ENTITY_ONLY_DAMAGED_BY_PLAYER(Entity entity, BOOL toggle) { invoke<Void>(0x473598683095D430, entity, toggle); } // 0x473598683095D430 0x4B707F50 b1207
-	NATIVE_DECL void SET_ENTITY_ONLY_DAMAGED_BY_RELATIONSHIP_GROUP(Entity entity, BOOL p1, Any p2) { invoke<Void>(0x6C1F6AA2F0ADD104, entity, p1, p2); } // 0x6C1F6AA2F0ADD104 0x202237E2 b1207
+	NATIVE_DECL void SET_ENTITY_ONLY_DAMAGED_BY_RELATIONSHIP_GROUP(Entity entity, BOOL p1, Hash relationshipGroup) { invoke<Void>(0x6C1F6AA2F0ADD104, entity, p1, relationshipGroup); } // 0x6C1F6AA2F0ADD104 0x202237E2 b1207
+	// https://github.com/femga/rdr3_discoveries/tree/master/AI/ENTITY_PROOFS
+	// BOOL p2: handles an additional special proofs flag, so it simply indicates whether it should be enabled or disabled, not sure what exactly it proofs the entity from though
 	NATIVE_DECL void SET_ENTITY_PROOFS(Entity entity, int proofsBitset, BOOL specialFlag) { invoke<Void>(0xFAEE099C6F890BB8, entity, proofsBitset, specialFlag); } // 0xFAEE099C6F890BB8 0x7E9EAB66 b1207
 	// Note: this native was removed in 1232 but added back in 1311
 	NATIVE_DECL int _GET_ENTITY_PROOFS(Entity entity) { return invoke<int>(0x6CF0DAD7FA1088EA, entity); } // 0x6CF0DAD7FA1088EA b1207
@@ -1666,7 +1758,7 @@ namespace ENTITY
 	NATIVE_DECL void SET_ENTITY_ROTATION(Entity entity, float pitch, float roll, float yaw, int rotationOrder, BOOL p5) { invoke<Void>(0x9CC8314DFEDE441E, entity, pitch, roll, yaw, rotationOrder, p5); } // 0x9CC8314DFEDE441E 0x0A345EFE b1207
 	NATIVE_DECL void _0xD45BB89B53FC0CFD(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { invoke<Void>(0xD45BB89B53FC0CFD, p0, p1, p2, p3, p4, p5, p6, p7); } // 0xD45BB89B53FC0CFD b1207
 	NATIVE_DECL void SET_ENTITY_VISIBLE(Entity entity, BOOL toggle) { invoke<Void>(0x1794B4FCC84D812F, entity, toggle); } // 0x1794B4FCC84D812F 0xD043E8E1 b1207
-	NATIVE_DECL void _0x80FDEB3A9E9AA578(Any p0, Any p1) { invoke<Void>(0x80FDEB3A9E9AA578, p0, p1); } // 0x80FDEB3A9E9AA578 b1207
+	NATIVE_DECL void _0x80FDEB3A9E9AA578(Entity entity, BOOL p1) { invoke<Void>(0x80FDEB3A9E9AA578, entity, p1); } // 0x80FDEB3A9E9AA578 b1207
 	NATIVE_DECL void _0x9C6906EF8CB20C5F(Entity entity) { invoke<Void>(0x9C6906EF8CB20C5F, entity); } // 0x9C6906EF8CB20C5F b1436
 	// Note that the third parameter(denoted as z) is "up and down" with positive numbers encouraging upwards movement.
 	NATIVE_DECL void SET_ENTITY_VELOCITY(Entity entity, float x, float y, float z) { invoke<Void>(0x1C99BB7B6E96D16F, entity, x, y, z); } // 0x1C99BB7B6E96D16F 0xFF5A1988 b1207
@@ -1676,13 +1768,15 @@ namespace ENTITY
 	// Returns the LOD distance of an entity.
 	NATIVE_DECL int GET_ENTITY_LOD_DIST(Entity entity) { return invoke<int>(0xDF240D0C2A948683, entity); } // 0xDF240D0C2A948683 0x4DA3D51F b1207
 	// skin - everything alpha except skin
-	// Set entity alpha level. Ranging from 0 to 255 but chnages occur after every 20 percent (after every 51).
+	// Set entity alpha level. Ranging from 0 to 255 but changes occur after every 20 percent (after every 51).
 	NATIVE_DECL void SET_ENTITY_ALPHA(Entity entity, int alphaLevel, BOOL skin) { invoke<Void>(0x0DF7692B1D9E7BA7, entity, alphaLevel, skin); } // 0x0DF7692B1D9E7BA7 0xAE667CB0 b1207
 	NATIVE_DECL int GET_ENTITY_ALPHA(Entity entity) { return invoke<int>(0x1BB501624FAF2BEA, entity); } // 0x1BB501624FAF2BEA 0x1560B017 b1207
 	NATIVE_DECL void RESET_ENTITY_ALPHA(Entity entity) { invoke<Void>(0x744B9EF44779D9AB, entity); } // 0x744B9EF44779D9AB 0x8A30761C b1207
 	NATIVE_DECL void _SET_ENTITY_FADE_IN(Entity entity) { invoke<Void>(0xA91E6CF94404E8C9, entity); } // 0xA91E6CF94404E8C9 b1207
 	NATIVE_DECL void SET_ENTITY_ALWAYS_PRERENDER(Entity entity, BOOL toggle) { invoke<Void>(0xACAD101E1FB66689, entity, toggle); } // 0xACAD101E1FB66689 0xD8FF798A b1207
 	NATIVE_DECL void SET_ENTITY_RENDER_SCORCHED(Entity entity, BOOL toggle) { invoke<Void>(0x85B8A7534E44BC23, entity, toggle); } // 0x85B8A7534E44BC23 0xAAC9317B b1207
+	// Seems to return true if entity is burned / scorched
+	// _GET_ENTITY_*
 	NATIVE_DECL Any _0x37B01666BAE8F7EF(Entity entity) { return invoke<Any>(0x37B01666BAE8F7EF, entity); } // 0x37B01666BAE8F7EF b1207
 	NATIVE_DECL void _0xA9E6D8F2DDFC4DB9(Any p0, Any p1) { invoke<Void>(0xA9E6D8F2DDFC4DB9, p0, p1); } // 0xA9E6D8F2DDFC4DB9 b1207
 	// Only works with objects!
@@ -1698,41 +1792,45 @@ namespace ENTITY
 	NATIVE_DECL void SET_ENTITY_MOTION_BLUR(Entity entity, BOOL toggle) { invoke<Void>(0x516C6ABD18322B63, entity, toggle); } // 0x516C6ABD18322B63 0xE90005B8 b1207
 	NATIVE_DECL void SET_CAN_AUTO_VAULT_ON_ENTITY(Entity entity, BOOL toggle) { invoke<Void>(0x80646744FA88F9D7, entity, toggle); } // 0x80646744FA88F9D7 0x44767B31 b1207
 	NATIVE_DECL void SET_CAN_CLIMB_ON_ENTITY(Entity entity, BOOL toggle) { invoke<Void>(0x24AED2A608F93C4C, entity, toggle); } // 0x24AED2A608F93C4C 0xE224A6A5 b1207
-	// SET_ENTITY_*
 	NATIVE_DECL void _SET_ENTITY_DECALS_DISABLED(Entity entity, BOOL toggle) { invoke<Void>(0xC64E597783BE9A1D, entity, toggle); } // 0xC64E597783BE9A1D b1207
 	NATIVE_DECL Any _0x59B57C4B06531E1E(float x, float y, float z, float radius, ItemSet itemSet, Any p5) { return invoke<Any>(0x59B57C4B06531E1E, x, y, z, radius, itemSet, p5); } // 0x59B57C4B06531E1E b1207
-	NATIVE_DECL Any GET_MATCHING_ENTITIES(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return invoke<Any>(0x84CCF9A12942C83D, p0, p1, p2, p3, p4, p5); } // 0x84CCF9A12942C83D b1207
-	NATIVE_DECL Any _0x886171A12F400B89(Volume volume, ItemSet itemSet, int entityType) { return invoke<Any>(0x886171A12F400B89, volume, itemSet, entityType); } // 0x886171A12F400B89 b1207
+	NATIVE_DECL int GET_MATCHING_ENTITIES(Volume volume, ItemSet itemSet, int entityType, Any p3, Hash p4, const char* p5) { return invoke<int>(0x84CCF9A12942C83D, volume, itemSet, entityType, p3, p4, p5); } // 0x84CCF9A12942C83D b1207
+	NATIVE_DECL int _GET_ENTITIES_IN_VOLUME(Volume volume, ItemSet itemSet, int entityType) { return invoke<int>(0x886171A12F400B89, volume, itemSet, entityType); } // 0x886171A12F400B89 b1207
 	NATIVE_DECL Entity _SEARCH_BUILDING_POOL_FOR_ENTITY_WITH_THIS_MODEL(Hash modelHash) { return invoke<Entity>(0x66B2B83B94B22458, modelHash); } // 0x66B2B83B94B22458 b1207
 	NATIVE_DECL Any _0xC2E71D7E0A7B4C89(Any p0) { return invoke<Any>(0xC2E71D7E0A7B4C89, p0); } // 0xC2E71D7E0A7B4C89 b1207
 	NATIVE_DECL void _0x6C31B06E91518269(Any p0, Any p1) { invoke<Void>(0x6C31B06E91518269, p0, p1); } // 0x6C31B06E91518269 b1207
 	NATIVE_DECL void _0x119A5714578F4E05(Any p0, Any p1) { invoke<Void>(0x119A5714578F4E05, p0, p1); } // 0x119A5714578F4E05 b1207
-	NATIVE_DECL Entity _0xF7424890E4A094C0(Hash door, int p1) { return invoke<Entity>(0xF7424890E4A094C0, door, p1); } // 0xF7424890E4A094C0 b1207
+	// Params: p1 = 0 in R* Scripts (GET_DOOR_ENTITY_FROM_ID)
+	// https://github.com/femga/rdr3_discoveries/blob/master/doorHashes/doorhashes.lua
+	NATIVE_DECL Entity _GET_ENTITY_BY_DOORHASH(Hash doorHash, int p1) { return invoke<Entity>(0xF7424890E4A094C0, doorHash, p1); } // 0xF7424890E4A094C0 b1207
 	NATIVE_DECL BOOL FIND_ANIM_EVENT_PHASE(const char* animDictionary, const char* animName, const char* p2, Any* p3, Any* p4) { return invoke<BOOL>(0x42718CC559BD7776, animDictionary, animName, p2, p3, p4); } // 0x42718CC559BD7776 0xC41DDA62 b1207
 	NATIVE_DECL void FORCE_ENTITY_AI_AND_ANIMATION_UPDATE(Entity entity, BOOL p1) { invoke<Void>(0x4C9E96473D4F1A88, entity, p1); } // 0x4C9E96473D4F1A88 0x58D9775F b1207
 	NATIVE_DECL float _GET_ENTITY_ANIM_CURRENT_TIME(Entity entity, const char* animDict, const char* animName) { return invoke<float>(0x627520389E288A73, entity, animDict, animName); } // 0x627520389E288A73 b1207
-	NATIVE_DECL Any _0x8E46E18AA828334F(Any p0, Any p1, Any p2) { return invoke<Any>(0x8E46E18AA828334F, p0, p1, p2); } // 0x8E46E18AA828334F b1207
+	// _GET_ENTITY_*
+	NATIVE_DECL float _0x8E46E18AA828334F(Entity entity, const char* animDict, const char* animClip) { return invoke<float>(0x8E46E18AA828334F, entity, animDict, animClip); } // 0x8E46E18AA828334F b1207
 	// Hardcoded to return zero/false.
 	NATIVE_DECL Any _0xDF8E49EA89A01DB1(Any p0, Any p1, Any p2) { return invoke<Any>(0xDF8E49EA89A01DB1, p0, p1, p2); } // 0xDF8E49EA89A01DB1 b1207
 	NATIVE_DECL BOOL HAS_ANIM_EVENT_FIRED(Entity entity, Hash actionHash) { return invoke<BOOL>(0x5851CC48405F4A07, entity, actionHash); } // 0x5851CC48405F4A07 0x66571CA0 b1207
 	NATIVE_DECL BOOL HAS_ENTITY_ANIM_FINISHED(Entity entity, const char* animDict, const char* animName, int p3) { return invoke<BOOL>(0xAEB40615337EF1E3, entity, animDict, animName, p3); } // 0xAEB40615337EF1E3 0x1D9CAB92 b1207
+	// https://github.com/femga/rdr3_discoveries/tree/master/animations
 	NATIVE_DECL BOOL PLAY_ENTITY_ANIM(Entity entity, const char* animName, const char* animDict, float p3, BOOL loop, BOOL stayInAnim, BOOL p6, float delta, Any bitset) { return invoke<BOOL>(0xDC6D22FAB76D4874, entity, animName, animDict, p3, loop, stayInAnim, p6, delta, bitset); } // 0xDC6D22FAB76D4874 0x878753D5 b1207
 	NATIVE_DECL void _SET_ENTITY_ANIM_CURRENT_TIME(Entity entity, const char* animDict, const char* animName, float time) { invoke<Void>(0x11CDABDC7783B2BC, entity, animDict, animName, time); } // 0x11CDABDC7783B2BC b1207
 	NATIVE_DECL void _SET_ENTITY_ANIM_SPEED(Entity entity, const char* animDict, const char* animName, float speedMultiplier) { invoke<Void>(0xEAA885BA3CEA4E4A, entity, animDict, animName, speedMultiplier); } // 0xEAA885BA3CEA4E4A b1207
 	NATIVE_DECL Any STOP_ENTITY_ANIM(Entity entity, const char* animation, const char* animGroup, float p3) { return invoke<Any>(0x786591D986DE9159, entity, animation, animGroup, p3); } // 0x786591D986DE9159 0xC4769830 b1207
 	NATIVE_DECL void _0x669655FFB29EF1A9(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x669655FFB29EF1A9, p0, p1, p2, p3); } // 0x669655FFB29EF1A9 b1207
-	NATIVE_DECL void _0x1AD922AB5038DEF3(Any p0) { invoke<Void>(0x1AD922AB5038DEF3, p0); } // 0x1AD922AB5038DEF3 b1207
-	NATIVE_DECL void _0x5826EFD6D73C4DE5(Any p0) { invoke<Void>(0x5826EFD6D73C4DE5, p0); } // 0x5826EFD6D73C4DE5 b1207
-	NATIVE_DECL void _0x36EB4D34D4A092C5(Any p0, Any p1) { invoke<Void>(0x36EB4D34D4A092C5, p0, p1); } // 0x36EB4D34D4A092C5 b1207
+	// _ADD_E*
+	NATIVE_DECL void _0x1AD922AB5038DEF3(Entity entity) { invoke<Void>(0x1AD922AB5038DEF3, entity); } // 0x1AD922AB5038DEF3 b1207
+	NATIVE_DECL void _0x5826EFD6D73C4DE5(Entity entity) { invoke<Void>(0x5826EFD6D73C4DE5, entity); } // 0x5826EFD6D73C4DE5 b1207
+	NATIVE_DECL void _0x36EB4D34D4A092C5(Entity entity, Any p1) { invoke<Void>(0x36EB4D34D4A092C5, entity, p1); } // 0x36EB4D34D4A092C5 b1207
 	NATIVE_DECL Any _0x29BA9F78321E5A6C(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11) { return invoke<Any>(0x29BA9F78321E5A6C, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11); } // 0x29BA9F78321E5A6C b1207
 	NATIVE_DECL void _0xC76E94A78127412B(Any p0, Any p1, Any p2) { invoke<Void>(0xC76E94A78127412B, p0, p1, p2); } // 0xC76E94A78127412B b1207
 	NATIVE_DECL void _0x7F20092547B4DDEA(Any p0) { invoke<Void>(0x7F20092547B4DDEA, p0); } // 0x7F20092547B4DDEA b1207
 	NATIVE_DECL void _0xF41E2979D5BC5370(Any p0) { invoke<Void>(0xF41E2979D5BC5370, p0); } // 0xF41E2979D5BC5370 b1207
 	NATIVE_DECL Any _0xAAACB74442C1BED3(Any p0) { return invoke<Any>(0xAAACB74442C1BED3, p0); } // 0xAAACB74442C1BED3 b1207
-	NATIVE_DECL Any PIN_CLOSEST_MAP_ENTITY(Hash modelHash, float x, float y, float z, Any p4) { return invoke<Any>(0x6F3068258A499E52, modelHash, x, y, z, p4); } // 0x6F3068258A499E52 b1207
+	NATIVE_DECL Any PIN_CLOSEST_MAP_ENTITY(Hash modelHash, float x, float y, float z, int p4) { return invoke<Any>(0x6F3068258A499E52, modelHash, x, y, z, p4); } // 0x6F3068258A499E52 b1207
 	NATIVE_DECL void _UNPIN_MAP_ENTITY(Entity entity) { invoke<Void>(0xD2B9C78537ED5759, entity); } // 0xD2B9C78537ED5759 b1207
 	NATIVE_DECL BOOL IS_MAP_ENTITY_PINNED(Any p0) { return invoke<BOOL>(0x1FF441D7954F8709, p0); } // 0x1FF441D7954F8709 b1207
-	NATIVE_DECL Any _0x4735E2A4BB83D9DA(Any p0) { return invoke<Any>(0x4735E2A4BB83D9DA, p0); } // 0x4735E2A4BB83D9DA b1207
+	NATIVE_DECL Entity _GET_PINNED_MAP_ENTITY(Any p0) { return invoke<Entity>(0x4735E2A4BB83D9DA, p0); } // 0x4735E2A4BB83D9DA b1207
 	NATIVE_DECL void _0xEAB3D91D30A344F1(Any p0) { invoke<Void>(0xEAB3D91D30A344F1, p0); } // 0xEAB3D91D30A344F1 b1207
 	NATIVE_DECL void _0x37CEB637BA3B1A47(Any p0) { invoke<Void>(0x37CEB637BA3B1A47, p0); } // 0x37CEB637BA3B1A47 b1207
 	NATIVE_DECL Any _0x350E9211074955AF(Any p0, Any p1) { return invoke<Any>(0x350E9211074955AF, p0, p1); } // 0x350E9211074955AF b1207
@@ -1743,9 +1841,10 @@ namespace ENTITY
 namespace EVENT
 {
 	NATIVE_DECL void SET_DECISION_MAKER(Ped ped, Hash name) { invoke<Void>(0x8AE2F981CDDB8FA4, ped, name); } // 0x8AE2F981CDDB8FA4 0x19CEAC9E b1207
-	NATIVE_DECL void _0x6B9C5C38838FB6E6(Any p0) { invoke<Void>(0x6B9C5C38838FB6E6, p0); } // 0x6B9C5C38838FB6E6 b1207
+	NATIVE_DECL void _SET_DECISION_MAKER_DEFAULT(Ped ped) { invoke<Void>(0x6B9C5C38838FB6E6, ped); } // 0x6B9C5C38838FB6E6 b1207
 	NATIVE_DECL ScrHandle _CREATE_SHOCKING_EVENT(Any* args) { return invoke<ScrHandle>(0xCA1315C33B9A2847, args); } // 0xCA1315C33B9A2847 b1207
 	// eventType: https://alloc8or.re/rdr3/doc/enums/eEventType.txt
+	// https://github.com/femga/rdr3_discoveries/blob/master/AI/EVENTS
 	NATIVE_DECL ScrHandle ADD_SHOCKING_EVENT_AT_POSITION(Hash eventType, float x, float y, float z, float p4, float p5, float p6, float p7, float p8, int p9, int p10) { return invoke<ScrHandle>(0xD9F8455409B525E9, eventType, x, y, z, p4, p5, p6, p7, p8, p9, p10); } // 0xD9F8455409B525E9 0x0B30F779 b1207
 	// eventType: https://alloc8or.re/rdr3/doc/enums/eEventType.txt
 	NATIVE_DECL ScrHandle ADD_SHOCKING_EVENT_FOR_ENTITY(Hash eventType, Entity entity, float p2, float p3, float p4, float p5, float p6, float p7, BOOL p8, BOOL p9, int p10, int p11) { return invoke<ScrHandle>(0x7FD8F3BE76F89422, eventType, entity, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11); } // 0x7FD8F3BE76F89422 0xA81B5B71 b1207
@@ -1759,31 +1858,33 @@ namespace EVENT
 	// eventType: https://alloc8or.re/rdr3/doc/enums/eEventType.txt
 	NATIVE_DECL void _REMOVE_ALL_SHOCKING_EVENTS_OF_TYPE(Hash eventType, BOOL p1) { invoke<Void>(0x118873DD538490B4, eventType, p1); } // 0x118873DD538490B4 b1207
 	NATIVE_DECL void REMOVE_SHOCKING_EVENT_SPAWN_BLOCKING_AREAS() { invoke<Void>(0xDB249021652420C5); } // 0xDB249021652420C5 0xA0CE89C8 b1207
-	NATIVE_DECL Any _0x36D0F2BA2C0D9BDE(Any p0, Any p1) { return invoke<Any>(0x36D0F2BA2C0D9BDE, p0, p1); } // 0x36D0F2BA2C0D9BDE b1207
+	NATIVE_DECL Any _0x36D0F2BA2C0D9BDE(Entity entity, int p1) { return invoke<Any>(0x36D0F2BA2C0D9BDE, entity, p1); } // 0x36D0F2BA2C0D9BDE b1207
 	NATIVE_DECL void _0x7C511E91738A0828(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x7C511E91738A0828, p0, p1, p2, p3); } // 0x7C511E91738A0828 b1207
 	NATIVE_DECL void SUPPRESS_SHOCKING_EVENTS_NEXT_FRAME() { invoke<Void>(0x84994FAD4E4E4E69); } // 0x84994FAD4E4E4E69 0x4CC674B5 b1207
 	NATIVE_DECL void _0xB6F4825153920582() { invoke<Void>(0xB6F4825153920582); } // 0xB6F4825153920582 b1207
 	NATIVE_DECL void _0x4B2B1A891D437CA7(Any p0) { invoke<Void>(0x4B2B1A891D437CA7, p0); } // 0x4B2B1A891D437CA7 b1207
-	NATIVE_DECL void _0x9520175B35E2268D(Any p0, Any p1) { invoke<Void>(0x9520175B35E2268D, p0, p1); } // 0x9520175B35E2268D b1207
+	NATIVE_DECL void _0x9520175B35E2268D(Ped ped, int p1) { invoke<Void>(0x9520175B35E2268D, ped, p1); } // 0x9520175B35E2268D b1207
 	NATIVE_DECL Any _0x18E93EBFC1FCFA48(Any p0, Any p1, Any p2) { return invoke<Any>(0x18E93EBFC1FCFA48, p0, p1, p2); } // 0x18E93EBFC1FCFA48 b1207
 	NATIVE_DECL void _0x56B3410626A473E7(Any p0) { invoke<Void>(0x56B3410626A473E7, p0); } // 0x56B3410626A473E7 b1207
-	NATIVE_DECL void _0x608AD36A644A97FE(Any p0, Any p1, Any p2) { invoke<Void>(0x608AD36A644A97FE, p0, p1, p2); } // 0x608AD36A644A97FE b1207
+	// Hash: P_REGISTER05X, P_REGISTER06X, P_REGISTER03X, PLAYER_ZERO, PLAYER_THREE, A_C_HORSE_MORGAN_FLAXENCHESTNUT
+	NATIVE_DECL void _0x608AD36A644A97FE(Hash p0, BOOL p1, BOOL p2) { invoke<Void>(0x608AD36A644A97FE, p0, p1, p2); } // 0x608AD36A644A97FE b1207
 	NATIVE_DECL void _0x4465C3D1475BD3FD(Any p0) { invoke<Void>(0x4465C3D1475BD3FD, p0); } // 0x4465C3D1475BD3FD b1207
 	NATIVE_DECL Any _0x2DD42FAD06E6F19E(Any p0, Any p1, Any p2) { return invoke<Any>(0x2DD42FAD06E6F19E, p0, p1, p2); } // 0x2DD42FAD06E6F19E b1207
 	NATIVE_DECL void _0xA86B0EE9B39D15D6(Any p0) { invoke<Void>(0xA86B0EE9B39D15D6, p0); } // 0xA86B0EE9B39D15D6 b1207
 	NATIVE_DECL Any _0x26054EB81AC0893B(Any p0) { return invoke<Any>(0x26054EB81AC0893B, p0); } // 0x26054EB81AC0893B b1207
-	NATIVE_DECL void _0xBB1E41DD3D3C6250(Any p0, Any p1, Any p2) { invoke<Void>(0xBB1E41DD3D3C6250, p0, p1, p2); } // 0xBB1E41DD3D3C6250 b1207
+	NATIVE_DECL void _0xBB1E41DD3D3C6250(Ped ped, const char* p1, int p2) { invoke<Void>(0xBB1E41DD3D3C6250, ped, p1, p2); } // 0xBB1E41DD3D3C6250 b1207
 	NATIVE_DECL Any _0xAD17A18215DD23D6(Any p0, Any p1, Any p2) { return invoke<Any>(0xAD17A18215DD23D6, p0, p1, p2); } // 0xAD17A18215DD23D6 b1207
 	NATIVE_DECL Any _0xC6A7DC546E94FED5(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0xC6A7DC546E94FED5, p0, p1, p2, p3); } // 0xC6A7DC546E94FED5 b1207
-	NATIVE_DECL Any _0x796EECFF0C6D39BE(Any p0, Any p1, Any p2) { return invoke<Any>(0x796EECFF0C6D39BE, p0, p1, p2); } // 0x796EECFF0C6D39BE b1207
+	// Returns eventType
+	NATIVE_DECL Hash _0x796EECFF0C6D39BE(Ped ped, Any p1, Any p2) { return invoke<Hash>(0x796EECFF0C6D39BE, ped, p1, p2); } // 0x796EECFF0C6D39BE b1207
 	NATIVE_DECL Any _0x797B3D4D92E56094(Any p0, Any p1) { return invoke<Any>(0x797B3D4D92E56094, p0, p1); } // 0x797B3D4D92E56094 b1207
-	NATIVE_DECL Any _0x822A001BCEA5BD81(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0x822A001BCEA5BD81, p0, p1, p2, p3); } // 0x822A001BCEA5BD81 b1207
+	NATIVE_DECL Entity _0x822A001BCEA5BD81(Ped ped, Hash eventType, Any p2, Any p3) { return invoke<Entity>(0x822A001BCEA5BD81, ped, eventType, p2, p3); } // 0x822A001BCEA5BD81 b1207
 	NATIVE_DECL Any _0x38497F139981C5C9(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0x38497F139981C5C9, p0, p1, p2, p3); } // 0x38497F139981C5C9 b1207
-	NATIVE_DECL Any _0x1D1B448D719415AB(Any p0) { return invoke<Any>(0x1D1B448D719415AB, p0); } // 0x1D1B448D719415AB b1207
+	NATIVE_DECL Any _0x1D1B448D719415AB(Ped ped) { return invoke<Any>(0x1D1B448D719415AB, ped); } // 0x1D1B448D719415AB b1207
 	NATIVE_DECL Any _0x83D43F0FD5276E4D(Any p0, Any p1) { return invoke<Any>(0x83D43F0FD5276E4D, p0, p1); } // 0x83D43F0FD5276E4D b1207
 	NATIVE_DECL void _0xE28D7FC9FD32ABEB(Any p0, Any p1, Any p2) { invoke<Void>(0xE28D7FC9FD32ABEB, p0, p1, p2); } // 0xE28D7FC9FD32ABEB b1311
 	NATIVE_DECL void _0x1A5C5D350068A673(Any p0, Any p1) { invoke<Void>(0x1A5C5D350068A673, p0, p1); } // 0x1A5C5D350068A673 b1207
-	NATIVE_DECL void _0xAD8F2424C6E1E3A8(Any p0) { invoke<Void>(0xAD8F2424C6E1E3A8, p0); } // 0xAD8F2424C6E1E3A8 b1207
+	NATIVE_DECL void _0xAD8F2424C6E1E3A8(Ped ped) { invoke<Void>(0xAD8F2424C6E1E3A8, ped); } // 0xAD8F2424C6E1E3A8 b1207
 	NATIVE_DECL void _0xE2C2FBB7825FFC66() { invoke<Void>(0xE2C2FBB7825FFC66); } // 0xE2C2FBB7825FFC66 b1207
 }
 
@@ -1867,10 +1968,11 @@ namespace FIRE
 	// explosionType: see ADD_EXPLOSION
 	NATIVE_DECL BOOL _IS_EXPLOSION_IN_VOLUME(int explosionType, Volume volume) { return invoke<BOOL>(0xE24822A4CFC9107A, explosionType, volume); } // 0xE24822A4CFC9107A b1207
 	// explosionType: see ADD_EXPLOSION
-	NATIVE_DECL Entity _GET_ENTITY_INSIDE_EXPLOSION_AREA(int explosionType, float x1, float y1, float z1, float x2, float y2, float z2, float radius) { return invoke<Entity>(0x8002DDAB58594D78, explosionType, x1, y1, z1, x2, y2, z2, radius); } // 0x8002DDAB58594D78 0xAEC0D176 b1207
+	NATIVE_DECL Entity GET_OWNER_OF_EXPLOSION_IN_ANGLED_AREA(int explosionType, float x1, float y1, float z1, float x2, float y2, float z2, float radius) { return invoke<Entity>(0x8002DDAB58594D78, explosionType, x1, y1, z1, x2, y2, z2, radius); } // 0x8002DDAB58594D78 0xAEC0D176 b1207
 	NATIVE_DECL void _0x68F6A75FDF5A70D6(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x68F6A75FDF5A70D6, p0, p1, p2, p3); } // 0x68F6A75FDF5A70D6 b1207
 	NATIVE_DECL void _0x24DB6B9F2B719043(Any p0) { invoke<Void>(0x24DB6B9F2B719043, p0); } // 0x24DB6B9F2B719043 b1207
-	NATIVE_DECL Any _0xAB7993BA61A4674F(Any p0, Any p1) { return invoke<Any>(0xAB7993BA61A4674F, p0, p1); } // 0xAB7993BA61A4674F b1232
+	// Tested with fire & dynamite. Only returns true using value p1 = 1 and when the ped is affected by fire.
+	NATIVE_DECL BOOL _IS_PED_SHOCKING_EVENT_ACTIVE(Ped ped, int p1) { return invoke<BOOL>(0xAB7993BA61A4674F, ped, p1); } // 0xAB7993BA61A4674F b1232
 }
 
 namespace FLOCK
@@ -1878,9 +1980,11 @@ namespace FLOCK
 	NATIVE_DECL float GET_SPECIES_TUNING_FLOAT_PARAM(Hash p0, int p1, int p2) { return invoke<float>(0xE108489621422F91, p0, p1, p2); } // 0xE108489621422F91 b1207
 	NATIVE_DECL void SET_SPECIES_TUNING_FLOAT_PARAM(Hash p0, int p1, int p2, float p3) { invoke<Void>(0x963240B6C252BA49, p0, p1, p2, p3); } // 0x963240B6C252BA49 b1207
 	NATIVE_DECL void SET_SPECIES_TUNING_BOOL_PARAM(Hash p0, int p1, int p2, BOOL p3) { invoke<Void>(0x6D1D94C2459B42EE, p0, p1, p2, p3); } // 0x6D1D94C2459B42EE b1207
+	// https://github.com/femga/rdr3_discoveries/tree/master/AI/ANIMAL_TUNING_FLOAT_PARAMS
 	NATIVE_DECL float GET_ANIMAL_TUNING_FLOAT_PARAM(Ped animal, int p1) { return invoke<float>(0x4BC3ECFDA0297E27, animal, p1); } // 0x4BC3ECFDA0297E27 b1207
 	NATIVE_DECL void SET_ANIMAL_TUNING_FLOAT_PARAM(Ped animal, int p1, float p2) { invoke<Void>(0xCBDA22C87977244F, animal, p1, p2); } // 0xCBDA22C87977244F b1207
 	NATIVE_DECL void RESET_ANIMAL_TUNING_FLOAT_PARAM(Any p0, Any p1) { invoke<Void>(0xE776A195488FC520, p0, p1); } // 0xE776A195488FC520 b1355
+	// https://github.com/femga/rdr3_discoveries/tree/master/AI/ANIMAL_TUNING_BOOL_PARAMS
 	NATIVE_DECL BOOL GET_ANIMAL_TUNING_BOOL_PARAM(Ped animal, int p1) { return invoke<BOOL>(0x1C1993824A396603, animal, p1); } // 0x1C1993824A396603 b1207
 	NATIVE_DECL void SET_ANIMAL_TUNING_BOOL_PARAM(Ped animal, int p1, BOOL p2) { invoke<Void>(0x9FF1E042FA597187, animal, p1, p2); } // 0x9FF1E042FA597187 b1207
 	NATIVE_DECL void RESET_ANIMAL_TUNING_BOOL_PARAM(Any p0, Any p1) { invoke<Void>(0x96AA1304D30E6BC3, p0, p1); } // 0x96AA1304D30E6BC3 b1355
@@ -1891,8 +1995,10 @@ namespace FLOCK
 	NATIVE_DECL void _0xC3D581A34BC0A1F0(Any p0, Any p1) { invoke<Void>(0xC3D581A34BC0A1F0, p0, p1); } // 0xC3D581A34BC0A1F0 b1207
 	NATIVE_DECL void _0xF2CCA7B68CFAB2B9(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12, Any p13) { invoke<Void>(0xF2CCA7B68CFAB2B9, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13); } // 0xF2CCA7B68CFAB2B9 b1207
 	NATIVE_DECL void _0xFB16F08F47B83B4C(Any p0) { invoke<Void>(0xFB16F08F47B83B4C, p0); } // 0xFB16F08F47B83B4C b1207
-	NATIVE_DECL BOOL _0x3B005FF0538ED2A9(Ped ped) { return invoke<BOOL>(0x3B005FF0538ED2A9, ped); } // 0x3B005FF0538ED2A9 b1207
-	NATIVE_DECL void _0xAEB97D84CDF3C00B(Ped ped, BOOL toggle) { invoke<Void>(0xAEB97D84CDF3C00B, ped, toggle); } // 0xAEB97D84CDF3C00B b1207
+	// Ped (horse) will run away from players and mounting will trigger them to buck until disabled.
+	// Used for: REL_DOMESTICATED_ANIMAL
+	NATIVE_DECL BOOL _GET_ANIMAL_IS_WILD(Ped ped) { return invoke<BOOL>(0x3B005FF0538ED2A9, ped); } // 0x3B005FF0538ED2A9 b1207
+	NATIVE_DECL void _SET_ANIMAL_IS_WILD(Ped ped, BOOL toggle) { invoke<Void>(0xAEB97D84CDF3C00B, ped, toggle); } // 0xAEB97D84CDF3C00B b1207
 	// enum eAnimalRarityLevel
 	// {
 	// 	ARL_COMMON,
@@ -1939,38 +2045,45 @@ namespace GRAPHICS
 	NATIVE_DECL BOOL BEGIN_TAKE_HIGH_QUALITY_PHOTO() { return invoke<BOOL>(0xA15BFFC0A01B34E1); } // 0xA15BFFC0A01B34E1 0x47B0C137 b1207
 	NATIVE_DECL int GET_STATUS_OF_TAKE_HIGH_QUALITY_PHOTO() { return invoke<int>(0x4A3DA74C3CCB1725); } // 0x4A3DA74C3CCB1725 0x65376C9B b1207
 	NATIVE_DECL void FREE_MEMORY_FOR_HIGH_QUALITY_PHOTO() { invoke<Void>(0xD45547D8396F002A); } // 0xD45547D8396F002A 0x9CBA682A b1207
-	NATIVE_DECL void _0x2705D18C11B61046(Any p0) { invoke<Void>(0x2705D18C11B61046, p0); } // 0x2705D18C11B61046 b1207
-	NATIVE_DECL void _0x8E6AFF353C09652E(Any p0) { invoke<Void>(0x8E6AFF353C09652E, p0); } // 0x8E6AFF353C09652E b1207
-	NATIVE_DECL void _0x564837D4A9EDE296(Any p0) { invoke<Void>(0x564837D4A9EDE296, p0); } // 0x564837D4A9EDE296 b1207
+	NATIVE_DECL void _0x2705D18C11B61046(BOOL p0) { invoke<Void>(0x2705D18C11B61046, p0); } // 0x2705D18C11B61046 b1207
+	NATIVE_DECL void _0x8E6AFF353C09652E(Any posseId) { invoke<Void>(0x8E6AFF353C09652E, posseId); } // 0x8E6AFF353C09652E b1207
+	NATIVE_DECL void _SET_POSSE_ID_FOR_PHOTO(Any posseId) { invoke<Void>(0x564837D4A9EDE296, posseId); } // 0x564837D4A9EDE296 b1207
 	NATIVE_DECL void _0x9F6D859C80708B26(Any p0, Any p1) { invoke<Void>(0x9F6D859C80708B26, p0, p1); } // 0x9F6D859C80708B26 b1311
-	NATIVE_DECL Any _0x86076AE35CBBE55F() { return invoke<Any>(0x86076AE35CBBE55F); } // 0x86076AE35CBBE55F b1355
+	NATIVE_DECL BOOL IS_PHOTO_FRAME() { return invoke<BOOL>(0x86076AE35CBBE55F); } // 0x86076AE35CBBE55F b1355
 	NATIVE_DECL void _0xFA91736933AB3D93(Any p0) { invoke<Void>(0xFA91736933AB3D93, p0); } // 0xFA91736933AB3D93 b1207
 	NATIVE_DECL void _0x8B3296278328B5EB(Any p0) { invoke<Void>(0x8B3296278328B5EB, p0); } // 0x8B3296278328B5EB b1207
 	NATIVE_DECL void _0x0D5B19C34068FEE7(Any p0) { invoke<Void>(0x0D5B19C34068FEE7, p0); } // 0x0D5B19C34068FEE7 b1311
-	NATIVE_DECL void _0x75D568607909333E(Any p0) { invoke<Void>(0x75D568607909333E, p0); } // 0x75D568607909333E b1232
-	NATIVE_DECL void _0xD1031B83AC093BC7(Any p0) { invoke<Void>(0xD1031B83AC093BC7, p0); } // 0xD1031B83AC093BC7 b1207
-	NATIVE_DECL void _0x9937FACBBF267244(Any p0) { invoke<Void>(0x9937FACBBF267244, p0); } // 0x9937FACBBF267244 b1207
-	NATIVE_DECL void _0x8952E857696B8A79(Any p0) { invoke<Void>(0x8952E857696B8A79, p0); } // 0x8952E857696B8A79 b1207
+	NATIVE_DECL void _SET_PLAYER_APPEAR_IN_PHOTO(Player player) { invoke<Void>(0x75D568607909333E, player); } // 0x75D568607909333E b1232
+	NATIVE_DECL void _0xD1031B83AC093BC7(const char* p0) { invoke<Void>(0xD1031B83AC093BC7, p0); } // 0xD1031B83AC093BC7 b1207
+	NATIVE_DECL void _SET_DISTRICT_PHOTO_TAKEN_STAT(const char* p0) { invoke<Void>(0x9937FACBBF267244, p0); } // 0x9937FACBBF267244 b1207
+	NATIVE_DECL void _SET_STATE_PHOTO_TAKEN_STAT(const char* p0) { invoke<Void>(0x8952E857696B8A79, p0); } // 0x8952E857696B8A79 b1207
 	NATIVE_DECL BOOL SAVE_HIGH_QUALITY_PHOTO(int unused) { return invoke<BOOL>(0x57639FD876B68A91, unused); } // 0x57639FD876B68A91 0x3B15D33C b1207
+	// 0 = succeeded
+	// 1 = getting status
+	// 2 = failed
 	NATIVE_DECL int GET_STATUS_OF_SAVE_HIGH_QUALITY_PHOTO() { return invoke<int>(0xD6663EC374092383); } // 0xD6663EC374092383 0xEC5D0317 b1207
 	NATIVE_DECL BOOL _0x494A9874F17A7D50(Any p0) { return invoke<BOOL>(0x494A9874F17A7D50, p0); } // 0x494A9874F17A7D50 0x25D569EB b1207
-	NATIVE_DECL Any _0x13430D3D5A45F14B(Any p0) { return invoke<Any>(0x13430D3D5A45F14B, p0); } // 0x13430D3D5A45F14B 0xCFCDC518 b1207
+	NATIVE_DECL Any _GET_STATUS_OF_DRAW_LOW_QUALITY_PHOTO(Any p0) { return invoke<Any>(0x13430D3D5A45F14B, p0); } // 0x13430D3D5A45F14B 0xCFCDC518 b1207
 	NATIVE_DECL void FREE_MEMORY_FOR_LOW_QUALITY_PHOTO() { invoke<Void>(0x614682E715ADBAAC); } // 0x614682E715ADBAAC 0x108F36CC b1207
 	NATIVE_DECL void DRAW_LOW_QUALITY_PHOTO_TO_PHONE(BOOL p0, BOOL p1) { invoke<Void>(0xF1142E5D64B47802, p0, p1); } // 0xF1142E5D64B47802 0xE9F2B68F b1207
 	// Always returns 200.
 	NATIVE_DECL int _GET_MAX_NUMBER_OF_LOCAL_PHOTOS() { return invoke<int>(0x8E587FCD30E05592); } // 0x8E587FCD30E05592 b1207
 	NATIVE_DECL int _GET_CURRENT_NUMBER_OF_LOCAL_PHOTOS() { return invoke<int>(0x78C56B8A7B1D000C); } // 0x78C56B8A7B1D000C b1207
 	NATIVE_DECL Any _0xA42EDF1E88734A7E() { return invoke<Any>(0xA42EDF1E88734A7E); } // 0xA42EDF1E88734A7E 0x199FABF0 b1207
-	NATIVE_DECL Any GET_STATUS_OF_SORTED_LIST_OPERATION() { return invoke<Any>(0xB28894CD7408BD0C); } // 0xB28894CD7408BD0C 0x596B900D b1207
+	// 0 = succeeded
+	// 1 = getting status
+	// 2 = failed
+	NATIVE_DECL int GET_STATUS_OF_SORTED_LIST_OPERATION() { return invoke<int>(0xB28894CD7408BD0C); } // 0xB28894CD7408BD0C 0x596B900D b1207
 	NATIVE_DECL void DRAW_LIGHT_WITH_RANGE(float posX, float posY, float posZ, int colorR, int colorG, int colorB, float range, float intensity) { invoke<Void>(0xD2D9E04C0DF927F4, posX, posY, posZ, colorR, colorG, colorB, range, intensity); } // 0xD2D9E04C0DF927F4 0x6A396E9A b1207
 	NATIVE_DECL void UPDATE_LIGHTS_ON_ENTITY(Entity entity) { invoke<Void>(0xBDBACB52A03CC760, entity); } // 0xBDBACB52A03CC760 0xC12AC47A b1207
 	NATIVE_DECL void _SET_LIGHTS_COLOR_FOR_ENTITY(Entity entity, int red, int green, int blue) { invoke<Void>(0x6EC2A67962296F49, entity, red, green, blue); } // 0x6EC2A67962296F49 b1207
 	NATIVE_DECL void _SET_LIGHTS_INTENSITY_FOR_ENTITY(Entity entity, float intensity) { invoke<Void>(0x07C0F87AAC57F2E4, entity, intensity); } // 0x07C0F87AAC57F2E4 b1207
 	// type must be less than or equal to 20
 	NATIVE_DECL void _SET_LIGHTS_TYPE_FOR_ENTITY(Entity entity, int type) { invoke<Void>(0xAB72C67163DC4DB4, entity, type); } // 0xAB72C67163DC4DB4 b1207
+	// https://github.com/femga/rdr3_discoveries/blob/master/graphics/markers/marker_types.lua
 	NATIVE_DECL void _DRAW_MARKER(Hash type, float posX, float posY, float posZ, float dirX, float dirY, float dirZ, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ, int red, int green, int blue, int alpha, BOOL bobUpAndDown, BOOL faceCamera, int p19, BOOL rotate, const char* textureDict, const char* textureName, BOOL drawOnEnts) { invoke<Void>(0x2A32FAA57B937173, type, posX, posY, posZ, dirX, dirY, dirZ, rotX, rotY, rotZ, scaleX, scaleY, scaleZ, red, green, blue, alpha, bobUpAndDown, faceCamera, p19, rotate, textureDict, textureName, drawOnEnts); } // 0x2A32FAA57B937173 b1207
 	NATIVE_DECL int CREATE_CHECKPOINT_WITH_NAMEHASH(Hash typeHash, float posX1, float posY1, float posZ1, float posX2, float posY2, float posZ2, float radius, int red, int green, int blue, int alpha, int reserved) { return invoke<int>(0x175668836B44CBB0, typeHash, posX1, posY1, posZ1, posX2, posY2, posZ2, radius, red, green, blue, alpha, reserved); } // 0x175668836B44CBB0 b1207
-	NATIVE_DECL Any _0x4C11CCACB7C02B6E(Any p0) { return invoke<Any>(0x4C11CCACB7C02B6E, p0); } // 0x4C11CCACB7C02B6E b1207
+	NATIVE_DECL BOOL _DOES_CHECKPOINT_HAVE_FX(int checkpoint) { return invoke<BOOL>(0x4C11CCACB7C02B6E, checkpoint); } // 0x4C11CCACB7C02B6E b1207
 	// Sets the checkpoint color.
 	NATIVE_DECL void SET_CHECKPOINT_RGBA(int checkpoint, int red, int green, int blue, int alpha) { invoke<Void>(0xCAAFC225E33B1D15, checkpoint, red, green, blue, alpha); } // 0xCAAFC225E33B1D15 0xEF9C8CB3 b1207
 	// Sets the checkpoint icon color.
@@ -2015,6 +2128,8 @@ namespace GRAPHICS
 	// red,green,blue - Sprite color (default = 255/255/255)
 	// 
 	// alpha - opacity level
+	// 
+	// https://github.com/femga/rdr3_discoveries/tree/master/useful_info_from_rpfs/textures
 	NATIVE_DECL void DRAW_SPRITE(const char* textureDict, const char* textureName, float screenX, float screenY, float width, float height, float heading, int red, int green, int blue, int alpha, BOOL p11) { invoke<Void>(0xC9884ECADE94CB34, textureDict, textureName, screenX, screenY, width, height, heading, red, green, blue, alpha, p11); } // 0xC9884ECADE94CB34 0x1FEC16B0 b1207
 	NATIVE_DECL void ATTACH_TV_AUDIO_TO_ENTITY(Entity entity) { invoke<Void>(0x40866A418EB8EFDE, entity); } // 0x40866A418EB8EFDE 0x784944DB b1207
 	// Probably changes tvs from being a 3d audio to being "global" audio
@@ -2026,15 +2141,16 @@ namespace GRAPHICS
 	NATIVE_DECL Any _0xC28F62AC9774FC1B() { return invoke<Any>(0xC28F62AC9774FC1B); } // 0xC28F62AC9774FC1B b1207
 	NATIVE_DECL void _0xEB48CE48EEC41FD4(Any p0) { invoke<Void>(0xEB48CE48EEC41FD4, p0); } // 0xEB48CE48EEC41FD4 b1207
 	NATIVE_DECL BOOL GET_SCREEN_COORD_FROM_WORLD_COORD(float worldX, float worldY, float worldZ, float* screenX, float* screenY) { return invoke<BOOL>(0xCB50D7AFCC8B0EC6, worldX, worldY, worldZ, screenX, screenY); } // 0xCB50D7AFCC8B0EC6 0x1F950E4B b1207
-	NATIVE_DECL Any _0xA2A51869BDED733B(Any p0, Any p1) { return invoke<Any>(0xA2A51869BDED733B, p0, p1); } // 0xA2A51869BDED733B b1207
+	NATIVE_DECL BOOL _IS_TEXTURE_IN_DICT(Hash txdHash, Hash dict) { return invoke<BOOL>(0xA2A51869BDED733B, txdHash, dict); } // 0xA2A51869BDED733B b1207
 	// Does not affect weapons, particles, fire/explosions, flashlights or the sun.
 	// When set to true, all emissive textures (including ped components that have light effects), street lights, building lights, vehicle lights, etc will all be turned off.
 	// 
 	// state: True turns off all artificial light sources in the map: buildings, street lights, car lights, etc. False turns them back on.
 	NATIVE_DECL void SET_ARTIFICIAL_LIGHTS_STATE(BOOL state) { invoke<Void>(0xB2797619A7C7747B, state); } // 0xB2797619A7C7747B 0xAA2A0EAF b1207
 	NATIVE_DECL void _0x98A7CD5EA379A854() { invoke<Void>(0x98A7CD5EA379A854); } // 0x98A7CD5EA379A854 b1207
-	// 0 = Normal
-	// 1 = Trees flickering
+	// Used in shop scripts for CATALOG_BOOK
+	// false = Normal -> [CATALOG_BOOK_SHUTDOWN]
+	// true = Trees flickering? -> [CATALOG_BOOK_OPEN]
 	NATIVE_DECL void _0x1A9F09AB458D49C6(BOOL p0) { invoke<Void>(0x1A9F09AB458D49C6, p0); } // 0x1A9F09AB458D49C6 b1207
 	// Creates a tracked point, useful for checking the visibility of a 3D point on screen.
 	NATIVE_DECL int CREATE_TRACKED_POINT() { return invoke<int>(0xFB405CB357C69CB9); } // 0xFB405CB357C69CB9 0x3129C31A b1207
@@ -2045,9 +2161,11 @@ namespace GRAPHICS
 	NATIVE_DECL BOOL _IS_TRACKED_POINT_VALID(int point) { return invoke<BOOL>(0xF2FDDCC8C6BAE1B3, point); } // 0xF2FDDCC8C6BAE1B3 b1207
 	NATIVE_DECL Any _0x27219300C36A8D40(Any p0, Any p1, Any p2, Any p3, Any p4) { return invoke<Any>(0x27219300C36A8D40, p0, p1, p2, p3, p4); } // 0x27219300C36A8D40 b1207
 	NATIVE_DECL void _0xAE7BF7CA9E4BA48D(Any p0) { invoke<Void>(0xAE7BF7CA9E4BA48D, p0); } // 0xAE7BF7CA9E4BA48D b1207
-	NATIVE_DECL Any _0xBD3324281E8B9933(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0xBD3324281E8B9933, p0, p1, p2, p3); } // 0xBD3324281E8B9933 b1207
-	NATIVE_DECL Any ADD_VEG_MODIFIER_SPHERE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return invoke<Any>(0xFA50F79257745E74, p0, p1, p2, p3, p4, p5, p6); } // 0xFA50F79257745E74 b1207
-	NATIVE_DECL void REMOVE_VEG_MODIFIER_SPHERE(Any p0, Any p1) { invoke<Void>(0x9CF1836C03FB67A2, p0, p1); } // 0x9CF1836C03FB67A2 b1207
+	// Returns veg modifier handle
+	NATIVE_DECL int _ADD_VEG_MODIFIER_ZONE(Volume volume, int p1, int flags, int p3) { return invoke<int>(0xBD3324281E8B9933, volume, p1, flags, p3); } // 0xBD3324281E8B9933 b1207
+	// Returns veg modifier handle
+	NATIVE_DECL int ADD_VEG_MODIFIER_SPHERE(float x, float y, float z, float radius, int modType, int flags, int p6) { return invoke<int>(0xFA50F79257745E74, x, y, z, radius, modType, flags, p6); } // 0xFA50F79257745E74 b1207
+	NATIVE_DECL void REMOVE_VEG_MODIFIER_SPHERE(int vegModifierHandle, int p1) { invoke<Void>(0x9CF1836C03FB67A2, vegModifierHandle, p1); } // 0x9CF1836C03FB67A2 b1207
 	NATIVE_DECL void _ENABLE_STATIC_VEG_MODIFIER(Hash p0) { invoke<Void>(0xDFEA23EC90113657, p0); } // 0xDFEA23EC90113657 b1207
 	NATIVE_DECL void _DISABLE_STATIC_VEG_MODIFIER(Hash p0) { invoke<Void>(0xDD0BC0EDCB2162F6, p0); } // 0xDD0BC0EDCB2162F6 b1207
 	NATIVE_DECL BOOL _IS_STATIC_VEG_MODIFIER_ENABLED(Hash p0) { return invoke<BOOL>(0xDE9BAD3292AA6D5E, p0); } // 0xDE9BAD3292AA6D5E b1207
@@ -2061,7 +2179,8 @@ namespace GRAPHICS
 	// Example:
 	// local hash = GetHashKey("CLOTHING_ITEM_M_EYES_001_TINT_001")
 	// _GENERATE_SWATCH_TEXTURE(0, hash, 0, true)
-	NATIVE_DECL void _GENERATE_SWATCH_TEXTURE(int slotId, Hash componentHash, int p2, BOOL p3) { invoke<Void>(0x160921255327C591, slotId, componentHash, p2, p3); } // 0x160921255327C591 b1207
+	// metapedType: see 0xEC9A1261BF0CE510
+	NATIVE_DECL void _GENERATE_SWATCH_TEXTURE(int slotId, Hash componentHash, int metapedType, BOOL p3) { invoke<Void>(0x160921255327C591, slotId, componentHash, metapedType, p3); } // 0x160921255327C591 b1207
 	NATIVE_DECL void CASCADE_SHADOWS_SET_CASCADE_BOUNDS(Any p0, BOOL p1, float p2, float p3, float p4, float p5, BOOL p6, float p7) { invoke<Void>(0xD9EDB2E4512D563E, p0, p1, p2, p3, p4, p5, p6, p7); } // 0xD9EDB2E4512D563E 0x84F05943 b1207
 	// When this is set to ON, shadows only draw as you get nearer.
 	// 
@@ -2103,6 +2222,7 @@ namespace GRAPHICS
 	NATIVE_DECL void _0x62B9F9A1272AED80(Any p0) { invoke<Void>(0x62B9F9A1272AED80, p0); } // 0x62B9F9A1272AED80 b1207
 	NATIVE_DECL float _GET_PHOTO_MODE_CONTRAST() { return invoke<float>(0x98F4154989B81EC6); } // 0x98F4154989B81EC6 b1207
 	NATIVE_DECL void _0x9229ED770975BD9E() { invoke<Void>(0x9229ED770975BD9E); } // 0x9229ED770975BD9E b1311
+	// https://github.com/femga/rdr3_discoveries/blob/master/graphics/ptfx/ptfx_assets_non_looped.lua
 	NATIVE_DECL int START_PARTICLE_FX_NON_LOOPED_AT_COORD(const char* effectName, float xPos, float yPos, float zPos, float xRot, float yRot, float zRot, float scale, BOOL xAxis, BOOL yAxis, BOOL zAxis) { return invoke<int>(0x2E80BF72EF7C87AC, effectName, xPos, yPos, zPos, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis); } // 0x2E80BF72EF7C87AC 0xDD79D679 b1207
 	NATIVE_DECL BOOL START_NETWORKED_PARTICLE_FX_NON_LOOPED_AT_COORD(const char* effectName, float xPos, float yPos, float zPos, float xRot, float yRot, float zRot, float scale, BOOL xAxis, BOOL yAxis, BOOL zAxis) { return invoke<BOOL>(0xFB97618457994A62, effectName, xPos, yPos, zPos, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis); } // 0xFB97618457994A62 0x633F8C48 b1207
 	NATIVE_DECL BOOL START_PARTICLE_FX_NON_LOOPED_ON_PED_BONE(const char* effectName, Ped ped, float offsetX, float offsetY, float offsetZ, float rotX, float rotY, float rotZ, int boneIndex, float scale, BOOL axisX, BOOL axisY, BOOL axisZ) { return invoke<BOOL>(0x3FAA72BD940C3AC0, effectName, ped, offsetX, offsetY, offsetZ, rotX, rotY, rotZ, boneIndex, scale, axisX, axisY, axisZ); } // 0x3FAA72BD940C3AC0 0x53DAEF4E b1207
@@ -2112,6 +2232,7 @@ namespace GRAPHICS
 	NATIVE_DECL void SET_PARTICLE_FX_NON_LOOPED_COLOUR(float r, float g, float b) { invoke<Void>(0x60B85BED6577A35B, r, g, b); } // 0x60B85BED6577A35B 0x7B689E20 b1207
 	NATIVE_DECL void SET_PARTICLE_FX_NON_LOOPED_ALPHA(float alpha) { invoke<Void>(0xE8A35938A7026CEA, alpha); } // 0xE8A35938A7026CEA 0x497EAFF2 b1311
 	NATIVE_DECL void _SET_PARTICLE_FX_NON_LOOPED_EMITTER_SCALE(float p0, float p1, float p2) { invoke<Void>(0x56C392C2BD78B024, p0, p1, p2); } // 0x56C392C2BD78B024 b1311
+	// https://github.com/femga/rdr3_discoveries/blob/master/graphics/ptfx/ptfx_assets_looped.lua
 	NATIVE_DECL int START_PARTICLE_FX_LOOPED_AT_COORD(const char* effectName, float x, float y, float z, float xRot, float yRot, float zRot, float scale, BOOL xAxis, BOOL yAxis, BOOL zAxis, BOOL p11) { return invoke<int>(0xBA32867E86125D3A, effectName, x, y, z, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis, p11); } // 0xBA32867E86125D3A 0xD348E3E6 b1207
 	NATIVE_DECL int START_PARTICLE_FX_LOOPED_ON_PED_BONE(const char* effectName, Ped ped, float xOffset, float yOffset, float zOffset, float xRot, float yRot, float zRot, int boneIndex, float scale, BOOL xAxis, BOOL yAxis, BOOL zAxis) { return invoke<int>(0xE689C1B1432BB8AF, effectName, ped, xOffset, yOffset, zOffset, xRot, yRot, zRot, boneIndex, scale, xAxis, yAxis, zAxis); } // 0xE689C1B1432BB8AF 0xF8FC196F b1207
 	NATIVE_DECL int START_PARTICLE_FX_LOOPED_ON_ENTITY(const char* effectName, Entity entity, float xOffset, float yOffset, float zOffset, float xRot, float yRot, float zRot, float scale, BOOL xAxis, BOOL yAxis, BOOL zAxis) { return invoke<int>(0xBD41E1440CE39800, effectName, entity, xOffset, yOffset, zOffset, xRot, yRot, zRot, scale, xAxis, yAxis, zAxis); } // 0xBD41E1440CE39800 0x0D06FF62 b1207
@@ -2126,21 +2247,32 @@ namespace GRAPHICS
 	NATIVE_DECL void SET_PARTICLE_FX_LOOPED_ALPHA(int ptfxHandle, float alpha) { invoke<Void>(0x88786E76234F7054, ptfxHandle, alpha); } // 0x88786E76234F7054 0x5ED49BE1 b1207
 	NATIVE_DECL void SET_PARTICLE_FX_LOOPED_SCALE(int ptfxHandle, float scale) { invoke<Void>(0x1A9E1C0D98D093B7, ptfxHandle, scale); } // 0x1A9E1C0D98D093B7 0x099B8B49 b1207
 	NATIVE_DECL void SET_PARTICLE_FX_LOOPED_FAR_CLIP_DIST(int ptfxHandle, float range) { invoke<Void>(0x9B04D471DA0AD7AA, ptfxHandle, range); } // 0x9B04D471DA0AD7AA 0x233DE879 b1207
-	NATIVE_DECL void _0x9DDC222D85D5AF2A(Any p0, Any p1) { invoke<Void>(0x9DDC222D85D5AF2A, p0, p1); } // 0x9DDC222D85D5AF2A b1207
+	// _SET_PARTICLE_FX_LOOPED_FA* - _SET_PARTICLE_FX_LOOPED_OF*
+	NATIVE_DECL void _SET_PARTICLE_FX_LOOPED_UPDATE_DISTANT_SMOKE(int ptfxHandle, float scalar) { invoke<Void>(0x9DDC222D85D5AF2A, ptfxHandle, scalar); } // 0x9DDC222D85D5AF2A b1207
 	NATIVE_DECL void REMOVE_PARTICLE_FX(int ptfxHandle, BOOL p1) { invoke<Void>(0x459598F579C98929, ptfxHandle, p1); } // 0x459598F579C98929 0x6BA48C7E b1207
 	NATIVE_DECL void REMOVE_PARTICLE_FX_FROM_ENTITY(Entity entity) { invoke<Void>(0x92884B4A49D81325, entity); } // 0x92884B4A49D81325 0xCEDE52E9 b1207
 	NATIVE_DECL void REMOVE_PARTICLE_FX_IN_RANGE(float X, float Y, float Z, float radius) { invoke<Void>(0x87B5905ECA623B68, X, Y, Z, radius); } // 0x87B5905ECA623B68 0x7EB8F275 b1207
-	NATIVE_DECL void USE_PARTICLE_FX_ASSET(const char* name) { invoke<Void>(0xA10DB07FC234DD12, name); } // 0xA10DB07FC234DD12 0x9C720B61 b1207
+	// fxName: see data_0/data/effects/ptfx/fxlists/
+	NATIVE_DECL void USE_PARTICLE_FX_ASSET(const char* fxName) { invoke<Void>(0xA10DB07FC234DD12, fxName); } // 0xA10DB07FC234DD12 0x9C720B61 b1207
 	NATIVE_DECL void SET_PARTICLE_FX_OVERRIDE(const char* oldAsset, const char* newAsset) { invoke<Void>(0xBE711A169E9C7E95, oldAsset, newAsset); } // 0xBE711A169E9C7E95 0xC92719A7 b1207
 	// Resets the effect of SET_PARTICLE_FX_OVERRIDE
 	NATIVE_DECL void RESET_PARTICLE_FX_OVERRIDE(const char* name) { invoke<Void>(0x274B3DABF7E72DEF, name); } // 0x274B3DABF7E72DEF 0x9E8D8B72 b1207
-	NATIVE_DECL void _0x4FB67D172C4476F3(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x4FB67D172C4476F3, p0, p1, p2, p3); } // 0x4FB67D172C4476F3 b1207
-	NATIVE_DECL void _0x3C61B52B00848C26(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x3C61B52B00848C26, p0, p1, p2, p3, p4); } // 0x3C61B52B00848C26 b1207
-	NATIVE_DECL void _0xD1472AFF30C103D6(Any p0) { invoke<Void>(0xD1472AFF30C103D6, p0); } // 0xD1472AFF30C103D6 b1311
+	// p1: AMB_ANN_COAL_CHUTE_DIVE, AMB_ANN_COAL_CHUTE
+	// p2: EMIT
+	// p3: either 0.0f or 1.0f
+	NATIVE_DECL void _0x4FB67D172C4476F3(Entity entity, const char* p1, const char* p2, float p3) { invoke<Void>(0x4FB67D172C4476F3, entity, p1, p2, p3); } // 0x4FB67D172C4476F3 b1207
+	// Related to Campfires.
+	// p1: AMB_BONFIRE_MP, AMB_CAMPFIRE_LRG_MP
+	NATIVE_DECL void SET_PARTICLE_FX_AMBIENT_COLOUR(Entity entity, const char* p1, float r, float g, float b) { invoke<Void>(0x3C61B52B00848C26, entity, p1, r, g, b); } // 0x3C61B52B00848C26 b1207
+	// Only used in R* Script nb_stalking_hunter
+	NATIVE_DECL void _0xD1472AFF30C103D6(float p0) { invoke<Void>(0xD1472AFF30C103D6, p0); } // 0xD1472AFF30C103D6 b1311
 	NATIVE_DECL void SET_PARTICLE_FX_BULLET_IMPACT_SCALE(float scale) { invoke<Void>(0xA53C8D7D0F8C74D0, scale); } // 0xA53C8D7D0F8C74D0 0xC1AD5DDF b1207
+	// _SET_PARTICLE_FX_*
 	NATIVE_DECL void _0x8DCCC98DC0DBF9E4(float p0) { invoke<Void>(0x8DCCC98DC0DBF9E4, p0); } // 0x8DCCC98DC0DBF9E4 0x3968E915 b1207
-	NATIVE_DECL void _0x6E8EB45A4F4460EB(BOOL enabled) { invoke<Void>(0x6E8EB45A4F4460EB, enabled); } // 0x6E8EB45A4F4460EB b1207
+	NATIVE_DECL void _SET_SNIPER_GLINTS_ENABLED(BOOL enabled) { invoke<Void>(0x6E8EB45A4F4460EB, enabled); } // 0x6E8EB45A4F4460EB b1207
+	// _SET_PARTICLE_FX_*
 	NATIVE_DECL void _0x2A1625858887D4E6(float p0) { invoke<Void>(0x2A1625858887D4E6, p0); } // 0x2A1625858887D4E6 0xE3880F5A b1207
+	// _DISABLE_*
 	NATIVE_DECL void _0x4046493D2EEACA0E() { invoke<Void>(0x4046493D2EEACA0E); } // 0x4046493D2EEACA0E b1207
 	// https://imgur.com/a/I2swSDJ
 	// 
@@ -2166,39 +2298,48 @@ namespace GRAPHICS
 	NATIVE_DECL Any _0xE63D68F455CA0B47(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return invoke<Any>(0xE63D68F455CA0B47, p0, p1, p2, p3, p4, p5, p6); } // 0xE63D68F455CA0B47 b1207
 	NATIVE_DECL void REMOVE_DECAL(int decal) { invoke<Void>(0x49A720552EB0BB88, decal); } // 0x49A720552EB0BB88 0xA4363188 b1207
 	NATIVE_DECL BOOL IS_DECAL_ALIVE(int decal) { return invoke<BOOL>(0x3E4B4E5CF5D3EEB5, decal); } // 0x3E4B4E5CF5D3EEB5 0xCDD4A61A b1207
+	// _SET_D* or _SET_E*
 	NATIVE_DECL void _0x53ED07BF368EDA59() { invoke<Void>(0x53ED07BF368EDA59); } // 0x53ED07BF368EDA59 0xEAB6417C b1232
+	// _SET_D* or _SET_E*
 	NATIVE_DECL void _0xB032C085D9A03907() { invoke<Void>(0xB032C085D9A03907); } // 0xB032C085D9A03907 b1207
-	NATIVE_DECL void _0xFB680A9B33D0EDBE(Any p0) { invoke<Void>(0xFB680A9B33D0EDBE, p0); } // 0xFB680A9B33D0EDBE b1207
-	NATIVE_DECL void _0x41F88A85A579A61D(Any p0) { invoke<Void>(0x41F88A85A579A61D, p0); } // 0x41F88A85A579A61D b1207
-	NATIVE_DECL void _0xB9C92616929CC25D(Any p0, Any p1) { invoke<Void>(0xB9C92616929CC25D, p0, p1); } // 0xB9C92616929CC25D b1207
-	NATIVE_DECL void _0xDD9DC1AB63D513CE(Any p0, Any p1, Any p2) { invoke<Void>(0xDD9DC1AB63D513CE, p0, p1, p2); } // 0xDD9DC1AB63D513CE b1207
+	// _DISABLE_*
+	NATIVE_DECL void _0xFB680A9B33D0EDBE(BOOL p0) { invoke<Void>(0xFB680A9B33D0EDBE, p0); } // 0xFB680A9B33D0EDBE b1207
+	// Used in CREATE_BEZIER_BLOOD_TRAIL_OF_TYPE
+	NATIVE_DECL void _0x41F88A85A579A61D(float p0) { invoke<Void>(0x41F88A85A579A61D, p0); } // 0x41F88A85A579A61D b1207
+	// p1: 0.3f in R* Scripts
+	NATIVE_DECL void _BLOOD_TRAIL_FOR_WAYPOINT(const char* waypointRecording, float p1) { invoke<Void>(0xB9C92616929CC25D, waypointRecording, p1); } // 0xB9C92616929CC25D b1207
+	NATIVE_DECL void _ADD_BLOOD_TRAIL_POINT(float x, float y, float z) { invoke<Void>(0xDD9DC1AB63D513CE, x, y, z); } // 0xDD9DC1AB63D513CE b1207
+	// Used in CREATE_BEZIER_BLOOD_TRAIL_OF_TYPE
+	// _ENABLE_*
 	NATIVE_DECL void _0x812C1563185C6FB2() { invoke<Void>(0x812C1563185C6FB2); } // 0x812C1563185C6FB2 b1207
-	NATIVE_DECL void _0x4BD66B4E3427689B(Any p0) { invoke<Void>(0x4BD66B4E3427689B, p0); } // 0x4BD66B4E3427689B b1207
-	NATIVE_DECL void _0xF5E45CB1CF965D2D(Any p0, Any p1, Any p2) { invoke<Void>(0xF5E45CB1CF965D2D, p0, p1, p2); } // 0xF5E45CB1CF965D2D b1207
+	// Used in CREATE_BEZIER_BLOOD_TRAIL_OF_TYPE
+	NATIVE_DECL void _0x4BD66B4E3427689B(const char* p0) { invoke<Void>(0x4BD66B4E3427689B, p0); } // 0x4BD66B4E3427689B b1207
+	NATIVE_DECL void _ADD_BLOOD_TRAIL_SPLAT(float x, float y, float z) { invoke<Void>(0xF5E45CB1CF965D2D, x, y, z); } // 0xF5E45CB1CF965D2D b1207
 	NATIVE_DECL void _0xF2F543D48F319A3A() { invoke<Void>(0xF2F543D48F319A3A); } // 0xF2F543D48F319A3A b1207
+	// _RESET_*
 	NATIVE_DECL void _0x1460B644397453EB() { invoke<Void>(0x1460B644397453EB); } // 0x1460B644397453EB b1207
-	NATIVE_DECL void _0xCD284E2F6AC27EE9(Any p0) { invoke<Void>(0xCD284E2F6AC27EE9, p0); } // 0xCD284E2F6AC27EE9 b1207
-	NATIVE_DECL void _0x453D16D41FC51D3E(Any p0) { invoke<Void>(0x453D16D41FC51D3E, p0); } // 0x453D16D41FC51D3E b1207
-	NATIVE_DECL void _0xC06F2F45A73EABCD(Any p0) { invoke<Void>(0xC06F2F45A73EABCD, p0); } // 0xC06F2F45A73EABCD b1311
+	NATIVE_DECL void _0xCD284E2F6AC27EE9(BOOL p0) { invoke<Void>(0xCD284E2F6AC27EE9, p0); } // 0xCD284E2F6AC27EE9 b1207
+	NATIVE_DECL void _0x453D16D41FC51D3E(BOOL p0) { invoke<Void>(0x453D16D41FC51D3E, p0); } // 0x453D16D41FC51D3E b1207
+	// Used in NET_CAMP_SPIRIT_ANIMAL_CLEAR_ANIMAL_VISIBILITY
+	NATIVE_DECL void _0xC06F2F45A73EABCD(Entity entity) { invoke<Void>(0xC06F2F45A73EABCD, entity); } // 0xC06F2F45A73EABCD b1311
+	// https://github.com/femga/rdr3_discoveries/blob/master/graphics/timecycles
 	NATIVE_DECL void SET_TIMECYCLE_MODIFIER(const char* modifierName) { invoke<Void>(0xFA08722A5EA82DA7, modifierName); } // 0xFA08722A5EA82DA7 0xA81F3638 b1207
 	NATIVE_DECL void SET_TIMECYCLE_MODIFIER_STRENGTH(float strength) { invoke<Void>(0xFDB74C9CC54C3F37, strength); } // 0xFDB74C9CC54C3F37 0x458F4F45 b1207
 	NATIVE_DECL void SET_TRANSITION_TIMECYCLE_MODIFIER(const char* modifierName, float transition) { invoke<Void>(0xFF927A09F481D80C, modifierName, transition); } // 0xFF927A09F481D80C 0xBB2BA72A b1207
-	// SET_TRA*
-	NATIVE_DECL void _0xBB6C707F20D955D4(float strength) { invoke<Void>(0xBB6C707F20D955D4, strength); } // 0xBB6C707F20D955D4 0x56345F6B b1207
+	NATIVE_DECL void _SET_TRANSITION_TIMECYCLE_MODIFIER_STOP_WITH_BLEND(float strength) { invoke<Void>(0xBB6C707F20D955D4, strength); } // 0xBB6C707F20D955D4 0x56345F6B b1207
 	NATIVE_DECL void CLEAR_TIMECYCLE_MODIFIER() { invoke<Void>(0x0E3F4AF2D63491FB); } // 0x0E3F4AF2D63491FB 0x8D8DF8EE b1207
 	NATIVE_DECL int GET_TIMECYCLE_MODIFIER_INDEX() { return invoke<int>(0xA705394293E2B3D3); } // 0xA705394293E2B3D3 0x594FEEC4 b1207
 	NATIVE_DECL int GET_TIMECYCLE_TRANSITION_MODIFIER_INDEX() { return invoke<int>(0x2DA67BA3C8A6755D); } // 0x2DA67BA3C8A6755D 0x03C44E4B b1207
 	NATIVE_DECL void _0x67B0778C62E74423(Any p0) { invoke<Void>(0x67B0778C62E74423, p0); } // 0x67B0778C62E74423 b1207
 	NATIVE_DECL void _0x6C03118E9E5C1A14(Any p0) { invoke<Void>(0x6C03118E9E5C1A14, p0); } // 0x6C03118E9E5C1A14 b1207
-	NATIVE_DECL Any _0x25CA89B2A39DCC69() { return invoke<Any>(0x25CA89B2A39DCC69); } // 0x25CA89B2A39DCC69 b1207
-	// ENABLE_*
-	NATIVE_DECL void _SET_EXTRA_TIMECYCLE_MODIFIER_STRENGTH(float strength) { invoke<Void>(0x6FE93BCC7BF12B63, strength); } // 0x6FE93BCC7BF12B63 b1207
+	// _GET_C* - _GET_E*
+	NATIVE_DECL float _GET_MODIFIED_VISIBILITY_DISTANCE() { return invoke<float>(0x25CA89B2A39DCC69); } // 0x25CA89B2A39DCC69 b1207
+	NATIVE_DECL void _ENABLE_EXTRA_TIMECYCLE_MODIFIER_STRENGTH(float strength) { invoke<Void>(0x6FE93BCC7BF12B63, strength); } // 0x6FE93BCC7BF12B63 b1207
 	NATIVE_DECL void SET_TV_CHANNEL(int channel) { invoke<Void>(0x593FAF7FC9401A56, channel); } // 0x593FAF7FC9401A56 0x41A8A627 b1207
 	NATIVE_DECL int GET_TV_CHANNEL() { return invoke<int>(0xF90FBFD68F3C59AE); } // 0xF90FBFD68F3C59AE 0x6B96145A b1207
 	NATIVE_DECL void SET_TV_VOLUME(float volume) { invoke<Void>(0x73A97068787D7231, volume); } // 0x73A97068787D7231 0xF3504F4D b1207
 	NATIVE_DECL void DRAW_TV_CHANNEL(float xPos, float yPos, float xScale, float yScale, float rotation, int red, int green, int blue, int alpha) { invoke<Void>(0xC0A145540254A840, xPos, yPos, xScale, yScale, rotation, red, green, blue, alpha); } // 0xC0A145540254A840 0x8129EF89 b1207
 	NATIVE_DECL void SET_TV_CHANNEL_PLAYLIST(int tvChannel, const char* playlistName, BOOL restart) { invoke<Void>(0xDEC6B25F5DC8925B, tvChannel, playlistName, restart); } // 0xDEC6B25F5DC8925B 0xB262DE67 b1207
-	// IS_*
 	NATIVE_DECL BOOL _IS_TV_PLAYLIST_ITEM_PLAYING(Hash videoCliphash) { return invoke<BOOL>(0x4D562223E0EB65F3, videoCliphash); } // 0x4D562223E0EB65F3 0x4D1EB0FB b1207
 	NATIVE_DECL Any _0x5C674EB487891F6B() { return invoke<Any>(0x5C674EB487891F6B); } // 0x5C674EB487891F6B b1207
 	// nullsub, doesn't do anything
@@ -2211,10 +2352,9 @@ namespace GRAPHICS
 	NATIVE_DECL void _0x981C7D863980FA51() { invoke<Void>(0x981C7D863980FA51); } // 0x981C7D863980FA51 b1207
 	// ANIMPOSTFX_*
 	NATIVE_DECL void _0x5199405EABFBD7F0(const char* effectName) { invoke<Void>(0x5199405EABFBD7F0, effectName); } // 0x5199405EABFBD7F0 b1207
-	// ANIMPOSTFX_*
-	NATIVE_DECL BOOL _0xBF2DD155B2ADCD0A(const char* effectName) { return invoke<BOOL>(0xBF2DD155B2ADCD0A, effectName); } // 0xBF2DD155B2ADCD0A b1207
-	// ANIMPOSTFX_*
-	NATIVE_DECL void _0x37D7BDBA89F13959(const char* effectName) { invoke<Void>(0x37D7BDBA89F13959, effectName); } // 0x37D7BDBA89F13959 b1207
+	NATIVE_DECL BOOL _ANIMPOSTFX_HAS_LOADED(const char* effectName) { return invoke<BOOL>(0xBF2DD155B2ADCD0A, effectName); } // 0xBF2DD155B2ADCD0A b1207
+	NATIVE_DECL void _ANIMPOSTFX_SET_TO_UNLOAD(const char* effectName) { invoke<Void>(0x37D7BDBA89F13959, effectName); } // 0x37D7BDBA89F13959 b1207
+	// https://github.com/femga/rdr3_discoveries/blob/master/graphics/animpostfx
 	NATIVE_DECL void ANIMPOSTFX_PLAY(const char* effectName) { invoke<Void>(0x4102732DF6B4005F, effectName); } // 0x4102732DF6B4005F 0x1D980479 b1207
 	NATIVE_DECL void _ANIMPOSTFX_PLAY_TIMED(const char* effectName, int duration) { invoke<Void>(0x3A9A281FF71249E9, effectName, duration); } // 0x3A9A281FF71249E9 b1207
 	NATIVE_DECL void ANIMPOSTFX_STOP(const char* effectName) { invoke<Void>(0xB4FD7446BAB2F394, effectName); } // 0xB4FD7446BAB2F394 0x06BB5CDA b1207
@@ -2222,16 +2362,15 @@ namespace GRAPHICS
 	// 
 	// ANIMPOSTFX_*
 	NATIVE_DECL void _0x26DD2FB0A88CC412(const char* effectName, const char* effectName2, Any p2, Any p3) { invoke<Void>(0x26DD2FB0A88CC412, effectName, effectName2, p2, p3); } // 0x26DD2FB0A88CC412 b1207
-	// ANIMPOSTFX_*
-	NATIVE_DECL void _0xC5CB91D65852ED7E(const char* effectName) { invoke<Void>(0xC5CB91D65852ED7E, effectName); } // 0xC5CB91D65852ED7E b1207
+	NATIVE_DECL void _ANIMPOSTFX_CLEAR_EFFECT(const char* effectName) { invoke<Void>(0xC5CB91D65852ED7E, effectName); } // 0xC5CB91D65852ED7E b1207
 	NATIVE_DECL BOOL ANIMPOSTFX_IS_RUNNING(const char* effectName) { return invoke<BOOL>(0x4A123E85D7C4CA0B, effectName); } // 0x4A123E85D7C4CA0B 0x089D5921 b1207
 	// ANIMPOSTFX_*
 	NATIVE_DECL BOOL _0x2D4F9C852CE8A253(const char* effectName) { return invoke<BOOL>(0x2D4F9C852CE8A253, effectName); } // 0x2D4F9C852CE8A253 b1207
 	NATIVE_DECL void ANIMPOSTFX_STOP_ALL() { invoke<Void>(0x66560A0D4C64FD21); } // 0x66560A0D4C64FD21 0x4E6D875B b1207
 	// ANIMPOSTFX_*
 	NATIVE_DECL void _0xAD74C22A541AB987(const char* effectName) { invoke<Void>(0xAD74C22A541AB987, effectName); } // 0xAD74C22A541AB987 b1207
-	// ANIMPOSTFX_*
-	NATIVE_DECL void _0xCAB4DD2D5B2B7246(const char* effectName, float strength) { invoke<Void>(0xCAB4DD2D5B2B7246, effectName, strength); } // 0xCAB4DD2D5B2B7246 b1207
+	// must be called after ANIMPOSTFX_PLAY, strength 0.0f - 1.0f
+	NATIVE_DECL void _ANIMPOSTFX_SET_STRENGTH(const char* effectName, float strength) { invoke<Void>(0xCAB4DD2D5B2B7246, effectName, strength); } // 0xCAB4DD2D5B2B7246 b1207
 	// ANIMPOSTFX_*
 	NATIVE_DECL void _0xF972F0AB16DC5260(const char* effectName, int p1, float p2) { invoke<Void>(0xF972F0AB16DC5260, effectName, p1, p2); } // 0xF972F0AB16DC5260 b1207
 	// ANIMPOSTFX_*
@@ -2256,14 +2395,12 @@ namespace GRAPHICS
 	NATIVE_DECL BOOL ANIMPOSTFX_IS_PRELOADING_BY_STACKHASH(Hash effectNameHash) { return invoke<BOOL>(0x59EA80079B86D8C7, effectNameHash); } // 0x59EA80079B86D8C7 b1207
 	// ANIMPOSTFX_*
 	NATIVE_DECL void _0x38D9D50F2085E9B3(Hash effectNameHash) { invoke<Void>(0x38D9D50F2085E9B3, effectNameHash); } // 0x38D9D50F2085E9B3 b1207
-	// ANIMPOSTFX_*
-	NATIVE_DECL void _0x9B8D5D4CB8AF58B3(Hash effectNameHash) { invoke<Void>(0x9B8D5D4CB8AF58B3, effectNameHash); } // 0x9B8D5D4CB8AF58B3 b1207
+	NATIVE_DECL void _ANIMPOSTFX_PLAY_TAG(Hash effectNameHash) { invoke<Void>(0x9B8D5D4CB8AF58B3, effectNameHash); } // 0x9B8D5D4CB8AF58B3 b1207
 	// ANIMPOSTFX_*
 	NATIVE_DECL void _0xC76FC4C2FC5F4405(Hash effectNameHash) { invoke<Void>(0xC76FC4C2FC5F4405, effectNameHash); } // 0xC76FC4C2FC5F4405 b1207
 	// ANIMPOSTFX_*
 	NATIVE_DECL void _0xEDA5CBECF56E1386(Hash effectNameHash) { invoke<Void>(0xEDA5CBECF56E1386, effectNameHash); } // 0xEDA5CBECF56E1386 b1207
-	// ANIMPOSTFX_*
-	NATIVE_DECL BOOL _0xEEF83A759AE06A27(Hash effectNameHash) { return invoke<BOOL>(0xEEF83A759AE06A27, effectNameHash); } // 0xEEF83A759AE06A27 b1207
+	NATIVE_DECL BOOL _ANIMPOSTFX_IS_TAG_PLAYING(Hash effectNameHash) { return invoke<BOOL>(0xEEF83A759AE06A27, effectNameHash); } // 0xEEF83A759AE06A27 b1207
 	// ANIMPOSTFX_*
 	NATIVE_DECL BOOL _0xE75CDDEBF618C8FF(Hash effectNameHash) { return invoke<BOOL>(0xE75CDDEBF618C8FF, effectNameHash); } // 0xE75CDDEBF618C8FF b1207
 	// ANIMPOSTFX_*
@@ -2294,10 +2431,11 @@ namespace GRAPHICS
 	NATIVE_DECL Any _0x5C9C3A466B3296A8(Any p0) { return invoke<Any>(0x5C9C3A466B3296A8, p0); } // 0x5C9C3A466B3296A8 b1207
 	NATIVE_DECL Any _0xA15CCAB8AD038291(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0xA15CCAB8AD038291, p0, p1, p2, p3); } // 0xA15CCAB8AD038291 b1207
 	NATIVE_DECL Any _0x285438C26C732F9D() { return invoke<Any>(0x285438C26C732F9D); } // 0x285438C26C732F9D b1207
-	NATIVE_DECL void _0xBFCB17895BB99E4E(int proxyInteriorIndex, BOOL state) { invoke<Void>(0xBFCB17895BB99E4E, proxyInteriorIndex, state); } // 0xBFCB17895BB99E4E b1207
-	NATIVE_DECL BOOL _0x113857D66A9CABE6(int proxyInteriorIndex) { return invoke<BOOL>(0x113857D66A9CABE6, proxyInteriorIndex); } // 0x113857D66A9CABE6 b1207
+	// state: false disables artificial interior light sources for specific proxyInteriorIndex
+	NATIVE_DECL void _SET_PROXY_INTERIOR_INDEX_ARTIFICIAL_LIGHTS_STATE(int proxyInteriorIndex, BOOL state) { invoke<Void>(0xBFCB17895BB99E4E, proxyInteriorIndex, state); } // 0xBFCB17895BB99E4E b1207
+	NATIVE_DECL BOOL _IS_PROXY_INTERIOR_INDEX_ARTIFICIAL_LIGHTS_ENABLED(int proxyInteriorIndex) { return invoke<BOOL>(0x113857D66A9CABE6, proxyInteriorIndex); } // 0x113857D66A9CABE6 b1207
 	// Returns proxyInteriorIndex
-	NATIVE_DECL int _0x5D1C5D8E62E8EE1C(int interiorId) { return invoke<int>(0x5D1C5D8E62E8EE1C, interiorId); } // 0x5D1C5D8E62E8EE1C b1207
+	NATIVE_DECL int _GET_PROXY_INTERIOR_INDEX(int interiorId) { return invoke<int>(0x5D1C5D8E62E8EE1C, interiorId); } // 0x5D1C5D8E62E8EE1C b1207
 	NATIVE_DECL void _0x9D1B0B5066205692() { invoke<Void>(0x9D1B0B5066205692); } // 0x9D1B0B5066205692 b1207
 	NATIVE_DECL void _0xC489FE31AC726512(Any p0, Any p1) { invoke<Void>(0xC489FE31AC726512, p0, p1); } // 0xC489FE31AC726512 b1207
 	NATIVE_DECL void _SET_CLOUD_LAYER(float x, float y, int p2) { invoke<Void>(0xB8C984C0D47F4F07, x, y, p2); } // 0xB8C984C0D47F4F07 b1207
@@ -2386,11 +2524,12 @@ namespace GOOGLE_ANALYTICS
 
 namespace HUD
 {
-	// Enables the time scale to be reduced while menus like the weapon wheel are open.
-	NATIVE_DECL void _ENABLE_REDUCE_TIME_SCALE_WHILE_MENU_IS_OPEN() { invoke<Void>(0x26F6BBEA2CE3E3DC); } // 0x26F6BBEA2CE3E3DC b1207
-	// Disables the the time scale being reduced when menus like the weapon wheel is open.
-	NATIVE_DECL void _DISABLE_REDUCE_TIME_SCALE_WHILE_MENU_IS_OPEN() { invoke<Void>(0xC5C7A2F6567FCCBC); } // 0xC5C7A2F6567FCCBC b1207
-	NATIVE_DECL void _0xC9CAEAEEC1256E54(Hash component) { invoke<Void>(0xC9CAEAEEC1256E54, component); } // 0xC9CAEAEEC1256E54 b1207
+	// Enables time scale to be reduced while menus such as weapon wheel are open.
+	NATIVE_DECL void _ENABLE_REDUCED_TIME_SCALE_WHILE_MENU_IS_OPEN() { invoke<Void>(0x26F6BBEA2CE3E3DC); } // 0x26F6BBEA2CE3E3DC b1207
+	// Disables time scale being reduced while menus such as weapon wheel are open.
+	NATIVE_DECL void _DISABLE_REDUCED_TIME_SCALE_WHILE_MENU_IS_OPEN() { invoke<Void>(0xC5C7A2F6567FCCBC); } // 0xC5C7A2F6567FCCBC b1207
+	NATIVE_DECL void _ENABLE_HUD_COMPONENT_THIS_FRAME(Hash component) { invoke<Void>(0xC9CAEAEEC1256E54, component); } // 0xC9CAEAEEC1256E54 b1207
+	// https://github.com/femga/rdr3_discoveries/tree/master/graphics/HUD/hud_presets
 	NATIVE_DECL void _HIDE_HUD_COMPONENT(Hash component) { invoke<Void>(0x4CC5F2FC1332577F, component); } // 0x4CC5F2FC1332577F b1207
 	NATIVE_DECL void _DISPLAY_HUD_COMPONENT(Hash component) { invoke<Void>(0x8BC7C1F929D07BF3, component); } // 0x8BC7C1F929D07BF3 b1207
 	NATIVE_DECL Any _0x7EC0D68233E391AC(Any p0) { return invoke<Any>(0x7EC0D68233E391AC, p0); } // 0x7EC0D68233E391AC b1207
@@ -2428,9 +2567,7 @@ namespace HUD
 	NATIVE_DECL BOOL IS_RADAR_HIDDEN_BY_SCRIPT() { return invoke<BOOL>(0x66F35DD9D2B58579); } // 0x66F35DD9D2B58579 b1207
 	// colorNameHash: https://alloc8or.re/rdr3/doc/enums/eColor.txt
 	NATIVE_DECL void _GET_COLOR_FROM_NAME(Hash colorNameHash, int* red, int* green, int* blue, int* alpha) { invoke<Void>(0xB981DD2DFAF9B1C9, colorNameHash, red, green, blue, alpha); } // 0xB981DD2DFAF9B1C9 b1207
-	// Note: you must use VAR_STRING
-	// 
-	// This native does nothing since build 1436, use _BG_DISPLAY_TEXT (0x16794E044C9EFB58) instead.
+	// nullsub, this native does nothing since build 1436, use _BG_DISPLAY_TEXT (0x16794E044C9EFB58) instead.
 	NATIVE_DECL void _DISPLAY_TEXT(const char* text, float xPos, float yPos) { invoke<Void>(0xD79334A4BB99BAD1, text, xPos, yPos); } // 0xD79334A4BB99BAD1 b1207
 	// This native does nothing since build 1436, use _BG_SET_TEXT_COLOR (0x16FA5CE47F184F1E) instead.
 	NATIVE_DECL void _SET_TEXT_COLOR(int r, int g, int b, int a) { invoke<Void>(0x50A41AD966910F03, r, g, b, a); } // 0x50A41AD966910F03 b1207
@@ -2456,10 +2593,10 @@ namespace HUD
 	// nullsub, doesn't do anything
 	NATIVE_DECL void _0xBFFF81E12A745A5F() { invoke<Void>(0xBFFF81E12A745A5F); } // 0xBFFF81E12A745A5F b1207
 	NATIVE_DECL void SET_MISSION_NAME(BOOL p0, const char* name) { invoke<Void>(0x402669A4BDAA72DA, p0, name); } // 0x402669A4BDAA72DA 0x68DCAE10 b1207
-	NATIVE_DECL void _SET_MISSION_NAME_2(BOOL p0, const char* name) { invoke<Void>(0xD98630CE73C61E98, p0, name); } // 0xD98630CE73C61E98 0x8D9A1734 b1207
+	NATIVE_DECL void SET_MISSION_NAME_FOR_UGC_MISSION(BOOL p0, const char* name) { invoke<Void>(0xD98630CE73C61E98, p0, name); } // 0xD98630CE73C61E98 0x8D9A1734 b1207
 	NATIVE_DECL void _0xCE0D2F5586627CCE(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0xCE0D2F5586627CCE, p0, p1, p2, p3, p4); } // 0xCE0D2F5586627CCE b1207
 	NATIVE_DECL BOOL GET_HUD_SCREEN_POSITION_FROM_WORLD_POSITION(float worldX, float worldY, float worldZ, float* screenX, float* screenY) { return invoke<BOOL>(0xB39C81628EF10B42, worldX, worldY, worldZ, screenX, screenY); } // 0xB39C81628EF10B42 0xFE9A39F8 b1207
-	NATIVE_DECL void _0xBF4F34A85CA2970D() { invoke<Void>(0xBF4F34A85CA2970D); } // 0xBF4F34A85CA2970D b1207
+	NATIVE_DECL void _HIDE_HUD_THIS_FRAME() { invoke<Void>(0xBF4F34A85CA2970D); } // 0xBF4F34A85CA2970D b1207
 	NATIVE_DECL void DISABLE_FRONTEND_THIS_FRAME() { invoke<Void>(0x56CE42A528156A67); } // 0x56CE42A528156A67 0xD86A029E b1207
 	NATIVE_DECL void _0x5651516D947ABC53() { invoke<Void>(0x5651516D947ABC53); } // 0x5651516D947ABC53 b1207
 	NATIVE_DECL void _ALLOW_PAUSE_MENU_WHEN_DEAD_THIS_FRAME() { invoke<Void>(0x30996422DF1EE561); } // 0x30996422DF1EE561 0x630CD8EE b1207
@@ -2478,102 +2615,115 @@ namespace HUD
 	NATIVE_DECL void _JOURNAL_MARK_READ(Any p0) { invoke<Void>(0xE4509BABE59BD24E, p0); } // 0xE4509BABE59BD24E b1207
 	NATIVE_DECL void _JOURNAL_CLEAR_ALL_PROGRESS() { invoke<Void>(0xF402978DE6F88D6E); } // 0xF402978DE6F88D6E b1207
 	NATIVE_DECL Any UI_REQUEST_SCENE(Any p0, Any p1) { return invoke<Any>(0xB6857100F8FD433C, p0, p1); } // 0xB6857100F8FD433C b1207
-	NATIVE_DECL void _0xF1E6979C0B779985(Any p0) { invoke<Void>(0xF1E6979C0B779985, p0); } // 0xF1E6979C0B779985 b1207
+	NATIVE_DECL void _0xF1E6979C0B779985(int uiscene) { invoke<Void>(0xF1E6979C0B779985, uiscene); } // 0xF1E6979C0B779985 b1207
 	NATIVE_DECL Any UI_GET_SCENE_UIOBJECT(Any p0) { return invoke<Any>(0xBE1067CD1C9570F6, p0); } // 0xBE1067CD1C9570F6 b1207
 	NATIVE_DECL void UI_MOVIEVIEW_SET_RENDER_TARGET(Any p0, Any p1) { invoke<Void>(0x51DE09A2196BD951, p0, p1); } // 0x51DE09A2196BD951 b1207
-	NATIVE_DECL Prompt _UIPROMPT_CREATE(Hash inputHash, const char* labelName, Any p2, Any p3, Any p4, int p5) { return invoke<Prompt>(0x29FA7910726C3889, inputHash, labelName, p2, p3, p4, p5); } // 0x29FA7910726C3889 b1207
-	NATIVE_DECL Prompt _UIPROMPT_REGISTER_BEGIN() { return invoke<Prompt>(0x04F97DE45A519419); } // 0x04F97DE45A519419 b1207
-	NATIVE_DECL void _UIPROMPT_REGISTER_END(Prompt prompt) { invoke<Void>(0xF7AA2696A22AD8B9, prompt); } // 0xF7AA2696A22AD8B9 b1207
-	NATIVE_DECL void _UIPROMPT_SET_PRIORITY(Prompt prompt, Any p1) { invoke<Void>(0xCA24F528D0D16289, prompt, p1); } // 0xCA24F528D0D16289 b1207
-	NATIVE_DECL Any _UIPROMPT_SET_CONTROL_ACTION(Prompt prompt, Hash control) { return invoke<Any>(0xB5352B7494A08258, prompt, control); } // 0xB5352B7494A08258 b1207
-	NATIVE_DECL void _UIPROMPT_SET_ALLOWED_ACTION(Prompt prompt, Any p1) { invoke<Void>(0x565C1CE183CB0EAF, prompt, p1); } // 0x565C1CE183CB0EAF b1207
-	NATIVE_DECL void _UIPROMPT_SET_STANDARD_MODE(Prompt prompt, Any p1) { invoke<Void>(0xCC6656799977741B, prompt, p1); } // 0xCC6656799977741B b1207
-	NATIVE_DECL BOOL _UIPROMPT_HAS_STANDARD_MODE_COMPLETED(Prompt prompt, Any p1) { return invoke<BOOL>(0xC92AC953F0A982AE, prompt, p1); } // 0xC92AC953F0A982AE b1207
-	NATIVE_DECL void _UIPROMPT_SET_PRESSED_TIMED_MODE(Prompt prompt, Any p1) { invoke<Void>(0x1473D3AF51D54276, prompt, p1); } // 0x1473D3AF51D54276 b1207
-	NATIVE_DECL Any _UIPROMPT_HAS_PRESSED_TIMED_MODE_COMPLETED(Prompt prompt) { return invoke<Any>(0x3CE854D250A88DAF, prompt); } // 0x3CE854D250A88DAF b1207
-	NATIVE_DECL Any _UIPROMPT_HAS_PRESSED_TIMED_MODE_FAILED(Prompt prompt) { return invoke<Any>(0x1A17B9ECFF617562, prompt); } // 0x1A17B9ECFF617562 b1207
-	NATIVE_DECL void _UIPROMPT_SET_HOLD_MODE(Prompt prompt, Any p1) { invoke<Void>(0x94073D5CA3F16B7B, prompt, p1); } // 0x94073D5CA3F16B7B b1207
-	NATIVE_DECL void _UIPROMPT_SET_STANDARDIZED_HOLD_MODE(Prompt prompt, int p1) { invoke<Void>(0x74C7D7B72ED0D3CF, prompt, p1); } // 0x74C7D7B72ED0D3CF b1207
-	NATIVE_DECL void _UIPROMPT_SET_HOLD_INDEFINITELY_MODE(Prompt prompt) { invoke<Void>(0xEA5CCF4EEB2F82D1, prompt); } // 0xEA5CCF4EEB2F82D1 b1207
-	NATIVE_DECL void _UIPROMPT_SET_HOLD_AUTO_FILL_MODE(Prompt prompt, Any p1, Any p2) { invoke<Void>(0x3CE932E737C145D6, prompt, p1, p2); } // 0x3CE932E737C145D6 b1207
-	NATIVE_DECL void _0xA3F2149AA24F3D8E(Any p0, Any p1, Any p2) { invoke<Void>(0xA3F2149AA24F3D8E, p0, p1, p2); } // 0xA3F2149AA24F3D8E b1207
-	NATIVE_DECL BOOL _UIPROMPT_HAS_HOLD_AUTO_FILL_MODE(Prompt prompt) { return invoke<BOOL>(0x8010BEBD0D5ED5BC, prompt); } // 0x8010BEBD0D5ED5BC b1207
-	NATIVE_DECL BOOL _UIPROMPT_HAS_HOLD_MODE(Prompt prompt) { return invoke<BOOL>(0xB60C9F9ED47ABB76, prompt); } // 0xB60C9F9ED47ABB76 b1207
-	NATIVE_DECL BOOL _UIPROMPT_IS_HOLD_MODE_RUNNING(Prompt prompt) { return invoke<BOOL>(0xC7D70EAEF92EFF48, prompt); } // 0xC7D70EAEF92EFF48 b1207
-	NATIVE_DECL BOOL _UIPROMPT_HAS_HOLD_MODE_COMPLETED(Prompt prompt) { return invoke<BOOL>(0xE0F65F0640EF0617, prompt); } // 0xE0F65F0640EF0617 b1207
+	NATIVE_DECL Prompt _UI_PROMPT_CREATE(Hash inputHash, const char* labelName, Any p2, Any p3, Any p4, int p5) { return invoke<Prompt>(0x29FA7910726C3889, inputHash, labelName, p2, p3, p4, p5); } // 0x29FA7910726C3889 b1207
+	NATIVE_DECL Prompt _UI_PROMPT_REGISTER_BEGIN() { return invoke<Prompt>(0x04F97DE45A519419); } // 0x04F97DE45A519419 b1207
+	NATIVE_DECL void _UI_PROMPT_REGISTER_END(Prompt prompt) { invoke<Void>(0xF7AA2696A22AD8B9, prompt); } // 0xF7AA2696A22AD8B9 b1207
+	NATIVE_DECL void _UI_PROMPT_SET_PRIORITY(Prompt prompt, int priority) { invoke<Void>(0xCA24F528D0D16289, prompt, priority); } // 0xCA24F528D0D16289 b1207
+	NATIVE_DECL Any _UI_PROMPT_SET_CONTROL_ACTION(Prompt prompt, Hash control) { return invoke<Any>(0xB5352B7494A08258, prompt, control); } // 0xB5352B7494A08258 b1207
+	NATIVE_DECL void _UI_PROMPT_SET_ALLOWED_ACTION(Prompt prompt, Any p1) { invoke<Void>(0x565C1CE183CB0EAF, prompt, p1); } // 0x565C1CE183CB0EAF b1207
+	NATIVE_DECL void _UI_PROMPT_SET_STANDARD_MODE(Prompt prompt, int releaseMode) { invoke<Void>(0xCC6656799977741B, prompt, releaseMode); } // 0xCC6656799977741B b1207
+	NATIVE_DECL BOOL _UI_PROMPT_HAS_STANDARD_MODE_COMPLETED(Prompt prompt, Any p1) { return invoke<BOOL>(0xC92AC953F0A982AE, prompt, p1); } // 0xC92AC953F0A982AE b1207
+	NATIVE_DECL void _UI_PROMPT_SET_PRESSED_TIMED_MODE(Prompt prompt, int depletionTimeMs) { invoke<Void>(0x1473D3AF51D54276, prompt, depletionTimeMs); } // 0x1473D3AF51D54276 b1207
+	NATIVE_DECL Any _UI_PROMPT_HAS_PRESSED_TIMED_MODE_COMPLETED(Prompt prompt) { return invoke<Any>(0x3CE854D250A88DAF, prompt); } // 0x3CE854D250A88DAF b1207
+	NATIVE_DECL Any _UI_PROMPT_HAS_PRESSED_TIMED_MODE_FAILED(Prompt prompt) { return invoke<Any>(0x1A17B9ECFF617562, prompt); } // 0x1A17B9ECFF617562 b1207
+	NATIVE_DECL void _UI_PROMPT_SET_HOLD_MODE(Prompt prompt, Any p1) { invoke<Void>(0x94073D5CA3F16B7B, prompt, p1); } // 0x94073D5CA3F16B7B b1207
+	// Hashes: SHORT_TIMED_EVENT_MP, SHORT_TIMED_EVENT, MEDIUM_TIMED_EVENT, LONG_TIMED_EVENT, RUSTLING_CALM_TIMING, PLAYER_FOCUS_TIMING, PLAYER_REACTION_TIMING
+	NATIVE_DECL void _UI_PROMPT_SET_STANDARDIZED_HOLD_MODE(Prompt prompt, Hash timedEventHash) { invoke<Void>(0x74C7D7B72ED0D3CF, prompt, timedEventHash); } // 0x74C7D7B72ED0D3CF b1207
+	NATIVE_DECL void _UI_PROMPT_SET_HOLD_INDEFINITELY_MODE(Prompt prompt) { invoke<Void>(0xEA5CCF4EEB2F82D1, prompt); } // 0xEA5CCF4EEB2F82D1 b1207
+	NATIVE_DECL void _UI_PROMPT_SET_HOLD_AUTO_FILL_MODE(Prompt prompt, int autoFillTimeMs, int holdTimeMs) { invoke<Void>(0x3CE932E737C145D6, prompt, autoFillTimeMs, holdTimeMs); } // 0x3CE932E737C145D6 b1207
+	NATIVE_DECL void _UI_PROMPT_SET_HOLD_AUTO_FILL_WITH_DECAY_MODE(Prompt prompt, int autoFillTimeMs, int holdTimeMs) { invoke<Void>(0xA3F2149AA24F3D8E, prompt, autoFillTimeMs, holdTimeMs); } // 0xA3F2149AA24F3D8E b1207
+	NATIVE_DECL BOOL _UI_PROMPT_HAS_HOLD_AUTO_FILL_MODE(Prompt prompt) { return invoke<BOOL>(0x8010BEBD0D5ED5BC, prompt); } // 0x8010BEBD0D5ED5BC b1207
+	NATIVE_DECL BOOL _UI_PROMPT_HAS_HOLD_MODE(Prompt prompt) { return invoke<BOOL>(0xB60C9F9ED47ABB76, prompt); } // 0xB60C9F9ED47ABB76 b1207
+	NATIVE_DECL BOOL _UI_PROMPT_IS_HOLD_MODE_RUNNING(Prompt prompt) { return invoke<BOOL>(0xC7D70EAEF92EFF48, prompt); } // 0xC7D70EAEF92EFF48 b1207
+	NATIVE_DECL BOOL _UI_PROMPT_HAS_HOLD_MODE_COMPLETED(Prompt prompt) { return invoke<BOOL>(0xE0F65F0640EF0617, prompt); } // 0xE0F65F0640EF0617 b1207
 	NATIVE_DECL Any _0x81801291806DBC50(Any p0) { return invoke<Any>(0x81801291806DBC50, p0); } // 0x81801291806DBC50 b1207
-	NATIVE_DECL void _UIPROMPT_SET_MASH_MODE(Prompt prompt, Any p1) { invoke<Void>(0xDF6423BF071C7F71, prompt, p1); } // 0xDF6423BF071C7F71 b1207
-	NATIVE_DECL void _UIPROMPT_SET_MASH_INDEFINITELY_MODE(Prompt prompt) { invoke<Void>(0x7B66E89312727274, prompt); } // 0x7B66E89312727274 b1207
-	NATIVE_DECL void _UIPROMPT_SET_MASH_WITH_RESISTANCE_MODE(Prompt prompt, Any p1, Any p2, Any p3) { invoke<Void>(0xCD1BDFF15EFA79F5, prompt, p1, p2, p3); } // 0xCD1BDFF15EFA79F5 b1207
-	NATIVE_DECL void _UIPROMPT_SET_MASH_WITH_RESISTANCE_CAN_FAIL_MODE(Prompt prompt, Any p1, Any p2, Any p3) { invoke<Void>(0xDC0CB602DEADBA53, prompt, p1, p2, p3); } // 0xDC0CB602DEADBA53 b1207
-	NATIVE_DECL void _UIPROMPT_SET_MASH_AUTO_FILL_MODE(Prompt prompt, Any p1, Any p2) { invoke<Void>(0x6C39587D7CC66801, prompt, p1, p2); } // 0x6C39587D7CC66801 b1207
-	NATIVE_DECL void _UIPROMPT_SET_MASH_MANUAL_MODE(Prompt prompt, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x32DF729D8BD3C1C6, prompt, p1, p2, p3, p4); } // 0x32DF729D8BD3C1C6 b1207
-	NATIVE_DECL void _UIPROMPT_SET_MASH_MANUAL_CAN_FAIL_MODE(Prompt prompt, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x179DCF71F705DA20, prompt, p1, p2, p3, p4); } // 0x179DCF71F705DA20 b1207
-	NATIVE_DECL BOOL _UIPROMPT_HAS_MANUAL_MASH_MODE(Prompt prompt) { return invoke<BOOL>(0xA6C6A4ADB3BAC409, prompt); } // 0xA6C6A4ADB3BAC409 b1207
-	NATIVE_DECL BOOL _UIPROMPT_HAS_MASH_MODE(Prompt prompt) { return invoke<BOOL>(0xCD072523791DDC1B, prompt); } // 0xCD072523791DDC1B b1207
+	NATIVE_DECL void _UI_PROMPT_SET_MASH_MODE(Prompt prompt, int mashes) { invoke<Void>(0xDF6423BF071C7F71, prompt, mashes); } // 0xDF6423BF071C7F71 b1207
+	NATIVE_DECL void _UI_PROMPT_SET_MASH_INDEFINITELY_MODE(Prompt prompt) { invoke<Void>(0x7B66E89312727274, prompt); } // 0x7B66E89312727274 b1207
+	NATIVE_DECL void _UI_PROMPT_SET_MASH_WITH_RESISTANCE_MODE(Prompt prompt, int mashes, float p2, Any p3) { invoke<Void>(0xCD1BDFF15EFA79F5, prompt, mashes, p2, p3); } // 0xCD1BDFF15EFA79F5 b1207
+	NATIVE_DECL void _UI_PROMPT_SET_MASH_WITH_RESISTANCE_CAN_FAIL_MODE(Prompt prompt, int mashes, float p2, Any p3) { invoke<Void>(0xDC0CB602DEADBA53, prompt, mashes, p2, p3); } // 0xDC0CB602DEADBA53 b1207
+	NATIVE_DECL void _UI_PROMPT_SET_MASH_AUTO_FILL_MODE(Prompt prompt, int autoFillTimeMs, int mashes) { invoke<Void>(0x6C39587D7CC66801, prompt, autoFillTimeMs, mashes); } // 0x6C39587D7CC66801 b1207
+	NATIVE_DECL void _UI_PROMPT_SET_MASH_MANUAL_MODE(Prompt prompt, float p1, float p2, float p3, Any p4) { invoke<Void>(0x32DF729D8BD3C1C6, prompt, p1, p2, p3, p4); } // 0x32DF729D8BD3C1C6 b1207
+	NATIVE_DECL void _UI_PROMPT_SET_MASH_MANUAL_CAN_FAIL_MODE(Prompt prompt, float p1, float p2, float p3, Any p4) { invoke<Void>(0x179DCF71F705DA20, prompt, p1, p2, p3, p4); } // 0x179DCF71F705DA20 b1207
+	NATIVE_DECL BOOL _UI_PROMPT_HAS_MANUAL_MASH_MODE(Prompt prompt) { return invoke<BOOL>(0xA6C6A4ADB3BAC409, prompt); } // 0xA6C6A4ADB3BAC409 b1207
+	NATIVE_DECL BOOL _UI_PROMPT_HAS_MASH_MODE(Prompt prompt) { return invoke<BOOL>(0xCD072523791DDC1B, prompt); } // 0xCD072523791DDC1B b1207
 	NATIVE_DECL Any _0xB0E8599243B3F568(Any p0) { return invoke<Any>(0xB0E8599243B3F568, p0); } // 0xB0E8599243B3F568 b1207
-	NATIVE_DECL BOOL _UIPROMPT_HAS_MASH_MODE_COMPLETED(Prompt prompt) { return invoke<BOOL>(0x845CE958416DC473, prompt); } // 0x845CE958416DC473 b1207
-	NATIVE_DECL BOOL _UIPROMPT_HAS_MASH_MODE_FAILED(Prompt prompt) { return invoke<BOOL>(0x25B18E530CF39D6F, prompt); } // 0x25B18E530CF39D6F b1207
-	NATIVE_DECL Any _UIPROMPT_GET_MASH_MODE_PROGRESS(Prompt prompt) { return invoke<Any>(0x8A9585293863B8A5, prompt); } // 0x8A9585293863B8A5 b1207
-	NATIVE_DECL void _UIPROMPT_SET_MASH_MANUAL_MODE_INCREASE_PER_PRESS(Prompt prompt, Any p1) { invoke<Void>(0xA0D1D79C6036A855, prompt, p1); } // 0xA0D1D79C6036A855 b1207
-	NATIVE_DECL void _UIPROMPT_SET_MASH_MANUAL_MODE_DECAY_SPEED(Prompt prompt, Any p1) { invoke<Void>(0x7D393C247FB9B431, prompt, p1); } // 0x7D393C247FB9B431 b1207
-	NATIVE_DECL void _UIPROMPT_SET_MASH_MANUAL_MODE_PRESSED_GROWTH_SPEED(Prompt prompt, Any p1) { invoke<Void>(0x56DBB26F98582C29, prompt, p1); } // 0x56DBB26F98582C29 b1207
-	NATIVE_DECL void _UIPROMPT_SET_ROTATE_MODE(Prompt prompt, Any p1, Any p2) { invoke<Void>(0x7ABE7095FB3D2581, prompt, p1, p2); } // 0x7ABE7095FB3D2581 b1207
-	NATIVE_DECL void _UIPROMPT_SET_TARGET_MODE(Prompt prompt, Any p1, Any p2, Any p3) { invoke<Void>(0x5F6503D9CD2754EB, prompt, p1, p2, p3); } // 0x5F6503D9CD2754EB b1207
-	NATIVE_DECL void _UIPROMPT_SET_TARGET_MODE_TARGET(Prompt prompt, Any p1, Any p2) { invoke<Void>(0x5E019C45DD3B6A14, prompt, p1, p2); } // 0x5E019C45DD3B6A14 b1207
-	NATIVE_DECL void _UIPROMPT_SET_TARGET_MODE_PROGRESS(Prompt prompt, Any p1) { invoke<Void>(0x00123054BEC8A30F, prompt, p1); } // 0x00123054BEC8A30F b1207
-	NATIVE_DECL void _UIPROMPT_SET_BEAT_MODE(Prompt prompt, Any p1) { invoke<Void>(0xF957A1654C6322FE, prompt, p1); } // 0xF957A1654C6322FE b1207
-	NATIVE_DECL BOOL _UIPROMPT_WAS_BEAT_MODE_PRESSED_IN_TIME_WINDOW(Prompt prompt) { return invoke<BOOL>(0x1FE4788AB1430C55, prompt); } // 0x1FE4788AB1430C55 b1207
-	NATIVE_DECL void _UIPROMPT_SET_BEAT_MODE_GRAYED_OUT(Prompt prompt, Any p1) { invoke<Void>(0xB487A4936FBF40AC, prompt, p1); } // 0xB487A4936FBF40AC b1207
-	NATIVE_DECL void _UIPROMPT_RESTART_MODES(Prompt prompt) { invoke<Void>(0xDC6C55DFA2C24EE5, prompt); } // 0xDC6C55DFA2C24EE5 b1207
-	NATIVE_DECL void _UIPROMPT_SET_SPINNER_SPEED(Prompt prompt, Any p1) { invoke<Void>(0xAC6586A7FDCD4B68, prompt, p1); } // 0xAC6586A7FDCD4B68 b1207
-	NATIVE_DECL void _UIPROMPT_SET_SPINNER_POSITION(Prompt prompt, Any p1) { invoke<Void>(0x832CB510DE546282, prompt, p1); } // 0x832CB510DE546282 b1207
-	NATIVE_DECL void _UIPROMPT_SET_URGENT_PULSING_ENABLED(Prompt prompt, Any p1) { invoke<Void>(0xC5F428EE08FA7F2C, prompt, p1); } // 0xC5F428EE08FA7F2C b1207
-	NATIVE_DECL BOOL _UIPROMPT_GET_URGENT_PULSING_ENABLED(Prompt prompt) { return invoke<BOOL>(0x1FBA0DABECDDB52B, prompt); } // 0x1FBA0DABECDDB52B b1207
-	NATIVE_DECL void _UIPROMPT_SET_TAG(Prompt prompt, Any p1) { invoke<Void>(0xDEC85C174751292B, prompt, p1); } // 0xDEC85C174751292B b1207
-	NATIVE_DECL int _UIPROMPT_GET_GROUP_ID_FOR_TARGET_ENTITY(Entity entity) { return invoke<int>(0xB796970BD125FCE8, entity); } // 0xB796970BD125FCE8 b1207
-	NATIVE_DECL int _UIPROMPT_GET_GROUP_ID_FOR_SCENARIO_POINT(Any p0, int p1) { return invoke<int>(0xCB73D7521E7103F0, p0, p1); } // 0xCB73D7521E7103F0 b1207
-	NATIVE_DECL void _UIPROMPT_SET_GROUP(Prompt prompt, Any p1, Any p2) { invoke<Void>(0x2F11D3A254169EA4, prompt, p1, p2); } // 0x2F11D3A254169EA4 b1207
-	NATIVE_DECL void _UIPROMPT_REMOVE_GROUP(Prompt prompt, Any p1) { invoke<Void>(0x4E52C800A28F7BE8, prompt, p1); } // 0x4E52C800A28F7BE8 b1207
-	NATIVE_DECL Any _UIPROMPT_SET_ACTIVE_GROUP_THIS_FRAME(Hash hash, Any p1, Any p2, Any p3, Any p4, Prompt prompt) { return invoke<Any>(0xC65A45D4453C2627, hash, p1, p2, p3, p4, prompt); } // 0xC65A45D4453C2627 b1207
-	NATIVE_DECL int _UIPROMPT_GET_GROUP_ACTIVE_PAGE(Hash hash) { return invoke<int>(0xC1FCC36C3F7286C8, hash); } // 0xC1FCC36C3F7286C8 b1207
-	NATIVE_DECL Any _UIPROMPT_SET_AMBIENT_GROUP_THIS_FRAME(Entity entity, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return invoke<Any>(0x315C81D760609108, entity, p1, p2, p3, p4, p5, p6); } // 0x315C81D760609108 b1207
-	NATIVE_DECL Any _0x8B55B324A9123F6B(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return invoke<Any>(0x8B55B324A9123F6B, p0, p1, p2, p3, p4, p5); } // 0x8B55B324A9123F6B b1232
-	NATIVE_DECL BOOL _UIPROMPT_DOES_AMBIENT_GROUP_EXIST(Hash hash) { return invoke<BOOL>(0xEB550B927B34A1BB, hash); } // 0xEB550B927B34A1BB b1207
-	NATIVE_DECL void _UIPROMPT_ADD_GROUP_LINK(Any p0, Prompt prompt, Any p2) { invoke<Void>(0x684C96CC7C66E8EF, p0, prompt, p2); } // 0x684C96CC7C66E8EF b1207
-	NATIVE_DECL void _UIPROMPT_ADD_GROUP_RETURN_LINK(Any p0, Prompt prompt) { invoke<Void>(0x837972ED28159536, p0, prompt); } // 0x837972ED28159536 b1207
-	NATIVE_DECL void _UIPROMPT_SET_TRANSPORT_MODE(Prompt prompt, Any p1) { invoke<Void>(0x876E4A35C73A6655, prompt, p1); } // 0x876E4A35C73A6655 b1207
-	NATIVE_DECL void _UIPROMPT_DISABLE_PROMPTS_THIS_FRAME() { invoke<Void>(0xF1622CE88A1946FB); } // 0xF1622CE88A1946FB b1207
-	NATIVE_DECL void _UIPROMPT_DELETE(Prompt prompt) { invoke<Void>(0x00EDE88D4D13CF59, prompt); } // 0x00EDE88D4D13CF59 b1207
-	NATIVE_DECL BOOL _UIPROMPT_IS_VALID(Prompt prompt) { return invoke<BOOL>(0x347469FBDD1589A9, prompt); } // 0x347469FBDD1589A9 b1207
-	NATIVE_DECL BOOL _UIPROMPT_IS_ACTIVE(Prompt prompt) { return invoke<BOOL>(0x546E342E01DE71CF, prompt); } // 0x546E342E01DE71CF b1207
-	NATIVE_DECL void _UIPROMPT_SET_VISIBLE(Prompt prompt, BOOL toggle) { invoke<Void>(0x71215ACCFDE075EE, prompt, toggle); } // 0x71215ACCFDE075EE b1207
-	NATIVE_DECL void _UIPROMPT_SET_ENABLED(Prompt prompt, BOOL toggle) { invoke<Void>(0x8A0FB4D03A630D21, prompt, toggle); } // 0x8A0FB4D03A630D21 b1207
-	NATIVE_DECL void _UIPROMPT_SET_TEXT(Prompt prompt, const char* text) { invoke<Void>(0x5DD02A8318420DD7, prompt, text); } // 0x5DD02A8318420DD7 b1207
-	NATIVE_DECL void _UIPROMPT_SET_ATTRIBUTE(Prompt prompt, Any p1, Any p2) { invoke<Void>(0x560E76D5E2E1803F, prompt, p1, p2); } // 0x560E76D5E2E1803F b1207
-	NATIVE_DECL void _0xF4A5C4509BF923B1(Prompt prompt, Any p1) { invoke<Void>(0xF4A5C4509BF923B1, prompt, p1); } // 0xF4A5C4509BF923B1 b1207
+	NATIVE_DECL BOOL _UI_PROMPT_HAS_MASH_MODE_COMPLETED(Prompt prompt) { return invoke<BOOL>(0x845CE958416DC473, prompt); } // 0x845CE958416DC473 b1207
+	NATIVE_DECL BOOL _UI_PROMPT_HAS_MASH_MODE_FAILED(Prompt prompt) { return invoke<BOOL>(0x25B18E530CF39D6F, prompt); } // 0x25B18E530CF39D6F b1207
+	NATIVE_DECL float _UI_PROMPT_GET_MASH_MODE_PROGRESS(Prompt prompt) { return invoke<float>(0x8A9585293863B8A5, prompt); } // 0x8A9585293863B8A5 b1207
+	// standard (prompt not held) rate: (1f / 128f)
+	// fast (prompt held) rate: (1f / 64f)
+	// punitive (been hit) rate: (1f / 128f)
+	NATIVE_DECL void _UI_PROMPT_SET_MASH_MANUAL_MODE_INCREASE_PER_PRESS(Prompt prompt, float rate) { invoke<Void>(0xA0D1D79C6036A855, prompt, rate); } // 0xA0D1D79C6036A855 b1207
+	// standard (prompt not held) rate: 0.035f
+	// fast (prompt held) rate: 0.015f
+	// punitive (been hit) rate: 0.14f
+	NATIVE_DECL void _UI_PROMPT_SET_MASH_MANUAL_MODE_DECAY_SPEED(Prompt prompt, float speed) { invoke<Void>(0x7D393C247FB9B431, prompt, speed); } // 0x7D393C247FB9B431 b1207
+	NATIVE_DECL void _UI_PROMPT_SET_MASH_MANUAL_MODE_PRESSED_GROWTH_SPEED(Prompt prompt, float speed) { invoke<Void>(0x56DBB26F98582C29, prompt, speed); } // 0x56DBB26F98582C29 b1207
+	// Used for controllers
+	NATIVE_DECL void _UI_PROMPT_SET_ROTATE_MODE(Prompt prompt, float p1, BOOL counterclockwise) { invoke<Void>(0x7ABE7095FB3D2581, prompt, p1, counterclockwise); } // 0x7ABE7095FB3D2581 b1207
+	NATIVE_DECL void _UI_PROMPT_SET_TARGET_MODE(Prompt prompt, float p1, float p2, Any p3) { invoke<Void>(0x5F6503D9CD2754EB, prompt, p1, p2, p3); } // 0x5F6503D9CD2754EB b1207
+	NATIVE_DECL void _UI_PROMPT_SET_TARGET_MODE_TARGET(Prompt prompt, float p1, float p2) { invoke<Void>(0x5E019C45DD3B6A14, prompt, p1, p2); } // 0x5E019C45DD3B6A14 b1207
+	NATIVE_DECL void _UI_PROMPT_SET_TARGET_MODE_PROGRESS(Prompt prompt, float progress) { invoke<Void>(0x00123054BEC8A30F, prompt, progress); } // 0x00123054BEC8A30F b1207
+	NATIVE_DECL void _UI_PROMPT_SET_BEAT_MODE(Prompt prompt, BOOL toggle) { invoke<Void>(0xF957A1654C6322FE, prompt, toggle); } // 0xF957A1654C6322FE b1207
+	NATIVE_DECL BOOL _UI_PROMPT_WAS_BEAT_MODE_PRESSED_IN_TIME_WINDOW(Prompt prompt) { return invoke<BOOL>(0x1FE4788AB1430C55, prompt); } // 0x1FE4788AB1430C55 b1207
+	NATIVE_DECL void _UI_PROMPT_SET_BEAT_MODE_GRAYED_OUT(Prompt prompt, Any p1) { invoke<Void>(0xB487A4936FBF40AC, prompt, p1); } // 0xB487A4936FBF40AC b1207
+	NATIVE_DECL void _UI_PROMPT_RESTART_MODES(Prompt prompt) { invoke<Void>(0xDC6C55DFA2C24EE5, prompt); } // 0xDC6C55DFA2C24EE5 b1207
+	NATIVE_DECL void _UI_PROMPT_SET_SPINNER_SPEED(Prompt prompt, Any p1) { invoke<Void>(0xAC6586A7FDCD4B68, prompt, p1); } // 0xAC6586A7FDCD4B68 b1207
+	NATIVE_DECL void _UI_PROMPT_SET_SPINNER_POSITION(Prompt prompt, Any p1) { invoke<Void>(0x832CB510DE546282, prompt, p1); } // 0x832CB510DE546282 b1207
+	NATIVE_DECL void _UI_PROMPT_SET_URGENT_PULSING_ENABLED(Prompt prompt, BOOL toggle) { invoke<Void>(0xC5F428EE08FA7F2C, prompt, toggle); } // 0xC5F428EE08FA7F2C b1207
+	NATIVE_DECL BOOL _UI_PROMPT_GET_URGENT_PULSING_ENABLED(Prompt prompt) { return invoke<BOOL>(0x1FBA0DABECDDB52B, prompt); } // 0x1FBA0DABECDDB52B b1207
+	NATIVE_DECL void _UI_PROMPT_SET_TAG(Prompt prompt, Any p1) { invoke<Void>(0xDEC85C174751292B, prompt, p1); } // 0xDEC85C174751292B b1207
+	NATIVE_DECL int _UI_PROMPT_GET_GROUP_ID_FOR_TARGET_ENTITY(Entity entity) { return invoke<int>(0xB796970BD125FCE8, entity); } // 0xB796970BD125FCE8 b1207
+	NATIVE_DECL int _UI_PROMPT_GET_GROUP_ID_FOR_SCENARIO_POINT(Any p0, int p1) { return invoke<int>(0xCB73D7521E7103F0, p0, p1); } // 0xCB73D7521E7103F0 b1207
+	NATIVE_DECL void _UI_PROMPT_SET_GROUP(Prompt prompt, int groupId, Any p2) { invoke<Void>(0x2F11D3A254169EA4, prompt, groupId, p2); } // 0x2F11D3A254169EA4 b1207
+	NATIVE_DECL void _UI_PROMPT_REMOVE_GROUP(Prompt prompt, Any p1) { invoke<Void>(0x4E52C800A28F7BE8, prompt, p1); } // 0x4E52C800A28F7BE8 b1207
+	// Note: you must use VAR_STRING for p1 if string is not part of text database
+	NATIVE_DECL Any _UI_PROMPT_SET_ACTIVE_GROUP_THIS_FRAME(Hash hash, Any p1, Any p2, Any p3, Any p4, Prompt prompt) { return invoke<Any>(0xC65A45D4453C2627, hash, p1, p2, p3, p4, prompt); } // 0xC65A45D4453C2627 b1207
+	NATIVE_DECL int _UI_PROMPT_GET_GROUP_ACTIVE_PAGE(Hash hash) { return invoke<int>(0xC1FCC36C3F7286C8, hash); } // 0xC1FCC36C3F7286C8 b1207
+	NATIVE_DECL Any _UI_PROMPT_SET_AMBIENT_GROUP_THIS_FRAME(Entity entity, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return invoke<Any>(0x315C81D760609108, entity, p1, p2, p3, p4, p5, p6); } // 0x315C81D760609108 b1207
+	NATIVE_DECL Any _0x8B55B324A9123F6B(int groupId, Volume volume, const char* p2, Any p3, Any p4, Any p5) { return invoke<Any>(0x8B55B324A9123F6B, groupId, volume, p2, p3, p4, p5); } // 0x8B55B324A9123F6B b1232
+	NATIVE_DECL BOOL _UI_PROMPT_DOES_AMBIENT_GROUP_EXIST(Hash hash) { return invoke<BOOL>(0xEB550B927B34A1BB, hash); } // 0xEB550B927B34A1BB b1207
+	NATIVE_DECL void _UI_PROMPT_ADD_GROUP_LINK(Any p0, Prompt prompt, Any p2) { invoke<Void>(0x684C96CC7C66E8EF, p0, prompt, p2); } // 0x684C96CC7C66E8EF b1207
+	NATIVE_DECL void _UI_PROMPT_ADD_GROUP_RETURN_LINK(Any p0, Prompt prompt) { invoke<Void>(0x837972ED28159536, p0, prompt); } // 0x837972ED28159536 b1207
+	// Set prompt to be disabled while in any transport
+	NATIVE_DECL void _UI_PROMPT_SET_TRANSPORT_MODE(Prompt prompt, BOOL toggle) { invoke<Void>(0x876E4A35C73A6655, prompt, toggle); } // 0x876E4A35C73A6655 b1207
+	NATIVE_DECL void _UI_PROMPT_DISABLE_PROMPTS_THIS_FRAME() { invoke<Void>(0xF1622CE88A1946FB); } // 0xF1622CE88A1946FB b1207
+	NATIVE_DECL void _UI_PROMPT_DELETE(Prompt prompt) { invoke<Void>(0x00EDE88D4D13CF59, prompt); } // 0x00EDE88D4D13CF59 b1207
+	NATIVE_DECL BOOL _UI_PROMPT_IS_VALID(Prompt prompt) { return invoke<BOOL>(0x347469FBDD1589A9, prompt); } // 0x347469FBDD1589A9 b1207
+	NATIVE_DECL BOOL _UI_PROMPT_IS_ACTIVE(Prompt prompt) { return invoke<BOOL>(0x546E342E01DE71CF, prompt); } // 0x546E342E01DE71CF b1207
+	NATIVE_DECL void _UI_PROMPT_SET_VISIBLE(Prompt prompt, BOOL toggle) { invoke<Void>(0x71215ACCFDE075EE, prompt, toggle); } // 0x71215ACCFDE075EE b1207
+	NATIVE_DECL void _UI_PROMPT_SET_ENABLED(Prompt prompt, BOOL toggle) { invoke<Void>(0x8A0FB4D03A630D21, prompt, toggle); } // 0x8A0FB4D03A630D21 b1207
+	NATIVE_DECL void _UI_PROMPT_SET_TEXT(Prompt prompt, const char* text) { invoke<Void>(0x5DD02A8318420DD7, prompt, text); } // 0x5DD02A8318420DD7 b1207
+	// Attributes seem to go up to 40?
+	NATIVE_DECL void _UI_PROMPT_SET_ATTRIBUTE(Prompt prompt, int attribute, BOOL enabled) { invoke<Void>(0x560E76D5E2E1803F, prompt, attribute, enabled); } // 0x560E76D5E2E1803F b1207
+	NATIVE_DECL void _UI_PROMPT_SET_TYPE(Prompt prompt, int type) { invoke<Void>(0xF4A5C4509BF923B1, prompt, type); } // 0xF4A5C4509BF923B1 b1207
 	NATIVE_DECL void _0x53CE46C01A089DA1(Prompt prompt, Any p1) { invoke<Void>(0x53CE46C01A089DA1, prompt, p1); } // 0x53CE46C01A089DA1 b1207
-	NATIVE_DECL void _0xA520C7B05FA4EB2A(Any p0, Any p1) { invoke<Void>(0xA520C7B05FA4EB2A, p0, p1); } // 0xA520C7B05FA4EB2A b1207
-	NATIVE_DECL void _0x4D107406667423BE(Prompt prompt, ScrHandle p1) { invoke<Void>(0x4D107406667423BE, prompt, p1); } // 0x4D107406667423BE b1207
-	NATIVE_DECL void _UIPROMPT_CONTEXT_SET_POINT(Prompt prompt, float x, float y, float z) { invoke<Void>(0xAE84C5EE2C384FB3, prompt, x, y, z); } // 0xAE84C5EE2C384FB3 b1207
-	NATIVE_DECL void _UIPROMPT_CONTEXT_SET_SIZE(Prompt prompt, float size) { invoke<Void>(0x0C718001B77CA468, prompt, size); } // 0x0C718001B77CA468 b1207
-	NATIVE_DECL BOOL _UIPROMPT_IS_PRESSED(Prompt prompt) { return invoke<BOOL>(0x21E60E230086697F, prompt); } // 0x21E60E230086697F b1207
-	NATIVE_DECL BOOL _UIPROMPT_IS_JUST_PRESSED(Prompt prompt) { return invoke<BOOL>(0x2787CC611D3FACC5, prompt); } // 0x2787CC611D3FACC5 b1207
-	NATIVE_DECL BOOL _UIPROMPT_IS_JUST_RELEASED(Prompt prompt) { return invoke<BOOL>(0x635CC82FA297A827, prompt); } // 0x635CC82FA297A827 b1207
-	NATIVE_DECL BOOL _UIPROMPT_IS_RELEASED(Prompt prompt) { return invoke<BOOL>(0xAFC887BA7A7756D6, prompt); } // 0xAFC887BA7A7756D6 b1207
-	NATIVE_DECL void _UIPROMPT_ENABLE_PROMPT_TYPE_THIS_FRAME(Any p0) { invoke<Void>(0x06565032897BA861, p0); } // 0x06565032897BA861 b1207
-	NATIVE_DECL void _UIPROMPT_DISABLE_PROMPT_TYPE_THIS_FRAME(Any p0) { invoke<Void>(0xFC094EF26DD153FA, p0); } // 0xFC094EF26DD153FA b1207
-	NATIVE_DECL void _UIPROMPT_FILTER_CLEAR() { invoke<Void>(0x6A2F820452017EA2); } // 0x6A2F820452017EA2 b1207
-	NATIVE_DECL void _UIPROMPT_SET_FAVOURED_PED_FOR_CONFLICT_RESOLUTION(Ped ped) { invoke<Void>(0x530A428705BE5DEF, ped); } // 0x530A428705BE5DEF b1207
-	NATIVE_DECL void _UIPROMPT_CLEAR_FAVOURED_PED_FOR_CONFLICT_RESOLUTION() { invoke<Void>(0x51259AE5C72D4A1B); } // 0x51259AE5C72D4A1B b1207
-	NATIVE_DECL BOOL _UIPROMPT_IS_ENABLED(Prompt prompt) { return invoke<BOOL>(0x0D00EDDFB58B7F28, prompt); } // 0x0D00EDDFB58B7F28 b1207
-	NATIVE_DECL BOOL _UIPROMPT_IS_CONTROL_ACTION_ACTIVE(Hash control) { return invoke<BOOL>(0x1BE19185B8AFE299, control); } // 0x1BE19185B8AFE299 b1207
+	NATIVE_DECL void _UI_PROMPT_SET_MANUAL_RESOLVED(Prompt prompt, Any p1) { invoke<Void>(0xA520C7B05FA4EB2A, prompt, p1); } // 0xA520C7B05FA4EB2A b1207
+	// Attaches a Volume
+	NATIVE_DECL void _UI_PROMPT_CONTEXT_SET_VOLUME(Prompt prompt, Volume volume) { invoke<Void>(0x4D107406667423BE, prompt, volume); } // 0x4D107406667423BE b1207
+	NATIVE_DECL void _UI_PROMPT_CONTEXT_SET_POINT(Prompt prompt, float x, float y, float z) { invoke<Void>(0xAE84C5EE2C384FB3, prompt, x, y, z); } // 0xAE84C5EE2C384FB3 b1207
+	NATIVE_DECL void _UI_PROMPT_CONTEXT_SET_SIZE(Prompt prompt, float size) { invoke<Void>(0x0C718001B77CA468, prompt, size); } // 0x0C718001B77CA468 b1207
+	NATIVE_DECL BOOL _UI_PROMPT_IS_PRESSED(Prompt prompt) { return invoke<BOOL>(0x21E60E230086697F, prompt); } // 0x21E60E230086697F b1207
+	NATIVE_DECL BOOL _UI_PROMPT_IS_JUST_PRESSED(Prompt prompt) { return invoke<BOOL>(0x2787CC611D3FACC5, prompt); } // 0x2787CC611D3FACC5 b1207
+	NATIVE_DECL BOOL _UI_PROMPT_IS_JUST_RELEASED(Prompt prompt) { return invoke<BOOL>(0x635CC82FA297A827, prompt); } // 0x635CC82FA297A827 b1207
+	NATIVE_DECL BOOL _UI_PROMPT_IS_RELEASED(Prompt prompt) { return invoke<BOOL>(0xAFC887BA7A7756D6, prompt); } // 0xAFC887BA7A7756D6 b1207
+	// https://github.com/femga/rdr3_discoveries/tree/master/graphics/HUD/prompts/prompt_types
+	NATIVE_DECL void _UI_PROMPT_ENABLE_PROMPT_TYPE_THIS_FRAME(int p0) { invoke<Void>(0x06565032897BA861, p0); } // 0x06565032897BA861 b1207
+	NATIVE_DECL void _UI_PROMPT_DISABLE_PROMPT_TYPE_THIS_FRAME(int p0) { invoke<Void>(0xFC094EF26DD153FA, p0); } // 0xFC094EF26DD153FA b1207
+	NATIVE_DECL void _UI_PROMPT_FILTER_CLEAR() { invoke<Void>(0x6A2F820452017EA2); } // 0x6A2F820452017EA2 b1207
+	NATIVE_DECL void _UI_PROMPT_SET_FAVOURED_PED_FOR_CONFLICT_RESOLUTION(Ped ped) { invoke<Void>(0x530A428705BE5DEF, ped); } // 0x530A428705BE5DEF b1207
+	NATIVE_DECL void _UI_PROMPT_CLEAR_FAVOURED_PED_FOR_CONFLICT_RESOLUTION() { invoke<Void>(0x51259AE5C72D4A1B); } // 0x51259AE5C72D4A1B b1207
+	NATIVE_DECL BOOL _UI_PROMPT_IS_ENABLED(Prompt prompt) { return invoke<BOOL>(0x0D00EDDFB58B7F28, prompt); } // 0x0D00EDDFB58B7F28 b1207
+	NATIVE_DECL BOOL UI_PROMPT_IS_CONTROL_ACTION_ACTIVE(Hash control) { return invoke<BOOL>(0x1BE19185B8AFE299, control); } // 0x1BE19185B8AFE299 b1207
 	NATIVE_DECL Any _0xD6BD313CFA41E57A(Any p0) { return invoke<Any>(0xD6BD313CFA41E57A, p0); } // 0xD6BD313CFA41E57A b1207
 	// This returns an id that can be used with 0x6095358C4142932A.
-	NATIVE_DECL int _UIPROMPT_SET_REGISTER_HORIZONTAL_ORIENTATION() { return invoke<int>(0xD9459157EB22C895); } // 0xD9459157EB22C895 b1207
+	NATIVE_DECL int _UI_PROMPT_SET_REGISTER_HORIZONTAL_ORIENTATION() { return invoke<int>(0xD9459157EB22C895); } // 0xD9459157EB22C895 b1207
 	// id is the return value from 0xD9459157EB22C895.
-	NATIVE_DECL void _UIPROMPT_CLEAR_HORIZONTAL_ORIENTATION(int id) { invoke<Void>(0x6095358C4142932A, id); } // 0x6095358C4142932A b1207
-	NATIVE_DECL void _UIPROMPT_SET_ORDERING_AS_INPUT_TYPE(Prompt prompt, Any p1) { invoke<Void>(0x2F385ECC5200938D, prompt, p1); } // 0x2F385ECC5200938D b1207
+	NATIVE_DECL void _UI_PROMPT_CLEAR_HORIZONTAL_ORIENTATION(int id) { invoke<Void>(0x6095358C4142932A, id); } // 0x6095358C4142932A b1207
+	NATIVE_DECL void _UI_PROMPT_SET_ORDERING_AS_INPUT_TYPE(Prompt prompt, Any p1) { invoke<Void>(0x2F385ECC5200938D, prompt, p1); } // 0x2F385ECC5200938D b1207
 	NATIVE_DECL Any _0x066725A9D52B3641() { return invoke<Any>(0x066725A9D52B3641); } // 0x066725A9D52B3641 b1232
 	NATIVE_DECL void _0x958278B97C4AFFD8(Any p0, Any p1) { invoke<Void>(0x958278B97C4AFFD8, p0, p1); } // 0x958278B97C4AFFD8 b1232
 	NATIVE_DECL int _CREATE_MP_GAMER_TAG(Player player, const char* username, BOOL pointedClanTag, BOOL isRockstarClan, const char* clanTag, int clanFlag) { return invoke<int>(0xD877AF112AD2B41B, player, username, pointedClanTag, isRockstarClan, clanTag, clanFlag); } // 0xD877AF112AD2B41B b1207
@@ -2582,7 +2732,7 @@ namespace HUD
 	NATIVE_DECL void REMOVE_MP_GAMER_TAG(int gamerTagId) { invoke<Void>(0x839BFD7D7E49FE09, gamerTagId); } // 0x839BFD7D7E49FE09 0x3D081FE4 b1207
 	NATIVE_DECL BOOL IS_MP_GAMER_TAG_ACTIVE(int gamerTagId) { return invoke<BOOL>(0x6E1C31E14C7A5F97, gamerTagId); } // 0x6E1C31E14C7A5F97 0x60118951 b1207
 	NATIVE_DECL BOOL _IS_MP_GAMER_TAG_ACTIVE_ON_ENTITY(int gamerTagId, Entity entity) { return invoke<BOOL>(0x502E1591A504F843, gamerTagId, entity); } // 0x502E1591A504F843 b1207
-	// visiblity:
+	// visibility:
 	// enum eUIGamertagVisibility
 	// {
 	// 	UIGAMERTAGVISIBILITY_NONE,
@@ -2590,7 +2740,7 @@ namespace HUD
 	// 	UIGAMERTAGVISIBILITY_SIMPLE,
 	// 	UIGAMERTAGVISIBILITY_COMPLEX
 	// };
-	NATIVE_DECL void _SET_MP_GAMER_TAG_VISIBILITY(int gamerTagId, int visiblity) { invoke<Void>(0x93171DDDAB274EB8, gamerTagId, visiblity); } // 0x93171DDDAB274EB8 b1207
+	NATIVE_DECL void _SET_MP_GAMER_TAG_VISIBILITY(int gamerTagId, int visibility) { invoke<Void>(0x93171DDDAB274EB8, gamerTagId, visibility); } // 0x93171DDDAB274EB8 b1207
 	// Found types: GENERIC_PLAYER, DEADDROP, HOTPROPERTY, MINIGAMES
 	NATIVE_DECL void _SET_MP_GAMER_TAG_TYPE(int gamerTagId, Hash type) { invoke<Void>(0x25B9C78A25105C35, gamerTagId, type); } // 0x25B9C78A25105C35 b1207
 	NATIVE_DECL void _SET_MP_GAMER_TAG_COLOUR(int gamerTagId, Hash colour) { invoke<Void>(0x84BD27DDF9575816, gamerTagId, colour); } // 0x84BD27DDF9575816 b1207
@@ -2609,11 +2759,12 @@ namespace HUD
 
 namespace IK
 {
-	NATIVE_DECL void _0x66F9EB44342BB4C5(Any p0, Any p1) { invoke<Void>(0x66F9EB44342BB4C5, p0, p1); } // 0x66F9EB44342BB4C5 b1207
-	NATIVE_DECL void _0x0B9F7A01EC50448D(Any p0, Any p1) { invoke<Void>(0x0B9F7A01EC50448D, p0, p1); } // 0x0B9F7A01EC50448D b1207
-	NATIVE_DECL void _0x0EABF182FBB63D72(Any p0, Any p1, Any p2) { invoke<Void>(0x0EABF182FBB63D72, p0, p1, p2); } // 0x0EABF182FBB63D72 b1207
-	NATIVE_DECL Any _0x6098139150DCC745(Any p0, Any p1) { return invoke<Any>(0x6098139150DCC745, p0, p1); } // 0x6098139150DCC745 b1207
-	NATIVE_DECL void _0x873C792E07A32C8B(Any p0, Any p1) { invoke<Void>(0x873C792E07A32C8B, p0, p1); } // 0x873C792E07A32C8B b1207
+	NATIVE_DECL void _0x66F9EB44342BB4C5(Ped ped, Any p1) { invoke<Void>(0x66F9EB44342BB4C5, ped, p1); } // 0x66F9EB44342BB4C5 b1207
+	NATIVE_DECL void _0x0B9F7A01EC50448D(Ped ped, Any p1) { invoke<Void>(0x0B9F7A01EC50448D, ped, p1); } // 0x0B9F7A01EC50448D b1207
+	// Seems to disable IK on ped
+	NATIVE_DECL void _INVERSE_KINEMATICS_SET_DISABLED_FOR_PED(Ped ped, int p1, BOOL p2) { invoke<Void>(0x0EABF182FBB63D72, ped, p1, p2); } // 0x0EABF182FBB63D72 b1207
+	NATIVE_DECL BOOL _0x6098139150DCC745(Ped ped, int p1) { return invoke<BOOL>(0x6098139150DCC745, ped, p1); } // 0x6098139150DCC745 b1207
+	NATIVE_DECL void _0x873C792E07A32C8B(Ped ped1, Ped ped2) { invoke<Void>(0x873C792E07A32C8B, ped1, ped2); } // 0x873C792E07A32C8B b1207
 }
 
 namespace _NAMESPACE30
@@ -2624,12 +2775,18 @@ namespace _NAMESPACE30
 	// 
 	// spriteId's: https://github.com/femga/rdr3_discoveries/tree/master/graphics/HUD/cursor_sprites#readme
 	NATIVE_DECL void _SET_MOUSE_CURSOR_SPRITE(int spriteId) { invoke<Void>(0x7F5858AAB5A58CCE, spriteId); } // 0x7F5858AAB5A58CCE b1207
+	// Allows camera to be moved if middle mouse button is held while in first person
+	// Must be called every frame
+	// _SET*
 	NATIVE_DECL void _0x0546B117BB17548B() { invoke<Void>(0x0546B117BB17548B); } // 0x0546B117BB17548B b1232
 	// Returns true if player is moving mouse while cursor is active
+	// _PI* - _PO*
 	NATIVE_DECL BOOL _0x2B8B605F2A9E64BF() { return invoke<BOOL>(0x2B8B605F2A9E64BF); } // 0x2B8B605F2A9E64BF b1311
 	// Returns true if player is holding LMB while cursor is active
+	// _PI* - _PO*
 	NATIVE_DECL BOOL _0x61CAE9D1FD055E44() { return invoke<BOOL>(0x61CAE9D1FD055E44); } // 0x61CAE9D1FD055E44 b1207
 	// Returns true when player releases LMB if cursor is active
+	// _PI* - _PO*
 	NATIVE_DECL BOOL _0xF7F51A57349739F2() { return invoke<BOOL>(0xF7F51A57349739F2); } // 0xF7F51A57349739F2 b1207
 }
 
@@ -2666,6 +2823,7 @@ namespace INTERIOR
 	// Returns true if the collision at the specified coords is marked as being outside (false if there's an interior)
 	NATIVE_DECL BOOL IS_COLLISION_MARKED_OUTSIDE(float x, float y, float z) { return invoke<BOOL>(0xF291396B517E25B2, x, y, z); } // 0xF291396B517E25B2 0x7762249C b1207
 	NATIVE_DECL int GET_INTERIOR_FROM_COLLISION(float x, float y, float z) { return invoke<int>(0x5054D1A5218FA696, x, y, z); } // 0x5054D1A5218FA696 0x7ED33DC1 b1207
+	// https://github.com/femga/rdr3_discoveries/tree/master/interiors/interior_sets
 	NATIVE_DECL void ACTIVATE_INTERIOR_ENTITY_SET(Interior interior, const char* entitySetName, int p2) { invoke<Void>(0x174D0AAB11CED739, interior, entitySetName, p2); } // 0x174D0AAB11CED739 0xC80A5DDF b1207
 	NATIVE_DECL void DEACTIVATE_INTERIOR_ENTITY_SET(Interior interior, const char* entitySetName, BOOL p2) { invoke<Void>(0x33B81A2C07A51FFF, interior, entitySetName, p2); } // 0x33B81A2C07A51FFF 0xDBA768A1 b1207
 	NATIVE_DECL BOOL IS_INTERIOR_ENTITY_SET_ACTIVE(Interior interior, const char* entitySetName) { return invoke<BOOL>(0x32810CA2125F5842, interior, entitySetName); } // 0x32810CA2125F5842 0x39A3CC6F b1207
@@ -2703,7 +2861,7 @@ namespace INVENTORY
 	NATIVE_DECL Any _0xE80E50BEE276A54A(Any p0, Any p1) { return invoke<Any>(0xE80E50BEE276A54A, p0, p1); } // 0xE80E50BEE276A54A b1207
 	NATIVE_DECL Any _0x112BCA290D2EB53C(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return invoke<Any>(0x112BCA290D2EB53C, p0, p1, p2, p3, p4, p5, p6, p7); } // 0x112BCA290D2EB53C b1207
 	NATIVE_DECL void _0x46743BBFEDBC859E(Any p0, Any p1, Any p2) { invoke<Void>(0x46743BBFEDBC859E, p0, p1, p2); } // 0x46743BBFEDBC859E b1207
-	NATIVE_DECL void _0x65A5F70F4A292EBE(Any p0, Any p1, Any p2) { invoke<Void>(0x65A5F70F4A292EBE, p0, p1, p2); } // 0x65A5F70F4A292EBE b1207
+	NATIVE_DECL void _0x65A5F70F4A292EBE(int inventoryId, Any* guid, BOOL inUse) { invoke<Void>(0x65A5F70F4A292EBE, inventoryId, guid, inUse); } // 0x65A5F70F4A292EBE b1207
 	NATIVE_DECL Any _0x70E3A884ED000A01(Any p0, Any p1) { return invoke<Any>(0x70E3A884ED000A01, p0, p1); } // 0x70E3A884ED000A01 b1311
 	NATIVE_DECL void _0x9A113C660AEA3832(Any p0, Any p1, Any p2) { invoke<Void>(0x9A113C660AEA3832, p0, p1, p2); } // 0x9A113C660AEA3832 b1207
 	NATIVE_DECL void _0xD740F11FBC8AEF43(Any p0, Any p1, Any p2) { invoke<Void>(0xD740F11FBC8AEF43, p0, p1, p2); } // 0xD740F11FBC8AEF43 b1207
@@ -2746,7 +2904,7 @@ namespace INVENTORY
 	NATIVE_DECL Any _0x227522FD59DDB7E8(Any p0, Any p1, Any p2) { return invoke<Any>(0x227522FD59DDB7E8, p0, p1, p2); } // 0x227522FD59DDB7E8 b1207
 	NATIVE_DECL BOOL _INVENTORY_IS_ITEM_EXPIRED(Any* itemGUID) { return invoke<BOOL>(0x0137C77A2EC64536, itemGUID); } // 0x0137C77A2EC64536 b1232
 	NATIVE_DECL int _INVENTORY_GET_ITEM_EXPIRY_TIME(Any* itemGUID) { return invoke<int>(0x4A606C17276E1BCC, itemGUID); } // 0x4A606C17276E1BCC b1232
-	NATIVE_DECL Any _0xC97E0D2302382211(Any p0, Any p1, Any p2) { return invoke<Any>(0xC97E0D2302382211, p0, p1, p2); } // 0xC97E0D2302382211 b1207
+	NATIVE_DECL Any _0xC97E0D2302382211(int inventoryId, Any* guid, BOOL p2) { return invoke<Any>(0xC97E0D2302382211, inventoryId, guid, p2); } // 0xC97E0D2302382211 b1207
 	NATIVE_DECL Any _0xE787F05DFC977BDE(Any p0, Any p1, Any p2) { return invoke<Any>(0xE787F05DFC977BDE, p0, p1, p2); } // 0xE787F05DFC977BDE b1207
 	NATIVE_DECL Any _0xB1DD74A1F5536622(Any p0, Any p1) { return invoke<Any>(0xB1DD74A1F5536622, p0, p1); } // 0xB1DD74A1F5536622 b1311
 	NATIVE_DECL Any _0xE843D21A8E2498AA(Any p0, Any p1) { return invoke<Any>(0xE843D21A8E2498AA, p0, p1); } // 0xE843D21A8E2498AA b1207
@@ -2792,7 +2950,9 @@ namespace ITEMDATABASE
 	NATIVE_DECL Any _ITEMDATABASE_GET_HAS_SLOT_COUNT(Any p0) { return invoke<Any>(0x44915068579D7710, p0); } // 0x44915068579D7710 b1207
 	NATIVE_DECL Any _ITEMDATABASE_GET_HAS_SLOT_INFO(Any p0, Any p1, Any p2) { return invoke<Any>(0x8A9BD0DB7E8376CF, p0, p1, p2); } // 0x8A9BD0DB7E8376CF b1207
 	NATIVE_DECL Any ITEMDATABASE_FILLOUT_ITEM_BY_NAME(Any p0, Any p1) { return invoke<Any>(0x2A610BEE7D341CC4, p0, p1); } // 0x2A610BEE7D341CC4 b1207
-	NATIVE_DECL Any ITEMDATABASE_FILLOUT_ITEM_INFO(Any p0, Any p1) { return invoke<Any>(0xFE90ABBCBFDC13B2, p0, p1); } // 0xFE90ABBCBFDC13B2 b1207
+	// p0 can be a weapon hash, component item
+	// p1 is a struct containing WEAPON_MOD and WEAPON_DECORATION
+	NATIVE_DECL BOOL ITEMDATABASE_FILLOUT_ITEM_INFO(Hash p0, Any* p1) { return invoke<BOOL>(0xFE90ABBCBFDC13B2, p0, p1); } // 0xFE90ABBCBFDC13B2 b1207
 	NATIVE_DECL Any _ITEMDATABASE_FILLOUT_ACQUIRE_COST(Any p0, Any p1, Any p2) { return invoke<Any>(0x74F7928816E4E181, p0, p1, p2); } // 0x74F7928816E4E181 b1207
 	NATIVE_DECL Any _ITEMDATABASE_FILLOUT_SELL_PRICE(Any p0, Any p1, Any p2) { return invoke<Any>(0x7A62A2EEDE1C3766, p0, p1, p2); } // 0x7A62A2EEDE1C3766 b1207
 	NATIVE_DECL Any _ITEMDATABASE_FILLOUT_SATCHEL_DATA(Any p0, Any p1) { return invoke<Any>(0x4776EFD78F75C23F, p0, p1); } // 0x4776EFD78F75C23F b1207
@@ -2809,10 +2969,12 @@ namespace ITEMDATABASE
 	NATIVE_DECL Any _0x1FC25AEB5F76B38D(Any p0, Any p1, Any p2) { return invoke<Any>(0x1FC25AEB5F76B38D, p0, p1, p2); } // 0x1FC25AEB5F76B38D b1311
 	NATIVE_DECL Any _0xF540239F9937033B(Any p0, Any p1) { return invoke<Any>(0xF540239F9937033B, p0, p1); } // 0xF540239F9937033B b1232
 	NATIVE_DECL Any _0xF27F01BBF5ACD3F3(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0xF27F01BBF5ACD3F3, p0, p1, p2, p3); } // 0xF27F01BBF5ACD3F3 b1232
-	NATIVE_DECL Any _ITEMDATABASE_CREATE_ITEM_COLLECTION(Any p0, Any p1, Any p2) { return invoke<Any>(0x71EFA7999AE79408, p0, p1, p2); } // 0x71EFA7999AE79408 b1207
+	// Returns collectionId to be used with 0x8750F69A720C2E41 (p0) and 0xCBB7B6EDFA933ADE (p0)
+	NATIVE_DECL int _ITEMDATABASE_CREATE_ITEM_COLLECTION(Any* p0, int* size, int comparisonType) { return invoke<int>(0x71EFA7999AE79408, p0, size, comparisonType); } // 0x71EFA7999AE79408 b1207
 	NATIVE_DECL Any _0xD389A2549C4EFB30(Any p0) { return invoke<Any>(0xD389A2549C4EFB30, p0); } // 0xD389A2549C4EFB30 b1207
-	NATIVE_DECL Any _0x8750F69A720C2E41(Any p0, Any p1, Any p2) { return invoke<Any>(0x8750F69A720C2E41, p0, p1, p2); } // 0x8750F69A720C2E41 b1207
-	NATIVE_DECL BOOL _ITEMDATABASE_RELEASE_ITEM_COLLECTION(int collection) { return invoke<BOOL>(0xCBB7B6EDFA933ADE, collection); } // 0xCBB7B6EDFA933ADE b1207
+	// Params: p2 can be a component item hash
+	NATIVE_DECL Any _0x8750F69A720C2E41(int collectionId, Any p1, Hash* p2) { return invoke<Any>(0x8750F69A720C2E41, collectionId, p1, p2); } // 0x8750F69A720C2E41 b1207
+	NATIVE_DECL BOOL _ITEMDATABASE_RELEASE_ITEM_COLLECTION(int collectionId) { return invoke<BOOL>(0xCBB7B6EDFA933ADE, collectionId); } // 0xCBB7B6EDFA933ADE b1207
 	NATIVE_DECL Any _ITEMDATABASE_IS_INTRINSIC_ITEM(Any p0) { return invoke<Any>(0x337F88E3A063995E, p0); } // 0x337F88E3A063995E b1207
 	NATIVE_DECL Any _ITEMDATABASE_IS_OVERPOWERED_ITEM(Any p0) { return invoke<Any>(0x337F88E3A063995F, p0); } // 0x337F88E3A063995F b1207
 	NATIVE_DECL Any _ITEMDATABASE_IS_KEY_VALID(Any p0, Any p1) { return invoke<Any>(0x6D5D51B188333FD1, p0, p1); } // 0x6D5D51B188333FD1 b1207
@@ -2860,7 +3022,7 @@ namespace ITEMDATABASE
 	NATIVE_DECL Any _0x8D029948CA29409B(Any p0, Any p1, Any p2) { return invoke<Any>(0x8D029948CA29409B, p0, p1, p2); } // 0x8D029948CA29409B b1207
 	NATIVE_DECL Any _0xE81D0378A384E755(Any p0, Any p1) { return invoke<Any>(0xE81D0378A384E755, p0, p1); } // 0xE81D0378A384E755 b1232
 	NATIVE_DECL Any _0xD076DB9B96FAADF1(Any p0, Any p1) { return invoke<Any>(0xD076DB9B96FAADF1, p0, p1); } // 0xD076DB9B96FAADF1 b1311
-	NATIVE_DECL Any _ITEMDATABASE_DOES_ITEM_HAVE_TAG(Any p0, Any p1, Any p2) { return invoke<Any>(0xFF5FB5605AD56856, p0, p1, p2); } // 0xFF5FB5605AD56856 b1207
+	NATIVE_DECL BOOL _ITEMDATABASE_DOES_ITEM_HAVE_TAG(Hash item, Hash tag, Hash p2) { return invoke<BOOL>(0xFF5FB5605AD56856, item, tag, p2); } // 0xFF5FB5605AD56856 b1207
 	NATIVE_DECL Any _0x99C6EA66DFE73757(Any p0, Any p1, Any p2) { return invoke<Any>(0x99C6EA66DFE73757, p0, p1, p2); } // 0x99C6EA66DFE73757 b1207
 	NATIVE_DECL Any _ITEMDATABASE_GET_ITEM_TAG_TYPE(Any p0, Any p1) { return invoke<Any>(0x6111B8F9413F413A, p0, p1); } // 0x6111B8F9413F413A b1207
 	NATIVE_DECL Any _0x8870895BA5ED9385(Any p0, Any p1, Any p2) { return invoke<Any>(0x8870895BA5ED9385, p0, p1, p2); } // 0x8870895BA5ED9385 b1232
@@ -2877,12 +3039,12 @@ namespace ITEMSET
 	NATIVE_DECL ItemSet CREATE_ITEMSET(BOOL p0) { return invoke<ItemSet>(0xA1AF16083320065A, p0); } // 0xA1AF16083320065A 0x0A113B2C b1207
 	NATIVE_DECL void DESTROY_ITEMSET(ItemSet itemset) { invoke<Void>(0x712BC69F10549B92, itemset); } // 0x712BC69F10549B92 0x83CE1A4C b1207
 	NATIVE_DECL BOOL IS_ITEMSET_VALID(ItemSet itemset) { return invoke<BOOL>(0xD30765D153EF5C76, itemset); } // 0xD30765D153EF5C76 0xD201FC29 b1207
-	NATIVE_DECL BOOL ADD_TO_ITEMSET(ItemSet itemset, Any p1) { return invoke<BOOL>(0xABE74510883C7950, itemset, p1); } // 0xABE74510883C7950 0x6B0FE61B b1207
-	NATIVE_DECL void REMOVE_FROM_ITEMSET(ItemSet itemset, Any p1) { invoke<Void>(0xC5BAA432B429DC24, itemset, p1); } // 0xC5BAA432B429DC24 0xA9565228 b1207
+	NATIVE_DECL BOOL ADD_TO_ITEMSET(Entity entity, ItemSet itemset) { return invoke<BOOL>(0xABE74510883C7950, entity, itemset); } // 0xABE74510883C7950 0x6B0FE61B b1207
+	NATIVE_DECL void REMOVE_FROM_ITEMSET(Entity entity, ItemSet itemset) { invoke<Void>(0xC5BAA432B429DC24, entity, itemset); } // 0xC5BAA432B429DC24 0xA9565228 b1207
 	NATIVE_DECL Any GET_ITEMSET_SIZE(ItemSet itemset) { return invoke<Any>(0x55F2E375AC6018A9, itemset); } // 0x55F2E375AC6018A9 0x2B31F41A b1207
-	NATIVE_DECL Any GET_INDEXED_ITEM_IN_ITEMSET(ItemSet itemset, Any p1) { return invoke<Any>(0x275A2E2C0FAB7612, itemset, p1); } // 0x275A2E2C0FAB7612 0x3F712874 b1207
-	NATIVE_DECL Any GET_INDEXED_SCENARIO_POINT_INDEX_IN_ITEMSET(ItemSet itemset, Any p1) { return invoke<Any>(0x9FC3CDB5CE815901, itemset, p1); } // 0x9FC3CDB5CE815901 b1207
-	NATIVE_DECL BOOL IS_IN_ITEMSET(ItemSet itemset, Any p1) { return invoke<BOOL>(0xD1503C2EE2FE688C, itemset, p1); } // 0xD1503C2EE2FE688C 0x0D4B9730 b1207
+	NATIVE_DECL Any GET_INDEXED_ITEM_IN_ITEMSET(int index, ItemSet itemset) { return invoke<Any>(0x275A2E2C0FAB7612, index, itemset); } // 0x275A2E2C0FAB7612 0x3F712874 b1207
+	NATIVE_DECL Any GET_INDEXED_SCENARIO_POINT_INDEX_IN_ITEMSET(int index, ItemSet itemset) { return invoke<Any>(0x9FC3CDB5CE815901, index, itemset); } // 0x9FC3CDB5CE815901 b1207
+	NATIVE_DECL BOOL IS_IN_ITEMSET(Entity entity, ItemSet itemset) { return invoke<BOOL>(0xD1503C2EE2FE688C, entity, itemset); } // 0xD1503C2EE2FE688C 0x0D4B9730 b1207
 	NATIVE_DECL void CLEAN_ITEMSET(ItemSet itemset) { invoke<Void>(0x85F3A86CA9021FB0, itemset); } // 0x85F3A86CA9021FB0 0x919A4858 b1207
 	NATIVE_DECL void _CLEAR_ITEMSET(ItemSet itemset) { invoke<Void>(0x20A4BF0E09BEE146, itemset); } // 0x20A4BF0E09BEE146 b1207
 }
@@ -2961,22 +3123,20 @@ namespace LAW
 	NATIVE_DECL BOOL _0x3D2674828A4E6B3C() { return invoke<BOOL>(0x3D2674828A4E6B3C); } // 0x3D2674828A4E6B3C b1207
 	NATIVE_DECL void _0xC5EB2755FA25F1E9(BOOL p0) { invoke<Void>(0xC5EB2755FA25F1E9, p0); } // 0xC5EB2755FA25F1E9 b1207
 	NATIVE_DECL int _GET_BOUNTY_FOR_PLAYER(Player player) { return invoke<int>(0x54310AAB97B92816, player); } // 0x54310AAB97B92816 b1207
-	NATIVE_DECL void _0x0E3BDEED21BEB945(Player player, int amount) { invoke<Void>(0x0E3BDEED21BEB945, player, amount); } // 0x0E3BDEED21BEB945 b1207
+	NATIVE_DECL void _ADD_BOUNTY_INCREASE_BY_ITEM_VALUE_FOR_PLAYER(Player player, int itemValueAmount) { invoke<Void>(0x0E3BDEED21BEB945, player, itemValueAmount); } // 0x0E3BDEED21BEB945 b1207
 	NATIVE_DECL void _SET_BOUNTY_FOR_PLAYER(Player player, int amount) { invoke<Void>(0x093A9D1F72DF0D19, player, amount); } // 0x093A9D1F72DF0D19 b1207
-	NATIVE_DECL void _0xC76F252371150D9A(Player player) { invoke<Void>(0xC76F252371150D9A, player); } // 0xC76F252371150D9A b1207
+	NATIVE_DECL void _CLEAR_BOUNTY_FOR_PLAYER(Player player) { invoke<Void>(0xC76F252371150D9A, player); } // 0xC76F252371150D9A b1207
 	NATIVE_DECL int _GET_WANTED_INTENSITY_FOR_PLAYER(Player player) { return invoke<int>(0xDD5FD601481F648B, player); } // 0xDD5FD601481F648B b1207
 	NATIVE_DECL void _SET_WANTED_INTENSITY_FOR_PLAYER(Player player, int intensity) { invoke<Void>(0xA80FF73F772ACF6A, player, intensity); } // 0xA80FF73F772ACF6A b1207
-	NATIVE_DECL void _0x062B4A4A3396351D(Player player) { invoke<Void>(0x062B4A4A3396351D, player); } // 0x062B4A4A3396351D b1207
+	NATIVE_DECL void _CLEAR_WANTED_INTENSITY_FOR_PLAYER(Player player) { invoke<Void>(0x062B4A4A3396351D, player); } // 0x062B4A4A3396351D b1207
 	NATIVE_DECL void _0x331D349E0380B097(Any p0) { invoke<Void>(0x331D349E0380B097, p0); } // 0x331D349E0380B097 b1207
 	NATIVE_DECL void _0x292AD61A33A7A485() { invoke<Void>(0x292AD61A33A7A485); } // 0x292AD61A33A7A485 b1207
 	NATIVE_DECL void _0x07E8B8B20570271C(Player player) { invoke<Void>(0x07E8B8B20570271C, player); } // 0x07E8B8B20570271C b1207
 	NATIVE_DECL void _0x22741652985C84D0(Player player, Hash lawRegionHash) { invoke<Void>(0x22741652985C84D0, player, lawRegionHash); } // 0x22741652985C84D0 b1207
-	NATIVE_DECL void _0x9C4352134B2835FB(Player player, Hash dispatchResponseHash) { invoke<Void>(0x9C4352134B2835FB, player, dispatchResponseHash); } // 0x9C4352134B2835FB b1207
+	NATIVE_DECL void _REPORT_PLAYER_LAW_DISPATCH_RESPONSE_OVERRIDE(Player player, Hash dispatchResponseHash) { invoke<Void>(0x9C4352134B2835FB, player, dispatchResponseHash); } // 0x9C4352134B2835FB b1207
 	NATIVE_DECL BOOL _0x9EF07CFBB19A9733() { return invoke<BOOL>(0x9EF07CFBB19A9733); } // 0x9EF07CFBB19A9733 b1207
-	NATIVE_DECL void _0x8DE82BC774F3B862(BOOL p0) { invoke<Void>(0x8DE82BC774F3B862, p0); } // 0x8DE82BC774F3B862 b1207
-	// Appears to make the local player wanted immediately.
-	// Likely FORCE_*
-	NATIVE_DECL void _0x956510F8C36B5C64() { invoke<Void>(0x956510F8C36B5C64); } // 0x956510F8C36B5C64 b1207
+	NATIVE_DECL void _SET_LAW_DISABLED(BOOL toggle) { invoke<Void>(0x8DE82BC774F3B862, toggle); } // 0x8DE82BC774F3B862 b1207
+	NATIVE_DECL void _FORCE_LAW_ON_LOCAL_PLAYER_IMMEDIATELY() { invoke<Void>(0x956510F8C36B5C64); } // 0x956510F8C36B5C64 b1207
 	// enum eLawRegion : Hash
 	// {
 	// 	LAW_DISPATCH_REGION_NONE = 0,
@@ -3032,36 +3192,39 @@ namespace LAW
 	// };
 	NATIVE_DECL void _SET_LAW_REGION(Player player, Hash lawRegionHash, Hash stateHash) { invoke<Void>(0x4752F68EB7F2D280, player, lawRegionHash, stateHash); } // 0x4752F68EB7F2D280 b1207
 	NATIVE_DECL void _0x5E6F375CA101C108(Player player, BOOL p1) { invoke<Void>(0x5E6F375CA101C108, player, p1); } // 0x5E6F375CA101C108 b1207
-	NATIVE_DECL void _0x9BBDCB8DF789EBC1(Player player, Hash p1) { invoke<Void>(0x9BBDCB8DF789EBC1, player, p1); } // 0x9BBDCB8DF789EBC1 b1207
+	NATIVE_DECL void _SET_LAW_RBS_VOLUME(Player player, Hash p1) { invoke<Void>(0x9BBDCB8DF789EBC1, player, p1); } // 0x9BBDCB8DF789EBC1 b1207
 	NATIVE_DECL BOOL IS_LAW_INCIDENT_ACTIVE(Player player) { return invoke<BOOL>(0xAD401C63158ACBAA, player); } // 0xAD401C63158ACBAA b1207
 	NATIVE_DECL Hash _0x148E7AC8141C9E64(Player player) { return invoke<Hash>(0x148E7AC8141C9E64, player); } // 0x148E7AC8141C9E64 b1207
 	NATIVE_DECL void _0xEDFC6C1FD1C964F5(Player player, Hash crimeType, int bounty, float p3, float p4, Any p5, float p6, float p7, Any p8) { invoke<Void>(0xEDFC6C1FD1C964F5, player, crimeType, bounty, p3, p4, p5, p6, p7, p8); } // 0xEDFC6C1FD1C964F5 b1207
-	NATIVE_DECL Any _0xF0B67BAD53C35BD9(Ped pedGroup1, Ped ped, Ped pedGroup2, float x, float y, float z, Hash crimeType) { return invoke<Any>(0xF0B67BAD53C35BD9, pedGroup1, ped, pedGroup2, x, y, z, crimeType); } // 0xF0B67BAD53C35BD9 b1207
+	NATIVE_DECL BOOL _LAW_WITNESS_RESPONSE_TASK(Ped pedGroup1, Ped ped, Ped pedGroup2, float x, float y, float z, Hash crimeType) { return invoke<BOOL>(0xF0B67BAD53C35BD9, pedGroup1, ped, pedGroup2, x, y, z, crimeType); } // 0xF0B67BAD53C35BD9 b1207
 	NATIVE_DECL Any _0x018F30D762E62DF8(Ped ped, Any* p1) { return invoke<Any>(0x018F30D762E62DF8, ped, p1); } // 0x018F30D762E62DF8 b1207
 	NATIVE_DECL Any _0x318F0F9A4426CFA2(Ped ped, Any* p1) { return invoke<Any>(0x318F0F9A4426CFA2, ped, p1); } // 0x318F0F9A4426CFA2 b1207
 	NATIVE_DECL Any _0x95878B13E272EF1F(Entity entity, Ped ped, BOOL p2, float x, float y, float z, Hash crimeType) { return invoke<Any>(0x95878B13E272EF1F, entity, ped, p2, x, y, z, crimeType); } // 0x95878B13E272EF1F b1207
-	NATIVE_DECL void _0x10827B5A0AAC56A7(Player player, Hash crimeType, Ped ped) { invoke<Void>(0x10827B5A0AAC56A7, player, crimeType, ped); } // 0x10827B5A0AAC56A7 b1207
+	NATIVE_DECL void _ADD_WITNESS_RESPONSE(Player player, Hash crimeType, Ped pedGroup) { invoke<Void>(0x10827B5A0AAC56A7, player, crimeType, pedGroup); } // 0x10827B5A0AAC56A7 b1207
 	NATIVE_DECL void _0xD7494DED50C6EF52(Player player, Hash crimeType, int p2) { invoke<Void>(0xD7494DED50C6EF52, player, crimeType, p2); } // 0xD7494DED50C6EF52 b1207
 	NATIVE_DECL BOOL ARE_WITNESSES_ACTIVE(Player player) { return invoke<BOOL>(0x69E181772886F48B, player); } // 0x69E181772886F48B b1207
-	NATIVE_DECL BOOL _0x0BB6DE7D23C60626(Player player) { return invoke<BOOL>(0x0BB6DE7D23C60626, player); } // 0x0BB6DE7D23C60626 b1207
-	NATIVE_DECL BOOL _0xF0FBFB9AB15F7734(Player player, BOOL areInvestigatorsActive, Any p2) { return invoke<BOOL>(0xF0FBFB9AB15F7734, player, areInvestigatorsActive, p2); } // 0xF0FBFB9AB15F7734 b1207
+	NATIVE_DECL BOOL _ARE_WITNESSES_PENDING(Player player) { return invoke<BOOL>(0x0BB6DE7D23C60626, player); } // 0x0BB6DE7D23C60626 b1207
+	NATIVE_DECL BOOL _ARE_INVESTIGATORS_ACTIVE(Player player, BOOL areInvestigatorsActive, Any p2) { return invoke<BOOL>(0xF0FBFB9AB15F7734, player, areInvestigatorsActive, p2); } // 0xF0FBFB9AB15F7734 b1207
 	NATIVE_DECL void _0x522F74636DF10201(Player player, ItemSet itemSet) { invoke<Void>(0x522F74636DF10201, player, itemSet); } // 0x522F74636DF10201 b1207
 	NATIVE_DECL void _0xDA1A9ADC4E3D4B16(ItemSet itemSet, Any p1, Any p2) { invoke<Void>(0xDA1A9ADC4E3D4B16, itemSet, p1, p2); } // 0xDA1A9ADC4E3D4B16 b1207
-	NATIVE_DECL void _0xC805EB785824F712(BOOL p0) { invoke<Void>(0xC805EB785824F712, p0); } // 0xC805EB785824F712 b1207
-	NATIVE_DECL void _0x710448D44A64C213(BOOL p0) { invoke<Void>(0x710448D44A64C213, p0); } // 0x710448D44A64C213 b1207
+	NATIVE_DECL void _ENABLE_DISPATCH_LAW(BOOL toggle) { invoke<Void>(0xC805EB785824F712, toggle); } // 0xC805EB785824F712 b1207
+	NATIVE_DECL void _ENABLE_DISPATCH_LAW_2(BOOL toggle) { invoke<Void>(0x710448D44A64C213, toggle); } // 0x710448D44A64C213 b1207
 	NATIVE_DECL BOOL _0xECE3C34B270428D5() { return invoke<BOOL>(0xECE3C34B270428D5); } // 0xECE3C34B270428D5 b1207
-	NATIVE_DECL BOOL _0xA22C46F16359471C() { return invoke<BOOL>(0xA22C46F16359471C); } // 0xA22C46F16359471C b1207
+	// Only used in trainrobbery_ambient
+	NATIVE_DECL BOOL _ARE_LAW_PEDS_ENABLED_FOR_TRAIN() { return invoke<BOOL>(0xA22C46F16359471C); } // 0xA22C46F16359471C b1207
 	NATIVE_DECL void _0x82F11E1296996574(int p0) { invoke<Void>(0x82F11E1296996574, p0); } // 0x82F11E1296996574 b1207
 	NATIVE_DECL void _0x3852237A3D9DF145(int p0) { invoke<Void>(0x3852237A3D9DF145, p0); } // 0x3852237A3D9DF145 b1207
 	NATIVE_DECL BOOL _0x0EAF918F751F27BA(Ped ped) { return invoke<BOOL>(0x0EAF918F751F27BA, ped); } // 0x0EAF918F751F27BA b1207
 	NATIVE_DECL BOOL _0xC0DF161950FB101E(Ped ped) { return invoke<BOOL>(0xC0DF161950FB101E, ped); } // 0xC0DF161950FB101E b1207
 	NATIVE_DECL Any _0xE4D6E45F491A66CB(Player player, int p1) { return invoke<Any>(0xE4D6E45F491A66CB, player, p1); } // 0xE4D6E45F491A66CB b1207
+	// Returns p1 value for 0xE4D6E45F491A66CB
 	NATIVE_DECL int _0xE9EB79CBF9C0F58A(Player player) { return invoke<int>(0xE9EB79CBF9C0F58A, player); } // 0xE9EB79CBF9C0F58A b1207
 	NATIVE_DECL void _0x21213B833EF4DAE7(Player player, Ped ped, Vector3* outCoords) { invoke<Void>(0x21213B833EF4DAE7, player, ped, outCoords); } // 0x21213B833EF4DAE7 b1207
 	NATIVE_DECL void _0x61B98367D93F012F(Player player) { invoke<Void>(0x61B98367D93F012F, player); } // 0x61B98367D93F012F b1207
 	NATIVE_DECL void _0x6ABC50979655BEE7(Player player, Hash* crimeType, Any p2) { invoke<Void>(0x6ABC50979655BEE7, player, crimeType, p2); } // 0x6ABC50979655BEE7 b1207
 	NATIVE_DECL void _0x390710D2DAFA6BFF(Player player, BOOL p1) { invoke<Void>(0x390710D2DAFA6BFF, player, p1); } // 0x390710D2DAFA6BFF b1207
-	NATIVE_DECL int _0x35E5E21F9159849C(Hash crimeType) { return invoke<int>(0x35E5E21F9159849C, crimeType); } // 0x35E5E21F9159849C b1207
+	// Returns bounty (increment) value
+	NATIVE_DECL int _GET_CRIME_BOUNTY_AMOUNT_BY_TYPE(Hash crimeType) { return invoke<int>(0x35E5E21F9159849C, crimeType); } // 0x35E5E21F9159849C b1207
 	// crimeType: see _REPORT_CRIME
 	NATIVE_DECL int _0xDAEFDFDB2AEECE37(Hash crimeType, Any p1) { return invoke<int>(0xDAEFDFDB2AEECE37, crimeType, p1); } // 0xDAEFDFDB2AEECE37 b1207
 	// See _REPORT_CRIME
@@ -3072,10 +3235,11 @@ namespace LAW
 	NATIVE_DECL int _0x0BDFEBCF40A5F7E3(Hash crimeType) { return invoke<int>(0x0BDFEBCF40A5F7E3, crimeType); } // 0x0BDFEBCF40A5F7E3 b1207
 	// Note: This native is only used in multiplayer scripts
 	// dispatchResponseHash: see update1/common/data/dispatchresponses/..
-	NATIVE_DECL void _0x009CF9A29972C298(Hash dispatchResponseHash) { invoke<Void>(0x009CF9A29972C298, dispatchResponseHash); } // 0x009CF9A29972C298 b1207
+	NATIVE_DECL void _SET_CUSTOM_LAW_DISPATCH_RESPONSE(Hash dispatchResponseHash) { invoke<Void>(0x009CF9A29972C298, dispatchResponseHash); } // 0x009CF9A29972C298 b1207
 	// dispatchResponseHash: see common/data/dispatchresponses/..
-	NATIVE_DECL Any _0x75CBF20BA47E4F89(float x, float y, float z, Hash dispatchResponseHash) { return invoke<Any>(0x75CBF20BA47E4F89, x, y, z, dispatchResponseHash); } // 0x75CBF20BA47E4F89 b1207
-	NATIVE_DECL void _0x55F37F5F3F2475E1() { invoke<Void>(0x55F37F5F3F2475E1); } // 0x55F37F5F3F2475E1 b1207
+	NATIVE_DECL Any _CREATE_LAW_DISPATCH_RESPONSE_FOR_COORDS(float x, float y, float z, Hash dispatchResponseHash) { return invoke<Any>(0x75CBF20BA47E4F89, x, y, z, dispatchResponseHash); } // 0x75CBF20BA47E4F89 b1207
+	// Force clears local player's wanted level
+	NATIVE_DECL void _SET_BOUNTY_HUNTER_PURSUIT_CLEARED() { invoke<Void>(0x55F37F5F3F2475E1); } // 0x55F37F5F3F2475E1 b1207
 	NATIVE_DECL void _0xBD944A3D36E992DE() { invoke<Void>(0xBD944A3D36E992DE); } // 0xBD944A3D36E992DE b1207
 	NATIVE_DECL void _0x987BE590FB9D41E5(BOOL p0) { invoke<Void>(0x987BE590FB9D41E5, p0); } // 0x987BE590FB9D41E5 b1207
 	NATIVE_DECL void _0xDCF12B89624AAC96(BOOL p0) { invoke<Void>(0xDCF12B89624AAC96, p0); } // 0xDCF12B89624AAC96 b1207
@@ -3087,17 +3251,17 @@ namespace LAW
 	NATIVE_DECL BOOL _0x9945A3E2528A02E8(Player player) { return invoke<BOOL>(0x9945A3E2528A02E8, player); } // 0x9945A3E2528A02E8 b1207
 	NATIVE_DECL float _0x717DA2281DF90855(Player player) { return invoke<float>(0x717DA2281DF90855, player); } // 0x717DA2281DF90855 b1207
 	NATIVE_DECL void _0x9B4C564BFA7CFF37(float p0) { invoke<Void>(0x9B4C564BFA7CFF37, p0); } // 0x9B4C564BFA7CFF37 b1207
-	NATIVE_DECL void _0x4B52BF96E225D230(BOOL p0) { invoke<Void>(0x4B52BF96E225D230, p0); } // 0x4B52BF96E225D230 b1207
+	NATIVE_DECL void _SET_ALLOW_DISABLED_LAW_RESPONSES(BOOL toggle) { invoke<Void>(0x4B52BF96E225D230, toggle); } // 0x4B52BF96E225D230 b1207
 	NATIVE_DECL void _0x2728C77FBC4B9796(Player player) { invoke<Void>(0x2728C77FBC4B9796, player); } // 0x2728C77FBC4B9796 b1207
 	NATIVE_DECL BOOL _0x856CE8FDE2416602(Ped ped) { return invoke<BOOL>(0x856CE8FDE2416602, ped); } // 0x856CE8FDE2416602 b1207
 	NATIVE_DECL BOOL _0x7351DA734F989F4E(Entity entity) { return invoke<BOOL>(0x7351DA734F989F4E, entity); } // 0x7351DA734F989F4E b1207
 	// p0 is always BOUNTYHUNTERSGLOBALCOOLDOWN in R* scripts
-	NATIVE_DECL int _0x76CF93D4B416B288(Hash p0) { return invoke<int>(0x76CF93D4B416B288, p0); } // 0x76CF93D4B416B288 b1207
+	NATIVE_DECL int _GET_BOUNTY_HUNTER_GLOBAL_COOLDOWN(Hash p0) { return invoke<int>(0x76CF93D4B416B288, p0); } // 0x76CF93D4B416B288 b1207
 	// p0 is always BOUNTYHUNTERSGLOBALCOOLDOWN in R* scripts
-	NATIVE_DECL void _0xF19706B1F8FFA88F(Hash p0, int p1) { invoke<Void>(0xF19706B1F8FFA88F, p0, p1); } // 0xF19706B1F8FFA88F b1207
+	NATIVE_DECL void _SET_BOUNTY_HUNTER_GLOBAL_COOLDOWN(Hash p0, int p1) { invoke<Void>(0xF19706B1F8FFA88F, p0, p1); } // 0xF19706B1F8FFA88F b1207
 	NATIVE_DECL void _0x2001687F9562FD9D(Any p0) { invoke<Void>(0x2001687F9562FD9D, p0); } // 0x2001687F9562FD9D b1207
 	// p0 is always BOUNTYHUNTERSGLOBALCOOLDOWN in R* scripts
-	NATIVE_DECL void _0xC61EDEBF16CD9668(Hash p0, BOOL p1, Any p2) { invoke<Void>(0xC61EDEBF16CD9668, p0, p1, p2); } // 0xC61EDEBF16CD9668 b1207
+	NATIVE_DECL void _PAUSE_BOUNTY_HUNTER_COOLDOWN(Hash p0, BOOL p1, Any p2) { invoke<Void>(0xC61EDEBF16CD9668, p0, p1, p2); } // 0xC61EDEBF16CD9668 b1207
 	NATIVE_DECL void _0xE9AC8466ABE484BB(BOOL p0, Any p1) { invoke<Void>(0xE9AC8466ABE484BB, p0, p1); } // 0xE9AC8466ABE484BB b1207
 	NATIVE_DECL BOOL _0x40851BCC33ACD9AB(Ped ped) { return invoke<BOOL>(0x40851BCC33ACD9AB, ped); } // 0x40851BCC33ACD9AB b1207
 	NATIVE_DECL BOOL _0xF46108C50A22B029() { return invoke<BOOL>(0xF46108C50A22B029); } // 0xF46108C50A22B029 b1207
@@ -3108,11 +3272,11 @@ namespace LAW
 	NATIVE_DECL int _0x7FC667F6DDFBCDCC(Player player) { return invoke<int>(0x7FC667F6DDFBCDCC, player); } // 0x7FC667F6DDFBCDCC b1207
 	NATIVE_DECL void _0x9C5BD8C562565CE6(Hash* crimeType) { invoke<Void>(0x9C5BD8C562565CE6, crimeType); } // 0x9C5BD8C562565CE6 b1207
 	NATIVE_DECL void _0xCBFB4951F2E3934C(Player player, Any p1) { invoke<Void>(0xCBFB4951F2E3934C, player, p1); } // 0xCBFB4951F2E3934C b1207
-	NATIVE_DECL void _0x819ADD5EF1742F47(Ped ped, int behaviour) { invoke<Void>(0x819ADD5EF1742F47, ped, behaviour); } // 0x819ADD5EF1742F47 b1207
+	NATIVE_DECL void _SET_PED_LAW_BEHAVIOUR(Ped ped, int behaviour) { invoke<Void>(0x819ADD5EF1742F47, ped, behaviour); } // 0x819ADD5EF1742F47 b1207
 	NATIVE_DECL void _0x00DB0BC05E3FAA4E(Ped ped, int bitset) { invoke<Void>(0x00DB0BC05E3FAA4E, ped, bitset); } // 0x00DB0BC05E3FAA4E b1207
 	NATIVE_DECL void _0x0C392DB374655176(float x, float y, float z, float p3, ItemSet itemSet) { invoke<Void>(0x0C392DB374655176, x, y, z, p3, itemSet); } // 0x0C392DB374655176 b1207
 	NATIVE_DECL Any _0xC687A23E166DCF68(Any* p0) { return invoke<Any>(0xC687A23E166DCF68, p0); } // 0xC687A23E166DCF68 b1207
-	NATIVE_DECL void _0x002BABE0B7D53136(float multiplier) { invoke<Void>(0x002BABE0B7D53136, multiplier); } // 0x002BABE0B7D53136 b1207
+	NATIVE_DECL void _SET_DISPATCH_MULTIPLIER_OVERRIDE(float multiplier) { invoke<Void>(0x002BABE0B7D53136, multiplier); } // 0x002BABE0B7D53136 b1207
 	NATIVE_DECL BOOL _0x26934083D3F2579C(Player player) { return invoke<BOOL>(0x26934083D3F2579C, player); } // 0x26934083D3F2579C b1207
 	NATIVE_DECL BOOL GET_PLAYER_REGISTERED_CRIME(Player player, int p1, Hash* crimeType) { return invoke<BOOL>(0x532C5FDDB986EE5C, player, p1, crimeType); } // 0x532C5FDDB986EE5C b1207
 	NATIVE_DECL BOOL _0xB527099D1E1EED49(Player player, int p1, Hash* crimeType) { return invoke<BOOL>(0xB527099D1E1EED49, player, p1, crimeType); } // 0xB527099D1E1EED49 b1207
@@ -3120,9 +3284,10 @@ namespace LAW
 	NATIVE_DECL void _0xE0FA74AA3CCE650B(Player player, Hash lawRegionHash) { invoke<Void>(0xE0FA74AA3CCE650B, player, lawRegionHash); } // 0xE0FA74AA3CCE650B b1207
 	NATIVE_DECL void _0x73BAD7B2F2DB50DE(Player player, Hash lawRegionHash) { invoke<Void>(0x73BAD7B2F2DB50DE, player, lawRegionHash); } // 0x73BAD7B2F2DB50DE b1207
 	NATIVE_DECL void _0xD6C0A8C7C0B2F82C(Player player, BOOL p1) { invoke<Void>(0xD6C0A8C7C0B2F82C, player, p1); } // 0xD6C0A8C7C0B2F82C b1207
-	NATIVE_DECL void _0xFEC85339AACA2A35(Player player, float p1) { invoke<Void>(0xFEC85339AACA2A35, player, p1); } // 0xFEC85339AACA2A35 b1207
-	NATIVE_DECL void _0x7EF2A2FE38D74456(int p0, BOOL p1) { invoke<Void>(0x7EF2A2FE38D74456, p0, p1); } // 0x7EF2A2FE38D74456 b1207
-	NATIVE_DECL BOOL _0xC7DC5A0A7DF608CB(int p0) { return invoke<BOOL>(0xC7DC5A0A7DF608CB, p0); } // 0xC7DC5A0A7DF608CB b1207
+	// Default range is 1.0f
+	NATIVE_DECL void _SET_LAW_SEEING_RANGE(Player player, float range) { invoke<Void>(0xFEC85339AACA2A35, player, range); } // 0xFEC85339AACA2A35 b1207
+	NATIVE_DECL void _0x7EF2A2FE38D74456(int flag, BOOL p1) { invoke<Void>(0x7EF2A2FE38D74456, flag, p1); } // 0x7EF2A2FE38D74456 b1207
+	NATIVE_DECL BOOL _0xC7DC5A0A7DF608CB(int flag) { return invoke<BOOL>(0xC7DC5A0A7DF608CB, flag); } // 0xC7DC5A0A7DF608CB b1207
 	NATIVE_DECL void _0xDE5FAA741A781F73(Player player, BOOL p1) { invoke<Void>(0xDE5FAA741A781F73, player, p1); } // 0xDE5FAA741A781F73 b1207
 	NATIVE_DECL void _0x362086B911657B1A(Player player, BOOL p1) { invoke<Void>(0x362086B911657B1A, player, p1); } // 0x362086B911657B1A b1207
 	NATIVE_DECL void _CREATE_GUARD_ZONE(const char* name) { invoke<Void>(0x8F9DE75680275C9F, name); } // 0x8F9DE75680275C9F b1207
@@ -3130,13 +3295,13 @@ namespace LAW
 	NATIVE_DECL void _0x9772395CC73E8D1F(Ped ped, const char* name) { invoke<Void>(0x9772395CC73E8D1F, ped, name); } // 0x9772395CC73E8D1F b1207
 	NATIVE_DECL void _DISABLE_GUARD_ZONE(const char* name) { invoke<Void>(0x26D558692B25DD95, name); } // 0x26D558692B25DD95 b1207
 	NATIVE_DECL BOOL _0x0DBACA9C38C9A686(const char* name) { return invoke<BOOL>(0x0DBACA9C38C9A686, name); } // 0x0DBACA9C38C9A686 b1207
-	NATIVE_DECL BOOL _0xD743C4293F47AFAD(Ped ped) { return invoke<BOOL>(0xD743C4293F47AFAD, ped); } // 0xD743C4293F47AFAD b1207
-	NATIVE_DECL BOOL _0x0D4B77E862475ED3(const char* guardZoneName, Entity entity, float x, float y, float z) { return invoke<BOOL>(0x0D4B77E862475ED3, guardZoneName, entity, x, y, z); } // 0x0D4B77E862475ED3 b1311
-	NATIVE_DECL void _0x8C598A930F471938(const char* name, Volume volume) { invoke<Void>(0x8C598A930F471938, name, volume); } // 0x8C598A930F471938 b1207
-	NATIVE_DECL void _0x35815F372D43E1E5(const char* name, Volume volume) { invoke<Void>(0x35815F372D43E1E5, name, volume); } // 0x35815F372D43E1E5 b1207
-	NATIVE_DECL void _0xA1B0E6301E2E02A6(const char* name, Volume volume) { invoke<Void>(0xA1B0E6301E2E02A6, name, volume); } // 0xA1B0E6301E2E02A6 b1207
-	NATIVE_DECL void _0xAD3E07C37A7C1ADC(const char* name, Volume volume) { invoke<Void>(0xAD3E07C37A7C1ADC, name, volume); } // 0xAD3E07C37A7C1ADC b1207
-	NATIVE_DECL void _0xA8A74AA79FB67159(const char* name, Volume volume) { invoke<Void>(0xA8A74AA79FB67159, name, volume); } // 0xA8A74AA79FB67159 b1207
+	NATIVE_DECL BOOL _IS_GUARD_PED_INVESTIGATING(Ped ped) { return invoke<BOOL>(0xD743C4293F47AFAD, ped); } // 0xD743C4293F47AFAD b1207
+	NATIVE_DECL BOOL _CREATE_GUARD_ZONE_FOR_ENTITY(const char* guardZoneName, Entity entity, float x, float y, float z) { return invoke<BOOL>(0x0D4B77E862475ED3, guardZoneName, entity, x, y, z); } // 0x0D4B77E862475ED3 b1311
+	NATIVE_DECL void _SET_GUARD_ZONE_VOLUME_REGISTRATION_START(const char* name, Volume volume) { invoke<Void>(0x8C598A930F471938, name, volume); } // 0x8C598A930F471938 b1207
+	NATIVE_DECL void _SET_GUARD_ZONE_VOLUME_RESTRICTED(const char* name, Volume volume) { invoke<Void>(0x35815F372D43E1E5, name, volume); } // 0x35815F372D43E1E5 b1207
+	NATIVE_DECL void _SET_GUARD_ZONE_VOLUME_THREAT(const char* name, Volume volume) { invoke<Void>(0xA1B0E6301E2E02A6, name, volume); } // 0xA1B0E6301E2E02A6 b1207
+	NATIVE_DECL void _SET_GUARD_ZONE_VOLUME_WARNING(const char* name, Volume volume) { invoke<Void>(0xAD3E07C37A7C1ADC, name, volume); } // 0xAD3E07C37A7C1ADC b1207
+	NATIVE_DECL void _SET_GUARD_ZONE_VOLUME_REGISTRATION_END(const char* name, Volume volume) { invoke<Void>(0xA8A74AA79FB67159, name, volume); } // 0xA8A74AA79FB67159 b1207
 	NATIVE_DECL void _SET_GUARD_ZONE_POSITION(const char* name, float x, float y, float z) { invoke<Void>(0x7E7BF59F89FC6C6D, name, x, y, z); } // 0x7E7BF59F89FC6C6D b1207
 	NATIVE_DECL void _SET_GUARD_ZONE_POSITION_2(const char* name, float x, float y, float z) { invoke<Void>(0x2F9005E2EA4E5EE4, name, x, y, z); } // 0x2F9005E2EA4E5EE4 b1207
 }
@@ -3161,7 +3326,9 @@ namespace LOCALIZATION
 	NATIVE_DECL int GET_CURRENT_LANGUAGE() { return invoke<int>(0xDB917DA5C6835FCC); } // 0xDB917DA5C6835FCC 0x761BE00B b1207
 	// Returns true if the current language is american, french, german, italian, spanish, brazilian or mexican.
 	NATIVE_DECL BOOL _0x45D50415E4D885FF() { return invoke<BOOL>(0x45D50415E4D885FF); } // 0x45D50415E4D885FF b1207
-	// Possible return values: 0, 1, 2
+	// 0 = DATE_FORMAT_DMY
+	// 1 = DATE_FORMAT_MDY
+	// 2 = DATE_FORMAT_YMD
 	NATIVE_DECL int _LOCALIZATION_GET_SYSTEM_DATE_FORMAT() { return invoke<int>(0x76E30B799EBEEA0F); } // 0x76E30B799EBEEA0F b1207
 }
 
@@ -3170,7 +3337,9 @@ namespace MAP
 	// Returns the Blip handle of given Entity.
 	NATIVE_DECL Blip GET_BLIP_FROM_ENTITY(Entity entity) { return invoke<Blip>(0x6D2C41A8BD6D6FD0, entity); } // 0x6D2C41A8BD6D6FD0 0x005A2A47 b1207
 	NATIVE_DECL Blip GET_MAIN_PLAYER_BLIP_ID() { return invoke<Blip>(0x5CD2889B2B381D45); } // 0x5CD2889B2B381D45 0xAB93F020 b1207
-	NATIVE_DECL Any _0x3E593DF9C2962EC6(Any p0) { return invoke<Any>(0x3E593DF9C2962EC6, p0); } // 0x3E593DF9C2962EC6 b1207
+	NATIVE_DECL Blip _BLIP_ADD_FOR_STYLE(Hash styleHash) { return invoke<Blip>(0x3E593DF9C2962EC6, styleHash); } // 0x3E593DF9C2962EC6 b1207
+	// https://github.com/femga/rdr3_discoveries/tree/master/useful_info_from_rpfs/textures/blips
+	// https://github.com/femga/rdr3_discoveries/tree/master/useful_info_from_rpfs/textures/blips_mp
 	NATIVE_DECL Blip BLIP_ADD_FOR_COORDS(Hash blipHash, float x, float y, float z) { return invoke<Blip>(0x554D9D53F696D002, blipHash, x, y, z); } // 0x554D9D53F696D002 b1207
 	NATIVE_DECL Blip BLIP_ADD_FOR_ENTITY(Hash blipHash, Entity entity) { return invoke<Blip>(0x23F74C2FDA6E7C61, blipHash, entity); } // 0x23F74C2FDA6E7C61 b1207
 	NATIVE_DECL Blip BLIP_ADD_FOR_PICKUP_PLACEMENT(Hash blipHash, Any p1) { return invoke<Blip>(0xA486008892065FB9, blipHash, p1); } // 0xA486008892065FB9 b1207
@@ -3179,22 +3348,24 @@ namespace MAP
 	NATIVE_DECL Blip _BLIP_ADD_FOR_VOLUME(Hash blipHash, Volume volume) { return invoke<Blip>(0xA6EF0C54A3443E70, blipHash, volume); } // 0xA6EF0C54A3443E70 b1207
 	// Removes any existing modifiers and sets the style.
 	NATIVE_DECL BOOL _BLIP_SET_STYLE(Blip blip, Hash styleHash) { return invoke<BOOL>(0xEDD964B7984AC291, blip, styleHash); } // 0xEDD964B7984AC291 b1207
-	NATIVE_DECL Any _0xBD62D98799A3DAF0(Blip blip, Hash modifierHash) { return invoke<Any>(0xBD62D98799A3DAF0, blip, modifierHash); } // 0xBD62D98799A3DAF0 b1207
+	NATIVE_DECL BOOL _BLIP_ADD_STYLE(Blip blip, Hash styleHash) { return invoke<BOOL>(0xBD62D98799A3DAF0, blip, styleHash); } // 0xBD62D98799A3DAF0 b1207
 	// https://alloc8or.re/rdr3/doc/enums/eBlipModifier.txt
+	// https://github.com/femga/rdr3_discoveries/tree/master/useful_info_from_rpfs/blip_modifiers
 	// 
 	// Old name: _BLIP_SET_MODIFIER
 	NATIVE_DECL BOOL BLIP_ADD_MODIFIER(Blip blip, Hash modifierHash) { return invoke<BOOL>(0x662D364ABF16DE2F, blip, modifierHash); } // 0x662D364ABF16DE2F b1207
 	// If modifierHash is 0, ALL modifiers will be removed.
 	NATIVE_DECL BOOL BLIP_REMOVE_MODIFIER(Blip blip, Hash modifierHash) { return invoke<BOOL>(0xB059D7BD3D78C16F, blip, modifierHash); } // 0xB059D7BD3D78C16F b1207
 	NATIVE_DECL void _0x250C75EB1728CC0D(Blip blip) { invoke<Void>(0x250C75EB1728CC0D, blip); } // 0x250C75EB1728CC0D b1207
-	NATIVE_DECL void SET_BLIP_FLASH_TIMER(Blip blip, int p1, int p2) { invoke<Void>(0x02FF4CF43B7209D1, blip, p1, p2); } // 0x02FF4CF43B7209D1 0x8D5DF611 b1207
+	NATIVE_DECL void SET_BLIP_FLASH_TIMER(Blip blip, int blipType, Hash p2) { invoke<Void>(0x02FF4CF43B7209D1, blip, blipType, p2); } // 0x02FF4CF43B7209D1 0x8D5DF611 b1207
 	NATIVE_DECL BOOL SET_BLIP_FLASHES(Blip blip, int* p1, Hash* p2) { return invoke<BOOL>(0x0DF2B55F717DDB10, blip, p1, p2); } // 0x0DF2B55F717DDB10 0xC0047F15 b1207
 	NATIVE_DECL void TRIGGER_SONAR_BLIP(Hash typeHash, float x, float y, float z) { invoke<Void>(0x72DD432F3CDFC0EE, typeHash, x, y, z); } // 0x72DD432F3CDFC0EE 0xBF25E7B2 b1207
-	NATIVE_DECL void _TRIGGER_SONAR_BLIP_2(Hash typeHash, Entity entity) { invoke<Void>(0x0C7A2289A5C4D7C9, typeHash, entity); } // 0x0C7A2289A5C4D7C9 b1207
+	NATIVE_DECL void _TRIGGER_SONAR_BLIP_ON_ENTITY(Hash typeHash, Entity entity) { invoke<Void>(0x0C7A2289A5C4D7C9, typeHash, entity); } // 0x0C7A2289A5C4D7C9 b1207
 	NATIVE_DECL void ALLOW_SONAR_BLIPS(BOOL toggle) { invoke<Void>(0x6E6E64788C07D2E0, toggle); } // 0x6E6E64788C07D2E0 0xE7E1E32B b1207
 	NATIVE_DECL void SET_BLIP_COORDS(Blip blip, float posX, float posY, float posZ) { invoke<Void>(0x4FF674F5E23D49CE, blip, posX, posY, posZ); } // 0x4FF674F5E23D49CE 0x680A34D4 b1207
 	NATIVE_DECL Vector3 GET_BLIP_COORDS(Blip blip) { return invoke<Vector3>(0x201C319797BDA603, blip); } // 0x201C319797BDA603 0xEF6FF47B b1207
 	NATIVE_DECL void SET_BLIP_SPRITE(Blip blip, Hash hash, BOOL p2) { invoke<Void>(0x74F74D3207ED525C, blip, hash, p2); } // 0x74F74D3207ED525C 0x8DBBB0B9 b1207
+	// _CLEAR*
 	NATIVE_DECL Any _0x01B928CA2E198B01(Any p0) { return invoke<Any>(0x01B928CA2E198B01, p0); } // 0x01B928CA2E198B01 b1207
 	NATIVE_DECL void SET_BLIP_NAME_FROM_TEXT_FILE(Blip blip, const char* textLabel) { invoke<Void>(0x0A062D6D7C0B2C2C, blip, textLabel); } // 0x0A062D6D7C0B2C2C 0xAC8A5461 b1207
 	// Example:
@@ -3236,9 +3407,12 @@ namespace MAP
 	NATIVE_DECL BOOL _FIND_CLOSEST_GPS_POSITION(float x, float y, float z, Vector3* outPosition) { return invoke<BOOL>(0x3FDA2B79AEEE351C, x, y, z, outPosition); } // 0x3FDA2B79AEEE351C b1207
 	// If Minimap / Radar should be displayed.
 	NATIVE_DECL void DISPLAY_RADAR(BOOL toggle) { invoke<Void>(0x1B3DA717B9AFF828, toggle); } // 0x1B3DA717B9AFF828 0x52816BD4 b1207
-	NATIVE_DECL void _0x9C113883487FD53C(Hash configHash, Hash p1) { invoke<Void>(0x9C113883487FD53C, configHash, p1); } // 0x9C113883487FD53C b1207
-	NATIVE_DECL void _0x1392105DA88BBFFB(Hash minimapObject, float x, float y, float rotation, int p4) { invoke<Void>(0x1392105DA88BBFFB, minimapObject, x, y, rotation, p4); } // 0x1392105DA88BBFFB b1207
-	NATIVE_DECL void _0xE057FEA9A22EB3EE(Hash minimapObject) { invoke<Void>(0xE057FEA9A22EB3EE, minimapObject); } // 0xE057FEA9A22EB3EE b1207
+	// configHash: -1943724816, 347777538, -117986897, -789269373, -547506804, -1986542417, 2080113112
+	// p1: usually 898171178 or 0 in R* scripts (doesn't seems to have any effect)
+	NATIVE_DECL void _SET_RADAR_CONFIG_TYPE(Hash configHash, Hash p1) { invoke<Void>(0x9C113883487FD53C, configHash, p1); } // 0x9C113883487FD53C b1207
+	// list of minimap props: https://github.com/femga/rdr3_discoveries/tree/master/graphics/minimap/minimapObjects
+	NATIVE_DECL void _ADD_PROP_TO_MINIMAP(Hash minimapProp, float x, float y, float rotation, int p4) { invoke<Void>(0x1392105DA88BBFFB, minimapProp, x, y, rotation, p4); } // 0x1392105DA88BBFFB b1207
+	NATIVE_DECL void _REMOVE_PROP_FROM_MINIMAP(Hash minimapProp) { invoke<Void>(0xE057FEA9A22EB3EE, minimapProp); } // 0xE057FEA9A22EB3EE b1207
 	NATIVE_DECL void SET_RADAR_AS_EXTERIOR_THIS_FRAME() { invoke<Void>(0xA8EBBAE986FB5457); } // 0xA8EBBAE986FB5457 0x39ABB10E b1207
 	// Reveals the entire minimap (FOW = Fog of War)
 	NATIVE_DECL void SET_MINIMAP_HIDE_FOW(BOOL toggle) { invoke<Void>(0x4B8F743A4A6D2FF8, toggle); } // 0x4B8F743A4A6D2FF8 0xD8D77733 b1207
@@ -3250,7 +3424,7 @@ namespace MAP
 	NATIVE_DECL void RESET_MINIMAP_FOW(Hash hash) { invoke<Void>(0xEB3CB3386C775D72, hash); } // 0xEB3CB3386C775D72 b1207
 	NATIVE_DECL void _REVEAL_MINIMAP_FOW(Hash hash) { invoke<Void>(0xF8096DF9B87246E3, hash); } // 0xF8096DF9B87246E3 b1207
 	// hash can be the hash of "guarma" or "world".
-	NATIVE_DECL void _0xA657EC9DBC6CC900(Hash zone) { invoke<Void>(0xA657EC9DBC6CC900, zone); } // 0xA657EC9DBC6CC900 b1207
+	NATIVE_DECL void _SET_MINIMAP_ZONE(Hash zone) { invoke<Void>(0xA657EC9DBC6CC900, zone); } // 0xA657EC9DBC6CC900 b1207
 	// Locks the minimap to the specified angle in integer degrees.
 	// 
 	// angle: The angle in whole degrees. If less than 0 or greater than 360, unlocks the angle.
@@ -3269,6 +3443,7 @@ namespace MAP
 	NATIVE_DECL BOOL _MAP_IS_DISCOVERY_ACTIVE(Hash discoveryHash) { return invoke<BOOL>(0x3F81EA4275D39D6F, discoveryHash); } // 0x3F81EA4275D39D6F b1207
 	NATIVE_DECL void _SET_PAUSEMAP_COORDS_WITH_RADIUS(float x, float y, float z, float radius) { invoke<Void>(0xE0884C184728C75B, x, y, z, radius); } // 0xE0884C184728C75B b1207
 	NATIVE_DECL void _0x7C9F4CDF402CA82A() { invoke<Void>(0x7C9F4CDF402CA82A); } // 0x7C9F4CDF402CA82A b1311
+	// _CLEAR*
 	NATIVE_DECL void _0x44813684F72B563C(Entity entity, Any p1) { invoke<Void>(0x44813684F72B563C, entity, p1); } // 0x44813684F72B563C b1207
 	NATIVE_DECL void _0x97F6F158CC5B5CA2(Entity entity, Any p1) { invoke<Void>(0x97F6F158CC5B5CA2, entity, p1); } // 0x97F6F158CC5B5CA2 b1207
 	NATIVE_DECL void _0xBB68D4D3CA3DE402(Any p0, Any p1) { invoke<Void>(0xBB68D4D3CA3DE402, p0, p1); } // 0xBB68D4D3CA3DE402 b1207
@@ -3364,7 +3539,7 @@ namespace MISC
 	// nullsub, doesn't do anything
 	NATIVE_DECL void _0xB16FC7B364D86585() { invoke<Void>(0xB16FC7B364D86585); } // 0xB16FC7B364D86585 b1207
 	NATIVE_DECL Any _0xF81C53561D15F330() { return invoke<Any>(0xF81C53561D15F330); } // 0xF81C53561D15F330 b1207
-	NATIVE_DECL void _0x1096603B519C905F(Any p0) { invoke<Void>(0x1096603B519C905F, p0); } // 0x1096603B519C905F b1207
+	NATIVE_DECL void _0x1096603B519C905F(const char* name) { invoke<Void>(0x1096603B519C905F, name); } // 0x1096603B519C905F b1207
 	NATIVE_DECL void _0xCC3EDC5614B03F61(Any p0) { invoke<Void>(0xCC3EDC5614B03F61, p0); } // 0xCC3EDC5614B03F61 b1207
 	NATIVE_DECL void _0x708DF841B8F27AA2(const char* p0) { invoke<Void>(0x708DF841B8F27AA2, p0); } // 0x708DF841B8F27AA2 0xE77199F7 b1207
 	NATIVE_DECL void _0xDA4D8EB04E8E2928(Any p0) { invoke<Void>(0xDA4D8EB04E8E2928, p0); } // 0xDA4D8EB04E8E2928 b1207
@@ -3372,6 +3547,7 @@ namespace MISC
 	NATIVE_DECL Hash _GET_PREV_WEATHER_TYPE_HASH_NAME() { return invoke<Hash>(0x4BEB42AEBCA732E9); } // 0x4BEB42AEBCA732E9 b1207
 	NATIVE_DECL Hash _GET_NEXT_WEATHER_TYPE_HASH_NAME() { return invoke<Hash>(0x51021D36F62AAA83); } // 0x51021D36F62AAA83 b1207
 	NATIVE_DECL void _0x0730E518486DEEC3(Any p0) { invoke<Void>(0x0730E518486DEEC3, p0); } // 0x0730E518486DEEC3 b1207
+	// https://github.com/femga/rdr3_discoveries/blob/master/weather/weather_types.lua
 	NATIVE_DECL void SET_WEATHER_TYPE(Hash weatherType, BOOL p1, BOOL p2, BOOL transition, float transitionTime, BOOL p5) { invoke<Void>(0x59174F1AFE095B5A, weatherType, p1, p2, transition, transitionTime, p5); } // 0x59174F1AFE095B5A b1207
 	NATIVE_DECL void _SET_WEATHER_TYPE_2(Hash weatherType, int p1, int p2, int p3, BOOL p4) { invoke<Void>(0x2C6A07AF9AEDABD8, weatherType, p1, p2, p3, p4); } // 0x2C6A07AF9AEDABD8 b1207
 	NATIVE_DECL Any _0x7F4CE164D9A11DFE() { return invoke<Any>(0x7F4CE164D9A11DFE); } // 0x7F4CE164D9A11DFE b1207
@@ -3382,7 +3558,7 @@ namespace MISC
 	NATIVE_DECL void _GET_WEATHER_TYPE_TRANSITION(Hash* weatherType1, Hash* weatherType2, float* percentWeather2) { invoke<Void>(0x0AC679B2342F14F2, weatherType1, weatherType2, percentWeather2); } // 0x0AC679B2342F14F2 0x9A5C1D56 b1207
 	NATIVE_DECL void _SET_WEATHER_TYPE_TRANSITION(Hash weatherType1, Hash weatherType2, float percentWeather2, BOOL enabled) { invoke<Void>(0xFA3E3CA8A1DE6D5D, weatherType1, weatherType2, percentWeather2, enabled); } // 0xFA3E3CA8A1DE6D5D 0x5CA74040 b1207
 	NATIVE_DECL void _SET_WEATHER_TYPE_FROZEN(BOOL toggle) { invoke<Void>(0xD74ACDF7DB8114AF, toggle); } // 0xD74ACDF7DB8114AF b1207
-	NATIVE_DECL void _0xDD560ABEF5D3784C(Any p0, Any p1) { invoke<Void>(0xDD560ABEF5D3784C, p0, p1); } // 0xDD560ABEF5D3784C b1207
+	NATIVE_DECL void _0xDD560ABEF5D3784C(int* p0, int* p1) { invoke<Void>(0xDD560ABEF5D3784C, p0, p1); } // 0xDD560ABEF5D3784C b1207
 	NATIVE_DECL void _0x2916B30DC6C41179(Hash weatherType) { invoke<Void>(0x2916B30DC6C41179, weatherType); } // 0x2916B30DC6C41179 b1207
 	NATIVE_DECL void _0xD3F943B88F55376A(Hash weatherType) { invoke<Void>(0xD3F943B88F55376A, weatherType); } // 0xD3F943B88F55376A b1207
 	NATIVE_DECL void _0x243CEDE8F916B994() { invoke<Void>(0x243CEDE8F916B994); } // 0x243CEDE8F916B994 b1207
@@ -3390,7 +3566,9 @@ namespace MISC
 	NATIVE_DECL void CLEAR_OVERRIDE_WEATHER() { invoke<Void>(0x80A398F16FFE3CC3); } // 0x80A398F16FFE3CC3 0x7740EA4E b1207
 	NATIVE_DECL void _SET_WEATHER_VARIATION(const char* weatherType, const char* variation) { invoke<Void>(0x3373779BAF7CAF48, weatherType, variation); } // 0x3373779BAF7CAF48 b1207
 	NATIVE_DECL void _CLEAR_WEATHER_VARIATION(const char* weatherType, BOOL p1) { invoke<Void>(0x0E71C80FA4EC8147, weatherType, p1); } // 0x0E71C80FA4EC8147 b1207
+	// Only used in smuggler2 script
 	NATIVE_DECL void WATER_OVERRIDE_SET_SHOREWAVEAMPLITUDE(float amplitude) { invoke<Void>(0x55123D5A7D9D3C42, amplitude); } // 0x55123D5A7D9D3C42 0x625181DC b1207
+	// Only used in smuggler2 script
 	NATIVE_DECL void WATER_OVERRIDE_SET_OCEANWAVEMAXAMPLITUDE(float maxAmplitude) { invoke<Void>(0xF06C5B66DE20B2B8, maxAmplitude); } // 0xF06C5B66DE20B2B8 0x0DE40C28 b1207
 	NATIVE_DECL float _GET_TEMPERATURE_AT_COORDS(float x, float y, float z) { return invoke<float>(0xB98B78C3768AF6E0, x, y, z); } // 0xB98B78C3768AF6E0 b1207
 	NATIVE_DECL void SET_WIND_SPEED(float speed) { invoke<Void>(0xD00C2D82DC04A99F, speed); } // 0xD00C2D82DC04A99F 0x45705F94 b1207
@@ -3449,6 +3627,7 @@ namespace MISC
 	NATIVE_DECL Any _0x80E9C316EF84DD81(Any p0) { return invoke<Any>(0x80E9C316EF84DD81, p0); } // 0x80E9C316EF84DD81 b1207
 	NATIVE_DECL Any _0xE704838F36F93B7B(Any p0) { return invoke<Any>(0xE704838F36F93B7B, p0); } // 0xE704838F36F93B7B b1355
 	NATIVE_DECL void _0xE84AAC1B22A73E99(Any p0, Any p1) { invoke<Void>(0xE84AAC1B22A73E99, p0, p1); } // 0xE84AAC1B22A73E99 b1207
+	// _CLEAR*
 	NATIVE_DECL void _0xB909149F2BB5F6DA(Any p0, Any p1) { invoke<Void>(0xB909149F2BB5F6DA, p0, p1); } // 0xB909149F2BB5F6DA b1207
 	NATIVE_DECL void _0xD2D74F89DF844A50(Any p0) { invoke<Void>(0xD2D74F89DF844A50, p0); } // 0xD2D74F89DF844A50 b1207
 	// Computes a hash for the given string. It is hashed using Jenkins' One-at-a-Time hash algorithm (https://en.wikipedia.org/wiki/Jenkins_hash_function)
@@ -3457,7 +3636,7 @@ namespace MISC
 	NATIVE_DECL Any _0xEF50E344A8F93784(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0xEF50E344A8F93784, p0, p1, p2, p3); } // 0xEF50E344A8F93784 b1207
 	NATIVE_DECL BOOL IS_POSITION_OCCUPIED(float x, float y, float z, float range, BOOL p4, BOOL p5, BOOL p6, BOOL p7, BOOL p8, Any p9, BOOL p10) { return invoke<BOOL>(0x825CA3ED43831015, x, y, z, range, p4, p5, p6, p7, p8, p9, p10); } // 0x825CA3ED43831015 0x452E8D9E b1207
 	NATIVE_DECL void CLEAR_AREA(float x, float y, float z, float radius, int flag) { invoke<Void>(0x3B882A96EA77D5B1, x, y, z, radius, flag); } // 0x3B882A96EA77D5B1 0x854E9AB8 b1207
-	NATIVE_DECL void _0x2FCD528A397E5C88(Any p0, Any p1) { invoke<Void>(0x2FCD528A397E5C88, p0, p1); } // 0x2FCD528A397E5C88 b1207
+	NATIVE_DECL void _CLEAR_VOLUME_AREA(Volume volume, int flag) { invoke<Void>(0x2FCD528A397E5C88, volume, flag); } // 0x2FCD528A397E5C88 b1207
 	NATIVE_DECL void CLEAR_ANGLED_AREA_OF_VEHICLES(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { invoke<Void>(0xA4D83115C1E02F8A, p0, p1, p2, p3, p4, p5, p6, p7); } // 0xA4D83115C1E02F8A 0xF11A3018 b1207
 	NATIVE_DECL void SET_CREDITS_ACTIVE(BOOL toggle) { invoke<Void>(0xD37BECF862DA726F, toggle); } // 0xD37BECF862DA726F 0xEC2A0ECF b1207
 	NATIVE_DECL void NETWORK_SET_SCRIPT_IS_SAFE_FOR_NETWORK_GAME() { invoke<Void>(0x3D0EAC6385DD6100); } // 0x3D0EAC6385DD6100 0x878486CE b1207
@@ -3492,15 +3671,14 @@ namespace MISC
 	NATIVE_DECL BOOL IS_PROJECTILE_TYPE_IN_ANGLED_AREA(float p0, float p1, float p2, float p3, float p4, float p5, float p6, Any p7, BOOL p8) { return invoke<BOOL>(0x928431F4133CD3D4, p0, p1, p2, p3, p4, p5, p6, p7, p8); } // 0x928431F4133CD3D4 0xD1AE2681 b1207
 	NATIVE_DECL BOOL IS_PROJECTILE_TYPE_WITHIN_DISTANCE(float p0, float p1, float p2, Any p3, float p4, BOOL p5) { return invoke<BOOL>(0xF51C9BAAD9ED64C4, p0, p1, p2, p3, p4, p5); } // 0xF51C9BAAD9ED64C4 0xBE81F1E2 b1207
 	NATIVE_DECL BOOL GET_COORDS_OF_PROJECTILE_TYPE_WITHIN_DISTANCE(Ped ped, Hash weaponHash, float distance, Vector3* outCoords, BOOL p4, BOOL mustBeOwnedByThisPed) { return invoke<BOOL>(0xD73C960A681052DF, ped, weaponHash, distance, outCoords, p4, mustBeOwnedByThisPed); } // 0xD73C960A681052DF 0x6BDE5CE4 b1207
-	// GET_PROJECTILE_*
-	NATIVE_DECL BOOL _GET_PROJECTILE_NEAR_PED(Ped ped, Hash weaponHash, float distance, Vector3* outCoords, Object* outProjectile, BOOL p5, BOOL mustBeOwnedByThisPed) { return invoke<BOOL>(0x9578986A6105A6AD, ped, weaponHash, distance, outCoords, outProjectile, p5, mustBeOwnedByThisPed); } // 0x9578986A6105A6AD 0x507BC6F7 b1207
+	NATIVE_DECL BOOL GET_PROJECTILE_OF_PROJECTILE_TYPE_WITHIN_DISTANCE(Ped ped, Hash weaponHash, float distance, Vector3* outCoords, Object* outProjectile, BOOL p5, BOOL mustBeOwnedByThisPed) { return invoke<BOOL>(0x9578986A6105A6AD, ped, weaponHash, distance, outCoords, outProjectile, p5, mustBeOwnedByThisPed); } // 0x9578986A6105A6AD 0x507BC6F7 b1207
 	NATIVE_DECL BOOL IS_BULLET_IN_ANGLED_AREA(float p0, float p1, float p2, float p3, float p4, float p5, float p6, BOOL p7) { return invoke<BOOL>(0x9D09D8493747CF02, p0, p1, p2, p3, p4, p5, p6, p7); } // 0x9D09D8493747CF02 0xE2DB58F7 b1207
 	NATIVE_DECL BOOL IS_BULLET_IN_AREA(float p0, float p1, float p2, float p3, BOOL p4) { return invoke<BOOL>(0xC652FD308772D79E, p0, p1, p2, p3, p4); } // 0xC652FD308772D79E 0xB54F46CA b1207
 	NATIVE_DECL BOOL IS_BULLET_IN_BOX(float p0, float p1, float p2, float p3, float p4, float p5, BOOL p6) { return invoke<BOOL>(0xC128137C52152741, p0, p1, p2, p3, p4, p5, p6); } // 0xC128137C52152741 0xAB73ED26 b1207
 	// p3 - possibly radius?
 	NATIVE_DECL BOOL HAS_BULLET_IMPACTED_IN_AREA(float x, float y, float z, float p3, BOOL p4, BOOL p5) { return invoke<BOOL>(0xC153E5BCCF411814, x, y, z, p3, p4, p5); } // 0xC153E5BCCF411814 0x902BC7D9 b1207
 	NATIVE_DECL BOOL HAS_BULLET_IMPACTED_IN_BOX(float p0, float p1, float p2, float p3, float p4, float p5, BOOL p6, BOOL p7) { return invoke<BOOL>(0x3B6A4C05FB2B33AC, p0, p1, p2, p3, p4, p5, p6, p7); } // 0x3B6A4C05FB2B33AC 0x2C2618CC b1207
-	NATIVE_DECL Any _0x7A76104CC2CC69E8(Any p0, Any p1, Any p2) { return invoke<Any>(0x7A76104CC2CC69E8, p0, p1, p2); } // 0x7A76104CC2CC69E8 b1207
+	NATIVE_DECL Any _0x7A76104CC2CC69E8(Entity entity, int p1, int p2) { return invoke<Any>(0x7A76104CC2CC69E8, entity, p1, p2); } // 0x7A76104CC2CC69E8 b1207
 	NATIVE_DECL Any _0xDC416CA762BC4F43(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return invoke<Any>(0xDC416CA762BC4F43, p0, p1, p2, p3, p4, p5); } // 0xDC416CA762BC4F43 b1207
 	NATIVE_DECL Any _0x970339EFA4FDE518(Any p0, Any p1, Any p2) { return invoke<Any>(0x970339EFA4FDE518, p0, p1, p2); } // 0x970339EFA4FDE518 b1207
 	// Hardcoded to return false.
@@ -3609,27 +3787,31 @@ namespace MISC
 	NATIVE_DECL void DELETE_INCIDENT(int incidentId) { invoke<Void>(0x5CFD0F0D6AAE0AEE, incidentId); } // 0x5CFD0F0D6AAE0AEE 0x212BD0DC b1207
 	NATIVE_DECL BOOL IS_INCIDENT_VALID(int incidentId) { return invoke<BOOL>(0x39F2B1BAD412246A, incidentId); } // 0x39F2B1BAD412246A 0x31FD0BA4 b1207
 	NATIVE_DECL void _SET_INCIDENT_UNK(int incidentId) { invoke<Void>(0x9617B6E5F6537B63, incidentId); } // 0x9617B6E5F6537B63 b1207
-	NATIVE_DECL int ADD_POP_MULTIPLIER_AREA(float x1, float y1, float z1, float x2, float y2, float z2, float p6, float p7, BOOL p8, BOOL p9) { return invoke<int>(0x5EBDA1A3B8CB5EF7, x1, y1, z1, x2, y2, z2, p6, p7, p8, p9); } // 0x5EBDA1A3B8CB5EF7 0x42BF09B3 b1207
+	NATIVE_DECL int ADD_POP_MULTIPLIER_AREA(float x1, float y1, float z1, float x2, float y2, float z2, float pedDensity, float trafficDensity, BOOL p8, BOOL p9) { return invoke<int>(0x5EBDA1A3B8CB5EF7, x1, y1, z1, x2, y2, z2, pedDensity, trafficDensity, p8, p9); } // 0x5EBDA1A3B8CB5EF7 0x42BF09B3 b1207
 	NATIVE_DECL BOOL DOES_POP_MULTIPLIER_AREA_EXIST(int id) { return invoke<BOOL>(0x03BA619C81A646B3, id); } // 0x03BA619C81A646B3 0xE933B34A b1207
 	NATIVE_DECL void REMOVE_POP_MULTIPLIER_AREA(int id, BOOL p1) { invoke<Void>(0x88CB484364EFB37A, id, p1); } // 0x88CB484364EFB37A 0xFBDBE374 b1207
-	NATIVE_DECL Any _0x3233C4EC0514C7EC(Any p0, Any p1, Any p2, Any p3, Any p4) { return invoke<Any>(0x3233C4EC0514C7EC, p0, p1, p2, p3, p4); } // 0x3233C4EC0514C7EC b1207
-	NATIVE_DECL Any _0x39D6DACE323A20B6(Any p0) { return invoke<Any>(0x39D6DACE323A20B6, p0); } // 0x39D6DACE323A20B6 b1207
-	NATIVE_DECL void _0xBD090F5B1DB82189(Any p0, Any p1) { invoke<Void>(0xBD090F5B1DB82189, p0, p1); } // 0xBD090F5B1DB82189 b1207
+	// Only used in script function PROCESS_ZONE_CREATION
+	// Returns Pop multiplier volume ID
+	NATIVE_DECL Any _0x3233C4EC0514C7EC(Volume volume, float pedDensity, float vehicleDensity, int p3, int p4) { return invoke<Any>(0x3233C4EC0514C7EC, volume, pedDensity, vehicleDensity, p3, p4); } // 0x3233C4EC0514C7EC b1207
+	NATIVE_DECL BOOL _DOES_POP_MULTIPLIER_AREA_EXIST_FOR_VOLUME(Volume volume) { return invoke<BOOL>(0x39D6DACE323A20B6, volume); } // 0x39D6DACE323A20B6 b1207
+	NATIVE_DECL void _REMOVE_POP_MULTIPLIER_AREA_FOR_VOLUME(Volume volume, int p1) { invoke<Void>(0xBD090F5B1DB82189, volume, p1); } // 0xBD090F5B1DB82189 b1207
 	NATIVE_DECL void _0xF569E33FB72ED28E() { invoke<Void>(0xF569E33FB72ED28E); } // 0xF569E33FB72ED28E b1207
 	NATIVE_DECL void RESET_DISPATCH_IDEAL_SPAWN_DISTANCE() { invoke<Void>(0xC7817264BC4B6377); } // 0xC7817264BC4B6377 0xDA65ECAA b1207
-	NATIVE_DECL void SET_DISPATCH_IDEAL_SPAWN_DISTANCE(float p0) { invoke<Void>(0xEAB6823B82FBD283, p0); } // 0xEAB6823B82FBD283 0x6283BE32 b1207
+	NATIVE_DECL void SET_DISPATCH_IDEAL_SPAWN_DISTANCE(float fIdealSpawnDistance) { invoke<Void>(0xEAB6823B82FBD283, fIdealSpawnDistance); } // 0xEAB6823B82FBD283 0x6283BE32 b1207
 	NATIVE_DECL void _RESET_DISPATCH_MIN_SPAWN_DISTANCE() { invoke<Void>(0x96498D922D8D0D0A); } // 0x96498D922D8D0D0A b1207
 	NATIVE_DECL void _SET_DISPATCH_MIN_SPAWN_DISTANCE(float minSpawnDistance) { invoke<Void>(0x27A1B170AA8AF84C, minSpawnDistance); } // 0x27A1B170AA8AF84C b1207
 	NATIVE_DECL void _RESET_DISPATCH_MAX_SPAWN_DISTANCE() { invoke<Void>(0x54EC7B6BC72BAD69); } // 0x54EC7B6BC72BAD69 b1207
 	NATIVE_DECL void _SET_DISPATCH_MAX_SPAWN_DISTANCE(float maxSpawnDistance) { invoke<Void>(0x89314FB3463E28DE, maxSpawnDistance); } // 0x89314FB3463E28DE b1207
 	NATIVE_DECL void _0x4B0501A468B749F8() { invoke<Void>(0x4B0501A468B749F8); } // 0x4B0501A468B749F8 b1207
+	// _SET_DISPATCH_*, unused
 	NATIVE_DECL void _0x6BCF7B5CD338281A(Any p0, Any p1, Any p2) { invoke<Void>(0x6BCF7B5CD338281A, p0, p1, p2); } // 0x6BCF7B5CD338281A b1207
 	NATIVE_DECL Any _ADD_DISPATCH_SPAWN_BLOCKING_AREA(Volume volume) { return invoke<Any>(0xA2D5A26208421426, volume); } // 0xA2D5A26208421426 b1207
 	NATIVE_DECL void REMOVE_DISPATCH_SPAWN_BLOCKING_AREA(Any p0) { invoke<Void>(0x49F751F6868DDC5B, p0); } // 0x49F751F6868DDC5B 0xA8D2FB92 b1207
 	// RESET_*
 	NATIVE_DECL void _0xEF42F56F69877125() { invoke<Void>(0xEF42F56F69877125); } // 0xEF42F56F69877125 0xE0C9307E b1207
-	NATIVE_DECL void _ADD_TACTICAL_ANALYSIS_POINT(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xE4EE55E63FA9AF45, p0, p1, p2, p3); } // 0xE4EE55E63FA9AF45 0x24A4E0B2 b1207
-	NATIVE_DECL void _CLEAR_TACTICAL_ANALYSIS_POINTS() { invoke<Void>(0xD93B6516C6878267); } // 0xD93B6516C6878267 0x66C3C59C b1207
+	// Params: p3 is 0 in R* Script utopia2
+	NATIVE_DECL void ADD_TACTICAL_NAV_MESH_POINT(float x, float y, float z, int p3) { invoke<Void>(0xE4EE55E63FA9AF45, x, y, z, p3); } // 0xE4EE55E63FA9AF45 0x24A4E0B2 b1207
+	NATIVE_DECL void CLEAR_TACTICAL_NAV_MESH_POINTS() { invoke<Void>(0xD93B6516C6878267); } // 0xD93B6516C6878267 0x66C3C59C b1207
 	// enum eOnscreenKeyboardTextType
 	// {
 	// 	KTEXTTYPE_INVALID = -1,
@@ -3656,15 +3838,17 @@ namespace MISC
 	NATIVE_DECL const char* GET_ONSCREEN_KEYBOARD_RESULT() { return invoke<const char*>(0xAFB4CF58A4A292B1); } // 0xAFB4CF58A4A292B1 0x44828FB3 b1207
 	NATIVE_DECL void _CANCEL_ONSCREEN_KEYBOARD() { invoke<Void>(0x58A39BE597CE99CD); } // 0x58A39BE597CE99CD 0x196444BB b1207
 	NATIVE_DECL void NEXT_ONSCREEN_KEYBOARD_RESULT_WILL_DISPLAY_USING_THESE_FONTS(int p0) { invoke<Void>(0x5CB71EAA1429A358, p0); } // 0x5CB71EAA1429A358 0x3301EA47 b1207
-	// Appears to remove stealth kill action from memory
-	NATIVE_DECL void _REMOVE_STEALTH_KILL(Hash hash, BOOL p1) { invoke<Void>(0x7ACF124C12A2B045, hash, p1); } // 0x7ACF124C12A2B045 0x42B484ED b1207
+	// Appears to remove stealth kill action from memory (?)
+	NATIVE_DECL void ACTION_MANAGER_ENABLE_ACTION(Hash hash, BOOL enable) { invoke<Void>(0x7ACF124C12A2B045, hash, enable); } // 0x7ACF124C12A2B045 0x42B484ED b1207
 	NATIVE_DECL Any _0xFD0759658268FD8E(Any p0) { return invoke<Any>(0xFD0759658268FD8E, p0); } // 0xFD0759658268FD8E b1207
-	NATIVE_DECL int _0x2E036F0480B8BF02() { return invoke<int>(0x2E036F0480B8BF02); } // 0x2E036F0480B8BF02 b1207
+	// Returns GET_GAME_TIMER() / 1000
+	// Only used in rcm_pearson1.ysc
+	NATIVE_DECL int _GET_REAL_GAME_TIMER_IN_SECONDS() { return invoke<int>(0x2E036F0480B8BF02); } // 0x2E036F0480B8BF02 b1207
 	NATIVE_DECL void SET_SUPER_JUMP_THIS_FRAME(Player player) { invoke<Void>(0xB3E9BE963F10C445, player); } // 0xB3E9BE963F10C445 0x86745EF3 b1207
-	NATIVE_DECL void SCRIPT_RACE_INIT(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x8AE059F47158417E, p0, p1, p2, p3); } // 0x8AE059F47158417E 0x2D33F15A b1207
+	NATIVE_DECL void SCRIPT_RACE_INIT(int numCheckpoint, int numLaps, int numPlayers, Any p3) { invoke<Void>(0x8AE059F47158417E, numCheckpoint, numLaps, numPlayers, p3); } // 0x8AE059F47158417E 0x2D33F15A b1207
 	NATIVE_DECL void SCRIPT_RACE_SHUTDOWN() { invoke<Void>(0x334CE0DA4FAF330C); } // 0x334CE0DA4FAF330C 0xDF99925C b1207
 	// SCRIPT_RACE_*
-	NATIVE_DECL void _0xBA62B4D80FA66BD6(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xBA62B4D80FA66BD6, p0, p1, p2, p3); } // 0xBA62B4D80FA66BD6 0xA27F4472 b1207
+	NATIVE_DECL void _0xBA62B4D80FA66BD6(Any iPart, Any iCheckpoint, Any iLap, Any iTime) { invoke<Void>(0xBA62B4D80FA66BD6, iPart, iCheckpoint, iLap, iTime); } // 0xBA62B4D80FA66BD6 0xA27F4472 b1207
 	NATIVE_DECL BOOL SCRIPT_RACE_GET_PLAYER_SPLIT_TIME(Any p0, Any* p1, Any* p2) { return invoke<BOOL>(0x769E848C66E3C2BB, p0, p1, p2); } // 0x769E848C66E3C2BB 0x07FF553F b1207
 	// Begins with START_*. Next character in the name is either D or E.
 	NATIVE_DECL void _START_BENCHMARK_RECORDING() { invoke<Void>(0x29D1F6DF864A094E); } // 0x29D1F6DF864A094E b1207
@@ -3711,13 +3895,13 @@ namespace MISC
 	NATIVE_DECL Any _0x8314FC2013ECE2DA(Any p0, Any p1, Any p2) { return invoke<Any>(0x8314FC2013ECE2DA, p0, p1, p2); } // 0x8314FC2013ECE2DA b1207
 	NATIVE_DECL void _0x4D5C9CC7E7E23E09() { invoke<Void>(0x4D5C9CC7E7E23E09); } // 0x4D5C9CC7E7E23E09 b1207
 	NATIVE_DECL BOOL REGISTER_INTERACTION_LOCKON_PROMPT(Entity entity, const char* p1, float p2, float p3, int p4, float p5, float p6, Prompt prompt, BOOL p8, int p9) { return invoke<BOOL>(0x870708A6E147A9AD, entity, p1, p2, p3, p4, p5, p6, prompt, p8, p9); } // 0x870708A6E147A9AD b1207
-	NATIVE_DECL BOOL _0xE98D55C5983F2509(Entity entity) { return invoke<BOOL>(0xE98D55C5983F2509, entity); } // 0xE98D55C5983F2509 b1207
+	NATIVE_DECL BOOL _UNREGISTER_INTERACTION_LOCKON_PROMPT(Entity entity) { return invoke<BOOL>(0xE98D55C5983F2509, entity); } // 0xE98D55C5983F2509 b1207
 	NATIVE_DECL void _0xFC6ECB9170145ECE() { invoke<Void>(0xFC6ECB9170145ECE); } // 0xFC6ECB9170145ECE b1207
 	NATIVE_DECL Any _0x35165C658077CD0B() { return invoke<Any>(0x35165C658077CD0B); } // 0x35165C658077CD0B b1207
-	NATIVE_DECL Any _0x4B101DBCC9482F2D(Any p0) { return invoke<Any>(0x4B101DBCC9482F2D, p0); } // 0x4B101DBCC9482F2D b1207
+	NATIVE_DECL BOOL _0x4B101DBCC9482F2D(Ped ped) { return invoke<BOOL>(0x4B101DBCC9482F2D, ped); } // 0x4B101DBCC9482F2D b1207
 	NATIVE_DECL BOOL _IS_MISSION_CREATOR_ACTIVE() { return invoke<BOOL>(0xF236C84C6ADFCB2F); } // 0xF236C84C6ADFCB2F b1207
 	NATIVE_DECL void _0xA3A8926951471C82() { invoke<Void>(0xA3A8926951471C82); } // 0xA3A8926951471C82 b1207
-	NATIVE_DECL void _0x88BC5F4AEF77FC4E(Any p0, Any p1) { invoke<Void>(0x88BC5F4AEF77FC4E, p0, p1); } // 0x88BC5F4AEF77FC4E b1207
+	NATIVE_DECL void _CREATE_AI_MEMORY(Any* args, int aiMemoryType) { invoke<Void>(0x88BC5F4AEF77FC4E, args, aiMemoryType); } // 0x88BC5F4AEF77FC4E b1207
 	NATIVE_DECL Any _0xFDF38E2B711BF78E(Any p0, Any p1) { return invoke<Any>(0xFDF38E2B711BF78E, p0, p1); } // 0xFDF38E2B711BF78E b1207
 	// Not implemented.
 	NATIVE_DECL void _0xEB946B9E579729AD(Ped ped, Any p1) { invoke<Void>(0xEB946B9E579729AD, ped, p1); } // 0xEB946B9E579729AD b1207
@@ -3749,18 +3933,19 @@ namespace MISC
 	NATIVE_DECL void _0x4647842FE8F31C1E(Any p0, Any p1) { invoke<Void>(0x4647842FE8F31C1E, p0, p1); } // 0x4647842FE8F31C1E b1207
 	// Event names in the scripts: MGBegin, MGEnd, ReadyForCut
 	NATIVE_DECL BOOL _GET_LOOTING_EVENT_HAS_FIRED(Ped ped, const char* eventName) { return invoke<BOOL>(0xF9B91C5129EABC08, ped, eventName); } // 0xF9B91C5129EABC08 b1207
-	NATIVE_DECL void _0x9B47971234169990(Any p0, Any p1) { invoke<Void>(0x9B47971234169990, p0, p1); } // 0x9B47971234169990 b1207
+	NATIVE_DECL void _0x9B47971234169990(Ped ped, Any item) { invoke<Void>(0x9B47971234169990, ped, item); } // 0x9B47971234169990 b1207
 	NATIVE_DECL void _0x96282005C5C6801F(Any p0, Any p1) { invoke<Void>(0x96282005C5C6801F, p0, p1); } // 0x96282005C5C6801F b1311
 	NATIVE_DECL void _0xF63FA29D4A9ACA86(Any p0, Any p1) { invoke<Void>(0xF63FA29D4A9ACA86, p0, p1); } // 0xF63FA29D4A9ACA86 b1207
 	NATIVE_DECL void _0x8C0F6A3D7236DEEB(Any p0, Any p1) { invoke<Void>(0x8C0F6A3D7236DEEB, p0, p1); } // 0x8C0F6A3D7236DEEB b1207
 	NATIVE_DECL void _0x7FA58CED69405F9A(Any p0, Any p1) { invoke<Void>(0x7FA58CED69405F9A, p0, p1); } // 0x7FA58CED69405F9A b1207
+	// _CLEAR*
 	NATIVE_DECL void _0xA08111B053D84B4D(Any p0) { invoke<Void>(0xA08111B053D84B4D, p0); } // 0xA08111B053D84B4D b1207
 	NATIVE_DECL BOOL _IS_GLOBAL_BLOCK_VALID(int index) { return invoke<BOOL>(0xACB7E1418A8B6E32, index); } // 0xACB7E1418A8B6E32 b1207
 	NATIVE_DECL void _SET_GLOBAL_BLOCK_IS_LOADED(int index, BOOL toggle) { invoke<Void>(0xE97240065406CB80, index, toggle); } // 0xE97240065406CB80 b1207
 	NATIVE_DECL BOOL GAME_FRAMEWORK_MANAGER_INIT(Hash transitionMode) { return invoke<BOOL>(0x4CABE596D632E4B0, transitionMode); } // 0x4CABE596D632E4B0 b1207
 	NATIVE_DECL void _GAME_FRAMEWORK_MANAGER_SHUTDOWN() { invoke<Void>(0xAFF2FD8ADD927585); } // 0xAFF2FD8ADD927585 b1207
 	NATIVE_DECL Hash _GAME_FRAMEWORK_MANAGER_GET_MODE() { return invoke<Hash>(0xFAED234C7F53ABEB); } // 0xFAED234C7F53ABEB b1207
-	NATIVE_DECL Any _0x36040772DF5E59A0() { return invoke<Any>(0x36040772DF5E59A0); } // 0x36040772DF5E59A0 b1355
+	NATIVE_DECL BOOL _0x36040772DF5E59A0() { return invoke<BOOL>(0x36040772DF5E59A0); } // 0x36040772DF5E59A0 b1355
 	NATIVE_DECL Any _0x0358B8A41916C613(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0x0358B8A41916C613, p0, p1, p2, p3); } // 0x0358B8A41916C613 b1207
 	// Note: this native was added in build 1232.56
 	NATIVE_DECL void _SET_GAME_LOGIC_PAUSED() { invoke<Void>(0x550F05CFFBD63C8C); } // 0x550F05CFFBD63C8C b1232
@@ -3885,6 +4070,7 @@ namespace NETWORK
 	NATIVE_DECL Any _0xD7D0DF27CB1765B5(Any p0) { return invoke<Any>(0xD7D0DF27CB1765B5, p0); } // 0xD7D0DF27CB1765B5 b1355
 	NATIVE_DECL BOOL NETWORK_SET_MP_MISSION_FLAG_ON_CURRENT_SLOT(BOOL enabled, int flagIndex) { return invoke<BOOL>(0x86FD10251A7118A4, enabled, flagIndex); } // 0x86FD10251A7118A4 b1207
 	NATIVE_DECL void _0x3E74A687A73979C6(Any p0) { invoke<Void>(0x3E74A687A73979C6, p0); } // 0x3E74A687A73979C6 b1207
+	// Checks for session flag 'SF_PRIVATE'
 	NATIVE_DECL BOOL NETWORK_SESSION_IS_PRIVATE() { return invoke<BOOL>(0xCEF70AA5B3F89BA1); } // 0xCEF70AA5B3F89BA1 0xDB67785D b1207
 	// Note: this native was added in build 1311.23
 	NATIVE_DECL void _NETWORK_SESSION_GET_SESSION_ID(Any* sessionId) { invoke<Void>(0xE9B356C330C0A806, sessionId); } // 0xE9B356C330C0A806 b1311
@@ -3922,6 +4108,8 @@ namespace NETWORK
 	// 	MATCHTYPE_PRIVATE_DO_NOT_USE
 	// };
 	NATIVE_DECL BOOL NETWORK_SESSION_REQUEST_SESSION_COMPETITIVE(int flags, int matchType, int userHash, int p3, Any* sessionRequestId) { return invoke<BOOL>(0x309BBEBEA8A3986C, flags, matchType, userHash, p3, sessionRequestId); } // 0x309BBEBEA8A3986C b1207
+	// Session flag 'SF_PRIVATE' is set internally
+	// p1 represents max amount of players in private session
 	NATIVE_DECL BOOL NETWORK_SESSION_REQUEST_SESSION_PRIVATE(int flags, int numPlayers, int userHash, Any* sessionRequestId) { return invoke<BOOL>(0x39A8EF7AF29A192C, flags, numPlayers, userHash, sessionRequestId); } // 0x39A8EF7AF29A192C b1207
 	// category:
 	// enum eOnCallType
@@ -3957,18 +4145,22 @@ namespace NETWORK
 	NATIVE_DECL BOOL NETWORK_SESSION_LEFT_QUEUE_OR_REQUESTED_SESSION(Any* sessionRequestId) { return invoke<BOOL>(0xECE6A0C1B59CD8BE, sessionRequestId); } // 0xECE6A0C1B59CD8BE b1207
 	NATIVE_DECL BOOL NETWORK_SESSION_LEAVE_SESSION() { return invoke<BOOL>(0x17C21B7319A05047); } // 0x17C21B7319A05047 b1207
 	NATIVE_DECL BOOL NETWORK_SESSION_IS_TRANSITIONING() { return invoke<BOOL>(0xF2CBC969C4F090C7); } // 0xF2CBC969C4F090C7 b1207
+	// Only used in R* Script startup_clip
 	NATIVE_DECL void _0xFD4272A137703449() { invoke<Void>(0xFD4272A137703449); } // 0xFD4272A137703449 b1207
+	// Only used in R* Script net_rolling_playlist
 	NATIVE_DECL void _NETWORK_SESSION_PLAYLIST_GO_TO_NEXT_CONTENT() { invoke<Void>(0xBDE605F925B07127); } // 0xBDE605F925B07127 b1436
+	// Only used in R* Script net_rolling_playlist
 	NATIVE_DECL void _NETWORK_SESSION_PLAYLIST_GET_UPCOMING_CONTENT() { invoke<Void>(0x8F9DB6CD03B42B58); } // 0x8F9DB6CD03B42B58 b1436
 	NATIVE_DECL void NETWORK_DISABLE_REALTIME_MULTIPLAYER() { invoke<Void>(0x236905C700FDB54D); } // 0x236905C700FDB54D b1207
-	NATIVE_DECL void _0x71FA2D1880C48032(Any p0) { invoke<Void>(0x71FA2D1880C48032, p0); } // 0x71FA2D1880C48032 b1207
+	// Only used in R* Script fm_race_controller
+	NATIVE_DECL void _0x71FA2D1880C48032(BOOL p0) { invoke<Void>(0x71FA2D1880C48032, p0); } // 0x71FA2D1880C48032 b1207
 	NATIVE_DECL void NETWORK_GET_GLOBAL_MULTIPLAYER_CLOCK(int* hours, int* minutes, int* seconds) { invoke<Void>(0x6D03BFBD643B2A02, hours, minutes, seconds); } // 0x6D03BFBD643B2A02 0x74E8C53E b1207
 	NATIVE_DECL void NETWORK_CLEAR_CLOCK_TIME_OVERRIDE() { invoke<Void>(0xD972DF67326F966E); } // 0xD972DF67326F966E 0xC4AEAF49 b1207
 	NATIVE_DECL BOOL NETWORK_IS_CLOCK_TIME_OVERRIDDEN() { return invoke<BOOL>(0xD7C95D322FF57522); } // 0xD7C95D322FF57522 0x2465296D b1207
 	NATIVE_DECL BOOL NETWORK_GET_GLOBAL_CLOCK(int* hour, int* minute, int* second) { return invoke<BOOL>(0x11A7ADCD629E170F, hour, minute, second); } // 0x11A7ADCD629E170F b1207
 	NATIVE_DECL void _NETWORK_CLOCK_TIME_OVERRIDE(int hour, int minute, int second, int transitionTime, BOOL pauseClock) { invoke<Void>(0x669E223E64B1903C, hour, minute, second, transitionTime, pauseClock); } // 0x669E223E64B1903C b1207
 	NATIVE_DECL void _NETWORK_CLOCK_TIME_OVERRIDE_2(int hour, int minute, int second, int transitionTime, BOOL pauseClock, BOOL clockwise) { invoke<Void>(0xE28C13ECC36FF14E, hour, minute, second, transitionTime, pauseClock, clockwise); } // 0xE28C13ECC36FF14E b1207
-	NATIVE_DECL void _0x65F040D91001ED4B(int milliseconds) { invoke<Void>(0x65F040D91001ED4B, milliseconds); } // 0x65F040D91001ED4B b1207
+	NATIVE_DECL void _NETWORK_CLEAR_CLOCK_OVERRIDE_OVERTIME(int milliseconds) { invoke<Void>(0x65F040D91001ED4B, milliseconds); } // 0x65F040D91001ED4B b1207
 	NATIVE_DECL Any _0x0E54D4DA6018FF8E() { return invoke<Any>(0x0E54D4DA6018FF8E); } // 0x0E54D4DA6018FF8E b1207
 	NATIVE_DECL BOOL NETWORK_IS_FINDING_GAMERS() { return invoke<BOOL>(0xDDDF64C91BFCF0AA); } // 0xDDDF64C91BFCF0AA 0xA6DAA79F b1207
 	NATIVE_DECL BOOL NETWORK_DID_FIND_GAMERS_SUCCEED() { return invoke<BOOL>(0xF9B83B77929D8863); } // 0xF9B83B77929D8863 0xBEDC4503 b1207
@@ -4022,7 +4214,7 @@ namespace NETWORK
 	NATIVE_DECL Any _0xDCA4A74135E1DEA5(Any p0) { return invoke<Any>(0xDCA4A74135E1DEA5, p0); } // 0xDCA4A74135E1DEA5 b1207
 	NATIVE_DECL BOOL NETWORK_HAS_PENDING_INVITE_FAILURE() { return invoke<BOOL>(0xD0498AD30E16B6BD); } // 0xD0498AD30E16B6BD b1207
 	NATIVE_DECL Any _0xF23D6475640D29EB(Any p0) { return invoke<Any>(0xF23D6475640D29EB, p0); } // 0xF23D6475640D29EB b1207
-	NATIVE_DECL void _0x704F92B3AF20D857(Any p0) { invoke<Void>(0x704F92B3AF20D857, p0); } // 0x704F92B3AF20D857 b1207
+	NATIVE_DECL void _0x704F92B3AF20D857(BOOL setting) { invoke<Void>(0x704F92B3AF20D857, setting); } // 0x704F92B3AF20D857 b1207
 	NATIVE_DECL void _0xF342F6BD0A8287D5(Any p0) { invoke<Void>(0xF342F6BD0A8287D5, p0); } // 0xF342F6BD0A8287D5 b1207
 	NATIVE_DECL void _0xD39A72AE5EBD57E5() { invoke<Void>(0xD39A72AE5EBD57E5); } // 0xD39A72AE5EBD57E5 b1207
 	NATIVE_DECL BOOL _NETWORK_SEND_SESSION_INVITE(Any* gamerHandle, const char* contentId, Any* data, int dataSize, int p4, int flags) { return invoke<BOOL>(0xE47001B7CB8B98AE, gamerHandle, contentId, data, dataSize, p4, flags); } // 0xE47001B7CB8B98AE b1207
@@ -4093,7 +4285,7 @@ namespace NETWORK
 	NATIVE_DECL void NETWORK_SET_MISSION_FINISHED() { invoke<Void>(0x3B3D11CD9FFCDFC9); } // 0x3B3D11CD9FFCDFC9 0x3083FAD7 b1207
 	NATIVE_DECL BOOL NETWORK_IS_SCRIPT_ACTIVE(const char* scriptName, int p1, BOOL p2, int p3) { return invoke<BOOL>(0x9D40DF90FAD26098, scriptName, p1, p2, p3); } // 0x9D40DF90FAD26098 0x4A65250C b1207
 	NATIVE_DECL BOOL NETWORK_IS_SCRIPT_ACTIVE_BY_HASH(Hash scriptHash, int p1, BOOL p2, int p3) { return invoke<BOOL>(0x1B89BC43B6E69107, scriptHash, p1, p2, p3); } // 0x1B89BC43B6E69107 b1207
-	NATIVE_DECL Any _0x31DAD2CD6D49546E(Any p0) { return invoke<Any>(0x31DAD2CD6D49546E, p0); } // 0x31DAD2CD6D49546E b1207
+	NATIVE_DECL BOOL _NETWORK_IS_THREAD_ACTIVE(int threadId) { return invoke<BOOL>(0x31DAD2CD6D49546E, threadId); } // 0x31DAD2CD6D49546E b1207
 	NATIVE_DECL Any _0xFB9ECED5B68F3B78(Any p0) { return invoke<Any>(0xFB9ECED5B68F3B78, p0); } // 0xFB9ECED5B68F3B78 b1207
 	NATIVE_DECL int NETWORK_GET_NUM_SCRIPT_PARTICIPANTS(Any* p0, Any p1, Any p2) { return invoke<int>(0x3658E8CD94FC121A, p0, p1, p2); } // 0x3658E8CD94FC121A 0x8F7D9F46 b1207
 	NATIVE_DECL int NETWORK_GET_INSTANCE_ID_OF_THIS_SCRIPT() { return invoke<int>(0x638A3A81733086DB); } // 0x638A3A81733086DB 0xDB8B5D71 b1207
@@ -4109,7 +4301,7 @@ namespace NETWORK
 	NATIVE_DECL int NETWORK_GET_DESTROYER_OF_NETWORK_ID(int netId, Hash* weaponHash) { return invoke<int>(0x7A1ADEEF01740A24, netId, weaponHash); } // 0x7A1ADEEF01740A24 0x4FCA6436 b1207
 	NATIVE_DECL Any _0x6CF82A7F65A5AD5F(Any p0, Any p1) { return invoke<Any>(0x6CF82A7F65A5AD5F, p0, p1); } // 0x6CF82A7F65A5AD5F b1207
 	NATIVE_DECL Any _0x236321F1178A5446(Any p0, Any p1, Any p2) { return invoke<Any>(0x236321F1178A5446, p0, p1, p2); } // 0x236321F1178A5446 b1207
-	NATIVE_DECL BOOL _NETWORK_GET_DESTROYER_OF_ENTITY(Any p0, Any p1, Hash* weaponHash) { return invoke<BOOL>(0x4CACA84440FA26F6, p0, p1, weaponHash); } // 0x4CACA84440FA26F6 0x28A45454 b1207
+	NATIVE_DECL BOOL NETWORK_GET_ASSISTED_DAMAGE_OF_ENTITY(Player player, Entity entity, int* p2) { return invoke<BOOL>(0x4CACA84440FA26F6, player, entity, p2); } // 0x4CACA84440FA26F6 0x28A45454 b1207
 	NATIVE_DECL Entity NETWORK_GET_ENTITY_KILLER_OF_PLAYER(Player player, Hash* weaponHash) { return invoke<Entity>(0x42B2DAA6B596F5F8, player, weaponHash); } // 0x42B2DAA6B596F5F8 0xA7E7E04F b1207
 	NATIVE_DECL void NETWORK_RESURRECT_LOCAL_PLAYER(float x, float y, float z, float heading, int p4, BOOL p5, Any p6, BOOL p7) { invoke<Void>(0xEA23C49EAA83ACFB, x, y, z, heading, p4, p5, p6, p7); } // 0xEA23C49EAA83ACFB 0xF1F9D4B4 b1207
 	NATIVE_DECL void _NETWORK_RESURRECT_LOCAL_PLAYER_2(Any* args) { invoke<Void>(0x4154B7D8C75E5DCF, args); } // 0x4154B7D8C75E5DCF b1207
@@ -4131,7 +4323,8 @@ namespace NETWORK
 	NATIVE_DECL BOOL NETWORK_HAS_CONTROL_OF_PICKUP(Pickup pickup) { return invoke<BOOL>(0x5BC9495F0B3B6FA6, pickup); } // 0x5BC9495F0B3B6FA6 0xF7784FC8 b1207
 	NATIVE_DECL BOOL _NETWORK_HAS_CONTROL_OF_ANIM_SCENE(AnimScene animScene) { return invoke<BOOL>(0x26A5C12FACFF8724, animScene); } // 0x26A5C12FACFF8724 b1207
 	NATIVE_DECL BOOL NETWORK_HAS_CONTROL_OF_PICKUP_PLACEMENT(Any p0) { return invoke<BOOL>(0x51EABCF2786515AB, p0); } // 0x51EABCF2786515AB b1311
-	NATIVE_DECL Any _0xF260AF6F43953316(Any p0) { return invoke<Any>(0xF260AF6F43953316, p0); } // 0xF260AF6F43953316 b1207
+	// Same Native Handler as VEH_TO_NET, PED_TO_NET, OBJ_TO_NET and NETWORK_GET_NETWORK_ID_FROM_ENTITY
+	NATIVE_DECL int _0xF260AF6F43953316(ScrHandle handle) { return invoke<int>(0xF260AF6F43953316, handle); } // 0xF260AF6F43953316 b1207
 	// Returns the network ID of the given vehicle.
 	NATIVE_DECL int VEH_TO_NET(Vehicle vehicle) { return invoke<int>(0xB4C94523F023419C, vehicle); } // 0xB4C94523F023419C 0xF17634EB b1207
 	// Returns the network ID of the given ped.
@@ -4234,14 +4427,14 @@ namespace NETWORK
 	NATIVE_DECL void SET_NETWORK_ID_VISIBLE_IN_CUTSCENE(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xA6928482543022B4, p0, p1, p2, p3); } // 0xA6928482543022B4 0x199E75EF b1207
 	NATIVE_DECL BOOL IS_NETWORK_ID_OWNED_BY_PARTICIPANT(int netId) { return invoke<BOOL>(0xA1607996431332DF, netId); } // 0xA1607996431332DF 0xEA5176C0 b1207
 	NATIVE_DECL Player _NETWORK_GET_PLAYER_OWNER_OF_NETWORK_ID(int netId) { return invoke<Player>(0xA6C0787443C9583E, netId); } // 0xA6C0787443C9583E b1207
-	NATIVE_DECL void SET_LOCAL_PLAYER_VISIBLE_IN_CUTSCENE(Any p0, Any p1, Any p2) { invoke<Void>(0xD1065D68947E7B6E, p0, p1, p2); } // 0xD1065D68947E7B6E 0x59F3479B b1207
+	NATIVE_DECL void SET_LOCAL_PLAYER_VISIBLE_IN_CUTSCENE(BOOL local, BOOL remote, int instanceId) { invoke<Void>(0xD1065D68947E7B6E, local, remote, instanceId); } // 0xD1065D68947E7B6E 0x59F3479B b1207
 	NATIVE_DECL void PREVENT_MIGRATION_OF_ENTITIES_IN_FAST_INSTANCE_FOR_LOCAL_PLAYER(BOOL toggle) { invoke<Void>(0x89D803CD48622150, toggle); } // 0x89D803CD48622150 b1207
 	NATIVE_DECL void SET_LOCAL_PLAYER_INVISIBLE_LOCALLY(BOOL p0) { invoke<Void>(0xE5F773C1A1D9D168, p0); } // 0xE5F773C1A1D9D168 0x764F6222 b1207
 	NATIVE_DECL void SET_PLAYER_INVISIBLE_LOCALLY(Player player, BOOL toggle) { invoke<Void>(0x12B37D54667DB0B8, player, toggle); } // 0x12B37D54667DB0B8 0x18227209 b1207
 	NATIVE_DECL void SET_PLAYER_VISIBLE_LOCALLY(Player player, BOOL toggle) { invoke<Void>(0xFAA10F1FAFB11AF2, player, toggle); } // 0xFAA10F1FAFB11AF2 0xBA2BB4B4 b1207
 	NATIVE_DECL void SET_ENTITY_VISIBLE_IN_CUTSCENE(Entity entity, BOOL p1, BOOL p2, int p3) { invoke<Void>(0xE0031D3C8F36AB82, entity, p1, p2, p3); } // 0xE0031D3C8F36AB82 0xDBFB067B b1207
 	NATIVE_DECL void _0x51D99497ABF3F451(Any p0) { invoke<Void>(0x51D99497ABF3F451, p0); } // 0x51D99497ABF3F451 b1207
-	NATIVE_DECL void _0xC1E1A3D5ED7617B8(Any p0, Any p1) { invoke<Void>(0xC1E1A3D5ED7617B8, p0, p1); } // 0xC1E1A3D5ED7617B8 b1207
+	NATIVE_DECL void _SET_DOOR_UNNETWORKED(Any p0, BOOL toggle) { invoke<Void>(0xC1E1A3D5ED7617B8, p0, toggle); } // 0xC1E1A3D5ED7617B8 b1207
 	NATIVE_DECL BOOL IS_DAMAGE_TRACKER_ACTIVE_ON_NETWORK_ID(int netID) { return invoke<BOOL>(0x6E192E33AD436366, netID); } // 0x6E192E33AD436366 0x597063BA b1207
 	NATIVE_DECL void ACTIVATE_DAMAGE_TRACKER_ON_NETWORK_ID(int netID, BOOL toggle) { invoke<Void>(0xD45B1FFCCD52FF19, netID, toggle); } // 0xD45B1FFCCD52FF19 0x95D07BA5 b1207
 	NATIVE_DECL BOOL IS_SPHERE_VISIBLE_TO_ANOTHER_MACHINE(Any p0, Any p1, Any p2, Any p3, Any p4) { return invoke<BOOL>(0xD82CF8E64C8729D8, p0, p1, p2, p3, p4); } // 0xD82CF8E64C8729D8 0x23C5274E b1207
@@ -4371,12 +4564,12 @@ namespace NETWORK
 	NATIVE_DECL void _0x19B52C20B5C4757C() { invoke<Void>(0x19B52C20B5C4757C); } // 0x19B52C20B5C4757C b1207
 	NATIVE_DECL void NETWORK_SPAWN_CONFIG_SET_FLAGS(int flags) { invoke<Void>(0xF94A0D5B254375DF, flags); } // 0xF94A0D5B254375DF b1207
 	NATIVE_DECL void _0x6CEE2E30021DAEC6() { invoke<Void>(0x6CEE2E30021DAEC6); } // 0x6CEE2E30021DAEC6 b1207
-	NATIVE_DECL void _0x44D59EC597BBF348(Any p0, Any p1) { invoke<Void>(0x44D59EC597BBF348, p0, p1); } // 0x44D59EC597BBF348 b1207
+	NATIVE_DECL void _NETWORK_SPAWN_CONFIG_ADD_PROPERTY_SCRIPTED(int configProperty, BOOL include) { invoke<Void>(0x44D59EC597BBF348, configProperty, include); } // 0x44D59EC597BBF348 b1207
 	NATIVE_DECL void _0xB131E686BD97B3F8() { invoke<Void>(0xB131E686BD97B3F8); } // 0xB131E686BD97B3F8 b1207
-	NATIVE_DECL void _0xEB6027FD1B4600D5(Any p0, Any p1, Any p2) { invoke<Void>(0xEB6027FD1B4600D5, p0, p1, p2); } // 0xEB6027FD1B4600D5 b1207
-	NATIVE_DECL void _0x405DDEFB1F531B18(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x405DDEFB1F531B18, p0, p1, p2, p3); } // 0x405DDEFB1F531B18 b1207
+	NATIVE_DECL void _NETWORK_SPAWN_CONFIG_ADD_PROPERTY_PREFERENCE(int configProperty, BOOL include, float weight) { invoke<Void>(0xEB6027FD1B4600D5, configProperty, include, weight); } // 0xEB6027FD1B4600D5 b1207
+	NATIVE_DECL void _0x405DDEFB1F531B18(Volume volume, BOOL p1, Any p2, Any p3) { invoke<Void>(0x405DDEFB1F531B18, volume, p1, p2, p3); } // 0x405DDEFB1F531B18 b1207
 	NATIVE_DECL void _0x43CF999205084B4B() { invoke<Void>(0x43CF999205084B4B); } // 0x43CF999205084B4B b1207
-	NATIVE_DECL void _0x13F592FC3BF0EA84(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x13F592FC3BF0EA84, p0, p1, p2, p3, p4); } // 0x13F592FC3BF0EA84 b1207
+	NATIVE_DECL void _0x13F592FC3BF0EA84(Volume volume, BOOL p1, float originalWeight, Any p3, Any p4) { invoke<Void>(0x13F592FC3BF0EA84, volume, p1, originalWeight, p3, p4); } // 0x13F592FC3BF0EA84 b1207
 	NATIVE_DECL void _0xCF23AB5BD47B384D(Any p0) { invoke<Void>(0xCF23AB5BD47B384D, p0); } // 0xCF23AB5BD47B384D b1207
 	NATIVE_DECL void _0xE5634491A58C2703(Any p0) { invoke<Void>(0xE5634491A58C2703, p0); } // 0xE5634491A58C2703 b1207
 	NATIVE_DECL void NETWORK_SPAWN_CONFIG_SET_GROUND_TO_ROOT_OFFSET(float offset) { invoke<Void>(0x59577799F6AE2F34, offset); } // 0x59577799F6AE2F34 b1207
@@ -4411,7 +4604,7 @@ namespace NETWORK
 	NATIVE_DECL void _0x40FEDB13870042F1() { invoke<Void>(0x40FEDB13870042F1); } // 0x40FEDB13870042F1 b1355
 	// Note: this native was added in build 1355.30
 	NATIVE_DECL void _0x422F9D6D6C7BC290(int p0) { invoke<Void>(0x422F9D6D6C7BC290, p0); } // 0x422F9D6D6C7BC290 b1355
-	// Note: this native was added in build 1311.23
+	// Note: this native was added in build 1311.23, but was only used after build 1436.25
 	NATIVE_DECL void NETWORK_REQUEST_CLOUD_TUNABLES() { invoke<Void>(0x42FB3B532D526E6C); } // 0x42FB3B532D526E6C 0xD760CAD5 b1311
 	NATIVE_DECL BOOL NETWORK_IS_TUNABLE_CLOUD_REQUEST_PENDING() { return invoke<BOOL>(0x0467C11ED88B7D28); } // 0x0467C11ED88B7D28 0x47978D7F b1207
 	NATIVE_DECL int NETWORK_GET_TUNABLE_CLOUD_CRC() { return invoke<int>(0x10BD227A753B0D84); } // 0x10BD227A753B0D84 0x231CFD12 b1436
@@ -4421,7 +4614,7 @@ namespace NETWORK
 	NATIVE_DECL int _NETWORK_TRY_ACCESS_TUNABLE_INT(Hash tunableContext, Hash tunableName, int defaultValue) { return invoke<int>(0xA25E006B36719774, tunableContext, tunableName, defaultValue); } // 0xA25E006B36719774 b1207
 	NATIVE_DECL float _NETWORK_TRY_ACCESS_TUNABLE_FLOAT(Hash tunableContext, Hash tunableName, float defaultValue) { return invoke<float>(0xA18393089C05E49C, tunableContext, tunableName, defaultValue); } // 0xA18393089C05E49C b1207
 	NATIVE_DECL BOOL _NETWORK_TRY_ACCESS_TUNABLE_BOOL(Hash tunableContext, Hash tunableName, BOOL defaultValue) { return invoke<BOOL>(0xB2AD5D29A99D4B26, tunableContext, tunableName, defaultValue); } // 0xB2AD5D29A99D4B26 b1207
-	NATIVE_DECL void _0x894B5ECAB45D2342(Any p0, Any p1) { invoke<Void>(0x894B5ECAB45D2342, p0, p1); } // 0x894B5ECAB45D2342 b1207
+	NATIVE_DECL void _0x894B5ECAB45D2342(int netHandle, Any p1) { invoke<Void>(0x894B5ECAB45D2342, netHandle, p1); } // 0x894B5ECAB45D2342 b1207
 	NATIVE_DECL void NETWORK_DISABLE_PROXIMITY_MIGRATION(int netID) { invoke<Void>(0x407091CF6037118E, netID); } // 0x407091CF6037118E 0x9F82917F b1207
 	NATIVE_DECL Any _0xCE5E79D9E303628E() { return invoke<Any>(0xCE5E79D9E303628E); } // 0xCE5E79D9E303628E b1355
 	NATIVE_DECL Any _0xDBC754CB6CCB9378() { return invoke<Any>(0xDBC754CB6CCB9378); } // 0xDBC754CB6CCB9378 b1232
@@ -4466,11 +4659,11 @@ namespace NETWORK
 	NATIVE_DECL BOOL _UGC_HAS_PRIVILEGE() { return invoke<BOOL>(0x6506BFA755FB209C); } // 0x6506BFA755FB209C b1207
 	NATIVE_DECL int UGC_REQUEST_CONTENT_DATA_FROM_PARAMS(const char* contentTypeName, const char* contentId, int fileId, int fileVersion, int languageId) { return invoke<int>(0x7FD2990AF016795E, contentTypeName, contentId, fileId, fileVersion, languageId); } // 0x7FD2990AF016795E 0x38FC2EEB b1207
 	NATIVE_DECL int UGC_REQUEST_CACHED_DESCRIPTION(int p0) { return invoke<int>(0x5E0165278F6339EE, p0); } // 0x5E0165278F6339EE 0x1C4F9FDB b1207
-	NATIVE_DECL BOOL _0x2D5DC831176D0114(Any p0) { return invoke<BOOL>(0x2D5DC831176D0114, p0); } // 0x2D5DC831176D0114 0xA69AE16C b1207
-	NATIVE_DECL BOOL _0xEBFA8D50ADDC54C4(Any p0) { return invoke<BOOL>(0xEBFA8D50ADDC54C4, p0); } // 0xEBFA8D50ADDC54C4 0xF50BC67A b1207
-	NATIVE_DECL BOOL _0x162C23CA83ED0A62(Any p0) { return invoke<BOOL>(0x162C23CA83ED0A62, p0); } // 0x162C23CA83ED0A62 0xB3BBD241 b1207
+	NATIVE_DECL BOOL UGC_IS_DESCRIPTION_REQUEST_IN_PROGRESS(Any p0) { return invoke<BOOL>(0x2D5DC831176D0114, p0); } // 0x2D5DC831176D0114 0xA69AE16C b1207
+	NATIVE_DECL BOOL UGC_HAS_DESCRIPTION_REQUEST_FINISHED(Any p0) { return invoke<BOOL>(0xEBFA8D50ADDC54C4, p0); } // 0xEBFA8D50ADDC54C4 0xF50BC67A b1207
+	NATIVE_DECL BOOL UGC_DID_DESCRIPTION_REQUEST_SUCCEED(Any p0) { return invoke<BOOL>(0x162C23CA83ED0A62, p0); } // 0x162C23CA83ED0A62 0xB3BBD241 b1207
 	NATIVE_DECL const char* UGC_GET_CACHED_DESCRIPTION(int p0, int length) { return invoke<const char*>(0x40F7E66472DF3E5C, p0, length); } // 0x40F7E66472DF3E5C 0x70A2845C b1207
-	NATIVE_DECL BOOL _0x5A34CD9C3C5BEC44(Any p0) { return invoke<BOOL>(0x5A34CD9C3C5BEC44, p0); } // 0x5A34CD9C3C5BEC44 0x346B506C b1207
+	NATIVE_DECL BOOL UGC_RELEASE_CACHED_DESCRIPTION(Any p0) { return invoke<BOOL>(0x5A34CD9C3C5BEC44, p0); } // 0x5A34CD9C3C5BEC44 0x346B506C b1207
 	NATIVE_DECL void _0x68103E2247887242() { invoke<Void>(0x68103E2247887242); } // 0x68103E2247887242 0x0095DB71 b1207
 	NATIVE_DECL void UGC_SET_QUERY_DATA_FROM_OFFLINE(BOOL p0) { invoke<Void>(0xF98DDE0A8ED09323, p0); } // 0xF98DDE0A8ED09323 0x213C6D36 b1207
 	NATIVE_DECL BOOL UGC_IS_LANGUAGE_SUPPORTED(int languageId) { return invoke<BOOL>(0xF53E48461B71EECB, languageId); } // 0xF53E48461B71EECB 0xB4668B23 b1207
@@ -4561,7 +4754,7 @@ namespace NETWORK
 	NATIVE_DECL Any _0x6FD992C4A1C1B986() { return invoke<Any>(0x6FD992C4A1C1B986); } // 0x6FD992C4A1C1B986 b1207
 	// Returns true if the passed value is less than 32.
 	NATIVE_DECL BOOL NETWORK_IS_PLAYER_INDEX_VALID(Player player) { return invoke<BOOL>(0x255A5EF65EDA9167, player); } // 0x255A5EF65EDA9167 b1207
-	NATIVE_DECL BOOL _0xDCC4B7F7112E8AB7(Player player) { return invoke<BOOL>(0xDCC4B7F7112E8AB7, player); } // 0xDCC4B7F7112E8AB7 b1207
+	NATIVE_DECL BOOL _GET_PLAYER_WAYPOINT_IS_ACTIVE(Player player) { return invoke<BOOL>(0xDCC4B7F7112E8AB7, player); } // 0xDCC4B7F7112E8AB7 b1207
 	NATIVE_DECL void _0x455156F47DC6B78C(Any p0) { invoke<Void>(0x455156F47DC6B78C, p0); } // 0x455156F47DC6B78C b1207
 	NATIVE_DECL void _SET_LOCAL_PLAYER_DAMAGE_MULTIPLIER_FOR_PLAYER(Player player, float damageMultiplier) { invoke<Void>(0xD041A32992A55F84, player, damageMultiplier); } // 0xD041A32992A55F84 b1207
 	NATIVE_DECL void _NETWORK_SET_VEHICLE_WHEELS_DESTRUCTIBLE(Any p0, Any p1) { invoke<Void>(0x0C8BC052AE87D744, p0, p1); } // 0x0C8BC052AE87D744 b1207
@@ -4577,8 +4770,8 @@ namespace NETWORK
 	NATIVE_DECL void _0xACC44768AF229042() { invoke<Void>(0xACC44768AF229042); } // 0xACC44768AF229042 b1207
 	NATIVE_DECL void _0x7E300B5B86AB1D1A(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12, Any p13, Any p14) { invoke<Void>(0x7E300B5B86AB1D1A, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14); } // 0x7E300B5B86AB1D1A b1207
 	NATIVE_DECL int GET_UNIQUE_INT_FOR_PLAYER(Player player) { return invoke<int>(0x07F723401B9D921C, player); } // 0x07F723401B9D921C b1207
-	NATIVE_DECL void _0x780A13F780A13F1B(Any p0) { invoke<Void>(0x780A13F780A13F1B, p0); } // 0x780A13F780A13F1B b1311
-	NATIVE_DECL BOOL _0xE525878A35B9EEBD(Player player, Player trackedPlayer) { return invoke<BOOL>(0xE525878A35B9EEBD, player, trackedPlayer); } // 0xE525878A35B9EEBD b1207
+	NATIVE_DECL void _0x780A13F780A13F1B(BOOL p0) { invoke<Void>(0x780A13F780A13F1B, p0); } // 0x780A13F780A13F1B b1311
+	NATIVE_DECL BOOL _NETWORK_IS_TRACKED_PLAYER_VISIBLE(Player player, Player trackedPlayer) { return invoke<BOOL>(0xE525878A35B9EEBD, player, trackedPlayer); } // 0xE525878A35B9EEBD b1207
 	NATIVE_DECL BOOL NETWORK_IS_AIM_CAM_ACTIVE(Player player) { return invoke<BOOL>(0x8E7CE19219669AEB, player); } // 0x8E7CE19219669AEB b1207
 	NATIVE_DECL void _NETWORK_ALERT(Hash ctx, Hash lh, int ec, int h) { invoke<Void>(0x1BAA028F52EED310, ctx, lh, ec, h); } // 0x1BAA028F52EED310 b1311
 	// Note: this native was added in build 1311.23
@@ -4622,11 +4815,12 @@ namespace OBJECT
 	NATIVE_DECL Object CREATE_OBJECT_NO_OFFSET(Hash modelHash, float x, float y, float z, BOOL isNetwork, BOOL bScriptHostObj, BOOL dynamic, BOOL p7) { return invoke<Object>(0x9A294B2138ABB884, modelHash, x, y, z, isNetwork, bScriptHostObj, dynamic, p7); } // 0x9A294B2138ABB884 0x58040420 b1207
 	// Deletes the specified object, then sets the handle pointed to by the pointer to NULL.
 	NATIVE_DECL void DELETE_OBJECT(Object* object) { invoke<Void>(0x931914268722C263, object); } // 0x931914268722C263 0xD6EF9DA7 b1207
-	NATIVE_DECL BOOL PLACE_OBJECT_ON_GROUND_PROPERLY(Any p0, Any p1) { return invoke<BOOL>(0x58A850EAEE20FAA3, p0, p1); } // 0x58A850EAEE20FAA3 0x8F95A20B b1207
+	NATIVE_DECL BOOL PLACE_OBJECT_ON_GROUND_PROPERLY(Object object, BOOL p1) { return invoke<BOOL>(0x58A850EAEE20FAA3, object, p1); } // 0x58A850EAEE20FAA3 0x8F95A20B b1207
 	NATIVE_DECL BOOL SLIDE_OBJECT(Object object, float toX, float toY, float toZ, float speedX, float speedY, float speedZ, BOOL collision) { return invoke<BOOL>(0x2FDFF4107B8C1147, object, toX, toY, toZ, speedX, speedY, speedZ, collision); } // 0x2FDFF4107B8C1147 0x63BFA7A0 b1207
 	NATIVE_DECL void SET_OBJECT_TARGETTABLE(Object object, BOOL targettable) { invoke<Void>(0x8A7391690F5AFD81, object, targettable); } // 0x8A7391690F5AFD81 0x3F88CD86 b1207
 	NATIVE_DECL void _SET_OBJECT_TARGETTABLE_2(Object object, BOOL targettable) { invoke<Void>(0x581EDBE56E8D62C9, object, targettable); } // 0x581EDBE56E8D62C9 b1207
-	NATIVE_DECL void _0xA22712E8471AA08E(Object object, BOOL p1, BOOL p2) { invoke<Void>(0xA22712E8471AA08E, object, p1, p2); } // 0xA22712E8471AA08E b1207
+	// When p1 and p2 are true you can focus on the object (similar to when you focus a ped)
+	NATIVE_DECL void _SET_OBJECT_TARGETTABLE_FOCUS(Object object, BOOL p1, BOOL p2) { invoke<Void>(0xA22712E8471AA08E, object, p1, p2); } // 0xA22712E8471AA08E b1207
 	NATIVE_DECL void _0xF6E88489B4E6EBE5(Any p0, Any p1) { invoke<Void>(0xF6E88489B4E6EBE5, p0, p1); } // 0xF6E88489B4E6EBE5 b1207
 	NATIVE_DECL void _0xE157A8A336C7F04A(Any p0, Any p1) { invoke<Void>(0xE157A8A336C7F04A, p0, p1); } // 0xE157A8A336C7F04A b1207
 	NATIVE_DECL void _0x46CBCF0E98A4E156(Any p0, Any p1) { invoke<Void>(0x46CBCF0E98A4E156, p0, p1); } // 0x46CBCF0E98A4E156 b1207
@@ -4635,6 +4829,7 @@ namespace OBJECT
 	NATIVE_DECL BOOL HAS_OBJECT_BEEN_BROKEN(Any p0) { return invoke<BOOL>(0x8ABFB70C49CC43E2, p0); } // 0x8ABFB70C49CC43E2 0xFE21F891 b1207
 	NATIVE_DECL BOOL HAS_CLOSEST_OBJECT_OF_TYPE_BEEN_BROKEN(float p0, float p1, float p2, float p3, Hash modelHash, Any p5) { return invoke<BOOL>(0x761B0E69AC4D007E, p0, p1, p2, p3, modelHash, p5); } // 0x761B0E69AC4D007E 0x6FC0353D b1207
 	NATIVE_DECL Vector3 _GET_OBJECT_OFFSET_FROM_COORDS(float xPos, float yPos, float zPos, float heading, float xOffset, float yOffset, float zOffset) { return invoke<Vector3>(0x163E252DE035A133, xPos, yPos, zPos, heading, xOffset, yOffset, zOffset); } // 0x163E252DE035A133 0x87A42A12 b1207
+	// Registers a door, hashes: https://github.com/femga/rdr3_discoveries/tree/master/doorHashes
 	NATIVE_DECL void _ADD_DOOR_TO_SYSTEM_NEW(Hash doorHash, BOOL p1, BOOL p2, BOOL p3, int threadId, int p5, BOOL p6) { invoke<Void>(0xD99229FE93B46286, doorHash, p1, p2, p3, threadId, p5, p6); } // 0xD99229FE93B46286 b1207
 	NATIVE_DECL BOOL _IS_DOOR_REGISTERED_WITH_NETWORK(Hash doorHash) { return invoke<BOOL>(0xB5DED7B65C604FDF, doorHash); } // 0xB5DED7B65C604FDF b1207
 	NATIVE_DECL void REMOVE_DOOR_FROM_SYSTEM(Hash doorHash) { invoke<Void>(0x464D8E1427156FE4, doorHash); } // 0x464D8E1427156FE4 0x00253286 b1207
@@ -4657,9 +4852,10 @@ namespace OBJECT
 	// Ranges from -1.0 to 1.0, and 0.0 is closed / default.
 	NATIVE_DECL void DOOR_SYSTEM_SET_OPEN_RATIO(Hash doorHash, float ajar, BOOL forceUpdate) { invoke<Void>(0xB6E6FBA95C7324AC, doorHash, ajar, forceUpdate); } // 0xB6E6FBA95C7324AC 0x34883DE3 b1207
 	NATIVE_DECL void _0x3A77DAE8B4FD7586(Any p0, Any p1) { invoke<Void>(0x3A77DAE8B4FD7586, p0, p1); } // 0x3A77DAE8B4FD7586 b1207
-	NATIVE_DECL void _0x1F1FABFE9B2A1254(Any p0, Any p1) { invoke<Void>(0x1F1FABFE9B2A1254, p0, p1); } // 0x1F1FABFE9B2A1254 b1207
-	NATIVE_DECL Any _0x4F89DAD4156BA145(Any p0) { return invoke<Any>(0x4F89DAD4156BA145, p0); } // 0x4F89DAD4156BA145 b1207
-	NATIVE_DECL void _0x985767F5FA45BC44(Any p0) { invoke<Void>(0x985767F5FA45BC44, p0); } // 0x985767F5FA45BC44 b1207
+	NATIVE_DECL void _DOOR_SYSTEM_SET_ABLE_TO_CHANGE_OPEN_RATIO_WHILE_LOCKED(Hash doorHash, BOOL p1) { invoke<Void>(0x1F1FABFE9B2A1254, doorHash, p1); } // 0x1F1FABFE9B2A1254 b1207
+	// Returns true if door is alredy registered with owner
+	NATIVE_DECL BOOL _IS_DOOR_REGISTERED_WITH_OWNER(Hash doorHash) { return invoke<BOOL>(0x4F89DAD4156BA145, doorHash); } // 0x4F89DAD4156BA145 b1207
+	NATIVE_DECL void _DOOR_SYSTEM_CHANGE_SCRIPT_OWNER(Hash doorHash) { invoke<Void>(0x985767F5FA45BC44, doorHash); } // 0x985767F5FA45BC44 b1207
 	NATIVE_DECL Any _0x8433E1954BE323FC(Any p0) { return invoke<Any>(0x8433E1954BE323FC, p0); } // 0x8433E1954BE323FC b1207
 	NATIVE_DECL Any _0x6E2AA80BB0C03728(Any p0, Any p1) { return invoke<Any>(0x6E2AA80BB0C03728, p0, p1); } // 0x6E2AA80BB0C03728 b1207
 	NATIVE_DECL void _0x1BC47A9DEDC8DF5D(Any p0, Any p1) { invoke<Void>(0x1BC47A9DEDC8DF5D, p0, p1); } // 0x1BC47A9DEDC8DF5D b1207
@@ -4675,9 +4871,10 @@ namespace OBJECT
 	NATIVE_DECL void _0xC07B91B996C1DE89(Any p0, Any p1) { invoke<Void>(0xC07B91B996C1DE89, p0, p1); } // 0xC07B91B996C1DE89 b1207
 	NATIVE_DECL BOOL IS_DOOR_REGISTERED_WITH_SYSTEM(Hash doorHash) { return invoke<BOOL>(0xC153C43EA202C8C1, doorHash); } // 0xC153C43EA202C8C1 0x5AFCD8A1 b1207
 	NATIVE_DECL BOOL IS_DOOR_CLOSED(Hash doorHash) { return invoke<BOOL>(0xC531EE8A1145A149, doorHash); } // 0xC531EE8A1145A149 0x48659CD7 b1207
-	NATIVE_DECL Any _0x0943113E02322164(Any p0, Any p1) { return invoke<Any>(0x0943113E02322164, p0, p1); } // 0x0943113E02322164 b1207
+	// Params: p1 = 23 in R* Scripts
+	NATIVE_DECL Any _0x0943113E02322164(Object object, int p1) { return invoke<Any>(0x0943113E02322164, object, p1); } // 0x0943113E02322164 b1207
 	NATIVE_DECL Any _0x614D0B4533F842D3(Any p0) { return invoke<Any>(0x614D0B4533F842D3, p0); } // 0x614D0B4533F842D3 b1207
-	NATIVE_DECL void _0x276AAF0F1C7F2494(Any p0, Any p1) { invoke<Void>(0x276AAF0F1C7F2494, p0, p1); } // 0x276AAF0F1C7F2494 b1207
+	NATIVE_DECL void _DOOR_SYSTEM_FORCE_SHUT(Hash doorHash, BOOL p1) { invoke<Void>(0x276AAF0F1C7F2494, doorHash, p1); } // 0x276AAF0F1C7F2494 b1207
 	NATIVE_DECL Any _0xEBA314768FB35D58(Any p0) { return invoke<Any>(0xEBA314768FB35D58, p0); } // 0xEBA314768FB35D58 b1207
 	NATIVE_DECL void _0x5230BF34EB0EC645(Any p0) { invoke<Void>(0x5230BF34EB0EC645, p0); } // 0x5230BF34EB0EC645 b1207
 	NATIVE_DECL BOOL DOES_OBJECT_OF_TYPE_EXIST_AT_COORDS(float x, float y, float z, float radius, Hash hash, BOOL p5) { return invoke<BOOL>(0xBFA48E2FF417213F, x, y, z, radius, hash, p5); } // 0xBFA48E2FF417213F 0x23FF2BA4 b1207
@@ -4695,7 +4892,7 @@ namespace OBJECT
 	NATIVE_DECL float GET_OBJECT_FRAGMENT_DAMAGE_HEALTH(Any p0, BOOL p1) { return invoke<float>(0xB6FBFD079B8D0596, p0, p1); } // 0xB6FBFD079B8D0596 0xF0B330AD b1207
 	NATIVE_DECL Any _0x235C863DA77BD88D(Any p0, Any p1, Any p2) { return invoke<Any>(0x235C863DA77BD88D, p0, p1, p2); } // 0x235C863DA77BD88D b1207
 	NATIVE_DECL void SET_ACTIVATE_OBJECT_PHYSICS_AS_SOON_AS_IT_IS_UNFROZEN(Object object, BOOL toggle) { invoke<Void>(0x406137F8EF90EAF5, object, toggle); } // 0x406137F8EF90EAF5 0x3E263AE1 b1207
-	NATIVE_DECL void BREAK_OBJECT_FRAGMENT_CHILD(Object p0, Any p1, BOOL p2) { invoke<Void>(0xE7E4C198B0185900, p0, p1, p2); } // 0xE7E4C198B0185900 0x1E82C2AE b1207
+	NATIVE_DECL void BREAK_OBJECT_FRAGMENT_CHILD(Object object, Any p1, BOOL p2) { invoke<Void>(0xE7E4C198B0185900, object, p1, p2); } // 0xE7E4C198B0185900 0x1E82C2AE b1207
 	NATIVE_DECL void BREAK_ALL_OBJECT_FRAGMENT_BONES(Object object) { invoke<Void>(0x8462BE2341A55B6F, object); } // 0x8462BE2341A55B6F b1207
 	NATIVE_DECL void _0xAAACF33CBF9B990A(Any p0, Any p1) { invoke<Void>(0xAAACF33CBF9B990A, p0, p1); } // 0xAAACF33CBF9B990A b1207
 	NATIVE_DECL void _0xE4EFB315BCD2A838(Any p0, Any p1) { invoke<Void>(0xE4EFB315BCD2A838, p0, p1); } // 0xE4EFB315BCD2A838 b1207
@@ -4707,14 +4904,13 @@ namespace OBJECT
 	NATIVE_DECL void TRACK_OBJECT_VISIBILITY(Object object) { invoke<Void>(0xB252BC036B525623, object); } // 0xB252BC036B525623 0x46D06B9A b1207
 	NATIVE_DECL BOOL IS_OBJECT_VISIBLE(Object object) { return invoke<BOOL>(0x8B32ACE6326A7546, object); } // 0x8B32ACE6326A7546 0xF4FD8AE4 b1207
 	NATIVE_DECL void _0xEB6F1A9B5510A5D2(Any p0, BOOL p1) { invoke<Void>(0xEB6F1A9B5510A5D2, p0, p1); } // 0xEB6F1A9B5510A5D2 0xAF016CC1 b1207
-	NATIVE_DECL void _0xE2B3B852B537C398(Any p0) { invoke<Void>(0xE2B3B852B537C398, p0); } // 0xE2B3B852B537C398 b1207
+	NATIVE_DECL void ALLOW_DAMAGE_EVENTS_FOR_NON_NETWORKED_OBJECTS(BOOL enabled) { invoke<Void>(0xE2B3B852B537C398, enabled); } // 0xE2B3B852B537C398 b1207
 	NATIVE_DECL void _0x6579860A5558524A(Any p0, Any p1) { invoke<Void>(0x6579860A5558524A, p0, p1); } // 0x6579860A5558524A b1207
 	NATIVE_DECL void _0xDFA1237F5228263F(Any p0, Any p1) { invoke<Void>(0xDFA1237F5228263F, p0, p1); } // 0xDFA1237F5228263F b1207
-	// Returns object light intensity
-	NATIVE_DECL float _0xFA3B61EC249B4674(Object object) { return invoke<float>(0xFA3B61EC249B4674, object); } // 0xFA3B61EC249B4674 b1207
-	NATIVE_DECL void _0xF49574E2332A8F06(Object object, float lightIntensity) { invoke<Void>(0xF49574E2332A8F06, object, lightIntensity); } // 0xF49574E2332A8F06 b1207
-	NATIVE_DECL void _0x63E39F09310F481F(Object object, float value) { invoke<Void>(0x63E39F09310F481F, object, value); } // 0x63E39F09310F481F b1207
-	NATIVE_DECL void _0x04D1D4E411CE52D0(Object object, BOOL disable) { invoke<Void>(0x04D1D4E411CE52D0, object, disable); } // 0x04D1D4E411CE52D0 b1207
+	NATIVE_DECL float _GET_LIGHT_INTENSITY_FROM_OBJECT(Object object) { return invoke<float>(0xFA3B61EC249B4674, object); } // 0xFA3B61EC249B4674 b1207
+	NATIVE_DECL void _SET_LIGHT_INTENSITY_FOR_OBJECT(Object object, float lightIntensity) { invoke<Void>(0xF49574E2332A8F06, object, lightIntensity); } // 0xF49574E2332A8F06 b1207
+	NATIVE_DECL void _SET_LIGHT_TRANSLUCENCY_FOR_OBJECT(Object object, float value) { invoke<Void>(0x63E39F09310F481F, object, value); } // 0x63E39F09310F481F b1207
+	NATIVE_DECL void _SET_LIGHT_SCATTERING_DISABLED_FOR_OBJECT(Object object, BOOL disable) { invoke<Void>(0x04D1D4E411CE52D0, object, disable); } // 0x04D1D4E411CE52D0 b1207
 	NATIVE_DECL void _0x7FCD49388BC9B775(Any p0, Any p1) { invoke<Void>(0x7FCD49388BC9B775, p0, p1); } // 0x7FCD49388BC9B775 b1207
 	NATIVE_DECL Any _0xFA99E8E575F2FEF8(Any p0) { return invoke<Any>(0xFA99E8E575F2FEF8, p0); } // 0xFA99E8E575F2FEF8 b1436
 	NATIVE_DECL Object GET_RAYFIRE_MAP_OBJECT(float x, float y, float z, float radius, const char* name) { return invoke<Object>(0xB48FCED898292E52, x, y, z, radius, name); } // 0xB48FCED898292E52 0xA286DE96 b1207
@@ -4722,6 +4918,7 @@ namespace OBJECT
 	NATIVE_DECL int GET_STATE_OF_RAYFIRE_MAP_OBJECT(Object object) { return invoke<int>(0x899BA936634A322E, object); } // 0x899BA936634A322E 0xF1B8817A b1207
 	NATIVE_DECL BOOL DOES_RAYFIRE_MAP_OBJECT_EXIST(Object object) { return invoke<BOOL>(0x52AF537A0C5B8AAD, object); } // 0x52AF537A0C5B8AAD 0xE08C834D b1207
 	NATIVE_DECL float GET_RAYFIRE_MAP_OBJECT_ANIM_PHASE(Object object) { return invoke<float>(0x260EE4FDBDF4DB01, object); } // 0x260EE4FDBDF4DB01 0x020497DE b1207
+	// https://github.com/femga/rdr3_discoveries/blob/master/objects/pickup_list.lua
 	NATIVE_DECL Pickup CREATE_PICKUP(Hash pickupHash, float x, float y, float z, int flags, int p5, BOOL p6, Hash modelHash, int p8, float p9, Any p10) { return invoke<Pickup>(0xFBA08C503DD5FA58, pickupHash, x, y, z, flags, p5, p6, modelHash, p8, p9, p10); } // 0xFBA08C503DD5FA58 0x5E14DF68 b1207
 	NATIVE_DECL Pickup CREATE_PICKUP_ROTATE(Hash pickupHash, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, int flags, int p8, int p9, BOOL p10, Hash modelHash, int p12, float p13, Any p14) { return invoke<Pickup>(0x891804727E0A98B7, pickupHash, posX, posY, posZ, rotX, rotY, rotZ, flags, p8, p9, p10, modelHash, p12, p13, p14); } // 0x891804727E0A98B7 0xF015BFE2 b1207
 	NATIVE_DECL Object CREATE_AMBIENT_PICKUP(Hash pickupHash, float x, float y, float z, int flags, int value, Hash modelHash, BOOL p7, BOOL p8, int p9, float p10) { return invoke<Object>(0x673966A0C0FD7171, pickupHash, x, y, z, flags, value, modelHash, p7, p8, p9, p10); } // 0x673966A0C0FD7171 0x17B99CE7 b1207
@@ -4731,7 +4928,7 @@ namespace OBJECT
 	NATIVE_DECL void _HIDE_PICKUP_OBJECT(Object pickupObject, BOOL toggle) { invoke<Void>(0x2777150CC7D9365E, pickupObject, toggle); } // 0x2777150CC7D9365E b1207
 	NATIVE_DECL void SET_MAX_NUM_PORTABLE_PICKUPS_CARRIED_BY_PLAYER(Hash modelHash, int p1) { invoke<Void>(0x0BF3B3BD47D79C08, modelHash, p1); } // 0x0BF3B3BD47D79C08 0x7EFBA039 b1207
 	NATIVE_DECL Any _0x3E2616E7EA539480(Any p0) { return invoke<Any>(0x3E2616E7EA539480, p0); } // 0x3E2616E7EA539480 b1207
-	NATIVE_DECL void SET_LOCAL_PLAYER_CAN_COLLECT_PORTABLE_PICKUPS(BOOL p0) { invoke<Void>(0x78857FC65CADB909, p0); } // 0x78857FC65CADB909 0xA3CDF152 b1207
+	NATIVE_DECL void SET_LOCAL_PLAYER_CAN_COLLECT_PORTABLE_PICKUPS(BOOL toggle) { invoke<Void>(0x78857FC65CADB909, toggle); } // 0x78857FC65CADB909 0xA3CDF152 b1207
 	NATIVE_DECL Vector3 GET_SAFE_PICKUP_COORDS(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return invoke<Vector3>(0x6E16BC2503FF1FF0, p0, p1, p2, p3, p4, p5); } // 0x6E16BC2503FF1FF0 0x618B5F67 b1207
 	NATIVE_DECL Vector3 GET_PICKUP_COORDS(Pickup pickup) { return invoke<Vector3>(0x225B8B35C88029B3, pickup); } // 0x225B8B35C88029B3 0xC2E1E2C5 b1207
 	NATIVE_DECL void REMOVE_ALL_PICKUPS_OF_TYPE(Hash pickupHash) { invoke<Void>(0x27F9D613092159CF, pickupHash); } // 0x27F9D613092159CF 0x40062C53 b1207
@@ -4760,12 +4957,12 @@ namespace OBJECT
 	NATIVE_DECL void SET_PICKUP_GENERATION_RANGE_MULTIPLIER(float multiplier) { invoke<Void>(0x318516E02DE3ECE2, multiplier); } // 0x318516E02DE3ECE2 0x9879AC51 b1207
 	NATIVE_DECL void SET_PICKUP_UNCOLLECTABLE(Any p0, Any p1) { invoke<Void>(0x4A8CB328CD6F1C9B, p0, p1); } // 0x4A8CB328CD6F1C9B b1207
 	NATIVE_DECL void SET_PICKUP_HIDDEN_WHEN_UNCOLLECTABLE(Any p0, Any p1) { invoke<Void>(0x81218CE01B672219, p0, p1); } // 0x81218CE01B672219 b1207
-	NATIVE_DECL void _0xAC9AE68F0A463752(Any p0) { invoke<Void>(0xAC9AE68F0A463752, p0); } // 0xAC9AE68F0A463752 b1207
+	NATIVE_DECL void _SET_AMBIENT_PICKUP_LIFETIME(int lifetime) { invoke<Void>(0xAC9AE68F0A463752, lifetime); } // 0xAC9AE68F0A463752 b1207
 	NATIVE_DECL void SET_PICKUP_PARTICLE_FX_SPAWN(Any p0, Any p1) { invoke<Void>(0xEB9740A38FD6D634, p0, p1); } // 0xEB9740A38FD6D634 b1207
 	NATIVE_DECL void SET_PICKUP_PARTICLE_FX_HIGHLIGHT(Any p0, Any p1) { invoke<Void>(0x1607C7D9B3021DF5, p0, p1); } // 0x1607C7D9B3021DF5 b1207
-	NATIVE_DECL void _0xF92099527DB8E2A7(Any p0, Any p1) { invoke<Void>(0xF92099527DB8E2A7, p0, p1); } // 0xF92099527DB8E2A7 0xA7E936FD b1207
+	NATIVE_DECL void SUPPRESS_PICKUP_REWARD_TYPE(int rewardType, BOOL suppress) { invoke<Void>(0xF92099527DB8E2A7, rewardType, suppress); } // 0xF92099527DB8E2A7 0xA7E936FD b1207
 	NATIVE_DECL Any _0x20135AF9C10D2A3D(Any p0) { return invoke<Any>(0x20135AF9C10D2A3D, p0); } // 0x20135AF9C10D2A3D b1207
-	NATIVE_DECL void _0x00EE08603EADEE92(Any p0) { invoke<Void>(0x00EE08603EADEE92, p0); } // 0x00EE08603EADEE92 b1207
+	NATIVE_DECL void _SET_PICKUP_COLLECTABLE_ON_MOUNT(Object object) { invoke<Void>(0x00EE08603EADEE92, object); } // 0x00EE08603EADEE92 b1207
 	NATIVE_DECL void _0xDE116ECFFDD4B997(Any p0, Any p1) { invoke<Void>(0xDE116ECFFDD4B997, p0, p1); } // 0xDE116ECFFDD4B997 b1207
 	NATIVE_DECL Hash GET_WEAPON_TYPE_FROM_PICKUP_TYPE(Hash pickupHash) { return invoke<Hash>(0x08F96CA6C551AD51, pickupHash); } // 0x08F96CA6C551AD51 0xEDD01937 b1207
 	NATIVE_DECL Any _0x44B09A23D728045A(Any p0) { return invoke<Any>(0x44B09A23D728045A, p0); } // 0x44B09A23D728045A b1207
@@ -4776,7 +4973,7 @@ namespace OBJECT
 	// Seems to mostly have effect on wood-made objects https://imgur.com/a/32oQvOn
 	NATIVE_DECL void _SET_OBJECT_BURN_LEVEL(Object object, float burnLevel, BOOL affectAsh) { invoke<Void>(0x2797C633DCDBBAC5, object, burnLevel, affectAsh); } // 0x2797C633DCDBBAC5 b1207
 	NATIVE_DECL void _0x9A74A9CADFA8A598(Any p0) { invoke<Void>(0x9A74A9CADFA8A598, p0); } // 0x9A74A9CADFA8A598 b1207
-	NATIVE_DECL void _0xF40AB58D83C35027(Any p0) { invoke<Void>(0xF40AB58D83C35027, p0); } // 0xF40AB58D83C35027 b1207
+	NATIVE_DECL void _RESET_OBJECT_VELOCITY(Object object) { invoke<Void>(0xF40AB58D83C35027, object); } // 0xF40AB58D83C35027 b1207
 	// p2 is usually the same as speed parameter
 	NATIVE_DECL void _SET_OBJECT_BURN_SPEED(Object object, float speed, float p2) { invoke<Void>(0x646564A3B7DF68F8, object, speed, p2); } // 0x646564A3B7DF68F8 b1207
 	NATIVE_DECL void _0xCBFBD38F2E0A263B(Any p0, Any p1) { invoke<Void>(0xCBFBD38F2E0A263B, p0, p1); } // 0xCBFBD38F2E0A263B b1207
@@ -4784,17 +4981,20 @@ namespace OBJECT
 	NATIVE_DECL void SET_FORCE_OBJECT_THIS_FRAME(float x, float y, float z, float p3) { invoke<Void>(0xF538081986E49E9D, x, y, z, p3); } // 0xF538081986E49E9D 0x3DA41C1A b1207
 	NATIVE_DECL Any _0xD91E55B6C005EB09(Any p0, Any p1) { return invoke<Any>(0xD91E55B6C005EB09, p0, p1); } // 0xD91E55B6C005EB09 b1207
 	NATIVE_DECL void _MARK_OBJECT_FOR_DELETION(Object object) { invoke<Void>(0xADBE4809F19F927A, object); } // 0xADBE4809F19F927A 0x2048A7DD b1207
-	NATIVE_DECL void _0xCAAF2BCCFEF37F77(Any p0, Any p1) { invoke<Void>(0xCAAF2BCCFEF37F77, p0, p1); } // 0xCAAF2BCCFEF37F77 b1207
+	// _SET_OBJECT_*
+	NATIVE_DECL void _0xCAAF2BCCFEF37F77(Object object, Any p1) { invoke<Void>(0xCAAF2BCCFEF37F77, object, p1); } // 0xCAAF2BCCFEF37F77 b1207
 	NATIVE_DECL Any _0x08C5825A2932EA7B(Any p0) { return invoke<Any>(0x08C5825A2932EA7B, p0); } // 0x08C5825A2932EA7B b1207
 	NATIVE_DECL Any _0x7D4411D6736CD295(Any p0, Any p1) { return invoke<Any>(0x7D4411D6736CD295, p0, p1); } // 0x7D4411D6736CD295 b1207
 	NATIVE_DECL Any _0x250EBB11E81A10BE(Any p0) { return invoke<Any>(0x250EBB11E81A10BE, p0); } // 0x250EBB11E81A10BE b1207
 	NATIVE_DECL Any _0x2BF1953C0C21AC88(Any p0) { return invoke<Any>(0x2BF1953C0C21AC88, p0); } // 0x2BF1953C0C21AC88 b1207
 	NATIVE_DECL BOOL CREATE_OBJECT_SKELETON(Object object) { return invoke<BOOL>(0xB6CBD40F8EA69E8A, object); } // 0xB6CBD40F8EA69E8A b1207
-	NATIVE_DECL void _0x1461DF6DB886BE3F(Any p0) { invoke<Void>(0x1461DF6DB886BE3F, p0); } // 0x1461DF6DB886BE3F b1207
+	NATIVE_DECL void _0x1461DF6DB886BE3F(Object object) { invoke<Void>(0x1461DF6DB886BE3F, object); } // 0x1461DF6DB886BE3F b1207
 	NATIVE_DECL void _0xF65EDE5D02A7A760(Any p0, Any p1) { invoke<Void>(0xF65EDE5D02A7A760, p0, p1); } // 0xF65EDE5D02A7A760 b1207
-	NATIVE_DECL void _0x98D2D9C053A1F449(Any p0, Any p1) { invoke<Void>(0x98D2D9C053A1F449, p0, p1); } // 0x98D2D9C053A1F449 b1207
-	NATIVE_DECL void _0xE1C708BA4885796B(Any p0, Any p1) { invoke<Void>(0xE1C708BA4885796B, p0, p1); } // 0xE1C708BA4885796B b1207
-	NATIVE_DECL void _0xB7017DA4D498269F(Any p0, Any p1) { invoke<Void>(0xB7017DA4D498269F, p0, p1); } // 0xB7017DA4D498269F b1207
+	// Sets object as auto-jumpable by horse.
+	NATIVE_DECL void _SET_AUTO_JUMPABLE_BY_HORSE(Object object, BOOL p1) { invoke<Void>(0x98D2D9C053A1F449, object, p1); } // 0x98D2D9C053A1F449 b1207
+	// Sets object as not jumpable by horse.
+	NATIVE_DECL void _SET_NOT_JUMPABLE_BY_HORSE(Object object, BOOL p1) { invoke<Void>(0xE1C708BA4885796B, object, p1); } // 0xE1C708BA4885796B b1207
+	NATIVE_DECL void _SET_OBJECT_KICKABLE(Object object, BOOL kickable) { invoke<Void>(0xB7017DA4D498269F, object, kickable); } // 0xB7017DA4D498269F b1207
 	NATIVE_DECL void SET_CUSTOM_TEXTURES_ON_OBJECT(Object object, Hash txdHash, Any p2, Any p3) { invoke<Void>(0xE124889AE0521FCF, object, txdHash, p2, p3); } // 0xE124889AE0521FCF b1207
 	NATIVE_DECL void _0xD503D6F0986D58BC(Any p0, Any p1) { invoke<Void>(0xD503D6F0986D58BC, p0, p1); } // 0xD503D6F0986D58BC b1207
 	NATIVE_DECL void _0xAEE6C800E124CFE1(Any p0, Any p1) { invoke<Void>(0xAEE6C800E124CFE1, p0, p1); } // 0xAEE6C800E124CFE1 b1207
@@ -4807,6 +5007,7 @@ namespace PAD
 	// 
 	// context: https://alloc8or.re/rdr3/doc/misc/input_contexts.txt
 	// For more information, see common:/data/control/settings.meta
+	// https://github.com/femga/rdr3_discoveries/tree/master/Controls
 	NATIVE_DECL void _SET_CONTROL_CONTEXT(int p0, Hash context) { invoke<Void>(0x2804658EB7D8A50B, p0, context); } // 0x2804658EB7D8A50B b1207
 	NATIVE_DECL Any _0xDDCEB0F26C89C00F(int p0) { return invoke<Any>(0xDDCEB0F26C89C00F, p0); } // 0xDDCEB0F26C89C00F b1207
 	NATIVE_DECL BOOL _IS_CONTROL_ACTION_VALID(Hash control, int padIndex) { return invoke<BOOL>(0xBC0884BC590951C7, control, padIndex); } // 0xBC0884BC590951C7 b1207
@@ -4825,7 +5026,9 @@ namespace PAD
 	NATIVE_DECL float GET_DISABLED_CONTROL_NORMAL(int padIndex, Hash control) { return invoke<float>(0x11E65974A982637C, padIndex, control); } // 0x11E65974A982637C 0x66FF4FAA b1207
 	NATIVE_DECL float GET_DISABLED_CONTROL_UNBOUND_NORMAL(int padIndex, Hash control) { return invoke<float>(0x4F8A26A890FD62FB, padIndex, control); } // 0x4F8A26A890FD62FB 0xF2A65A4C b1207
 	NATIVE_DECL int _0xD7D22F5592AED8BA(int p0) { return invoke<int>(0xD7D22F5592AED8BA, p0); } // 0xD7D22F5592AED8BA 0x0E8EF929 b1207
-	NATIVE_DECL Any _0x771DFCB24D19C2F6(Any p0) { return invoke<Any>(0x771DFCB24D19C2F6, p0); } // 0x771DFCB24D19C2F6 b1207
+	// _GET_D*
+	// Returns an int in milliseconds based on how long ago since any input was activated
+	NATIVE_DECL int _0x771DFCB24D19C2F6(int padIndex) { return invoke<int>(0x771DFCB24D19C2F6, padIndex); } // 0x771DFCB24D19C2F6 b1207
 	// padIndex is not used
 	NATIVE_DECL BOOL _IS_USING_KEYBOARD(int padIndex) { return invoke<BOOL>(0xA571D46727E2B718, padIndex); } // 0xA571D46727E2B718 b1207
 	NATIVE_DECL Any _0x43F35DDB2905D945(Any p0, Any p1) { return invoke<Any>(0x43F35DDB2905D945, p0, p1); } // 0x43F35DDB2905D945 b1207
@@ -4843,14 +5046,15 @@ namespace PAD
 	// nullsub, doesn't do anything
 	NATIVE_DECL void _0x14D29BB12D47F68C(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x14D29BB12D47F68C, p0, p1, p2, p3, p4); } // 0x14D29BB12D47F68C b1207
 	NATIVE_DECL void STOP_PAD_SHAKE(int padIndex) { invoke<Void>(0x38C16A305E8CDC8D, padIndex); } // 0x38C16A305E8CDC8D 0x8F75657E b1207
-	NATIVE_DECL void _0xF239400E16C23E08(Any p0, Any p1) { invoke<Void>(0xF239400E16C23E08, p0, p1); } // 0xF239400E16C23E08 0x7D65EB6E b1207
-	NATIVE_DECL void _0xA0CEFCEA390AAB9B(Any p0) { invoke<Void>(0xA0CEFCEA390AAB9B, p0); } // 0xA0CEFCEA390AAB9B b1207
+	NATIVE_DECL void SET_PAD_SHAKE_SUPPRESSED_ID(int padIndex, int p1) { invoke<Void>(0xF239400E16C23E08, padIndex, p1); } // 0xF239400E16C23E08 0x7D65EB6E b1207
+	NATIVE_DECL void _CLEAR_SUPPRESSED_PAD_RUMBLE(int p0) { invoke<Void>(0xA0CEFCEA390AAB9B, p0); } // 0xA0CEFCEA390AAB9B b1207
 	NATIVE_DECL BOOL IS_LOOK_INVERTED() { return invoke<BOOL>(0x77B612531280010D); } // 0x77B612531280010D 0x313434B2 b1207
 	NATIVE_DECL void SET_INPUT_EXCLUSIVE(int padIndex, Hash control) { invoke<Void>(0xEDE476E5EE29EDB1, padIndex, control); } // 0xEDE476E5EE29EDB1 0x4E8E29E6 b1207
 	NATIVE_DECL void DISABLE_CONTROL_ACTION(int padIndex, Hash control, BOOL disable) { invoke<Void>(0xFE99B66D079CF6BC, padIndex, control, disable); } // 0xFE99B66D079CF6BC 0x3800C0DC b1207
 	NATIVE_DECL void ENABLE_CONTROL_ACTION(int padIndex, Hash control, BOOL enable) { invoke<Void>(0x351220255D64C155, padIndex, control, enable); } // 0x351220255D64C155 0xD2753551 b1207
 	NATIVE_DECL void DISABLE_ALL_CONTROL_ACTIONS(int padIndex) { invoke<Void>(0x5F4B6931816E599B, padIndex); } // 0x5F4B6931816E599B 0x16753CF4 b1207
-	NATIVE_DECL void _0x5F217BC1190503D8(Any p0, Any p1) { invoke<Void>(0x5F217BC1190503D8, p0, p1); } // 0x5F217BC1190503D8 b1207
+	// rumbleCurve: common_0/data/rumblecurves.meta
+	NATIVE_DECL void _0x5F217BC1190503D8(const char* rumbleCurve, float p1) { invoke<Void>(0x5F217BC1190503D8, rumbleCurve, p1); } // 0x5F217BC1190503D8 b1207
 	NATIVE_DECL void _0x709BA8C08C5C008D() { invoke<Void>(0x709BA8C08C5C008D); } // 0x709BA8C08C5C008D b1207
 	NATIVE_DECL Any _0x1252C029FC8EBB4D() { return invoke<Any>(0x1252C029FC8EBB4D); } // 0x1252C029FC8EBB4D b1207
 	NATIVE_DECL void _0x52C68E92D6E23ADD(Any p0) { invoke<Void>(0x52C68E92D6E23ADD, p0); } // 0x52C68E92D6E23ADD b1311
@@ -4918,7 +5122,8 @@ namespace PATHFIND
 	NATIVE_DECL Any _0xF61CFEDEAB627BFA(Any p0) { return invoke<Any>(0xF61CFEDEAB627BFA, p0); } // 0xF61CFEDEAB627BFA b1207
 	NATIVE_DECL Any _0xD470725E0703D22F(Any p0) { return invoke<Any>(0xD470725E0703D22F, p0); } // 0xD470725E0703D22F b1207
 	NATIVE_DECL Vector3 _0x430F8319AE56C8A9(Any p0, Any p1) { return invoke<Vector3>(0x430F8319AE56C8A9, p0, p1); } // 0x430F8319AE56C8A9 b1207
-	NATIVE_DECL float _GET_HEIGHTMAP_BOTTOM_Z_FOR_POSITION(float left, float right) { return invoke<float>(0x336511A34F2E5185, left, right); } // 0x336511A34F2E5185 0xA07C5B7D b1207
+	// Returns CGameWorldHeightMap's minimum Z value at specified point (grid node).
+	NATIVE_DECL float GET_APPROX_FLOOR_FOR_POINT(float x, float y) { return invoke<float>(0x336511A34F2E5185, x, y); } // 0x336511A34F2E5185 0xA07C5B7D b1207
 	NATIVE_DECL void SET_AMBIENT_PED_RANGE_MULTIPLIER_THIS_FRAME(float multiplier) { invoke<Void>(0x0B919E1FB47CC4E0, multiplier); } // 0x0B919E1FB47CC4E0 0x3C5085E4 b1207
 	// nullsub, doesn't do anything
 	NATIVE_DECL void SET_IGNORE_NO_GPS_FLAG(BOOL toggle) { invoke<Void>(0x72751156E7678833, toggle); } // 0x72751156E7678833 0xB72CF194 b1207
@@ -4928,7 +5133,7 @@ namespace PATHFIND
 	NATIVE_DECL BOOL GET_GPS_BLIP_ROUTE_FOUND() { return invoke<BOOL>(0x869DAACBBE9FA006); } // 0x869DAACBBE9FA006 0x286F82CC b1207
 	NATIVE_DECL Any _0x54F4D7B6670FBB5A(Any p0, Any p1, Any p2, Any p3, Any p4) { return invoke<Any>(0x54F4D7B6670FBB5A, p0, p1, p2, p3, p4); } // 0x54F4D7B6670FBB5A b1207
 	NATIVE_DECL void _0x34C9AF25649172D0(Any p0) { invoke<Void>(0x34C9AF25649172D0, p0); } // 0x34C9AF25649172D0 b1207
-	NATIVE_DECL void _0xF2A2177AC848B3A8(Any p0, Any p1, Any p2) { invoke<Void>(0xF2A2177AC848B3A8, p0, p1, p2); } // 0xF2A2177AC848B3A8 b1207
+	NATIVE_DECL void _0xF2A2177AC848B3A8(Volume volume, int p1, int p2) { invoke<Void>(0xF2A2177AC848B3A8, volume, p1, p2); } // 0xF2A2177AC848B3A8 b1207
 	NATIVE_DECL void _0x4BDEBEA5702B97A9(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0x4BDEBEA5702B97A9, p0, p1, p2, p3, p4, p5); } // 0x4BDEBEA5702B97A9 b1207
 	NATIVE_DECL void _0x264E9A5CD78C338F(Any p0) { invoke<Void>(0x264E9A5CD78C338F, p0); } // 0x264E9A5CD78C338F b1207
 	NATIVE_DECL void _0x869A7015BD4606E9(Any p0) { invoke<Void>(0x869A7015BD4606E9, p0); } // 0x869A7015BD4606E9 b1207
@@ -4945,9 +5150,11 @@ namespace PED
 	NATIVE_DECL Ped CREATE_PED(Hash modelHash, float x, float y, float z, float heading, BOOL isNetwork, BOOL bScriptHostPed, BOOL p7, BOOL p8) { return invoke<Ped>(0xD49F9B0955C367DE, modelHash, x, y, z, heading, isNetwork, bScriptHostPed, p7, p8); } // 0xD49F9B0955C367DE 0x0389EF71 b1207
 	// Deletes the specified ped, then sets the handle pointed to by the pointer to NULL.
 	NATIVE_DECL void DELETE_PED(Ped* ped) { invoke<Void>(0xCC0EF140F99365C5, ped); } // 0xCC0EF140F99365C5 0x13EFB9A0 b1207
-	NATIVE_DECL void _0x39A2FC5AF55A52B1(Any p0, Any p1) { invoke<Void>(0x39A2FC5AF55A52B1, p0, p1); } // 0x39A2FC5AF55A52B1 b1207
-	NATIVE_DECL void _0x7C08E7CB8D951B70(Any p0, Any p1) { invoke<Void>(0x7C08E7CB8D951B70, p0, p1); } // 0x7C08E7CB8D951B70 b1207
-	NATIVE_DECL void _0x36E4B61DC56DE77C(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x36E4B61DC56DE77C, p0, p1, p2, p3, p4); } // 0x36E4B61DC56DE77C b1207
+	NATIVE_DECL void _SET_REMOVE_PED_NETWORKED(Ped ped, int p1) { invoke<Void>(0x39A2FC5AF55A52B1, ped, p1); } // 0x39A2FC5AF55A52B1 b1207
+	// Only used in SP
+	// _SET_REMOVE_PED*
+	NATIVE_DECL void _0x7C08E7CB8D951B70(Ped ped, float p1) { invoke<Void>(0x7C08E7CB8D951B70, ped, p1); } // 0x7C08E7CB8D951B70 b1207
+	NATIVE_DECL void _SET_PED_TO_BE_REMOVED(Ped ped, float p1, float p2, int p3, Any p4) { invoke<Void>(0x36E4B61DC56DE77C, ped, p1, p2, p3, p4); } // 0x36E4B61DC56DE77C b1207
 	NATIVE_DECL Ped CLONE_PED(Ped ped, BOOL isNetwork, BOOL bScriptHostPed, BOOL copyHeadBlendFlag) { return invoke<Ped>(0xEF29A16337FACADB, ped, isNetwork, bScriptHostPed, copyHeadBlendFlag); } // 0xEF29A16337FACADB 0x8C8A8D6E b1207
 	// Copies ped's components and props to targetPed.
 	NATIVE_DECL void CLONE_PED_TO_TARGET(Ped ped, Ped targetPed) { invoke<Void>(0xE952D6431689AD9A, ped, targetPed); } // 0xE952D6431689AD9A 0xFC70EEC7 b1207
@@ -4999,7 +5206,7 @@ namespace PED
 	// 
 	// C.) Is locked-on to an enemy (arms up, strafing/skipping in the default fighting-stance, ready to dodge+counter). 
 	// 
-	// You don't have to be holding the melee-targetting button to be in this stance; you stay in it by default for a few seconds after swinging at someone. If you do a sprinting punch, it returns true for the duration of the punch animation and then returns false again, even if you've punched and made-angry many peds
+	// You don't have to be holding the melee-targeting button to be in this stance; you stay in it by default for a few seconds after swinging at someone. If you do a sprinting punch, it returns true for the duration of the punch animation and then returns false again, even if you've punched and made-angry many peds
 	NATIVE_DECL BOOL IS_PED_IN_MELEE_COMBAT(Ped ped) { return invoke<BOOL>(0x4E209B2C1EAD5159, ped); } // 0x4E209B2C1EAD5159 0xFD7814A5 b1207
 	NATIVE_DECL Any _0x6DB875AFC584FA32(Any p0, Any p1) { return invoke<Any>(0x6DB875AFC584FA32, p0, p1); } // 0x6DB875AFC584FA32 b1207
 	NATIVE_DECL BOOL IS_PED_STOPPED(Ped ped) { return invoke<BOOL>(0x530944F6F4B8A214, ped); } // 0x530944F6F4B8A214 0xA0DC0B87 b1207
@@ -5011,7 +5218,8 @@ namespace PED
 	NATIVE_DECL BOOL IS_ANY_PED_SHOOTING_IN_AREA(float x1, float y1, float z1, float x2, float y2, float z2, BOOL p6, BOOL p7) { return invoke<BOOL>(0xA0D3D71EA1086C55, x1, y1, z1, x2, y2, z2, p6, p7); } // 0xA0D3D71EA1086C55 0x91833867 b1207
 	// Returns whether the specified ped is shooting.
 	NATIVE_DECL BOOL IS_PED_SHOOTING(Ped ped) { return invoke<BOOL>(0x34616828CD07F1A1, ped); } // 0x34616828CD07F1A1 0xE7C3405E b1207
-	NATIVE_DECL Any _0x285D36C5C72B0569(Any p0) { return invoke<Any>(0x285D36C5C72B0569, p0); } // 0x285D36C5C72B0569 b1207
+	// Returns time since the specified ped last shot, in seconds.
+	NATIVE_DECL float TIME_SINCE_PED_LAST_SHOT(Ped ped) { return invoke<float>(0x285D36C5C72B0569, ped); } // 0x285D36C5C72B0569 b1207
 	// accuracy = 0-100, 100 being perfectly accurate
 	NATIVE_DECL void SET_PED_ACCURACY(Ped ped, int accuracy) { invoke<Void>(0x7AEFB85C1D49DEB6, ped, accuracy); } // 0x7AEFB85C1D49DEB6 0x6C17122E b1207
 	NATIVE_DECL int GET_PED_ACCURACY(Ped ped) { return invoke<int>(0x37F4AD56ECBC0CD6, ped); } // 0x37F4AD56ECBC0CD6 0x0A2A0AA0 b1207
@@ -5073,7 +5281,7 @@ namespace PED
 	NATIVE_DECL void _SET_SCENARIO_PED_DENSITY_THIS_FRAME(Hash configHash) { invoke<Void>(0x95423627A9CA598E, configHash); } // 0x95423627A9CA598E b1207
 	NATIVE_DECL void INSTANTLY_FILL_PED_POPULATION() { invoke<Void>(0x4759CC730F947C81); } // 0x4759CC730F947C81 0x8C555ADD b1207
 	NATIVE_DECL void _0xBFA6B7731C3BAF02() { invoke<Void>(0xBFA6B7731C3BAF02); } // 0xBFA6B7731C3BAF02 b1207
-	NATIVE_DECL BOOL _0x0EE3F0D7FECCC54F() { return invoke<BOOL>(0x0EE3F0D7FECCC54F); } // 0x0EE3F0D7FECCC54F b1207
+	NATIVE_DECL BOOL IS_INSTANTLY_FILL_PED_POPULATION_FINISHED() { return invoke<BOOL>(0x0EE3F0D7FECCC54F); } // 0x0EE3F0D7FECCC54F b1207
 	// The distance between these points, is the diagonal of a box (remember it's 3D).
 	NATIVE_DECL void SET_PED_NON_CREATION_AREA(float x1, float y1, float z1, float x2, float y2, float z2) { invoke<Void>(0xEE01041D559983EA, x1, y1, z1, x2, y2, z2); } // 0xEE01041D559983EA 0x7A97283F b1207
 	NATIVE_DECL void CLEAR_PED_NON_CREATION_AREA() { invoke<Void>(0x2E05208086BA0651); } // 0x2E05208086BA0651 0x6F7043A3 b1207
@@ -5086,7 +5294,8 @@ namespace PED
 	NATIVE_DECL BOOL IS_PED_ON_MOUNT(Ped ped) { return invoke<BOOL>(0x460BC76A0E10655E, ped); } // 0x460BC76A0E10655E 0x43103006 b1207
 	NATIVE_DECL BOOL IS_PED_FULLY_ON_MOUNT(Ped ped, BOOL p1) { return invoke<BOOL>(0x95CBC65780DE7EB1, ped, p1); } // 0x95CBC65780DE7EB1 b1207
 	NATIVE_DECL Ped GET_MOUNT(Ped ped) { return invoke<Ped>(0xE7E11B8DCBED1058, ped); } // 0xE7E11B8DCBED1058 0xDD31EC4E b1207
-	NATIVE_DECL Any _0x693126B5D0457D0D(Any p0) { return invoke<Any>(0x693126B5D0457D0D, p0); } // 0x693126B5D0457D0D b1232
+	// Seems to just return current horse the ped is leading
+	NATIVE_DECL Ped _0x693126B5D0457D0D(Ped ped) { return invoke<Ped>(0x693126B5D0457D0D, ped); } // 0x693126B5D0457D0D b1232
 	NATIVE_DECL Ped _GET_LAST_MOUNT(Ped ped) { return invoke<Ped>(0x4C8B59171957BCF7, ped); } // 0x4C8B59171957BCF7 b1207
 	NATIVE_DECL void _0xED1C764997A86D5A(Any p0, Any p1) { invoke<Void>(0xED1C764997A86D5A, p0, p1); } // 0xED1C764997A86D5A b1207
 	NATIVE_DECL void _0xB8AB265426CFE6DD(Any p0, Any p1) { invoke<Void>(0xB8AB265426CFE6DD, p0, p1); } // 0xB8AB265426CFE6DD b1207
@@ -5095,9 +5304,24 @@ namespace PED
 	NATIVE_DECL void _0x6734F0A6A52C371C(Any p0, Any p1) { invoke<Void>(0x6734F0A6A52C371C, p0, p1); } // 0x6734F0A6A52C371C b1207
 	NATIVE_DECL void _0x024EC9B649111915(Any p0, Any p1) { invoke<Void>(0x024EC9B649111915, p0, p1); } // 0x024EC9B649111915 b1207
 	NATIVE_DECL void SET_PED_OWNS_ANIMAL(Ped ped, Ped animal, BOOL p2) { invoke<Void>(0x931B241409216C1F, ped, animal, p2); } // 0x931B241409216C1F b1207
-	NATIVE_DECL Ped _0xF103823FFE72BB49(Ped ped) { return invoke<Ped>(0xF103823FFE72BB49, ped); } // 0xF103823FFE72BB49 b1207
+	NATIVE_DECL Ped _GET_ACTIVE_ANIMAL_OWNER(Ped animal) { return invoke<Ped>(0xF103823FFE72BB49, animal); } // 0xF103823FFE72BB49 b1207
 	NATIVE_DECL void _0xBCC76708E5677E1D(Any p0, Any p1) { invoke<Void>(0xBCC76708E5677E1D, p0, p1); } // 0xBCC76708E5677E1D b1207
-	NATIVE_DECL Any _0x454AD4DA6C41B5BD(Any p0) { return invoke<Any>(0x454AD4DA6C41B5BD, p0); } // 0x454AD4DA6C41B5BD b1207
+	// Returns an int based on enum eTamingState
+	// 
+	// enum eTamingState
+	// {
+	// 	ATS_INVALID = 0,
+	// 	ATS_INACTIVE,
+	// 	ATS_TARGET_DETECTED,
+	// 	ATS_CALLED_OUT,
+	// 	ATS_MOUNTABLE,
+	// 	ATS_BEING_PATTED,
+	// 	ATS_BREAKING_ACTIVE,
+	// 	ATS_SPOOKED,
+	// 	ATS_RETREATING,
+	// 	ATS_FLEEING
+	// };
+	NATIVE_DECL int _GET_HORSE_TAMING_STATE(Ped horse) { return invoke<int>(0x454AD4DA6C41B5BD, horse); } // 0x454AD4DA6C41B5BD b1207
 	NATIVE_DECL void _0x54D3CD482742C482(Any p0, Any p2) { invoke<Void>(0x54D3CD482742C482, p0, p2); } // 0x54D3CD482742C482 b1355
 	NATIVE_DECL void _0x5CB2EBB467BE3ED6(Any p0, Any p2) { invoke<Void>(0x5CB2EBB467BE3ED6, p0, p2); } // 0x5CB2EBB467BE3ED6 b1355
 	NATIVE_DECL void _0x9F0F28B42C4EE80A(Any p0, Any p2) { invoke<Void>(0x9F0F28B42C4EE80A, p0, p2); } // 0x9F0F28B42C4EE80A b1355
@@ -5105,8 +5329,8 @@ namespace PED
 	// Note: this native was added in build 1232.40
 	NATIVE_DECL void _0x11E6B9629C46D6EC(Ped ped, BOOL p1) { invoke<Void>(0x11E6B9629C46D6EC, ped, p1); } // 0x11E6B9629C46D6EC b1232
 	NATIVE_DECL void _0x9B65444C07B782BF(Any p0, Any p1) { invoke<Void>(0x9B65444C07B782BF, p0, p1); } // 0x9B65444C07B782BF b1207
-	NATIVE_DECL BOOL IS_ANIMAL_INTERACTION_POSSIBLE(Any p0, Any p1) { return invoke<BOOL>(0xD543D3A8FDE4F185, p0, p1); } // 0xD543D3A8FDE4F185 b1207
-	NATIVE_DECL Any _0x7FC84E85D98F063D(Any p0) { return invoke<Any>(0x7FC84E85D98F063D, p0); } // 0x7FC84E85D98F063D b1207
+	NATIVE_DECL BOOL IS_ANIMAL_INTERACTION_POSSIBLE(Ped ped, Ped animal) { return invoke<BOOL>(0xD543D3A8FDE4F185, ped, animal); } // 0xD543D3A8FDE4F185 b1207
+	NATIVE_DECL BOOL _IS_ANIMAL_INTERACTION_RUNNING(Ped ped) { return invoke<BOOL>(0x7FC84E85D98F063D, ped); } // 0x7FC84E85D98F063D b1207
 	NATIVE_DECL Any _0x8BE24D74D74C6E9B(Any p0) { return invoke<Any>(0x8BE24D74D74C6E9B, p0); } // 0x8BE24D74D74C6E9B b1207
 	NATIVE_DECL Any _0x77243ED4F7CAAA55(Any p0) { return invoke<Any>(0x77243ED4F7CAAA55, p0); } // 0x77243ED4F7CAAA55 b1207
 	// Gets a value indicating whether the specified ped is on top of any vehicle.
@@ -5116,7 +5340,7 @@ namespace PED
 	// 
 	NATIVE_DECL BOOL IS_PED_ON_VEHICLE(Ped ped, BOOL p1) { return invoke<BOOL>(0x67722AEB798E5FAB, ped, p1); } // 0x67722AEB798E5FAB 0xA1AE7CC7 b1207
 	NATIVE_DECL BOOL IS_PED_ON_SPECIFIC_VEHICLE(Ped ped, Vehicle vehicle) { return invoke<BOOL>(0xEC5F66E459AF3BB2, ped, vehicle); } // 0xEC5F66E459AF3BB2 0x63CB4603 b1207
-	NATIVE_DECL void _0xE0B61ED8BB37712F(Any p0) { invoke<Void>(0xE0B61ED8BB37712F, p0); } // 0xE0B61ED8BB37712F b1207
+	NATIVE_DECL void _WARP_PED_OUT_OF_VEHICLE(Ped ped) { invoke<Void>(0xE0B61ED8BB37712F, ped); } // 0xE0B61ED8BB37712F b1207
 	NATIVE_DECL void SET_PED_MONEY(Ped ped, int amount) { invoke<Void>(0xA9C8960E8684C1B5, ped, amount); } // 0xA9C8960E8684C1B5 0x40D90BF2 b1207
 	NATIVE_DECL int GET_PED_MONEY(Ped ped) { return invoke<int>(0x3F69145BBA87BAE7, ped); } // 0x3F69145BBA87BAE7 0xEB3C4C7E b1207
 	NATIVE_DECL void _0x9911F4A24485F653(BOOL p0) { invoke<Void>(0x9911F4A24485F653, p0); } // 0x9911F4A24485F653 0x02A080C8 b1207
@@ -5150,13 +5374,13 @@ namespace PED
 	// Returns true if _GET_PED_DAMAGE_CLEANLINESS was ever lower than 2
 	NATIVE_DECL BOOL _GET_PED_DAMAGED(Ped ped) { return invoke<BOOL>(0x6CFC373008A1EDAF, ped); } // 0x6CFC373008A1EDAF b1207
 	NATIVE_DECL void _SET_PED_DAMAGED(Ped ped, BOOL damaged) { invoke<Void>(0xDACE03C65C6666DB, ped, damaged); } // 0xDACE03C65C6666DB b1207
-	NATIVE_DECL Any _0x9EFF3C91DF38304F(Player player, float modifier, int p2, int p3) { return invoke<Any>(0x9EFF3C91DF38304F, player, modifier, p2, p3); } // 0x9EFF3C91DF38304F b1311
-	NATIVE_DECL void _0x0F9E754EBE8FDBFA(Player player) { invoke<Void>(0x0F9E754EBE8FDBFA, player); } // 0x0F9E754EBE8FDBFA b1311
+	NATIVE_DECL Any _SET_PLAYER_CURRENT_ANIMAL_DAMAGE_MODIFIER(Player player, float modifier, int p2, int p3) { return invoke<Any>(0x9EFF3C91DF38304F, player, modifier, p2, p3); } // 0x9EFF3C91DF38304F b1311
+	NATIVE_DECL void _UPDATE_ANIMAL_DAMAGE_MODIFIER(Player player) { invoke<Void>(0x0F9E754EBE8FDBFA, player); } // 0x0F9E754EBE8FDBFA b1311
 	// Returns animal skin quality modifier
-	NATIVE_DECL float _0xEE2D5C819A65BF26(Player player) { return invoke<float>(0xEE2D5C819A65BF26, player); } // 0xEE2D5C819A65BF26 b1311
-	NATIVE_DECL Any _0xB29C553BA582D09E(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0xB29C553BA582D09E, p0, p1, p2, p3); } // 0xB29C553BA582D09E b1207
+	NATIVE_DECL float _GET_PLAYER_CURRENT_ANIMAL_DAMAGE_MODIFIER(Player player) { return invoke<float>(0xEE2D5C819A65BF26, player); } // 0xEE2D5C819A65BF26 b1311
+	NATIVE_DECL Any _0xB29C553BA582D09E(Any p0, Hash model, int damageCleanliness, int p3) { return invoke<Any>(0xB29C553BA582D09E, p0, model, damageCleanliness, p3); } // 0xB29C553BA582D09E b1207
 	NATIVE_DECL Any _0x101B45C5F56D970F(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0x101B45C5F56D970F, p0, p1, p2, p3); } // 0x101B45C5F56D970F b1207
-	NATIVE_DECL Any _0x6B89FAA36FC909A3(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0x6B89FAA36FC909A3, p0, p1, p2, p3); } // 0x6B89FAA36FC909A3 b1207
+	NATIVE_DECL Any _0x6B89FAA36FC909A3(Any p0, Ped ped, int pedDamage, int pedQuality) { return invoke<Any>(0x6B89FAA36FC909A3, p0, ped, pedDamage, pedQuality); } // 0x6B89FAA36FC909A3 b1207
 	NATIVE_DECL Any COMPUTE_SATCHEL_ITEM_FOR_PED_DAMAGE(Any p0, Any p1, Any p2) { return invoke<Any>(0x9E7738B291706746, p0, p1, p2); } // 0x9E7738B291706746 b1207
 	NATIVE_DECL void SET_AI_WEAPON_DAMAGE_MODIFIER(float value) { invoke<Void>(0x1B1E2A40A65B8521, value); } // 0x1B1E2A40A65B8521 0x516E30EE b1207
 	NATIVE_DECL void RESET_AI_WEAPON_DAMAGE_MODIFIER() { invoke<Void>(0xEA16670E7BA4743C); } // 0xEA16670E7BA4743C 0x6E965420 b1207
@@ -5166,10 +5390,10 @@ namespace PED
 	// Old name: _SET_PED_DAMAGE_MODIFIER
 	NATIVE_DECL void SET_PED_TO_PLAYER_WEAPON_DAMAGE_MODIFIER(Ped ped, float damageModifier) { invoke<Void>(0xD77AE48611B7B10A, ped, damageModifier); } // 0xD77AE48611B7B10A b1207
 	NATIVE_DECL float GET_PED_TO_PLAYER_WEAPON_DAMAGE_MODIFIER(Ped ped) { return invoke<float>(0x936E7CAD0AE2EE14, ped); } // 0x936E7CAD0AE2EE14 b1207
-	NATIVE_DECL void _0x069EDDF1FD4DEB0A(Ped ped, float modifier) { invoke<Void>(0x069EDDF1FD4DEB0A, ped, modifier); } // 0x069EDDF1FD4DEB0A b1207
+	NATIVE_DECL void _SET_CURRENT_DEFENSE_AGAINST_PLAYERS_MODIFIER(Ped horse, float modifier) { invoke<Void>(0x069EDDF1FD4DEB0A, horse, modifier); } // 0x069EDDF1FD4DEB0A b1207
 	NATIVE_DECL Any _0x763FA8A9D76EE3A7(Any p0) { return invoke<Any>(0x763FA8A9D76EE3A7, p0); } // 0x763FA8A9D76EE3A7 b1311
 	NATIVE_DECL void SET_AI_MELEE_WEAPON_DAMAGE_MODIFIER(float modifier) { invoke<Void>(0x66460DEDDD417254, modifier); } // 0x66460DEDDD417254 0x0F9A401F b1207
-	NATIVE_DECL void _0xC2266AA617668AD3(Ped ped, float modifier) { invoke<Void>(0xC2266AA617668AD3, ped, modifier); } // 0xC2266AA617668AD3 b1207
+	NATIVE_DECL void _SET_ACCURACY_AGAINST_LOCAL_PLAYER_MODIFIER(Ped ped, float modifier) { invoke<Void>(0xC2266AA617668AD3, ped, modifier); } // 0xC2266AA617668AD3 b1207
 	NATIVE_DECL Any _0xDC9273D95976BA22(Any p0) { return invoke<Any>(0xDC9273D95976BA22, p0); } // 0xDC9273D95976BA22 b1207
 	NATIVE_DECL void _SET_PED_HEADSHOT_DAMAGE_MULTIPLIER(Ped ped, float multiplier) { invoke<Void>(0x2BA918C823B8BA56, ped, multiplier); } // 0x2BA918C823B8BA56 b1207
 	NATIVE_DECL void _0xDEE8D30AA5C2E28D(Any p0, Any p1, Any p2) { invoke<Void>(0xDEE8D30AA5C2E28D, p0, p1, p2); } // 0xDEE8D30AA5C2E28D b1207
@@ -5179,9 +5403,9 @@ namespace PED
 	NATIVE_DECL void _0x34B5CEAC180A5D6E(Any p0, Any p1, Any p2) { invoke<Void>(0x34B5CEAC180A5D6E, p0, p1, p2); } // 0x34B5CEAC180A5D6E b1207
 	NATIVE_DECL void _0x4F27603E44A8E4C0(Any p0, Any p1, Any p2) { invoke<Void>(0x4F27603E44A8E4C0, p0, p1, p2); } // 0x4F27603E44A8E4C0 b1207
 	// Params: p1 = 10, p2 = 0
-	NATIVE_DECL void _0x3FDCC1F8C17E303E(Ped ped, Any p1, Any p2) { invoke<Void>(0x3FDCC1F8C17E303E, ped, p1, p2); } // 0x3FDCC1F8C17E303E b1207
+	NATIVE_DECL void _0x3FDCC1F8C17E303E(Ped ped, int p1, float p2) { invoke<Void>(0x3FDCC1F8C17E303E, ped, p1, p2); } // 0x3FDCC1F8C17E303E b1207
 	NATIVE_DECL void _0xE50C9816B3F22D8B(Any p0, Any p1, Any p2) { invoke<Void>(0xE50C9816B3F22D8B, p0, p1, p2); } // 0xE50C9816B3F22D8B b1311
-	NATIVE_DECL void _0x9B6808EC46BE849B(Ped ped, float modifier) { invoke<Void>(0x9B6808EC46BE849B, ped, modifier); } // 0x9B6808EC46BE849B b1207
+	NATIVE_DECL void _SET_DEFENSE_MODIFIER_FOR_PED(Ped ped, float modifier) { invoke<Void>(0x9B6808EC46BE849B, ped, modifier); } // 0x9B6808EC46BE849B b1207
 	NATIVE_DECL void _0x7883AA809DF43D98(Any p0, Any p1) { invoke<Void>(0x7883AA809DF43D98, p0, p1); } // 0x7883AA809DF43D98 b1355
 	NATIVE_DECL void _0xC5B78E41DCF8227C(Any p0, Any p1) { invoke<Void>(0xC5B78E41DCF8227C, p0, p1); } // 0xC5B78E41DCF8227C b1207
 	NATIVE_DECL void SET_PED_CAN_BE_TARGETTED(Ped ped, BOOL toggle) { invoke<Void>(0x63F58F7C80513AAD, ped, toggle); } // 0x63F58F7C80513AAD 0x75C49F74 b1207
@@ -5204,11 +5428,11 @@ namespace PED
 	NATIVE_DECL void SET_PED_ID_RANGE(Ped ped, float value) { invoke<Void>(0xF107E836A70DCE05, ped, value); } // 0xF107E836A70DCE05 0xEF3B4ED9 b1207
 	NATIVE_DECL float _GET_PED_ID_RANGE(Ped ped) { return invoke<float>(0x31167ED4324B758D, ped); } // 0x31167ED4324B758D b1207
 	NATIVE_DECL void SET_PED_HIGHLY_PERCEPTIVE(Ped ped, BOOL toggle) { invoke<Void>(0x52D59AB61DDC05DD, ped, toggle); } // 0x52D59AB61DDC05DD 0x9A2180FF b1207
-	NATIVE_DECL void _0xEC4B4B3B9908052A(Ped ped, float unk) { invoke<Void>(0xEC4B4B3B9908052A, ped, unk); } // 0xEC4B4B3B9908052A 0xF30658D2 b1311
-	NATIVE_DECL void _0x733C87D4CE22BEA2(Any p0) { invoke<Void>(0x733C87D4CE22BEA2, p0); } // 0x733C87D4CE22BEA2 0x43709044 b1207
+	NATIVE_DECL void SET_PED_INJURED_ON_GROUND_BEHAVIOUR(Ped ped, float unk) { invoke<Void>(0xEC4B4B3B9908052A, ped, unk); } // 0xEC4B4B3B9908052A 0xF30658D2 b1311
+	NATIVE_DECL void DISABLE_PED_INJURED_ON_GROUND_BEHAVIOUR(Ped ped) { invoke<Void>(0x733C87D4CE22BEA2, ped); } // 0x733C87D4CE22BEA2 0x43709044 b1207
 	NATIVE_DECL void _0x028E7B3BBA0BD2FC(Any p0) { invoke<Void>(0x028E7B3BBA0BD2FC, p0); } // 0x028E7B3BBA0BD2FC b1207
 	NATIVE_DECL Any _0xFA8C10DCE0706D43(Any p0) { return invoke<Any>(0xFA8C10DCE0706D43, p0); } // 0xFA8C10DCE0706D43 b1207
-	NATIVE_DECL void _0x43CA928E892CFDB8(Ped ped, float modifier) { invoke<Void>(0x43CA928E892CFDB8, ped, modifier); } // 0x43CA928E892CFDB8 b1311
+	NATIVE_DECL void _SET_PED_ANIMAL_DETECTION_MODIFIER(Ped ped, float modifier) { invoke<Void>(0x43CA928E892CFDB8, ped, modifier); } // 0x43CA928E892CFDB8 b1311
 	NATIVE_DECL Any _0x2BA9D7BF629F920C(Any p0) { return invoke<Any>(0x2BA9D7BF629F920C, p0); } // 0x2BA9D7BF629F920C b1207
 	NATIVE_DECL void SET_PED_SEEING_RANGE(Ped ped, float value) { invoke<Void>(0xF29CF591C4BF6CEE, ped, value); } // 0xF29CF591C4BF6CEE 0x4BD72FE8 b1207
 	NATIVE_DECL Any _0x900CA00CE703E1E2(Any p0) { return invoke<Any>(0x900CA00CE703E1E2, p0); } // 0x900CA00CE703E1E2 b1207
@@ -5261,7 +5485,7 @@ namespace PED
 	NATIVE_DECL BOOL IS_PED_IN_COVER(Ped ped, BOOL p1, BOOL p2) { return invoke<BOOL>(0x60DFD0691A170B88, ped, p1, p2); } // 0x60DFD0691A170B88 0x972C5A8B b1207
 	NATIVE_DECL Any _0x2DD4E0E26DFAD97D(Any p0, Any p1, Any p2) { return invoke<Any>(0x2DD4E0E26DFAD97D, p0, p1, p2); } // 0x2DD4E0E26DFAD97D b1207
 	NATIVE_DECL Any _0x06FA94C835787C64(Any p0) { return invoke<Any>(0x06FA94C835787C64, p0); } // 0x06FA94C835787C64 b1207
-	NATIVE_DECL Any _0xBD6B242B8BD5543A(Any p0) { return invoke<Any>(0xBD6B242B8BD5543A, p0); } // 0xBD6B242B8BD5543A b1207
+	NATIVE_DECL BOOL _PED_DUELING_DID_PLAYER_HEADSHOT_OPPONENT(Ped ped) { return invoke<BOOL>(0xBD6B242B8BD5543A, ped); } // 0xBD6B242B8BD5543A b1207
 	NATIVE_DECL BOOL IS_PED_IN_COVER_FACING_LEFT(Ped ped) { return invoke<BOOL>(0x845333B3150583AB, ped); } // 0x845333B3150583AB 0xB89DBB80 b1207
 	NATIVE_DECL BOOL IS_PED_GOING_INTO_COVER(Ped ped) { return invoke<BOOL>(0x9F65DBC537E59AD5, ped); } // 0x9F65DBC537E59AD5 0xA3589628 b1207
 	NATIVE_DECL BOOL IS_PED_RESPONDING_TO_THREAT(Ped ped) { return invoke<BOOL>(0x77525BBF433F2CD6, ped); } // 0x77525BBF433F2CD6 b1207
@@ -5272,18 +5496,19 @@ namespace PED
 	NATIVE_DECL Any _0xA0774E388CE4A679(Any p0, Any p1, Any p2, Any p3, Any p4) { return invoke<Any>(0xA0774E388CE4A679, p0, p1, p2, p3, p4); } // 0xA0774E388CE4A679 b1207
 	NATIVE_DECL Any _0xBEC65C6049B3219D(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return invoke<Any>(0xBEC65C6049B3219D, p0, p1, p2, p3, p4, p5); } // 0xBEC65C6049B3219D b1207
 	NATIVE_DECL Any _0xBDED916A9F9B0604(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return invoke<Any>(0xBDED916A9F9B0604, p0, p1, p2, p3, p4, p5); } // 0xBDED916A9F9B0604 b1207
-	NATIVE_DECL Any _0x4D0D2E3D8BC000EB(Any p0, Any p1, Any p2) { return invoke<Any>(0x4D0D2E3D8BC000EB, p0, p1, p2); } // 0x4D0D2E3D8BC000EB b1207
+	// p1: p_banjo01x_XH_R_HAND00, mp006_p_dblcello01x_XH_R_HAND00, p_fiddle01x_PH_L_HAND, p_guitar01x_XH_R_HAND00, mp006_p_mnshn_washboard01x_XH_R_HAND00, p_bottleBeer01x_PH_R_HAND
+	NATIVE_DECL Entity _GET_PED_REGISTER_PROP(Ped ped, const char* p1, BOOL p2) { return invoke<Entity>(0x4D0D2E3D8BC000EB, ped, p1, p2); } // 0x4D0D2E3D8BC000EB b1207
 	NATIVE_DECL int GET_SEAT_PED_IS_TRYING_TO_ENTER(Ped ped) { return invoke<int>(0x6F4C85ACD641BCD2, ped); } // 0x6F4C85ACD641BCD2 0xACF162E0 b1207
-	// Returns the Entity (Ped, Vehicle, or ?Object?) that killed the 'ped'
+	// Returns the entity that killed the ped
 	// 
-	// Is best to check if the Ped is dead before asking for its killer.
+	// It is best to check if the Ped is dead before asking for its killer.
 	NATIVE_DECL Entity GET_PED_SOURCE_OF_DEATH(Ped ped) { return invoke<Entity>(0x93C8B64DEB84728C, ped); } // 0x93C8B64DEB84728C 0x84ADF9EB b1207
 	// Returns the hash of the weapon/model/object that killed the ped.
 	NATIVE_DECL Hash GET_PED_CAUSE_OF_DEATH(Ped ped) { return invoke<Hash>(0x16FFE42AB2D2DC59, ped); } // 0x16FFE42AB2D2DC59 0x63458C27 b1207
 	NATIVE_DECL int GET_PED_TIME_OF_DEATH(Ped ped) { return invoke<int>(0x1E98817B311AE98A, ped); } // 0x1E98817B311AE98A 0xDF6D5D54 b1207
 	NATIVE_DECL int _0x5407B7288D0478B7(Any p0, Any p1) { return invoke<int>(0x5407B7288D0478B7, p0, p1); } // 0x5407B7288D0478B7 0xEF0B78E6 b1207
-	NATIVE_DECL Any _0x7BE607DAFF382FD2(Any p0, Any p1, Any p2) { return invoke<Any>(0x7BE607DAFF382FD2, p0, p1, p2); } // 0x7BE607DAFF382FD2 b1207
-	NATIVE_DECL Any _0x336B3D200AB007CB(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return invoke<Any>(0x336B3D200AB007CB, p0, p1, p2, p3, p4, p5); } // 0x336B3D200AB007CB 0xFB18CB19 b1207
+	NATIVE_DECL Any _0x7BE607DAFF382FD2(Ped ped, ItemSet itemset, int p2) { return invoke<Any>(0x7BE607DAFF382FD2, ped, itemset, p2); } // 0x7BE607DAFF382FD2 b1207
+	NATIVE_DECL int _0x336B3D200AB007CB(Ped ped, float x, float y, float z, float p4, int p5) { return invoke<int>(0x336B3D200AB007CB, ped, x, y, z, p4, p5); } // 0x336B3D200AB007CB 0xFB18CB19 b1207
 	NATIVE_DECL Any GET_CURRENT_TARGET_FOR_PED(Ped ped) { return invoke<Any>(0xCD66FEA29400A0B5, ped); } // 0xCD66FEA29400A0B5 b1207
 	NATIVE_DECL void SET_PED_RELATIONSHIP_GROUP_DEFAULT_HASH(Ped ped, Hash hash) { invoke<Void>(0xADB3F206518799E8, ped, hash); } // 0xADB3F206518799E8 0x423B7BA2 b1207
 	NATIVE_DECL Hash _GET_DEFAULT_RELATIONSHIP_GROUP_HASH(Hash modelHash) { return invoke<Hash>(0x3CC4A718C258BDD0, modelHash); } // 0x3CC4A718C258BDD0 b1207
@@ -5297,7 +5522,8 @@ namespace PED
 	NATIVE_DECL Hash GET_PED_RELATIONSHIP_GROUP_DEFAULT_HASH(Ped ped) { return invoke<Hash>(0x42FDD0F017B1E38E, ped); } // 0x42FDD0F017B1E38E 0x714BD6E4 b1207
 	NATIVE_DECL Hash GET_PED_RELATIONSHIP_GROUP_HASH(Ped ped) { return invoke<Hash>(0x7DBDD04862D95F04, ped); } // 0x7DBDD04862D95F04 0x354F283C b1207
 	NATIVE_DECL int GET_RELATIONSHIP_BETWEEN_GROUPS(Hash group1, Hash group2) { return invoke<int>(0x9E6B70061662AE5C, group1, group2); } // 0x9E6B70061662AE5C 0x4E372FE2 b1207
-	NATIVE_DECL void _0xDC91F22F09BC6C2F(Hash group, Any p1) { invoke<Void>(0xDC91F22F09BC6C2F, group, p1); } // 0xDC91F22F09BC6C2F b1207
+	// _SET_RELATIONSHIP_*
+	NATIVE_DECL void _0xDC91F22F09BC6C2F(Hash group, BOOL p1) { invoke<Void>(0xDC91F22F09BC6C2F, group, p1); } // 0xDC91F22F09BC6C2F b1207
 	NATIVE_DECL void _0x9629FAF6460D35CB(Any p0, Any p1) { invoke<Void>(0x9629FAF6460D35CB, p0, p1); } // 0x9629FAF6460D35CB b1207
 	NATIVE_DECL void _0x4E68C7EF706DF35D(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0x4E68C7EF706DF35D, p0, p1, p2, p3, p4, p5); } // 0x4E68C7EF706DF35D b1207
 	NATIVE_DECL Any _0x3ACCE14DFA6BA8C2(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return invoke<Any>(0x3ACCE14DFA6BA8C2, p0, p1, p2, p3, p4, p5, p6); } // 0x3ACCE14DFA6BA8C2 b1207
@@ -5312,18 +5538,19 @@ namespace PED
 	NATIVE_DECL Any _0xCB8F4C9343EBE240(Any p0, Any p1, Any p2) { return invoke<Any>(0xCB8F4C9343EBE240, p0, p1, p2); } // 0xCB8F4C9343EBE240 b1207
 	NATIVE_DECL void SET_PED_FIRING_PATTERN(Ped ped, Hash patternHash) { invoke<Void>(0x9AC577F5A12AD8A9, ped, patternHash); } // 0x9AC577F5A12AD8A9 0xB4629D66 b1207
 	NATIVE_DECL void _0x20E54854DEF6A54A(Any p0, Any p1) { invoke<Void>(0x20E54854DEF6A54A, p0, p1); } // 0x20E54854DEF6A54A b1207
-	NATIVE_DECL void _0x244E8C282188E40F(Any p0, Any p1) { invoke<Void>(0x244E8C282188E40F, p0, p1); } // 0x244E8C282188E40F b1207
+	NATIVE_DECL void _SET_PED_FIRING_PATTERN_2(Ped ped, Hash patternHash) { invoke<Void>(0x244E8C282188E40F, ped, patternHash); } // 0x244E8C282188E40F b1207
 	// shootRate 0-1000
 	NATIVE_DECL void SET_PED_SHOOT_RATE(Ped ped, int shootRate) { invoke<Void>(0x614DA022990752DC, ped, shootRate); } // 0x614DA022990752DC 0xFB301746 b1207
 	NATIVE_DECL void _0x3C529A827998F9B3(Any p0, Any p1, Any p2) { invoke<Void>(0x3C529A827998F9B3, p0, p1, p2); } // 0x3C529A827998F9B3 b1207
 	NATIVE_DECL void _0x1F44B7E283C09EDE(Any p0, Any p1, Any p2) { invoke<Void>(0x1F44B7E283C09EDE, p0, p1, p2); } // 0x1F44B7E283C09EDE b1207
 	// combatType can be between 0-14. See GET_COMBAT_FLOAT below for a list of possible parameters.
-	NATIVE_DECL void SET_COMBAT_FLOAT(Ped ped, int combatType, float p2) { invoke<Void>(0xFF41B4B141ED981C, ped, combatType, p2); } // 0xFF41B4B141ED981C 0xD8B7637C b1207
-	NATIVE_DECL float GET_COMBAT_FLOAT(Ped ped, int p1) { return invoke<float>(0x52DFF8A10508090A, ped, p1); } // 0x52DFF8A10508090A 0x511D7EF8 b1207
+	// https://github.com/femga/rdr3_discoveries/tree/master/AI/COMBAT_FLOATS
+	NATIVE_DECL void SET_COMBAT_FLOAT(Ped ped, int combatType, float newValue) { invoke<Void>(0xFF41B4B141ED981C, ped, combatType, newValue); } // 0xFF41B4B141ED981C 0xD8B7637C b1207
+	NATIVE_DECL float GET_COMBAT_FLOAT(Ped ped, int combatType) { return invoke<float>(0x52DFF8A10508090A, ped, combatType); } // 0x52DFF8A10508090A 0x511D7EF8 b1207
 	NATIVE_DECL void GET_GROUP_SIZE(int groupID, BOOL* unknown, int* sizeInMembers) { invoke<Void>(0x8DE69FE35CA09A45, groupID, unknown, sizeInMembers); } // 0x8DE69FE35CA09A45 0xF7E1A691 b1207
 	NATIVE_DECL BOOL DOES_GROUP_EXIST(int groupId) { return invoke<BOOL>(0x7C6B0C22F9F40BBE, groupId); } // 0x7C6B0C22F9F40BBE 0x935C978D b1207
 	NATIVE_DECL Any _0x0455546F23FF08E4(Any p0) { return invoke<Any>(0x0455546F23FF08E4, p0); } // 0x0455546F23FF08E4 b1207
-	NATIVE_DECL Any _0x909AD9E9A92A10DF(Any p0) { return invoke<Any>(0x909AD9E9A92A10DF, p0); } // 0x909AD9E9A92A10DF b1207
+	NATIVE_DECL BOOL IS_GROUP_LOCALLY_CONTROLLED(int group) { return invoke<BOOL>(0x909AD9E9A92A10DF, group); } // 0x909AD9E9A92A10DF b1207
 	// Returns the group id of which the specified ped is a member of.
 	NATIVE_DECL int GET_PED_GROUP_INDEX(Ped ped) { return invoke<int>(0xF162E133B4E7A675, ped); } // 0xF162E133B4E7A675 0x134E0785 b1207
 	NATIVE_DECL BOOL IS_PED_IN_GROUP(Ped ped) { return invoke<BOOL>(0x5891CAC5D4ACFF74, ped); } // 0x5891CAC5D4ACFF74 0x836D9795 b1207
@@ -5342,7 +5569,7 @@ namespace PED
 	NATIVE_DECL Any ADD_FORMATION_LOCATION(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0xB05945C1E9E60D91, p0, p1, p2, p3); } // 0xB05945C1E9E60D91 b1207
 	NATIVE_DECL Any SET_FORMATION_POSITIONS_TARGET_RADIUS(Any p0, Any p1) { return invoke<Any>(0x7CC7D3B7AF7FB71F, p0, p1); } // 0x7CC7D3B7AF7FB71F b1207
 	NATIVE_DECL void _0x478F6B9920446CE2(Any p0, Any p1) { invoke<Void>(0x478F6B9920446CE2, p0, p1); } // 0x478F6B9920446CE2 b1207
-	NATIVE_DECL void _0x0E9E95FDEDCC9D35(Any p0, Any p1, Any p2) { invoke<Void>(0x0E9E95FDEDCC9D35, p0, p1, p2); } // 0x0E9E95FDEDCC9D35 b1207
+	NATIVE_DECL void _SET_PED_FORMATION_POSITION(Ped ped, int position, Any p2) { invoke<Void>(0x0E9E95FDEDCC9D35, ped, position, p2); } // 0x0E9E95FDEDCC9D35 b1207
 	NATIVE_DECL Any _0x8AF8E647D6B2A649(Any p0, Any p1) { return invoke<Any>(0x8AF8E647D6B2A649, p0, p1); } // 0x8AF8E647D6B2A649 b1207
 	NATIVE_DECL void _0x87C2724A56F66020(Any p0) { invoke<Void>(0x87C2724A56F66020, p0); } // 0x87C2724A56F66020 b1207
 	NATIVE_DECL void _0xD5BD1B5318A81994(Any p0, Any p1) { invoke<Void>(0xD5BD1B5318A81994, p0, p1); } // 0xD5BD1B5318A81994 b1207
@@ -5370,19 +5597,23 @@ namespace PED
 	NATIVE_DECL BOOL IS_PED_ENTERING_ANY_TRANSPORT(Ped ped) { return invoke<BOOL>(0x1D46B417F926D34D, ped); } // 0x1D46B417F926D34D b1207
 	NATIVE_DECL void SET_PED_GRAVITY(Ped ped, BOOL toggle) { invoke<Void>(0x9FF447B6B6AD960A, ped, toggle); } // 0x9FF447B6B6AD960A 0x3CA16652 b1207
 	NATIVE_DECL void _0x96595B36D6A2279B(Any p0, Any p1) { invoke<Void>(0x96595B36D6A2279B, p0, p1); } // 0x96595B36D6A2279B b1207
-	NATIVE_DECL void _0x7FB0088E8769CDDB(Any p0, Any p1) { invoke<Void>(0x7FB0088E8769CDDB, p0, p1); } // 0x7FB0088E8769CDDB b1207
+	// Blocks ped from swimming underwater
+	NATIVE_DECL void _SET_PED_IMMERSION_FLAG(Ped ped, Any p1) { invoke<Void>(0x7FB0088E8769CDDB, ped, p1); } // 0x7FB0088E8769CDDB b1207
 	NATIVE_DECL void _0xA90684ED185CCB4B(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xA90684ED185CCB4B, p0, p1, p2, p3); } // 0xA90684ED185CCB4B b1207
-	NATIVE_DECL void _0x8B3CB08158E98481(Ped ped, BOOL enabled) { invoke<Void>(0x8B3CB08158E98481, ped, enabled); } // 0x8B3CB08158E98481 b1207
-	NATIVE_DECL void _0x1CE875505D45338A(Ped ped, Ped pedKiller, Hash weapon) { invoke<Void>(0x1CE875505D45338A, ped, pedKiller, weapon); } // 0x1CE875505D45338A b1207
+	NATIVE_DECL void _FAKE_SET_PED_LOCO_INJURED(Ped ped, BOOL enabled) { invoke<Void>(0x8B3CB08158E98481, ped, enabled); } // 0x8B3CB08158E98481 b1207
+	NATIVE_DECL void _FORCE_PED_DEATH(Ped ped, Ped pedKiller, Hash weapon) { invoke<Void>(0x1CE875505D45338A, ped, pedKiller, weapon); } // 0x1CE875505D45338A b1207
 	// damages a ped with the given amount
 	NATIVE_DECL void APPLY_DAMAGE_TO_PED(Ped ped, int damageAmount, int p2, int boneId, Ped pedKiller) { invoke<Void>(0x697157CED63F18D4, ped, damageAmount, p2, boneId, pedKiller); } // 0x697157CED63F18D4 0x4DC27FCF b1207
 	NATIVE_DECL void _0xBAD2A311667A50D7(Any p0, Any p1) { invoke<Void>(0xBAD2A311667A50D7, p0, p1); } // 0xBAD2A311667A50D7 b1207
 	NATIVE_DECL int GET_PED_TYPE(Ped ped) { return invoke<int>(0xFF059E1E4C01E63C, ped); } // 0xFF059E1E4C01E63C 0xB1460D43 b1207
 	// Turns the desired ped into a cop. If you use this on the player ped, you will become almost invisible to cops dispatched for you. You will also report your own crimes, get a generic cop voice, get a cop-vision-cone on the radar, and you will be unable to shoot at other cops. Toggling ped as "false" has no effect; you must change p0's ped model to disable the effect.
+	// toggle = bSetRelGroup
 	NATIVE_DECL void SET_PED_AS_COP(Ped ped, BOOL toggle) { invoke<Void>(0xBB03C38DD3FB7FFD, ped, toggle); } // 0xBB03C38DD3FB7FFD 0x84E7DE9F b1207
 	NATIVE_DECL void _0x405180B14DA5A935(Ped ped, Any p1) { invoke<Void>(0x405180B14DA5A935, ped, p1); } // 0x405180B14DA5A935 b1207
-	NATIVE_DECL void _0x24C82EF607105FAA(Ped ped, Hash personality) { invoke<Void>(0x24C82EF607105FAA, ped, personality); } // 0x24C82EF607105FAA b1207
-	NATIVE_DECL Any _0xD7AD3C7EBAF88C92(Any p0) { return invoke<Any>(0xD7AD3C7EBAF88C92, p0); } // 0xD7AD3C7EBAF88C92 b1207
+	// personality (script_mp_rel): NONE, AGGRESSIVE, TIMID (non-aggressive), CRIPPS, SCRIPTEDINTIMIDATION, MAGGIE, MARCEL, SCRIPTEDSALOON
+	// personality (script_rel): AVOID, SCRIPTEDOUTLAW, TIMIDGUARDDOG, SCRIPTEDTIMIDROB, AGGRESSIVECAMPER, LAZYDOG, KIERANTIEDUP, SCRIPTEDGALA
+	NATIVE_DECL void _SET_PED_INTERACTION_PERSONALITY(Ped ped, Hash personality) { invoke<Void>(0x24C82EF607105FAA, ped, personality); } // 0x24C82EF607105FAA b1207
+	NATIVE_DECL Hash _GET_PED_INTERACTION_PERSONALITY(Ped ped) { return invoke<Hash>(0xD7AD3C7EBAF88C92, ped); } // 0xD7AD3C7EBAF88C92 b1207
 	// Hashes: STANDARD_PED_AGRO_GUARD, BOUNTY_HUNTER, PLAYER_HORSE
 	NATIVE_DECL void _0xB8B6430EAD2D2437(Ped ped, Hash p1) { invoke<Void>(0xB8B6430EAD2D2437, ped, p1); } // 0xB8B6430EAD2D2437 b1207
 	NATIVE_DECL void _0x329772C47DBB2FBC(Any p0) { invoke<Void>(0x329772C47DBB2FBC, p0); } // 0x329772C47DBB2FBC b1207
@@ -5395,7 +5626,7 @@ namespace PED
 	NATIVE_DECL void _0xA3C53CDE922BC78B(Any p0, Any p1) { invoke<Void>(0xA3C53CDE922BC78B, p0, p1); } // 0xA3C53CDE922BC78B b1207
 	NATIVE_DECL void _0x41C23A8E6B344867(Any p0, Any p1) { invoke<Void>(0x41C23A8E6B344867, p0, p1); } // 0x41C23A8E6B344867 b1207
 	NATIVE_DECL Any _0x9337183FDA2E9035(Any p0, Any p1) { return invoke<Any>(0x9337183FDA2E9035, p0, p1); } // 0x9337183FDA2E9035 b1207
-	NATIVE_DECL Any _0xA454D234E45BB6E5(Any p0, Any p1) { return invoke<Any>(0xA454D234E45BB6E5, p0, p1); } // 0xA454D234E45BB6E5 b1207
+	NATIVE_DECL BOOL GET_IS_PED_RESPONDING_TO_NEGATIVE_INTERACTION(Ped ped, Player player) { return invoke<BOOL>(0xA454D234E45BB6E5, ped, player); } // 0xA454D234E45BB6E5 b1207
 	NATIVE_DECL void _0xA7DC9266ED6A4E51(Any p0) { invoke<Void>(0xA7DC9266ED6A4E51, p0); } // 0xA7DC9266ED6A4E51 b1207
 	NATIVE_DECL Any _0x89816B58C3466262(Any p0) { return invoke<Any>(0x89816B58C3466262, p0); } // 0x89816B58C3466262 b1207
 	NATIVE_DECL void _0x97B06669AC569003(Any p0, Any p1) { invoke<Void>(0x97B06669AC569003, p0, p1); } // 0x97B06669AC569003 b1207
@@ -5411,7 +5642,7 @@ namespace PED
 	NATIVE_DECL int GET_PED_MAX_HEALTH(Ped ped) { return invoke<int>(0x4700A416E8324EF3, ped); } // 0x4700A416E8324EF3 0xA45B6C8D b1207
 	// configHash: see pedhealth.meta
 	NATIVE_DECL void _SET_PED_HEALTH_CONFIG(Ped ped, Hash configHash) { invoke<Void>(0xF6B82FCE03B43A37, ped, configHash); } // 0xF6B82FCE03B43A37 b1207
-	NATIVE_DECL void _0x7DD7FB3480D8083E(Any p0) { invoke<Void>(0x7DD7FB3480D8083E, p0); } // 0x7DD7FB3480D8083E b1207
+	NATIVE_DECL void INIT_PED_DEFAULT_HEALTH(Ped ped) { invoke<Void>(0x7DD7FB3480D8083E, ped); } // 0x7DD7FB3480D8083E b1207
 	NATIVE_DECL void SET_PED_MAX_TIME_IN_WATER(Ped ped, float value) { invoke<Void>(0x43C851690662113D, ped, value); } // 0x43C851690662113D 0xFE0A106B b1207
 	NATIVE_DECL void SET_PED_MAX_TIME_UNDERWATER(Ped ped, float value) { invoke<Void>(0x6BA428C528D9E522, ped, value); } // 0x6BA428C528D9E522 0x082EF240 b1207
 	NATIVE_DECL void _0xAF041C10756C30FB(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xAF041C10756C30FB, p0, p1, p2, p3); } // 0xAF041C10756C30FB b1207
@@ -5443,7 +5674,7 @@ namespace PED
 	NATIVE_DECL Any _0x8822F139408B8D0A(Any p0) { return invoke<Any>(0x8822F139408B8D0A, p0); } // 0x8822F139408B8D0A b1207
 	NATIVE_DECL void _0x8822F124788B8D0A(Any p0, Any p1) { invoke<Void>(0x8822F124788B8D0A, p0, p1); } // 0x8822F124788B8D0A b1207
 	NATIVE_DECL void RESET_PED_WEAPON_MOVEMENT_CLIPSET(Ped ped) { invoke<Void>(0x97B0DB5B4AA74E77, ped); } // 0x97B0DB5B4AA74E77 0xC60C9ACD b1207
-	NATIVE_DECL void _0x3AE3552E7C207CC5(Ped ped, const char* animName, BOOL p2) { invoke<Void>(0x3AE3552E7C207CC5, ped, animName, p2); } // 0x3AE3552E7C207CC5 b1207
+	NATIVE_DECL void _SET_PED_GETUP_ANIMATION(Ped ped, const char* animName, BOOL p2) { invoke<Void>(0x3AE3552E7C207CC5, ped, animName, p2); } // 0x3AE3552E7C207CC5 b1207
 	NATIVE_DECL void _0x88A95BB640FC186F(Any p0) { invoke<Void>(0x88A95BB640FC186F, p0); } // 0x88A95BB640FC186F b1207
 	NATIVE_DECL void RESET_PED_IN_VEHICLE_CONTEXT(Ped ped) { invoke<Void>(0x22EF8FF8778030EB, ped); } // 0x22EF8FF8778030EB 0x3C94D88A b1207
 	NATIVE_DECL void _0x878E8104FA27CDAE(Any p0, Any p1) { invoke<Void>(0x878E8104FA27CDAE, p0, p1); } // 0x878E8104FA27CDAE b1207
@@ -5474,25 +5705,30 @@ namespace PED
 	// rally
 	// waiter
 	// war_veteran
-	NATIVE_DECL void _0x923583741DC87BCE(Ped ped, const char* locomotionArchetype) { invoke<Void>(0x923583741DC87BCE, ped, locomotionArchetype); } // 0x923583741DC87BCE b1207
+	NATIVE_DECL void _SET_PED_DESIRED_LOCO_FOR_MODEL(Ped ped, const char* locomotionArchetype) { invoke<Void>(0x923583741DC87BCE, ped, locomotionArchetype); } // 0x923583741DC87BCE b1207
 	// Clears locomotion archetype
-	NATIVE_DECL void _0x4FD80C3DD84B817B(Ped ped) { invoke<Void>(0x4FD80C3DD84B817B, ped); } // 0x4FD80C3DD84B817B b1207
+	NATIVE_DECL void _CLEAR_PED_DESIRED_LOCO_FOR_MODEL(Ped ped) { invoke<Void>(0x4FD80C3DD84B817B, ped); } // 0x4FD80C3DD84B817B b1207
 	// Sets peds motion type
-	NATIVE_DECL void _0x89F5E7ADECCCB49C(Ped ped, const char* locoMotionType) { invoke<Void>(0x89F5E7ADECCCB49C, ped, locoMotionType); } // 0x89F5E7ADECCCB49C b1207
-	NATIVE_DECL void _0x58F7DB5BD8FA2288(Ped ped) { invoke<Void>(0x58F7DB5BD8FA2288, ped); } // 0x58F7DB5BD8FA2288 b1207
+	NATIVE_DECL void _SET_PED_DESIRED_LOCO_MOTION_TYPE(Ped ped, const char* locoMotionType) { invoke<Void>(0x89F5E7ADECCCB49C, ped, locoMotionType); } // 0x89F5E7ADECCCB49C b1207
+	NATIVE_DECL void _CLEAR_PED_DESIRED_LOCO_MOTION_TYPE(Ped ped) { invoke<Void>(0x58F7DB5BD8FA2288, ped); } // 0x58F7DB5BD8FA2288 b1207
 	NATIVE_DECL void _0x2371C39D4F91C288(Ped ped) { invoke<Void>(0x2371C39D4F91C288, ped); } // 0x2371C39D4F91C288 b1207
-	// Known stand up animation types: REAR, FRONT
-	NATIVE_DECL void _0xEAA8242C8479C27D(Ped ped, const char* standUpType) { invoke<Void>(0xEAA8242C8479C27D, ped, standUpType); } // 0xEAA8242C8479C27D b1207
+	// Known get up animation types: REAR, FRONT
+	NATIVE_DECL void _REQUEST_PED_GETUP_ANIMATION(Ped ped, const char* getUpType) { invoke<Void>(0xEAA8242C8479C27D, ped, getUpType); } // 0xEAA8242C8479C27D b1207
 	NATIVE_DECL void PED_COWER_IN_PLACE(Ped ped, Ped ped2) { invoke<Void>(0xF6E1E9F47A7686F8, ped, ped2); } // 0xF6E1E9F47A7686F8 b1207
 	NATIVE_DECL void PED_COWER_MOVE_TO_POINT(Ped ped, float p1, float p2, float p3, Ped ped2, float p5) { invoke<Void>(0x1E4C940233FC0C6F, ped, p1, p2, p3, ped2, p5); } // 0x1E4C940233FC0C6F b1207
 	NATIVE_DECL void _0x16F798A05BB9E3B5(Any p0) { invoke<Void>(0x16F798A05BB9E3B5, p0); } // 0x16F798A05BB9E3B5 b1207
-	NATIVE_DECL void _0xAAB050DA48B57978(Ped ped, const char* presetName, Ped targetPed, int duration, int flag) { invoke<Void>(0xAAB050DA48B57978, ped, presetName, targetPed, duration, flag); } // 0xAAB050DA48B57978 b1207
-	NATIVE_DECL void _0x935CF6E42BAF7F4D(Any p0) { invoke<Void>(0x935CF6E42BAF7F4D, p0); } // 0x935CF6E42BAF7F4D b1207
+	// target: 0 affects everyone
+	// duration: -1 indefinite
+	// flag: always 4 in R* Scripts
+	NATIVE_DECL void _PED_EMOTIONAL_PRESET_LOCO_MOTION(Ped ped, const char* presetName, Ped targetPed, int duration, int flag) { invoke<Void>(0xAAB050DA48B57978, ped, presetName, targetPed, duration, flag); } // 0xAAB050DA48B57978 b1207
+	NATIVE_DECL void _PED_CLEAR_LOCO_MOTION(Ped ped) { invoke<Void>(0x935CF6E42BAF7F4D, ped); } // 0x935CF6E42BAF7F4D b1207
 	NATIVE_DECL void _0x32CCAD8A981B53D3(Any p0) { invoke<Void>(0x32CCAD8A981B53D3, p0); } // 0x32CCAD8A981B53D3 b1207
-	NATIVE_DECL void _0x406CCF555B04FAD3(Ped ped, BOOL enabled, float drunknessLevel) { invoke<Void>(0x406CCF555B04FAD3, ped, enabled, drunknessLevel); } // 0x406CCF555B04FAD3 b1207
+	// SOBER = 0.0f, SLIGHTLY_DRUNK = 0.25f, MODERATELY_DRUNK = 0.5f, VERY_DRUNK = 1.0f
+	NATIVE_DECL void _SET_PED_DRUNKNESS(Ped ped, BOOL enabled, float drunknessLevel) { invoke<Void>(0x406CCF555B04FAD3, ped, enabled, drunknessLevel); } // 0x406CCF555B04FAD3 b1207
 	NATIVE_DECL BOOL _IS_PED_DRUNK(Ped ped) { return invoke<BOOL>(0x50F124E6EF188B22, ped); } // 0x50F124E6EF188B22 b1207
 	// Returns ped drunk level
-	NATIVE_DECL float _0x6FB76442469ABD68(Ped ped) { return invoke<float>(0x6FB76442469ABD68, ped); } // 0x6FB76442469ABD68 b1207
+	// _H* or _I*
+	NATIVE_DECL float _GET_PED_DRUNKNESS(Ped ped) { return invoke<float>(0x6FB76442469ABD68, ped); } // 0x6FB76442469ABD68 b1207
 	NATIVE_DECL Vector3 GET_ANIM_INITIAL_OFFSET_POSITION(const char* animDict, const char* animName, float x, float y, float z, float xRot, float yRot, float zRot, float p8, int p9) { return invoke<Vector3>(0xBE22B26DD764C040, animDict, animName, x, y, z, xRot, yRot, zRot, p8, p9); } // 0xBE22B26DD764C040 0xC59D4268 b1207
 	NATIVE_DECL Vector3 GET_ANIM_INITIAL_OFFSET_ROTATION(const char* animDict, const char* animName, float x, float y, float z, float xRot, float yRot, float zRot, float p8, int p9) { return invoke<Vector3>(0x4B805E6046EE9E47, animDict, animName, x, y, z, xRot, yRot, zRot, p8, p9); } // 0x4B805E6046EE9E47 0x5F7789E6 b1207
 	NATIVE_DECL void SET_PED_RANDOM_COMPONENT_VARIATION(Ped ped, int p1) { invoke<Void>(0xC8A9481A01E63C28, ped, p1); } // 0xC8A9481A01E63C28 0x4111BA46 b1207
@@ -5508,16 +5744,16 @@ namespace PED
 	NATIVE_DECL void _0xD8736EFDA38EDC5C(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0xD8736EFDA38EDC5C, p0, p1, p2, p3, p4); } // 0xD8736EFDA38EDC5C b1207
 	// Based on TASK_COMBAT_HATED_TARGETS_AROUND_PED, the parameters are likely similar (PedHandle, and area to attack in).
 	NATIVE_DECL void REGISTER_HATED_TARGETS_AROUND_PED(Ped ped, float radius) { invoke<Void>(0x9222F300BF8354FE, ped, radius); } // 0x9222F300BF8354FE 0x7F87559E b1207
-	NATIVE_DECL BOOL _0x6E5CBCB3941D7D08(Ped ped, Ped targetPed) { return invoke<BOOL>(0x6E5CBCB3941D7D08, ped, targetPed); } // 0x6E5CBCB3941D7D08 b1207
-	NATIVE_DECL void _0x4707E9C23D8CA3FE(Ped ped, Ped targetPed) { invoke<Void>(0x4707E9C23D8CA3FE, ped, targetPed); } // 0x4707E9C23D8CA3FE b1207
+	NATIVE_DECL BOOL _IS_TARGET(Ped ped, Ped targetPed) { return invoke<BOOL>(0x6E5CBCB3941D7D08, ped, targetPed); } // 0x6E5CBCB3941D7D08 b1207
+	NATIVE_DECL void _REMOVE_TARGET(Ped ped, Ped targetPed) { invoke<Void>(0x4707E9C23D8CA3FE, ped, targetPed); } // 0x4707E9C23D8CA3FE b1207
 	// Gets the closest ped in a radius.
-	NATIVE_DECL BOOL GET_CLOSEST_PED(float x, float y, float z, float radius, BOOL p4, BOOL p5, Ped* outPed, BOOL p7, BOOL p8, int pedType, Any p10) { return invoke<BOOL>(0xC33AB876A77F8164, x, y, z, radius, p4, p5, outPed, p7, p8, pedType, p10); } // 0xC33AB876A77F8164 0x8F6C1F55 b1207
+	NATIVE_DECL BOOL GET_CLOSEST_PED(float x, float y, float z, float radius, BOOL p4, BOOL p5, Ped* outPed, BOOL p7, BOOL p8, BOOL p9, int pedType) { return invoke<BOOL>(0xC33AB876A77F8164, x, y, z, radius, p4, p5, outPed, p7, p8, p9, pedType); } // 0xC33AB876A77F8164 0x8F6C1F55 b1207
 	NATIVE_DECL BOOL CAN_PED_RAGDOLL(Ped ped) { return invoke<BOOL>(0x128F79EDCECE4FD5, ped); } // 0x128F79EDCECE4FD5 0xC0EFB7A3 b1207
-	NATIVE_DECL BOOL SET_PED_TO_RAGDOLL(Ped ped, int time1, int time2, int ragdollType, BOOL p4, BOOL p5, BOOL p6) { return invoke<BOOL>(0xAE99FB955581844A, ped, time1, time2, ragdollType, p4, p5, p6); } // 0xAE99FB955581844A 0x83CB5052 b1207
-	NATIVE_DECL BOOL SET_PED_TO_RAGDOLL_WITH_FALL(Ped ped, int time, int p2, int ragdollType, float x, float y, float z, float p7, float p8, float p9, float p10, float p11, float p12, float p13) { return invoke<BOOL>(0xD76632D99E4966C8, ped, time, p2, ragdollType, x, y, z, p7, p8, p9, p10, p11, p12, p13); } // 0xD76632D99E4966C8 0xFA12E286 b1207
+	NATIVE_DECL BOOL SET_PED_TO_RAGDOLL(Ped ped, int timeMin, int timeMax, int ragdollType, BOOL p4, BOOL p5, BOOL p6) { return invoke<BOOL>(0xAE99FB955581844A, ped, timeMin, timeMax, ragdollType, p4, p5, p6); } // 0xAE99FB955581844A 0x83CB5052 b1207
+	NATIVE_DECL BOOL SET_PED_TO_RAGDOLL_WITH_FALL(Ped ped, int timeMin, int timeMax, int ragdollType, float falldirX, float falldirY, float falldirZ, float p7, float p8, float p9, float p10, float p11, float p12, float p13) { return invoke<BOOL>(0xD76632D99E4966C8, ped, timeMin, timeMax, ragdollType, falldirX, falldirY, falldirZ, p7, p8, p9, p10, p11, p12, p13); } // 0xD76632D99E4966C8 0xFA12E286 b1207
 	// Causes Ped to ragdoll on collision with any object (e.g Running into trashcan). If applied to player you will sometimes trip on the sidewalk.
-	NATIVE_DECL void SET_PED_RAGDOLL_ON_COLLISION(Any p0, Any p1, Any p2) { invoke<Void>(0xF0A4F1BBF4FA7497, p0, p1, p2); } // 0xF0A4F1BBF4FA7497 0x2654A0F4 b1207
-	NATIVE_DECL void _0x221F4D9912B7FE86(Ped ped, int p1) { invoke<Void>(0x221F4D9912B7FE86, ped, p1); } // 0x221F4D9912B7FE86 b1207
+	NATIVE_DECL void SET_PED_RAGDOLL_ON_COLLISION(Ped ped, BOOL toggle, BOOL p2) { invoke<Void>(0xF0A4F1BBF4FA7497, ped, toggle, p2); } // 0xF0A4F1BBF4FA7497 0x2654A0F4 b1207
+	NATIVE_DECL void _SET_PED_TO_DISABLE_RAGDOLL(Ped ped, BOOL toggle) { invoke<Void>(0x221F4D9912B7FE86, ped, toggle); } // 0x221F4D9912B7FE86 b1207
 	// If the ped handle passed through the parenthesis is in a ragdoll state this will return true.
 	NATIVE_DECL BOOL IS_PED_RAGDOLL(Ped ped) { return invoke<BOOL>(0x47E4E977581C5B55, ped); } // 0x47E4E977581C5B55 0xC833BBE1 b1207
 	NATIVE_DECL BOOL IS_PED_RUNNING_RAGDOLL_TASK(Ped ped) { return invoke<BOOL>(0xE3B6097CC25AA69E, ped); } // 0xE3B6097CC25AA69E 0x44A153F2 b1207
@@ -5528,6 +5764,8 @@ namespace PED
 	NATIVE_DECL void SET_PED_CAN_RAGDOLL(Ped ped, BOOL toggle) { invoke<Void>(0xB128377056A54E2A, ped, toggle); } // 0xB128377056A54E2A 0xCF1384C4 b1207
 	NATIVE_DECL Any _0x3AEC4A410ECAF30D(Any p0) { return invoke<Any>(0x3AEC4A410ECAF30D, p0); } // 0x3AEC4A410ECAF30D b1207
 	NATIVE_DECL BOOL IS_PED_RUNNING_MOBILE_PHONE_TASK(Ped ped) { return invoke<BOOL>(0x2AFE52F782F25775, ped); } // 0x2AFE52F782F25775 0xFB2AFED1 b1207
+	// https://github.com/femga/rdr3_discoveries/tree/master/AI/RAGDOLL_BLOCKING_FLAGS
+	// 
 	// flags:
 	// enum eRagdollBlockingFlags
 	// {
@@ -5557,16 +5795,16 @@ namespace PED
 	NATIVE_DECL void CLEAR_RAGDOLL_BLOCKING_FLAGS(Ped ped, int flags) { invoke<Void>(0xD86D101FCFD00A4B, ped, flags); } // 0xD86D101FCFD00A4B 0x77CBA290 b1207
 	NATIVE_DECL void _0x9F933E0985E12C51(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x9F933E0985E12C51, p0, p1, p2, p3); } // 0x9F933E0985E12C51 b1207
 	NATIVE_DECL void _0x88B2026A3B0BE33D(Any p0, Any p1) { invoke<Void>(0x88B2026A3B0BE33D, p0, p1); } // 0x88B2026A3B0BE33D b1207
-	NATIVE_DECL void SET_PED_DEFENSIVE_AREA_VOLUME(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0xFC3DB99C8144CD81, p0, p1, p2, p3, p4); } // 0xFC3DB99C8144CD81 b1207
-	NATIVE_DECL void SET_PED_SPHERE_DEFENSIVE_AREA(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { invoke<Void>(0x9D3151A373974804, p0, p1, p2, p3, p4, p5, p6, p7); } // 0x9D3151A373974804 0xBD96D8E8 b1207
-	NATIVE_DECL void _0x1854217C640B39EC(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { invoke<Void>(0x1854217C640B39EC, p0, p1, p2, p3, p4, p5, p6, p7); } // 0x1854217C640B39EC b1207
+	NATIVE_DECL void SET_PED_DEFENSIVE_AREA_VOLUME(Ped ped, Volume volume, BOOL p2, BOOL p3, BOOL p4) { invoke<Void>(0xFC3DB99C8144CD81, ped, volume, p2, p3, p4); } // 0xFC3DB99C8144CD81 b1207
+	NATIVE_DECL void SET_PED_SPHERE_DEFENSIVE_AREA(Ped ped, float x, float y, float z, float radius, BOOL p5, BOOL p6, BOOL p7) { invoke<Void>(0x9D3151A373974804, ped, x, y, z, radius, p5, p6, p7); } // 0x9D3151A373974804 0xBD96D8E8 b1207
+	NATIVE_DECL void _SET_PED_DEFENSIVE_SPHERE_ATTACHED_TO_ENTITY(Ped ped, Entity entity, float x, float y, float z, float radius, int p6, BOOL p7) { invoke<Void>(0x1854217C640B39EC, ped, entity, x, y, z, radius, p6, p7); } // 0x1854217C640B39EC b1207
 	NATIVE_DECL void _0xEB2BFE5D009F0331(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11) { invoke<Void>(0xEB2BFE5D009F0331, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11); } // 0xEB2BFE5D009F0331 b1232
 	NATIVE_DECL void SET_PED_DEFENSIVE_AREA_DIRECTION(Ped ped, float p1, float p2, float p3, BOOL p4) { invoke<Void>(0x413C6C763A4AFFAD, ped, p1, p2, p3, p4); } // 0x413C6C763A4AFFAD 0xB66B0C9A b1207
 	// Ped will no longer get angry when you stay near him.
 	NATIVE_DECL void REMOVE_PED_DEFENSIVE_AREA(Ped ped, BOOL toggle) { invoke<Void>(0x74D4E028107450A9, ped, toggle); } // 0x74D4E028107450A9 0x34AAAFA5 b1207
 	NATIVE_DECL Vector3 GET_PED_DEFENSIVE_AREA_POSITION(Ped ped, BOOL p1) { return invoke<Vector3>(0x3C06B8786DD94CD1, ped, p1); } // 0x3C06B8786DD94CD1 0xCB65198D b1207
 	NATIVE_DECL BOOL IS_PED_DEFENSIVE_AREA_ACTIVE(Ped ped, BOOL p1) { return invoke<BOOL>(0xBA63D9FE45412247, ped, p1); } // 0xBA63D9FE45412247 0x6D88BCD3 b1207
-	NATIVE_DECL Any _0xEF2E6F870783369B(Any p0, Any p1) { return invoke<Any>(0xEF2E6F870783369B, p0, p1); } // 0xEF2E6F870783369B b1207
+	NATIVE_DECL Volume _GET_PED_DEFENSIVE_VOLUME(Ped ped, Any p1) { return invoke<Volume>(0xEF2E6F870783369B, ped, p1); } // 0xEF2E6F870783369B b1207
 	NATIVE_DECL void _0x4EC4EA2F72B36358(Any p0, Any p1) { invoke<Void>(0x4EC4EA2F72B36358, p0, p1); } // 0x4EC4EA2F72B36358 b1207
 	NATIVE_DECL void _0xCF0B19806473D324(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xCF0B19806473D324, p0, p1, p2, p3); } // 0xCF0B19806473D324 b1207
 	NATIVE_DECL void _0xB4B7C92FCE7347B7(Any p0) { invoke<Void>(0xB4B7C92FCE7347B7, p0); } // 0xB4B7C92FCE7347B7 b1207
@@ -5581,7 +5819,7 @@ namespace PED
 	NATIVE_DECL void RESURRECT_PED(Ped ped) { invoke<Void>(0x71BC8E838B9C6035, ped); } // 0x71BC8E838B9C6035 0xA4B82097 b1207
 	// nullsub, doesn't do anything
 	NATIVE_DECL void SET_PED_NAME_DEBUG(Ped ped, const char* name) { invoke<Void>(0x98EFA132A4117BE1, ped, name); } // 0x98EFA132A4117BE1 0x20D6273E b1207
-	// Actual name begins with 'S'
+	// _SP* - _ST*
 	NATIVE_DECL void _0xF9ACF4A08098EA25(Ped ped, BOOL p1) { invoke<Void>(0xF9ACF4A08098EA25, ped, p1); } // 0xF9ACF4A08098EA25 0x141CC936 b1207
 	NATIVE_DECL Any _0x7020839C7302D8AC(Any p0) { return invoke<Any>(0x7020839C7302D8AC, p0); } // 0x7020839C7302D8AC b1207
 	NATIVE_DECL void _0xE1AADD0055D76603(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { invoke<Void>(0xE1AADD0055D76603, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); } // 0xE1AADD0055D76603 b1207
@@ -5599,6 +5837,7 @@ namespace PED
 	NATIVE_DECL void _0x897934E868EDDD6C(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x897934E868EDDD6C, p0, p1, p2, p3, p4); } // 0x897934E868EDDD6C b1207
 	NATIVE_DECL void _SET_PED_WOUND_EFFECT(Ped ped, int p1, int boneId, float moveWoundLeftRight, float bloodFountainPressure, float yaw, float bloodFountainDirection, float bloodFountainPulse, float p8, float p9) { invoke<Void>(0xFFD54D9FE71B966A, ped, p1, boneId, moveWoundLeftRight, bloodFountainPressure, yaw, bloodFountainDirection, bloodFountainPulse, p8, p9); } // 0xFFD54D9FE71B966A b1207
 	NATIVE_DECL void _REMOVE_PED_WOUND_EFFECT(Ped ped, float p1) { invoke<Void>(0x66B1CB778D911F49, ped, p1); } // 0x66B1CB778D911F49 b1207
+	// https://github.com/femga/rdr3_discoveries/blob/master/peds_customization/ped_decals.lua
 	NATIVE_DECL void APPLY_PED_DAMAGE_PACK(Ped ped, const char* damagePack, float damage, float mult) { invoke<Void>(0x46DF918788CB093F, ped, damagePack, damage, mult); } // 0x46DF918788CB093F 0x208D0CB8 b1207
 	NATIVE_DECL void CLEAR_PED_BLOOD_DAMAGE(Ped ped) { invoke<Void>(0x8FE22675A5A45817, ped); } // 0x8FE22675A5A45817 0xF7ADC960 b1207
 	NATIVE_DECL void CLEAR_PED_BLOOD_DAMAGE_BY_ZONE(Ped ped, int p1) { invoke<Void>(0x56E3B78C5408D9F4, ped, p1); } // 0x56E3B78C5408D9F4 0xF210BE69 b1207
@@ -5608,7 +5847,7 @@ namespace PED
 	NATIVE_DECL void _0xD8544F6260F5F01E(Ped ped, int p1) { invoke<Void>(0xD8544F6260F5F01E, ped, p1); } // 0xD8544F6260F5F01E b1232
 	NATIVE_DECL void _0xEB8886E1065654CD(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xEB8886E1065654CD, p0, p1, p2, p3); } // 0xEB8886E1065654CD b1207
 	NATIVE_DECL void FADE_AND_DESTROY_PED(Ped* ped) { invoke<Void>(0x7043D0681285BA2D, ped); } // 0x7043D0681285BA2D b1207
-	NATIVE_DECL BOOL _0x8D9BFCE3352DE47F(Ped ped) { return invoke<BOOL>(0x8D9BFCE3352DE47F, ped); } // 0x8D9BFCE3352DE47F b1207
+	NATIVE_DECL BOOL _IS_PED_QUEUED_FOR_DELETION(Ped ped) { return invoke<BOOL>(0x8D9BFCE3352DE47F, ped); } // 0x8D9BFCE3352DE47F b1207
 	// It clears the wetness of the selected Ped/Player. Clothes have to be wet to notice the difference.
 	NATIVE_DECL void CLEAR_PED_WETNESS(Ped ped) { invoke<Void>(0x9C720776DAA43E7E, ped); } // 0x9C720776DAA43E7E 0x629F15BD b1207
 	// It adds the wetness level to the player clothing/outfit. As if player just got out from water surface.
@@ -5633,10 +5872,10 @@ namespace PED
 	// offsetY: The Y-component of the offset to add to the position relative to the bone's rotation.
 	// offsetZ: The Z-component of the offset to add to the position relative to the bone's rotation.
 	NATIVE_DECL Vector3 GET_PED_BONE_COORDS(Ped ped, int boneId, float offsetX, float offsetY, float offsetZ) { return invoke<Vector3>(0x17C07FC640E86B4E, ped, boneId, offsetX, offsetY, offsetZ); } // 0x17C07FC640E86B4E 0x4579CAB1 b1207
-	NATIVE_DECL int ADD_SCENARIO_BLOCKING_AREA(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return invoke<int>(0x1B5C85C612E5256E, p0, p1, p2, p3, p4, p5, p6, p7); } // 0x1B5C85C612E5256E 0xA38C0234 b1207
+	NATIVE_DECL int ADD_SCENARIO_BLOCKING_AREA(float x1, float y1, float z1, float x2, float y2, float z2, BOOL p6, int blockingFlags) { return invoke<int>(0x1B5C85C612E5256E, x1, y1, z1, x2, y2, z2, p6, blockingFlags); } // 0x1B5C85C612E5256E 0xA38C0234 b1207
 	NATIVE_DECL void REMOVE_SCENARIO_BLOCKING_AREAS() { invoke<Void>(0xD37401D78A929A49); } // 0xD37401D78A929A49 0x4DDF845F b1207
 	NATIVE_DECL void REMOVE_SCENARIO_BLOCKING_AREA(Any p0, BOOL p1) { invoke<Void>(0x31D16B74C6E29D66, p0, p1); } // 0x31D16B74C6E29D66 0x4483EF06 b1207
-	NATIVE_DECL Any _0x4C39C95AE5DB1329(Any p0, Any p1, Any p2) { return invoke<Any>(0x4C39C95AE5DB1329, p0, p1, p2); } // 0x4C39C95AE5DB1329 b1207
+	NATIVE_DECL Any _0x4C39C95AE5DB1329(Volume volume, BOOL p1, int p2) { return invoke<Any>(0x4C39C95AE5DB1329, volume, p1, p2); } // 0x4C39C95AE5DB1329 b1207
 	NATIVE_DECL Any _0x6F46F8ACB44C4FC1(Any p0) { return invoke<Any>(0x6F46F8ACB44C4FC1, p0); } // 0x6F46F8ACB44C4FC1 b1207
 	NATIVE_DECL Any _0x91A5F9CBEBB9D936(Any p0) { return invoke<Any>(0x91A5F9CBEBB9D936, p0); } // 0x91A5F9CBEBB9D936 b1207
 	// Equivalent to IS_PED_USING_SCENARIO from V but takes a hash instead of a string.
@@ -5645,8 +5884,8 @@ namespace PED
 	NATIVE_DECL BOOL IS_PED_USING_THIS_SCENARIO(Ped ped, int scenario) { return invoke<BOOL>(0x9C54041BB66BCF9E, ped, scenario); } // 0x9C54041BB66BCF9E b1207
 	NATIVE_DECL Any _0xAB643407D0B26F07(Any p0, Any p1, Any p2, Any p3, Any p4) { return invoke<Any>(0xAB643407D0B26F07, p0, p1, p2, p3, p4); } // 0xAB643407D0B26F07 b1207
 	NATIVE_DECL Any _0x1148F706CF4EBDDA(Any p0, Any p1, Any p2) { return invoke<Any>(0x1148F706CF4EBDDA, p0, p1, p2); } // 0x1148F706CF4EBDDA b1207
-	NATIVE_DECL Any SET_PED_PANIC_EXIT_SCENARIO(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0xFE07FF6495D52E2A, p0, p1, p2, p3); } // 0xFE07FF6495D52E2A 0x59DE73AC b1207
-	NATIVE_DECL void _0x9A77DFD295E29B09(Ped ped, BOOL toggle) { invoke<Void>(0x9A77DFD295E29B09, ped, toggle); } // 0x9A77DFD295E29B09 0xC08FE5F6 b1207
+	NATIVE_DECL BOOL SET_PED_PANIC_EXIT_SCENARIO(Ped ped, float x, float y, float z) { return invoke<BOOL>(0xFE07FF6495D52E2A, ped, x, y, z); } // 0xFE07FF6495D52E2A 0x59DE73AC b1207
+	NATIVE_DECL void _SET_PED_SCARED_WHEN_USING_SCENARIO(Ped ped, BOOL toggle) { invoke<Void>(0x9A77DFD295E29B09, ped, toggle); } // 0x9A77DFD295E29B09 0xC08FE5F6 b1207
 	NATIVE_DECL void _0xD8CEEED54C672B5D(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { invoke<Void>(0xD8CEEED54C672B5D, p0, p1, p2, p3, p4, p5, p6); } // 0xD8CEEED54C672B5D b1207
 	NATIVE_DECL BOOL _SET_PED_SHOULD_PLAY_DIRECTED_SCENARIO_EXIT(Ped ped, float x, float y, float z) { return invoke<BOOL>(0xEC6935EBE0847B90, ped, x, y, z); } // 0xEC6935EBE0847B90 0x761F8F48 b1207
 	NATIVE_DECL void SET_PED_SHOULD_PLAY_NORMAL_SCENARIO_EXIT(Ped ped) { invoke<Void>(0xA3A9299C4F2ADB98, ped); } // 0xA3A9299C4F2ADB98 0x033F43FA b1207
@@ -5660,7 +5899,7 @@ namespace PED
 	// lookIntensity: see SET_PED_SHOULD_PLAY_FLEE_SCENARIO_EXIT
 	NATIVE_DECL BOOL SET_PED_SHOULD_PLAY_COMBAT_SCENARIO_EXIT(Ped ped, float x, float y, float z, int lookIntensity) { return invoke<BOOL>(0x802092B07E3B1EEA, ped, x, y, z, lookIntensity); } // 0x802092B07E3B1EEA b1207
 	// lookIntensity: see SET_PED_SHOULD_PLAY_FLEE_SCENARIO_EXIT
-	NATIVE_DECL BOOL _SET_PED_SHOULD_PLAY_EMOTIONAL_SCENARIO_EXIT(Ped ped, float x, float y, float z, int lookIntensity, BOOL p5) { return invoke<BOOL>(0x62FDAD5E01D2DD47, ped, x, y, z, lookIntensity, p5); } // 0x62FDAD5E01D2DD47 b1207
+	NATIVE_DECL BOOL SET_PED_SHOULD_PLAY_EMOTIONAL_SCENARIO_EXIT(Ped ped, float x, float y, float z, int lookIntensity, BOOL p5) { return invoke<BOOL>(0x62FDAD5E01D2DD47, ped, x, y, z, lookIntensity, p5); } // 0x62FDAD5E01D2DD47 b1207
 	// lookIntensity: see SET_PED_SHOULD_PLAY_FLEE_SCENARIO_EXIT
 	NATIVE_DECL BOOL SET_PED_SHOULD_PLAY_QUICK_SCENARIO_EXIT(Ped ped, float x, float y, float z, int lookIntensity, BOOL p5) { return invoke<BOOL>(0x463803429297117C, ped, x, y, z, lookIntensity, p5); } // 0x463803429297117C b1207
 	NATIVE_DECL Any _0xF9331B3A314EB49D(Any p0) { return invoke<Any>(0xF9331B3A314EB49D, p0); } // 0xF9331B3A314EB49D b1207
@@ -5669,9 +5908,9 @@ namespace PED
 	NATIVE_DECL void _0xCA95C156C14B2054(Any p0, Any p1) { invoke<Void>(0xCA95C156C14B2054, p0, p1); } // 0xCA95C156C14B2054 b1207
 	NATIVE_DECL void SET_FACIAL_IDLE_ANIM_OVERRIDE(Ped ped, const char* animName, const char* animDict) { invoke<Void>(0xFFC24B988B938B38, ped, animName, animDict); } // 0xFFC24B988B938B38 0x9BA19C13 b1207
 	NATIVE_DECL void CLEAR_FACIAL_IDLE_ANIM_OVERRIDE(Ped ped) { invoke<Void>(0x726256CC1EEB182F, ped); } // 0x726256CC1EEB182F 0x5244F4E2 b1207
-	// Hashes: MOODNORMAL, MOODEXERTIONMEDIUM, MOODANGRY, MOODAGITATED, MOODEXERTIONEXTREME, MOODEXERTIONMILD, MOODBITCHY, MOODPANIC, MOODDEFUSE, MOODDEAD
+	// Hashes: MOODAGITATED, MOODAIMING, MOODANGRY, MOODBITCHY, MOODCONCENTRATION, MOODCONCENTRATIONEXTREME, MOODCURIOUS, MOODDEAD, MOODDEFUSE, MOODEXERTIONEXTREME, MOODEXERTIONMEDIUM, MOODEXERTIONMILD, MOODHAPPY, MOODINJUREDMILD, MOODINTIMIDATED, MOODKNOCKEDOUT, MOODNERVOUS, MOODNORMAL, MOODNORMALNEUTRAL, MOODPANIC, MOODSCARED, MOODSHOCKED, MOODSLEEPING, MOODSMUG, MOODTIRED
 	// Params: p2 = 6 in R* Scripts
-	NATIVE_DECL void _0x8B3B71C80A29A4BB(Ped ped, Hash p1, int p2) { invoke<Void>(0x8B3B71C80A29A4BB, ped, p1, p2); } // 0x8B3B71C80A29A4BB b1207
+	NATIVE_DECL void _REQUEST_PED_FACIAL_MOOD_THIS_FRAME(Ped ped, Hash mood, int p2) { invoke<Void>(0x8B3B71C80A29A4BB, ped, mood, p2); } // 0x8B3B71C80A29A4BB b1207
 	NATIVE_DECL void _0xD2F0FE8805D91647(Any p0, Any p1) { invoke<Void>(0xD2F0FE8805D91647, p0, p1); } // 0xD2F0FE8805D91647 b1207
 	NATIVE_DECL void SET_PED_CAN_PLAY_GESTURE_ANIMS(Any p0, Any p1, Any p2) { invoke<Void>(0xBAF20C5432058024, p0, p1, p2); } // 0xBAF20C5432058024 0xE131E3B3 b1207
 	NATIVE_DECL void _0x7EDB3C766B0D073F(Any p0) { invoke<Void>(0x7EDB3C766B0D073F, p0); } // 0x7EDB3C766B0D073F b1232
@@ -5684,7 +5923,7 @@ namespace PED
 	NATIVE_DECL void SET_PED_CAN_HEAD_IK(Ped ped, BOOL toggle) { invoke<Void>(0xC11C18092C5530DC, ped, toggle); } // 0xC11C18092C5530DC 0xD3B04476 b1207
 	NATIVE_DECL void SET_PED_CAN_LEG_IK(Ped ped, BOOL toggle) { invoke<Void>(0x73518ECE2485412B, ped, toggle); } // 0x73518ECE2485412B 0x9955BC6F b1207
 	NATIVE_DECL void SET_PED_CAN_TORSO_IK(Ped ped, BOOL toggle) { invoke<Void>(0xF2B7106D37947CE0, ped, toggle); } // 0xF2B7106D37947CE0 0x8E5D4EAB b1207
-	NATIVE_DECL void SET_PED_CAN_TORSO_REACT_IK(Ped ped, BOOL p1) { invoke<Void>(0xF5846EDB26A98A24, ped, p1); } // 0xF5846EDB26A98A24 0x7B0040A8 b1207
+	NATIVE_DECL void SET_PED_CAN_TORSO_REACT_IK(Ped ped, BOOL toggle) { invoke<Void>(0xF5846EDB26A98A24, ped, toggle); } // 0xF5846EDB26A98A24 0x7B0040A8 b1207
 	NATIVE_DECL void _0x6647C5F6F5792496(Ped ped, BOOL p1) { invoke<Void>(0x6647C5F6F5792496, ped, p1); } // 0x6647C5F6F5792496 0x0FDA62DE b1207
 	NATIVE_DECL void SET_PED_CAN_USE_AUTO_CONVERSATION_LOOKAT(Ped ped, BOOL toggle) { invoke<Void>(0xEC4686EC06434678, ped, toggle); } // 0xEC4686EC06434678 0x584C5178 b1207
 	NATIVE_DECL BOOL IS_PED_HEADTRACKING_PED(Ped ped1, Ped ped2) { return invoke<BOOL>(0x5CD3CB88A7F8850D, ped1, ped2); } // 0x5CD3CB88A7F8850D 0x2A5DF721 b1207
@@ -5694,11 +5933,17 @@ namespace PED
 	NATIVE_DECL void _0xCD9E5F94A2F38683(Any p0, Any p1) { invoke<Void>(0xCD9E5F94A2F38683, p0, p1); } // 0xCD9E5F94A2F38683 b1207
 	NATIVE_DECL void SET_PED_CLOTH_PACKAGE_INDEX(Any p0, Any p1) { invoke<Void>(0x78C4E9961DB3EB5B, p0, p1); } // 0x78C4E9961DB3EB5B 0xFC942D7C b1207
 	NATIVE_DECL void _0x1D4636C90BBEFACB(Any p0, Any p1) { invoke<Void>(0x1D4636C90BBEFACB, p0, p1); } // 0x1D4636C90BBEFACB b1207
-	NATIVE_DECL void _0xEF371232BC6053E1(Any p0) { invoke<Void>(0xEF371232BC6053E1, p0); } // 0xEF371232BC6053E1 b1207
-	NATIVE_DECL void _0x86F0B6730C32AC14(Any p0, Any p1) { invoke<Void>(0x86F0B6730C32AC14, p0, p1); } // 0x86F0B6730C32AC14 b1207
-	NATIVE_DECL void _0x8101BA1C0B462412(Any p0, Any p1) { invoke<Void>(0x8101BA1C0B462412, p0, p1); } // 0x8101BA1C0B462412 b1207
+	// _ADD_*
+	NATIVE_DECL void _0xEF371232BC6053E1(Ped ped) { invoke<Void>(0xEF371232BC6053E1, ped); } // 0xEF371232BC6053E1 b1207
+	// _SET_PED_*
+	NATIVE_DECL void _0x86F0B6730C32AC14(Ped ped, Any p1) { invoke<Void>(0x86F0B6730C32AC14, ped, p1); } // 0x86F0B6730C32AC14 b1207
+	// _ATTACH_*
+	NATIVE_DECL void _0x8101BA1C0B462412(Ped ped, int ropeId) { invoke<Void>(0x8101BA1C0B462412, ped, ropeId); } // 0x8101BA1C0B462412 b1207
 	// flagId: https://alloc8or.re/rdr3/doc/enums/ePedScriptConfigFlags.txt
+	// https://github.com/femga/rdr3_discoveries/tree/master/AI/CPED_CONFIG_FLAGS
 	NATIVE_DECL void SET_PED_CONFIG_FLAG(Ped ped, int flagId, BOOL value) { invoke<Void>(0x1913FE4CBF41C463, ped, flagId, value); } // 0x1913FE4CBF41C463 0x9CFBE10D b1207
+	// Needs to be called every frame
+	// https://github.com/femga/rdr3_discoveries/tree/master/AI/CPED_RESET_FLAGS
 	NATIVE_DECL void SET_PED_RESET_FLAG(Ped ped, int flagId, BOOL doReset) { invoke<Void>(0xC1E8A365BF3B29F2, ped, flagId, doReset); } // 0xC1E8A365BF3B29F2 0xCFF6FF66 b1207
 	// flagId: see SET_PED_CONFIG_FLAG
 	NATIVE_DECL BOOL GET_PED_CONFIG_FLAG(Ped ped, int flagId, BOOL p2) { return invoke<BOOL>(0x7EE53118C892B513, ped, flagId, p2); } // 0x7EE53118C892B513 0xABE98267 b1207
@@ -5709,12 +5954,13 @@ namespace PED
 	// Presumably returns the Entity that the Ped is currently diving out of the way of.
 	NATIVE_DECL BOOL IS_PED_EVASIVE_DIVING(Ped ped, Entity* evadingEntity) { return invoke<BOOL>(0x414641C26E105898, ped, evadingEntity); } // 0x414641C26E105898 0xD82829DC b1207
 	// Params: p5 = -1 in R* Scripts
-	NATIVE_DECL Any _0x4C57F27D1554E6B0(Ped ped, float x, float y, float z, Any p4, float p5, Any p6, float p7) { return invoke<Any>(0x4C57F27D1554E6B0, ped, x, y, z, p4, p5, p6, p7); } // 0x4C57F27D1554E6B0 b1207
+	NATIVE_DECL Any _SHOOT_TRIGGER_AT_COORDS(Ped ped, float x, float y, float z, int p4, float p5, int p6, float p7) { return invoke<Any>(0x4C57F27D1554E6B0, ped, x, y, z, p4, p5, p6, p7); } // 0x4C57F27D1554E6B0 b1207
 	NATIVE_DECL BOOL _IS_THIS_MODEL_A_HORSE(Hash model) { return invoke<BOOL>(0x772A1969F649E902, model); } // 0x772A1969F649E902 b1207
 	NATIVE_DECL void SET_PED_MODEL_IS_SUPPRESSED(Ped ped, BOOL toggle) { invoke<Void>(0xE163A4BCE4DE6F11, ped, toggle); } // 0xE163A4BCE4DE6F11 0x7820CA43 b1207
 	NATIVE_DECL BOOL _IS_PED_MODEL_SUPPRESSED(Hash model) { return invoke<BOOL>(0xAA9F048DCF69B6DC, model); } // 0xAA9F048DCF69B6DC b1207
 	NATIVE_DECL void _0x7ABBD9E449E0DB00(Any p0, Any p1) { invoke<Void>(0x7ABBD9E449E0DB00, p0, p1); } // 0x7ABBD9E449E0DB00 b1207
-	NATIVE_DECL void _0xADD31A5C7A5FAA73(Any p0, Any p1) { invoke<Void>(0xADD31A5C7A5FAA73, p0, p1); } // 0xADD31A5C7A5FAA73 b1207
+	// Disables being able to kick move ped.
+	NATIVE_DECL void _SET_PED_DISABLE_KICK_MOVE(Ped ped, BOOL disable) { invoke<Void>(0xADD31A5C7A5FAA73, ped, disable); } // 0xADD31A5C7A5FAA73 b1207
 	NATIVE_DECL void SET_PED_CAN_RAGDOLL_FROM_PLAYER_IMPACT(Ped ped, BOOL toggle) { invoke<Void>(0xDF993EE5E90ABA25, ped, toggle); } // 0xDF993EE5E90ABA25 0xE9BD733A b1207
 	NATIVE_DECL void _0xE6CB36F43A95D75F(Any p0) { invoke<Void>(0xE6CB36F43A95D75F, p0); } // 0xE6CB36F43A95D75F b1207
 	NATIVE_DECL void SET_PED_LEG_IK_MODE(Ped ped, int mode) { invoke<Void>(0xC396F5B86FF9FEBD, ped, mode); } // 0xC396F5B86FF9FEBD 0xFDDB042E b1207
@@ -5747,25 +5993,28 @@ namespace PED
 	// };
 	NATIVE_DECL void SET_PED_COMBAT_RANGE(Ped ped, int range) { invoke<Void>(0x3C606747B23E497B, ped, range); } // 0x3C606747B23E497B 0x8818A959 b1207
 	// attributeIndex: https://alloc8or.re/rdr3/doc/enums/eCombatAttribute.txt
+	// https://github.com/femga/rdr3_discoveries/tree/master/AI/COMBAT_ATTRIBUTES
 	NATIVE_DECL void SET_PED_COMBAT_ATTRIBUTES(Ped ped, int attributeIndex, BOOL enabled) { invoke<Void>(0x9F7794730795E019, ped, attributeIndex, enabled); } // 0x9F7794730795E019 0x81D64248 b1207
 	NATIVE_DECL Any _0xCC2B20596E29E4E3(Any p0, Any p1) { return invoke<Any>(0xCC2B20596E29E4E3, p0, p1); } // 0xCC2B20596E29E4E3 b1207
 	// Hashes: GUARD, COMBAT_ANIMAL, LAW, LAW_SHERIFF
 	NATIVE_DECL void _0xBD75500141E4725C(Ped ped, Hash p1) { invoke<Void>(0xBD75500141E4725C, ped, p1); } // 0xBD75500141E4725C b1207
+	// 2 = TLR_SEARCH_FOR_TARGET
 	NATIVE_DECL void SET_PED_TARGET_LOSS_RESPONSE(Ped ped, int responseType) { invoke<Void>(0x0703B9079823DA4A, ped, responseType); } // 0x0703B9079823DA4A 0xCFA613FF b1207
 	NATIVE_DECL void _0x0A4618FFD517E24D(Any p0, Any p1) { invoke<Void>(0x0A4618FFD517E24D, p0, p1); } // 0x0A4618FFD517E24D b1207
 	NATIVE_DECL void _0x712B2C2B2471B493(Any p0, Any p1) { invoke<Void>(0x712B2C2B2471B493, p0, p1); } // 0x712B2C2B2471B493 b1207
 	NATIVE_DECL void _0x00B380FF2DF6AB7A(Any p0, Any p1) { invoke<Void>(0x00B380FF2DF6AB7A, p0, p1); } // 0x00B380FF2DF6AB7A b1207
+	// https://github.com/femga/rdr3_discoveries/tree/master/AI/COMBAT_STYLES
 	// Params: p2 is usually 1, sometimes 0 or 2
 	// duration in seconds, -1.0 = forever
-	NATIVE_DECL void _0x8ACC0506743A8A5C(Ped ped, Hash combatStyleHash, int p2, float duration) { invoke<Void>(0x8ACC0506743A8A5C, ped, combatStyleHash, p2, duration); } // 0x8ACC0506743A8A5C b1207
+	NATIVE_DECL void _SET_PED_COMBAT_STYLE(Ped ped, Hash combatStyleHash, int p2, float duration) { invoke<Void>(0x8ACC0506743A8A5C, ped, combatStyleHash, p2, duration); } // 0x8ACC0506743A8A5C b1207
 	// Params: p1 = 1 in R* Scripts
-	NATIVE_DECL void _0x78815FC52832B690(Ped ped, int p1) { invoke<Void>(0x78815FC52832B690, ped, p1); } // 0x78815FC52832B690 b1207
+	NATIVE_DECL void _CLEAR_PED_COMBAT_STYLE(Ped ped, int p1) { invoke<Void>(0x78815FC52832B690, ped, p1); } // 0x78815FC52832B690 b1207
 	// duration in seconds, -1.0 = forever
-	NATIVE_DECL void _0x8B1E8E35A6E814EA(Ped ped, Hash combatStyleModHash, float duration) { invoke<Void>(0x8B1E8E35A6E814EA, ped, combatStyleModHash, duration); } // 0x8B1E8E35A6E814EA b1207
+	NATIVE_DECL void _SET_PED_COMBAT_STYLE_MOD(Ped ped, Hash combatStyleModHash, float duration) { invoke<Void>(0x8B1E8E35A6E814EA, ped, combatStyleModHash, duration); } // 0x8B1E8E35A6E814EA b1207
 	NATIVE_DECL void _0x1FA132CBCD7CB239(Any p0, Any p1) { invoke<Void>(0x1FA132CBCD7CB239, p0, p1); } // 0x1FA132CBCD7CB239 b1207
 	NATIVE_DECL Any _0x5BF0B9D9A8E227A0(Any p0) { return invoke<Any>(0x5BF0B9D9A8E227A0, p0); } // 0x5BF0B9D9A8E227A0 b1207
 	NATIVE_DECL void _0x642720D8D69328B6(Any p0, Any p1) { invoke<Void>(0x642720D8D69328B6, p0, p1); } // 0x642720D8D69328B6 b1207
-	NATIVE_DECL BOOL IS_PED_PERFORMING_MELEE_ACTION(Any p0, Any p1, Any p2) { return invoke<BOOL>(0xDCCA191DF9980FD7, p0, p1, p2); } // 0xDCCA191DF9980FD7 0x139C0875 b1207
+	NATIVE_DECL BOOL IS_PED_PERFORMING_MELEE_ACTION(Ped ped, int p1, Hash p2) { return invoke<BOOL>(0xDCCA191DF9980FD7, ped, p1, p2); } // 0xDCCA191DF9980FD7 0x139C0875 b1207
 	NATIVE_DECL Any _0x99DF2639DA76C1DC(Any p0, Any p1, Any p2) { return invoke<Any>(0x99DF2639DA76C1DC, p0, p1, p2); } // 0x99DF2639DA76C1DC b1232
 	NATIVE_DECL float _GET_PED_MELEE_ACTION_PHASE(Ped ped) { return invoke<float>(0x6127F25ED21C533C, ped); } // 0x6127F25ED21C533C b1207
 	NATIVE_DECL BOOL IS_PED_BEING_STEALTH_KILLED(Ped ped) { return invoke<BOOL>(0x863B23EFDE9C5DF2, ped); } // 0x863B23EFDE9C5DF2 0xD044C8AF b1207
@@ -5819,20 +6068,21 @@ namespace PED
 	// 	BS_WOLF = 0xA8F023D4
 	// };
 	NATIVE_DECL void _SET_PED_BRAWLING_STYLE(Ped ped, Hash brawlingStyle) { invoke<Void>(0x8BA83CC4288CD56D, ped, brawlingStyle); } // 0x8BA83CC4288CD56D b1207
-	NATIVE_DECL void _0x9D8DFE2DE9CB4DFC(Any p0) { invoke<Void>(0x9D8DFE2DE9CB4DFC, p0); } // 0x9D8DFE2DE9CB4DFC b1207
+	NATIVE_DECL void _0x9D8DFE2DE9CB4DFC(Ped ped) { invoke<Void>(0x9D8DFE2DE9CB4DFC, ped); } // 0x9D8DFE2DE9CB4DFC b1207
 	NATIVE_DECL Any _0xC48AF420371C7407(Any p0, Any p1) { return invoke<Any>(0xC48AF420371C7407, p0, p1); } // 0xC48AF420371C7407 b1207
 	NATIVE_DECL Any _0x5EFA8A3D8A60D662(Any p0, Any p1) { return invoke<Any>(0x5EFA8A3D8A60D662, p0, p1); } // 0x5EFA8A3D8A60D662 b1207
 	NATIVE_DECL Any _0x242EDF85D4E87B65(Any p0) { return invoke<Any>(0x242EDF85D4E87B65, p0); } // 0x242EDF85D4E87B65 b1207
-	NATIVE_DECL void _0x9238A3D970BBB0A9(Ped ped, Hash behaviour) { invoke<Void>(0x9238A3D970BBB0A9, ped, behaviour); } // 0x9238A3D970BBB0A9 b1207
+	NATIVE_DECL void _SET_PED_COMBAT_BEHAVIOUR(Ped ped, Hash behaviour) { invoke<Void>(0x9238A3D970BBB0A9, ped, behaviour); } // 0x9238A3D970BBB0A9 b1207
 	NATIVE_DECL void _0x9A4AC116CC1EEE14(Any p0) { invoke<Void>(0x9A4AC116CC1EEE14, p0); } // 0x9A4AC116CC1EEE14 b1207
 	NATIVE_DECL void _0xE20027B414BFE6C7(Any p0, Any p1) { invoke<Void>(0xE20027B414BFE6C7, p0, p1); } // 0xE20027B414BFE6C7 b1207
 	NATIVE_DECL void _0x6DBF2D78709AD70B(Any p0, Any p1) { invoke<Void>(0x6DBF2D78709AD70B, p0, p1); } // 0x6DBF2D78709AD70B b1207
-	NATIVE_DECL void _0xB8DE69D9473B7593(Ped ped, int combatActionDisableFlag) { invoke<Void>(0xB8DE69D9473B7593, ped, combatActionDisableFlag); } // 0xB8DE69D9473B7593 b1207
-	NATIVE_DECL void _0x949B2F9ED2917F5D(Ped ped, int combatActionDisableFlag) { invoke<Void>(0x949B2F9ED2917F5D, ped, combatActionDisableFlag); } // 0x949B2F9ED2917F5D b1207
-	NATIVE_DECL BOOL _0xB346C85D49CC998E(Ped ped, int combatActionDisableFlag) { return invoke<BOOL>(0xB346C85D49CC998E, ped, combatActionDisableFlag); } // 0xB346C85D49CC998E b1207
-	NATIVE_DECL void _0xC163DAC52AC975D3(Ped ped, int combatActionDisableFlag) { invoke<Void>(0xC163DAC52AC975D3, ped, combatActionDisableFlag); } // 0xC163DAC52AC975D3 b1207
-	NATIVE_DECL void _0xBBF6D1D07C02D00A(Any p0, Any p1) { invoke<Void>(0xBBF6D1D07C02D00A, p0, p1); } // 0xBBF6D1D07C02D00A b1207
-	NATIVE_DECL BOOL _0x02AA2096FE00F3E1(Ped ped, int combatActionDisableFlag) { return invoke<BOOL>(0x02AA2096FE00F3E1, ped, combatActionDisableFlag); } // 0x02AA2096FE00F3E1 b1207
+	// https://github.com/femga/rdr3_discoveries/tree/master/AI/COMBAT_ACTION_DISABLE_FLAGS
+	NATIVE_DECL void _SET_PED_ACTION_DISABLE_FLAG(Ped ped, int actionDisableFlag) { invoke<Void>(0xB8DE69D9473B7593, ped, actionDisableFlag); } // 0xB8DE69D9473B7593 b1207
+	NATIVE_DECL void _CLEAR_PED_ACTION_DISABLE_FLAG(Ped ped, int actionDisableFlag) { invoke<Void>(0x949B2F9ED2917F5D, ped, actionDisableFlag); } // 0x949B2F9ED2917F5D b1207
+	NATIVE_DECL BOOL _IS_PED_ACTION_DISABLE_FLAG_ENABLED(Ped ped, int actionDisableFlag) { return invoke<BOOL>(0xB346C85D49CC998E, ped, actionDisableFlag); } // 0xB346C85D49CC998E b1207
+	NATIVE_DECL void _SET_PED_TARGET_ACTION_DISABLE_FLAG(Ped ped, int actionDisableFlag) { invoke<Void>(0xC163DAC52AC975D3, ped, actionDisableFlag); } // 0xC163DAC52AC975D3 b1207
+	NATIVE_DECL void _CLEAR_PED_TARGET_ACTION_DISABLE_FLAG(Ped ped, int actionDisableFlag) { invoke<Void>(0xBBF6D1D07C02D00A, ped, actionDisableFlag); } // 0xBBF6D1D07C02D00A b1207
+	NATIVE_DECL BOOL _IS_PED_TARGET_ACTION_DISABLE_FLAG_ENABLED(Ped ped, int actionDisableFlag) { return invoke<BOOL>(0x02AA2096FE00F3E1, ped, actionDisableFlag); } // 0x02AA2096FE00F3E1 b1207
 	NATIVE_DECL void _0x57F35552E771BE9D(Any p0, Any p1) { invoke<Void>(0x57F35552E771BE9D, p0, p1); } // 0x57F35552E771BE9D b1207
 	NATIVE_DECL void _0x7C10221CE718AA72(Any p0, Any p1) { invoke<Void>(0x7C10221CE718AA72, p0, p1); } // 0x7C10221CE718AA72 b1207
 	NATIVE_DECL Any _0x0D3B1568917EBDA0(Any p0, Any p1) { return invoke<Any>(0x0D3B1568917EBDA0, p0, p1); } // 0x0D3B1568917EBDA0 b1207
@@ -5850,18 +6100,20 @@ namespace PED
 	NATIVE_DECL Any _0x12EB4E31F092C9B3(Any p0) { return invoke<Any>(0x12EB4E31F092C9B3, p0); } // 0x12EB4E31F092C9B3 b1207
 	NATIVE_DECL BOOL GET_PED_IS_GRAPPLING(Ped ped) { return invoke<BOOL>(0x0E99E3BF11BB6367, ped); } // 0x0E99E3BF11BB6367 b1207
 	NATIVE_DECL BOOL GET_PED_IS_BEING_GRAPPLED(Ped ped) { return invoke<BOOL>(0x3BDFCF25B58B0415, ped); } // 0x3BDFCF25B58B0415 b1207
-	NATIVE_DECL Ped _0xD0B7AEB56229D317(Ped ped) { return invoke<Ped>(0xD0B7AEB56229D317, ped); } // 0xD0B7AEB56229D317 b1207
+	NATIVE_DECL Ped _GET_PED_GRAPPLER(Ped ped) { return invoke<Ped>(0xD0B7AEB56229D317, ped); } // 0xD0B7AEB56229D317 b1207
 	NATIVE_DECL int GET_PED_GRAPPLE_STATE(Ped ped) { return invoke<int>(0x2311F15D971AA680, ped); } // 0x2311F15D971AA680 b1207
-	NATIVE_DECL Hash _0x753B15AD0FD6F3E3(Ped ped) { return invoke<Hash>(0x753B15AD0FD6F3E3, ped); } // 0x753B15AD0FD6F3E3 b1207
+	NATIVE_DECL Hash _GET_PED_GRAPPLE_STYLE(Ped ped) { return invoke<Hash>(0x753B15AD0FD6F3E3, ped); } // 0x753B15AD0FD6F3E3 b1207
 	// Hashes: GS_DRAGGING, GS_FACE_TO_BACK, GS_FACE_TO_FACE, GS_FACE_TO_FACE_WALL, GS_MOUNTED
-	NATIVE_DECL Any _0x630E7B01F091A197(Ped ped, Hash type) { return invoke<Any>(0x630E7B01F091A197, ped, type); } // 0x630E7B01F091A197 b1207
-	NATIVE_DECL void _0x604190F0CF0DF158(Any p0, Any p1) { invoke<Void>(0x604190F0CF0DF158, p0, p1); } // 0x604190F0CF0DF158 b1207
-	NATIVE_DECL void _0x789DABD18E9024DB(Ped ped, int flag, BOOL enable) { invoke<Void>(0x789DABD18E9024DB, ped, flag, enable); } // 0x789DABD18E9024DB b1207
-	NATIVE_DECL void _0xEAE3B5B019C8D23F(Ped ped, int flag) { invoke<Void>(0xEAE3B5B019C8D23F, ped, flag); } // 0xEAE3B5B019C8D23F b1207
-	NATIVE_DECL int _0xF3C873ED0C595109(Ped ped) { return invoke<int>(0xF3C873ED0C595109, ped); } // 0xF3C873ED0C595109 b1207
-	NATIVE_DECL void _0x8301D87B1B89E219(Any p0, Any p1) { invoke<Void>(0x8301D87B1B89E219, p0, p1); } // 0x8301D87B1B89E219 b1207
-	NATIVE_DECL Any _0x99A6E246C315BF60(Ped ped, float multiplier) { return invoke<Any>(0x99A6E246C315BF60, ped, multiplier); } // 0x99A6E246C315BF60 b1207
-	NATIVE_DECL void _0x56E9C26CD29D1ED6(Any p0, Any p1) { invoke<Void>(0x56E9C26CD29D1ED6, p0, p1); } // 0x56E9C26CD29D1ED6 b1207
+	NATIVE_DECL Any _SET_PED_GRAPPLE_STYLE(Ped ped, Hash style) { return invoke<Any>(0x630E7B01F091A197, ped, style); } // 0x630E7B01F091A197 b1207
+	NATIVE_DECL void _SET_PED_GRAPPLE_SEQUENCE(Ped ped, Hash grappleSequence) { invoke<Void>(0x604190F0CF0DF158, ped, grappleSequence); } // 0x604190F0CF0DF158 b1207
+	NATIVE_DECL void _SET_PED_GRAPPLE_FLAG(Ped ped, int flag, BOOL enable) { invoke<Void>(0x789DABD18E9024DB, ped, flag, enable); } // 0x789DABD18E9024DB b1207
+	NATIVE_DECL void _CLEAR_PED_GRAPPLE_FLAG(Ped ped, int flag) { invoke<Void>(0xEAE3B5B019C8D23F, ped, flag); } // 0xEAE3B5B019C8D23F b1207
+	NATIVE_DECL int _GET_PED_GRAPPLE_FLAG(Ped ped) { return invoke<int>(0xF3C873ED0C595109, ped); } // 0xF3C873ED0C595109 b1207
+	NATIVE_DECL void _SET_PED_GRAPPLE_ACTION(Ped ped, Hash grappleAction) { invoke<Void>(0x8301D87B1B89E219, ped, grappleAction); } // 0x8301D87B1B89E219 b1207
+	NATIVE_DECL Any _SET_PED_GRAPPLE_EFFECT_MULTIPLIER(Ped ped, float multiplier) { return invoke<Any>(0x99A6E246C315BF60, ped, multiplier); } // 0x99A6E246C315BF60 b1207
+	NATIVE_DECL void _SET_PED_GRAPPLE_ANIMATION(Ped ped, Hash grappleAnim) { invoke<Void>(0x56E9C26CD29D1ED6, ped, grappleAnim); } // 0x56E9C26CD29D1ED6 b1207
+	// https://github.com/femga/rdr3_discoveries/tree/master/AI/FLEE_ATTRIBUTES
+	// 
 	// attributeFlags:
 	// enum eFleeAttribute
 	// {
@@ -5870,15 +6122,15 @@ namespace PED
 	// 	FA_DISABLE_ENTER_VEHICLES = (1 << 22),
 	// };
 	NATIVE_DECL void SET_PED_FLEE_ATTRIBUTES(Ped ped, int attributeFlags, BOOL enable) { invoke<Void>(0x70A2D1137C8ED7C9, ped, attributeFlags, enable); } // 0x70A2D1137C8ED7C9 0xA717A875 b1207
-	NATIVE_DECL BOOL _0xB086C8C0F5701D14(Ped ped) { return invoke<BOOL>(0xB086C8C0F5701D14, ped); } // 0xB086C8C0F5701D14 b1207
+	NATIVE_DECL BOOL _IS_PED_COWERING(Ped ped) { return invoke<BOOL>(0xB086C8C0F5701D14, ped); } // 0xB086C8C0F5701D14 b1207
 	NATIVE_DECL BOOL IS_ANY_PED_NEAR_POINT(float x, float y, float z, float radius) { return invoke<BOOL>(0x083961498679DC9F, x, y, z, radius); } // 0x083961498679DC9F 0xFBD9B050 b1207
 	NATIVE_DECL void FORCE_PED_AI_AND_ANIMATION_UPDATE(Ped ped, BOOL p1, BOOL p2) { invoke<Void>(0x2208438012482A1A, ped, p1, p2); } // 0x2208438012482A1A 0x187B9070 b1207
 	NATIVE_DECL void _0xC2722B252C79E641(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xC2722B252C79E641, p0, p1, p2, p3); } // 0xC2722B252C79E641 b1232
 	NATIVE_DECL Any _0xC488B8C0E52560D8(Any p0) { return invoke<Any>(0xC488B8C0E52560D8, p0); } // 0xC488B8C0E52560D8 b1207
 	NATIVE_DECL Any _0x2DC0E8DCBD3546E9(Any p0) { return invoke<Any>(0x2DC0E8DCBD3546E9, p0); } // 0x2DC0E8DCBD3546E9 b1207
-	NATIVE_DECL void _0x6D07B371E9439019(Any p0) { invoke<Void>(0x6D07B371E9439019, p0); } // 0x6D07B371E9439019 b1207
-	NATIVE_DECL void _0xD65FDC686A031C83(Any p0, Any p1, Any p2) { invoke<Void>(0xD65FDC686A031C83, p0, p1, p2); } // 0xD65FDC686A031C83 b1207
-	NATIVE_DECL Any _0x68821369A2CEADD5(Any p0, Any p1) { return invoke<Any>(0x68821369A2CEADD5, p0, p1); } // 0x68821369A2CEADD5 b1207
+	NATIVE_DECL void _0x6D07B371E9439019(Ped ped) { invoke<Void>(0x6D07B371E9439019, ped); } // 0x6D07B371E9439019 b1207
+	NATIVE_DECL void _0xD65FDC686A031C83(Ped ped, Hash commandHash, float p2) { invoke<Void>(0xD65FDC686A031C83, ped, commandHash, p2); } // 0xD65FDC686A031C83 b1207
+	NATIVE_DECL BOOL _0x68821369A2CEADD5(Ped ped, Hash commandHash) { return invoke<BOOL>(0x68821369A2CEADD5, ped, commandHash); } // 0x68821369A2CEADD5 b1207
 	NATIVE_DECL BOOL IS_PED_HEADING_TOWARDS_POSITION(Ped ped, float x, float y, float z, float p4) { return invoke<BOOL>(0xFCF37A457CB96DC0, ped, x, y, z, p4); } // 0xFCF37A457CB96DC0 0x45037B9B b1207
 	// Not implemented.
 	NATIVE_DECL void _0x600BBDD29820370C(Ped ped) { invoke<Void>(0x600BBDD29820370C, ped); } // 0x600BBDD29820370C b1207
@@ -5887,15 +6139,12 @@ namespace PED
 	NATIVE_DECL void REQUEST_PED_VEHICLE_VISIBILITY_TRACKING(Ped ped, BOOL p1) { invoke<Void>(0x2BC338A7B21F4608, ped, p1); } // 0x2BC338A7B21F4608 0x31C31DAA b1207
 	// REQUEST_*
 	NATIVE_DECL void _0x75BA1CB3B7D40CAF(Ped ped, BOOL p1) { invoke<Void>(0x75BA1CB3B7D40CAF, ped, p1); } // 0x75BA1CB3B7D40CAF 0x9194DB71 b1207
-	// GET_*
-	NATIVE_DECL int _0x511F1A683387C7E2(Ped ped) { return invoke<int>(0x511F1A683387C7E2, ped); } // 0x511F1A683387C7E2 0x5B1B70AA b1207
-	// returns whether or not a ped is visible within your FOV, not this check auto's to false after a certain distance.
-	// 
-	// 
-	// Target needs to be tracked.. won't work otherwise.
+	NATIVE_DECL int GET_TRACKED_PED_PIXELCOUNT(Ped ped) { return invoke<int>(0x511F1A683387C7E2, ped); } // 0x511F1A683387C7E2 0x5B1B70AA b1207
+	// Returns whether or not a ped is visible within your FOV, not this check auto's to false after a certain distance.
+	// Target needs to be tracked first, won't work otherwise.
 	NATIVE_DECL BOOL IS_TRACKED_PED_VISIBLE(Ped ped) { return invoke<BOOL>(0x91C8E617F64188AC, ped); } // 0x91C8E617F64188AC 0x33248CC1 b1207
-	NATIVE_DECL BOOL _0x164CECC59E70DF86(Ped ped, float percent) { return invoke<BOOL>(0x164CECC59E70DF86, ped, percent); } // 0x164CECC59E70DF86 b1207
-	NATIVE_DECL BOOL _0x5102307CE88798EB(Ped ped) { return invoke<BOOL>(0x5102307CE88798EB, ped); } // 0x5102307CE88798EB b1207
+	NATIVE_DECL BOOL _IS_TRACKED_PED_VISIBILITY_PERCENTAGE_NOT_LESS_THAN(Ped ped, float percent) { return invoke<BOOL>(0x164CECC59E70DF86, ped, percent); } // 0x164CECC59E70DF86 b1207
+	NATIVE_DECL BOOL _IS_PED_VISIBILITY_TRACKED(Ped ped) { return invoke<BOOL>(0x5102307CE88798EB, ped); } // 0x5102307CE88798EB b1207
 	NATIVE_DECL BOOL CAN_PED_BE_MOUNTED(Ped ped) { return invoke<BOOL>(0x2D64376CF437363E, ped); } // 0x2D64376CF437363E b1207
 	NATIVE_DECL Any _0x118D476A6F1A13F1(Any p0) { return invoke<Any>(0x118D476A6F1A13F1, p0); } // 0x118D476A6F1A13F1 b1207
 	NATIVE_DECL BOOL IS_EVENT_IN_QUEUE(Ped ped, Hash eventType) { return invoke<BOOL>(0xC8D523BF5BBD3808, ped, eventType); } // 0xC8D523BF5BBD3808 b1207
@@ -5908,7 +6157,8 @@ namespace PED
 	NATIVE_DECL Any _0x0EA9EACBA3B01601(Any p0, Any p1, Any p2) { return invoke<Any>(0x0EA9EACBA3B01601, p0, p1, p2); } // 0x0EA9EACBA3B01601 b1207
 	// no bone = -1
 	NATIVE_DECL int GET_PED_BONE_INDEX(Ped ped, int boneId) { return invoke<int>(0x3F428D08BE5AAE31, ped, boneId); } // 0x3F428D08BE5AAE31 0x259C6BA2 b1207
-	NATIVE_DECL Any _0xC5303F460A40D21D(Any p0, Any p1) { return invoke<Any>(0xC5303F460A40D21D, p0, p1); } // 0xC5303F460A40D21D b1207
+	// Returns boneIndex
+	NATIVE_DECL int _0xC5303F460A40D21D(Ped ped, int p1) { return invoke<int>(0xC5303F460A40D21D, ped, p1); } // 0xC5303F460A40D21D b1207
 	NATIVE_DECL void _0xE29D8CD66553DBAA(Any p0) { invoke<Void>(0xE29D8CD66553DBAA, p0); } // 0xE29D8CD66553DBAA b1207
 	NATIVE_DECL void _0xB06F5F1DEF417216(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xB06F5F1DEF417216, p0, p1, p2, p3); } // 0xB06F5F1DEF417216 b1207
 	NATIVE_DECL void _0xFC23348F0F4E245F(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xFC23348F0F4E245F, p0, p1, p2, p3); } // 0xFC23348F0F4E245F b1207
@@ -5925,7 +6175,7 @@ namespace PED
 	NATIVE_DECL void _0x8BA0C65AC15A7D33(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x8BA0C65AC15A7D33, p0, p1, p2, p3); } // 0x8BA0C65AC15A7D33 b1207
 	NATIVE_DECL void _0x0FFDF937E5C11382(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0x0FFDF937E5C11382, p0, p1, p2, p3, p4, p5); } // 0x0FFDF937E5C11382 b1207
 	NATIVE_DECL void _0x5FCF25D584065BFD(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x5FCF25D584065BFD, p0, p1, p2, p3); } // 0x5FCF25D584065BFD b1207
-	NATIVE_DECL void _0xA2116C1E4ED85C24(Ped ped, BOOL p1) { invoke<Void>(0xA2116C1E4ED85C24, ped, p1); } // 0xA2116C1E4ED85C24 b1207
+	NATIVE_DECL void _0xA2116C1E4ED85C24(Ped ped, BOOL inverted) { invoke<Void>(0xA2116C1E4ED85C24, ped, inverted); } // 0xA2116C1E4ED85C24 b1207
 	// motionStateHash:
 	// enum eMotionState : Hash
 	// {
@@ -5973,16 +6223,18 @@ namespace PED
 	NATIVE_DECL void _0x6A489892E813951A(Any p0) { invoke<Void>(0x6A489892E813951A, p0); } // 0x6A489892E813951A b1207
 	NATIVE_DECL BOOL IS_PED_USING_ACTION_MODE(Ped ped) { return invoke<BOOL>(0x00E73468D085F745, ped); } // 0x00E73468D085F745 0x5AE7EDA2 b1207
 	NATIVE_DECL Any _0xEBB208D6AE712C03(Any p0) { return invoke<Any>(0xEBB208D6AE712C03, p0); } // 0xEBB208D6AE712C03 b1207
-	NATIVE_DECL void SET_PED_USING_ACTION_MODE(Ped ped, BOOL p1, int p2, const char* action) { invoke<Void>(0xD75ACCF5E0FB5367, ped, p1, p2, action); } // 0xD75ACCF5E0FB5367 0x8802F696 b1207
+	NATIVE_DECL void SET_PED_USING_ACTION_MODE(Ped ped, BOOL bActionModeEnabled, int p2, const char* action) { invoke<Void>(0xD75ACCF5E0FB5367, ped, bActionModeEnabled, p2, action); } // 0xD75ACCF5E0FB5367 0x8802F696 b1207
 	// Overrides the ped's collision capsule radius for the current tick.
 	// Must be called every tick to be effective.
 	// 
 	// Setting this to 0.001 will allow warping through some objects.
 	NATIVE_DECL void SET_PED_CAPSULE(Ped ped, float value) { invoke<Void>(0x364DF566EC833DE2, ped, value); } // 0x364DF566EC833DE2 0xB153E1B9 b1207
 	NATIVE_DECL Ped _GET_RIDER_OF_MOUNT(Ped mount, BOOL p1) { return invoke<Ped>(0xB676EFDA03DADA52, mount, p1); } // 0xB676EFDA03DADA52 b1207
-	NATIVE_DECL void SPAWNPOINTS_START_SEARCH(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { invoke<Void>(0x2DF9038C90AD5264, p0, p1, p2, p3, p4, p5, p6, p7, p8); } // 0x2DF9038C90AD5264 0x909A1D76 b1207
-	NATIVE_DECL void SPAWNPOINTS_START_SEARCH_IN_ANGLED_AREA(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { invoke<Void>(0xB2AFF10216DEFA2F, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); } // 0xB2AFF10216DEFA2F 0x4AAD0ECB b1207
-	NATIVE_DECL void _SPAWNPOINTS_START_SEARCH_WITH_VOLUME(Volume volume, int flags, float p2, int duration, float p4) { invoke<Void>(0x83ED1FC9DF3411F5, volume, flags, p2, duration, p4); } // 0x83ED1FC9DF3411F5 b1311
+	// Params: p4 = 35.f, duration = 5000 in R* Scripts
+	NATIVE_DECL void SPAWNPOINTS_START_SEARCH(float x, float y, float z, float width, float p4, int spawnpointsFlag, float p6, int duration, float p8) { invoke<Void>(0x2DF9038C90AD5264, x, y, z, width, p4, spawnpointsFlag, p6, duration, p8); } // 0x2DF9038C90AD5264 0x909A1D76 b1207
+	// Searching area between coords 1 and 2
+	NATIVE_DECL void SPAWNPOINTS_START_SEARCH_IN_ANGLED_AREA(float x1, float y1, float z1, float x2, float y2, float z2, float width, int spawnpointsFlag, float p8, int duration, float p10) { invoke<Void>(0xB2AFF10216DEFA2F, x1, y1, z1, x2, y2, z2, width, spawnpointsFlag, p8, duration, p10); } // 0xB2AFF10216DEFA2F 0x4AAD0ECB b1207
+	NATIVE_DECL void _SPAWNPOINTS_START_SEARCH_WITH_VOLUME(Volume volume, int spawnpointsFlag, float p2, int duration, float p4) { invoke<Void>(0x83ED1FC9DF3411F5, volume, spawnpointsFlag, p2, duration, p4); } // 0x83ED1FC9DF3411F5 b1311
 	NATIVE_DECL void SPAWNPOINTS_CANCEL_SEARCH() { invoke<Void>(0xFEE4A5459472A9F8); } // 0xFEE4A5459472A9F8 0x492C9E46 b1207
 	NATIVE_DECL BOOL SPAWNPOINTS_IS_SEARCH_ACTIVE() { return invoke<BOOL>(0x3C67506996001F5E); } // 0x3C67506996001F5E 0x814A28F4 b1207
 	NATIVE_DECL BOOL SPAWNPOINTS_IS_SEARCH_COMPLETE() { return invoke<BOOL>(0xA586FBEB32A53DBB); } // 0xA586FBEB32A53DBB 0x0B60D2BA b1207
@@ -6003,11 +6255,13 @@ namespace PED
 	NATIVE_DECL Any _0x290B2E6CCDE532E1(Any p0) { return invoke<Any>(0x290B2E6CCDE532E1, p0); } // 0x290B2E6CCDE532E1 b1207
 	NATIVE_DECL Any _0x0EEF7A81C17679DB(Any p0) { return invoke<Any>(0x0EEF7A81C17679DB, p0); } // 0x0EEF7A81C17679DB b1207
 	NATIVE_DECL void SET_PED_LOD_MULTIPLIER(Ped ped, float multiplier) { invoke<Void>(0xDC2C5C242AAC342B, ped, multiplier); } // 0xDC2C5C242AAC342B 0x1D2B5C70 b1207
-	NATIVE_DECL Any _0x1B710E6F4AB69341(Any p0) { return invoke<Any>(0x1B710E6F4AB69341, p0); } // 0x1B710E6F4AB69341 b1355
+	NATIVE_DECL float _GET_PED_LOD_MULTIPLIER(Ped ped) { return invoke<float>(0x1B710E6F4AB69341, ped); } // 0x1B710E6F4AB69341 b1355
 	NATIVE_DECL Any _0xA218D2BBCAA7388C(Any p0, Any p1) { return invoke<Any>(0xA218D2BBCAA7388C, p0, p1); } // 0xA218D2BBCAA7388C b1207
 	NATIVE_DECL BOOL IS_ANY_HOSTILE_PED_NEAR_POINT(Ped ped, float x, float y, float z, float radius) { return invoke<BOOL>(0x68772DB2B2526F9F, ped, x, y, z, radius); } // 0x68772DB2B2526F9F 0x1A464167 b1311
 	NATIVE_DECL void _0xCBDE59C48F2B06F5(Any p0, Any p1, Any p2) { invoke<Void>(0xCBDE59C48F2B06F5, p0, p1, p2); } // 0xCBDE59C48F2B06F5 b1207
 	NATIVE_DECL void _0x6A190B94C2541A99(Any p0) { invoke<Void>(0x6A190B94C2541A99, p0); } // 0x6A190B94C2541A99 b1207
+	// Returns true if ped is in perception (focused and looking at target ped)
+	// Most float params are -1.f in R* Scripts
 	NATIVE_DECL BOOL IS_TARGET_PED_IN_PERCEPTION_AREA(Ped ped, Ped targetPed, float p2, float customDistance, float p4, float p5) { return invoke<BOOL>(0x06087579E7AA85A9, ped, targetPed, p2, customDistance, p4, p5); } // 0x06087579E7AA85A9 0xD0567D41 b1207
 	NATIVE_DECL void SET_POP_CONTROL_SPHERE_THIS_FRAME(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0xD8C3BE3EE94CAF2D, p0, p1, p2, p3, p4); } // 0xD8C3BE3EE94CAF2D 0x4BBE5E2C b1207
 	NATIVE_DECL BOOL IS_PED_HOGTIED(Ped ped) { return invoke<BOOL>(0x3AA24CCC0D451379, ped); } // 0x3AA24CCC0D451379 b1207
@@ -6015,7 +6269,8 @@ namespace PED
 	NATIVE_DECL Any _0x3D9F958834AB9C30(Any p0) { return invoke<Any>(0x3D9F958834AB9C30, p0); } // 0x3D9F958834AB9C30 b1207
 	NATIVE_DECL Any _0x913D04A5176F84C9(Any p0) { return invoke<Any>(0x913D04A5176F84C9, p0); } // 0x913D04A5176F84C9 b1207
 	NATIVE_DECL BOOL IS_PED_HOGTYING(Ped ped) { return invoke<BOOL>(0x42429C674B61238B, ped); } // 0x42429C674B61238B b1207
-	NATIVE_DECL BOOL _0x2C76FA0E01681F8D(Ped ped, int flagId) { return invoke<BOOL>(0x2C76FA0E01681F8D, ped, flagId); } // 0x2C76FA0E01681F8D b1207
+	// https://github.com/femga/rdr3_discoveries/tree/master/AI/LASSO_HOGTIE_FLAG
+	NATIVE_DECL BOOL _GET_PED_LASSO_HOGTIE_FLAG(Ped ped, int flagId) { return invoke<BOOL>(0x2C76FA0E01681F8D, ped, flagId); } // 0x2C76FA0E01681F8D b1207
 	NATIVE_DECL void SET_PED_LASSO_HOGTIE_FLAG(Ped ped, int flagId, BOOL value) { invoke<Void>(0xAE6004120C18DF97, ped, flagId, value); } // 0xAE6004120C18DF97 b1207
 	NATIVE_DECL Any _0x4642182A298187D0(Any p0, Any p1, Any p2, Any p3, Any p4) { return invoke<Any>(0x4642182A298187D0, p0, p1, p2, p3, p4); } // 0x4642182A298187D0 b1207
 	NATIVE_DECL void _0x6B67320E0D57856A(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x6B67320E0D57856A, p0, p1, p2, p3); } // 0x6B67320E0D57856A b1207
@@ -6034,7 +6289,9 @@ namespace PED
 	NATIVE_DECL BOOL IS_PED_LASSOED(Ped ped) { return invoke<BOOL>(0x9682F850056C9ADE, ped); } // 0x9682F850056C9ADE b1207
 	NATIVE_DECL Entity _GET_LASSOER_OF_PED(Ped ped) { return invoke<Entity>(0x833F0053340EF413, ped); } // 0x833F0053340EF413 b1207
 	NATIVE_DECL Entity _GET_LASSO_TARGET(Ped ped) { return invoke<Entity>(0xB65A4DAB460A19BD, ped); } // 0xB65A4DAB460A19BD b1207
-	NATIVE_DECL Ped _0x0C31C51168E80365(Ped ped) { return invoke<Ped>(0x0C31C51168E80365, ped); } // 0x0C31C51168E80365 b1207
+	NATIVE_DECL Ped _GET_LASSOED_LASSOER(Ped ped) { return invoke<Ped>(0x0C31C51168E80365, ped); } // 0x0C31C51168E80365 b1207
+	// https://github.com/femga/rdr3_discoveries/tree/master/AI/LOOTING_FLAGS
+	// 
 	// lootFlag:
 	// enum eLootFlag
 	// {
@@ -6066,16 +6323,17 @@ namespace PED
 	NATIVE_DECL void _SET_PED_INCAPACITATION_MODIFIERS(Ped ped, BOOL canBeIncapacitated, int threshold, int bleedoutTime, int p4) { invoke<Void>(0x39ED303390DDEAC7, ped, canBeIncapacitated, threshold, bleedoutTime, p4); } // 0x39ED303390DDEAC7 b1207
 	NATIVE_DECL BOOL _GET_PED_CAN_BE_INCAPACITATED_THIS_FRAME(Ped ped) { return invoke<BOOL>(0x7A4E00364B5D727B, ped); } // 0x7A4E00364B5D727B b1207
 	NATIVE_DECL void SET_PED_CAN_BE_INCAPACITATED(Ped ped, BOOL toggle) { invoke<Void>(0x5240864E847C691C, ped, toggle); } // 0x5240864E847C691C b1207
-	NATIVE_DECL Any _0x89BFDF6D53145545(Any p0) { return invoke<Any>(0x89BFDF6D53145545, p0); } // 0x89BFDF6D53145545 b1207
-	NATIVE_DECL void _0x2890418B39BC8FFF(Ped ped, float duration) { invoke<Void>(0x2890418B39BC8FFF, ped, duration); } // 0x2890418B39BC8FFF b1207
-	NATIVE_DECL void _0x4B9668DB91DC39B8(Ped ped) { invoke<Void>(0x4B9668DB91DC39B8, ped); } // 0x4B9668DB91DC39B8 b1207
+	NATIVE_DECL int _GET_PED_INCAPACITATION_HEALTH(Ped ped) { return invoke<int>(0x89BFDF6D53145545, ped); } // 0x89BFDF6D53145545 b1207
+	NATIVE_DECL void _SET_PED_INCAPACITATION_TOTAL_BLEED_OUT_DURATION(Ped ped, float duration) { invoke<Void>(0x2890418B39BC8FFF, ped, duration); } // 0x2890418B39BC8FFF b1207
+	NATIVE_DECL void _RESET_PED_INCAPACITATION_BLEED_OUT_DURATION(Ped ped) { invoke<Void>(0x4B9668DB91DC39B8, ped); } // 0x4B9668DB91DC39B8 b1207
 	NATIVE_DECL void _SET_PED_INCAPACITATION_FLAGS(Ped ped, int flags) { invoke<Void>(0xD67B6F3BCF81BA47, ped, flags); } // 0xD67B6F3BCF81BA47 b1207
 	NATIVE_DECL void _0x92A1B55A59720395(Any p0, Any p1) { invoke<Void>(0x92A1B55A59720395, p0, p1); } // 0x92A1B55A59720395 b1207
 	NATIVE_DECL void _INCAPACITATED_REVIVE(Ped ped, Ped ped2) { invoke<Void>(0xF6262491C7704A63, ped, ped2); } // 0xF6262491C7704A63 b1207
-	NATIVE_DECL Any _0x88D9D76D78065487(Any p0) { return invoke<Any>(0x88D9D76D78065487, p0); } // 0x88D9D76D78065487 b1207
-	NATIVE_DECL void _0x5BCF0B79D4F5DBA3(Any p0, Any p1) { invoke<Void>(0x5BCF0B79D4F5DBA3, p0, p1); } // 0x5BCF0B79D4F5DBA3 b1207
+	NATIVE_DECL int _GET_INCAPACITATION_TIME_REMAINING(Ped ped) { return invoke<int>(0x88D9D76D78065487, ped); } // 0x88D9D76D78065487 b1207
+	NATIVE_DECL void _SET_PED_KNOCKED_BY_ONE_HIT(Ped ped, float p1) { invoke<Void>(0x5BCF0B79D4F5DBA3, ped, p1); } // 0x5BCF0B79D4F5DBA3 b1207
 	NATIVE_DECL void _0x2E5B5D1F1453E08E(Any p0, Any p1) { invoke<Void>(0x2E5B5D1F1453E08E, p0, p1); } // 0x2E5B5D1F1453E08E b1207
-	NATIVE_DECL void _0x29924EB8EE9DB926(Any p0, Any p1) { invoke<Void>(0x29924EB8EE9DB926, p0, p1); } // 0x29924EB8EE9DB926 b1207
+	// _SET_PED_K* or _SET_PED_L*
+	NATIVE_DECL void _0x29924EB8EE9DB926(Ped ped, float p1) { invoke<Void>(0x29924EB8EE9DB926, ped, p1); } // 0x29924EB8EE9DB926 b1207
 	NATIVE_DECL void _0xB285AD0EC870B2DF(Any p0, Any p1) { invoke<Void>(0xB285AD0EC870B2DF, p0, p1); } // 0xB285AD0EC870B2DF b1207
 	NATIVE_DECL Any _0xCB86D3E3E3708901(Any p0, Any p1, Any p2, Any p3, Any p4) { return invoke<Any>(0xCB86D3E3E3708901, p0, p1, p2, p3, p4); } // 0xCB86D3E3E3708901 b1207
 	NATIVE_DECL void _0x633F83B301C87994(Any p0, Any p1) { invoke<Void>(0x633F83B301C87994, p0, p1); } // 0x633F83B301C87994 b1207
@@ -6084,7 +6342,12 @@ namespace PED
 	NATIVE_DECL void _0xC494C76A34266E82(Any p0, Any p1) { invoke<Void>(0xC494C76A34266E82, p0, p1); } // 0xC494C76A34266E82 b1207
 	NATIVE_DECL Any _0xC3995D396F1D97B6(Any p0, Any p1, Any p2) { return invoke<Any>(0xC3995D396F1D97B6, p0, p1, p2); } // 0xC3995D396F1D97B6 b1207
 	NATIVE_DECL void _0x15F4732C357B1D6D(Any p0, Any p1, Any p2) { invoke<Void>(0x15F4732C357B1D6D, p0, p1, p2); } // 0x15F4732C357B1D6D b1207
-	NATIVE_DECL BOOL _0x947E43F544B6AB34(Ped ped, Player player, int p2, int p3) { return invoke<BOOL>(0x947E43F544B6AB34, ped, player, p2, p3); } // 0x947E43F544B6AB34 b1207
+	// p2 known flags:
+	// NearlyShotByPlayer = 2,
+	// ShotByPlayer = 4,
+	// WasInMeleeFightWithPlayer = 13,
+	// SeriouslyDamagedByPlayer = 26
+	NATIVE_DECL BOOL _0x947E43F544B6AB34(Ped ped, Player player, int flag, int p3) { return invoke<BOOL>(0x947E43F544B6AB34, ped, player, flag, p3); } // 0x947E43F544B6AB34 b1207
 	NATIVE_DECL Any _0x32417CB860A3BDC4(Any p0, Any p1) { return invoke<Any>(0x32417CB860A3BDC4, p0, p1); } // 0x32417CB860A3BDC4 b1207
 	NATIVE_DECL void _0xE737D5F14304A2EC(Any p0, Any p1, Any p2) { invoke<Void>(0xE737D5F14304A2EC, p0, p1, p2); } // 0xE737D5F14304A2EC b1207
 	NATIVE_DECL void _0xEBD49472BCCF7642(Any p0, Any p1) { invoke<Void>(0xEBD49472BCCF7642, p0, p1); } // 0xEBD49472BCCF7642 b1207
@@ -6092,27 +6355,48 @@ namespace PED
 	NATIVE_DECL void _0x5708EDD71B50C008(Any p0, Any p1, Any p2) { invoke<Void>(0x5708EDD71B50C008, p0, p1, p2); } // 0x5708EDD71B50C008 b1207
 	NATIVE_DECL void _0xB9BDFAE609DFB7C5(Any p0, Any p1, Any p2) { invoke<Void>(0xB9BDFAE609DFB7C5, p0, p1, p2); } // 0xB9BDFAE609DFB7C5 b1207
 	NATIVE_DECL Any _0xF7327ACC7A89AEF1(Any p0, Any p1, Any p2) { return invoke<Any>(0xF7327ACC7A89AEF1, p0, p1, p2); } // 0xF7327ACC7A89AEF1 b1207
-	NATIVE_DECL Any _0x7CC2186C32D3540A(Any p0, Any p1) { return invoke<Any>(0x7CC2186C32D3540A, p0, p1); } // 0x7CC2186C32D3540A b1207
+	// AI_ATTITUDE_NEUTRAL = 0,
+	// AI_ATTITUDE_FRIENDLY
+	// AI_ATTITUDE_WARY
+	// AI_ATTITUDE_COMBATIVE
+	// AI_ATTITUDE_NEVER_MET
+	NATIVE_DECL int _GET_PED_ATTITUDE(Ped ped, Player player) { return invoke<int>(0x7CC2186C32D3540A, ped, player); } // 0x7CC2186C32D3540A b1207
 	NATIVE_DECL BOOL _0x1E017404784AA6A3(Ped ped, Hash p1) { return invoke<BOOL>(0x1E017404784AA6A3, ped, p1); } // 0x1E017404784AA6A3 b1207
 	NATIVE_DECL void _0x2B4CE170DE09F346(Any p0, Any p1) { invoke<Void>(0x2B4CE170DE09F346, p0, p1); } // 0x2B4CE170DE09F346 b1207
 	NATIVE_DECL Any _0x7C8AA850617651D9(Any p0, Any p1) { return invoke<Any>(0x7C8AA850617651D9, p0, p1); } // 0x7C8AA850617651D9 b1207
 	// If targetPed is set to 0 the ped motivationState affects everyone
-	NATIVE_DECL float _0x42688E94E96FD9B4(Ped ped, int motivationState, Ped targetPed) { return invoke<float>(0x42688E94E96FD9B4, ped, motivationState, targetPed); } // 0x42688E94E96FD9B4 b1207
-	// motivationState: 0 - 10
-	NATIVE_DECL void _0x06D26A96CA1BCA75(Ped ped, int motivationState, float p2, Ped targetPed) { invoke<Void>(0x06D26A96CA1BCA75, ped, motivationState, p2, targetPed); } // 0x06D26A96CA1BCA75 b1207
+	NATIVE_DECL float _GET_PED_MOTIVATION(Ped ped, int motivationState, Ped targetPed) { return invoke<float>(0x42688E94E96FD9B4, ped, motivationState, targetPed); } // 0x42688E94E96FD9B4 b1207
+	// enum eMotivationState
+	// {
+	// 	TOILET_STATE,
+	// 	FEAR_STATE,
+	// 	ANGRY_STATE,
+	// 	AGITATION_STATE,
+	// 	HUNGRY_STATE,
+	// 	TIRED_STATE,
+	// 	SAD_STATE,
+	// 	BRAVE_STATE,
+	// 	OFFER_ITEM_STATE,
+	// 	SUSPICION,
+	// 	DRUNK_STATE
+	// };
+	// 
+	// If targetPed is set to 0 the ped motivationState affects everyone
+	NATIVE_DECL void _SET_PED_MOTIVATION(Ped ped, int motivationState, float threshold, Ped targetPed) { invoke<Void>(0x06D26A96CA1BCA75, ped, motivationState, threshold, targetPed); } // 0x06D26A96CA1BCA75 b1207
 	NATIVE_DECL void _0x23BDE06596A22CEC(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x23BDE06596A22CEC, p0, p1, p2, p3); } // 0x23BDE06596A22CEC b1207
 	NATIVE_DECL void _0xCDFB8C04D4C95D9B(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xCDFB8C04D4C95D9B, p0, p1, p2, p3); } // 0xCDFB8C04D4C95D9B b1207
-	NATIVE_DECL BOOL _0x33FA048675821DA7(Ped ped, int motivationState) { return invoke<BOOL>(0x33FA048675821DA7, ped, motivationState); } // 0x33FA048675821DA7 b1207
-	// motivationState = 3: AGITATION_STATE in R* Scripts
-	NATIVE_DECL void _0x2EB75FB86C41F026(Ped ped, int motivationState, BOOL enabled) { invoke<Void>(0x2EB75FB86C41F026, ped, motivationState, enabled); } // 0x2EB75FB86C41F026 b1207
+	// motivationState: see _SET_PED_MOTIVATION
+	NATIVE_DECL BOOL _GET_IS_PED_MOTIVATION_STATE_ENABLED(Ped ped, int motivationState) { return invoke<BOOL>(0x33FA048675821DA7, ped, motivationState); } // 0x33FA048675821DA7 b1207
+	// motivationState: see _SET_PED_MOTIVATION
+	NATIVE_DECL void _SET_PED_MOTIVATION_STATE_OVERRIDE(Ped ped, int motivationState, BOOL enabled) { invoke<Void>(0x2EB75FB86C41F026, ped, motivationState, enabled); } // 0x2EB75FB86C41F026 b1207
 	// The higher the modifier, the slower the motivationState value will decrease
-	NATIVE_DECL void _0xA1EB5D029E0191D3(Ped ped, int motivationState, float modifier) { invoke<Void>(0xA1EB5D029E0191D3, ped, motivationState, modifier); } // 0xA1EB5D029E0191D3 b1207
+	NATIVE_DECL void _SET_PED_MOTIVATION_MODIFIER(Ped ped, int motivationState, float modifier) { invoke<Void>(0xA1EB5D029E0191D3, ped, motivationState, modifier); } // 0xA1EB5D029E0191D3 b1207
 	NATIVE_DECL void _0xFD8E853F0BC2E942(Any p0, Any p1) { invoke<Void>(0xFD8E853F0BC2E942, p0, p1); } // 0xFD8E853F0BC2E942 b1207
 	// 0.0 - 1.0
 	// Modifies the "scent line" on the ped's body when using Eagle Eye.
 	NATIVE_DECL void _SET_PED_SCENT(Ped ped, float scent) { invoke<Void>(0x01B21B81865E2A1F, ped, scent); } // 0x01B21B81865E2A1F b1207
-	NATIVE_DECL void _0x05CE6AF4DF071D23(Ped ped, float p1) { invoke<Void>(0x05CE6AF4DF071D23, ped, p1); } // 0x05CE6AF4DF071D23 b1207
-	NATIVE_DECL void _0x801917E7D7BCE418(Ped ped) { invoke<Void>(0x801917E7D7BCE418, ped); } // 0x801917E7D7BCE418 b1207
+	NATIVE_DECL void _SET_PED_LADDER_MOVEMENT_SPEED_MODIFIER(Ped ped, float p1) { invoke<Void>(0x05CE6AF4DF071D23, ped, p1); } // 0x05CE6AF4DF071D23 b1207
+	NATIVE_DECL void _RESET_PED_LADDER_MOVEMENT_SPEED_MODIFIER(Ped ped) { invoke<Void>(0x801917E7D7BCE418, ped); } // 0x801917E7D7BCE418 b1207
 	NATIVE_DECL void _0xC6C4E15CF7D52FEA(Any p0, Any p1) { invoke<Void>(0xC6C4E15CF7D52FEA, p0, p1); } // 0xC6C4E15CF7D52FEA b1207
 	NATIVE_DECL void _0xD05AD61F242C626B(Any p0, Any p1) { invoke<Void>(0xD05AD61F242C626B, p0, p1); } // 0xD05AD61F242C626B b1207
 	NATIVE_DECL void _0x0F967019CC853BCC(Any p0, Any p1) { invoke<Void>(0x0F967019CC853BCC, p0, p1); } // 0x0F967019CC853BCC b1207
@@ -6122,18 +6406,19 @@ namespace PED
 	NATIVE_DECL BOOL _ADD_PED_STAY_OUT_VOLUME(Ped ped, Volume volume) { return invoke<BOOL>(0xE9B168527B337BF0, ped, volume); } // 0xE9B168527B337BF0 b1207
 	NATIVE_DECL BOOL _REMOVE_PED_STAY_OUT_VOLUME(Ped ped, Volume volume) { return invoke<BOOL>(0x0CAB404CD2DB41F5, ped, volume); } // 0x0CAB404CD2DB41F5 b1207
 	NATIVE_DECL void _0x9E66708B2B41F14A(Any p0, Any p1) { invoke<Void>(0x9E66708B2B41F14A, p0, p1); } // 0x9E66708B2B41F14A b1207
-	NATIVE_DECL void _0xF634E2892220EF34(Any p0, Any p1) { invoke<Void>(0xF634E2892220EF34, p0, p1); } // 0xF634E2892220EF34 b1207
-	NATIVE_DECL void _0xAAC0EE3B4999ABB5(Any p0, Any p1) { invoke<Void>(0xAAC0EE3B4999ABB5, p0, p1); } // 0xAAC0EE3B4999ABB5 b1207
+	NATIVE_DECL void _0xF634E2892220EF34(Ped ped, Any p1) { invoke<Void>(0xF634E2892220EF34, ped, p1); } // 0xF634E2892220EF34 b1207
+	NATIVE_DECL void _0xAAC0EE3B4999ABB5(Ped ped, Ped targetPed) { invoke<Void>(0xAAC0EE3B4999ABB5, ped, targetPed); } // 0xAAC0EE3B4999ABB5 b1207
 	NATIVE_DECL Entity GET_PED_MOTION_FOCUS_ENTITY(Ped ped) { return invoke<Entity>(0x243E1B4607040057, ped); } // 0x243E1B4607040057 b1207
 	NATIVE_DECL void _SET_PED_FACE_FEATURE(Ped ped, int index, float value) { invoke<Void>(0x5653AB26C82938CF, ped, index, value); } // 0x5653AB26C82938CF b1207
 	NATIVE_DECL Any _GET_PED_FACE_FEATURE(Ped ped, int index) { return invoke<Any>(0xFD1BA1EEF7985BB8, ped, index); } // 0xFD1BA1EEF7985BB8 b1207
 	NATIVE_DECL void _0x5BB04BC74A474B47(Any p0, Any p1) { invoke<Void>(0x5BB04BC74A474B47, p0, p1); } // 0x5BB04BC74A474B47 b1207
 	NATIVE_DECL void _0x9078FB0557364099(Any p0) { invoke<Void>(0x9078FB0557364099, p0); } // 0x9078FB0557364099 b1207
 	NATIVE_DECL BOOL IS_PED_FALLING_OVER(Ped ped) { return invoke<BOOL>(0x3E592D0486DEC0F6, ped); } // 0x3E592D0486DEC0F6 b1207
-	NATIVE_DECL Any _0x29FCE825613FEFCA(Any p0, Any p1) { return invoke<Any>(0x29FCE825613FEFCA, p0, p1); } // 0x29FCE825613FEFCA b1207
+	NATIVE_DECL BOOL _HAS_PED_BEEN_SHOVED_RECENTLY(Ped ped, int ms) { return invoke<BOOL>(0x29FCE825613FEFCA, ped, ms); } // 0x29FCE825613FEFCA b1207
 	NATIVE_DECL Any _0x65C75FDCCAC86464(Any p0) { return invoke<Any>(0x65C75FDCCAC86464, p0); } // 0x65C75FDCCAC86464 b1355
 	NATIVE_DECL void _0x0D497AA69059FE40(Any p0, Any p1) { invoke<Void>(0x0D497AA69059FE40, p0, p1); } // 0x0D497AA69059FE40 b1207
 	NATIVE_DECL void _0xD7D2F45C56A4F4DF(Any p0, Any p1, Any p2) { invoke<Void>(0xD7D2F45C56A4F4DF, p0, p1, p2); } // 0xD7D2F45C56A4F4DF b1207
+	// The higher the multiplier the less the engine renders culls (https://docs.unity3d.com/Manual/OcclusionCulling.html)
 	NATIVE_DECL void _SET_PED_CULL_RANGE(Ped ped, float p1, float p2) { invoke<Void>(0x8AC1D721B2097B6E, ped, p1, p2); } // 0x8AC1D721B2097B6E b1207
 	NATIVE_DECL void _0x1D23D3F70606D788(Any p0, Any p1) { invoke<Void>(0x1D23D3F70606D788, p0, p1); } // 0x1D23D3F70606D788 b1207
 	// enum eMetaPedType
@@ -6149,15 +6434,18 @@ namespace PED
 	NATIVE_DECL Any _0xBD0E4F52F6D95242(Any p0) { return invoke<Any>(0xBD0E4F52F6D95242, p0); } // 0xBD0E4F52F6D95242 b1207
 	NATIVE_DECL BOOL _IS_PED_CHILD(Ped ped) { return invoke<BOOL>(0x137772000DAF42C5, ped); } // 0x137772000DAF42C5 b1207
 	NATIVE_DECL void _0xFFA1594703ED27CA(Any p0, Any p1) { invoke<Void>(0xFFA1594703ED27CA, p0, p1); } // 0xFFA1594703ED27CA b1207
-	NATIVE_DECL void _0xBC6DF00D7A4A6819(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { invoke<Void>(0xBC6DF00D7A4A6819, p0, p1, p2, p3, p4, p5, p6, p7, p8); } // 0xBC6DF00D7A4A6819 b1207
+	// Use to apply metaped player components
+	// Replaces asset, alternatively you can remove assets using REMOVE_TAG_FROM_META_PED
+	NATIVE_DECL void _SET_META_PED_TAG(Ped ped, Hash drawable, Hash albedo, Hash normal, Hash material, Hash palette, int tint0, int tint1, int tint2) { invoke<Void>(0xBC6DF00D7A4A6819, ped, drawable, albedo, normal, material, palette, tint0, tint1, tint2); } // 0xBC6DF00D7A4A6819 b1207
 	NATIVE_DECL void REMOVE_TAG_FROM_META_PED(Ped ped, Hash component, int p2) { invoke<Void>(0xD710A5007C2AC539, ped, component, p2); } // 0xD710A5007C2AC539 b1207
 	NATIVE_DECL void _0xA2B8E47442C76CEC(Any p0, Any p1) { invoke<Void>(0xA2B8E47442C76CEC, p0, p1); } // 0xA2B8E47442C76CEC b1207
-	NATIVE_DECL int _0xA622E66EEE92A08D(Ped ped) { return invoke<int>(0xA622E66EEE92A08D, ped); } // 0xA622E66EEE92A08D b1207
+	// Works similar to 0x90403E8107B60E81 (_GET_NUM_COMPONENTS_IN_PED) but is used to get category hashes instead
+	NATIVE_DECL int _GET_NUM_COMPONENT_CATEGORIES_IN_PED(Ped ped) { return invoke<int>(0xA622E66EEE92A08D, ped); } // 0xA622E66EEE92A08D b1207
 	// Returns category hash that each ped component has. Hash examples: MASKS, HATS, HEADS, HORSE_MANES
-	NATIVE_DECL Hash _0xCCB97B51893C662F(Ped ped, int index) { return invoke<Hash>(0xCCB97B51893C662F, ped, index); } // 0xCCB97B51893C662F b1207
+	NATIVE_DECL Hash _GET_PED_COMPONENT_CATEGORY_BY_INDEX(Ped ped, int index) { return invoke<Hash>(0xCCB97B51893C662F, ped, index); } // 0xCCB97B51893C662F b1207
 	NATIVE_DECL int _GET_NUM_COMPONENTS_IN_PED(Ped ped) { return invoke<int>(0x90403E8107B60E81, ped); } // 0x90403E8107B60E81 b1207
 	NATIVE_DECL Any _0x9B90842304C938A7(Any p0, Any p1, Any p2) { return invoke<Any>(0x9B90842304C938A7, p0, p1, p2); } // 0x9B90842304C938A7 b1207
-	// Update variation on ped, needed after first creation, or when compoent or texture/overlay is changed
+	// Update variation on ped, needed after first creation, or when component or texture/overlay is changed
 	NATIVE_DECL void _UPDATE_PED_VARIATION(Ped ped, BOOL p1, BOOL p2, BOOL p3, BOOL p4, BOOL p5) { invoke<Void>(0xCC8CA3E88256E58F, ped, p1, p2, p3, p4, p5); } // 0xCC8CA3E88256E58F b1207
 	NATIVE_DECL void _0xCB1A3864C524F784(Any p0, Any p1) { invoke<Void>(0xCB1A3864C524F784, p0, p1); } // 0xCB1A3864C524F784 b1207
 	NATIVE_DECL void _0xFA0D206B489A6846(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0xFA0D206B489A6846, p0, p1, p2, p3, p4); } // 0xFA0D206B489A6846 b1207
@@ -6174,42 +6462,49 @@ namespace PED
 	NATIVE_DECL Any _0x4FF3C2B4E6A196C1(Any p0, Any p1, Any p2) { return invoke<Any>(0x4FF3C2B4E6A196C1, p0, p1, p2); } // 0x4FF3C2B4E6A196C1 b1207
 	// Returns p1 value for 0x8E84119A23C16623
 	NATIVE_DECL Any _0x62FDF4E678E40CC6(Entity entity, Any p1) { return invoke<Any>(0x62FDF4E678E40CC6, entity, p1); } // 0x62FDF4E678E40CC6 b1207
-	NATIVE_DECL void _0x0BFA1BD465CDFEFD(Any p0) { invoke<Void>(0x0BFA1BD465CDFEFD, p0); } // 0x0BFA1BD465CDFEFD b1207
-	NATIVE_DECL void _0x370A973252741AC4(Any p0, Any p1) { invoke<Void>(0x370A973252741AC4, p0, p1); } // 0x370A973252741AC4 b1207
+	NATIVE_DECL void _RESET_PED_COMPONENTS(Ped ped) { invoke<Void>(0x0BFA1BD465CDFEFD, ped); } // 0x0BFA1BD465CDFEFD b1207
+	NATIVE_DECL void _0x370A973252741AC4(Ped ped, BOOL p1) { invoke<Void>(0x370A973252741AC4, ped, p1); } // 0x370A973252741AC4 b1207
 	NATIVE_DECL void _SET_RANDOM_OUTFIT_VARIATION(Ped ped, BOOL p1) { invoke<Void>(0x283978A15512B2FE, ped, p1); } // 0x283978A15512B2FE b1207
 	NATIVE_DECL int GET_NUM_META_PED_OUTFITS(Ped ped) { return invoke<int>(0x10C70A515BC03707, ped); } // 0x10C70A515BC03707 b1207
 	// Sets the outfit preset for the ped. The presetId is an index which determines its preset outfit. p2 is always false.
 	NATIVE_DECL void _SET_PED_OUTFIT_PRESET(Ped ped, int presetId, BOOL p2) { invoke<Void>(0x77FF8D35EEC6BBC4, ped, presetId, p2); } // 0x77FF8D35EEC6BBC4 b1207
-	NATIVE_DECL void _0xA5BAE410B03E7371(Ped ped, int component, Any p2, Any p3) { invoke<Void>(0xA5BAE410B03E7371, ped, component, p2, p3); } // 0xA5BAE410B03E7371 b1207
-	NATIVE_DECL Any _0x98082246107A6ACF(Any p0, Any p1) { return invoke<Any>(0x98082246107A6ACF, p0, p1); } // 0x98082246107A6ACF b1207
+	NATIVE_DECL void _SET_PED_OUTFIT_EXTRA(Ped ped, int component, Any p2, Any p3) { invoke<Void>(0xA5BAE410B03E7371, ped, component, p2, p3); } // 0xA5BAE410B03E7371 b1207
+	// Used in script function HORSE_IS_META_PED_OUTFIT_SADDLE_EQUIPPED
+	NATIVE_DECL BOOL _IS_META_PED_OUTFIT_EQUIPPED(Ped ped, Hash outfit) { return invoke<BOOL>(0x98082246107A6ACF, ped, outfit); } // 0x98082246107A6ACF b1207
 	NATIVE_DECL void _0x851966E1E35AF491(Any p0, Any p1) { invoke<Void>(0x851966E1E35AF491, p0, p1); } // 0x851966E1E35AF491 b1207
 	NATIVE_DECL void _0x4EFC1F8FF1AD94DE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0x4EFC1F8FF1AD94DE, p0, p1, p2, p3, p4, p5); } // 0x4EFC1F8FF1AD94DE b1207
 	// Returns requestId
-	// Params: p1 = 1 in R* Scripts
-	NATIVE_DECL int _0xF97C34C33487D569(Hash model, int p1) { return invoke<int>(0xF97C34C33487D569, model, p1); } // 0xF97C34C33487D569 b1207
-	NATIVE_DECL BOOL _0xC0940AC858C1E126(int requestId) { return invoke<BOOL>(0xC0940AC858C1E126, requestId); } // 0xC0940AC858C1E126 b1207
-	NATIVE_DECL BOOL _0x43E4DA469541A9C9(int requestId) { return invoke<BOOL>(0x43E4DA469541A9C9, requestId); } // 0x43E4DA469541A9C9 b1207
-	NATIVE_DECL Ped _0x0BCD4091C8EABA42(int requestId, float x, float y, float z, float heading, BOOL p5, BOOL p6, BOOL p7, BOOL p8, BOOL p9) { return invoke<Ped>(0x0BCD4091C8EABA42, requestId, x, y, z, heading, p5, p6, p7, p8, p9); } // 0x0BCD4091C8EABA42 b1207
-	NATIVE_DECL void _0x3972F78A78B5D9DF(int requestId) { invoke<Void>(0x3972F78A78B5D9DF, requestId); } // 0x3972F78A78B5D9DF b1207
+	// Params: p1 = 1 in R* Scripts (Used in SP only)
+	NATIVE_DECL int _REQUEST_METAPED_PED(Hash model, int p1) { return invoke<int>(0xF97C34C33487D569, model, p1); } // 0xF97C34C33487D569 b1207
+	NATIVE_DECL BOOL _HAS_METAPED_PED_REQUEST_LOADED(int requestId) { return invoke<BOOL>(0xC0940AC858C1E126, requestId); } // 0xC0940AC858C1E126 b1207
+	NATIVE_DECL BOOL _IS_METAPED_PED_REQUEST_VALID(int requestId) { return invoke<BOOL>(0x43E4DA469541A9C9, requestId); } // 0x43E4DA469541A9C9 b1207
+	NATIVE_DECL Ped _CREATE_METAPED_PED(int requestId, float x, float y, float z, float heading, BOOL p5, BOOL p6, BOOL p7, BOOL p8, BOOL p9) { return invoke<Ped>(0x0BCD4091C8EABA42, requestId, x, y, z, heading, p5, p6, p7, p8, p9); } // 0x0BCD4091C8EABA42 b1207
+	NATIVE_DECL void _RELEASE_METAPED_PED_REQUEST(int requestId) { invoke<Void>(0x3972F78A78B5D9DF, requestId); } // 0x3972F78A78B5D9DF b1207
+	// https://github.com/femga/rdr3_discoveries/blob/master/clothes/metaped_outfits.lua
 	NATIVE_DECL int _REQUEST_METAPED_OUTFIT(Hash model, Hash outfit) { return invoke<int>(0x13154A76CE0CF9AB, model, outfit); } // 0x13154A76CE0CF9AB b1207
 	NATIVE_DECL Any _0x27E8A84C12B0B7D1(Any p0, Any p1, Any p2) { return invoke<Any>(0x27E8A84C12B0B7D1, p0, p1, p2); } // 0x27E8A84C12B0B7D1 b1207
 	NATIVE_DECL Any _0x273915CE30780986(Any p0, Any p1) { return invoke<Any>(0x273915CE30780986, p0, p1); } // 0x273915CE30780986 b1207
 	NATIVE_DECL void _RELEASE_METAPED_OUTFIT_REQUEST(int requestId) { invoke<Void>(0x4592B8B9B0EF5F48, requestId); } // 0x4592B8B9B0EF5F48 b1207
-	NATIVE_DECL Any _0x3FCBB5FCFD968698(Any p0, Any p1, Any p2, Any p3, Any p4) { return invoke<Any>(0x3FCBB5FCFD968698, p0, p1, p2, p3, p4); } // 0x3FCBB5FCFD968698 b1207
+	// Used for script function PROCESS_PLAYER_HAT_EVENT
+	// Returns requestId to be used with 0x13E7320C762F0477
+	NATIVE_DECL int _0x3FCBB5FCFD968698(Hash drawable, Hash albedo, Hash normal, Hash material, Any p4) { return invoke<int>(0x3FCBB5FCFD968698, drawable, albedo, normal, material, p4); } // 0x3FCBB5FCFD968698 b1207
 	// Returns requestId
 	// Params: p1 = 1 in R* Scripts
-	NATIVE_DECL int _0x91FE941F9FCFB702(Hash asset, int p1) { return invoke<int>(0x91FE941F9FCFB702, asset, p1); } // 0x91FE941F9FCFB702 b1207
-	NATIVE_DECL Any _0xF6D9E1F3560CBF8E(int metaPedType, Any p1, Any p2, Any p3, Any p4) { return invoke<Any>(0xF6D9E1F3560CBF8E, metaPedType, p1, p2, p3, p4); } // 0xF6D9E1F3560CBF8E b1207
-	NATIVE_DECL void _0x13E7320C762F0477(int requestId) { invoke<Void>(0x13E7320C762F0477, requestId); } // 0x13E7320C762F0477 b1207
-	NATIVE_DECL BOOL _0xB0B2C6D170B0E8E5(int requestId) { return invoke<BOOL>(0xB0B2C6D170B0E8E5, requestId); } // 0xB0B2C6D170B0E8E5 b1207
-	NATIVE_DECL BOOL _0x93FFD92F05EC32FD(int requestId) { return invoke<BOOL>(0x93FFD92F05EC32FD, requestId); } // 0x93FFD92F05EC32FD b1207
+	NATIVE_DECL int _REQUEST_METAPED_ASSET_BUNDLE(Hash asset, int p1) { return invoke<int>(0x91FE941F9FCFB702, asset, p1); } // 0x91FE941F9FCFB702 b1207
+	NATIVE_DECL Any _0xF6D9E1F3560CBF8E(int metaPedType, Any p1, int p2, int p3, int p4) { return invoke<Any>(0xF6D9E1F3560CBF8E, metaPedType, p1, p2, p3, p4); } // 0xF6D9E1F3560CBF8E b1207
+	NATIVE_DECL void _RELEASE_METAPED_ASSET_REQUEST(int requestId) { invoke<Void>(0x13E7320C762F0477, requestId); } // 0x13E7320C762F0477 b1207
+	NATIVE_DECL BOOL _HAS_METAPED_ASSET_LOADED(int requestId) { return invoke<BOOL>(0xB0B2C6D170B0E8E5, requestId); } // 0xB0B2C6D170B0E8E5 b1207
+	NATIVE_DECL BOOL _IS_METAPED_ASSET_VALID(int requestId) { return invoke<BOOL>(0x93FFD92F05EC32FD, requestId); } // 0x93FFD92F05EC32FD b1207
 	// Creates prop from metaped asset bundle
-	NATIVE_DECL Entity _0x9641A9A20310F6B8(Hash asset, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, BOOL p7, BOOL p8, BOOL p9) { return invoke<Entity>(0x9641A9A20310F6B8, asset, posX, posY, posZ, rotX, rotY, rotZ, p7, p8, p9); } // 0x9641A9A20310F6B8 b1207
-	NATIVE_DECL BOOL _0x610438375E5D1801(int requestId) { return invoke<BOOL>(0x610438375E5D1801, requestId); } // 0x610438375E5D1801 b1207
+	// https://github.com/femga/rdr3_discoveries/blob/master/objects/metaped_asset_bundles_list.lua
+	NATIVE_DECL Entity _CREATE_METAPED_ASSET(Hash asset, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, BOOL p7, BOOL p8, BOOL p9) { return invoke<Entity>(0x9641A9A20310F6B8, asset, posX, posY, posZ, rotX, rotY, rotZ, p7, p8, p9); } // 0x9641A9A20310F6B8 b1207
+	NATIVE_DECL BOOL _HAS_METAPED_OUTFIT_LOADED(int requestId) { return invoke<BOOL>(0x610438375E5D1801, requestId); } // 0x610438375E5D1801 b1207
 	NATIVE_DECL BOOL _IS_METAPED_OUTFIT_REQUEST_VALID(int requestId) { return invoke<BOOL>(0xB25E57FC8E37114D, requestId); } // 0xB25E57FC8E37114D b1207
 	// Creates metaped from ped outfit requestId. See _REQUEST_METAPED_OUTFIT
-	NATIVE_DECL Ped _0xEAF682A14F8E5F53(int requestId, float x, float y, float z, float heading, BOOL p5, BOOL p6, BOOL p7, BOOL p8) { return invoke<Ped>(0xEAF682A14F8E5F53, requestId, x, y, z, heading, p5, p6, p7, p8); } // 0xEAF682A14F8E5F53 b1207
+	NATIVE_DECL Ped _CREATE_METAPED_OUTFIT_PED(int requestId, float x, float y, float z, float heading, BOOL p5, BOOL p6, BOOL p7, BOOL p8) { return invoke<Ped>(0xEAF682A14F8E5F53, requestId, x, y, z, heading, p5, p6, p7, p8); } // 0xEAF682A14F8E5F53 b1207
+	// https://github.com/femga/rdr3_discoveries/blob/master/clothes/metaped_outfits.lua
 	NATIVE_DECL BOOL _APPLY_PED_METAPED_OUTFIT(int requestId, Ped ped, BOOL p2, BOOL p3) { return invoke<BOOL>(0x74F512E29CB717E2, requestId, ped, p2, p3); } // 0x74F512E29CB717E2 b1207
+	// Sets ped eye redness, weariness: 0.f to 1.f
 	NATIVE_DECL void _SET_METAPED_WEARINESS(Ped ped, float weariness) { invoke<Void>(0x314C5465195F3B30, ped, weariness); } // 0x314C5465195F3B30 b1207
 	NATIVE_DECL void _0xF47D54B986F0A346(Any p0, Any p1) { invoke<Void>(0xF47D54B986F0A346, p0, p1); } // 0xF47D54B986F0A346 b1232
 	NATIVE_DECL void _0x3EFED081B4834BA1(Any p0) { invoke<Void>(0x3EFED081B4834BA1, p0); } // 0x3EFED081B4834BA1 b1232
@@ -6217,25 +6512,27 @@ namespace PED
 	NATIVE_DECL Any _0xB292203008EBBAAC(Any p0) { return invoke<Any>(0xB292203008EBBAAC, p0); } // 0xB292203008EBBAAC b1207
 	NATIVE_DECL Any _0xD4D403EA031F351C(Any p0) { return invoke<Any>(0xD4D403EA031F351C, p0); } // 0xD4D403EA031F351C b1207
 	// Returns peltId
-	NATIVE_DECL int _0x0CEEB6F4780B1F2F(Ped horse, int index) { return invoke<int>(0x0CEEB6F4780B1F2F, horse, index); } // 0x0CEEB6F4780B1F2F b1207
-	NATIVE_DECL void _0xA73F50E8796150D5(Ped horse, int peltId) { invoke<Void>(0xA73F50E8796150D5, horse, peltId); } // 0xA73F50E8796150D5 b1207
+	NATIVE_DECL int _GET_PELT_FROM_HORSE(Ped horse, int index) { return invoke<int>(0x0CEEB6F4780B1F2F, horse, index); } // 0x0CEEB6F4780B1F2F b1207
+	NATIVE_DECL void _SET_PELT_FOR_HORSE(Ped horse, int peltId) { invoke<Void>(0xA73F50E8796150D5, horse, peltId); } // 0xA73F50E8796150D5 b1207
 	NATIVE_DECL void _0xC412AA1C73111FE0(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0xC412AA1C73111FE0, p0, p1, p2, p3, p4); } // 0xC412AA1C73111FE0 b1207
-	NATIVE_DECL void _0x627F7F3A0C4C51FF(Ped horse, int peltId) { invoke<Void>(0x627F7F3A0C4C51FF, horse, peltId); } // 0x627F7F3A0C4C51FF b1207
-	NATIVE_DECL void _0x13A210949FCBD92B(Any p0, Any p1) { invoke<Void>(0x13A210949FCBD92B, p0, p1); } // 0x13A210949FCBD92B b1207
+	NATIVE_DECL void _CLEAR_PELT_FROM_HORSE(Ped horse, int peltId) { invoke<Void>(0x627F7F3A0C4C51FF, horse, peltId); } // 0x627F7F3A0C4C51FF b1207
+	NATIVE_DECL void _SET_PED_LIGHTS(Ped ped, BOOL toggle) { invoke<Void>(0x13A210949FCBD92B, ped, toggle); } // 0x13A210949FCBD92B b1207
 	NATIVE_DECL void _0xD049FDAF089FDDB0(Any p0, Any p1, Any p2) { invoke<Void>(0xD049FDAF089FDDB0, p0, p1, p2); } // 0xD049FDAF089FDDB0 b1207
 	NATIVE_DECL void _0xDD9540E7B1C9714F(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0xDD9540E7B1C9714F, p0, p1, p2, p3, p4); } // 0xDD9540E7B1C9714F b1207
 	NATIVE_DECL void _0x55546004A244302A(Any p0, Any p1) { invoke<Void>(0x55546004A244302A, p0, p1); } // 0x55546004A244302A b1207
-	NATIVE_DECL void _0xDE1B1907A83A1550(Any p0, Any p1) { invoke<Void>(0xDE1B1907A83A1550, p0, p1); } // 0xDE1B1907A83A1550 b1207
-	NATIVE_DECL Any _0x95B8E397B8F4360F(Any p0) { return invoke<Any>(0x95B8E397B8F4360F, p0); } // 0x95B8E397B8F4360F b1207
-	NATIVE_DECL void _0xEF5A3D2285D8924B(Any p0, Any p1) { invoke<Void>(0xEF5A3D2285D8924B, p0, p1); } // 0xEF5A3D2285D8924B b1207
-	NATIVE_DECL Any _0x825F6DD559A0895B(Any p0) { return invoke<Any>(0x825F6DD559A0895B, p0); } // 0x825F6DD559A0895B b1207
-	NATIVE_DECL void _0x345C9F993A8AB4A4(Any p0, Any p1) { invoke<Void>(0x345C9F993A8AB4A4, p0, p1); } // 0x345C9F993A8AB4A4 b1207
-	NATIVE_DECL Any _0xE7687EB2F634ABF0(Any p0) { return invoke<Any>(0xE7687EB2F634ABF0, p0); } // 0xE7687EB2F634ABF0 b1207
-	// Alters entity's stamina by 'amount'. Can be negative (to drain stamina).
+	NATIVE_DECL void _SET_HEALTH_RECHARGE_MULTIPLIER(Ped ped, int multiplier) { invoke<Void>(0xDE1B1907A83A1550, ped, multiplier); } // 0xDE1B1907A83A1550 b1207
+	NATIVE_DECL float _GET_HEALTH_RECHARGE_MULTIPLIER(Ped ped) { return invoke<float>(0x95B8E397B8F4360F, ped); } // 0x95B8E397B8F4360F b1207
+	NATIVE_DECL void _SET_STAMINA_DEPLETION_MULTIPLIER(Ped ped, int multiplier) { invoke<Void>(0xEF5A3D2285D8924B, ped, multiplier); } // 0xEF5A3D2285D8924B b1207
+	NATIVE_DECL float _GET_STAMINA_DEPLETION_MULTIPLIER(Ped ped) { return invoke<float>(0x825F6DD559A0895B, ped); } // 0x825F6DD559A0895B b1207
+	NATIVE_DECL void _SET_STAMINA_RECHARGE_MULTIPLIER(Ped ped, int multiplier) { invoke<Void>(0x345C9F993A8AB4A4, ped, multiplier); } // 0x345C9F993A8AB4A4 b1207
+	NATIVE_DECL float _GET_STAMINA_RECHARGE_MULTIPLIER(Ped ped) { return invoke<float>(0xE7687EB2F634ABF0, ped); } // 0xE7687EB2F634ABF0 b1207
+	// Alters entity's stamina by 'amount'. Can be negative (to drain stamina). float amount: -1000.0 - 1000.0
 	NATIVE_DECL BOOL _CHANGE_PED_STAMINA(Ped ped, float amount) { return invoke<BOOL>(0xC3D4B754C0E86B9E, ped, amount); } // 0xC3D4B754C0E86B9E b1207
 	NATIVE_DECL float _GET_PED_STAMINA(Ped ped) { return invoke<float>(0x775A1CA7893AA8B5, ped); } // 0x775A1CA7893AA8B5 b1207
-	NATIVE_DECL Any _0x22F2A386D43048A9(Any p0) { return invoke<Any>(0x22F2A386D43048A9, p0); } // 0x22F2A386D43048A9 b1207
+	// Returns stamina normalizedValue / normalizedUnlockedMax
+	NATIVE_DECL float _GET_PED_STAMINA_NORMALIZED(Ped ped) { return invoke<float>(0x22F2A386D43048A9, ped); } // 0x22F2A386D43048A9 b1207
 	NATIVE_DECL float _GET_PED_MAX_STAMINA(Ped ped) { return invoke<float>(0xCB42AFE2B613EE55, ped); } // 0xCB42AFE2B613EE55 b1207
+	// _RESET_PED_*
 	NATIVE_DECL void _0x36513AFFC703C60D(Any p0) { invoke<Void>(0x36513AFFC703C60D, p0); } // 0x36513AFFC703C60D b1207
 	// 0.0 <= stamina <= 100.0
 	NATIVE_DECL void _RESTORE_PED_STAMINA(Ped ped, float stamina) { invoke<Void>(0x675680D089BFA21F, ped, stamina); } // 0x675680D089BFA21F b1207
@@ -6244,23 +6541,26 @@ namespace PED
 	NATIVE_DECL void _0xE4EF4382E22C780C(Any p0) { invoke<Void>(0xE4EF4382E22C780C, p0); } // 0xE4EF4382E22C780C b1207
 	NATIVE_DECL void _0xD61FCF9FCFD515B7(Any p0, Any p1, Any p2) { invoke<Void>(0xD61FCF9FCFD515B7, p0, p1, p2); } // 0xD61FCF9FCFD515B7 b1207
 	NATIVE_DECL void _0x8D9DB115FBA8E23D(Any p0) { invoke<Void>(0x8D9DB115FBA8E23D, p0); } // 0x8D9DB115FBA8E23D b1207
-	NATIVE_DECL Any _0x16F2C8C084AB2092(Any p0) { return invoke<Any>(0x16F2C8C084AB2092, p0); } // 0x16F2C8C084AB2092 b1207
+	NATIVE_DECL Any _GET_NUM_RESERVED_HEALTH(Ped ped) { return invoke<Any>(0x16F2C8C084AB2092, ped); } // 0x16F2C8C084AB2092 b1207
 	NATIVE_DECL Any _0xD97BC27AC039F681(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0xD97BC27AC039F681, p0, p1, p2, p3); } // 0xD97BC27AC039F681 b1311
 	NATIVE_DECL Any _0xF6A8C4B4A11AE89C(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return invoke<Any>(0xF6A8C4B4A11AE89C, p0, p1, p2, p3, p4, p5); } // 0xF6A8C4B4A11AE89C b1207
-	NATIVE_DECL void _0xE4C95E0AE31C6512(Any p0, Any p1) { invoke<Void>(0xE4C95E0AE31C6512, p0, p1); } // 0xE4C95E0AE31C6512 b1207
+	NATIVE_DECL void _0xE4C95E0AE31C6512(Ped ped, Any p1) { invoke<Void>(0xE4C95E0AE31C6512, ped, p1); } // 0xE4C95E0AE31C6512 b1207
 	NATIVE_DECL Object _GET_PED_LAST_DROPPED_HAT(Ped ped) { return invoke<Object>(0x1F714E7A9DADFC42, ped); } // 0x1F714E7A9DADFC42 b1207
+	// Related to ped hat
 	NATIVE_DECL void _0x5D4CD22A8C82A81A(Ped ped, BOOL p1) { invoke<Void>(0x5D4CD22A8C82A81A, ped, p1); } // 0x5D4CD22A8C82A81A b1207
 	NATIVE_DECL void _0xBF567DF2BEF211A6(Any p0, Any p1) { invoke<Void>(0xBF567DF2BEF211A6, p0, p1); } // 0xBF567DF2BEF211A6 b1207
 	NATIVE_DECL Any _0x4F5EBE70081E5A20(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return invoke<Any>(0x4F5EBE70081E5A20, p0, p1, p2, p3, p4, p5, p6, p7, p8); } // 0x4F5EBE70081E5A20 b1207
 	NATIVE_DECL void _0x87247BC60B60BED8(Any p0) { invoke<Void>(0x87247BC60B60BED8, p0); } // 0x87247BC60B60BED8 b1207
-	NATIVE_DECL Any _0x57779B55B83E2BEA(Any p0) { return invoke<Any>(0x57779B55B83E2BEA, p0); } // 0x57779B55B83E2BEA b1207
+	NATIVE_DECL BOOL _IS_PED_INTIMIDATED(Ped ped) { return invoke<BOOL>(0x57779B55B83E2BEA, ped); } // 0x57779B55B83E2BEA b1207
 	NATIVE_DECL Any _0x7EE3A8660F38797E(Any p0) { return invoke<Any>(0x7EE3A8660F38797E, p0); } // 0x7EE3A8660F38797E b1207
 	NATIVE_DECL Any _0xA180FBD502A03125(Any p0, Any p1, Any p2) { return invoke<Any>(0xA180FBD502A03125, p0, p1, p2); } // 0xA180FBD502A03125 b1207
-	// Material hash list: https://raw.githubusercontent.com/femga/rdr3_discoveries/master/clothes/cloth_drawable_albedo_normal_material_TEMPORARY.lua
+	// https://github.com/femga/rdr3_discoveries/blob/master/clothes/change_overlays_script.lua
+	// materialHash: https://github.com/femga/rdr3_discoveries/blob/master/clothes/cloth_drawable_albedo_normal_material_TEMPORARY.lua
 	NATIVE_DECL int _REQUEST_TEXTURE(Hash albedoHash, Hash normalHash, Hash materialHash) { return invoke<int>(0xC5E7204F322E49EB, albedoHash, normalHash, materialHash); } // 0xC5E7204F322E49EB b1207
 	NATIVE_DECL void _OVERRIDE_TEXTURE_ON_PED(Ped ped, Hash componentHash, int textureId) { invoke<Void>(0x0B46E25761519058, ped, componentHash, textureId); } // 0x0B46E25761519058 b1207
 	NATIVE_DECL void _RELEASE_TEXTURE(int textureId) { invoke<Void>(0x6BEFAA907B076859, textureId); } // 0x6BEFAA907B076859 b1207
 	NATIVE_DECL void _UPDATE_PED_TEXTURE(int textureId) { invoke<Void>(0x92DAABA2C1C10B0E, textureId); } // 0x92DAABA2C1C10B0E b1207
+	// Removes every texture layer but the base layer
 	NATIVE_DECL void _RESET_PED_TEXTURE(int textureId) { invoke<Void>(0x8472A1789478F82F, textureId); } // 0x8472A1789478F82F b1207
 	NATIVE_DECL BOOL _IS_TEXTURE_VALID(int textureId) { return invoke<BOOL>(0x31DC8D3F216D8509, textureId); } // 0x31DC8D3F216D8509 b1207
 	NATIVE_DECL int _ADD_TEXTURE_LAYER(int textureId, Hash albedoHash, Hash normalHash, Hash materialHash, int blendType, float texAlpha, int sheetGridIndex) { return invoke<int>(0x86BB5FF45F193A02, textureId, albedoHash, normalHash, materialHash, blendType, texAlpha, sheetGridIndex); } // 0x86BB5FF45F193A02 b1207
@@ -6273,11 +6573,12 @@ namespace PED
 	NATIVE_DECL void _SET_TEXTURE_LAYER_TINT(int textureId, int layerId, int tint0, int tint1, int tint2) { invoke<Void>(0x2DF59FFE6FFD6044, textureId, layerId, tint0, tint1, tint2); } // 0x2DF59FFE6FFD6044 b1207
 	NATIVE_DECL void _SET_TEXTURE_LAYER_MOD(int textureId, int layerId, Hash modTextureHash, float modAlpha, int modChannel) { invoke<Void>(0xF2EA041F1146D75B, textureId, layerId, modTextureHash, modAlpha, modChannel); } // 0xF2EA041F1146D75B b1207
 	NATIVE_DECL void _SET_TEXTURE_LAYER_TEXTURE_MAP(int textureId, int layerId, Hash albedoHash, Hash normalHash, Hash materialHash) { invoke<Void>(0x253A63B5BADBC398, textureId, layerId, albedoHash, normalHash, materialHash); } // 0x253A63B5BADBC398 b1207
+	// Removes every texture layer
 	NATIVE_DECL void _RESET_PED_TEXTURE_2(int textureId) { invoke<Void>(0xB63B9178D0F58D82, textureId); } // 0xB63B9178D0F58D82 b1207
 	// Not implemented.
 	NATIVE_DECL void _0xC991EF46FE323867(Ped ped, Any p1) { invoke<Void>(0xC991EF46FE323867, ped, p1); } // 0xC991EF46FE323867 b1207
 	NATIVE_DECL void _0x1F8215D0E446F593(Any p0, Any p1, Any p2) { invoke<Void>(0x1F8215D0E446F593, p0, p1, p2); } // 0x1F8215D0E446F593 b1207
-	NATIVE_DECL BOOL IS_LOCATION_SPAWN_SAFE(Any p0, Any p1) { return invoke<BOOL>(0xFB1E7998B8595825, p0, p1); } // 0xFB1E7998B8595825 b1207
+	NATIVE_DECL BOOL IS_LOCATION_SPAWN_SAFE(Ped ped, float p1) { return invoke<BOOL>(0xFB1E7998B8595825, ped, p1); } // 0xFB1E7998B8595825 b1207
 	NATIVE_DECL void _0x53BA7D96B9A421D9(Any p0, Any p1) { invoke<Void>(0x53BA7D96B9A421D9, p0, p1); } // 0x53BA7D96B9A421D9 b1207
 	NATIVE_DECL void _0x96C7B659854DE629(Any p0, Any p1) { invoke<Void>(0x96C7B659854DE629, p0, p1); } // 0x96C7B659854DE629 b1207
 	// -1 - HORSE_ASSIST__NO_CHANGE
@@ -6291,6 +6592,7 @@ namespace PED
 	NATIVE_DECL void _0x5B73975B4F12F7F3(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x5B73975B4F12F7F3, p0, p1, p2, p3, p4); } // 0x5B73975B4F12F7F3 b1207
 	NATIVE_DECL BOOL GET_META_PED_ASSET_GUIDS(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return invoke<BOOL>(0xA9C28516A6DC9D56, p0, p1, p2, p3, p4, p5); } // 0xA9C28516A6DC9D56 b1207
 	NATIVE_DECL BOOL GET_META_PED_ASSET_TINT(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return invoke<BOOL>(0xE7998FEC53A33BBE, p0, p1, p2, p3, p4, p5); } // 0xE7998FEC53A33BBE b1207
+	// https://github.com/femga/rdr3_discoveries/tree/master/AI/BLACKBOARDS
 	// Setting the removeTimer to -1 will make the applied data stick
 	NATIVE_DECL void _SET_PED_BLACKBOARD_INT(Ped ped, const char* variableName, int value, int removeTimer) { invoke<Void>(0x5F53010C4C3F6BAF, ped, variableName, value, removeTimer); } // 0x5F53010C4C3F6BAF b1207
 	NATIVE_DECL void _SET_PED_BLACKBOARD_BOOL(Ped ped, const char* variableName, BOOL value, int removeTimer) { invoke<Void>(0xCB9401F918CB0F75, ped, variableName, value, removeTimer); } // 0xCB9401F918CB0F75 b1207
@@ -6304,19 +6606,22 @@ namespace PED
 	// Legs
 	// RightArm
 	NATIVE_DECL void _SET_PED_BLACKBOARD_HASH(Ped ped, const char* variableName, const char* value, int removeTimer) { invoke<Void>(0xA762C9D6CF165E0D, ped, variableName, value, removeTimer); } // 0xA762C9D6CF165E0D b1207
-	NATIVE_DECL void _0x81B75428A7813E67(Ped ped, const char* variableName) { invoke<Void>(0x81B75428A7813E67, ped, variableName); } // 0x81B75428A7813E67 b1207
-	NATIVE_DECL void _0xA6F67BEC53379A32(Ped ped, const char* variableName) { invoke<Void>(0xA6F67BEC53379A32, ped, variableName); } // 0xA6F67BEC53379A32 b1207
-	NATIVE_DECL void _0x411189E51B8020BA(Ped ped, const char* variableName) { invoke<Void>(0x411189E51B8020BA, ped, variableName); } // 0x411189E51B8020BA b1207
-	NATIVE_DECL void _0x0E17378642156790(Ped ped, const char* variableName) { invoke<Void>(0x0E17378642156790, ped, variableName); } // 0x0E17378642156790 b1207
-	NATIVE_DECL Any _0x498F2E77982D6945(Any p0, Any p1) { return invoke<Any>(0x498F2E77982D6945, p0, p1); } // 0x498F2E77982D6945 b1207
-	NATIVE_DECL Any _0x56E58D4D118FB45E(Any p0, Any p1) { return invoke<Any>(0x56E58D4D118FB45E, p0, p1); } // 0x56E58D4D118FB45E b1207
-	NATIVE_DECL Any _0xBF5E791BBBF90A3C(Any p0, Any p1) { return invoke<Any>(0xBF5E791BBBF90A3C, p0, p1); } // 0xBF5E791BBBF90A3C b1207
+	NATIVE_DECL void _REMOVE_PED_BLACKBOARD_INT(Ped ped, const char* variableName) { invoke<Void>(0x81B75428A7813E67, ped, variableName); } // 0x81B75428A7813E67 b1207
+	NATIVE_DECL void _REMOVE_PED_BLACKBOARD_BOOL(Ped ped, const char* variableName) { invoke<Void>(0xA6F67BEC53379A32, ped, variableName); } // 0xA6F67BEC53379A32 b1207
+	NATIVE_DECL void _REMOVE_PED_BLACKBOARD_FLOAT(Ped ped, const char* variableName) { invoke<Void>(0x411189E51B8020BA, ped, variableName); } // 0x411189E51B8020BA b1207
+	NATIVE_DECL void _REMOVE_PED_BLACKBOARD_HASH(Ped ped, const char* variableName) { invoke<Void>(0x0E17378642156790, ped, variableName); } // 0x0E17378642156790 b1207
+	// Can be used to get a peds foliage active status: variableName = FoliageActive
+	NATIVE_DECL BOOL _GET_PED_BLACKBOARD_BOOL(Ped ped, const char* variableName) { return invoke<BOOL>(0x498F2E77982D6945, ped, variableName); } // 0x498F2E77982D6945 b1207
+	// Can be used to get a peds foliage raw height: variableName = FoliageHeight
+	NATIVE_DECL float _GET_PED_BLACKBOARD_FLOAT(Ped ped, const char* variableName) { return invoke<float>(0x56E58D4D118FB45E, ped, variableName); } // 0x56E58D4D118FB45E b1207
+	NATIVE_DECL Hash _GET_PED_BLACKBOARD_HASH(Ped ped, const char* variableName) { return invoke<Hash>(0xBF5E791BBBF90A3C, ped, variableName); } // 0xBF5E791BBBF90A3C b1207
 	NATIVE_DECL int GET_PED_BLACKBOARD_SCRIPT_INT(Ped ped, const char* variableName) { return invoke<int>(0xB71B91B398F8F067, ped, variableName); } // 0xB71B91B398F8F067 b1207
 	NATIVE_DECL BOOL GET_PED_BLACKBOARD_SCRIPT_BOOL(Ped ped, const char* variableName) { return invoke<BOOL>(0x4912DFE492DB98CD, ped, variableName); } // 0x4912DFE492DB98CD b1207
 	NATIVE_DECL float GET_PED_BLACKBOARD_SCRIPT_FLOAT(Ped ped, const char* variableName) { return invoke<float>(0xA29FD00D45311EB7, ped, variableName); } // 0xA29FD00D45311EB7 b1207
 	NATIVE_DECL void _0x7FF72DE061DF55E2(Any p0, Any p1, Any p2) { invoke<Void>(0x7FF72DE061DF55E2, p0, p1, p2); } // 0x7FF72DE061DF55E2 b1207
 	NATIVE_DECL Any _0xA31D350D66FA1855(Any p0) { return invoke<Any>(0xA31D350D66FA1855, p0); } // 0xA31D350D66FA1855 b1207
-	NATIVE_DECL Any _0xAF61B3CD8C3B82C3(Any p0) { return invoke<Any>(0xAF61B3CD8C3B82C3, p0); } // 0xAF61B3CD8C3B82C3 b1207
+	// _IS_TRACKED_* - IS_V*
+	NATIVE_DECL BOOL _IS_USING_SLIPSTREAM(Ped ped) { return invoke<BOOL>(0xAF61B3CD8C3B82C3, ped); } // 0xAF61B3CD8C3B82C3 b1207
 	NATIVE_DECL void _0xEEDC9B29314B2733(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { invoke<Void>(0xEEDC9B29314B2733, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); } // 0xEEDC9B29314B2733 b1207
 	NATIVE_DECL void _0x5C90E20C25E6D83C(Any p0) { invoke<Void>(0x5C90E20C25E6D83C, p0); } // 0x5C90E20C25E6D83C b1207
 	NATIVE_DECL void _0x10F96086123B939F(Any p0, Any p1, Any p2) { invoke<Void>(0x10F96086123B939F, p0, p1, p2); } // 0x10F96086123B939F b1207
@@ -6326,15 +6631,16 @@ namespace PED
 	NATIVE_DECL void _0x56076667E7C2DCD6(Any p0, Any p1) { invoke<Void>(0x56076667E7C2DCD6, p0, p1); } // 0x56076667E7C2DCD6 b1311
 	NATIVE_DECL void _APPLY_SHOP_ITEM_TO_PED(Ped ped, Hash componentHash, BOOL immediately, BOOL isMp, BOOL p4) { invoke<Void>(0xD3A7B003ED343FD9, ped, componentHash, immediately, isMp, p4); } // 0xD3A7B003ED343FD9 b1207
 	NATIVE_DECL void _0x0D7FFA1B2F69ED82(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x0D7FFA1B2F69ED82, p0, p1, p2, p3); } // 0x0D7FFA1B2F69ED82 b1355
+	// Params: p2, p3 usually 0 in R* Scripts
 	NATIVE_DECL void REMOVE_SHOP_ITEM_FROM_PED_BY_CATEGORY(Ped ped, Hash componentCategory, int p2, BOOL p3) { invoke<Void>(0xDF631E4BCE1B1FC4, ped, componentCategory, p2, p3); } // 0xDF631E4BCE1B1FC4 b1207
-	NATIVE_DECL void _0x66B957AAC2EAAEAB(Ped ped, Hash componentHash, Hash wearableState, int p3, BOOL p4, int p5) { invoke<Void>(0x66B957AAC2EAAEAB, ped, componentHash, wearableState, p3, p4, p5); } // 0x66B957AAC2EAAEAB b1207
+	NATIVE_DECL void _UPDATE_SHOP_ITEM_WEARABLE_STATE(Ped ped, Hash componentHash, Hash wearableState, int p3, BOOL p4, int p5) { invoke<Void>(0x66B957AAC2EAAEAB, ped, componentHash, wearableState, p3, p4, p5); } // 0x66B957AAC2EAAEAB b1207
 	NATIVE_DECL Hash _GET_PED_COMPONENT_AT_INDEX(Ped ped, int index, BOOL p2, Any* argStruct, Any* argStruct2) { return invoke<Hash>(0x77BA37622E22023B, ped, index, p2, argStruct, argStruct2); } // 0x77BA37622E22023B b1207
 	NATIVE_DECL Any _0xFFCC2DB2D9953401(Any p0, Any p1, Any p2) { return invoke<Any>(0xFFCC2DB2D9953401, p0, p1, p2); } // 0xFFCC2DB2D9953401 b1207
 	NATIVE_DECL Any _0x6243635AF2F1B826(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0x6243635AF2F1B826, p0, p1, p2, p3); } // 0x6243635AF2F1B826 b1207
 	NATIVE_DECL Hash _GET_PED_COMPONENT_CATEGORY(Hash componentHash, int metapedType, BOOL isMP) { return invoke<Hash>(0x5FF9A878C3D115B8, componentHash, metapedType, isMP); } // 0x5FF9A878C3D115B8 b1207
 	NATIVE_DECL Any _0x31B2E7F2E3C58B89(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0x31B2E7F2E3C58B89, p0, p1, p2, p3); } // 0x31B2E7F2E3C58B89 b1207
 	NATIVE_DECL Any _0x63342C50EC115CE8(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12) { return invoke<Any>(0x63342C50EC115CE8, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12); } // 0x63342C50EC115CE8 b1207
-	NATIVE_DECL Any _0xAAB86462966168CE(Ped ped, Any p1) { return invoke<Any>(0xAAB86462966168CE, ped, p1); } // 0xAAB86462966168CE b1207
+	NATIVE_DECL Any _0xAAB86462966168CE(Ped ped, BOOL p1) { return invoke<Any>(0xAAB86462966168CE, ped, p1); } // 0xAAB86462966168CE b1207
 	NATIVE_DECL Any _0x7E02E4218D916B94(Any p0, Any p1, Any p2) { return invoke<Any>(0x7E02E4218D916B94, p0, p1, p2); } // 0x7E02E4218D916B94 b1207
 	NATIVE_DECL void _0x59BD177A1A48600A(Any p0, Any p1) { invoke<Void>(0x59BD177A1A48600A, p0, p1); } // 0x59BD177A1A48600A b1207
 	NATIVE_DECL void _0xD103F6DBB5442BE8(Any p0, Any p1) { invoke<Void>(0xD103F6DBB5442BE8, p0, p1); } // 0xD103F6DBB5442BE8 b1207
@@ -6344,7 +6650,8 @@ namespace PED
 	NATIVE_DECL void _0x19B14E04B009E28B(Any p0, Any p1) { invoke<Void>(0x19B14E04B009E28B, p0, p1); } // 0x19B14E04B009E28B b1207
 	NATIVE_DECL void _0xF917F92BF22ECBAB(Any p0) { invoke<Void>(0xF917F92BF22ECBAB, p0); } // 0xF917F92BF22ECBAB b1207
 	NATIVE_DECL void _0x49DADFC4CD808B0A(Any p0, Any p1, Any p2) { invoke<Void>(0x49DADFC4CD808B0A, p0, p1, p2); } // 0x49DADFC4CD808B0A b1207
-	NATIVE_DECL Any _0xBA208A8D6399A3AC(Any p0, Any p1) { return invoke<Any>(0xBA208A8D6399A3AC, p0, p1); } // 0xBA208A8D6399A3AC b1207
+	// limb: 3 = Left Hand, 4 = Left Arm, 6 = Right Hand, 7 = Right Arm, 9 = Left Foot, 10 = Left Leg, 12 = Right Foot, 13 = Right Leg, 37 = Head
+	NATIVE_DECL BOOL _HAS_PED_TAKEN_GORE_DAMAGE(Ped ped, int limb) { return invoke<BOOL>(0xBA208A8D6399A3AC, ped, limb); } // 0xBA208A8D6399A3AC b1207
 	NATIVE_DECL void _0x704C908E9C405136(Ped ped) { invoke<Void>(0x704C908E9C405136, ped); } // 0x704C908E9C405136 b1207
 	NATIVE_DECL void _0x7406C71F4AC2FFCC(Any p0) { invoke<Void>(0x7406C71F4AC2FFCC, p0); } // 0x7406C71F4AC2FFCC b1207
 	NATIVE_DECL void _0x28508173C6A7CC18(Any p0) { invoke<Void>(0x28508173C6A7CC18, p0); } // 0x28508173C6A7CC18 b1311
@@ -6360,17 +6667,19 @@ namespace PED
 	// 	PQ_MAX
 	// };
 	NATIVE_DECL int _GET_PED_QUALITY(Ped ped) { return invoke<int>(0x7BCC6087D130312A, ped); } // 0x7BCC6087D130312A b1207
-	NATIVE_DECL void _0xCE7A6C1D5CDE1F9D(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xCE7A6C1D5CDE1F9D, p0, p1, p2, p3); } // 0xCE7A6C1D5CDE1F9D b1207
+	NATIVE_DECL void _0xCE7A6C1D5CDE1F9D(Ped ped, Object object, const char* propName, const char* animName) { invoke<Void>(0xCE7A6C1D5CDE1F9D, ped, object, propName, animName); } // 0xCE7A6C1D5CDE1F9D b1207
 	NATIVE_DECL void _0x604E1010E3162E86(Any p0, Any p1, Any p2) { invoke<Void>(0x604E1010E3162E86, p0, p1, p2); } // 0x604E1010E3162E86 b1207
 	NATIVE_DECL void _0xE8ABE3B73FC7FE17(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xE8ABE3B73FC7FE17, p0, p1, p2, p3); } // 0xE8ABE3B73FC7FE17 b1207
-	NATIVE_DECL void _0x3A50753042B6891B(Any p0, Any p1) { invoke<Void>(0x3A50753042B6891B, p0, p1); } // 0x3A50753042B6891B b1207
-	NATIVE_DECL void _0x932786CE3C76477C(Ped ped, float bonus) { invoke<Void>(0x932786CE3C76477C, ped, bonus); } // 0x932786CE3C76477C b1207
+	NATIVE_DECL void _REMOVE_PED_PROP(Ped ped, const char* propName) { invoke<Void>(0x3A50753042B6891B, ped, propName); } // 0x3A50753042B6891B b1207
+	// _SET_W*
+	NATIVE_DECL void _SET_TOTAL_PED_DAMAGE_FALLOFF_BONUS(Ped ped, float bonus) { invoke<Void>(0x932786CE3C76477C, ped, bonus); } // 0x932786CE3C76477C b1207
 	NATIVE_DECL Any _0x095C2277FED731DB(Any p0) { return invoke<Any>(0x095C2277FED731DB, p0); } // 0x095C2277FED731DB b1207
 	NATIVE_DECL void _0x09171A6F8FDE5DC1(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x09171A6F8FDE5DC1, p0, p1, p2, p3, p4); } // 0x09171A6F8FDE5DC1 b1207
 	NATIVE_DECL void _0x09E378C52B1433B5(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x09E378C52B1433B5, p0, p1, p2, p3, p4); } // 0x09E378C52B1433B5 b1207
 	NATIVE_DECL Any _0x6507AC3BD7C99009(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0x6507AC3BD7C99009, p0, p1, p2, p3); } // 0x6507AC3BD7C99009 b1207
 	NATIVE_DECL Any _0x2942457417A5FD24(Any p0) { return invoke<Any>(0x2942457417A5FD24, p0); } // 0x2942457417A5FD24 b1207
-	NATIVE_DECL void _SET_PED_TRAIL_EFFECT(Ped ped, BOOL p1, float p2) { invoke<Void>(0xA5950E16B8F31052, ped, p1, p2); } // 0xA5950E16B8F31052 b1207
+	// duration in seconds
+	NATIVE_DECL void _SET_PED_TRAIL_EFFECT(Ped ped, BOOL p1, float duration) { invoke<Void>(0xA5950E16B8F31052, ped, p1, duration); } // 0xA5950E16B8F31052 b1207
 	NATIVE_DECL BOOL _0xEBAAC9A750E7563B(Ped ped) { return invoke<BOOL>(0xEBAAC9A750E7563B, ped); } // 0xEBAAC9A750E7563B b1207
 	NATIVE_DECL void _0x992187D975635DF5(Any p0, Any p1) { invoke<Void>(0x992187D975635DF5, p0, p1); } // 0x992187D975635DF5 b1311
 	NATIVE_DECL void _0x0B787A37EEDD226F(Any p0, Any p1) { invoke<Void>(0x0B787A37EEDD226F, p0, p1); } // 0x0B787A37EEDD226F b1311
@@ -6392,12 +6701,12 @@ namespace PERSCHAR
 	NATIVE_DECL Any _0x112DDF56300BC6E5(Any p0) { return invoke<Any>(0x112DDF56300BC6E5, p0); } // 0x112DDF56300BC6E5 b1207
 	NATIVE_DECL PersChar _CREATE_PERSISTENT_CHARACTER(Hash hash) { return invoke<PersChar>(0x4F76E3676583D951, hash); } // 0x4F76E3676583D951 b1207
 	NATIVE_DECL BOOL _IS_PERSISTENT_CHARACTER_VALID(PersChar persChar) { return invoke<BOOL>(0x800DF3FC913355F3, persChar); } // 0x800DF3FC913355F3 b1207
-	NATIVE_DECL void _0xFC77C5B44D5FF7C0(Any p0) { invoke<Void>(0xFC77C5B44D5FF7C0, p0); } // 0xFC77C5B44D5FF7C0 b1207
+	NATIVE_DECL void _DELETE_PERSCHAR(PersChar persChar) { invoke<Void>(0xFC77C5B44D5FF7C0, persChar); } // 0xFC77C5B44D5FF7C0 b1207
 	NATIVE_DECL Vector3 _0x5EE6FCCC9C832CA2(Any p0) { return invoke<Vector3>(0x5EE6FCCC9C832CA2, p0); } // 0x5EE6FCCC9C832CA2 b1207
 	NATIVE_DECL void _0x59C7AD6FEA2AC449(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x59C7AD6FEA2AC449, p0, p1, p2, p3); } // 0x59C7AD6FEA2AC449 b1207
 	NATIVE_DECL void _0xBB68908CD11AEBDC(Any p0) { invoke<Void>(0xBB68908CD11AEBDC, p0); } // 0xBB68908CD11AEBDC b1207
 	NATIVE_DECL Vector3 _0x94995829ED15A598(Any p0) { return invoke<Vector3>(0x94995829ED15A598, p0); } // 0x94995829ED15A598 b1207
-	NATIVE_DECL Any _0x31C70A716CAE1FEE(Any p0) { return invoke<Any>(0x31C70A716CAE1FEE, p0); } // 0x31C70A716CAE1FEE b1207
+	NATIVE_DECL Ped _GET_PESCHAR_PED_INDEX(PersChar persChar) { return invoke<Ped>(0x31C70A716CAE1FEE, persChar); } // 0x31C70A716CAE1FEE b1207
 	NATIVE_DECL Any _0x32A1E3B83D501096(Any p0) { return invoke<Any>(0x32A1E3B83D501096, p0); } // 0x32A1E3B83D501096 b1207
 	NATIVE_DECL Any _0xF8DE7154F7D1458F(Any p0) { return invoke<Any>(0xF8DE7154F7D1458F, p0); } // 0xF8DE7154F7D1458F b1207
 	NATIVE_DECL void _0x669C25840C6F7AE2(Any p0, Any p1) { invoke<Void>(0x669C25840C6F7AE2, p0, p1); } // 0x669C25840C6F7AE2 b1207
@@ -6416,8 +6725,8 @@ namespace PERSCHAR
 	NATIVE_DECL void _0xEFC5C6670E0B99BA() { invoke<Void>(0xEFC5C6670E0B99BA); } // 0xEFC5C6670E0B99BA b1207
 	NATIVE_DECL void _0x2E957AA81F2C61C9() { invoke<Void>(0x2E957AA81F2C61C9); } // 0x2E957AA81F2C61C9 b1207
 	NATIVE_DECL void _0xB173599D61FAEB31() { invoke<Void>(0xB173599D61FAEB31); } // 0xB173599D61FAEB31 b1207
-	NATIVE_DECL Any _0x08FC896D2CB31FCC(Any p0, Any p1) { return invoke<Any>(0x08FC896D2CB31FCC, p0, p1); } // 0x08FC896D2CB31FCC b1207
-	NATIVE_DECL Any _0x0CADC3A977997472(Any p0, Any p1) { return invoke<Any>(0x0CADC3A977997472, p0, p1); } // 0x0CADC3A977997472 b1207
+	NATIVE_DECL Entity _0x08FC896D2CB31FCC(Any p0, BOOL p1) { return invoke<Entity>(0x08FC896D2CB31FCC, p0, p1); } // 0x08FC896D2CB31FCC b1207
+	NATIVE_DECL Entity _0x0CADC3A977997472(Any p0, BOOL p1) { return invoke<Entity>(0x0CADC3A977997472, p0, p1); } // 0x0CADC3A977997472 b1207
 	NATIVE_DECL void _0x7B204F88F6C3D287(Any p0) { invoke<Void>(0x7B204F88F6C3D287, p0); } // 0x7B204F88F6C3D287 b1207
 	NATIVE_DECL void _0xFCC6DB8DBE709BC8(Any p0) { invoke<Void>(0xFCC6DB8DBE709BC8, p0); } // 0xFCC6DB8DBE709BC8 b1207
 	NATIVE_DECL void _0xA8C406C2A56EDC16(Any p0) { invoke<Void>(0xA8C406C2A56EDC16, p0); } // 0xA8C406C2A56EDC16 b1207
@@ -6451,8 +6760,8 @@ namespace PERSISTENCE
 	NATIVE_DECL Any _0xCFDA2518F322D836(Any p0) { return invoke<Any>(0xCFDA2518F322D836, p0); } // 0xCFDA2518F322D836 b1207
 	NATIVE_DECL Any _0x1F56FB3FDB4EAF65(Any p0) { return invoke<Any>(0x1F56FB3FDB4EAF65, p0); } // 0x1F56FB3FDB4EAF65 b1207
 	NATIVE_DECL void _0x291CC21D1FB6790E(Any p0) { invoke<Void>(0x291CC21D1FB6790E, p0); } // 0x291CC21D1FB6790E b1207
-	NATIVE_DECL void _0x8245C1F3262F4AC2(Any p0) { invoke<Void>(0x8245C1F3262F4AC2, p0); } // 0x8245C1F3262F4AC2 b1207
-	NATIVE_DECL Any _0xFB7CF1DE938A3E22(Any p0) { return invoke<Any>(0xFB7CF1DE938A3E22, p0); } // 0xFB7CF1DE938A3E22 b1207
+	NATIVE_DECL void PERSISTENCE_ADD_SCENARIO_LOOTED(int scenario) { invoke<Void>(0x8245C1F3262F4AC2, scenario); } // 0x8245C1F3262F4AC2 b1207
+	NATIVE_DECL BOOL _PERSISTENCE_IS_SCENARIO_MARKED_AS_LOOTED(int scenario) { return invoke<BOOL>(0xFB7CF1DE938A3E22, scenario); } // 0xFB7CF1DE938A3E22 b1207
 	NATIVE_DECL Any _0xB6E1A185C2B9319A(Any p0, Any p1, Any p2) { return invoke<Any>(0xB6E1A185C2B9319A, p0, p1, p2); } // 0xB6E1A185C2B9319A b1207
 	NATIVE_DECL Any _0x188313616D184213(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0x188313616D184213, p0, p1, p2, p3); } // 0x188313616D184213 b1207
 	NATIVE_DECL void _0x66DAA3A9274E8E82() { invoke<Void>(0x66DAA3A9274E8E82); } // 0x66DAA3A9274E8E82 b1232
@@ -6465,7 +6774,7 @@ namespace PHYSICS
 	NATIVE_DECL void DELETE_ROPE(int* ropeId) { invoke<Void>(0x52B4829281364649, ropeId); } // 0x52B4829281364649 0x748D72AF b1207
 	NATIVE_DECL void _0x6076213101A47B3B(Any p0) { invoke<Void>(0x6076213101A47B3B, p0); } // 0x6076213101A47B3B b1207
 	NATIVE_DECL void DELETE_CHILD_ROPE(int ropeId) { invoke<Void>(0xAA5D6B1888E4DB20, ropeId); } // 0xAA5D6B1888E4DB20 0xB19B4706 b1207
-	NATIVE_DECL void _0x4CFA2B7FAE115ECB(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { invoke<Void>(0x4CFA2B7FAE115ECB, p0, p1, p2, p3, p4, p5, p6); } // 0x4CFA2B7FAE115ECB b1207
+	NATIVE_DECL void _BREAK_ROPE(int* ropeId, Any* p1, Any* p2, float p3, float p4, float p5, int p6) { invoke<Void>(0x4CFA2B7FAE115ECB, ropeId, p1, p2, p3, p4, p5, p6); } // 0x4CFA2B7FAE115ECB b1207
 	NATIVE_DECL BOOL DOES_ROPE_EXIST(int ropeId) { return invoke<BOOL>(0xFD5448BE3111ED96, ropeId); } // 0xFD5448BE3111ED96 0x66E4A3AC b1207
 	NATIVE_DECL Any _0x79C2BEC82CFD7F7F(Any p0) { return invoke<Any>(0x79C2BEC82CFD7F7F, p0); } // 0x79C2BEC82CFD7F7F b1207
 	NATIVE_DECL void _0x7A54D82227A139DB(int* ropeId, Any p1) { invoke<Void>(0x7A54D82227A139DB, ropeId, p1); } // 0x7A54D82227A139DB b1207
@@ -6475,19 +6784,19 @@ namespace PHYSICS
 	NATIVE_DECL void _0x9C24846D0A4A2776(Any p0) { invoke<Void>(0x9C24846D0A4A2776, p0); } // 0x9C24846D0A4A2776 b1207
 	NATIVE_DECL void _0x0CB16D05E03FB525(Any p0) { invoke<Void>(0x0CB16D05E03FB525, p0); } // 0x0CB16D05E03FB525 b1207
 	NATIVE_DECL void _0xF27F1A8DE4F50A1B(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { invoke<Void>(0xF27F1A8DE4F50A1B, p0, p1, p2, p3, p4, p5, p6); } // 0xF27F1A8DE4F50A1B b1207
-	NATIVE_DECL void _0x21D0890D88DFB0B0(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { invoke<Void>(0x21D0890D88DFB0B0, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); } // 0x21D0890D88DFB0B0 b1207
+	NATIVE_DECL void _0x21D0890D88DFB0B0(int ropeId, BOOL p1, float p2, float p3, float p4, float p5, float p6, float p7, float p8, float p9, int p10) { invoke<Void>(0x21D0890D88DFB0B0, ropeId, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); } // 0x21D0890D88DFB0B0 b1207
 	// Attaches entity 1 to entity 2.
 	NATIVE_DECL void ATTACH_ENTITIES_TO_ROPE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12, Any p13, Any p14, Any p15, Any p16, Any p17, Any p18, Any p19, Any p20) { invoke<Void>(0x3D95EC8B6D940AC3, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20); } // 0x3D95EC8B6D940AC3 0x7508668F b1207
-	// Attaches a rope to two entities.
-	NATIVE_DECL void _0x462FF2A432733A44(int ropeId, Entity entity1, Entity entity2, float ent1X, float ent1Y, float ent1Z, float ent2X, float ent2Y, float ent2Z, const char* boneName1, const char* boneName2) { invoke<Void>(0x462FF2A432733A44, ropeId, entity1, entity2, ent1X, ent1Y, ent1Z, ent2X, ent2Y, ent2Z, boneName1, boneName2); } // 0x462FF2A432733A44 b1207
+	// Attaches a rope to two entities: binds two bones from two entities; one entity can be an object, i.e. a suspension point, the other an NPC bone
+	NATIVE_DECL void _ATTACH_ENTITIES_TO_ROPE_2(int ropeId, Entity entity1, Entity entity2, float ent1X, float ent1Y, float ent1Z, float ent2X, float ent2Y, float ent2Z, const char* boneName1, const char* boneName2) { invoke<Void>(0x462FF2A432733A44, ropeId, entity1, entity2, ent1X, ent1Y, ent1Z, ent2X, ent2Y, ent2Z, boneName1, boneName2); } // 0x462FF2A432733A44 b1207
 	NATIVE_DECL void _0xE9CD9A67834985A7(int ropeId, Entity entity1, Entity entity2, float p3, float p4, float p5, float p6, float p7, float p8, Any p9, Any p10) { invoke<Void>(0xE9CD9A67834985A7, ropeId, entity1, entity2, p3, p4, p5, p6, p7, p8, p9, p10); } // 0xE9CD9A67834985A7 b1207
 	NATIVE_DECL void _0x69C810B72291D831(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { invoke<Void>(0x69C810B72291D831, p0, p1, p2, p3, p4, p5, p6); } // 0x69C810B72291D831 b1207
 	NATIVE_DECL void _0xB7469CB9AC3C0FD4(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { invoke<Void>(0xB7469CB9AC3C0FD4, p0, p1, p2, p3, p4, p5, p6, p7); } // 0xB7469CB9AC3C0FD4 b1207
 	NATIVE_DECL void _0xC64E7A62632AD2FE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { invoke<Void>(0xC64E7A62632AD2FE, p0, p1, p2, p3, p4, p5, p6, p7); } // 0xC64E7A62632AD2FE b1207
 	NATIVE_DECL Any _0x9B4F7E3E4F9C77B3(Any p0, Any p1) { return invoke<Any>(0x9B4F7E3E4F9C77B3, p0, p1); } // 0x9B4F7E3E4F9C77B3 b1207
 	NATIVE_DECL void DETACH_ROPE_FROM_ENTITY(int ropeId, Entity entity) { invoke<Void>(0xBCF3026912A8647D, ropeId, entity); } // 0xBCF3026912A8647D 0x3E720BEE b1207
-	NATIVE_DECL void _0x06AADE17334F7A40(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x06AADE17334F7A40, p0, p1, p2, p3); } // 0x06AADE17334F7A40 b1207
-	NATIVE_DECL void _0x0348469DAA17576C(Any p0) { invoke<Void>(0x0348469DAA17576C, p0); } // 0x0348469DAA17576C b1207
+	NATIVE_DECL void _HITCH_HORSE(Ped horse, float x, float y, float z) { invoke<Void>(0x06AADE17334F7A40, horse, x, y, z); } // 0x06AADE17334F7A40 b1207
+	NATIVE_DECL void _UNHITCH_HORSE(Ped horse) { invoke<Void>(0x0348469DAA17576C, horse); } // 0x0348469DAA17576C b1207
 	NATIVE_DECL void _0x6EA0E93CFFA472CC(Any p0) { invoke<Void>(0x6EA0E93CFFA472CC, p0); } // 0x6EA0E93CFFA472CC b1207
 	NATIVE_DECL void _0xBDDA142759307528(Any p0) { invoke<Void>(0xBDDA142759307528, p0); } // 0xBDDA142759307528 b1207
 	NATIVE_DECL void _0x32F4DBFDFCCCC735(Any p0, Any p1, Any p2) { invoke<Void>(0x32F4DBFDFCCCC735, p0, p1, p2); } // 0x32F4DBFDFCCCC735 b1207
@@ -6497,12 +6806,13 @@ namespace PHYSICS
 	NATIVE_DECL void _0x5E981C764DF33117(Any p0, Any p1) { invoke<Void>(0x5E981C764DF33117, p0, p1); } // 0x5E981C764DF33117 b1207
 	NATIVE_DECL void ROPE_SET_UPDATE_ORDER(int ropeId, Any p1) { invoke<Void>(0xDC57A637A20006ED, ropeId, p1); } // 0xDC57A637A20006ED 0x80DB77A7 b1207
 	NATIVE_DECL void _0xFB9153A54AC713E8(Any p0, Any p1) { invoke<Void>(0xFB9153A54AC713E8, p0, p1); } // 0xFB9153A54AC713E8 b1207
-	NATIVE_DECL void _0xD699E688B49C0FD2(int ropeId, float p1, Any p2, Any p3, Any p4) { invoke<Void>(0xD699E688B49C0FD2, ropeId, p1, p2, p3, p4); } // 0xD699E688B49C0FD2 b1207
-	NATIVE_DECL void _0xBB3E9B073E66C3C9(int ropeId, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0xBB3E9B073E66C3C9, ropeId, p1, p2, p3, p4); } // 0xBB3E9B073E66C3C9 b1207
+	NATIVE_DECL void _0xD699E688B49C0FD2(int ropeId, float p1, float p2, float p3, BOOL p4) { invoke<Void>(0xD699E688B49C0FD2, ropeId, p1, p2, p3, p4); } // 0xD699E688B49C0FD2 b1207
+	NATIVE_DECL void _0xBB3E9B073E66C3C9(int ropeId, BOOL p1, BOOL p2, BOOL p3, BOOL p4) { invoke<Void>(0xBB3E9B073E66C3C9, ropeId, p1, p2, p3, p4); } // 0xBB3E9B073E66C3C9 b1207
 	NATIVE_DECL void _0x522FA3F490E2F7AC(int ropeId, Any p1, Any p2) { invoke<Void>(0x522FA3F490E2F7AC, ropeId, p1, p2); } // 0x522FA3F490E2F7AC b1207
 	NATIVE_DECL void _0x3900491C0D61ED4B(Any p0, Any p1) { invoke<Void>(0x3900491C0D61ED4B, p0, p1); } // 0x3900491C0D61ED4B b1207
 	NATIVE_DECL void _0xC89E7410A93AC19A(int ropeId, float p1) { invoke<Void>(0xC89E7410A93AC19A, ropeId, p1); } // 0xC89E7410A93AC19A b1207
 	NATIVE_DECL void _0x1D97DA8ACB5D2582(int ropeId, int p1) { invoke<Void>(0x1D97DA8ACB5D2582, ropeId, p1); } // 0x1D97DA8ACB5D2582 b1207
+	// Combining this with ADD_ROPE enables winding
 	NATIVE_DECL void _0x3C6490D940FF5D0B(int ropeId, Any p1, const char* p2, float length, BOOL p4) { invoke<Void>(0x3C6490D940FF5D0B, ropeId, p1, p2, length, p4); } // 0x3C6490D940FF5D0B b1207
 	NATIVE_DECL Vector3 GET_ROPE_LAST_VERTEX_COORD(int ropeId) { return invoke<Vector3>(0x21BB0FBD3E217C2D, ropeId); } // 0x21BB0FBD3E217C2D 0x91F6848B b1207
 	NATIVE_DECL Vector3 GET_ROPE_VERTEX_COORD(int ropeId, int vertex) { return invoke<Vector3>(0xEA61CA8E80F09E4D, ropeId, vertex); } // 0xEA61CA8E80F09E4D 0x84374452 b1207
@@ -6512,7 +6822,7 @@ namespace PHYSICS
 	NATIVE_DECL void STOP_ROPE_UNWINDING_FRONT(int ropeId) { invoke<Void>(0xFFF3A50779EFBBB3, ropeId); } // 0xFFF3A50779EFBBB3 0x2EEDB18F b1207
 	NATIVE_DECL void _0x00F611A794A3C36E(Any p0) { invoke<Void>(0x00F611A794A3C36E, p0); } // 0x00F611A794A3C36E b1207
 	NATIVE_DECL void _0x10DAA76CB8A201A1(Any p0) { invoke<Void>(0x10DAA76CB8A201A1, p0); } // 0x10DAA76CB8A201A1 b1207
-	NATIVE_DECL void _0x461FCBDEB4D06717(Any p0, Any p1) { invoke<Void>(0x461FCBDEB4D06717, p0, p1); } // 0x461FCBDEB4D06717 b1207
+	NATIVE_DECL void _0x461FCBDEB4D06717(int ropeId, BOOL p1) { invoke<Void>(0x461FCBDEB4D06717, ropeId, p1); } // 0x461FCBDEB4D06717 b1207
 	NATIVE_DECL void _0x423C6B1F3786D28B(Any p0, Any p1) { invoke<Void>(0x423C6B1F3786D28B, p0, p1); } // 0x423C6B1F3786D28B b1207
 	NATIVE_DECL void _0x76BAD9D538BCA1AA(int ropeId, float p1) { invoke<Void>(0x76BAD9D538BCA1AA, ropeId, p1); } // 0x76BAD9D538BCA1AA b1207
 	NATIVE_DECL void _0xB40EA9E0D2E2F7F3(int ropeId, float p1) { invoke<Void>(0xB40EA9E0D2E2F7F3, ropeId, p1); } // 0xB40EA9E0D2E2F7F3 b1207
@@ -6520,11 +6830,12 @@ namespace PHYSICS
 	NATIVE_DECL void _0x751DF00EEFF122E3(Any p0) { invoke<Void>(0x751DF00EEFF122E3, p0); } // 0x751DF00EEFF122E3 b1207
 	// Forces a rope to a certain length.
 	NATIVE_DECL void ROPE_FORCE_LENGTH(int ropeId, float length) { invoke<Void>(0xD009F759A723DB1B, ropeId, length); } // 0xD009F759A723DB1B 0xABF3130F b1207
-	NATIVE_DECL void _0x8D59079C37C21D78(Any p0, Any p1) { invoke<Void>(0x8D59079C37C21D78, p0, p1); } // 0x8D59079C37C21D78 b1207
+	// _ROPE_SET_*
+	NATIVE_DECL void _0x8D59079C37C21D78(int ropeId, float p1) { invoke<Void>(0x8D59079C37C21D78, ropeId, p1); } // 0x8D59079C37C21D78 b1207
 	NATIVE_DECL void _0x814D453FCFDF119F(Any p0, Any p1, Any p2) { invoke<Void>(0x814D453FCFDF119F, p0, p1, p2); } // 0x814D453FCFDF119F b1207
 	NATIVE_DECL void _0x1FC92BDBA1106BD2(Any p0, Any p1) { invoke<Void>(0x1FC92BDBA1106BD2, p0, p1); } // 0x1FC92BDBA1106BD2 b1207
 	NATIVE_DECL void _0xDEDE679ED29DD4E7(int ropeId, Any p1) { invoke<Void>(0xDEDE679ED29DD4E7, ropeId, p1); } // 0xDEDE679ED29DD4E7 b1207
-	NATIVE_DECL void _0xF1EA2A881EB7F2CD(int ropeId, Any p1) { invoke<Void>(0xF1EA2A881EB7F2CD, ropeId, p1); } // 0xF1EA2A881EB7F2CD b1207
+	NATIVE_DECL void _0xF1EA2A881EB7F2CD(int ropeId, BOOL p1) { invoke<Void>(0xF1EA2A881EB7F2CD, ropeId, p1); } // 0xF1EA2A881EB7F2CD b1207
 	NATIVE_DECL void _0x5A989B7EE3672A56(Any p0, Any p1) { invoke<Void>(0x5A989B7EE3672A56, p0, p1); } // 0x5A989B7EE3672A56 b1207
 	NATIVE_DECL void _0x483D4E917B0D35A9(Any p0, Any p1) { invoke<Void>(0x483D4E917B0D35A9, p0, p1); } // 0x483D4E917B0D35A9 b1207
 	NATIVE_DECL Any _0xEE360CFC80C8B2BC(Any p0) { return invoke<Any>(0xEE360CFC80C8B2BC, p0); } // 0xEE360CFC80C8B2BC b1311
@@ -6541,13 +6852,14 @@ namespace PLAYER
 {
 	NATIVE_DECL Ped GET_PLAYER_PED(Player player) { return invoke<Ped>(0x275F255ED201B937, player); } // 0x275F255ED201B937 0x6E31E993 b1207
 	NATIVE_DECL Ped _GET_PLAYER_PED_2(Player player) { return invoke<Ped>(0x5EBE38A20BC51C27, player); } // 0x5EBE38A20BC51C27 b1207
+	// Only used in script function UPDATE_PLAYER_JUST_DIED_STATE
 	NATIVE_DECL void _0x325434C68358D282(BOOL toggle) { invoke<Void>(0x325434C68358D282, toggle); } // 0x325434C68358D282 b1207
 	// Does the same like PLAYER::GET_PLAYER_PED
 	NATIVE_DECL Ped GET_PLAYER_PED_SCRIPT_INDEX(Player player) { return invoke<Ped>(0x5C880F9056D784C8, player); } // 0x5C880F9056D784C8 0x6AC64990 b1207
 	// Make sure to request the model first and wait until it has loaded.
 	NATIVE_DECL void SET_PLAYER_MODEL(Player player, Hash modelHash, BOOL p2) { invoke<Void>(0xED40380076A31506, player, modelHash, p2); } // 0xED40380076A31506 0x774A4C54 b1207
 	// Returns true if the given player has a valid ped.
-	NATIVE_DECL BOOL _0x0760D6F70EBCC05C(Player player) { return invoke<BOOL>(0x0760D6F70EBCC05C, player); } // 0x0760D6F70EBCC05C b1207
+	NATIVE_DECL BOOL _NETWORK_HAS_PLAYER_VALID_PED(Player player) { return invoke<BOOL>(0x0760D6F70EBCC05C, player); } // 0x0760D6F70EBCC05C b1207
 	// Gets the player's team.
 	// Returns -1 in singleplayer.
 	NATIVE_DECL int GET_PLAYER_TEAM(Player player) { return invoke<int>(0xB464EB6A40C7975B, player); } // 0xB464EB6A40C7975B 0x9873E404 b1207
@@ -6563,7 +6875,7 @@ namespace PLAYER
 	// nullsub, doesn't do anything
 	NATIVE_DECL void CLEAR_PLAYER_WANTED_LEVEL(Player player) { invoke<Void>(0x4E4B996C928C7AA6, player); } // 0x4E4B996C928C7AA6 0x54EA5BCC b1207
 	NATIVE_DECL BOOL IS_PLAYER_DEAD(Player player) { return invoke<BOOL>(0x2E9C3FCB6798F397, player); } // 0x2E9C3FCB6798F397 0x140CA5A8 b1207
-	NATIVE_DECL void SET_PLAYER_CONTROL(Player player, BOOL toggle, int flags, BOOL p3) { invoke<Void>(0x4D51E59243281D80, player, toggle, flags, p3); } // 0x4D51E59243281D80 0xD17AFCD8 b1207
+	NATIVE_DECL void SET_PLAYER_CONTROL(Player player, BOOL toggle, int flags, BOOL bPreventHeadingChange) { invoke<Void>(0x4D51E59243281D80, player, toggle, flags, bPreventHeadingChange); } // 0x4D51E59243281D80 0xD17AFCD8 b1207
 	NATIVE_DECL int GET_PLAYER_WANTED_LEVEL(Player player) { return invoke<int>(0xABC532F9098BFD9D, player); } // 0xABC532F9098BFD9D 0xBDCDD163 b1207
 	NATIVE_DECL void SET_MAX_WANTED_LEVEL(int maxWantedLevel) { invoke<Void>(0x28A4BD2CEE236E19, maxWantedLevel); } // 0x28A4BD2CEE236E19 0x665A06F5 b1207
 	NATIVE_DECL void _SET_MAX_WANTED_LEVEL_2(int maxWantedLevel) { invoke<Void>(0xEA6DE0CD15AECBE2, maxWantedLevel); } // 0xEA6DE0CD15AECBE2 b1207
@@ -6577,12 +6889,14 @@ namespace PLAYER
 	NATIVE_DECL BOOL IS_PLAYER_PLAYING(Player player) { return invoke<BOOL>(0xBFFB35986CAAE58C, player); } // 0xBFFB35986CAAE58C 0xE15D777F b1207
 	NATIVE_DECL void SET_EVERYONE_IGNORE_PLAYER(Player player, BOOL toggle) { invoke<Void>(0x34630A768925B852, player, toggle); } // 0x34630A768925B852 0xC915285E b1207
 	NATIVE_DECL BOOL GET_IS_PLAYER_UI_PROMPT_ACTIVE(Player player, int p1) { return invoke<BOOL>(0x51BEA356B1C60225, player, p1); } // 0x51BEA356B1C60225 b1207
-	// Params: p1 is mostly 34, p2 = 0
-	NATIVE_DECL void _0x0751D461F06E41CE(Player player, int p1, int p2, BOOL enabled) { invoke<Void>(0x0751D461F06E41CE, player, p1, p2, enabled); } // 0x0751D461F06E41CE b1207
-	NATIVE_DECL Any _0x6614F9039BD31931(Player player, int p1, int p2) { return invoke<Any>(0x6614F9039BD31931, player, p1, p2); } // 0x6614F9039BD31931 b1207
-	NATIVE_DECL void _0xA3DB37EDF9A74635(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0xA3DB37EDF9A74635, p0, p1, p2, p3, p4); } // 0xA3DB37EDF9A74635 b1207
-	NATIVE_DECL Any _0xEA8F168A76A0B9BC(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0xEA8F168A76A0B9BC, p0, p1, p2, p3); } // 0xEA8F168A76A0B9BC b1207
-	NATIVE_DECL void _0x93624B36E8851B42(Any p0) { invoke<Void>(0x93624B36E8851B42, p0); } // 0x93624B36E8851B42 b1207
+	// Params: promptType is mostly 34 (PP_TRACK_ANIMAL), promptMode = 0 (PP_MODE_BLOCK) in R* Scripts
+	NATIVE_DECL void _MODIFY_PLAYER_UI_PROMPT(Player player, int promptType, int promptMode, BOOL disabled) { invoke<Void>(0x0751D461F06E41CE, player, promptType, promptMode, disabled); } // 0x0751D461F06E41CE b1207
+	// Returns false if PromptType is enabled
+	NATIVE_DECL BOOL _GET_PLAYER_UI_PROMPT_IS_DISABLED(Player player, int promptType, int promptMode) { return invoke<BOOL>(0x6614F9039BD31931, player, promptType, promptMode); } // 0x6614F9039BD31931 b1207
+	NATIVE_DECL void _MODIFY_PLAYER_UI_PROMPT_FOR_PED(Player player, Ped ped, int promptType, int promptMode, BOOL enabled) { invoke<Void>(0xA3DB37EDF9A74635, player, ped, promptType, promptMode, enabled); } // 0xA3DB37EDF9A74635 b1207
+	// Returns true if PromptType is enabled for ped (mount)
+	NATIVE_DECL BOOL _GET_PLAYER_UI_PROMPT_FOR_PED_IS_ENABLED(Player player, Ped ped, int promptType, int promptMode) { return invoke<BOOL>(0xEA8F168A76A0B9BC, player, ped, promptType, promptMode); } // 0xEA8F168A76A0B9BC b1207
+	NATIVE_DECL void _0x93624B36E8851B42(Player player) { invoke<Void>(0x93624B36E8851B42, player); } // 0x93624B36E8851B42 b1207
 	NATIVE_DECL void _0x9073EC5456651A90(Any p0, Any p1) { invoke<Void>(0x9073EC5456651A90, p0, p1); } // 0x9073EC5456651A90 b1207
 	NATIVE_DECL void _0x2E67707BEC52CA4B(Any p0) { invoke<Void>(0x2E67707BEC52CA4B, p0); } // 0x2E67707BEC52CA4B b1207
 	NATIVE_DECL void SET_ALL_RANDOM_PEDS_FLEE(Player player, BOOL toggle) { invoke<Void>(0xE705309B8C6445A4, player, toggle); } // 0xE705309B8C6445A4 0x49EAE968 b1207
@@ -6603,18 +6917,23 @@ namespace PLAYER
 	NATIVE_DECL BOOL IS_PLAYER_READY_FOR_CUTSCENE(Player player) { return invoke<BOOL>(0xAA67BCB0097F2FA3, player); } // 0xAA67BCB0097F2FA3 0xBB77E9CD b1207
 	NATIVE_DECL BOOL IS_PLAYER_TARGETTING_ENTITY(Player player, Entity entity, BOOL p2) { return invoke<BOOL>(0x27F89FDC16688A7A, player, entity, p2); } // 0x27F89FDC16688A7A 0xF3240B77 b1207
 	NATIVE_DECL BOOL GET_PLAYER_TARGET_ENTITY(Player player, Entity* entity) { return invoke<BOOL>(0xAE663DDD99C8A670, player, entity); } // 0xAE663DDD99C8A670 0xF6AAA2D7 b1207
-	NATIVE_DECL Any _0x927861B2C08DBEA5(Any p0) { return invoke<Any>(0x927861B2C08DBEA5, p0); } // 0x927861B2C08DBEA5 b1207
+	// _GET_A* - _GET_C*
+	NATIVE_DECL BOOL _0x927861B2C08DBEA5(Player player) { return invoke<BOOL>(0x927861B2C08DBEA5, player); } // 0x927861B2C08DBEA5 b1207
+	// Checks if player is focused on any entity
 	NATIVE_DECL BOOL _IS_PLAYER_FREE_FOCUSING(Player player) { return invoke<BOOL>(0x1A51BFE60708E482, player); } // 0x1A51BFE60708E482 b1207
 	NATIVE_DECL BOOL GET_PLAYER_INTERACTION_TARGET_ENTITY(Player player, Entity* outEntity, BOOL p2, BOOL p3) { return invoke<BOOL>(0x3EE1F7A8C32F24E1, player, outEntity, p2, p3); } // 0x3EE1F7A8C32F24E1 b1207
+	// _GET_PLAYER_I*
 	NATIVE_DECL Any _0xBEA3A6E5F5F79A6F(Any p0, Any p1) { return invoke<Any>(0xBEA3A6E5F5F79A6F, p0, p1); } // 0xBEA3A6E5F5F79A6F b1207
-	NATIVE_DECL Any _0x04D7F33640662FA2(Any p0) { return invoke<Any>(0x04D7F33640662FA2, p0); } // 0x04D7F33640662FA2 b1207
+	NATIVE_DECL BOOL _IS_PLAYER_IN_SCOPE(Player player) { return invoke<BOOL>(0x04D7F33640662FA2, player); } // 0x04D7F33640662FA2 b1207
 	// Gets a value indicating whether the specified player is currently aiming freely.
 	NATIVE_DECL BOOL IS_PLAYER_FREE_AIMING(Player player) { return invoke<BOOL>(0x936F967D4BE1CE9D, player); } // 0x936F967D4BE1CE9D 0x1DEC67B7 b1207
 	// Gets a value indicating whether the specified player is currently aiming freely at the specified entity.
 	NATIVE_DECL BOOL IS_PLAYER_FREE_AIMING_AT_ENTITY(Player player, Entity entity) { return invoke<BOOL>(0x8C67C11C68713D25, player, entity); } // 0x8C67C11C68713D25 0x7D80EEAA b1207
 	NATIVE_DECL BOOL GET_ENTITY_PLAYER_IS_FREE_AIMING_AT(Player player, Entity* entity) { return invoke<BOOL>(0xA6817C110B830EAD, player, entity); } // 0xA6817C110B830EAD 0x8866D9D0 b1207
 	NATIVE_DECL void _0x3DAABE78A23694BC(Any p0, Any p1) { invoke<Void>(0x3DAABE78A23694BC, p0, p1); } // 0x3DAABE78A23694BC b1207
-	NATIVE_DECL Any _0x7AE93C45EC14A166(Any p0, Any p1) { return invoke<Any>(0x7AE93C45EC14A166, p0, p1); } // 0x7AE93C45EC14A166 b1207
+	// Only used in script function PROCESS_PED_INTERRUPT_DIALOGUE
+	// _GET_PLAYER_*
+	NATIVE_DECL BOOL _0x7AE93C45EC14A166(Player player, Ped* ped) { return invoke<BOOL>(0x7AE93C45EC14A166, player, ped); } // 0x7AE93C45EC14A166 b1207
 	// Affects the range of auto aim target.
 	NATIVE_DECL void SET_PLAYER_LOCKON_RANGE_OVERRIDE(Player player, float range) { invoke<Void>(0x3A3CD06597388322, player, range); } // 0x3A3CD06597388322 0x74D42C03 b1207
 	// Sets whether this player can be hassled by gangs.
@@ -6622,10 +6941,11 @@ namespace PLAYER
 	// Sets whether this player can take cover.
 	NATIVE_DECL void SET_PLAYER_CAN_USE_COVER(Player player, BOOL toggle) { invoke<Void>(0x5EDA520F7A3BAF4E, player, toggle); } // 0x5EDA520F7A3BAF4E 0x13CAFAFA b1207
 	NATIVE_DECL void _0xD1A70C1E8D1031FE(Any p0, Any p1) { invoke<Void>(0xD1A70C1E8D1031FE, p0, p1); } // 0xD1A70C1E8D1031FE b1207
-	NATIVE_DECL void _0xACA45DDCEF6071C4(Any p0, Any p1) { invoke<Void>(0xACA45DDCEF6071C4, p0, p1); } // 0xACA45DDCEF6071C4 b1207
-	NATIVE_DECL void _0xA0C683284DF027C7(Any p0, Any p1, Any p2) { invoke<Void>(0xA0C683284DF027C7, p0, p1, p2); } // 0xA0C683284DF027C7 b1207
+	NATIVE_DECL void _0xACA45DDCEF6071C4(Player player, BOOL p1) { invoke<Void>(0xACA45DDCEF6071C4, player, p1); } // 0xACA45DDCEF6071C4 b1207
+	// Params: p1 is mostly 15, sometimes 1 in R* Scripts (Function: PLAYER_TOGGLE_PICK_UP_HATS)
+	NATIVE_DECL void _0xA0C683284DF027C7(Player player, int p1, BOOL enable) { invoke<Void>(0xA0C683284DF027C7, player, p1, enable); } // 0xA0C683284DF027C7 b1207
 	NATIVE_DECL void _SET_PLAYER_CAN_MERCY_KILL(Player player, BOOL toggle) { invoke<Void>(0x39363DFD04E91496, player, toggle); } // 0x39363DFD04E91496 b1311
-	NATIVE_DECL void _0x4EC8BE63B8A5D4EF(Any p0, Any p1) { invoke<Void>(0x4EC8BE63B8A5D4EF, p0, p1); } // 0x4EC8BE63B8A5D4EF b1207
+	NATIVE_DECL void _0x4EC8BE63B8A5D4EF(Player player, int p1) { invoke<Void>(0x4EC8BE63B8A5D4EF, player, p1); } // 0x4EC8BE63B8A5D4EF b1207
 	// Gets the maximum wanted level the player can get.
 	// Ranges from 0 to 5.
 	NATIVE_DECL int GET_MAX_WANTED_LEVEL() { return invoke<int>(0xD04CFAD1E2B7984A); } // 0xD04CFAD1E2B7984A 0x457F1E44 b1207
@@ -6644,15 +6964,16 @@ namespace PLAYER
 	NATIVE_DECL void _0xBA5CA1FEB5DE0DF6(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0xBA5CA1FEB5DE0DF6, p0, p1, p2, p3, p4, p5); } // 0xBA5CA1FEB5DE0DF6 b1207
 	NATIVE_DECL void _0x0869D499A7848309(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { invoke<Void>(0x0869D499A7848309, p0, p1, p2, p3, p4, p5, p6, p7); } // 0x0869D499A7848309 b1207
 	NATIVE_DECL Any _0xB331D8A73F9D2BDF(Any p0, Any p1) { return invoke<Any>(0xB331D8A73F9D2BDF, p0, p1); } // 0xB331D8A73F9D2BDF b1207
-	NATIVE_DECL void _0xAC22AA6DF4D1C1DE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { invoke<Void>(0xAC22AA6DF4D1C1DE, p0, p1, p2, p3, p4, p5, p6); } // 0xAC22AA6DF4D1C1DE b1207
-	NATIVE_DECL void _0x0C6B89876262A99D(Any p0, Any p1) { invoke<Void>(0x0C6B89876262A99D, p0, p1); } // 0x0C6B89876262A99D b1207
+	// Used in script function: NET_AUTO_FOLLOW_UPDATE_LEADER_VALUES
+	NATIVE_DECL void _0xAC22AA6DF4D1C1DE(Player player, Ped ped, float p2, float p3, Any followMode, Any followPriority, Any p6) { invoke<Void>(0xAC22AA6DF4D1C1DE, player, ped, p2, p3, followMode, followPriority, p6); } // 0xAC22AA6DF4D1C1DE b1207
+	NATIVE_DECL void _REMOVE_PLAYER_AS_FOLLOW_TARGET(Player player, Ped ped) { invoke<Void>(0x0C6B89876262A99D, player, ped); } // 0x0C6B89876262A99D b1207
 	NATIVE_DECL void _0x12E09E278C6C29B7(Any p0) { invoke<Void>(0x12E09E278C6C29B7, p0); } // 0x12E09E278C6C29B7 b1207
-	NATIVE_DECL void _0xDD33A82352C4652F(Any p0, Any p1, Any p2) { invoke<Void>(0xDD33A82352C4652F, p0, p1, p2); } // 0xDD33A82352C4652F b1207
-	NATIVE_DECL void _0x1FDA57E8908F2609(Any p0, Any p1, Any p2) { invoke<Void>(0x1FDA57E8908F2609, p0, p1, p2); } // 0x1FDA57E8908F2609 b1207
-	NATIVE_DECL void _0x84481018E668E1B8(Any p0, Any p1, Any p2) { invoke<Void>(0x84481018E668E1B8, p0, p1, p2); } // 0x84481018E668E1B8 b1207
+	NATIVE_DECL void _0xDD33A82352C4652F(Player player, Ped ped, Any p2) { invoke<Void>(0xDD33A82352C4652F, player, ped, p2); } // 0xDD33A82352C4652F b1207
+	NATIVE_DECL void _0x1FDA57E8908F2609(Player player, Ped ped, BOOL useSteerassist) { invoke<Void>(0x1FDA57E8908F2609, player, ped, useSteerassist); } // 0x1FDA57E8908F2609 b1207
+	NATIVE_DECL void _0x84481018E668E1B8(Player player, Ped ped, Any p2) { invoke<Void>(0x84481018E668E1B8, player, ped, p2); } // 0x84481018E668E1B8 b1207
 	NATIVE_DECL Any _0x2009F8AB7A5E9D6D(Any p0) { return invoke<Any>(0x2009F8AB7A5E9D6D, p0); } // 0x2009F8AB7A5E9D6D b1207
-	NATIVE_DECL Any _0xE24C64D9ADED2EF5(Any p0, Any p1) { return invoke<Any>(0xE24C64D9ADED2EF5, p0, p1); } // 0xE24C64D9ADED2EF5 b1207
-	NATIVE_DECL Any _0xE7F8707269544B29(Any p0, Any p1) { return invoke<Any>(0xE7F8707269544B29, p0, p1); } // 0xE7F8707269544B29 b1207
+	NATIVE_DECL BOOL _IS_PLAYER_FOLLOWING_TARGET(Player player, Ped ped) { return invoke<BOOL>(0xE24C64D9ADED2EF5, player, ped); } // 0xE24C64D9ADED2EF5 b1207
+	NATIVE_DECL BOOL _0xE7F8707269544B29(Player player, Ped ped) { return invoke<BOOL>(0xE7F8707269544B29, player, ped); } // 0xE7F8707269544B29 b1207
 	NATIVE_DECL Any _0xE631EAF35828FA67(Any p0) { return invoke<Any>(0xE631EAF35828FA67, p0); } // 0xE631EAF35828FA67 b1207
 	NATIVE_DECL void _0x086549F3B0381CB1(Any p0, Any p1) { invoke<Void>(0x086549F3B0381CB1, p0, p1); } // 0x086549F3B0381CB1 b1207
 	// Returns whether the player can control himself.
@@ -6675,7 +6996,7 @@ namespace PLAYER
 	NATIVE_DECL Any _0xDAB6A2FC56B7DE65(Any p0) { return invoke<Any>(0xDAB6A2FC56B7DE65, p0); } // 0xDAB6A2FC56B7DE65 b1207
 	NATIVE_DECL Any _0x0F4EAF69DA41AF43(Any p0) { return invoke<Any>(0x0F4EAF69DA41AF43, p0); } // 0x0F4EAF69DA41AF43 b1207
 	NATIVE_DECL void _0x6ADF821FBF21920E(Any p0, Any p1) { invoke<Void>(0x6ADF821FBF21920E, p0, p1); } // 0x6ADF821FBF21920E b1207
-	NATIVE_DECL void _0x8F2A81C09DA9124A(Any p0) { invoke<Void>(0x8F2A81C09DA9124A, p0); } // 0x8F2A81C09DA9124A b1207
+	NATIVE_DECL void _CLEAR_BOUNTY_TARGET(Player player) { invoke<Void>(0x8F2A81C09DA9124A, player); } // 0x8F2A81C09DA9124A b1207
 	NATIVE_DECL Vehicle GET_PLAYERS_LAST_VEHICLE() { return invoke<Vehicle>(0x2F96E7720B0B19EA); } // 0x2F96E7720B0B19EA 0xE2757AC1 b1207
 	// Returns the same as PLAYER_ID and NETWORK_PLAYER_ID_TO_INT
 	NATIVE_DECL Player GET_PLAYER_INDEX() { return invoke<Player>(0x47E385B0D957C8D4); } // 0x47E385B0D957C8D4 0x309BBDC1 b1207
@@ -6703,9 +7024,9 @@ namespace PLAYER
 	NATIVE_DECL void SET_PLAYER_MAY_NOT_ENTER_ANY_VEHICLE(Player player) { invoke<Void>(0xBEC463B3A11C909E, player); } // 0xBEC463B3A11C909E 0xAF7AFCC4 b1207
 	NATIVE_DECL BOOL IS_SYSTEM_UI_BEING_DISPLAYED() { return invoke<BOOL>(0x908258B6209E71F7); } // 0x908258B6209E71F7 0xE495B6DA b1207
 	NATIVE_DECL void _0xD48227263E3D06AE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { invoke<Void>(0xD48227263E3D06AE, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); } // 0xD48227263E3D06AE b1232
-	NATIVE_DECL void _0x3946FC742AC305CD(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { invoke<Void>(0x3946FC742AC305CD, p0, p1, p2, p3, p4, p5, p6, p7); } // 0x3946FC742AC305CD b1207
+	NATIVE_DECL void _0x3946FC742AC305CD(Player player, Ped ped, const char* p2, float x, float y, float z, Entity targetEntity, const char* p7) { invoke<Void>(0x3946FC742AC305CD, player, ped, p2, x, y, z, targetEntity, p7); } // 0x3946FC742AC305CD b1207
 	NATIVE_DECL void _0xA28056CD1B04B250(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { invoke<Void>(0xA28056CD1B04B250, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); } // 0xA28056CD1B04B250 b1232
-	NATIVE_DECL void _0xC67A4910425F11F1(Any p0, Any p1) { invoke<Void>(0xC67A4910425F11F1, p0, p1); } // 0xC67A4910425F11F1 b1207
+	NATIVE_DECL void _0xC67A4910425F11F1(Player player, Any p1) { invoke<Void>(0xC67A4910425F11F1, player, p1); } // 0xC67A4910425F11F1 b1207
 	// Simply sets you as invincible (Health will not deplete).
 	// 
 	// Use 0x733A643B5B0C53C1 instead if you want Ragdoll enabled, which is equal to:
@@ -6714,13 +7035,20 @@ namespace PLAYER
 	// Returns the player's invincibility status.
 	NATIVE_DECL BOOL GET_PLAYER_INVINCIBLE(Player player) { return invoke<BOOL>(0x0CBBCB2CCFA7DC4E, player); } // 0x0CBBCB2CCFA7DC4E 0x680C90EE b1207
 	NATIVE_DECL void SET_PLAYER_LOCKON(Player player, BOOL toggle) { invoke<Void>(0x462AA1973CBBA75E, player, toggle); } // 0x462AA1973CBBA75E 0x0B270E0F b1207
-	NATIVE_DECL void _0x4A056257802DD3E5(Player player, BOOL toggle) { invoke<Void>(0x4A056257802DD3E5, player, toggle); } // 0x4A056257802DD3E5 b1207
-	// Sets your targeting mode.
-	// 0 = Traditional GTA
-	// 1 = Assisted Aiming
-	// 2 = Free Aim
+	NATIVE_DECL void _SET_LOCKON_TO_FRIENDLY_PLAYERS(Player player, BOOL toggle) { invoke<Void>(0x4A056257802DD3E5, player, toggle); } // 0x4A056257802DD3E5 b1207
+	// Sets your targeting mode for when you're on foot.
+	// enum eTargetingMode
+	// {
+	// 	TARGETING_MODE_INVALID = -1,
+	// 	TARGETING_MODE_CAUSAL, (Wide)
+	// 	TARGETING_MODE_NORMAL,
+	// 	TARGETING_MODE_HARD, (Narrow)
+	// 	TARGETING_MODE_EXPERT (Free Aim)
+	// };
 	NATIVE_DECL void SET_PLAYER_TARGETING_MODE(int targetMode) { invoke<Void>(0xD66A941F401E7302, targetMode); } // 0xD66A941F401E7302 0x61CAE253 b1207
-	NATIVE_DECL void _0x19B4F71703902238(int targetMode) { invoke<Void>(0x19B4F71703902238, targetMode); } // 0x19B4F71703902238 b1207
+	// Sets your targeting mode for when you're in a vehicle (perhaps a mount/horse).
+	// see SET_PLAYER_TARGETING_MODE for eTargetingMode
+	NATIVE_DECL void _SET_PLAYER_IN_VEHICLE_TARGETING_MODE(int targetMode) { invoke<Void>(0x19B4F71703902238, targetMode); } // 0x19B4F71703902238 b1207
 	NATIVE_DECL Any _0x747257807B8721CE(Any p0, Any p1) { return invoke<Any>(0x747257807B8721CE, p0, p1); } // 0x747257807B8721CE b1207
 	NATIVE_DECL Any _0x8702D9150D9FBB3D(Any p0, Any p1) { return invoke<Any>(0x8702D9150D9FBB3D, p0, p1); } // 0x8702D9150D9FBB3D b1207
 	NATIVE_DECL void _0xCB0B9506BC91E441(Any p0, Any p1) { invoke<Void>(0xCB0B9506BC91E441, p0, p1); } // 0xCB0B9506BC91E441 b1207
@@ -6731,7 +7059,8 @@ namespace PLAYER
 	NATIVE_DECL void _0xEACEBAAE0A33FB3F(Any p0) { invoke<Void>(0xEACEBAAE0A33FB3F, p0); } // 0xEACEBAAE0A33FB3F b1207
 	NATIVE_DECL Any _0x72AD59F7B7FB6E24(Any p0, Any p1) { return invoke<Any>(0x72AD59F7B7FB6E24, p0, p1); } // 0x72AD59F7B7FB6E24 b1207
 	NATIVE_DECL Any _0x1A6E84F13C952094(Any p0, Any p1, Any p2) { return invoke<Any>(0x1A6E84F13C952094, p0, p1, p2); } // 0x1A6E84F13C952094 b1207
-	NATIVE_DECL void _0x78B3D19AF6391A55(Any p0, Any p1) { invoke<Void>(0x78B3D19AF6391A55, p0, p1); } // 0x78B3D19AF6391A55 b1207
+	// damageInfo: STANDARD_PED_DAMAGE, STANDARD_FEMALE_PED_DAMAGE, STANDARD_PLAYER_PED_DAMAGE_MP, STANDARD_FEMALE_PLAYER_PED_DAMAGE_MP
+	NATIVE_DECL void _SET_PLAYER_DAMAGE_INFO_OVERRIDE(Player player, const char* damageInfo) { invoke<Void>(0x78B3D19AF6391A55, player, damageInfo); } // 0x78B3D19AF6391A55 b1207
 	NATIVE_DECL void _0x1F488807BC8E0630(Any p0) { invoke<Void>(0x1F488807BC8E0630, p0); } // 0x1F488807BC8E0630 b1207
 	// This can be between 1.0f - 50.0f
 	NATIVE_DECL void SET_AIR_DRAG_MULTIPLIER_FOR_PLAYERS_VEHICLE(Player player, float multiplier) { invoke<Void>(0x5DA6500FE849DA16, player, multiplier); } // 0x5DA6500FE849DA16 0xF20F72E5 b1207
@@ -6748,45 +7077,63 @@ namespace PLAYER
 	NATIVE_DECL void _0xEBFF94328FF7A18A(Any p0, Any p1) { invoke<Void>(0xEBFF94328FF7A18A, p0, p1); } // 0xEBFF94328FF7A18A b1207
 	NATIVE_DECL void _0xF993373285053D77(Any p0, Any p1, Any p2) { invoke<Void>(0xF993373285053D77, p0, p1, p2); } // 0xF993373285053D77 b1207
 	NATIVE_DECL Any _0xE956C2340A76272E(Any p0) { return invoke<Any>(0xE956C2340A76272E, p0); } // 0xE956C2340A76272E b1207
-	NATIVE_DECL void _0x95EE1DEE1DCD9070(Player player, BOOL enable) { invoke<Void>(0x95EE1DEE1DCD9070, player, enable); } // 0x95EE1DEE1DCD9070 b1207
+	NATIVE_DECL void _ENABLE_CUSTOM_DEADEYE_ABILITY(Player player, BOOL enable) { invoke<Void>(0x95EE1DEE1DCD9070, player, enable); } // 0x95EE1DEE1DCD9070 b1207
 	NATIVE_DECL Any _0xDE6C85975F9D4894(Any p0) { return invoke<Any>(0xDE6C85975F9D4894, p0); } // 0xDE6C85975F9D4894 b1207
+	// Used in script function INIT_DEADEYE_SLOWDOWN
+	// _SPECIAL_ABILITY*
 	NATIVE_DECL void _0xBBA140062B15A8AC(Player player) { invoke<Void>(0xBBA140062B15A8AC, player); } // 0xBBA140062B15A8AC b1207
-	NATIVE_DECL void _0xAE637BB8EF017875(Player player, int p1) { invoke<Void>(0xAE637BB8EF017875, player, p1); } // 0xAE637BB8EF017875 b1207
-	NATIVE_DECL BOOL _0xB16223CB7DA965F0(Player player) { return invoke<BOOL>(0xB16223CB7DA965F0, player); } // 0xB16223CB7DA965F0 b1207
-	NATIVE_DECL void _0x28A13BF6B05C3D83(Ped ped, BOOL toggle) { invoke<Void>(0x28A13BF6B05C3D83, ped, toggle); } // 0x28A13BF6B05C3D83 b1207
-	NATIVE_DECL void _0xC0B21F235C02139C(Ped ped) { invoke<Void>(0xC0B21F235C02139C, ped); } // 0xC0B21F235C02139C b1207
-	NATIVE_DECL void _0x51345AE20F22C261(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x51345AE20F22C261, p0, p1, p2, p3, p4); } // 0x51345AE20F22C261 b1207
-	NATIVE_DECL void _0xFA437FA0738C370C(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0xFA437FA0738C370C, p0, p1, p2, p3, p4); } // 0xFA437FA0738C370C b1207
+	NATIVE_DECL void _SPECIAL_ABILITY_SET_DISABLED(Player player, BOOL disabled) { invoke<Void>(0xAE637BB8EF017875, player, disabled); } // 0xAE637BB8EF017875 b1207
+	NATIVE_DECL BOOL _IS_SPECIAL_ABILITY_ACTIVE(Player player) { return invoke<BOOL>(0xB16223CB7DA965F0, player); } // 0xB16223CB7DA965F0 b1207
+	// Toggle handles wether Deadeye and Eagleeye are infinite or not.
+	NATIVE_DECL void _MODIFY_INFINITE_TRAIL_VISION(Ped ped, BOOL toggle) { invoke<Void>(0x28A13BF6B05C3D83, ped, toggle); } // 0x28A13BF6B05C3D83 b1207
+	NATIVE_DECL void _SPECIAL_ABILITY_SET_EAGLE_EYE_DISABLED(Ped ped) { invoke<Void>(0xC0B21F235C02139C, ped); } // 0xC0B21F235C02139C b1207
+	// Restores Deadeye by given amount.
+	// Params: p2, p3, p4 = 0, 0, 1 in R* Scripts
+	NATIVE_DECL void _SPECIAL_ABILITY_RESTORE_BY_AMOUNT(Player player, float amount, int p2, int p3, int p4) { invoke<Void>(0x51345AE20F22C261, player, amount, p2, p3, p4); } // 0x51345AE20F22C261 b1207
+	// Params: p1, p2, p3, p4 = 1.f, 0, 0, 0 in R* Scripts
+	// _SPECIAL_ABILITY*
+	NATIVE_DECL void _0xFA437FA0738C370C(Player player, float p1, int p2, int p3, int p4) { invoke<Void>(0xFA437FA0738C370C, player, p1, p2, p3, p4); } // 0xFA437FA0738C370C b1207
+	// _SPECIAL_ABILITY*
 	NATIVE_DECL void _0x2498035289B5688F(Any p0, Any p1) { invoke<Void>(0x2498035289B5688F, p0, p1); } // 0x2498035289B5688F b1207
-	NATIVE_DECL Any _0x811A748B1BE231BA(Any p0) { return invoke<Any>(0x811A748B1BE231BA, p0); } // 0x811A748B1BE231BA b1207
-	NATIVE_DECL Any _0x029884FB65821B07(Any p0) { return invoke<Any>(0x029884FB65821B07, p0); } // 0x029884FB65821B07 b1207
-	NATIVE_DECL void _0x200114E99552462B(Any p0, Any p1, Any p2) { invoke<Void>(0x200114E99552462B, p0, p1, p2); } // 0x200114E99552462B b1207
-	NATIVE_DECL void _0x1D77B47AFA584E90(Player player, int p1, BOOL p2) { invoke<Void>(0x1D77B47AFA584E90, player, p1, p2); } // 0x1D77B47AFA584E90 b1207
-	NATIVE_DECL void _0x5A498FCA232F71E1(Player player, float multiplier) { invoke<Void>(0x5A498FCA232F71E1, player, multiplier); } // 0x5A498FCA232F71E1 b1207
-	NATIVE_DECL Any _0xAB3773E7AA1E9DCC(Any p0) { return invoke<Any>(0xAB3773E7AA1E9DCC, p0); } // 0xAB3773E7AA1E9DCC b1207
+	// If player has less Dead Eye than required, Dead Eye cant be triggered.
+	NATIVE_DECL float _GET_PLAYER_REQUIRED_DEAD_EYE_AMOUNT(Player player) { return invoke<float>(0x811A748B1BE231BA, player); } // 0x811A748B1BE231BA b1207
+	// Returns Deadeye value from player
+	NATIVE_DECL float _SPECIAL_ABILITY_GET_AMOUNT_CACHED(Player player) { return invoke<float>(0x029884FB65821B07, player); } // 0x029884FB65821B07 b1207
+	// Drains Deadeye by given amount.
+	NATIVE_DECL void _SPECIAL_ABILITY_DRAIN_BY_AMOUNT(Player player, float amount, Any p2) { invoke<Void>(0x200114E99552462B, player, amount, p2); } // 0x200114E99552462B b1207
+	// Params: p1 = -1 in R* Scripts
+	NATIVE_DECL void _SPECIAL_ABILITY_START_RESTORE(Player player, int p1, BOOL p2) { invoke<Void>(0x1D77B47AFA584E90, player, p1, p2); } // 0x1D77B47AFA584E90 b1207
+	NATIVE_DECL void _SET_SPECIAL_ABILITY_MULTIPLIER(Player player, float multiplier) { invoke<Void>(0x5A498FCA232F71E1, player, multiplier); } // 0x5A498FCA232F71E1 b1207
+	NATIVE_DECL float _GET_PLAYER_SPECIAL_ABILITY_MULTIPLIER(Player player) { return invoke<float>(0xAB3773E7AA1E9DCC, player); } // 0xAB3773E7AA1E9DCC b1207
 	NATIVE_DECL void _0x00BA333DA05ADC23(Any p0, Any p1) { invoke<Void>(0x00BA333DA05ADC23, p0, p1); } // 0x00BA333DA05ADC23 b1207
 	NATIVE_DECL void _0x22B3CABEDDB538B2(Player player, float p1) { invoke<Void>(0x22B3CABEDDB538B2, player, p1); } // 0x22B3CABEDDB538B2 b1207
-	NATIVE_DECL void _0xB783F75940B23014(Player player, float durationCost) { invoke<Void>(0xB783F75940B23014, player, durationCost); } // 0xB783F75940B23014 b1207
+	// durationCost: per second
+	NATIVE_DECL void _SET_SPECIAL_ABILITY_DURATION_COST(Player player, float durationCost) { invoke<Void>(0xB783F75940B23014, player, durationCost); } // 0xB783F75940B23014 b1207
 	NATIVE_DECL void _0xC0B1C05B313693D1(Player player, float p1) { invoke<Void>(0xC0B1C05B313693D1, player, p1); } // 0xC0B1C05B313693D1 b1207
 	NATIVE_DECL Any _0x57D9991DC1334151(Any p0) { return invoke<Any>(0x57D9991DC1334151, p0); } // 0x57D9991DC1334151 b1207
 	NATIVE_DECL Any _0x21091B4BEB6376EE(Any p0) { return invoke<Any>(0x21091B4BEB6376EE, p0); } // 0x21091B4BEB6376EE b1207
-	NATIVE_DECL void _0xAE4BCC79C587EBBF(Player player, float activationCost, int p2) { invoke<Void>(0xAE4BCC79C587EBBF, player, activationCost, p2); } // 0xAE4BCC79C587EBBF b1207
+	NATIVE_DECL void _SET_SPECIAL_ABILITY_ACTIVATION_COST(Player player, float activationCost, int p2) { invoke<Void>(0xAE4BCC79C587EBBF, player, activationCost, p2); } // 0xAE4BCC79C587EBBF b1207
+	// _SET_SPECIAL_ABILITY_*
 	NATIVE_DECL void _0x4D1699543B1C023C(Player player, float p1) { invoke<Void>(0x4D1699543B1C023C, player, p1); } // 0x4D1699543B1C023C b1207
 	NATIVE_DECL Any _0x3A6AE4EEE30370FE(Any p0, Any p1) { return invoke<Any>(0x3A6AE4EEE30370FE, p0, p1); } // 0x3A6AE4EEE30370FE b1207
-	NATIVE_DECL Any _0xA81D24AE0AF99A5E(Any p0) { return invoke<Any>(0xA81D24AE0AF99A5E, p0); } // 0xA81D24AE0AF99A5E b1207
-	NATIVE_DECL Any _0xDF66A37936D5F3D9(Any p0) { return invoke<Any>(0xDF66A37936D5F3D9, p0); } // 0xDF66A37936D5F3D9 b1207
-	NATIVE_DECL Any _0x592F58BC4D2A2CF3(Any p0, Any p1) { return invoke<Any>(0x592F58BC4D2A2CF3, p0, p1); } // 0x592F58BC4D2A2CF3 b1207
+	NATIVE_DECL float _GET_PLAYER_DEAD_EYE(Player player) { return invoke<float>(0xA81D24AE0AF99A5E, player); } // 0xA81D24AE0AF99A5E b1207
+	NATIVE_DECL float _GET_PLAYER_CACHED_DEAD_EYE_AMOUNT(Player player) { return invoke<float>(0xDF66A37936D5F3D9, player); } // 0xDF66A37936D5F3D9 b1207
+	NATIVE_DECL float _GET_PLAYER_MAX_DEAD_EYE(Player player, Any p1) { return invoke<float>(0x592F58BC4D2A2CF3, player, p1); } // 0x592F58BC4D2A2CF3 b1207
 	NATIVE_DECL float _GET_PLAYER_HEALTH(Player player) { return invoke<float>(0x0317C947D062854E, player); } // 0x0317C947D062854E b1207
 	NATIVE_DECL float _GET_PLAYER_STAMINA(Player player) { return invoke<float>(0x0FF421E467373FCF, player); } // 0x0FF421E467373FCF b1207
-	NATIVE_DECL void _0x768E81AE285A4B67(Player player, Hash p1) { invoke<Void>(0x768E81AE285A4B67, player, p1); } // 0x768E81AE285A4B67 b1207
+	// _N*, _O* or _PE*
+	NATIVE_DECL void _SET_PLAYER_STAT_FLAG_HASH(Player player, Hash p1) { invoke<Void>(0x768E81AE285A4B67, player, p1); } // 0x768E81AE285A4B67 b1207
 	NATIVE_DECL void _0x0E1DB1F8F5B561DC(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0x0E1DB1F8F5B561DC, p0, p1, p2, p3, p4, p5); } // 0x0E1DB1F8F5B561DC b1207
 	NATIVE_DECL void _0x08E22898A6AF4905(Any p0, Any p1) { invoke<Void>(0x08E22898A6AF4905, p0, p1); } // 0x08E22898A6AF4905 b1207
 	NATIVE_DECL Any _0xBEFED69CE8317F91(Any p0) { return invoke<Any>(0xBEFED69CE8317F91, p0); } // 0xBEFED69CE8317F91 b1207
-	NATIVE_DECL void _0xA63FCAD3A6FEC6D2(Player player, BOOL enable) { invoke<Void>(0xA63FCAD3A6FEC6D2, player, enable); } // 0xA63FCAD3A6FEC6D2 b1207
+	// (Un)lock Eagle Eye functionality
+	NATIVE_DECL void _ENABLE_EAGLEEYE(Player player, BOOL enable) { invoke<Void>(0xA63FCAD3A6FEC6D2, player, enable); } // 0xA63FCAD3A6FEC6D2 b1207
 	NATIVE_DECL Any _0xE022CC1B545F1D9F(Any p0) { return invoke<Any>(0xE022CC1B545F1D9F, p0); } // 0xE022CC1B545F1D9F b1207
-	NATIVE_DECL void _0x1710BC33CFB83634(Player player) { invoke<Void>(0x1710BC33CFB83634, player); } // 0x1710BC33CFB83634 b1207
-	NATIVE_DECL void _0x64FF4BF9AF59E139(Player player, BOOL transition) { invoke<Void>(0x64FF4BF9AF59E139, player, transition); } // 0x64FF4BF9AF59E139 b1207
-	NATIVE_DECL Any _0x45AB66D02B601FA7(Any p0) { return invoke<Any>(0x45AB66D02B601FA7, p0); } // 0x45AB66D02B601FA7 b1207
+	// Activates EagleEye, called together with 0x28A13BF6B05C3D83
+	NATIVE_DECL void _SECONDARY_SPECIAL_ABILITY_SET_ACTIVE(Player player) { invoke<Void>(0x1710BC33CFB83634, player); } // 0x1710BC33CFB83634 b1207
+	// Deactivates EagleEye, called together with 0xC0B21F235C02139C
+	NATIVE_DECL void _SECONDARY_SPECIAL_ABILITY_SET_DISABLED(Player player, BOOL disabled) { invoke<Void>(0x64FF4BF9AF59E139, player, disabled); } // 0x64FF4BF9AF59E139 b1207
+	NATIVE_DECL BOOL _IS_SECONDARY_SPECIAL_ABILITY_ACTIVE(Player player) { return invoke<BOOL>(0x45AB66D02B601FA7, player); } // 0x45AB66D02B601FA7 b1207
 	NATIVE_DECL void _0x107F2A66E1C4C83A(Any p0) { invoke<Void>(0x107F2A66E1C4C83A, p0); } // 0x107F2A66E1C4C83A b1207
 	NATIVE_DECL void START_PLAYER_TELEPORT(Player player, float x, float y, float z, float heading, BOOL p5, BOOL p6, BOOL p7, BOOL p8) { invoke<Void>(0xDF8822C55EDDA65B, player, x, y, z, heading, p5, p6, p7, p8); } // 0xDF8822C55EDDA65B 0xC552E06C b1207
 	NATIVE_DECL void _0x2C2D287748E8E9B7(BOOL p0) { invoke<Void>(0x2C2D287748E8E9B7, p0); } // 0x2C2D287748E8E9B7 b1207
@@ -6797,17 +7144,19 @@ namespace PLAYER
 	NATIVE_DECL float GET_PLAYER_CURRENT_STEALTH_NOISE(Player player) { return invoke<float>(0xD7ECC25E176ECBA5, player); } // 0xD7ECC25E176ECBA5 0xC3B02362 b1207
 	NATIVE_DECL void SET_PLAYER_HEALTH_RECHARGE_MULTIPLIER(Player player, float regenRate) { invoke<Void>(0x8899C244EBCF70DE, player, regenRate); } // 0x8899C244EBCF70DE 0x45514731 b1207
 	NATIVE_DECL Any _0x22CD23BB0C45E0CD(Any p0) { return invoke<Any>(0x22CD23BB0C45E0CD, p0); } // 0x22CD23BB0C45E0CD b1207
-	NATIVE_DECL void _0x535ED4605F89AB6E(Player player, float modifier) { invoke<Void>(0x535ED4605F89AB6E, player, modifier); } // 0x535ED4605F89AB6E b1207
+	// Setting player's Health recharge time to zero forces immediate health regen
+	NATIVE_DECL void _SET_PLAYER_HEALTH_RECHARGE_TIME_MODIFIER(Player player, float modifier) { invoke<Void>(0x535ED4605F89AB6E, player, modifier); } // 0x535ED4605F89AB6E b1207
 	NATIVE_DECL void SET_PLAYER_STAMINA_RECHARGE_MULTIPLIER(Player player, float multiplier) { invoke<Void>(0xFECA17CF3343694B, player, multiplier); } // 0xFECA17CF3343694B b1207
 	NATIVE_DECL Any _0x617D3494AD58200F(Any p0) { return invoke<Any>(0x617D3494AD58200F, p0); } // 0x617D3494AD58200F b1207
-	NATIVE_DECL void _0xBBADFB5E5E5766FB(Player player, float multiplier) { invoke<Void>(0xBBADFB5E5E5766FB, player, multiplier); } // 0xBBADFB5E5E5766FB b1207
+	NATIVE_DECL void _SET_PLAYER_STAMINA_SPRINT_DEPLETION_MULTIPLIER(Player player, float multiplier) { invoke<Void>(0xBBADFB5E5E5766FB, player, multiplier); } // 0xBBADFB5E5E5766FB b1207
 	NATIVE_DECL Any _0x68A0389E0718AC8F(Any p0) { return invoke<Any>(0x68A0389E0718AC8F, p0); } // 0x68A0389E0718AC8F b1207
-	NATIVE_DECL void _0x8FBF9EDB378CCB8C(Player player, Ped horse) { invoke<Void>(0x8FBF9EDB378CCB8C, player, horse); } // 0x8FBF9EDB378CCB8C b1207
-	NATIVE_DECL Ped _0x46FA0AE18F4C7FA9(Player player) { return invoke<Ped>(0x46FA0AE18F4C7FA9, player); } // 0x46FA0AE18F4C7FA9 b1207
+	// Seems to work similar to 0xD2CB0FB0FDCB473D
+	NATIVE_DECL void _SET_PED_ACTIVE_PLAYER_HORSE(Player player, Ped horse) { invoke<Void>(0x8FBF9EDB378CCB8C, player, horse); } // 0x8FBF9EDB378CCB8C b1207
+	NATIVE_DECL Ped _GET_ACTIVE_HORSE_FOR_PLAYER(Player player) { return invoke<Ped>(0x46FA0AE18F4C7FA9, player); } // 0x46FA0AE18F4C7FA9 b1207
 	NATIVE_DECL void _SET_PED_AS_SADDLE_HORSE_FOR_PLAYER(Player player, Ped mount) { invoke<Void>(0xD2CB0FB0FDCB473D, player, mount); } // 0xD2CB0FB0FDCB473D b1207
 	NATIVE_DECL Ped _GET_SADDLE_HORSE_FOR_PLAYER(Player player) { return invoke<Ped>(0xB48050D326E9A2F3, player); } // 0xB48050D326E9A2F3 b1207
 	NATIVE_DECL BOOL SET_PED_AS_TEMP_PLAYER_HORSE(Player player, Ped horse) { return invoke<BOOL>(0x227B06324234FB09, player, horse); } // 0x227B06324234FB09 b1207
-	NATIVE_DECL Ped _0xD3F7445CEA2E5035(Player player) { return invoke<Ped>(0xD3F7445CEA2E5035, player); } // 0xD3F7445CEA2E5035 b1207
+	NATIVE_DECL Ped _GET_TEMP_PLAYER_HORSE(Player player) { return invoke<Ped>(0xD3F7445CEA2E5035, player); } // 0xD3F7445CEA2E5035 b1207
 	// nullsub, doesn't do anything
 	NATIVE_DECL void _0x77B0B6D17A3AC9AA(Any p0, Any p1) { invoke<Void>(0x77B0B6D17A3AC9AA, p0, p1); } // 0x77B0B6D17A3AC9AA b1207
 	NATIVE_DECL void _0xDF93973251FB2CA5(Any p0, Any p1) { invoke<Void>(0xDF93973251FB2CA5, p0, p1); } // 0xDF93973251FB2CA5 b1207
@@ -6818,27 +7167,35 @@ namespace PLAYER
 	NATIVE_DECL void SET_PLAYER_WEAPON_DEFENSE_MODIFIER(Player player, float modifier) { invoke<Void>(0xD15CC2D493160BE3, player, modifier); } // 0xD15CC2D493160BE3 0xAE446344 b1207
 	NATIVE_DECL void _0x818241B3EDA84191(Any p0, Any p1) { invoke<Void>(0x818241B3EDA84191, p0, p1); } // 0x818241B3EDA84191 b1207
 	NATIVE_DECL void SET_PLAYER_MELEE_WEAPON_DAMAGE_MODIFIER(Player player, float modifier) { invoke<Void>(0xE4CB5A3F18170381, player, modifier); } // 0xE4CB5A3F18170381 0x362E69AD b1207
-	NATIVE_DECL void _0x2D3ACE3DE0A2B622(Player player, float modifier) { invoke<Void>(0x2D3ACE3DE0A2B622, player, modifier); } // 0x2D3ACE3DE0A2B622 b1207
+	NATIVE_DECL void _SET_PLAYER_EXPLOSIVE_WEAPON_DAMAGE_MODIFIER(Player player, float modifier) { invoke<Void>(0x2D3ACE3DE0A2B622, player, modifier); } // 0x2D3ACE3DE0A2B622 b1207
 	NATIVE_DECL void _0x83C989D5B5B5B466(Any p0, Any p1) { invoke<Void>(0x83C989D5B5B5B466, p0, p1); } // 0x83C989D5B5B5B466 b1207
 	NATIVE_DECL Any _0x03B4B759A8990505(Any p0) { return invoke<Any>(0x03B4B759A8990505, p0); } // 0x03B4B759A8990505 b1207
 	NATIVE_DECL void _0x67659A8F248E0141(Any p0, Any p1) { invoke<Void>(0x67659A8F248E0141, p0, p1); } // 0x67659A8F248E0141 b1207
-	NATIVE_DECL void _0xB427911EA6DFFEF3(Player player, float p1) { invoke<Void>(0xB427911EA6DFFEF3, player, p1); } // 0xB427911EA6DFFEF3 b1207
-	NATIVE_DECL void _0x914071FF93AF2692(Player player, float modifier) { invoke<Void>(0x914071FF93AF2692, player, modifier); } // 0x914071FF93AF2692 b1207
-	NATIVE_DECL float _0x2E78D822208E740A(Player player) { return invoke<float>(0x2E78D822208E740A, player); } // 0x2E78D822208E740A b1207
+	// Decreases the damage the player receives while on horseback
+	NATIVE_DECL void _SET_RECEIVED_HORSEBACK_DAMAGE_DECREASE(Player player, float damageDecrease) { invoke<Void>(0xB427911EA6DFFEF3, player, damageDecrease); } // 0xB427911EA6DFFEF3 b1207
+	// Sets Player's Defense against AI modifier
+	NATIVE_DECL void _SET_AI_PLAYER_DEFENSE_MODIFIER_AGAINST_AI(Player player, float modifier) { invoke<Void>(0x914071FF93AF2692, player, modifier); } // 0x914071FF93AF2692 b1207
+	NATIVE_DECL float _GET_AI_PLAYER_DEFENSE_MODIFIER_AGAINST_AI(Player player) { return invoke<float>(0x2E78D822208E740A, player); } // 0x2E78D822208E740A b1207
 	NATIVE_DECL Any _0x19B2C7A6C34FAD54(Any p0, Any p1) { return invoke<Any>(0x19B2C7A6C34FAD54, p0, p1); } // 0x19B2C7A6C34FAD54 b1207
 	NATIVE_DECL Any _0x9422743A5BA50E10(Any p0) { return invoke<Any>(0x9422743A5BA50E10, p0); } // 0x9422743A5BA50E10 b1207
-	NATIVE_DECL void _0x497A6539BB0E8787(Player player, float weaponDefenseMod, float meleeDefenseMod) { invoke<Void>(0x497A6539BB0E8787, player, weaponDefenseMod, meleeDefenseMod); } // 0x497A6539BB0E8787 b1207
-	NATIVE_DECL void _0x93F499CAE53FCD05(Player player, int type, float defenseModifier) { invoke<Void>(0x93F499CAE53FCD05, player, type, defenseModifier); } // 0x93F499CAE53FCD05 b1207
+	// Sets stamina core drains peed using ranged damage scale and melee damage scale
+	NATIVE_DECL void _SET_PLAYER_DEFENSE_MODIFIER(Player player, float weaponDefenseMod, float meleeDefenseMod) { invoke<Void>(0x497A6539BB0E8787, player, weaponDefenseMod, meleeDefenseMod); } // 0x497A6539BB0E8787 b1207
+	// bullet damage modifier: type = 4
+	// explosive damage Defense mod: type = 7
+	// fire damage Defense mod: type = 8, 15
+	NATIVE_DECL void _SET_PLAYER_DEFENSE_TYPE_MODIFIER(Player player, int type, float defenseModifier) { invoke<Void>(0x93F499CAE53FCD05, player, type, defenseModifier); } // 0x93F499CAE53FCD05 b1207
 	NATIVE_DECL void SET_PLAYER_WEAPON_TYPE_DAMAGE_MODIFIER(Player player, Hash weaponHash, float damageModifier) { invoke<Void>(0xD04AD186CE8BB129, player, weaponHash, damageModifier); } // 0xD04AD186CE8BB129 b1207
-	NATIVE_DECL Any _0xFE0304050261442C(Any p0, Any p1) { return invoke<Any>(0xFE0304050261442C, p0, p1); } // 0xFE0304050261442C b1207
+	NATIVE_DECL float _GET_PLAYER_WEAPON_DAMAGE(Player player, Hash weaponHash) { return invoke<float>(0xFE0304050261442C, player, weaponHash); } // 0xFE0304050261442C b1207
 	NATIVE_DECL void _0x5C2E5E3CAEEB1F58(Any p0, Any p1, Any p2) { invoke<Void>(0x5C2E5E3CAEEB1F58, p0, p1, p2); } // 0x5C2E5E3CAEEB1F58 b1207
-	NATIVE_DECL void _0xFC79DCC94D0A5897(Player player, Hash weaponGroup, float modifier) { invoke<Void>(0xFC79DCC94D0A5897, player, weaponGroup, modifier); } // 0xFC79DCC94D0A5897 b1207
-	NATIVE_DECL void _0x59F0AFF3E0A1B019(Any p0, Any p1, Any p2) { invoke<Void>(0x59F0AFF3E0A1B019, p0, p1, p2); } // 0x59F0AFF3E0A1B019 b1207
-	NATIVE_DECL void _0xAF341032E97FB061(Player player, float modifier) { invoke<Void>(0xAF341032E97FB061, player, modifier); } // 0xAF341032E97FB061 b1207
-	NATIVE_DECL void _0x43F50A7CD2482156(Player player, float damage) { invoke<Void>(0x43F50A7CD2482156, player, damage); } // 0x43F50A7CD2482156 b1207
-	NATIVE_DECL void _0x967FF5BC0CFE6D26(Player player, float accuracy) { invoke<Void>(0x967FF5BC0CFE6D26, player, accuracy); } // 0x967FF5BC0CFE6D26 b1207
-	NATIVE_DECL void _0x4EA69188FBCE6A7D(Player player, float accuracy) { invoke<Void>(0x4EA69188FBCE6A7D, player, accuracy); } // 0x4EA69188FBCE6A7D b1207
-	NATIVE_DECL void _0xDEE80FEDFDD43C9B(Player player, float accuracy) { invoke<Void>(0xDEE80FEDFDD43C9B, player, accuracy); } // 0xDEE80FEDFDD43C9B b1207
+	NATIVE_DECL void _SET_PLAYER_WEAPON_GROUP_DAMAGE_MODIFIER(Player player, Hash weaponGroup, float modifier) { invoke<Void>(0xFC79DCC94D0A5897, player, weaponGroup, modifier); } // 0xFC79DCC94D0A5897 b1207
+	NATIVE_DECL void _SET_PLAYER_WEAPON_GROUP_AS_INSTANT_KILL(Player player, Hash weaponGroup, BOOL toggle) { invoke<Void>(0x59F0AFF3E0A1B019, player, weaponGroup, toggle); } // 0x59F0AFF3E0A1B019 b1207
+	NATIVE_DECL void _SET_PLAYER_TRAMPLE_DAMAGE_MODIFIER(Player player, float modifier) { invoke<Void>(0xAF341032E97FB061, player, modifier); } // 0xAF341032E97FB061 b1207
+	// _SET_PLAYER_A* - _SET_PLAYER_C*
+	NATIVE_DECL void _SET_PLAYER_LASSO_DAMAGE_PER_SECOND(Player player, float damage) { invoke<Void>(0x43F50A7CD2482156, player, damage); } // 0x43F50A7CD2482156 b1207
+	NATIVE_DECL void _SET_PLAYER_TOTAL_ACCURACY_MODIFIER(Player player, float accuracy) { invoke<Void>(0x967FF5BC0CFE6D26, player, accuracy); } // 0x967FF5BC0CFE6D26 b1207
+	// _SET_PLAYER_O* - _SET_PLAYER_S*
+	NATIVE_DECL void _SET_LOCAL_PLAYER_ACCURACY_FLOOR_MODIFIER(Player player, float accuracy) { invoke<Void>(0x4EA69188FBCE6A7D, player, accuracy); } // 0x4EA69188FBCE6A7D b1207
+	NATIVE_DECL void _SET_PLAYER_ACCURACY_FLOOR_MODIFIER(Player player, float accuracy) { invoke<Void>(0xDEE80FEDFDD43C9B, player, accuracy); } // 0xDEE80FEDFDD43C9B b1207
 	NATIVE_DECL void _0x3AD212429E095EFB(Any p0, Any p1) { invoke<Void>(0x3AD212429E095EFB, p0, p1); } // 0x3AD212429E095EFB b1207
 	NATIVE_DECL void SET_PLAYER_NOISE_MULTIPLIER(Player player, float multiplier) { invoke<Void>(0xB5EC6BDAEBCA454C, player, multiplier); } // 0xB5EC6BDAEBCA454C 0x15786DD1 b1207
 	NATIVE_DECL void _0x113EF458AB6CDA67(Any p0, Any p1) { invoke<Void>(0x113EF458AB6CDA67, p0, p1); } // 0x113EF458AB6CDA67 b1207
@@ -6850,7 +7207,7 @@ namespace PLAYER
 	NATIVE_DECL BOOL HAS_PLAYER_BEEN_SPOTTED_IN_STOLEN_VEHICLE(Player player) { return invoke<BOOL>(0xC932F57F31EA9152, player); } // 0xC932F57F31EA9152 0x4A01B76A b1207
 	// GET_PLAYER_*
 	NATIVE_DECL BOOL _0xFB6EB8785F808551(Player player, int p1, BOOL p2) { return invoke<BOOL>(0xFB6EB8785F808551, player, p1, p2); } // 0xFB6EB8785F808551 0x9DF75B2A b1207
-	NATIVE_DECL void _0x5B9813ECF7633FE8(Any p0) { invoke<Void>(0x5B9813ECF7633FE8, p0); } // 0x5B9813ECF7633FE8 b1207
+	NATIVE_DECL void _SET_MOUNT_PROMPT_DISABLED(BOOL disabled) { invoke<Void>(0x5B9813ECF7633FE8, disabled); } // 0x5B9813ECF7633FE8 b1207
 	// Returns true if the player is riding a train.
 	NATIVE_DECL BOOL IS_PLAYER_RIDING_TRAIN(Player player) { return invoke<BOOL>(0x2FB0ACADA6A238DD, player); } // 0x2FB0ACADA6A238DD 0x9765E71D b1207
 	NATIVE_DECL void _0x9AFCF9FE1884BF62(Any p0, Any p1) { invoke<Void>(0x9AFCF9FE1884BF62, p0, p1); } // 0x9AFCF9FE1884BF62 b1207
@@ -6860,60 +7217,68 @@ namespace PLAYER
 	NATIVE_DECL void _SET_DEADEYE_ABILITY_LEVEL(Player player, int level) { invoke<Void>(0xF0FE8E790BFEB5BB, player, level); } // 0xF0FE8E790BFEB5BB b1207
 	NATIVE_DECL BOOL _IS_DEADEYE_ABILITY_LOCKED(Player player, int abilityType) { return invoke<BOOL>(0x8A0643B0B4CA276B, player, abilityType); } // 0x8A0643B0B4CA276B b1207
 	NATIVE_DECL void _SET_DEADEYE_ABILITY_LOCKED(Player player, int abilityType, BOOL toggle) { invoke<Void>(0x2797B8D66DD0EBB8, player, abilityType, toggle); } // 0x2797B8D66DD0EBB8 b1207
-	NATIVE_DECL void _0x6B5DDFB967E5073D(Player player, BOOL toggle) { invoke<Void>(0x6B5DDFB967E5073D, player, toggle); } // 0x6B5DDFB967E5073D b1207
-	NATIVE_DECL BOOL _0x32348719DCED2969(Player player) { return invoke<BOOL>(0x32348719DCED2969, player); } // 0x32348719DCED2969 b1207
+	NATIVE_DECL void _SET_DEADEYE_TAGGING_ENABLED(Player player, BOOL toggle) { invoke<Void>(0x6B5DDFB967E5073D, player, toggle); } // 0x6B5DDFB967E5073D b1207
+	NATIVE_DECL BOOL _GET_IS_DEADEYE_TAGGING_ENABLED(Player player) { return invoke<BOOL>(0x32348719DCED2969, player); } // 0x32348719DCED2969 b1207
 	NATIVE_DECL void _0x3C4AE8506638C7E2(Any p0, Any p1) { invoke<Void>(0x3C4AE8506638C7E2, p0, p1); } // 0x3C4AE8506638C7E2 b1207
 	NATIVE_DECL Any _0x51139D8C17B16FBC(Any p0) { return invoke<Any>(0x51139D8C17B16FBC, p0); } // 0x51139D8C17B16FBC b1207
 	NATIVE_DECL void _0x8F44EBB3BA8F6D44(Any p0, Any p1) { invoke<Void>(0x8F44EBB3BA8F6D44, p0, p1); } // 0x8F44EBB3BA8F6D44 b1207
-	NATIVE_DECL void _0x83FCD6921FC8FD05(Player player, int filter) { invoke<Void>(0x83FCD6921FC8FD05, player, filter); } // 0x83FCD6921FC8FD05 b1207
+	NATIVE_DECL void _SET_DEADEYE_TAGGING_CONFIG(Player player, int filter) { invoke<Void>(0x83FCD6921FC8FD05, player, filter); } // 0x83FCD6921FC8FD05 b1207
 	NATIVE_DECL Any _0xE92261BD28C0878F(Any p0) { return invoke<Any>(0xE92261BD28C0878F, p0); } // 0xE92261BD28C0878F b1207
 	NATIVE_DECL void _0x870634493CB4372C(Any p0, Any p1) { invoke<Void>(0x870634493CB4372C, p0, p1); } // 0x870634493CB4372C b1207
 	NATIVE_DECL Any _0xA54000D4BFD90BDE(Any p0) { return invoke<Any>(0xA54000D4BFD90BDE, p0); } // 0xA54000D4BFD90BDE b1207
 	NATIVE_DECL void _0x6EDB5D08CB03E763(Any p0, Any p1) { invoke<Void>(0x6EDB5D08CB03E763, p0, p1); } // 0x6EDB5D08CB03E763 b1207
 	NATIVE_DECL Any _0x27AD7162D3FED01E(Any p0, Any p1) { return invoke<Any>(0x27AD7162D3FED01E, p0, p1); } // 0x27AD7162D3FED01E b1207
-	NATIVE_DECL Any _0xCCD9B77F70D31C9D(Any p0) { return invoke<Any>(0xCCD9B77F70D31C9D, p0); } // 0xCCD9B77F70D31C9D b1207
+	// _GET_NUM_*
+	// Returns number of tagged deadeye targets
+	NATIVE_DECL int _0xCCD9B77F70D31C9D(Player player) { return invoke<int>(0xCCD9B77F70D31C9D, player); } // 0xCCD9B77F70D31C9D b1207
 	NATIVE_DECL Any _0xC93A9A45430D484E(Any p0) { return invoke<Any>(0xC93A9A45430D484E, p0); } // 0xC93A9A45430D484E b1207
+	// Used in script function INIT_DEADEYE_SLOWDOWN
 	NATIVE_DECL void _0x570A13A4CA2799BB(Player player, BOOL p1) { invoke<Void>(0x570A13A4CA2799BB, player, p1); } // 0x570A13A4CA2799BB b1207
+	// Used in script function INIT_DEADEYE_SLOWDOWN
 	NATIVE_DECL void _0x3ACAC8832E77BC93(Player player, BOOL p1) { invoke<Void>(0x3ACAC8832E77BC93, player, p1); } // 0x3ACAC8832E77BC93 b1207
 	NATIVE_DECL void _0x2B12B6FC8B8772AB(Player player, int p1) { invoke<Void>(0x2B12B6FC8B8772AB, player, p1); } // 0x2B12B6FC8B8772AB b1207
 	NATIVE_DECL void _0xE910932F4B30BE23(Player player) { invoke<Void>(0xE910932F4B30BE23, player); } // 0xE910932F4B30BE23 b1207
 	NATIVE_DECL void _0x131E294EF60160DF(Player player, float p1, float p2, float p3, float p4, Any p5) { invoke<Void>(0x131E294EF60160DF, player, p1, p2, p3, p4, p5); } // 0x131E294EF60160DF b1207
 	NATIVE_DECL void _0x0E9057A9DA78D0F8(Player player, int bitflag) { invoke<Void>(0x0E9057A9DA78D0F8, player, bitflag); } // 0x0E9057A9DA78D0F8 b1207
 	NATIVE_DECL void _0x263D69767F76059C(Player player, int p1) { invoke<Void>(0x263D69767F76059C, player, p1); } // 0x263D69767F76059C b1207
-	NATIVE_DECL void _0x543DFE14BE720027(Player player, Entity entity, Any p2) { invoke<Void>(0x543DFE14BE720027, player, entity, p2); } // 0x543DFE14BE720027 b1207
+	// Used for setting up eagle eye for entity
+	// Params: p2 = re-register or not?
+	NATIVE_DECL void _REGISTER_EAGLE_EYE_FOR_ENTITY(Player player, Entity entity, BOOL p2) { invoke<Void>(0x543DFE14BE720027, player, entity, p2); } // 0x543DFE14BE720027 b1207
 	NATIVE_DECL void _0xAC67098A1E54ABB0(Any p0, Any p1, Any p2) { invoke<Void>(0xAC67098A1E54ABB0, p0, p1, p2); } // 0xAC67098A1E54ABB0 b1207
-	NATIVE_DECL void _0x9DAE1380CC5C6451(Any p0, Any p1) { invoke<Void>(0x9DAE1380CC5C6451, p0, p1); } // 0x9DAE1380CC5C6451 b1207
+	NATIVE_DECL void _UNREGISTER_EAGLE_EYE_FOR_ENTITY(Player player, Entity entity) { invoke<Void>(0x9DAE1380CC5C6451, player, entity); } // 0x9DAE1380CC5C6451 b1207
 	NATIVE_DECL void _0x9A957912CE2EABD1(Any p0, Any p1, Any p2) { invoke<Void>(0x9A957912CE2EABD1, p0, p1, p2); } // 0x9A957912CE2EABD1 b1207
 	NATIVE_DECL void _0xE5D3EB37ABC1EB03(Any p0) { invoke<Void>(0xE5D3EB37ABC1EB03, p0); } // 0xE5D3EB37ABC1EB03 b1207
-	NATIVE_DECL Any _0x0E6846476906C9DD(Any p0, Any p1) { return invoke<Any>(0x0E6846476906C9DD, p0, p1); } // 0x0E6846476906C9DD b1207
+	NATIVE_DECL BOOL _IS_EAGLE_EYE_REGISTERED_FOR_ENTITY(Player player, Entity entity) { return invoke<BOOL>(0x0E6846476906C9DD, player, entity); } // 0x0E6846476906C9DD b1207
 	NATIVE_DECL Any _0x6852288340B43239(Any p0, Any p1) { return invoke<Any>(0x6852288340B43239, p0, p1); } // 0x6852288340B43239 b1207
 	NATIVE_DECL Any _0xE50A67C33514A390(Any p0, Any p1) { return invoke<Any>(0xE50A67C33514A390, p0, p1); } // 0xE50A67C33514A390 b1207
 	NATIVE_DECL void _0xD288E02E364972D2(Any p0, Any p1, Any p2) { invoke<Void>(0xD288E02E364972D2, p0, p1, p2); } // 0xD288E02E364972D2 b1311
 	NATIVE_DECL void _0x40AB73092C95B5F5(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x40AB73092C95B5F5, p0, p1, p2, p3); } // 0x40AB73092C95B5F5 b1207
-	NATIVE_DECL void _0x6ECFC621A168424C(Entity entity1, Entity entity2, Any p2, Any p3) { invoke<Void>(0x6ECFC621A168424C, entity1, entity2, p2, p3); } // 0x6ECFC621A168424C b1207
-	NATIVE_DECL void _0xDC5E09D012D759C4(Any p0, Any p1, Any p2) { invoke<Void>(0xDC5E09D012D759C4, p0, p1, p2); } // 0xDC5E09D012D759C4 b1207
+	NATIVE_DECL void _0x6ECFC621A168424C(Entity entity1, Entity entity2, Any p2, float p3) { invoke<Void>(0x6ECFC621A168424C, entity1, entity2, p2, p3); } // 0x6ECFC621A168424C b1207
+	NATIVE_DECL void _0xDC5E09D012D759C4(Entity entity1, Entity entity2, Any p2) { invoke<Void>(0xDC5E09D012D759C4, entity1, entity2, p2); } // 0xDC5E09D012D759C4 b1207
 	NATIVE_DECL void _0x00B156AFEBCC5AE0(Any p0) { invoke<Void>(0x00B156AFEBCC5AE0, p0); } // 0x00B156AFEBCC5AE0 b1207
 	NATIVE_DECL void _0xC58CE6824E604DEC(Any p0) { invoke<Void>(0xC58CE6824E604DEC, p0); } // 0xC58CE6824E604DEC b1207
 	NATIVE_DECL void _0x330CA55A3647FA1C(Any p0, Any p1) { invoke<Void>(0x330CA55A3647FA1C, p0, p1); } // 0x330CA55A3647FA1C b1207
 	NATIVE_DECL Any _0xA62BBAAE67A05BB0(Any p0) { return invoke<Any>(0xA62BBAAE67A05BB0, p0); } // 0xA62BBAAE67A05BB0 b1207
-	NATIVE_DECL void _0x2C41D93F550D5E37(Player player, BOOL p1, Any* p2) { invoke<Void>(0x2C41D93F550D5E37, player, p1, p2); } // 0x2C41D93F550D5E37 b1207
+	// false: default eagleeye color
+	// true: green eagleeye color
+	NATIVE_DECL void _EAGLE_EYE_SET_COLOR(Player player, BOOL p1, Any* p2) { invoke<Void>(0x2C41D93F550D5E37, player, p1, p2); } // 0x2C41D93F550D5E37 b1207
 	NATIVE_DECL void _0x22C8B10802301381(Any p0, Any p1) { invoke<Void>(0x22C8B10802301381, p0, p1); } // 0x22C8B10802301381 b1207
-	NATIVE_DECL void _0xE0D6C2A146A5C993(Player player, float modifier) { invoke<Void>(0xE0D6C2A146A5C993, player, modifier); } // 0xE0D6C2A146A5C993 b1207
+	NATIVE_DECL void _EAGLE_EYE_SET_DRAIN_RATE_MODIFIER(Player player, float modifier) { invoke<Void>(0xE0D6C2A146A5C993, player, modifier); } // 0xE0D6C2A146A5C993 b1207
 	NATIVE_DECL void _0x06E1FB78B1E59CA5(Ped ped, BOOL p1) { invoke<Void>(0x06E1FB78B1E59CA5, ped, p1); } // 0x06E1FB78B1E59CA5 b1207
-	NATIVE_DECL void _0xCE285A4413B00B7F(Ped ped, BOOL p1) { invoke<Void>(0xCE285A4413B00B7F, ped, p1); } // 0xCE285A4413B00B7F b1207
+	NATIVE_DECL void _EAGLE_EYE_SET_PLUS_FLAG_DISABLED(Ped ped, BOOL disabled) { invoke<Void>(0xCE285A4413B00B7F, ped, disabled); } // 0xCE285A4413B00B7F b1207
 	NATIVE_DECL Any _0x3813E11A378958A5(Any p0) { return invoke<Any>(0x3813E11A378958A5, p0); } // 0x3813E11A378958A5 b1207
-	NATIVE_DECL void _0x2AF423D6ECB2C485(Any p0, Any p1) { invoke<Void>(0x2AF423D6ECB2C485, p0, p1); } // 0x2AF423D6ECB2C485 b1207
+	NATIVE_DECL void _EAGLE_EYE_SET_FOCUS_ON_ASSOCIATED_CLUE_TRAIL(Player player, Entity linkedWaypointPed) { invoke<Void>(0x2AF423D6ECB2C485, player, linkedWaypointPed); } // 0x2AF423D6ECB2C485 b1207
 	NATIVE_DECL void _0x0F9CF06986300875(Any p0) { invoke<Void>(0x0F9CF06986300875, p0); } // 0x0F9CF06986300875 b1207
-	NATIVE_DECL void _0xDFC85C5199045026(Player player, float p1) { invoke<Void>(0xDFC85C5199045026, player, p1); } // 0xDFC85C5199045026 b1207
-	NATIVE_DECL void _0x6FA957D1B55941C1(Player player, float p1) { invoke<Void>(0x6FA957D1B55941C1, player, p1); } // 0x6FA957D1B55941C1 b1311
+	NATIVE_DECL void _EAGLE_EYE_SET_TRACKING_UPGRADE(Player player, float p1) { invoke<Void>(0xDFC85C5199045026, player, p1); } // 0xDFC85C5199045026 b1207
+	NATIVE_DECL void _EAGLE_EYE_SET_TRACKING_UPGRADE_2(Player player, float p1) { invoke<Void>(0x6FA957D1B55941C1, player, p1); } // 0x6FA957D1B55941C1 b1311
 	NATIVE_DECL Any _0x1DA5C5B0923E1B85(Any p0) { return invoke<Any>(0x1DA5C5B0923E1B85, p0); } // 0x1DA5C5B0923E1B85 b1207
 	NATIVE_DECL Any _0xAAED694CE814817F(Any p0) { return invoke<Any>(0xAAED694CE814817F, p0); } // 0xAAED694CE814817F b1207
 	NATIVE_DECL void EAGLE_EYE_SET_CUSTOM_ENTITY_TINT(Entity entity, int red, int green, int blue) { invoke<Void>(0x62ED71E133B6C9F1, entity, red, green, blue); } // 0x62ED71E133B6C9F1 b1207
-	NATIVE_DECL void _0xBC02B3D151D3859F(Any p0, Any p1) { invoke<Void>(0xBC02B3D151D3859F, p0, p1); } // 0xBC02B3D151D3859F b1207
-	NATIVE_DECL void _0x907B16B3834C69E2(Entity entity, float distance) { invoke<Void>(0x907B16B3834C69E2, entity, distance); } // 0x907B16B3834C69E2 b1207
+	NATIVE_DECL void _0xBC02B3D151D3859F(Entity entity, Any p1) { invoke<Void>(0xBC02B3D151D3859F, entity, p1); } // 0xBC02B3D151D3859F b1207
+	NATIVE_DECL void _EAGLE_EYE_SET_CUSTOM_DISTANCE(Entity entity, float distance) { invoke<Void>(0x907B16B3834C69E2, entity, distance); } // 0x907B16B3834C69E2 b1207
 	NATIVE_DECL void _0xF21C7A3F3FFBA629(Any p0) { invoke<Void>(0xF21C7A3F3FFBA629, p0); } // 0xF21C7A3F3FFBA629 b1207
-	NATIVE_DECL void _0x292F0B6EDC82E3A4(Any p0, Any p1) { invoke<Void>(0x292F0B6EDC82E3A4, p0, p1); } // 0x292F0B6EDC82E3A4 b1207
-	// // see personaabilities.meta
+	NATIVE_DECL void _SET_PLAYER_MANAGE_BUFF_SUPER_JUMP(Player player, float p1) { invoke<Void>(0x292F0B6EDC82E3A4, player, p1); } // 0x292F0B6EDC82E3A4 b1207
+	// see personaabilities.meta
 	// enum ePersonaAbilityFlag
 	// {
 	// 	PERSONA_CAN_AUTOESCAPE_FROM_LASSO,
@@ -6948,19 +7313,20 @@ namespace PLAYER
 	// 	PERSONA_SUPPRESS_LENGENDARY_EAGLEEYE_TRAIL_COLOR
 	// };
 	NATIVE_DECL void _SET_LOCAL_PLAYER_PERSONA_ABILITY_FLAG(int flagId, BOOL toggle) { invoke<Void>(0x7146CF430965927C, flagId, toggle); } // 0x7146CF430965927C b1207
-	NATIVE_DECL void _0xE133C1EC5300F740(Any p0, Any p1, Any p2) { invoke<Void>(0xE133C1EC5300F740, p0, p1, p2); } // 0xE133C1EC5300F740 b1207
-	NATIVE_DECL void _0xC900A465364A85D6(Any p0) { invoke<Void>(0xC900A465364A85D6, p0); } // 0xC900A465364A85D6 b1207
+	NATIVE_DECL void _SET_PLAYER_MAX_AMMO_OVERRIDE_FOR_AMMO_TYPE(Player player, Hash ammoType, int amount) { invoke<Void>(0xE133C1EC5300F740, player, ammoType, amount); } // 0xE133C1EC5300F740 b1207
+	NATIVE_DECL void _0xC900A465364A85D6(Player player) { invoke<Void>(0xC900A465364A85D6, player); } // 0xC900A465364A85D6 b1207
 	NATIVE_DECL void _0xCFB2EED4FCB7BD77(Any p0, Any p1, Any p2) { invoke<Void>(0xCFB2EED4FCB7BD77, p0, p1, p2); } // 0xCFB2EED4FCB7BD77 b1207
 	NATIVE_DECL void _0x2BB8D58E88777499(Any p0) { invoke<Void>(0x2BB8D58E88777499, p0); } // 0x2BB8D58E88777499 b1207
 	NATIVE_DECL void _0x00EB5A760638DB55(Any p0, Any p1, Any p2) { invoke<Void>(0x00EB5A760638DB55, p0, p1, p2); } // 0x00EB5A760638DB55 b1207
 	NATIVE_DECL void _0x65887EAC535A0B0C(Any p0) { invoke<Void>(0x65887EAC535A0B0C, p0); } // 0x65887EAC535A0B0C b1207
-	NATIVE_DECL void _0x11A7FF918EF6BC66(Player player, float modifier) { invoke<Void>(0x11A7FF918EF6BC66, player, modifier); } // 0x11A7FF918EF6BC66 b1207
-	NATIVE_DECL void _0xBE0C524970892D41(Player player, float drawReductionTime) { invoke<Void>(0xBE0C524970892D41, player, drawReductionTime); } // 0xBE0C524970892D41 b1207
-	NATIVE_DECL void _0xFE7C9CF376D23342(Player player, float staminaDrain) { invoke<Void>(0xFE7C9CF376D23342, player, staminaDrain); } // 0xFE7C9CF376D23342 b1207
-	NATIVE_DECL void _0x7761A30432C91297(Player player, Any p1, Any p2) { invoke<Void>(0x7761A30432C91297, player, p1, p2); } // 0x7761A30432C91297 b1207
-	NATIVE_DECL void _0x5006C36652D6EC56(Player player, float closeDamageBonus) { invoke<Void>(0x5006C36652D6EC56, player, closeDamageBonus); } // 0x5006C36652D6EC56 b1207
-	NATIVE_DECL void _0xED591CB17C8BA216(Player player, Any p1, Any p2) { invoke<Void>(0xED591CB17C8BA216, player, p1, p2); } // 0xED591CB17C8BA216 b1207
-	NATIVE_DECL void _0x1F0E3A4434565F8F(Player player, float farDamageBonus) { invoke<Void>(0x1F0E3A4434565F8F, player, farDamageBonus); } // 0x1F0E3A4434565F8F b1207
+	NATIVE_DECL void _SET_WEAPON_DEGRADATION_MODIFIER(Player player, float modifier) { invoke<Void>(0x11A7FF918EF6BC66, player, modifier); } // 0x11A7FF918EF6BC66 b1207
+	NATIVE_DECL void _SET_BOW_DRAW_REDUCTION_TIME_IN_DEADEYE(Player player, float drawReductionTime) { invoke<Void>(0xBE0C524970892D41, player, drawReductionTime); } // 0xBE0C524970892D41 b1207
+	// Decreases Stamina bar drain speed by % when drawing a bow.
+	NATIVE_DECL void _SET_BOW_STAMINA_DRAIN_SPEED(Player player, float staminaDrain) { invoke<Void>(0xFE7C9CF376D23342, player, staminaDrain); } // 0xFE7C9CF376D23342 b1207
+	NATIVE_DECL void _SET_DAMAGE_CLOSE_DISTANCE_BONUS(Player player, float closeRangeLowerBound, float closeRangeUpperBound) { invoke<Void>(0x7761A30432C91297, player, closeRangeLowerBound, closeRangeUpperBound); } // 0x7761A30432C91297 b1207
+	NATIVE_DECL void _SET_DAMAGE_CLOSE_DISTANCE_BONUS_TOTAL(Player player, float closeDamageBonus) { invoke<Void>(0x5006C36652D6EC56, player, closeDamageBonus); } // 0x5006C36652D6EC56 b1207
+	NATIVE_DECL void _SET_DAMAGE_FAR_DISTANCE_BONUS(Player player, float farRangeLowerBound, float farRangeUpperBound) { invoke<Void>(0xED591CB17C8BA216, player, farRangeLowerBound, farRangeUpperBound); } // 0xED591CB17C8BA216 b1207
+	NATIVE_DECL void _SET_DAMAGE_FAR_DISTANCE_BONUS_TOTAL(Player player, float farDamageBonus) { invoke<Void>(0x1F0E3A4434565F8F, player, farDamageBonus); } // 0x1F0E3A4434565F8F b1207
 	NATIVE_DECL Any _0x6C54E69516CC56BD(Any p0) { return invoke<Any>(0x6C54E69516CC56BD, p0); } // 0x6C54E69516CC56BD b1207
 	NATIVE_DECL void _0x3A8611BD7BDE84F7(Any p0, Any p1) { invoke<Void>(0x3A8611BD7BDE84F7, p0, p1); } // 0x3A8611BD7BDE84F7 b1207
 	NATIVE_DECL void _0xC177C827CEFC0AA4(Any p0, Any p1) { invoke<Void>(0xC177C827CEFC0AA4, p0, p1); } // 0xC177C827CEFC0AA4 b1207
@@ -6982,24 +7348,26 @@ namespace PLAYER
 	NATIVE_DECL void _0xFA7DAAE3959E6C7B(Any p0, Any p1) { invoke<Void>(0xFA7DAAE3959E6C7B, p0, p1); } // 0xFA7DAAE3959E6C7B b1207
 	NATIVE_DECL void _0x9461A8FAB0378E5B(Any p0, Any p1) { invoke<Void>(0x9461A8FAB0378E5B, p0, p1); } // 0x9461A8FAB0378E5B b1207
 	NATIVE_DECL void _0xCB61A63AA53D7D22(Any p0, Any p1) { invoke<Void>(0xCB61A63AA53D7D22, p0, p1); } // 0xCB61A63AA53D7D22 b1207
-	NATIVE_DECL void _0xCFFC3ECCD7A5CCEB(Any p0, Any p1, Any p2) { invoke<Void>(0xCFFC3ECCD7A5CCEB, p0, p1, p2); } // 0xCFFC3ECCD7A5CCEB b1207
+	NATIVE_DECL void _0xCFFC3ECCD7A5CCEB(Player player, Hash weapon, BOOL p2) { invoke<Void>(0xCFFC3ECCD7A5CCEB, player, weapon, p2); } // 0xCFFC3ECCD7A5CCEB b1207
 	NATIVE_DECL void _0x76F7E1BCD623A429(Any p0) { invoke<Void>(0x76F7E1BCD623A429, p0); } // 0x76F7E1BCD623A429 b1207
 	NATIVE_DECL void _0x585CE159DB46FADB(Any p0, Any p1) { invoke<Void>(0x585CE159DB46FADB, p0, p1); } // 0x585CE159DB46FADB b1207
-	NATIVE_DECL void _0x9F9A829C6751F3C7(Player player, int playerResetFlag, BOOL p2) { invoke<Void>(0x9F9A829C6751F3C7, player, playerResetFlag, p2); } // 0x9F9A829C6751F3C7 b1207
+	// https://github.com/femga/rdr3_discoveries/tree/master/AI/PLAYER_RESET_FLAGS
+	NATIVE_DECL void _SET_PLAYER_RESET_FLAG(Player player, int playerResetFlag, BOOL p2) { invoke<Void>(0x9F9A829C6751F3C7, player, playerResetFlag, p2); } // 0x9F9A829C6751F3C7 b1207
 	NATIVE_DECL Any _0xFE691E89C08937B6(Any p0, Any p1) { return invoke<Any>(0xFE691E89C08937B6, p0, p1); } // 0xFE691E89C08937B6 b1207
 	NATIVE_DECL Ped GET_MOUNT_OWNED_BY_PLAYER(Player player) { return invoke<Ped>(0xF49F14462F0AE27C, player); } // 0xF49F14462F0AE27C b1207
 	NATIVE_DECL Player _GET_PLAYER_OWNER_OF_MOUNT(Ped mount) { return invoke<Player>(0xAD03B03737CE6810, mount); } // 0xAD03B03737CE6810 b1207
-	NATIVE_DECL void _0xE6D4E435B56D5BD0(Player player, Ped mount) { invoke<Void>(0xE6D4E435B56D5BD0, player, mount); } // 0xE6D4E435B56D5BD0 b1207
+	// Seems to enable active horse equipment prompt when being near it and enables the control that opens the inventory as well
+	NATIVE_DECL void _SET_PLAYER_OWNS_MOUNT(Player player, Ped mount) { invoke<Void>(0xE6D4E435B56D5BD0, player, mount); } // 0xE6D4E435B56D5BD0 b1207
 	NATIVE_DECL Vehicle _GET_VEHICLE_OWNED_BY_PLAYER(Player player) { return invoke<Vehicle>(0xB9050A97594C8832, player); } // 0xB9050A97594C8832 b1207
 	NATIVE_DECL Player _GET_PLAYER_OWNER_OF_VEHICLE(Vehicle vehicle) { return invoke<Player>(0x7C803BDC8343228D, vehicle); } // 0x7C803BDC8343228D b1207
 	NATIVE_DECL void _SET_PLAYER_OWNS_VEHICLE(Player player, Vehicle vehicle) { invoke<Void>(0xD0E02AA618020D17, player, vehicle); } // 0xD0E02AA618020D17 b1207
-	NATIVE_DECL Vehicle _0x5CA6BBD4A7D8145E(Player player) { return invoke<Vehicle>(0x5CA6BBD4A7D8145E, player); } // 0x5CA6BBD4A7D8145E b1207
+	NATIVE_DECL Vehicle _GET_PLAYER_HUNTING_WAGON(Player player) { return invoke<Vehicle>(0x5CA6BBD4A7D8145E, player); } // 0x5CA6BBD4A7D8145E b1207
 	// Only applies to HUNTERCART01
-	NATIVE_DECL void _0x6A4404BDFA62CE2C(Player player, Vehicle wagon) { invoke<Void>(0x6A4404BDFA62CE2C, player, wagon); } // 0x6A4404BDFA62CE2C b1207
+	NATIVE_DECL void _SET_PLAYER_HUNTING_WAGON(Player player, Vehicle wagon) { invoke<Void>(0x6A4404BDFA62CE2C, player, wagon); } // 0x6A4404BDFA62CE2C b1207
 	NATIVE_DECL void _0x9044835BE9D9DBFE(Any p0, Any p1) { invoke<Void>(0x9044835BE9D9DBFE, p0, p1); } // 0x9044835BE9D9DBFE b1207
 	NATIVE_DECL Any GET_DISCOVERABLE_NAME_HASH_AND_TYPE_FOR_ENTITY(Any p0, Any p1) { return invoke<Any>(0x0139637A3BFF8B6D, p0, p1); } // 0x0139637A3BFF8B6D b1207
 	// p0: mostly Ped Hashes
-	NATIVE_DECL Hash _0x8E84119A23C16623(Hash p0, BOOL model, BOOL outfit) { return invoke<Hash>(0x8E84119A23C16623, p0, model, outfit); } // 0x8E84119A23C16623 b1207
+	NATIVE_DECL Hash _GET_CONSTRUCTED_DISCOVERED_CHARACTER_NAME(Hash p0, BOOL model, BOOL outfit) { return invoke<Hash>(0x8E84119A23C16623, p0, model, outfit); } // 0x8E84119A23C16623 b1207
 	NATIVE_DECL Hash GET_TARGET_CHARACTER_NAME_SCRIPT_OVERRIDE_HASH(Ped ped) { return invoke<Hash>(0x0335106F3ACABBED, ped); } // 0x0335106F3ACABBED b1207
 	NATIVE_DECL const char* GET_TARGET_CHARACTER_NAME_SCRIPT_OVERRIDE_RAW_STRING(Ped ped) { return invoke<const char*>(0x755E08680F21EF30, ped); } // 0x755E08680F21EF30 b1207
 	NATIVE_DECL Hash GET_TARGET_CHARACTER_NAME_FOR_LOCAL_PLAYER(Ped ped) { return invoke<Hash>(0x36E3D8B5A6552FE8, ped); } // 0x36E3D8B5A6552FE8 b1207
@@ -7010,7 +7378,7 @@ namespace PLAYER
 	NATIVE_DECL void _0x77E83C315A3B31CA(Any p0) { invoke<Void>(0x77E83C315A3B31CA, p0); } // 0x77E83C315A3B31CA b1207
 	NATIVE_DECL void _0x7C32191D9FB2BDEA(Hash discoveryHash) { invoke<Void>(0x7C32191D9FB2BDEA, discoveryHash); } // 0x7C32191D9FB2BDEA b1207
 	NATIVE_DECL BOOL GET_HAS_PLAYER_DISCOVERED_CHARACTER_NAME_MP(Hash discoveryHash) { return invoke<BOOL>(0x354F689C4FFAAB37, discoveryHash); } // 0x354F689C4FFAAB37 b1207
-	NATIVE_DECL void _0xFB0E622B401884D3(Any p0) { invoke<Void>(0xFB0E622B401884D3, p0); } // 0xFB0E622B401884D3 b1207
+	NATIVE_DECL void _MODIFY_PLAYER_DISCOVERED_CHARACTER_NAME_MP_SET_UNDISCOVERED(Hash discoveryHash) { invoke<Void>(0xFB0E622B401884D3, discoveryHash); } // 0xFB0E622B401884D3 b1207
 	NATIVE_DECL void _0xDC68829BB3F37023(Any p0, Any p1) { invoke<Void>(0xDC68829BB3F37023, p0, p1); } // 0xDC68829BB3F37023 b1207
 	NATIVE_DECL void _0x4DBC4873707E8FD6(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x4DBC4873707E8FD6, p0, p1, p2, p3); } // 0x4DBC4873707E8FD6 b1207
 	NATIVE_DECL void _0xCEDC16930526F728(Any p0) { invoke<Void>(0xCEDC16930526F728, p0); } // 0xCEDC16930526F728 b1207
@@ -7018,14 +7386,15 @@ namespace PLAYER
 	NATIVE_DECL Any _0x2E1ABE627C95ED9B() { return invoke<Any>(0x2E1ABE627C95ED9B); } // 0x2E1ABE627C95ED9B b1207
 	NATIVE_DECL void _0x497A18F8F88AA9D8() { invoke<Void>(0x497A18F8F88AA9D8); } // 0x497A18F8F88AA9D8 b1207
 	NATIVE_DECL void _0x4F0D2256AAE94EDA(Any p0) { invoke<Void>(0x4F0D2256AAE94EDA, p0); } // 0x4F0D2256AAE94EDA b1207
-	NATIVE_DECL void _0x5F8E0303C229C84B(Player player, const char* p1) { invoke<Void>(0x5F8E0303C229C84B, player, p1); } // 0x5F8E0303C229C84B b1207
+	// Focus Fire VFX start for player: p1 = focusfire
+	NATIVE_DECL void _SET_LOCKON_FOCUS_FIRE_VFX(Player player, const char* p1) { invoke<Void>(0x5F8E0303C229C84B, player, p1); } // 0x5F8E0303C229C84B b1207
 	// Hardcoded to return zero/false.
 	NATIVE_DECL Any _0x0B7803F6F7BB43E0() { return invoke<Any>(0x0B7803F6F7BB43E0); } // 0x0B7803F6F7BB43E0 b1207
 	// Hardcoded to return zero/false.
 	NATIVE_DECL Any _0xC74EB3F2EC169F6B(Any p0) { return invoke<Any>(0xC74EB3F2EC169F6B, p0); } // 0xC74EB3F2EC169F6B b1232
 	// nullsub, doesn't do anything
 	NATIVE_DECL void _0x3B296934DB026873(Any p0, Any p1) { invoke<Void>(0x3B296934DB026873, p0, p1); } // 0x3B296934DB026873 b1207
-	NATIVE_DECL void _0x506CE71FB6E8CF5E(Any p0, Any p1) { invoke<Void>(0x506CE71FB6E8CF5E, p0, p1); } // 0x506CE71FB6E8CF5E b1207
+	NATIVE_DECL void SET_MIN_TIME_BEFORE_HORSE_BUCKING(Ped mount, int iMinBuckTime) { invoke<Void>(0x506CE71FB6E8CF5E, mount, iMinBuckTime); } // 0x506CE71FB6E8CF5E b1207
 	NATIVE_DECL Any _0xF4CB347D7B5EB0FD() { return invoke<Any>(0xF4CB347D7B5EB0FD); } // 0xF4CB347D7B5EB0FD b1207
 	NATIVE_DECL void _0xCD7CA3013FD12749(Any p0, Any p1) { invoke<Void>(0xCD7CA3013FD12749, p0, p1); } // 0xCD7CA3013FD12749 b1232
 	NATIVE_DECL void _0xE5A3DD2FF84E1A4B(Any p0) { invoke<Void>(0xE5A3DD2FF84E1A4B, p0); } // 0xE5A3DD2FF84E1A4B b1232
@@ -7051,23 +7420,27 @@ namespace POPULATION
 	NATIVE_DECL void SET_SPAWNER_INFO_PRIORITY(Hash p0, Hash p1, int priority) { invoke<Void>(0x60CDE717A6D47769, p0, p1, priority); } // 0x60CDE717A6D47769 b1207
 	NATIVE_DECL void CLEAR_SPAWNER_INFO_PRIORITY(Hash p0, Hash p1) { invoke<Void>(0x217A54DE2D200305, p0, p1); } // 0x217A54DE2D200305 b1207
 	NATIVE_DECL void _0x638FCFC6042A9473(Any p0, Any p1) { invoke<Void>(0x638FCFC6042A9473, p0, p1); } // 0x638FCFC6042A9473 b1207
-	NATIVE_DECL void _0xB56D41A694E42E86(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { invoke<Void>(0xB56D41A694E42E86, p0, p1, p2, p3, p4, p5, p6); } // 0xB56D41A694E42E86 b1207
-	NATIVE_DECL void _0x74C2B3DC0B294102(Volume volume) { invoke<Void>(0x74C2B3DC0B294102, volume); } // 0x74C2B3DC0B294102 b1207
-	NATIVE_DECL void _0x18262CAFEBB5FBE1(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { invoke<Void>(0x18262CAFEBB5FBE1, p0, p1, p2, p3, p4, p5, p6); } // 0x18262CAFEBB5FBE1 b1207
-	NATIVE_DECL void _0xA1CFB35069D23C23(Volume volume) { invoke<Void>(0xA1CFB35069D23C23, volume); } // 0xA1CFB35069D23C23 b1207
-	NATIVE_DECL void _0x2161278C6322F740(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0x2161278C6322F740, p0, p1, p2, p3, p4, p5); } // 0x2161278C6322F740 b1207
+	NATIVE_DECL void _0xB56D41A694E42E86(Volume volume, int flags, int p2, Hash p3, Hash p4, Hash p5, int p6) { invoke<Void>(0xB56D41A694E42E86, volume, flags, p2, p3, p4, p5, p6); } // 0xB56D41A694E42E86 b1207
+	NATIVE_DECL void _REMOVE_AMBIENT_SPAWN_RESTRICTION(Volume volume) { invoke<Void>(0x74C2B3DC0B294102, volume); } // 0x74C2B3DC0B294102 b1207
+	NATIVE_DECL void _0x18262CAFEBB5FBE1(Volume volume, int flags, int p2, Hash p3, Hash p4, Hash p5, int p6) { invoke<Void>(0x18262CAFEBB5FBE1, volume, flags, p2, p3, p4, p5, p6); } // 0x18262CAFEBB5FBE1 b1207
+	NATIVE_DECL void _REMOVE_AMBIENT_MOVE_RESTRICTION(Volume volume) { invoke<Void>(0xA1CFB35069D23C23, volume); } // 0xA1CFB35069D23C23 b1207
+	NATIVE_DECL void _0x2161278C6322F740(int bitFlag, Any p1, Any p2, Hash p3, int p4, Volume volume) { invoke<Void>(0x2161278C6322F740, bitFlag, p1, p2, p3, p4, volume); } // 0x2161278C6322F740 b1207
 	NATIVE_DECL void _0xF45E46DEECF7DF6E(int bitFlag, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0xF45E46DEECF7DF6E, bitFlag, p1, p2, p3, p4); } // 0xF45E46DEECF7DF6E b1207
 	NATIVE_DECL void _0x8EC7CD701F872F87(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0x8EC7CD701F872F87, p0, p1, p2, p3, p4, p5); } // 0x8EC7CD701F872F87 b1207
 	NATIVE_DECL void _0xC4533E3E87125C9E(Any p0) { invoke<Void>(0xC4533E3E87125C9E, p0); } // 0xC4533E3E87125C9E b1207
-	NATIVE_DECL void _0xF74E134F40192884(Ped ped, Any p1) { invoke<Void>(0xF74E134F40192884, ped, p1); } // 0xF74E134F40192884 b1207
+	// Params: p1 = 1 & 2 in R* Scripts
+	NATIVE_DECL void _SET_PED_SHOULD_IGNORE_AVOIDANCE_VOLUMES(Ped ped, int p1) { invoke<Void>(0xF74E134F40192884, ped, p1); } // 0xF74E134F40192884 b1207
 	NATIVE_DECL void _0xDBBF12EA7C1029B2(Any p0, Any p1) { invoke<Void>(0xDBBF12EA7C1029B2, p0, p1); } // 0xDBBF12EA7C1029B2 b1207
 	NATIVE_DECL void _0x247F86595D396344(Any p0) { invoke<Void>(0x247F86595D396344, p0); } // 0x247F86595D396344 b1207
 	NATIVE_DECL void _0x324AB2A68AD8AEE5() { invoke<Void>(0x324AB2A68AD8AEE5); } // 0x324AB2A68AD8AEE5 b1207
 	NATIVE_DECL void DISABLE_AMBIENT_ROAD_POPULATION(BOOL unk) { invoke<Void>(0xC6DCC2A3A8825C85, unk); } // 0xC6DCC2A3A8825C85 b1207
 	NATIVE_DECL void ENABLE_AMBIENT_ROAD_POPULATION() { invoke<Void>(0xBC90BDF4E5228EA1); } // 0xBC90BDF4E5228EA1 b1207
 	NATIVE_DECL void _0x2660E7720EDC4BD0(Any p0, Any p1, Any p2) { invoke<Void>(0x2660E7720EDC4BD0, p0, p1, p2); } // 0x2660E7720EDC4BD0 b1311
-	NATIVE_DECL Any _0x595478B3BBC3076D() { return invoke<Any>(0x595478B3BBC3076D); } // 0x595478B3BBC3076D b1207
-	NATIVE_DECL void _0xEC116EDB683AD479(Any p0) { invoke<Void>(0xEC116EDB683AD479, p0); } // 0xEC116EDB683AD479 b1207
+	// Returns model hash of the closest fish
+	NATIVE_DECL Hash _GET_RANDOM_FISH_TYPE_FOR_LOCATION() { return invoke<Hash>(0x595478B3BBC3076D); } // 0x595478B3BBC3076D b1207
+	// Only used for Special Event (XMAS).
+	// _SET_P*
+	NATIVE_DECL void _0xEC116EDB683AD479(BOOL p0) { invoke<Void>(0xEC116EDB683AD479, p0); } // 0xEC116EDB683AD479 b1207
 }
 
 namespace POSSE
@@ -7118,6 +7491,7 @@ namespace PROPSET
 	NATIVE_DECL BOOL _RELEASE_PROP_SET(Hash hash) { return invoke<BOOL>(0xB1964A83B345B4AB, hash); } // 0xB1964A83B345B4AB b1207
 	NATIVE_DECL PropSet _CREATE_PROP_SET(Hash hash, float x, float y, float z, int p4, float p5, float p6, BOOL p7, BOOL p8) { return invoke<PropSet>(0xE65C5CBA95F0E510, hash, x, y, z, p4, p5, p6, p7, p8); } // 0xE65C5CBA95F0E510 b1207
 	// Same as _CREATE_PROP_SET
+	// https://github.com/femga/rdr3_discoveries/blob/master/objects/propsets_list.lua
 	NATIVE_DECL PropSet _CREATE_PROP_SET_2(Hash hash, float x, float y, float z, int p4, float p5, float p6, BOOL p7, BOOL p8) { return invoke<PropSet>(0x899C97A1CCE7D483, hash, x, y, z, p4, p5, p6, p7, p8); } // 0x899C97A1CCE7D483 b1207
 	NATIVE_DECL PropSet CREATE_PROP_SET_INSTANCE_ATTACHED_TO_ENTITY(Hash hash, float x, float y, float z, Entity entity, float p5, BOOL p6, int p7, BOOL p8) { return invoke<PropSet>(0x9609DBDDE18FAD8C, hash, x, y, z, entity, p5, p6, p7, p8); } // 0x9609DBDDE18FAD8C b1207
 	// Same as CREATE_PROP_SET_INSTANCE_ATTACHED_TO_ENTITY
@@ -7129,24 +7503,28 @@ namespace PROPSET
 	NATIVE_DECL BOOL _IS_PROP_SET_VISIBLE(PropSet propSet) { return invoke<BOOL>(0x0CE8AAFE9E433A23, propSet); } // 0x0CE8AAFE9E433A23 b1207
 	NATIVE_DECL Hash _GET_PROP_SET_MODEL(PropSet propSet) { return invoke<Hash>(0xA6A9712955F53D9C, propSet); } // 0xA6A9712955F53D9C b1207
 	NATIVE_DECL Hash _GET_VEHICLE_PROP_SET_HASH(Vehicle vehicle) { return invoke<Hash>(0x36F69E7A22655653, vehicle); } // 0x36F69E7A22655653 b1207
-	NATIVE_DECL int _GET_ENTITIES_FROM_PROP_SET(PropSet propSet, ItemSet itemSet, Any p2, BOOL p3, BOOL p4) { return invoke<int>(0x738271B660FE0695, propSet, itemSet, p2, p3, p4); } // 0x738271B660FE0695 b1207
+	NATIVE_DECL int _GET_ENTITIES_FROM_PROP_SET(PropSet propSet, ItemSet itemSet, Hash model, BOOL p3, BOOL p4) { return invoke<int>(0x738271B660FE0695, propSet, itemSet, model, p3, p4); } // 0x738271B660FE0695 b1207
 	NATIVE_DECL void _0xC4B67EF3FD65622D(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0xC4B67EF3FD65622D, p0, p1, p2, p3, p4, p5); } // 0xC4B67EF3FD65622D b1207
 	NATIVE_DECL void _0x58E0B01D45CA7357(Any p0) { invoke<Void>(0x58E0B01D45CA7357, p0); } // 0x58E0B01D45CA7357 b1207
 	NATIVE_DECL void _0xC1AB7EEFD3E6EE49(Any p0, Any p1) { invoke<Void>(0xC1AB7EEFD3E6EE49, p0, p1); } // 0xC1AB7EEFD3E6EE49 b1207
 	NATIVE_DECL PropSet _GET_VEHICLE_PROP_SET(Vehicle vehicle) { return invoke<PropSet>(0xCE2ACD6F602803E5, vehicle); } // 0xCE2ACD6F602803E5 b1207
 	NATIVE_DECL BOOL _DOES_VEHICLE_HAVE_ANY_PROP_SET(Vehicle vehicle) { return invoke<BOOL>(0x53784CEA0159439B, vehicle); } // 0x53784CEA0159439B b1207
-	NATIVE_DECL void _0xD80FAF919A2E56EA(Vehicle vehicle, Hash propset) { invoke<Void>(0xD80FAF919A2E56EA, vehicle, propset); } // 0xD80FAF919A2E56EA b1207
+	// List of vehicle propsets (wagons & trains): https://pastebin.com/1CsnvGLu / https://pastebin.com/v7TtqTgE
+	NATIVE_DECL void _ADD_PROP_SET_FOR_VEHICLE(Vehicle vehicle, Hash propset) { invoke<Void>(0xD80FAF919A2E56EA, vehicle, propset); } // 0xD80FAF919A2E56EA b1207
 	NATIVE_DECL void _REMOVE_VEHICLE_PROP_SETS(Vehicle vehicle) { invoke<Void>(0x3BCF32FF37EA9F1D, vehicle); } // 0x3BCF32FF37EA9F1D b1207
-	NATIVE_DECL BOOL _0x155B2FBE72D7D1D0(Vehicle vehicle) { return invoke<BOOL>(0x155B2FBE72D7D1D0, vehicle); } // 0x155B2FBE72D7D1D0 b1207
-	NATIVE_DECL void _0x75F90E4051CC084C(Vehicle vehicle, Hash propset) { invoke<Void>(0x75F90E4051CC084C, vehicle, propset); } // 0x75F90E4051CC084C b1207
-	NATIVE_DECL BOOL _0x7264F9CA87A9830B(Vehicle vehicle) { return invoke<BOOL>(0x7264F9CA87A9830B, vehicle); } // 0x7264F9CA87A9830B b1207
+	NATIVE_DECL BOOL _IS_VEHICLE_PROP_SET_LOADED(Vehicle vehicle) { return invoke<BOOL>(0x155B2FBE72D7D1D0, vehicle); } // 0x155B2FBE72D7D1D0 b1207
+	// https://github.com/femga/rdr3_discoveries/blob/master/vehicles/vehicle_modding/vehicle_propsets.lua
+	NATIVE_DECL void _ADD_ADDITIONAL_PROP_SET_FOR_VEHICLE(Vehicle vehicle, Hash propset) { invoke<Void>(0x75F90E4051CC084C, vehicle, propset); } // 0x75F90E4051CC084C b1207
+	NATIVE_DECL BOOL _IS_VEHICLE_PROP_SET_LOADED_ADDITIONAL(Vehicle vehicle) { return invoke<BOOL>(0x7264F9CA87A9830B, vehicle); } // 0x7264F9CA87A9830B b1207
+	// Returns PropSet handle to be used with _GET_PROP_SET_MODEL
 	NATIVE_DECL PropSet _GET_VEHICLE_LIGHT_PROP_SET(Vehicle vehicle) { return invoke<PropSet>(0xA079300AF757FB1A, vehicle); } // 0xA079300AF757FB1A b1207
 	NATIVE_DECL BOOL _DOES_VEHICLE_HAVE_ANY_LIGHT_PROP_SET(Vehicle vehicle) { return invoke<BOOL>(0xC9B4B3A36F81FD75, vehicle); } // 0xC9B4B3A36F81FD75 b1207
-	// Some light propsets hashes: 1475377277, 280720199
+	// To remove propsets either parse a zero as hash or call 0xE31C0CB1C3186D40
+	// https://github.com/femga/rdr3_discoveries/blob/master/vehicles/vehicle_modding/vehicle_lantern_propsets.lua
 	NATIVE_DECL void _ADD_LIGHT_PROP_SET_TO_VEHICLE(Vehicle vehicle, Hash lightPropset) { invoke<Void>(0xC0F0417A90402742, vehicle, lightPropset); } // 0xC0F0417A90402742 b1207
 	NATIVE_DECL void _REMOVE_VEHICLE_LIGHT_PROP_SETS(Vehicle vehicle) { invoke<Void>(0xE31C0CB1C3186D40, vehicle); } // 0xE31C0CB1C3186D40 b1207
-	NATIVE_DECL BOOL _0x0790473EEE1977D3(Vehicle vehicle) { return invoke<BOOL>(0x0790473EEE1977D3, vehicle); } // 0x0790473EEE1977D3 b1207
-	NATIVE_DECL PropSet _0xCFC0BD09BB1B73FF(Entity trainCarriage) { return invoke<PropSet>(0xCFC0BD09BB1B73FF, trainCarriage); } // 0xCFC0BD09BB1B73FF b1207
+	NATIVE_DECL BOOL _IS_VEHICLE_LIGHT_PROP_SET_LOADED(Vehicle vehicle) { return invoke<BOOL>(0x0790473EEE1977D3, vehicle); } // 0x0790473EEE1977D3 b1207
+	NATIVE_DECL PropSet _GET_TRAIN_CARRIAGE_PROP_SET(Entity trainCarriage) { return invoke<PropSet>(0xCFC0BD09BB1B73FF, trainCarriage); } // 0xCFC0BD09BB1B73FF b1207
 	NATIVE_DECL Any _0x8F3333F0A6900B3C(Any p0, Any p1) { return invoke<Any>(0x8F3333F0A6900B3C, p0, p1); } // 0x8F3333F0A6900B3C b1207
 	NATIVE_DECL PropSet _GET_PROP_SET_AT_COORDS(Hash propsetHash, float x, float y, float z) { return invoke<PropSet>(0xC061E50F8D299F95, propsetHash, x, y, z); } // 0xC061E50F8D299F95 b1207
 }
@@ -7252,6 +7630,8 @@ namespace SCRIPTS
 	// eventGroup: 0 = SCRIPT_EVENT_QUEUE_AI (CEventGroupScriptAI), 1 = SCRIPT_EVENT_QUEUE_NETWORK (CEventGroupScriptNetwork), 2 = unk, 3 = unk, 4 = SCRIPT_EVENT_QUEUE_SCRIPT_ERRORS (CEventGroupScriptErrors)
 	// 
 	// Note: eventDataSize is NOT the size in bytes, it is the size determined by the SIZE_OF operator (RAGE Script operator, not C/C++ sizeof). That is, the size in bytes divided by 8 (script variables are always 8-byte aligned!).
+	// 
+	// https://github.com/femga/rdr3_discoveries/tree/master/AI/EVENTS
 	NATIVE_DECL BOOL GET_EVENT_DATA(int eventGroup, int eventIndex, Any* eventData, int eventDataSize) { return invoke<BOOL>(0x57EC5FA4D4D6AFCA, eventGroup, eventIndex, eventData, eventDataSize); } // 0x57EC5FA4D4D6AFCA 0x4280F92F b1207
 	NATIVE_DECL void SET_EVENT_FLAG_FOR_DELETION(Any p0, Any p1, Any p2) { invoke<Void>(0x4768D5252EAEB76F, p0, p1, p2); } // 0x4768D5252EAEB76F b1207
 	// eventGroup: 0 = SCRIPT_EVENT_QUEUE_AI (CEventGroupScriptAI), 1 = SCRIPT_EVENT_QUEUE_NETWORK (CEventGroupScriptNetwork), 2 = unk, 3 = unk, 4 = SCRIPT_EVENT_QUEUE_SCRIPT_ERRORS (CEventGroupScriptErrors)
@@ -7277,7 +7657,7 @@ namespace SCRIPTS
 	NATIVE_DECL void BAIL_TO_LANDING_PAGE(int bailCode) { invoke<Void>(0xBC2C927F5C264243, bailCode); } // 0xBC2C927F5C264243 b1207
 	NATIVE_DECL void BAIL_WITH_PASS_THROUGH_PARAMS(const char* params) { invoke<Void>(0xE98204D3C25AE14C, params); } // 0xE98204D3C25AE14C b1207
 	// Returns true if GtaThread+0x77C is equal to 1.
-	NATIVE_DECL BOOL _0x2238EC3EC631AB1F() { return invoke<BOOL>(0x2238EC3EC631AB1F); } // 0x2238EC3EC631AB1F b1207
+	NATIVE_DECL BOOL _BG_EXITED_BECAUSE_BACKGROUND_THREAD_STOPPED() { return invoke<BOOL>(0x2238EC3EC631AB1F); } // 0x2238EC3EC631AB1F b1207
 	// Sets bit 0 in GtaThread+0x784
 	NATIVE_DECL void _0x4858148E3B8A75D0() { invoke<Void>(0x4858148E3B8A75D0); } // 0x4858148E3B8A75D0 b1207
 	// Hashed version of BG_START_CONTEXT
@@ -7372,18 +7752,25 @@ namespace SHAPETEST
 	// Use the handle with 0x3D87450E15D98694 or 0x65287525D951F6BE until it returns 0 or 2.
 	// 
 	// p8 is a bit mask with bits 1, 2 and/or 4, relating to collider types; 4 should usually be used.
-	NATIVE_DECL int START_SHAPE_TEST_LOS_PROBE(float x1, float y1, float z1, float x2, float y2, float z2, int flags, Entity entity, int p8) { return invoke<int>(0x7EE9F5D83DD4F90E, x1, y1, z1, x2, y2, z2, flags, entity, p8); } // 0x7EE9F5D83DD4F90E 0xEFAF4BA6 b1207
+	NATIVE_DECL ScrHandle START_SHAPE_TEST_LOS_PROBE(float x1, float y1, float z1, float x2, float y2, float z2, int flags, Entity entity, int p8) { return invoke<ScrHandle>(0x7EE9F5D83DD4F90E, x1, y1, z1, x2, y2, z2, flags, entity, p8); } // 0x7EE9F5D83DD4F90E 0xEFAF4BA6 b1207
 	NATIVE_DECL Any _0x04AA59CA40571C2E(Any p0, Any p1) { return invoke<Any>(0x04AA59CA40571C2E, p0, p1); } // 0x04AA59CA40571C2E b1207
 	// Does the same as 0x7EE9F5D83DD4F90E, except blocking until the shape test completes.
-	NATIVE_DECL int START_EXPENSIVE_SYNCHRONOUS_SHAPE_TEST_LOS_PROBE(float x1, float y1, float z1, float x2, float y2, float z2, int flags, Entity entity, int p8) { return invoke<int>(0x377906D8A31E5586, x1, y1, z1, x2, y2, z2, flags, entity, p8); } // 0x377906D8A31E5586 0x8251485D b1207
-	NATIVE_DECL int START_SHAPE_TEST_BOX(float x, float y, float z, float x1, float y2, float z2, float rotX, float rotY, float rotZ, Any p9, Any p10, Any entity, Any p12) { return invoke<int>(0xFE466162C4401D18, x, y, z, x1, y2, z2, rotX, rotY, rotZ, p9, p10, entity, p12); } // 0xFE466162C4401D18 0x249BC876 b1207
-	NATIVE_DECL int START_SHAPE_TEST_CAPSULE(float x1, float y1, float z1, float x2, float y2, float z2, float radius, int flags, Entity entityToIgnore, int p9) { return invoke<int>(0x28579D1B8F8AAC80, x1, y1, z1, x2, y2, z2, radius, flags, entityToIgnore, p9); } // 0x28579D1B8F8AAC80 0x591EA833 b1207
-	NATIVE_DECL int START_SHAPE_TEST_SWEPT_SPHERE(float x1, float y1, float z1, float x2, float y2, float z2, float radius, int flags, Entity entity, Any p9) { return invoke<int>(0xAA5B7C8309F73230, x1, y1, z1, x2, y2, z2, radius, flags, entity, p9); } // 0xAA5B7C8309F73230 0x4559460A b1207
-	NATIVE_DECL int _START_SHAPE_TEST_SURROUNDING_COORDS(Vector3* pVec1, Vector3* pVec2, int flag, Entity entity, int flag2) { return invoke<int>(0x9839013D8B6014F1, pVec1, pVec2, flag, entity, flag2); } // 0x9839013D8B6014F1 b1207
+	NATIVE_DECL ScrHandle START_EXPENSIVE_SYNCHRONOUS_SHAPE_TEST_LOS_PROBE(float x1, float y1, float z1, float x2, float y2, float z2, int flags, Entity entity, int p8) { return invoke<ScrHandle>(0x377906D8A31E5586, x1, y1, z1, x2, y2, z2, flags, entity, p8); } // 0x377906D8A31E5586 0x8251485D b1207
+	NATIVE_DECL ScrHandle START_SHAPE_TEST_BOX(float x, float y, float z, float x1, float y2, float z2, float rotX, float rotY, float rotZ, Any p9, Any p10, Any entity, Any p12) { return invoke<ScrHandle>(0xFE466162C4401D18, x, y, z, x1, y2, z2, rotX, rotY, rotZ, p9, p10, entity, p12); } // 0xFE466162C4401D18 0x249BC876 b1207
+	NATIVE_DECL ScrHandle START_SHAPE_TEST_CAPSULE(float x1, float y1, float z1, float x2, float y2, float z2, float radius, int flags, Entity entityToIgnore, int p9) { return invoke<ScrHandle>(0x28579D1B8F8AAC80, x1, y1, z1, x2, y2, z2, radius, flags, entityToIgnore, p9); } // 0x28579D1B8F8AAC80 0x591EA833 b1207
+	NATIVE_DECL ScrHandle START_SHAPE_TEST_SWEPT_SPHERE(float x1, float y1, float z1, float x2, float y2, float z2, float radius, int flags, Entity entity, Any p9) { return invoke<ScrHandle>(0xAA5B7C8309F73230, x1, y1, z1, x2, y2, z2, radius, flags, entity, p9); } // 0xAA5B7C8309F73230 0x4559460A b1207
+	NATIVE_DECL ScrHandle _START_SHAPE_TEST_SURROUNDING_COORDS(Vector3* pVec1, Vector3* pVec2, int flag, Entity entity, int flag2) { return invoke<ScrHandle>(0x9839013D8B6014F1, pVec1, pVec2, flag, entity, flag2); } // 0x9839013D8B6014F1 b1207
 	// Returns the result of a shape test: 0 if the handle is invalid, 1 if the shape test is still pending, or 2 if the shape test has completed, and the handle should be invalidated.
 	// 
 	// When used with an asynchronous shape test, this native should be looped until returning 0 or 2, after which the handle is invalidated.
-	NATIVE_DECL int GET_SHAPE_TEST_RESULT(int shapeTestHandle, BOOL* hit, Vector3* endCoords, Vector3* surfaceNormal, Entity* entityHit) { return invoke<int>(0xEDE8AC7C5108FB1D, shapeTestHandle, hit, endCoords, surfaceNormal, entityHit); } // 0xEDE8AC7C5108FB1D 0xF3C2875A b1207
+	// 
+	// enum eShapeTestStatus
+	// {
+	// 	SHAPETEST_STATUS_NONEXISTENT,
+	// 	SHAPETEST_STATUS_RESULTS_NOTREADY,
+	// 	SHAPETEST_STATUS_RESULTS_READY
+	// };
+	NATIVE_DECL int GET_SHAPE_TEST_RESULT(ScrHandle shapeTestHandle, BOOL* hit, Vector3* endCoords, Vector3* surfaceNormal, Entity* entityHit) { return invoke<int>(0xEDE8AC7C5108FB1D, shapeTestHandle, hit, endCoords, surfaceNormal, entityHit); } // 0xEDE8AC7C5108FB1D 0xF3C2875A b1207
 }
 
 namespace SOCIALCLUB
@@ -7391,10 +7778,10 @@ namespace SOCIALCLUB
 	NATIVE_DECL int SC_INBOX_GET_TOTAL_NUM_MESSAGES() { return invoke<int>(0x8EF0F633280C0663); } // 0x8EF0F633280C0663 0x6BE5DF29 b1207
 	NATIVE_DECL Hash SC_INBOX_GET_MESSAGE_TYPE_AT_INDEX(int msgIndex) { return invoke<Hash>(0xFF92537C4DDC1241, msgIndex); } // 0xFF92537C4DDC1241 0x5ECF955D b1207
 	NATIVE_DECL BOOL SC_INBOX_GET_MESSAGE_IS_READ_AT_INDEX(int msgIndex) { return invoke<BOOL>(0x74CF39E030A382C4, msgIndex); } // 0x74CF39E030A382C4 0xD1ED1D48 b1207
-	NATIVE_DECL BOOL _SC_INBOX_MESSAGE_POP(int p0) { return invoke<BOOL>(0x63CAC501FFF66DC4, p0); } // 0x63CAC501FFF66DC4 0x19EE0CCB b1207
+	NATIVE_DECL BOOL SC_INBOX_SET_MESSAGE_AS_READ_AT_INDEX(int msgIndex) { return invoke<BOOL>(0x63CAC501FFF66DC4, msgIndex); } // 0x63CAC501FFF66DC4 0x19EE0CCB b1207
 	NATIVE_DECL BOOL SC_INBOX_MESSAGE_GET_DATA_INT(int p0, const char* context, int* out) { return invoke<BOOL>(0x95BB39C4DA99F348, p0, context, out); } // 0x95BB39C4DA99F348 0x88068C7C b1207
 	NATIVE_DECL BOOL SC_INBOX_MESSAGE_GET_DATA_STRING(int p0, const char* context, char* out) { return invoke<BOOL>(0x66F77FD58506FF6B, p0, context, out); } // 0x66F77FD58506FF6B 0x15607620 b1207
-	NATIVE_DECL const char* _SC_INBOX_MESSAGE_GET_STRING(int p0) { return invoke<const char*>(0x176D077685CD83E4, p0); } // 0x176D077685CD83E4 0x2C959AF9 b1207
+	NATIVE_DECL const char* SC_INBOX_MESSAGE_GET_RAW_TYPE_AT_INDEX(int p0) { return invoke<const char*>(0x176D077685CD83E4, p0); } // 0x176D077685CD83E4 0x2C959AF9 b1207
 	NATIVE_DECL BOOL SC_PRESENCE_ATTR_SET_FLOAT(Hash attrHash, float value) { return invoke<BOOL>(0xA31DAFCDC33775E9, attrHash, value); } // 0xA31DAFCDC33775E9 0x94BF0D35 b1207
 	NATIVE_DECL BOOL SC_PRESENCE_ATTR_SET_INT_EX(const char* attrName, int value, BOOL p2) { return invoke<BOOL>(0x0000000085488C49, attrName, value, p2); } // 0x0000000085488C49 b1207
 	NATIVE_DECL BOOL SC_PRESENCE_ATTR_SET_FLOAT_EX(const char* attrName, float value, BOOL p2) { return invoke<BOOL>(0x00000000467F4CAA, attrName, value, p2); } // 0x00000000467F4CAA b1207
@@ -7566,7 +7953,7 @@ namespace STREAMING
 	NATIVE_DECL BOOL _HAS_COLLISION_LOADED_AT_COORD(float x, float y, float z) { return invoke<BOOL>(0xDA8B2EAF29E872E2, x, y, z); } // 0xDA8B2EAF29E872E2 b1207
 	NATIVE_DECL void _0x80B3E0597366ADF1() { invoke<Void>(0x80B3E0597366ADF1); } // 0x80B3E0597366ADF1 b1207
 	NATIVE_DECL void REQUEST_COLLISION_AT_COORD(float x, float y, float z) { invoke<Void>(0x0A3720F162A033C9, x, y, z); } // 0x0A3720F162A033C9 0xCD9805E7 b1207
-	NATIVE_DECL void _0xA8432A14D4DC2101(float x, float y, float z) { invoke<Void>(0xA8432A14D4DC2101, x, y, z); } // 0xA8432A14D4DC2101 b1207
+	NATIVE_DECL void _REQUEST_METADATA_AT_COORD(float x, float y, float z) { invoke<Void>(0xA8432A14D4DC2101, x, y, z); } // 0xA8432A14D4DC2101 b1207
 	NATIVE_DECL void REQUEST_COLLISION_FOR_MODEL(Hash model) { invoke<Void>(0xF1767BE37F661551, model); } // 0xF1767BE37F661551 0x3930C042 b1207
 	NATIVE_DECL BOOL HAS_COLLISION_FOR_MODEL_LOADED(Hash model) { return invoke<BOOL>(0x210A79C9EC89778F, model); } // 0x210A79C9EC89778F 0x41A094F8 b1207
 	NATIVE_DECL void REQUEST_ADDITIONAL_COLLISION_AT_COORD(float x, float y, float z) { invoke<Void>(0x83A8D71650D1894F, x, y, z); } // 0x83A8D71650D1894F 0xC2CC1DF2 b1311
@@ -7593,20 +7980,23 @@ namespace STREAMING
 	NATIVE_DECL Any _0xB223249B7798EEED(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0xB223249B7798EEED, p0, p1, p2, p3); } // 0xB223249B7798EEED b1207
 	NATIVE_DECL Any _0xA0AE7653E8181725(Any p0) { return invoke<Any>(0xA0AE7653E8181725, p0); } // 0xA0AE7653E8181725 b1207
 	NATIVE_DECL Any _0x66BC28E50E85270E(Any p0) { return invoke<Any>(0x66BC28E50E85270E, p0); } // 0x66BC28E50E85270E b1207
-	NATIVE_DECL BOOL _GET_IMAP_POSITION_AND_HEADING(Hash imapHash, Vector3* position, float* heading) { return invoke<BOOL>(0x9C77964B0E07B633, imapHash, position, heading); } // 0x9C77964B0E07B633 b1207
+	// Outputs IPL position and radius (previously wrongly named heading)
+	// https://github.com/femga/rdr3_discoveries/blob/master/imaps/imaps_with_coords_and_heading.lua
+	NATIVE_DECL BOOL _GET_IPL_BOUNDING_SPHERE(Hash iplHash, Vector3* position, float* radius) { return invoke<BOOL>(0x9C77964B0E07B633, iplHash, position, radius); } // 0x9C77964B0E07B633 b1207
 	// Old name: _REQUEST_IMAP
-	NATIVE_DECL void REQUEST_IPL_HASH(Hash imapHash) { invoke<Void>(0x59767C5A7A9AE6DA, imapHash); } // 0x59767C5A7A9AE6DA b1207
+	NATIVE_DECL void REQUEST_IPL_HASH(Hash iplHash) { invoke<Void>(0x59767C5A7A9AE6DA, iplHash); } // 0x59767C5A7A9AE6DA b1207
 	// Old name: _REQUEST_IMAP_2
-	NATIVE_DECL void REQUEST_IPL_BY_HASH(Hash imapHash) { invoke<Void>(0x9E211A378F95C97C, imapHash); } // 0x9E211A378F95C97C b1207
+	NATIVE_DECL void REQUEST_IPL_BY_HASH(Hash iplHash) { invoke<Void>(0x9E211A378F95C97C, iplHash); } // 0x9E211A378F95C97C b1207
 	// Old name: _REMOVE_IMAP
-	NATIVE_DECL void REMOVE_IPL_HASH(Hash imapHash) { invoke<Void>(0x5A3E5CF7B4014B96, imapHash); } // 0x5A3E5CF7B4014B96 b1207
+	NATIVE_DECL void REMOVE_IPL_HASH(Hash iplHash) { invoke<Void>(0x5A3E5CF7B4014B96, iplHash); } // 0x5A3E5CF7B4014B96 b1207
 	// Old name: _REMOVE_IMAP_2
-	NATIVE_DECL void REMOVE_IPL_BY_HASH(Hash imapHash) { invoke<Void>(0x431E3AB760629B34, imapHash); } // 0x431E3AB760629B34 b1207
+	NATIVE_DECL void REMOVE_IPL_BY_HASH(Hash iplHash) { invoke<Void>(0x431E3AB760629B34, iplHash); } // 0x431E3AB760629B34 b1207
 	// Old name: _IS_IMAP_ACTIVE
-	NATIVE_DECL BOOL IS_IPL_ACTIVE_HASH(Hash imapHash) { return invoke<BOOL>(0xD779B9B910BD3B7C, imapHash); } // 0xD779B9B910BD3B7C b1207
+	NATIVE_DECL BOOL IS_IPL_ACTIVE_HASH(Hash iplHash) { return invoke<BOOL>(0xD779B9B910BD3B7C, iplHash); } // 0xD779B9B910BD3B7C b1207
 	// Old name: _IS_IMAP_ACTIVE_2
-	NATIVE_DECL BOOL IS_IPL_ACTIVE_BY_HASH(Hash imapHash) { return invoke<BOOL>(0x93AC1B91CB6D9913, imapHash); } // 0x93AC1B91CB6D9913 b1207
-	NATIVE_DECL BOOL _IS_POSITION_INSIDE_IMAP_STREAMING_EXTENTS(Hash imapHash, float x, float y, float z) { return invoke<BOOL>(0x73B40D97D7BAAD77, imapHash, x, y, z); } // 0x73B40D97D7BAAD77 b1207
+	NATIVE_DECL BOOL IS_IPL_ACTIVE_BY_HASH(Hash iplHash) { return invoke<BOOL>(0x93AC1B91CB6D9913, iplHash); } // 0x93AC1B91CB6D9913 b1207
+	// Returns true if IPL is streamed in (?)
+	NATIVE_DECL BOOL _IS_POSITION_INSIDE_IPL_STREAMING_EXTENTS(Hash iplHash, float x, float y, float z) { return invoke<BOOL>(0x73B40D97D7BAAD77, iplHash, x, y, z); } // 0x73B40D97D7BAAD77 b1207
 	NATIVE_DECL void _0xDEEE1F265B7ECEF5() { invoke<Void>(0xDEEE1F265B7ECEF5); } // 0xDEEE1F265B7ECEF5 b1311
 	NATIVE_DECL void SET_GAME_PAUSES_FOR_STREAMING(BOOL toggle) { invoke<Void>(0xB3BC8250F4FE8B63, toggle); } // 0xB3BC8250F4FE8B63 0x9211A28A b1207
 	NATIVE_DECL int GET_NUMBER_OF_STREAMING_REQUESTS() { return invoke<int>(0x30CCCC4D88E654CA); } // 0x30CCCC4D88E654CA 0xC2EE9A02 b1207
@@ -7687,7 +8077,7 @@ namespace STREAMING
 
 namespace TASK
 {
-	// This tasks the ped to do nothing for the specified amount of miliseconds.
+	// This tasks the ped to do nothing for the specified amount of milliseconds.
 	// This is useful if you want to add a delay between tasks when using a sequence task.
 	NATIVE_DECL void TASK_PAUSE(Ped ped, int ms) { invoke<Void>(0xE73A266DB0CA9042, ped, ms); } // 0xE73A266DB0CA9042 0x17A64668 b1207
 	// Makes the specified ped stand still for (time) milliseconds.
@@ -7705,13 +8095,15 @@ namespace TASK
 	NATIVE_DECL void TASK_DUCK(Ped ped, int p1) { invoke<Void>(0xA14B5FBF986BAC23, ped, p1); } // 0xA14B5FBF986BAC23 b1207
 	NATIVE_DECL void _TASK_BOARD_VEHICLE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0xE53D17AD837CBF7C, p0, p1, p2, p3, p4, p5); } // 0xE53D17AD837CBF7C b1207
 	NATIVE_DECL void _TASK_DISEMBARK_VEHICLE(Any p0, Vehicle vehicle, int p2, Any p3, float p4, Any p5) { invoke<Void>(0xA7C6854BB5A4192A, p0, vehicle, p2, p3, p4, p5); } // 0xA7C6854BB5A4192A b1207
-	NATIVE_DECL void _TASK_BOARD_VEHICLE_2(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0xE41A09C8DDFF7AA4, p0, p1, p2, p3, p4); } // 0xE41A09C8DDFF7AA4 b1207
-	NATIVE_DECL void TASK_DISEMBARK_NEAREST_TRAIN_CARRIAGE(Any p0, Any p1, Any p2) { invoke<Void>(0x0A11F3BDEC03ED5F, p0, p1, p2); } // 0x0A11F3BDEC03ED5F b1207
+	NATIVE_DECL void _TASK_BOARD_VEHICLE_2(Ped ped, Any p1, Any p2, float p3, int flags) { invoke<Void>(0xE41A09C8DDFF7AA4, ped, p1, p2, p3, flags); } // 0xE41A09C8DDFF7AA4 b1207
+	NATIVE_DECL void TASK_DISEMBARK_NEAREST_TRAIN_CARRIAGE(Ped ped, float p1, int flags) { invoke<Void>(0x0A11F3BDEC03ED5F, ped, p1, flags); } // 0x0A11F3BDEC03ED5F b1207
 	NATIVE_DECL void TASK_ENTER_VEHICLE(Ped ped, Vehicle vehicle, int timeout, int seat, float speed, int flag, Any p6) { invoke<Void>(0xC20E50AA46D09CA8, ped, vehicle, timeout, seat, speed, flag, p6); } // 0xC20E50AA46D09CA8 0xB8689B4E b1207
 	NATIVE_DECL void TASK_LEAVE_VEHICLE(Ped ped, Vehicle vehicle, int flags, Ped unkPed) { invoke<Void>(0xD3DBCE61A490BE02, ped, vehicle, flags, unkPed); } // 0xD3DBCE61A490BE02 0x7B1141C6 b1207
+	// timer: in ms, if it reaches 0 it will auto warp the ped on the horse
+	// mountStyle: 1 (normal), 8 (backfirst), 16 (warptohorse), 64, 73, 513, 1025, 131072
 	NATIVE_DECL void TASK_MOUNT_ANIMAL(Ped ped, Ped mount, int timer, int seatIndex, float pedSpeed, int mountStyle, Any p6, Any p7) { invoke<Void>(0x92DB0739813C5186, ped, mount, timer, seatIndex, pedSpeed, mountStyle, p6, p7); } // 0x92DB0739813C5186 b1207
 	// Dismounts the ped from the animal it's mounted on. taskFlag affects what side the rider gets off. 1 << 18 will get off on the left side, where any other value will get off on the right side. The only other known value are 1 << 17 and 1 << 24, which has the behavior of any other value (getting off the animal from the right side). p2-p5 are almost always 0.
-	NATIVE_DECL void TASK_DISMOUNT_ANIMAL(Ped rider, int taskFlag, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0x48E92D3DDE23C23A, rider, taskFlag, p2, p3, p4, p5); } // 0x48E92D3DDE23C23A b1207
+	NATIVE_DECL void TASK_DISMOUNT_ANIMAL(Ped rider, int taskFlag, Any p2, Any p3, Any p4, Ped targetPed) { invoke<Void>(0x48E92D3DDE23C23A, rider, taskFlag, p2, p3, p4, targetPed); } // 0x48E92D3DDE23C23A b1207
 	NATIVE_DECL void TASK_HITCH_ANIMAL(Ped ped, int scenarioPoint, int flag) { invoke<Void>(0x9030AD4B6207BFE8, ped, scenarioPoint, flag); } // 0x9030AD4B6207BFE8 b1207
 	NATIVE_DECL void _0xE05A5D39BE6E93AF(Any p0) { invoke<Void>(0xE05A5D39BE6E93AF, p0); } // 0xE05A5D39BE6E93AF b1207
 	NATIVE_DECL void TASK_VEHICLE_DRIVE_TO_COORD(Ped ped, Vehicle vehicle, float x, float y, float z, float speed, Any p6, Hash vehicleModel, int drivingMode, float stopRange, float p10) { invoke<Void>(0xE2A2AA2F659D77A7, ped, vehicle, x, y, z, speed, p6, vehicleModel, drivingMode, stopRange, p10); } // 0xE2A2AA2F659D77A7 0xE4AC0387 b1207
@@ -7720,18 +8112,19 @@ namespace TASK
 	NATIVE_DECL void TASK_FOLLOW_TO_OFFSET_OF_ENTITY(Ped ped, Entity entity, float offsetX, float offsetY, float offsetZ, float movementSpeed, int timeout, float stoppingRange, BOOL persistFollowing, BOOL p9, BOOL walkOnly, BOOL p11, BOOL p12, BOOL p13) { invoke<Void>(0x304AE42E357B8C7E, ped, entity, offsetX, offsetY, offsetZ, movementSpeed, timeout, stoppingRange, persistFollowing, p9, walkOnly, p11, p12, p13); } // 0x304AE42E357B8C7E 0x2DF5A6AC b1207
 	NATIVE_DECL void TASK_FOLLOW_TO_OFFSET_OF_COORD(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12, Any p13, Any p14) { invoke<Void>(0x2E3676282C18A692, ped, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14); } // 0x2E3676282C18A692 b1207
 	NATIVE_DECL void _0x3FFCD7BBA074CC80(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { invoke<Void>(0x3FFCD7BBA074CC80, ped, p1, p2, p3, p4, p5, p6, p7, p8); } // 0x3FFCD7BBA074CC80 b1207
-	NATIVE_DECL void TASK_GO_STRAIGHT_TO_COORD(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { invoke<Void>(0xD76B57B44F1E6F8B, ped, p1, p2, p3, p4, p5, p6, p7, p8); } // 0xD76B57B44F1E6F8B 0x80A9E7A7 b1207
+	NATIVE_DECL void TASK_GO_STRAIGHT_TO_COORD(Ped ped, float x, float y, float z, float moveBlendSpeedY, int p5, float p6, float p7, int p8) { invoke<Void>(0xD76B57B44F1E6F8B, ped, x, y, z, moveBlendSpeedY, p5, p6, p7, p8); } // 0xD76B57B44F1E6F8B 0x80A9E7A7 b1207
 	NATIVE_DECL void TASK_GO_STRAIGHT_TO_COORD_RELATIVE_TO_ENTITY(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { invoke<Void>(0x61E360B7E040D12E, ped, p1, p2, p3, p4, p5, p6, p7); } // 0x61E360B7E040D12E 0xD26CAC68 b1207
 	NATIVE_DECL void TASK_MOVE_IN_TRAFFIC(Ped ped, Any p1, Any p2, Any p3) { invoke<Void>(0x8AA1593AEC087A29, ped, p1, p2, p3); } // 0x8AA1593AEC087A29 b1207
 	NATIVE_DECL void TASK_MOVE_IN_TRAFFIC_TO_DESTINATION(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { invoke<Void>(0xDCA3A13F7A45338B, ped, p1, p2, p3, p4, p5, p6, p7); } // 0xDCA3A13F7A45338B b1207
 	NATIVE_DECL void TASK_MOVE_IN_TRAFFIC_AWAY_FROM_ENTITY(Ped ped, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x13DED0BC45600FE1, ped, p1, p2, p3, p4); } // 0x13DED0BC45600FE1 b1207
 	NATIVE_DECL void _0xBAAB791AA72C2821(Any p0, Any p1) { invoke<Void>(0xBAAB791AA72C2821, p0, p1); } // 0xBAAB791AA72C2821 b1207
-	NATIVE_DECL void _TASK_MOVE_IN_TRAFFIC_4(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0x79482C12482A860D, ped, p1, p2, p3, p4, p5); } // 0x79482C12482A860D b1207
+	// Params: p5 is always 0 in R* Scripts
+	NATIVE_DECL void TASK_MOVE_FOLLOW_ROAD_USING_NAVMESH(Ped ped, Any p1, float x, float y, float z, Any p5) { invoke<Void>(0x79482C12482A860D, ped, p1, x, y, z, p5); } // 0x79482C12482A860D b1207
 	// Makes the specified ped achieve the specified heading.
 	// 
 	// pedHandle: The handle of the ped to assign the task to.
 	// heading: The desired heading.
-	// timeout: The time, in milliseconds, to allow the task to complete. If the task times out, it is cancelled, and the ped will stay at the heading it managed to reach in the time.
+	// timeout: The time, in milliseconds, to allow the task to complete. If the task times out, it is canceled, and the ped will stay at the heading it managed to reach in the time.
 	NATIVE_DECL void TASK_ACHIEVE_HEADING(Ped ped, float heading, int timeout) { invoke<Void>(0x93B93A37987F1F3D, ped, heading, timeout); } // 0x93B93A37987F1F3D 0x0A0E9B42 b1207
 	// Clears the current point route. Call this before TASK_EXTEND_ROUTE and TASK_FOLLOW_POINT_ROUTE.
 	NATIVE_DECL void TASK_FLUSH_ROUTE() { invoke<Void>(0x841142A1376E9006); } // 0x841142A1376E9006 0x34219154 b1207
@@ -7740,10 +8133,10 @@ namespace TASK
 	// A maximum of 8 points can be added.
 	NATIVE_DECL void TASK_EXTEND_ROUTE(float x, float y, float z) { invoke<Void>(0x1E7889778264843A, x, y, z); } // 0x1E7889778264843A 0x43271F69 b1207
 	NATIVE_DECL void TASK_FOLLOW_POINT_ROUTE(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0x0E14C5550DC3CD1D, ped, p1, p2, p3, p4, p5); } // 0x0E14C5550DC3CD1D b1207
-	NATIVE_DECL void TASK_ENTER_ANIM_SCENE(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { invoke<Void>(0xC2329B0206426644, ped, p1, p2, p3, p4, p5, p6, p7, p8); } // 0xC2329B0206426644 b1207
+	NATIVE_DECL void TASK_ENTER_ANIM_SCENE(Ped ped, AnimScene animScene, const char* p2, const char* playbackListName, float p4, BOOL p5, int p6, int p7, float p8) { invoke<Void>(0xC2329B0206426644, ped, animScene, p2, playbackListName, p4, p5, p6, p7, p8); } // 0xC2329B0206426644 b1207
 	NATIVE_DECL void TASK_MOVE_BE_IN_FORMATION(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { invoke<Void>(0x4AA5AA97C65E4A2F, ped, p1, p2, p3, p4, p5, p6); } // 0x4AA5AA97C65E4A2F b1207
 	NATIVE_DECL void TASK_GO_TO_ENTITY(Ped ped, Entity target, int duration, float distance, float speed, float p5, int p6) { invoke<Void>(0x6A071245EB0D1882, ped, target, duration, distance, speed, p5, p6); } // 0x6A071245EB0D1882 0x374827C2 b1207
-	NATIVE_DECL void TASK_FOLLOW_AND_CONVERSE_WITH_PED(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { invoke<Void>(0x489FFCCCE7392B55, ped, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); } // 0x489FFCCCE7392B55 b1207
+	NATIVE_DECL void TASK_FOLLOW_AND_CONVERSE_WITH_PED(Ped ped, Ped targetPed, Any p2, Any p3, float p4, float p5, int p6, Any p7, Any p8, float p9, float p10) { invoke<Void>(0x489FFCCCE7392B55, ped, targetPed, p2, p3, p4, p5, p6, p7, p8, p9, p10); } // 0x489FFCCCE7392B55 b1207
 	NATIVE_DECL void _0xA052608A12559BBB(Any p0, Any p1) { invoke<Void>(0xA052608A12559BBB, p0, p1); } // 0xA052608A12559BBB b1207
 	NATIVE_DECL void TASK_WANDER_AND_CONVERSE_WITH_PED(Ped ped, Any p1, Any p2, Any p3) { invoke<Void>(0x8AC76D1408731732, ped, p1, p2, p3); } // 0x8AC76D1408731732 b1207
 	NATIVE_DECL void TASK_LEAD_AND_CONVERSE(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { invoke<Void>(0xAA19711D33C6708C, ped, p1, p2, p3, p4, p5, p6, p7, p8); } // 0xAA19711D33C6708C b1207
@@ -7755,7 +8148,7 @@ namespace TASK
 	NATIVE_DECL void TASK_LEAD_HORSE(Ped ped, Ped horse) { invoke<Void>(0x9A7A4A54596FE09D, ped, horse); } // 0x9A7A4A54596FE09D b1207
 	NATIVE_DECL void TASK_STOP_LEADING_HORSE(Ped ped) { invoke<Void>(0xED27560703F37258, ped); } // 0xED27560703F37258 b1207
 	NATIVE_DECL void _TASK_FLEE_FROM_COORD(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11) { invoke<Void>(0x6879FF208ED87F2A, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11); } // 0x6879FF208ED87F2A b1207
-	NATIVE_DECL void _TASK_FLEE_FROM_PED(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { invoke<Void>(0x7B74D8EEDE9B5727, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); } // 0x7B74D8EEDE9B5727 b1207
+	NATIVE_DECL void _TASK_FLEE_FROM_PED(Ped ped, Ped fleeFromTarget, float x, float y, float z, float distance, int p6, int p7, float p8, Ped targetPed) { invoke<Void>(0x7B74D8EEDE9B5727, ped, fleeFromTarget, x, y, z, distance, p6, p7, p8, targetPed); } // 0x7B74D8EEDE9B5727 b1207
 	// Makes the specified ped flee the specified distance from the specified position.
 	NATIVE_DECL void TASK_SMART_FLEE_COORD(Ped ped, float x, float y, float z, float distance, int time, int fleeType, float fleeSpeed) { invoke<Void>(0x94587F17E9C365D5, ped, x, y, z, distance, time, fleeType, fleeSpeed); } // 0x94587F17E9C365D5 0xB2E686FC b1207
 	// Makes a ped run away from another ped (fleeFromTarget)
@@ -7764,15 +8157,18 @@ namespace TASK
 	// fleeTime = ped will flee for this amount of time, set to "-1" to flee forever
 	// fleeType = can be 0, R* Scripts: fm_mission/race_controller: 66048; fme_escaped_convicts: 2260992, 2523136, 2359296; la_alligator/fox: 2097152; net_fetch: 17301536; net_stable_mount: 540928
 	// fleeSpeed = mostly 3f, rarely 1f in R* Scripts
-	NATIVE_DECL void TASK_SMART_FLEE_PED(Ped ped, Ped fleeFromTarget, float fleeDistance, int fleeTime, int fleeType, float fleeSpeed, Any p6) { invoke<Void>(0x22B0D0E37CCB840D, ped, fleeFromTarget, fleeDistance, fleeTime, fleeType, fleeSpeed, p6); } // 0x22B0D0E37CCB840D 0xE52EB560 b1207
+	NATIVE_DECL void TASK_SMART_FLEE_PED(Ped ped, Ped fleeFromTarget, float fleeDistance, int fleeTime, int fleeType, float fleeSpeed, Ped targetPed) { invoke<Void>(0x22B0D0E37CCB840D, ped, fleeFromTarget, fleeDistance, fleeTime, fleeType, fleeSpeed, targetPed); } // 0x22B0D0E37CCB840D 0xE52EB560 b1207
 	NATIVE_DECL void _0x673A8779D229BA5A(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0x673A8779D229BA5A, p0, p1, p2, p3, p4, p5); } // 0x673A8779D229BA5A b1207
 	NATIVE_DECL void _0x2E1D6D87346BB7D2(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x2E1D6D87346BB7D2, p0, p1, p2, p3); } // 0x2E1D6D87346BB7D2 b1207
-	NATIVE_DECL void TASK_FLEE_COORD(Ped ped, float x, float y, float z, int p4, int p5, float p6, Any p7, Any p8) { invoke<Void>(0x58428248BF4B64E4, ped, x, y, z, p4, p5, p6, p7, p8); } // 0x58428248BF4B64E4 b1207
-	NATIVE_DECL void TASK_FLEE_PED(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { invoke<Void>(0xFD45175A6DFD7CE9, p0, p1, p2, p3, p4, p5, p6); } // 0xFD45175A6DFD7CE9 b1207
+	// Params: p4/5 = some flag?, p6 = -1.0f, p7 = -1, p8 = 0 in R* Scripts
+	NATIVE_DECL void TASK_FLEE_COORD(Ped ped, float x, float y, float z, int p4, int p5, float p6, int p7, int p8) { invoke<Void>(0x58428248BF4B64E4, ped, x, y, z, p4, p5, p6, p7, p8); } // 0x58428248BF4B64E4 b1207
+	// Params: p2/3 = some flag?, p4 = -1.0f, p5 = -1, p6 = 0 in R* Scripts
+	NATIVE_DECL void TASK_FLEE_PED(Ped ped, Ped fleeFromTarget, int p2, int p3, float p4, int p5, int p6) { invoke<Void>(0xFD45175A6DFD7CE9, ped, fleeFromTarget, p2, p3, p4, p5, p6); } // 0xFD45175A6DFD7CE9 b1207
 	NATIVE_DECL void TASK_FLEE_COORD_VIA(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11) { invoke<Void>(0x390E0B697D25EAF5, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11); } // 0x390E0B697D25EAF5 b1207
 	NATIVE_DECL void TASK_FLEE_PED_VIA(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { invoke<Void>(0x5802E0F910E4CF1D, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); } // 0x5802E0F910E4CF1D b1207
 	NATIVE_DECL void _0xE8F1A5B4CED3725A(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0xE8F1A5B4CED3725A, p0, p1, p2, p3, p4); } // 0xE8F1A5B4CED3725A b1207
-	NATIVE_DECL void _0x3923EC958249657D(Any p0, Any p1, Any p2) { invoke<Void>(0x3923EC958249657D, p0, p1, p2); } // 0x3923EC958249657D b1207
+	// Params: p2 is always -1.f in R* Scripts
+	NATIVE_DECL void ADD_FLEE_TARGET_PED(Ped ped, Ped targetPed, float p2) { invoke<Void>(0x3923EC958249657D, ped, targetPed, p2); } // 0x3923EC958249657D b1207
 	NATIVE_DECL void _0xA42DC7919159CCCF(Any p0) { invoke<Void>(0xA42DC7919159CCCF, p0); } // 0xA42DC7919159CCCF b1207
 	NATIVE_DECL void TASK_FLY_AWAY(Ped ped, Any p1) { invoke<Void>(0xE86A537B5A3C297C, ped, p1); } // 0xE86A537B5A3C297C b1207
 	NATIVE_DECL void TASK_FLY_TO_COORD(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { invoke<Void>(0xD6CFC2D59DA72042, ped, p1, p2, p3, p4, p5, p6); } // 0xD6CFC2D59DA72042 b1207
@@ -7789,23 +8185,25 @@ namespace TASK
 	NATIVE_DECL void TASK_WANDER_STANDARD(Ped ped, float p1, int p2) { invoke<Void>(0xBB9CE077274F6A1B, ped, p1, p2); } // 0xBB9CE077274F6A1B 0xAF59151A b1207
 	NATIVE_DECL void TASK_WANDER_SWIM(Ped ped, Any p1) { invoke<Void>(0x527EA3DB8BC7F03B, ped, p1); } // 0x527EA3DB8BC7F03B b1207
 	NATIVE_DECL void TASK_PLANT_BOMB(Ped ped, float x, float y, float z, float heading) { invoke<Void>(0x965FEC691D55E9BF, ped, x, y, z, heading); } // 0x965FEC691D55E9BF 0x33457535 b1207
+	// https://github.com/femga/rdr3_discoveries/tree/master/tasks/TASK_HORSE_ACTION
 	// Params: p2, p3 are set to 0 in R* Scripts
-	NATIVE_DECL void TASK_HORSE_ACTION(Ped ped, int action, Any p2, Any p3) { invoke<Void>(0xA09CFD29100F06C3, ped, action, p2, p3); } // 0xA09CFD29100F06C3 b1207
+	NATIVE_DECL void TASK_HORSE_ACTION(Ped ped, int action, Ped targetPed, Any p3) { invoke<Void>(0xA09CFD29100F06C3, ped, action, targetPed, p3); } // 0xA09CFD29100F06C3 b1207
+	// https://github.com/femga/rdr3_discoveries/tree/master/tasks/TASK_ANIMAL_INTERACTION
 	NATIVE_DECL void TASK_ANIMAL_INTERACTION(Ped ped, Ped targetPed, Hash interactionType, Hash interactionModel, BOOL skipIdleAnimationClip) { invoke<Void>(0xCD181A959CFDD7F4, ped, targetPed, interactionType, interactionModel, skipIdleAnimationClip); } // 0xCD181A959CFDD7F4 b1207
 	NATIVE_DECL void TASK_COMBAT_ANIMAL_WARN(Ped ped, Any p1, Any p2) { invoke<Void>(0xF960F3D57B660E96, ped, p1, p2); } // 0xF960F3D57B660E96 b1207
-	NATIVE_DECL void TASK_COMBAT_ANIMAL_CHARGE_PED(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { invoke<Void>(0xEE3AA414CF99F368, ped, p1, p2, p3, p4, p5, p6); } // 0xEE3AA414CF99F368 b1207
+	NATIVE_DECL void TASK_COMBAT_ANIMAL_CHARGE_PED(Ped ped, Ped targetPed, BOOL p2, Any p3, Any p4, Any p5, Any p6) { invoke<Void>(0xEE3AA414CF99F368, ped, targetPed, p2, p3, p4, p5, p6); } // 0xEE3AA414CF99F368 b1207
 	NATIVE_DECL Any _0x76610D12A838EBDE(Any p0) { return invoke<Any>(0x76610D12A838EBDE, p0); } // 0x76610D12A838EBDE b1311
 	NATIVE_DECL void TASK_AMBIENT_ANIMAL_STALK(Ped ped, Any p1, Any p2) { invoke<Void>(0x37C13863ABA1B4A3, ped, p1, p2); } // 0x37C13863ABA1B4A3 b1207
 	NATIVE_DECL void TASK_AMBIENT_ANIMAL_HUNT(Ped ped, Any p1, Any p2) { invoke<Void>(0x4B39D8F9D0FE7749, ped, p1, p2); } // 0x4B39D8F9D0FE7749 b1207
 	NATIVE_DECL void TASK_ANIMAL_UNALERTED(Ped ped, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x21FDF9A25CFE1CE5, ped, p1, p2, p3, p4); } // 0x21FDF9A25CFE1CE5 b1207
 	NATIVE_DECL void TASK_ANIMAL_ALERTED(Ped ped, Any p1, Any p2) { invoke<Void>(0x979D93372FC8C565, ped, p1, p2); } // 0x979D93372FC8C565 b1207
-	NATIVE_DECL void TASK_ANIMAL_FLEE(Ped ped, Any p1, Any p2) { invoke<Void>(0xA899B61C66F09134, ped, p1, p2); } // 0xA899B61C66F09134 b1207
+	NATIVE_DECL void TASK_ANIMAL_FLEE(Ped ped, Ped targetPed, Any p2) { invoke<Void>(0xA899B61C66F09134, ped, targetPed, p2); } // 0xA899B61C66F09134 b1207
 	NATIVE_DECL Any _0x244430C13BA5258E(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0x244430C13BA5258E, p0, p1, p2, p3); } // 0x244430C13BA5258E b1207
 	NATIVE_DECL void TASK_EAT(Ped ped, Any p1, Any p2) { invoke<Void>(0xBD7949BD07299672, ped, p1, p2); } // 0xBD7949BD07299672 b1207
 	NATIVE_DECL void TASK_BARK(Ped ped, Ped barkAtTarget, Hash mood) { invoke<Void>(0x83BFC1F836B2F3F2, ped, barkAtTarget, mood); } // 0x83BFC1F836B2F3F2 b1207
 	NATIVE_DECL void TASK_FOLLOW_PAVEMENT_TO_COORD(Ped ped, Any* args) { invoke<Void>(0x1B1475414E70DD8E, ped, args); } // 0x1B1475414E70DD8E b1207
 	// If no timeout, set timeout to -1.
-	NATIVE_DECL void TASK_FOLLOW_NAV_MESH_TO_COORD(Ped ped, float x, float y, float z, float speedMultiplier, int timeout, float stoppingRange, int flags, float unk) { invoke<Void>(0x15D3A79D4E44B913, ped, x, y, z, speedMultiplier, timeout, stoppingRange, flags, unk); } // 0x15D3A79D4E44B913 0xFE4A10D9 b1207
+	NATIVE_DECL void TASK_FOLLOW_NAV_MESH_TO_COORD(Ped ped, float x, float y, float z, float speedMultiplier, int timeout, float stoppingRange, int flags, float heading) { invoke<Void>(0x15D3A79D4E44B913, ped, x, y, z, speedMultiplier, timeout, stoppingRange, flags, heading); } // 0x15D3A79D4E44B913 0xFE4A10D9 b1207
 	NATIVE_DECL void TASK_FOLLOW_NAV_MESH_TO_COORD_ADVANCED(Ped ped, float x, float y, float z, float speedMultiplier, int timeout, float stoppingRange, int flags, float p8, float p9, float p10, Entity entity, float unk) { invoke<Void>(0x17F58B88D085DBAC, ped, x, y, z, speedMultiplier, timeout, stoppingRange, flags, p8, p9, p10, entity, unk); } // 0x17F58B88D085DBAC 0x6BF6E296 b1207
 	NATIVE_DECL void SET_PED_PATH_CAN_USE_CLIMBOVERS(Ped ped, BOOL toggle) { invoke<Void>(0x8E06A6FE76C9EFF4, ped, toggle); } // 0x8E06A6FE76C9EFF4 0xB7B7D442 b1207
 	NATIVE_DECL void SET_PED_PATH_CAN_USE_LADDERS(Ped ped, BOOL toggle) { invoke<Void>(0x77A5B103C87F476E, ped, toggle); } // 0x77A5B103C87F476E 0x53A879EE b1207
@@ -7820,9 +8218,9 @@ namespace TASK
 	NATIVE_DECL void _0x82ED59F095056550(Any p0, Any p1) { invoke<Void>(0x82ED59F095056550, p0, p1); } // 0x82ED59F095056550 b1207
 	NATIVE_DECL void _0xE01C8DC8EDD28D31(Any p0, Any p1) { invoke<Void>(0xE01C8DC8EDD28D31, p0, p1); } // 0xE01C8DC8EDD28D31 b1207
 	NATIVE_DECL void _0x098CAA6DBE7D8D82(Any p0, Any p1) { invoke<Void>(0x098CAA6DBE7D8D82, p0, p1); } // 0x098CAA6DBE7D8D82 b1207
-	NATIVE_DECL Any _0x1948BBE561A2375A(Any p0) { return invoke<Any>(0x1948BBE561A2375A, p0); } // 0x1948BBE561A2375A b1207
-	NATIVE_DECL void _0x013A7BA5015C1372(Any p0, Any p1) { invoke<Void>(0x013A7BA5015C1372, p0, p1); } // 0x013A7BA5015C1372 b1207
-	NATIVE_DECL void _0x70F7A1EAB1AE3AA8(Any p0, Any p1) { invoke<Void>(0x70F7A1EAB1AE3AA8, p0, p1); } // 0x70F7A1EAB1AE3AA8 b1232
+	NATIVE_DECL BOOL _GET_PED_IS_IGNORING_DEAD_BODIES(Ped ped) { return invoke<BOOL>(0x1948BBE561A2375A, ped); } // 0x1948BBE561A2375A b1207
+	NATIVE_DECL void _SET_PED_IGNORE_DEAD_BODIES(Ped ped, BOOL toggle) { invoke<Void>(0x013A7BA5015C1372, ped, toggle); } // 0x013A7BA5015C1372 b1207
+	NATIVE_DECL void _SET_PED_PATH_LADDER_COST_MODIFIER(Ped ped, float modifier) { invoke<Void>(0x70F7A1EAB1AE3AA8, ped, modifier); } // 0x70F7A1EAB1AE3AA8 b1232
 	NATIVE_DECL void SET_PED_PATH_MAY_ENTER_WATER(Ped ped, BOOL mayEnterWater) { invoke<Void>(0xF35425A4204367EC, ped, mayEnterWater); } // 0xF35425A4204367EC 0x9C606EE3 b1207
 	NATIVE_DECL void _SET_PED_PATH_MAY_ENTER_DEEP_WATER(Ped ped, BOOL mayEnterDeepWater) { invoke<Void>(0x9DE63896B176EA94, ped, mayEnterDeepWater); } // 0x9DE63896B176EA94 b1207
 	NATIVE_DECL void _0xC6170856E54557B2(Any p0, Any p1, Any p2) { invoke<Void>(0xC6170856E54557B2, p0, p1, p2); } // 0xC6170856E54557B2 b1207
@@ -7836,10 +8234,11 @@ namespace TASK
 	NATIVE_DECL void _0x216343750545A486(Any p0, Any p1, Any p2) { invoke<Void>(0x216343750545A486, p0, p1, p2); } // 0x216343750545A486 b1207
 	NATIVE_DECL void _0x06ECF3925BC2ABAE(Any p0, Any p1) { invoke<Void>(0x06ECF3925BC2ABAE, p0, p1); } // 0x06ECF3925BC2ABAE b1311
 	NATIVE_DECL void _0xFA30E2254461ADEB(Any p0, Any p1) { invoke<Void>(0xFA30E2254461ADEB, p0, p1); } // 0xFA30E2254461ADEB b1207
-	NATIVE_DECL void TASK_GO_TO_COORD_ANY_MEANS(Ped ped, float x, float y, float z, float speed, Any p5, BOOL p6, int walkingStyle, float p8) { invoke<Void>(0x5BC448CB78FA3E88, ped, x, y, z, speed, p5, p6, walkingStyle, p8); } // 0x5BC448CB78FA3E88 0xF91DF93B b1207
+	NATIVE_DECL void TASK_GO_TO_COORD_ANY_MEANS(Ped ped, float x, float y, float z, float speed, Entity entity, BOOL p6, int walkingStyle, float p8) { invoke<Void>(0x5BC448CB78FA3E88, ped, x, y, z, speed, entity, p6, walkingStyle, p8); } // 0x5BC448CB78FA3E88 0xF91DF93B b1207
 	NATIVE_DECL void TASK_GO_TO_COORD_ANY_MEANS_EXTRA_PARAMS(Ped ped, float x, float y, float z, float speed, Any p5, BOOL p6, int walkingStyle, float p8, Any p9, Any p10, Any p11, Any p12) { invoke<Void>(0x1DD45F9ECFDB1BC9, ped, x, y, z, speed, p5, p6, walkingStyle, p8, p9, p10, p11, p12); } // 0x1DD45F9ECFDB1BC9 0x094B75EF b1207
 	NATIVE_DECL void TASK_GO_TO_COORD_ANY_MEANS_EXTRA_PARAMS_WITH_CRUISE_SPEED(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12, Any p13, Any p14) { invoke<Void>(0xB8ECD61F531A7B02, ped, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14); } // 0xB8ECD61F531A7B02 0x86DC03F9 b1207
-	NATIVE_DECL void TASK_PLAY_ANIM(Ped ped, const char* animDict, const char* animName, float speed, float speedMultiplier, int duration, int flags, float playbackRate, BOOL p8, Any p9, BOOL p10, const char* p11, BOOL p12) { invoke<Void>(0xEA47FE3719165B94, ped, animDict, animName, speed, speedMultiplier, duration, flags, playbackRate, p8, p9, p10, p11, p12); } // 0xEA47FE3719165B94 0x5AB552C6 b1207
+	// https://github.com/femga/rdr3_discoveries/tree/master/animations
+	NATIVE_DECL void TASK_PLAY_ANIM(Ped ped, const char* animDict, const char* animName, float speed, float speedMultiplier, int duration, int flags, float playbackRate, BOOL p8, Any p9, BOOL p10, const char* taskFilter, BOOL p12) { invoke<Void>(0xEA47FE3719165B94, ped, animDict, animName, speed, speedMultiplier, duration, flags, playbackRate, p8, p9, p10, taskFilter, p12); } // 0xEA47FE3719165B94 0x5AB552C6 b1207
 	NATIVE_DECL void TASK_PLAY_ANIM_ADVANCED(Ped ped, const char* animDict, const char* animName, float posX, float posY, float posZ, float rotX, float rotY, float rotZ, float speed, float speedMultiplier, int duration, int flags, float p13, int p14, int p15, int p16) { invoke<Void>(0x83CDB10EA29B370B, ped, animDict, animName, posX, posY, posZ, rotX, rotY, rotZ, speed, speedMultiplier, duration, flags, p13, p14, p15, p16); } // 0x83CDB10EA29B370B 0x3DDEB0E6 b1207
 	NATIVE_DECL void TASK_PLAY_UPPER_ANIM_FACING_ENTITY(Ped ped, const char* animDict, const char* animName, Entity entity, int p4, float p5, float p6, int p7, float p8, BOOL p9, BOOL p10, float p11, const char* p12, int p13, float p14) { invoke<Void>(0xAD67214236AB1CFE, ped, animDict, animName, entity, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14); } // 0xAD67214236AB1CFE b1207
 	NATIVE_DECL void STOP_ANIM_TASK(Ped ped, const char* animDictionary, const char* animationName, float p3) { invoke<Void>(0x97FF36A1D40EA00A, ped, animDictionary, animationName, p3); } // 0x97FF36A1D40EA00A 0x2B520A57 b1207
@@ -7849,23 +8248,26 @@ namespace TASK
 	NATIVE_DECL void SET_ANIM_FILTER(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x87B66D77D545DB66, p0, p1, p2, p3); } // 0x87B66D77D545DB66 b1207
 	NATIVE_DECL void SET_ANIM_RATE(Any p0, float p1, Any p2, BOOL p3) { invoke<Void>(0x032D49C5E359C847, p0, p1, p2, p3); } // 0x032D49C5E359C847 0x6DB46584 b1207
 	NATIVE_DECL BOOL CAN_START_ITEM_INTERACTION(Ped ped, Hash itemHash, Hash interactionHash, int p3) { return invoke<BOOL>(0x2D19BC4DF626CBE7, ped, itemHash, interactionHash, p3); } // 0x2D19BC4DF626CBE7 b1207
+	// https://github.com/femga/rdr3_discoveries/tree/master/tasks/TASK_ITEM_INTERACTION
 	NATIVE_DECL void _TASK_ITEM_INTERACTION(Ped ped, Hash animType, Hash propId, int p3, int p4, float p5) { invoke<Void>(0xAE72E7DF013AAA61, ped, animType, propId, p3, p4, p5); } // 0xAE72E7DF013AAA61 b1207
 	NATIVE_DECL void _TASK_ITEM_INTERACTION_2(Ped ped, Hash propNameGxt, Object prop, Hash propId, Hash itemInteractionState, int p5, Any p6, float p7) { invoke<Void>(0x72F52AA2D2B172CC, ped, propNameGxt, prop, propId, itemInteractionState, p5, p6, p7); } // 0x72F52AA2D2B172CC b1207
-	NATIVE_DECL void _TASK_ITEM_INTERACTION_3(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { invoke<Void>(0xD61D5E1AD9876DEB, p0, p1, p2, p3, p4, p5, p6); } // 0xD61D5E1AD9876DEB b1207
+	// Params: p3, p4, p5, p6: 0, 0, 0, -1.0f in R* Scripts
+	NATIVE_DECL void _TASK_ITEM_INTERACTION_3(Ped ped, Hash item, Any* guid, Any p3, Any p4, Any p5, float p6) { invoke<Void>(0xD61D5E1AD9876DEB, ped, item, guid, p3, p4, p5, p6); } // 0xD61D5E1AD9876DEB b1207
 	NATIVE_DECL void _0xB35370D5353995CB(Any p0, Any p1, Any p2) { invoke<Void>(0xB35370D5353995CB, p0, p1, p2); } // 0xB35370D5353995CB b1207
-	NATIVE_DECL Hash _GET_ITEM_INTERACTION_FROM_PED(Ped ped) { return invoke<Hash>(0x6AA3DCA2C6F5EB6D, ped); } // 0x6AA3DCA2C6F5EB6D b1207
-	NATIVE_DECL Any _0x804425C4BBD00883(Any p0) { return invoke<Any>(0x804425C4BBD00883, p0); } // 0x804425C4BBD00883 b1207
+	NATIVE_DECL Hash GET_ITEM_INTERACTION_STATE(Ped ped) { return invoke<Hash>(0x6AA3DCA2C6F5EB6D, ped); } // 0x6AA3DCA2C6F5EB6D b1207
+	NATIVE_DECL Hash GET_ITEM_INTERACTION_ITEM_ID(Ped ped) { return invoke<Hash>(0x804425C4BBD00883, ped); } // 0x804425C4BBD00883 b1207
 	NATIVE_DECL BOOL IS_PED_RUNNING_INSPECTION_TASK(Ped ped) { return invoke<BOOL>(0x038B1F1674F0E242, ped); } // 0x038B1F1674F0E242 b1207
 	NATIVE_DECL BOOL IS_PED_RUNNING_TASK_ITEM_INTERACTION(Ped ped) { return invoke<BOOL>(0xEC7E480FF8BD0BED, ped); } // 0xEC7E480FF8BD0BED b1207
-	NATIVE_DECL Any _0x05A0100EA714DB68(Entity entity, Any p1) { return invoke<Any>(0x05A0100EA714DB68, entity, p1); } // 0x05A0100EA714DB68 b1207
-	NATIVE_DECL Any _0xBC864A70AD55E0C1(Any p0, Any p1) { return invoke<Any>(0xBC864A70AD55E0C1, p0, p1); } // 0xBC864A70AD55E0C1 b1207
+	// item hashes: PRIMARYITEM, P_MUGCOFFEE01X_PH_R_HAND, P_BOTTLEBEER01X_PH_R_HAND
+	NATIVE_DECL Entity _GET_ITEM_INTERACTION_ENTITY_FROM_PED(Ped ped, Hash item) { return invoke<Entity>(0x05A0100EA714DB68, ped, item); } // 0x05A0100EA714DB68 b1207
+	NATIVE_DECL float GET_ITEM_INTERACTION_PROMPT_PROGRESS(Ped ped, Hash inputContext) { return invoke<float>(0xBC864A70AD55E0C1, ped, inputContext); } // 0xBC864A70AD55E0C1 b1207
 	NATIVE_DECL Any _0x678D3226CF70B9C8(Any p0, Any p1) { return invoke<Any>(0x678D3226CF70B9C8, p0, p1); } // 0x678D3226CF70B9C8 b1207
 	NATIVE_DECL void TASK_EVASIVE_ANIM(Ped ped, Any p1, Any p2) { invoke<Void>(0x5F22926E1BCE9B08, ped, p1, p2); } // 0x5F22926E1BCE9B08 b1207
-	NATIVE_DECL void TASK_LOOK_AT_COORD(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { invoke<Void>(0x6FA46612594F7973, ped, p1, p2, p3, p4, p5, p6, p7); } // 0x6FA46612594F7973 0x7B784DD8 b1207
+	NATIVE_DECL void TASK_LOOK_AT_COORD(Ped ped, float x, float y, float z, Any p4, Any p5, Any p6, Any p7) { invoke<Void>(0x6FA46612594F7973, ped, x, y, z, p4, p5, p6, p7); } // 0x6FA46612594F7973 0x7B784DD8 b1207
 	// param3: duration in ms, use -1 to look forever
 	// param4: using 2048 is fine
 	// param5: using 3 is fine
-	NATIVE_DECL void TASK_LOOK_AT_ENTITY(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0x69F4BE8C8CC4796C, ped, p1, p2, p3, p4, p5); } // 0x69F4BE8C8CC4796C 0x991D6619 b1207
+	NATIVE_DECL void TASK_LOOK_AT_ENTITY(Ped ped, Entity lookAtTarget, int duration, int p3, int p4, int p5) { invoke<Void>(0x69F4BE8C8CC4796C, ped, lookAtTarget, duration, p3, p4, p5); } // 0x69F4BE8C8CC4796C 0x991D6619 b1207
 	NATIVE_DECL void TASK_CLEAR_LOOK_AT(Ped ped) { invoke<Void>(0x0F804F1DB19B9689, ped); } // 0x0F804F1DB19B9689 0x60EB4054 b1207
 	NATIVE_DECL Any _0x508F5053E3F6F0C4(Any p0, Any p1, Any p2, Any p3, Any p4) { return invoke<Any>(0x508F5053E3F6F0C4, p0, p1, p2, p3, p4); } // 0x508F5053E3F6F0C4 b1207
 	NATIVE_DECL void _0x23767D80C7EED7C6(Any p0, Any p1) { invoke<Void>(0x23767D80C7EED7C6, p0, p1); } // 0x23767D80C7EED7C6 b1311
@@ -7880,16 +8282,31 @@ namespace TASK
 	// -1 no task sequence in progress.
 	NATIVE_DECL int GET_SEQUENCE_PROGRESS(Ped ped) { return invoke<int>(0x00A9010CFE1E3533, ped); } // 0x00A9010CFE1E3533 0xA3419909 b1207
 	NATIVE_DECL BOOL GET_IS_TASK_ACTIVE(Ped ped, int taskIndex) { return invoke<BOOL>(0xB0760331C7AA4155, ped, taskIndex); } // 0xB0760331C7AA4155 0x86FDDF55 b1207
-	// Gets the status of a script-assigned task.
-	// taskHash: https://alloc8or.re/rdr3/doc/enums/eScriptTaskHash.txt
+	// Gets the status of a script-assigned task, and returns an int between 0-8
+	// taskHash: https://alloc8or.re/rdr3/doc/enums/eScriptTaskHash.txt 
+	// 
+	// WAITING_TO_START_TASK = 0,
+	// PERFORMING_TASK
+	// DORMANT_TASK
+	// VACANT_STAGE
+	// GROUP_TASK_STAGE
+	// ATTRACTOR_SCRIPT_TASK_STAGE
+	// SECONDARY_TASK_STAGE
+	// TASK_NOT_FOUND
+	// FINISHED_TASK
 	NATIVE_DECL int GET_SCRIPT_TASK_STATUS(Ped ped, Hash taskHash, BOOL p2) { return invoke<int>(0x77F1BEB8863288D5, ped, taskHash, p2); } // 0x77F1BEB8863288D5 0xB2477B23 b1207
 	NATIVE_DECL Any _0x9FF5F9B24E870748(Any p0) { return invoke<Any>(0x9FF5F9B24E870748, p0); } // 0x9FF5F9B24E870748 b1207
 	NATIVE_DECL Any _0xA710DC5D25F8B942(Any p0, Any p1) { return invoke<Any>(0xA710DC5D25F8B942, p0, p1); } // 0xA710DC5D25F8B942 b1207
-	NATIVE_DECL void _0xE7FA07624574B79A(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { invoke<Void>(0xE7FA07624574B79A, p0, p1, p2, p3, p4, p5, p6, p7, p8); } // 0xE7FA07624574B79A b1207
-	NATIVE_DECL void _0x541E5B41DCA45828(Any p0, Any p1, Any p2) { invoke<Void>(0x541E5B41DCA45828, p0, p1, p2); } // 0x541E5B41DCA45828 b1207
+	// lookIntensity: see SET_PED_SHOULD_PLAY_FLEE_SCENARIO_EXIT
+	// 
+	// exitAnimation: LOOK_RETURN_GENERIC = 1,
+	// LOOK_RETURN_DISMISSIVE = 2,
+	// LOOK_RETURN_RELIEVED = 3
+	NATIVE_DECL void REACT_LOOK_AT(Ped ped, Ped targetPed, int lookIntensity, int exitAnimation, float duration, int p5, Ped targetPed2, Any p7, Any p8) { invoke<Void>(0xE7FA07624574B79A, ped, targetPed, lookIntensity, exitAnimation, duration, p5, targetPed2, p7, p8); } // 0xE7FA07624574B79A b1207
+	NATIVE_DECL void REACT_LOOK_AT_END(Ped ped, int exitAnimation, BOOL p2) { invoke<Void>(0x541E5B41DCA45828, ped, exitAnimation, p2); } // 0x541E5B41DCA45828 b1207
 	NATIVE_DECL BOOL IS_PED_SCENARIO_REACT_LOOKING(Ped ped, BOOL p1) { return invoke<BOOL>(0x916B8E075ABC8B4E, ped, p1); } // 0x916B8E075ABC8B4E b1207
 	NATIVE_DECL int GET_ACTIVE_VEHICLE_MISSION_TYPE(Vehicle vehicle) { return invoke<int>(0x534AEBA6E5ED4CAB, vehicle); } // 0x534AEBA6E5ED4CAB 0xAFA914EF b1207
-	NATIVE_DECL void TASK_LEAVE_ANY_VEHICLE(Ped ped, int p1, int p2) { invoke<Void>(0x504D54DF3F6F2247, ped, p1, p2); } // 0x504D54DF3F6F2247 0xDBDD79FA b1207
+	NATIVE_DECL void TASK_LEAVE_ANY_VEHICLE(Ped ped, int p1, int taskFlag) { invoke<Void>(0x504D54DF3F6F2247, ped, p1, taskFlag); } // 0x504D54DF3F6F2247 0xDBDD79FA b1207
 	NATIVE_DECL Any _0xBD70108D01875299(Any p0) { return invoke<Any>(0xBD70108D01875299, p0); } // 0xBD70108D01875299 b1207
 	NATIVE_DECL void TASK_USE_RANDOM_SCENARIO_IN_GROUP(Ped ped, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x14747F4A5971DE4E, ped, p1, p2, p3, p4); } // 0x14747F4A5971DE4E b1207
 	// duration: the amount of time in milliseconds to do the task.  -1 will keep the task going until either another task is applied, or CLEAR_ALL_TASKS() is called with the ped
@@ -7955,13 +8372,26 @@ namespace TASK
 	// Works on NPCs, but overrides their current task. If inside a task sequence (and not being the last task), "time" will work, otherwise the task will be performed forever until tasked with something else
 	NATIVE_DECL void TASK_VEHICLE_TEMP_ACTION(Ped driver, Vehicle vehicle, int action, int time) { invoke<Void>(0xC429DCEEB339E129, driver, vehicle, action, time); } // 0xC429DCEEB339E129 0x0679DFB8 b1207
 	NATIVE_DECL void TASK_VEHICLE_MISSION(Ped driver, Vehicle vehicle, Vehicle vehicleTarget, int missionType, float p4, Any p5, float p6, float p7, BOOL DriveAgainstTraffic) { invoke<Void>(0x659427E0EF36BCDE, driver, vehicle, vehicleTarget, missionType, p4, p5, p6, p7, DriveAgainstTraffic); } // 0x659427E0EF36BCDE 0x20609E56 b1207
-	NATIVE_DECL void _TASK_VEHICLE_DRIVE_TO_DESTINATION(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { invoke<Void>(0x7F241A0D14354583, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); } // 0x7F241A0D14354583 b1207
-	NATIVE_DECL void _TASK_VEHICLE_DRIVE_TO_DESTINATION_2(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { invoke<Void>(0x391073B9D3CCE2BA, p0, p1, p2, p3, p4, p5, p6, p7, p8); } // 0x391073B9D3CCE2BA b1207
-	NATIVE_DECL void _0x55CD5FDDD4335C1E(Vehicle vehicle, float p1, float p2, float p3, float speed, Hash type) { invoke<Void>(0x55CD5FDDD4335C1E, vehicle, p1, p2, p3, speed, type); } // 0x55CD5FDDD4335C1E b1207
-	NATIVE_DECL void _TASK_VEHICLE_DRIVE_TO_POINT(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { invoke<Void>(0x089FF2FB965F0A29, p0, p1, p2, p3, p4, p5, p6, p7); } // 0x089FF2FB965F0A29 b1207
-	NATIVE_DECL void _TASK_VEHICLE_DRIVE_TO_POINT_2(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { invoke<Void>(0x6524A8981E8BE7C9, p0, p1, p2, p3, p4, p5, p6); } // 0x6524A8981E8BE7C9 b1207
+	// flags: 67108864, 2097152, 524564, 524675 (eDrivingFlags)
+	// p7 = 6 or 3
+	// p8 = x coordinate
+	// p9 - 8.f
+	// p10 = false
+	NATIVE_DECL void TASK_VEHICLE_DRIVE_TO_DESTINATION(Ped driver, Vehicle vehicle, float x, float y, float z, float speed, int drivingFlags, int p7, float stoppingRange1, float stoppingRange2, BOOL p10) { invoke<Void>(0x7F241A0D14354583, driver, vehicle, x, y, z, speed, drivingFlags, p7, stoppingRange1, stoppingRange2, p10); } // 0x7F241A0D14354583 b1207
+	// Tasks vehicle towards owner
+	NATIVE_DECL void _TASK_VEHICLE_DRIVE_TO_DESTINATION_2(Vehicle vehicle, float x, float y, float z, float speed, int p5, int p6, float p7, float p8) { invoke<Void>(0x391073B9D3CCE2BA, vehicle, x, y, z, speed, p5, p6, p7, p8); } // 0x391073B9D3CCE2BA b1207
+	// Vehicle Auto Drive (?)
+	// p1/p2/p3: usually 1f, 1f, 0f or 0f, 0f, 0f
+	// Speed: usually 8f
+	// Types: 1148979456 (task with flee), 1148979587 (dismissing the vehicle)
+	NATIVE_DECL void _TASK_VEHICLE_FLEE_ON_CLEANUP(Vehicle vehicle, float p1, float p2, float p3, float speed, Hash type) { invoke<Void>(0x55CD5FDDD4335C1E, vehicle, p1, p2, p3, speed, type); } // 0x55CD5FDDD4335C1E b1207
+	// Old name: _TASK_VEHICLE_DRIVE_TO_POINT
+	// flag: 524419 and 0 in shop_horse_shop R* Script
+	NATIVE_DECL void TASK_VEHICLE_DRIVE_STRAIGHT_TO_POINT(Ped driver, Vehicle vehicle, float x, float y, float z, float p5, float p6, int flag) { invoke<Void>(0x089FF2FB965F0A29, driver, vehicle, x, y, z, p5, p6, flag); } // 0x089FF2FB965F0A29 b1207
+	// Params: p4 = 3.f or 8.f, p5 = 0.25f, p6 = 0 in R* Scripts
+	NATIVE_DECL void _TASK_VEHICLE_DRIVE_TO_POINT_2(Vehicle vehicle, float x, float y, float z, float p4, float p5, Any p6) { invoke<Void>(0x6524A8981E8BE7C9, vehicle, x, y, z, p4, p5, p6); } // 0x6524A8981E8BE7C9 b1207
 	NATIVE_DECL void _0x1D125814EBC517EB(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x1D125814EBC517EB, p0, p1, p2, p3); } // 0x1D125814EBC517EB b1207
-	NATIVE_DECL Any _0x583AE9AF9CEE0958(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0x583AE9AF9CEE0958, p0, p1, p2, p3); } // 0x583AE9AF9CEE0958 b1207
+	NATIVE_DECL BOOL _0x583AE9AF9CEE0958(Vehicle vehicle, float x, float y, float z) { return invoke<BOOL>(0x583AE9AF9CEE0958, vehicle, x, y, z); } // 0x583AE9AF9CEE0958 b1207
 	// See TASK_VEHICLE_MISSION
 	NATIVE_DECL void TASK_VEHICLE_MISSION_PED_TARGET(Ped ped, Vehicle vehicle, Ped pedTarget, int mode, float maxSpeed, int drivingStyle, float minDistance, float p7, BOOL DriveAgainstTraffic) { invoke<Void>(0x9454528DF15D657A, ped, vehicle, pedTarget, mode, maxSpeed, drivingStyle, minDistance, p7, DriveAgainstTraffic); } // 0x9454528DF15D657A 0xC81C4677 b1207
 	NATIVE_DECL void _0xA263ADBBC8056214(Any p0, Any p1) { invoke<Void>(0xA263ADBBC8056214, p0, p1); } // 0xA263ADBBC8056214 b1207
@@ -7973,12 +8403,12 @@ namespace TASK
 	NATIVE_DECL void CLEAR_DRIVEBY_TASK_UNDERNEATH_DRIVING_TASK(Ped ped) { invoke<Void>(0xC35B5CDB2824CF69, ped); } // 0xC35B5CDB2824CF69 0x9B76F7E6 b1207
 	NATIVE_DECL BOOL IS_DRIVEBY_TASK_UNDERNEATH_DRIVING_TASK(Ped ped) { return invoke<BOOL>(0x8785E6E40C7A8818, ped); } // 0x8785E6E40C7A8818 0xB23F46E6 b1207
 	NATIVE_DECL BOOL GET_IS_PED_AIMING_IN_THE_AIR(Ped ped) { return invoke<BOOL>(0x8785E6E40C7A8819, ped); } // 0x8785E6E40C7A8819 b1207
-	NATIVE_DECL void _0x34C0010188D7C54A(Ped ped, Any p1) { invoke<Void>(0x34C0010188D7C54A, ped, p1); } // 0x34C0010188D7C54A b1207
+	NATIVE_DECL void _SET_PED_CLEAR_AIMING_IN_THE_AIR(Ped ped, Any p1) { invoke<Void>(0x34C0010188D7C54A, ped, p1); } // 0x34C0010188D7C54A b1207
 	NATIVE_DECL BOOL IS_MOUNTED_WEAPON_TASK_UNDERNEATH_DRIVING_TASK(Ped ped) { return invoke<BOOL>(0xA320EF046186FA3B, ped); } // 0xA320EF046186FA3B 0x291E938C b1207
 	NATIVE_DECL void TASK_WARP_PED_INTO_VEHICLE(Ped ped, Vehicle vehicle, int seat) { invoke<Void>(0x9A7D091411C5F684, ped, vehicle, seat); } // 0x9A7D091411C5F684 0x65D4A35D b1207
-	NATIVE_DECL void TASK_SHOOT_AT_ENTITY(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x08DA95E8298AE772, p0, p1, p2, p3, p4); } // 0x08DA95E8298AE772 0xAC0631C9 b1207
+	NATIVE_DECL void TASK_SHOOT_AT_ENTITY(Entity entity, Entity targetEntity, int duration, Hash firingPattern, BOOL affectCockedState) { invoke<Void>(0x08DA95E8298AE772, entity, targetEntity, duration, firingPattern, affectCockedState); } // 0x08DA95E8298AE772 0xAC0631C9 b1207
 	NATIVE_DECL void TASK_SHOOT_WITH_WEAPON(Ped ped, Any* args) { invoke<Void>(0x08AA95E8298AE772, ped, args); } // 0x08AA95E8298AE772 b1207
-	NATIVE_DECL void _0x2416EC2F31F75266(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x2416EC2F31F75266, p0, p1, p2, p3, p4); } // 0x2416EC2F31F75266 b1207
+	NATIVE_DECL void _0x2416EC2F31F75266(Entity entity, Entity targetEntity, int duration, Any p3, Any p4) { invoke<Void>(0x2416EC2F31F75266, entity, targetEntity, duration, p3, p4); } // 0x2416EC2F31F75266 b1207
 	NATIVE_DECL void _0x41323F4E0C4AE94B(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { invoke<Void>(0x41323F4E0C4AE94B, p0, p1, p2, p3, p4, p5, p6); } // 0x41323F4E0C4AE94B b1207
 	NATIVE_DECL Any _0x5EA655F01D93667A(Any p0) { return invoke<Any>(0x5EA655F01D93667A, p0); } // 0x5EA655F01D93667A b1207
 	// Climbs or vaults the nearest thing.
@@ -7986,7 +8416,9 @@ namespace TASK
 	NATIVE_DECL void _TASK_CLIMB_2(Ped ped, float heading) { invoke<Void>(0xDF1D85BCAF60D537, ped, heading); } // 0xDF1D85BCAF60D537 b1207
 	NATIVE_DECL void TASK_CLIMB_LADDER(Ped ped, Any p1, Any p2, Any p3) { invoke<Void>(0xB6C987F9285A3814, ped, p1, p2, p3); } // 0xB6C987F9285A3814 0x35BB4EE0 b1207
 	// Immediately stops the pedestrian from whatever it's doing. They stop fighting, animations, etc. they forget what they were doing.
-	NATIVE_DECL void CLEAR_PED_TASKS_IMMEDIATELY(Ped ped, BOOL p1, BOOL p2) { invoke<Void>(0xAAA34F8A7CB32098, ped, p1, p2); } // 0xAAA34F8A7CB32098 0xBC045625 b1207
+	// 
+	// resetCrouch TRUE = ped will stand up if crouching, FALSE = ped will remain crouching if crouched
+	NATIVE_DECL void CLEAR_PED_TASKS_IMMEDIATELY(Ped ped, BOOL p1, BOOL resetCrouch) { invoke<Void>(0xAAA34F8A7CB32098, ped, p1, resetCrouch); } // 0xAAA34F8A7CB32098 0xBC045625 b1207
 	NATIVE_DECL void TASK_PERFORM_SEQUENCE_FROM_PROGRESS(Ped ped, Any p1, Any p2, Any p3) { invoke<Void>(0x89221B16730234F0, ped, p1, p2, p3); } // 0x89221B16730234F0 0xFA60601B b1207
 	NATIVE_DECL void SET_PED_DESIRED_MOVE_BLEND_RATIO(Ped ped, float p1) { invoke<Void>(0x1E982AC8716912C5, ped, p1); } // 0x1E982AC8716912C5 0xC65FC712 b1207
 	NATIVE_DECL float GET_PED_DESIRED_MOVE_BLEND_RATIO(Ped ped) { return invoke<float>(0x8517D4A6CA8513ED, ped); } // 0x8517D4A6CA8513ED 0x5FEFAB72 b1207
@@ -8012,16 +8444,16 @@ namespace TASK
 	NATIVE_DECL void TASK_COMBAT_PED(Ped ped, Ped targetPed, int p2, int p3) { invoke<Void>(0xF166E48407BAC484, ped, targetPed, p2, p3); } // 0xF166E48407BAC484 0xCB0D8932 b1207
 	NATIVE_DECL void TASK_COMBAT_PED_TIMED(Ped ped, Ped targetPed, int p2, Any p3) { invoke<Void>(0x944F30DCB7096BDE, ped, targetPed, p2, p3); } // 0x944F30DCB7096BDE 0xF5CA2A45 b1207
 	NATIVE_DECL void _TASK_COMBAT_PED_3(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0xC624414FA748B9BA, p0, p1, p2, p3, p4, p5); } // 0xC624414FA748B9BA b1207
-	NATIVE_DECL void TASK_SEEK_COVER_FROM_POS(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { invoke<Void>(0x75AC2B60386D89F2, ped, p1, p2, p3, p4, p5, p6, p7); } // 0x75AC2B60386D89F2 0x83F18EE9 b1207
+	NATIVE_DECL void TASK_SEEK_COVER_FROM_POS(Ped ped, float x, float y, float z, Any p4, Any p5, Any p6, Any p7) { invoke<Void>(0x75AC2B60386D89F2, ped, x, y, z, p4, p5, p6, p7); } // 0x75AC2B60386D89F2 0x83F18EE9 b1207
 	NATIVE_DECL void TASK_SEEK_COVER_FROM_PED(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0x84D32B3BEC531324, ped, p1, p2, p3, p4, p5); } // 0x84D32B3BEC531324 0xC1EC907E b1207
 	NATIVE_DECL void TASK_SEEK_COVER_TO_COVER_POINT(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { invoke<Void>(0xD43D95C7A869447F, ped, p1, p2, p3, p4, p5, p6, p7, p8); } // 0xD43D95C7A869447F 0x3D026B29 b1207
 	NATIVE_DECL void TASK_SEEK_COVER_TO_COORDS(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { invoke<Void>(0x39246A6958EF072C, ped, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); } // 0x39246A6958EF072C 0xFFFE754E b1207
-	NATIVE_DECL void TASK_PUT_PED_DIRECTLY_INTO_COVER(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12) { invoke<Void>(0x4172393E6BE1FECE, ped, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12); } // 0x4172393E6BE1FECE 0xC9F00E68 b1207
+	NATIVE_DECL void TASK_PUT_PED_DIRECTLY_INTO_COVER(Ped ped, float x, float y, float z, int timeout, BOOL p5, float p6, Any p7, Any p8, ScrHandle coverpoint, BOOL p10, BOOL p11, Any p12) { invoke<Void>(0x4172393E6BE1FECE, ped, x, y, z, timeout, p5, p6, p7, p8, coverpoint, p10, p11, p12); } // 0x4172393E6BE1FECE 0xC9F00E68 b1207
 	NATIVE_DECL void _0xDF8A5855B9F9A97B(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12, Any p13, Any p14, Any p15, Any p16, Any p17) { invoke<Void>(0xDF8A5855B9F9A97B, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17); } // 0xDF8A5855B9F9A97B b1207
 	// meleeStyles: AR_GRAPPLE_BACK_FROM_BACK, AR_GRAPPLE_MOUNT_FACEDOWN_FROM_FRONT, AR_ALLIGATOR_LEAPKILL, AR_ALLIGATOR_WAIST_AUTOKILL_FRONT
-	NATIVE_DECL void TASK_PUT_PED_DIRECTLY_INTO_MELEE(Ped ped, Ped meleeTarget, Hash meleeStyle, float p3, float p4, Any p5, Any p6) { invoke<Void>(0x1C6CD14A876FFE39, ped, meleeTarget, meleeStyle, p3, p4, p5, p6); } // 0x1C6CD14A876FFE39 0x79E1D27D b1207
+	NATIVE_DECL void TASK_PUT_PED_DIRECTLY_INTO_MELEE(Ped ped, Ped meleeTarget, Hash meleeStyle, float p3, float animBlendRatio, BOOL p5, int p6) { invoke<Void>(0x1C6CD14A876FFE39, ped, meleeTarget, meleeStyle, p3, animBlendRatio, p5, p6); } // 0x1C6CD14A876FFE39 0x79E1D27D b1207
 	// grappleStyle: AR_GRAPPLE_STRUGGLE, AR_ALLIGATOR_LEG_GRAB_CHALLENGE_FAIL, AR_GRAPPLE_BACK_FROM_BACK, AR_GRAPPLE_BACK_DEFEND, AR_GRAPPLE_FRONT_FROM_FRONT
-	NATIVE_DECL void TASK_PUT_PED_DIRECTLY_INTO_GRAPPLE(Ped ped, Ped grappleTarget, Hash grappleStyle, float p3, float p4, Any p5, Any p6) { invoke<Void>(0xA05F3F20889D7A5B, ped, grappleTarget, grappleStyle, p3, p4, p5, p6); } // 0xA05F3F20889D7A5B b1207
+	NATIVE_DECL void TASK_PUT_PED_DIRECTLY_INTO_GRAPPLE(Ped ped, Ped grappleTarget, Hash grappleStyle, float p3, float p4, BOOL p5, int p6) { invoke<Void>(0xA05F3F20889D7A5B, ped, grappleTarget, grappleStyle, p3, p4, p5, p6); } // 0xA05F3F20889D7A5B b1207
 	NATIVE_DECL void TASK_COMPANION_AMBIENT(Ped ped, Any p1) { invoke<Void>(0xE017CF6E2527FE4F, ped, p1); } // 0xE017CF6E2527FE4F b1207
 	NATIVE_DECL void _0x098036CAB8373D36(Any p0) { invoke<Void>(0x098036CAB8373D36, p0); } // 0x098036CAB8373D36 b1207
 	NATIVE_DECL void _0x10C44F633E2D6D9E(Any p0) { invoke<Void>(0x10C44F633E2D6D9E, p0); } // 0x10C44F633E2D6D9E b1207
@@ -8050,6 +8482,7 @@ namespace TASK
 	NATIVE_DECL Any _0x8360C47380B6F351(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0x8360C47380B6F351, p0, p1, p2, p3); } // 0x8360C47380B6F351 b1207
 	NATIVE_DECL void _SET_SCENARIO_POINT_FLAG(int scenario, int flag, BOOL value) { invoke<Void>(0x5AF19B6CC2115D34, scenario, flag, value); } // 0x5AF19B6CC2115D34 b1207
 	NATIVE_DECL BOOL _IS_SCENARIO_POINT_FLAG_SET(int scenario, int flag) { return invoke<BOOL>(0x8569C38D2FB80650, scenario, flag); } // 0x8569C38D2FB80650 b1207
+	// _SET_SCENARIO_POINT_*
 	NATIVE_DECL void _0xADC45010BC17AF0E(Any p0, Any p1) { invoke<Void>(0xADC45010BC17AF0E, p0, p1); } // 0xADC45010BC17AF0E b1207
 	NATIVE_DECL Any _0x974DA3408DEC4E79(Any p0) { return invoke<Any>(0x974DA3408DEC4E79, p0); } // 0x974DA3408DEC4E79 b1207
 	NATIVE_DECL Any _0x6EF4E31B4D5D2DA0(Any p0, Any p1) { return invoke<Any>(0x6EF4E31B4D5D2DA0, p0, p1); } // 0x6EF4E31B4D5D2DA0 b1207
@@ -8057,16 +8490,17 @@ namespace TASK
 	NATIVE_DECL Any _0x22CD2C33ED4467A1(Any p0) { return invoke<Any>(0x22CD2C33ED4467A1, p0); } // 0x22CD2C33ED4467A1 b1207
 	NATIVE_DECL Entity _GET_ENTITY_SCENARIO_POINT_IS_ATTACHED_TO(int scenario) { return invoke<Entity>(0x7467165EE97D3C68, scenario); } // 0x7467165EE97D3C68 b1207
 	NATIVE_DECL Ped _GET_PED_USING_SCENARIO_POINT(int scenario) { return invoke<Ped>(0x5BA659955369B0E2, scenario); } // 0x5BA659955369B0E2 b1207
-	// p1 is always true
+	// Params: p1 is always true in R* Scripts
 	NATIVE_DECL Vector3 _GET_SCENARIO_POINT_COORDS(int scenario, BOOL p1) { return invoke<Vector3>(0xA8452DD321607029, scenario, p1); } // 0xA8452DD321607029 b1207
 	NATIVE_DECL Vector3 _0x91CB5E431F579BA1(Any p0) { return invoke<Vector3>(0x91CB5E431F579BA1, p0); } // 0x91CB5E431F579BA1 b1207
 	NATIVE_DECL Any _0x370F57C47F68EBCA(Any p0) { return invoke<Any>(0x370F57C47F68EBCA, p0); } // 0x370F57C47F68EBCA b1207
-	// p1 is always true
-	NATIVE_DECL float _GET_SCENARIO_POINT_HEADING(int Scenario, BOOL p1) { return invoke<float>(0xB93EA7184BAA85C3, Scenario, p1); } // 0xB93EA7184BAA85C3 b1207
-	NATIVE_DECL Any _0x6718F40313A2B5A6(Any p0) { return invoke<Any>(0x6718F40313A2B5A6, p0); } // 0x6718F40313A2B5A6 b1207
+	// Params: p1 is always true in R* Scripts
+	NATIVE_DECL float _GET_SCENARIO_POINT_HEADING(int scenario, BOOL p1) { return invoke<float>(0xB93EA7184BAA85C3, scenario, p1); } // 0xB93EA7184BAA85C3 b1207
+	NATIVE_DECL float _GET_SCENARIO_POINT_RADIUS(int scenario) { return invoke<float>(0x6718F40313A2B5A6, scenario); } // 0x6718F40313A2B5A6 b1207
 	NATIVE_DECL void _SET_SCENARIO_POINT_COORDS(int scenario, float xPos, float yPos, float zPos, BOOL p4) { invoke<Void>(0x2056AB38DF06825C, scenario, xPos, yPos, zPos, p4); } // 0x2056AB38DF06825C b1207
 	NATIVE_DECL void _SET_SCENARIO_POINT_HEADING(int scenario, float heading, BOOL p2) { invoke<Void>(0xD3A0DA8F91612C6E, scenario, heading, p2); } // 0xD3A0DA8F91612C6E b1207
-	NATIVE_DECL void _0xC47D9080A9A8856A(Any p0, Any p1) { invoke<Void>(0xC47D9080A9A8856A, p0, p1); } // 0xC47D9080A9A8856A b1207
+	NATIVE_DECL void _SET_SCENARIO_POINT_RADIUS(int scenario, float radius) { invoke<Void>(0xC47D9080A9A8856A, scenario, radius); } // 0xC47D9080A9A8856A b1207
+	// _SET_SCENARIO_*
 	NATIVE_DECL void _0xA7479FB665361EDB(Any p0, Any p1) { invoke<Void>(0xA7479FB665361EDB, p0, p1); } // 0xA7479FB665361EDB b1207
 	NATIVE_DECL void _0xE69FDA40AAC3EFC0(Any p0, Any p1) { invoke<Void>(0xE69FDA40AAC3EFC0, p0, p1); } // 0xE69FDA40AAC3EFC0 b1207
 	NATIVE_DECL int GET_SCENARIO_POINTS_IN_AREA(float posX, float posY, float posZ, float radius, Any* scenariosInRadius, int size) { return invoke<int>(0x345EC3B7EBDE1CB5, posX, posY, posZ, radius, scenariosInRadius, size); } // 0x345EC3B7EBDE1CB5 b1207
@@ -8076,20 +8510,22 @@ namespace TASK
 	NATIVE_DECL int _GET_SCENARIO_POINT_PED_IS_USING(Ped ped, BOOL p1) { return invoke<int>(0xDF7993356F52359A, ped, p1); } // 0xDF7993356F52359A b1207
 	NATIVE_DECL Any GET_RANSACK_SCENARIO_POINT_PED_IS_USING(Ped ped) { return invoke<Any>(0xD04241BBF6D03A5E, ped); } // 0xD04241BBF6D03A5E b1207
 	// Opens/closes containers: ChestDugUp
-	NATIVE_DECL void _0x188F8071F244B9B8(Entity entity, BOOL open) { invoke<Void>(0x188F8071F244B9B8, entity, open); } // 0x188F8071F244B9B8 b1207
+	NATIVE_DECL void _SET_SCENARIO_CONTAINER_OPENING_STATE(Entity entity, BOOL open) { invoke<Void>(0x188F8071F244B9B8, entity, open); } // 0x188F8071F244B9B8 b1207
 	NATIVE_DECL Any _0xA9E7672F8C6C6F74(Any p0) { return invoke<Any>(0xA9E7672F8C6C6F74, p0); } // 0xA9E7672F8C6C6F74 b1207
 	NATIVE_DECL Any _0x0A98A362C5A19A43(Any p0) { return invoke<Any>(0x0A98A362C5A19A43, p0); } // 0x0A98A362C5A19A43 b1207
 	NATIVE_DECL Any _0x849791EBBDBA0362(Any p0) { return invoke<Any>(0x849791EBBDBA0362, p0); } // 0x849791EBBDBA0362 b1207
 	NATIVE_DECL Any _0x640A602946A8C972(Any p0) { return invoke<Any>(0x640A602946A8C972, p0); } // 0x640A602946A8C972 b1207
 	NATIVE_DECL Any _0x01AF8A3729231A43(Any p0) { return invoke<Any>(0x01AF8A3729231A43, p0); } // 0x01AF8A3729231A43 b1207
-	NATIVE_DECL BOOL _0xB219612B5568E9EC(Entity entity) { return invoke<BOOL>(0xB219612B5568E9EC, entity); } // 0xB219612B5568E9EC b1207
-	NATIVE_DECL void _0x2E20878FD208A68E(Any p0, Any p1) { invoke<Void>(0x2E20878FD208A68E, p0, p1); } // 0x2E20878FD208A68E b1207
+	// Returns m_eContainerState
+	NATIVE_DECL BOOL _GET_SCENARIO_CONTAINER_OPENING_STATE(Entity entity) { return invoke<BOOL>(0xB219612B5568E9EC, entity); } // 0xB219612B5568E9EC b1207
+	NATIVE_DECL void _RESET_SCENARIO_FOR_ENTITY(int scenario, Entity entity) { invoke<Void>(0x2E20878FD208A68E, scenario, entity); } // 0x2E20878FD208A68E b1207
 	NATIVE_DECL void _0x4161648394262FDF(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x4161648394262FDF, p0, p1, p2, p3); } // 0x4161648394262FDF b1207
 	NATIVE_DECL void _0x9C8F42A5D1859DC1(Any p0) { invoke<Void>(0x9C8F42A5D1859DC1, p0); } // 0x9C8F42A5D1859DC1 b1207
 	NATIVE_DECL void _DELETE_SCENARIO_POINT(int scenario) { invoke<Void>(0x81948DFE4F5A0283, scenario); } // 0x81948DFE4F5A0283 b1207
 	NATIVE_DECL void TASK_USE_SCENARIO_POINT(Ped ped, int scenario, const char* p2, int p3, BOOL p4, BOOL p5, Hash p6, BOOL p7, float p8, BOOL p9) { invoke<Void>(0xCCDAE6324B6A821C, ped, scenario, p2, p3, p4, p5, p6, p7, p8, p9); } // 0xCCDAE6324B6A821C b1207
 	NATIVE_DECL void _TASK_USE_SCENARIO_POINT_2(Ped ped, Ped ped2, Any p2, const char* p3, int p4, Hash p5, float p6, BOOL p7) { invoke<Void>(0x0F6641449DD86FBE, ped, ped2, p2, p3, p4, p5, p6, p7); } // 0x0F6641449DD86FBE b1207
-	NATIVE_DECL void TASK_START_SCENARIO_IN_PLACE_HASH(Ped ped, Hash scenarioHash, int p2, BOOL p3, Any p4, float p5, BOOL p6) { invoke<Void>(0x524B54361229154F, ped, scenarioHash, p2, p3, p4, p5, p6); } // 0x524B54361229154F b1207
+	NATIVE_DECL void TASK_START_SCENARIO_IN_PLACE_HASH(Ped ped, Hash scenarioHash, int p2, BOOL p3, Any p4, float heading, BOOL p6) { invoke<Void>(0x524B54361229154F, ped, scenarioHash, p2, p3, p4, heading, p6); } // 0x524B54361229154F b1207
+	// Takes scenario point handle instead of hash
 	NATIVE_DECL void _TASK_START_SCENARIO_IN_PLACE_2(Ped ped, Any p1, const char* p2, int p3, BOOL p4, float p5, BOOL p6) { invoke<Void>(0xA917E39F2CEFD215, ped, p1, p2, p3, p4, p5, p6); } // 0xA917E39F2CEFD215 b1207
 	NATIVE_DECL void TASK_START_SCENARIO_AT_POSITION(Ped ped, Hash scenarioHash, float x, float y, float z, float heading, int duration, BOOL sittingScenario, BOOL teleport, const char* p9, float p10, BOOL p11) { invoke<Void>(0x4D1F61FC34AF3CD1, ped, scenarioHash, x, y, z, heading, duration, sittingScenario, teleport, p9, p10, p11); } // 0x4D1F61FC34AF3CD1 b1207
 	NATIVE_DECL Any _0xF97F462779B31786(Any p0) { return invoke<Any>(0xF97F462779B31786, p0); } // 0xF97F462779B31786 b1207
@@ -8102,7 +8538,7 @@ namespace TASK
 	NATIVE_DECL void TASK_USE_NEAREST_SCENARIO_CHAIN_TO_COORD(Ped ped, float x, float y, float z, float distance, BOOL p5, BOOL p6, BOOL p7, BOOL p8) { invoke<Void>(0x9FDA1B3D7E7028B3, ped, x, y, z, distance, p5, p6, p7, p8); } // 0x9FDA1B3D7E7028B3 0xE32FFB22 b1207
 	NATIVE_DECL void TASK_USE_NEAREST_SCENARIO_CHAIN_TO_COORD_WARP(Ped ped, float x, float y, float z, float distance, BOOL p5, BOOL p6, BOOL p7, BOOL p8) { invoke<Void>(0x97A28E63F0BA5631, ped, x, y, z, distance, p5, p6, p7, p8); } // 0x97A28E63F0BA5631 0xBAB4C0AE b1207
 	NATIVE_DECL Any _0xFDECCA06E8B81346(Any p0) { return invoke<Any>(0xFDECCA06E8B81346, p0); } // 0xFDECCA06E8B81346 b1207
-	NATIVE_DECL Any _0x2D657B10F211C572(Any p0, Any p1) { return invoke<Any>(0x2D657B10F211C572, p0, p1); } // 0x2D657B10F211C572 b1207
+	NATIVE_DECL Any _0x2D657B10F211C572(Ped ped, float p1) { return invoke<Any>(0x2D657B10F211C572, ped, p1); } // 0x2D657B10F211C572 b1207
 	NATIVE_DECL void TASK_RIDE_TRAIN(Ped ped, Vehicle train, int scenarioPoint, Hash scenarioHash) { invoke<Void>(0x37FB1C870E2EC2C6, ped, train, scenarioPoint, scenarioHash); } // 0x37FB1C870E2EC2C6 b1207
 	NATIVE_DECL Any _0x79197F7D2BB5E73A(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return invoke<Any>(0x79197F7D2BB5E73A, p0, p1, p2, p3, p4, p5); } // 0x79197F7D2BB5E73A b1207
 	NATIVE_DECL BOOL DOES_SCENARIO_EXIST_IN_AREA(float x, float y, float z, float radius, BOOL p4, Any p5, BOOL p6) { return invoke<BOOL>(0x5A59271FFADD33C1, x, y, z, radius, p4, p5, p6); } // 0x5A59271FFADD33C1 0xFA7F5047 b1207
@@ -8114,7 +8550,7 @@ namespace TASK
 	NATIVE_DECL BOOL IS_SCENARIO_OCCUPIED(float p0, float p1, float p2, float p3, BOOL p4) { return invoke<BOOL>(0x788756D73AC2E07C, p0, p1, p2, p3, p4); } // 0x788756D73AC2E07C 0x697FC008 b1207
 	NATIVE_DECL Any _0x1ACBC313966C21F3(int scenario) { return invoke<Any>(0x1ACBC313966C21F3, scenario); } // 0x1ACBC313966C21F3 b1436
 	NATIVE_DECL BOOL PED_HAS_USE_SCENARIO_TASK(Ped ped) { return invoke<BOOL>(0x295E3CCEC879CCD7, ped); } // 0x295E3CCEC879CCD7 0x9BE9C691 b1207
-	NATIVE_DECL BOOL _0x02EBBB3989B7E695(Ped ped) { return invoke<BOOL>(0x02EBBB3989B7E695, ped); } // 0x02EBBB3989B7E695 b1207
+	NATIVE_DECL BOOL _PED_IS_IN_SCENARIO_BASE(Ped ped) { return invoke<BOOL>(0x02EBBB3989B7E695, ped); } // 0x02EBBB3989B7E695 b1207
 	NATIVE_DECL Any _0x90703A8F75EE4ABD(Any p0, Any p1) { return invoke<Any>(0x90703A8F75EE4ABD, p0, p1); } // 0x90703A8F75EE4ABD b1207
 	NATIVE_DECL void _0xD999E379265A4501(Any p0, Any p1, Any p2) { invoke<Void>(0xD999E379265A4501, p0, p1, p2); } // 0xD999E379265A4501 b1207
 	NATIVE_DECL void PLAY_ANIM_ON_RUNNING_SCENARIO(Ped ped, const char* animDict, const char* animName) { invoke<Void>(0x748040460F8DF5DC, ped, animDict, animName); } // 0x748040460F8DF5DC 0x1984A5D1 b1207
@@ -8166,7 +8602,7 @@ namespace TASK
 	NATIVE_DECL void RESET_SCENARIO_TYPES_ENABLED() { invoke<Void>(0x0D40EE2A7F2B2D6D); } // 0x0D40EE2A7F2B2D6D 0xF58FDEB4 b1207
 	NATIVE_DECL int _GET_SCENARIO_POINT_TYPE_PED_IS_USING(Ped ped) { return invoke<int>(0x2D0571BB55879DA2, ped); } // 0x2D0571BB55879DA2 b1207
 	NATIVE_DECL Hash _GET_SCENARIO_POINT_TYPE(int scenario) { return invoke<Hash>(0xA92450B5AE687AAF, scenario); } // 0xA92450B5AE687AAF b1207
-	NATIVE_DECL BOOL IS_PED_ACTIVE_IN_SCENARIO(Any p0, Any p1) { return invoke<BOOL>(0xAA135F9482C82CC3, p0, p1); } // 0xAA135F9482C82CC3 0x05038F1A b1207
+	NATIVE_DECL BOOL IS_PED_ACTIVE_IN_SCENARIO(Ped ped, int scenario) { return invoke<BOOL>(0xAA135F9482C82CC3, ped, scenario); } // 0xAA135F9482C82CC3 0x05038F1A b1207
 	NATIVE_DECL BOOL IS_PED_EXITING_SCENARIO(Ped ped, BOOL p1) { return invoke<BOOL>(0x0C3CB2E600C8977D, ped, p1); } // 0x0C3CB2E600C8977D b1207
 	NATIVE_DECL Any _0x2C497BDEF897C6DF(Any p0) { return invoke<Any>(0x2C497BDEF897C6DF, p0); } // 0x2C497BDEF897C6DF b1207
 	// Despite its name, it only attacks ONE hated target. The one closest to the specified position.
@@ -8179,7 +8615,9 @@ namespace TASK
 	NATIVE_DECL void _0x30B391915538EBE2(Any p0) { invoke<Void>(0x30B391915538EBE2, p0); } // 0x30B391915538EBE2 b1207
 	NATIVE_DECL void TASK_THROW_PROJECTILE(Ped ped, Any p1, Any p2, Any p3) { invoke<Void>(0x7285951DBF6B5A51, ped, p1, p2, p3); } // 0x7285951DBF6B5A51 0xF65C20A7 b1207
 	NATIVE_DECL void _TASK_THROW_PROJECTILE_2(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x7282356DFF6B5A51, p0, p1, p2, p3); } // 0x7282356DFF6B5A51 b1207
-	NATIVE_DECL void TASK_WHISTLE_ANIM(Ped ped, Any p1, Any p2) { invoke<Void>(0xD6401A1B2F63BED6, ped, p1, p2); } // 0xD6401A1B2F63BED6 b1207
+	// https://github.com/femga/rdr3_discoveries/blob/master/AI/EVENTS/aud_ped_whistle_types.lua
+	// p2: UNSPECIFIED
+	NATIVE_DECL void TASK_WHISTLE_ANIM(Ped ped, Hash audPedWhistleType, Hash p2) { invoke<Void>(0xD6401A1B2F63BED6, ped, audPedWhistleType, p2); } // 0xD6401A1B2F63BED6 b1207
 	NATIVE_DECL void TASK_SWAP_WEAPON(Ped ped, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0xA21C51255B205245, ped, p1, p2, p3, p4); } // 0xA21C51255B205245 0xDAF4F8FC b1207
 	NATIVE_DECL void _0x0000A8ACDC2E1B6A(Any p0, Any p1) { invoke<Void>(0x0000A8ACDC2E1B6A, p0, p1); } // 0x0000A8ACDC2E1B6A b1207
 	NATIVE_DECL void TASK_RELOAD_WEAPON(Ped ped, BOOL unused) { invoke<Void>(0x62D2916F56B9CD2D, ped, unused); } // 0x62D2916F56B9CD2D 0xCA6E91FD b1207
@@ -8225,33 +8663,33 @@ namespace TASK
 	// Makes the ped ragdoll like when falling from a great height
 	NATIVE_DECL void SET_HIGH_FALL_TASK(Ped ped, int p1, int p2, int p3) { invoke<Void>(0x8C825BDC7741D37C, ped, p1, p2, p3); } // 0x8C825BDC7741D37C 0xBBB26172 b1207
 	NATIVE_DECL void _0x5217B7B6DB78E1F3(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x5217B7B6DB78E1F3, p0, p1, p2, p3, p4); } // 0x5217B7B6DB78E1F3 b1207
-	NATIVE_DECL void REQUEST_WAYPOINT_RECORDING(const char* name) { invoke<Void>(0x9EEFB62EB27B5792, name); } // 0x9EEFB62EB27B5792 0xAFABFB5D b1207
-	NATIVE_DECL BOOL GET_IS_WAYPOINT_RECORDING_LOADED(const char* name) { return invoke<BOOL>(0xCB4E8BE8A0063C5D, name); } // 0xCB4E8BE8A0063C5D 0x87125F5D b1207
-	NATIVE_DECL void REMOVE_WAYPOINT_RECORDING(const char* name) { invoke<Void>(0xFF1B8B4AA1C25DC8, name); } // 0xFF1B8B4AA1C25DC8 0x624530B0 b1207
+	NATIVE_DECL void REQUEST_WAYPOINT_RECORDING(const char* waypointRecording) { invoke<Void>(0x9EEFB62EB27B5792, waypointRecording); } // 0x9EEFB62EB27B5792 0xAFABFB5D b1207
+	NATIVE_DECL BOOL GET_IS_WAYPOINT_RECORDING_LOADED(const char* waypointRecording) { return invoke<BOOL>(0xCB4E8BE8A0063C5D, waypointRecording); } // 0xCB4E8BE8A0063C5D 0x87125F5D b1207
+	NATIVE_DECL void REMOVE_WAYPOINT_RECORDING(const char* waypointRecording) { invoke<Void>(0xFF1B8B4AA1C25DC8, waypointRecording); } // 0xFF1B8B4AA1C25DC8 0x624530B0 b1207
 	NATIVE_DECL void _0xF718931A82EEB898() { invoke<Void>(0xF718931A82EEB898); } // 0xF718931A82EEB898 b1207
-	NATIVE_DECL BOOL WAYPOINT_RECORDING_GET_NUM_POINTS(const char* name, int* points) { return invoke<BOOL>(0x5343532C01A07234, name, points); } // 0x5343532C01A07234 0xF5F9B71E b1207
-	NATIVE_DECL BOOL WAYPOINT_RECORDING_GET_COORD(const char* name, int point, Vector3* coord) { return invoke<BOOL>(0x2FB897405C90B361, name, point, coord); } // 0x2FB897405C90B361 0x19266913 b1207
-	NATIVE_DECL float WAYPOINT_RECORDING_GET_SPEED_AT_POINT(const char* name, int point) { return invoke<float>(0x005622AEBC33ACA9, name, point); } // 0x005622AEBC33ACA9 0xC765633A b1207
-	NATIVE_DECL BOOL WAYPOINT_RECORDING_GET_CLOSEST_WAYPOINT(const char* name, float x, float y, float z, int* point) { return invoke<BOOL>(0xB629A298081F876F, name, x, y, z, point); } // 0xB629A298081F876F 0xC4CD35AF b1207
+	NATIVE_DECL BOOL WAYPOINT_RECORDING_GET_NUM_POINTS(const char* waypointRecording, int* points) { return invoke<BOOL>(0x5343532C01A07234, waypointRecording, points); } // 0x5343532C01A07234 0xF5F9B71E b1207
+	NATIVE_DECL BOOL WAYPOINT_RECORDING_GET_COORD(const char* waypointRecording, int point, Vector3* coord) { return invoke<BOOL>(0x2FB897405C90B361, waypointRecording, point, coord); } // 0x2FB897405C90B361 0x19266913 b1207
+	NATIVE_DECL float WAYPOINT_RECORDING_GET_SPEED_AT_POINT(const char* waypointRecording, int point) { return invoke<float>(0x005622AEBC33ACA9, waypointRecording, point); } // 0x005622AEBC33ACA9 0xC765633A b1207
+	NATIVE_DECL BOOL WAYPOINT_RECORDING_GET_CLOSEST_WAYPOINT(const char* waypointRecording, float x, float y, float z, int* point) { return invoke<BOOL>(0xB629A298081F876F, waypointRecording, x, y, z, point); } // 0xB629A298081F876F 0xC4CD35AF b1207
 	NATIVE_DECL void TASK_FOLLOW_WAYPOINT_RECORDING_ADVANCED(Ped ped, Any p1) { invoke<Void>(0x0CFC13EBC19BCA52, ped, p1); } // 0x0CFC13EBC19BCA52 b1207
-	NATIVE_DECL void TASK_FOLLOW_WAYPOINT_RECORDING(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { invoke<Void>(0x0759591819534F7B, ped, p1, p2, p3, p4, p5, p6, p7); } // 0x0759591819534F7B 0xADF9904D b1207
-	NATIVE_DECL void TASK_FOLLOW_WAYPOINT_RECORDING_AT_OFFSET(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { invoke<Void>(0xBE9B0520BD7C445B, ped, p1, p2, p3, p4, p5, p6); } // 0xBE9B0520BD7C445B b1207
-	NATIVE_DECL void TASK_FOLLOW_ENTITY_ALONG_WAYPOINT_RECORDING_AT_OFFSET(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { invoke<Void>(0x4D2B787BAE9AB760, ped, p1, p2, p3, p4, p5, p6, p7, p8); } // 0x4D2B787BAE9AB760 b1207
-	NATIVE_DECL BOOL IS_WAYPOINT_PLAYBACK_GOING_ON_FOR_PED(Any p0, Any p1) { return invoke<BOOL>(0xE03B3F2D3DC59B64, p0, p1); } // 0xE03B3F2D3DC59B64 0x85B7725F b1207
+	NATIVE_DECL void TASK_FOLLOW_WAYPOINT_RECORDING(Ped ped, const char* waypointRecording, int p2, int flag, int p4, BOOL p5, Any p6, int p7) { invoke<Void>(0x0759591819534F7B, ped, waypointRecording, p2, flag, p4, p5, p6, p7); } // 0x0759591819534F7B 0xADF9904D b1207
+	NATIVE_DECL void TASK_FOLLOW_WAYPOINT_RECORDING_AT_OFFSET(Ped ped, const char* waypointRecording, float p2, int p3, int p4, int p5, BOOL p6) { invoke<Void>(0xBE9B0520BD7C445B, ped, waypointRecording, p2, p3, p4, p5, p6); } // 0xBE9B0520BD7C445B b1207
+	NATIVE_DECL void TASK_FOLLOW_ENTITY_ALONG_WAYPOINT_RECORDING_AT_OFFSET(Ped ped0, Ped ped1, const char* waypointRecording, float p3, float p4, int p5, int p6, int p7, BOOL p8) { invoke<Void>(0x4D2B787BAE9AB760, ped0, ped1, waypointRecording, p3, p4, p5, p6, p7, p8); } // 0x4D2B787BAE9AB760 b1207
+	NATIVE_DECL BOOL IS_WAYPOINT_PLAYBACK_GOING_ON_FOR_PED(Ped ped, const char* waypointRecording) { return invoke<BOOL>(0xE03B3F2D3DC59B64, ped, waypointRecording); } // 0xE03B3F2D3DC59B64 0x85B7725F b1207
 	NATIVE_DECL int GET_PED_WAYPOINT_PROGRESS(Ped ped) { return invoke<int>(0x2720AAA75001E094, ped); } // 0x2720AAA75001E094 0x3595B104 b1207
-	NATIVE_DECL float GET_PED_WAYPOINT_DISTANCE(Any p0) { return invoke<float>(0xE6A877C64CAF1BC5, p0); } // 0xE6A877C64CAF1BC5 0x084B35B0 b1207
-	NATIVE_DECL Any SET_PED_WAYPOINT_ROUTE_OFFSET(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0xED98E10B0AFCE4B4, p0, p1, p2, p3); } // 0xED98E10B0AFCE4B4 0xF867F747 b1207
-	NATIVE_DECL float GET_WAYPOINT_DISTANCE_ALONG_ROUTE(const char* p0, int p1) { return invoke<float>(0xA5B769058763E497, p0, p1); } // 0xA5B769058763E497 0xE8422AC4 b1207
-	NATIVE_DECL Any _0x3ACC128510142B9D(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0x3ACC128510142B9D, p0, p1, p2, p3); } // 0x3ACC128510142B9D b1207
-	NATIVE_DECL BOOL WAYPOINT_PLAYBACK_GET_IS_PAUSED(Any p0) { return invoke<BOOL>(0x701375A7D43F01CB, p0); } // 0x701375A7D43F01CB 0xA6BB5717 b1207
-	NATIVE_DECL Any WAYPOINT_PLAYBACK_GET_IS_AIMING(Any p0) { return invoke<Any>(0xD73A5D1F0325C71C, p0); } // 0xD73A5D1F0325C71C b1207
-	NATIVE_DECL Any WAYPOINT_PLAYBACK_GET_IS_SHOOTING(Any p0) { return invoke<Any>(0xA5B94DF8AF058F46, p0); } // 0xA5B94DF8AF058F46 b1207
-	NATIVE_DECL void WAYPOINT_PLAYBACK_PAUSE(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x0F342546AA06FED5, p0, p1, p2, p3); } // 0x0F342546AA06FED5 0xFE39ECF8 b1207
-	NATIVE_DECL void WAYPOINT_PLAYBACK_RESUME(Any p0, BOOL p1, Any p2, Any p3) { invoke<Void>(0x244F70C84C547D2D, p0, p1, p2, p3); } // 0x244F70C84C547D2D 0x50F392EF b1207
-	NATIVE_DECL void WAYPOINT_PLAYBACK_OVERRIDE_SPEED(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x7D7D2B47FA788E85, p0, p1, p2, p3, p4); } // 0x7D7D2B47FA788E85 0x23E6BA96 b1207
-	NATIVE_DECL void WAYPOINT_PLAYBACK_USE_DEFAULT_SPEED(Any p0) { invoke<Void>(0x6599D834B12D0800, p0); } // 0x6599D834B12D0800 0x1BBB2CAC b1207
-	NATIVE_DECL Any GET_PED_WAYPOINT_OVERRIDE_SPEED(Any p0) { return invoke<Any>(0xD39A2F3E7FCAFF08, p0); } // 0xD39A2F3E7FCAFF08 b1207
-	NATIVE_DECL void USE_WAYPOINT_RECORDING_AS_ASSISTED_MOVEMENT_ROUTE(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x5A353B8E6B1095B5, p0, p1, p2, p3, p4); } // 0x5A353B8E6B1095B5 0x4DFD5FEC b1207
+	NATIVE_DECL float GET_PED_WAYPOINT_DISTANCE(Ped ped) { return invoke<float>(0xE6A877C64CAF1BC5, ped); } // 0xE6A877C64CAF1BC5 0x084B35B0 b1207
+	NATIVE_DECL Any SET_PED_WAYPOINT_ROUTE_OFFSET(Ped ped, float p1, float p2, float p3) { return invoke<Any>(0xED98E10B0AFCE4B4, ped, p1, p2, p3); } // 0xED98E10B0AFCE4B4 0xF867F747 b1207
+	NATIVE_DECL float GET_WAYPOINT_DISTANCE_ALONG_ROUTE(const char* waypointRecording, int p1) { return invoke<float>(0xA5B769058763E497, waypointRecording, p1); } // 0xA5B769058763E497 0xE8422AC4 b1207
+	NATIVE_DECL float _0x3ACC128510142B9D(const char* waypointRecording, float x, float y, float z) { return invoke<float>(0x3ACC128510142B9D, waypointRecording, x, y, z); } // 0x3ACC128510142B9D b1207
+	NATIVE_DECL BOOL WAYPOINT_PLAYBACK_GET_IS_PAUSED(Ped ped) { return invoke<BOOL>(0x701375A7D43F01CB, ped); } // 0x701375A7D43F01CB 0xA6BB5717 b1207
+	NATIVE_DECL BOOL WAYPOINT_PLAYBACK_GET_IS_AIMING(Ped ped) { return invoke<BOOL>(0xD73A5D1F0325C71C, ped); } // 0xD73A5D1F0325C71C b1207
+	NATIVE_DECL BOOL WAYPOINT_PLAYBACK_GET_IS_SHOOTING(Ped ped) { return invoke<BOOL>(0xA5B94DF8AF058F46, ped); } // 0xA5B94DF8AF058F46 b1207
+	NATIVE_DECL void WAYPOINT_PLAYBACK_PAUSE(Ped ped, Any p1, Any p2, Any p3) { invoke<Void>(0x0F342546AA06FED5, ped, p1, p2, p3); } // 0x0F342546AA06FED5 0xFE39ECF8 b1207
+	NATIVE_DECL void WAYPOINT_PLAYBACK_RESUME(Ped ped, BOOL p1, int p2, int p3) { invoke<Void>(0x244F70C84C547D2D, ped, p1, p2, p3); } // 0x244F70C84C547D2D 0x50F392EF b1207
+	NATIVE_DECL void WAYPOINT_PLAYBACK_OVERRIDE_SPEED(Ped ped, float speed, Any p2, Any p3, Any p4) { invoke<Void>(0x7D7D2B47FA788E85, ped, speed, p2, p3, p4); } // 0x7D7D2B47FA788E85 0x23E6BA96 b1207
+	NATIVE_DECL void WAYPOINT_PLAYBACK_USE_DEFAULT_SPEED(Ped ped) { invoke<Void>(0x6599D834B12D0800, ped); } // 0x6599D834B12D0800 0x1BBB2CAC b1207
+	NATIVE_DECL float GET_PED_WAYPOINT_OVERRIDE_SPEED(Ped ped) { return invoke<float>(0xD39A2F3E7FCAFF08, ped); } // 0xD39A2F3E7FCAFF08 b1207
+	NATIVE_DECL void USE_WAYPOINT_RECORDING_AS_ASSISTED_MOVEMENT_ROUTE(const char* waypointRecording, BOOL p1, float p2, float p3, BOOL p4) { invoke<Void>(0x5A353B8E6B1095B5, waypointRecording, p1, p2, p3, p4); } // 0x5A353B8E6B1095B5 0x4DFD5FEC b1207
 	NATIVE_DECL void WAYPOINT_PLAYBACK_START_AIMING_AT_PED(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x20E330937C399D29, p0, p1, p2, p3); } // 0x20E330937C399D29 0x75E60CF6 b1207
 	NATIVE_DECL void WAYPOINT_PLAYBACK_START_AIMING_AT_ENTITY(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x4F158205E0C74385, p0, p1, p2, p3); } // 0x4F158205E0C74385 b1207
 	NATIVE_DECL void WAYPOINT_PLAYBACK_START_AIMING_AT_COORD(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0x8968400D900ED8B3, p0, p1, p2, p3, p4, p5); } // 0x8968400D900ED8B3 0xF120A34E b1207
@@ -8265,7 +8703,7 @@ namespace TASK
 	NATIVE_DECL void ASSISTED_MOVEMENT_SET_ROUTE_PROPERTIES(const char* route, int props) { invoke<Void>(0xD5002D78B7162E1B, route, props); } // 0xD5002D78B7162E1B 0x01CAAFCC b1207
 	NATIVE_DECL void SET_ENABLE_SPEED_RESTRAIN_FOR_WAYPOINT_RECORDING_LEADER(Any p0, Any p1) { invoke<Void>(0x295F03DC97BEEBC1, p0, p1); } // 0x295F03DC97BEEBC1 b1207
 	NATIVE_DECL void SET_UP_SPEED_RESTRAIN_INFORMATION_FOR_PLAYER_FOLLOWER(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { invoke<Void>(0xB5C51DD544F14F58, p0, p1, p2, p3, p4, p5, p6, p7, p8); } // 0xB5C51DD544F14F58 b1207
-	NATIVE_DECL void TASK_VEHICLE_FOLLOW_WAYPOINT_RECORDING(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { invoke<Void>(0x3123FAA6DB1CF7ED, ped, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); } // 0x3123FAA6DB1CF7ED 0x959818B6 b1207
+	NATIVE_DECL void TASK_VEHICLE_FOLLOW_WAYPOINT_RECORDING(Ped ped, Vehicle vehicle, const char* waypointRecording, int drivingMode, Any p4, int eWaypoint, int flag, float p7, BOOL p8, float stoppingDist, Any p10) { invoke<Void>(0x3123FAA6DB1CF7ED, ped, vehicle, waypointRecording, drivingMode, p4, eWaypoint, flag, p7, p8, stoppingDist, p10); } // 0x3123FAA6DB1CF7ED 0x959818B6 b1207
 	NATIVE_DECL void _TASK_VEHICLE_FOLLOW_WAYPOINT_RECORDING_2(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { invoke<Void>(0x041D17A9E221AE30, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); } // 0x041D17A9E221AE30 b1207
 	NATIVE_DECL BOOL IS_WAYPOINT_PLAYBACK_GOING_ON_FOR_VEHICLE(Any p0, Any p1) { return invoke<BOOL>(0xF5134943EA29868C, p0, p1); } // 0xF5134943EA29868C 0x80DD15DB b1207
 	NATIVE_DECL int GET_VEHICLE_WAYPOINT_PROGRESS(Vehicle vehicle) { return invoke<int>(0x9824CFF8FC66E159, vehicle); } // 0x9824CFF8FC66E159 0xD3CCF64E b1207
@@ -8298,7 +8736,7 @@ namespace TASK
 	NATIVE_DECL void _0x099D4A855D53B03B(Any p0, Any p1, Any p2) { invoke<Void>(0x099D4A855D53B03B, p0, p1, p2); } // 0x099D4A855D53B03B b1207
 	NATIVE_DECL void SET_TASK_MOVE_NETWORK_SIGNAL_BOOL(Ped ped, const char* signalName, BOOL value) { invoke<Void>(0xB0A6CFD2C69C1088, ped, signalName, value); } // 0xB0A6CFD2C69C1088 0xF3538041 b1207
 	NATIVE_DECL void _SET_TASK_MOVE_NETWORK_SIGNAL_VECTOR(Ped ped, const char* signalName, float x, float y, float z) { invoke<Void>(0x4662BFE01938D98D, ped, signalName, x, y, z); } // 0x4662BFE01938D98D b1207
-	NATIVE_DECL Any _0x844CEEE428EA35B0(Any p0, Any p1) { return invoke<Any>(0x844CEEE428EA35B0, p0, p1); } // 0x844CEEE428EA35B0 b1207
+	NATIVE_DECL float _GET_TASK_MOVE_NETWORK_PHASE_FLOAT(Ped ped, const char* phaseName) { return invoke<float>(0x844CEEE428EA35B0, ped, phaseName); } // 0x844CEEE428EA35B0 b1207
 	NATIVE_DECL BOOL GET_TASK_MOVE_NETWORK_EVENT(Ped ped, const char* eventName) { return invoke<BOOL>(0xB4F47213DF45A64C, ped, eventName); } // 0xB4F47213DF45A64C 0x72FA5EF2 b1207
 	NATIVE_DECL void _0x9585FF23C4B8EDE0(Any p0, Any p1) { invoke<Void>(0x9585FF23C4B8EDE0, p0, p1); } // 0x9585FF23C4B8EDE0 b1207
 	NATIVE_DECL void _0xEAF87DA2BE78A15B(Any p0, Any p1) { invoke<Void>(0xEAF87DA2BE78A15B, p0, p1); } // 0xEAF87DA2BE78A15B b1207
@@ -8316,18 +8754,19 @@ namespace TASK
 	// This function is hard-coded to always return false.
 	NATIVE_DECL BOOL IS_PED_BEING_ARRESTED(Ped ped) { return invoke<BOOL>(0x90A09F3A45FED688, ped); } // 0x90A09F3A45FED688 0x5FF6C2ED b1207
 	NATIVE_DECL BOOL _IS_PED_ARRESTING_ANY_PED(Ped ped) { return invoke<BOOL>(0xA9CC7856D52DBD25, ped); } // 0xA9CC7856D52DBD25 b1207
-	NATIVE_DECL void _0x7981037A96E7D174(Ped ped) { invoke<Void>(0x7981037A96E7D174, ped); } // 0x7981037A96E7D174 b1207
+	NATIVE_DECL void _CUFF_PED(Ped ped) { invoke<Void>(0x7981037A96E7D174, ped); } // 0x7981037A96E7D174 b1207
 	NATIVE_DECL void UNCUFF_PED(Ped ped) { invoke<Void>(0x67406F2C8F87FC4F, ped); } // 0x67406F2C8F87FC4F 0xA23A1D61 b1207
 	NATIVE_DECL BOOL IS_PED_CUFFED(Ped ped) { return invoke<BOOL>(0x74E559B3BC910685, ped); } // 0x74E559B3BC910685 0x511CE741 b1207
 	NATIVE_DECL BOOL _IS_PED_DUELLING(Ped ped) { return invoke<BOOL>(0xC8B29D18022EA2B7, ped); } // 0xC8B29D18022EA2B7 b1207
-	NATIVE_DECL void TASK_DUEL(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { invoke<Void>(0x5D5B0D5BC3626E5A, ped, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); } // 0x5D5B0D5BC3626E5A b1207
+	// Params: p4 either 0.2f, 0.25f, 0.31f, 0.4f
+	NATIVE_DECL void TASK_DUEL(Ped ped, Any p1, float p2, Entity entity, float p4, int p5, float vPosOpponentX, float vPosOpponentY, float vPosOpponentZ, float fOpponentHead, int p10) { invoke<Void>(0x5D5B0D5BC3626E5A, ped, p1, p2, entity, p4, p5, vPosOpponentX, vPosOpponentY, vPosOpponentZ, fOpponentHead, p10); } // 0x5D5B0D5BC3626E5A b1207
 	NATIVE_DECL Any _0x908BB14BCE85C80E(Any p0) { return invoke<Any>(0x908BB14BCE85C80E, p0); } // 0x908BB14BCE85C80E b1207
 	NATIVE_DECL Any _0x1F7A9A9C38C13A56(Any p0) { return invoke<Any>(0x1F7A9A9C38C13A56, p0); } // 0x1F7A9A9C38C13A56 b1207
 	NATIVE_DECL Any _0x3FEB770D8ED9047A(Any p0) { return invoke<Any>(0x3FEB770D8ED9047A, p0); } // 0x3FEB770D8ED9047A b1207
 	NATIVE_DECL Any _0x30146C25686B7836(Any p0, Any p1) { return invoke<Any>(0x30146C25686B7836, p0, p1); } // 0x30146C25686B7836 b1207
 	NATIVE_DECL Any _0x59AE5CA4FFB4E378(Any p0, Any p1) { return invoke<Any>(0x59AE5CA4FFB4E378, p0, p1); } // 0x59AE5CA4FFB4E378 b1207
 	NATIVE_DECL void _0x748D5E0D2A1A4C61(Any p0, Any p1, Any p2) { invoke<Void>(0x748D5E0D2A1A4C61, p0, p1, p2); } // 0x748D5E0D2A1A4C61 b1207
-	NATIVE_DECL void _0xEED08A3A98B847E2(Any p0, Any p1, Any p2) { invoke<Void>(0xEED08A3A98B847E2, p0, p1, p2); } // 0xEED08A3A98B847E2 b1207
+	NATIVE_DECL void END_DUEL(Ped ped, BOOL p1, float p2) { invoke<Void>(0xEED08A3A98B847E2, ped, p1, p2); } // 0xEED08A3A98B847E2 b1207
 	NATIVE_DECL void _0x651F0530083C0E5A(Any p0, Any p1) { invoke<Void>(0x651F0530083C0E5A, p0, p1); } // 0x651F0530083C0E5A b1207
 	// carriableSlot:
 	//  7 > Back of a horse
@@ -8348,17 +8787,23 @@ namespace TASK
 	NATIVE_DECL void TASK_HOGTIE_TARGET_PED(Ped ped, Ped targetPed) { invoke<Void>(0x27829AFD3E03AC1A, ped, targetPed); } // 0x27829AFD3E03AC1A b1207
 	NATIVE_DECL void _TASK_CUT_FREE_HOGTIED_TARGET_PED(Ped ped, Ped targetPed) { invoke<Void>(0x81D16C4FF3A77ADF, ped, targetPed); } // 0x81D16C4FF3A77ADF b1207
 	NATIVE_DECL void _TASK_CUT_FREE_HOGTIED_TARGET_PED_2(Ped ped, Ped targetPed, float p2) { invoke<Void>(0x525421A507216084, ped, targetPed, p2); } // 0x525421A507216084 b1207
-	NATIVE_DECL void _0xAB591AE6B48B913E(Any p0, Any p1) { invoke<Void>(0xAB591AE6B48B913E, p0, p1); } // 0xAB591AE6B48B913E b1207
+	// Sets the time it takes for a hogtied ped to escape
+	// -1.0f for ped to never escape
+	NATIVE_DECL void _SET_HOGTIE_ESCAPE_TIMER(Ped ped, float time) { invoke<Void>(0xAB591AE6B48B913E, ped, time); } // 0xAB591AE6B48B913E b1207
 	NATIVE_DECL Any _0x4687E69D258BBE41(Any p0) { return invoke<Any>(0x4687E69D258BBE41, p0); } // 0x4687E69D258BBE41 b1207
 	NATIVE_DECL Any _0x03D741CB4052E26C(Any p0) { return invoke<Any>(0x03D741CB4052E26C, p0); } // 0x03D741CB4052E26C b1232
-	NATIVE_DECL BOOL _0x73F0D0327BFA0812(Hash asset) { return invoke<BOOL>(0x73F0D0327BFA0812, asset); } // 0x73F0D0327BFA0812 b1207
-	NATIVE_DECL BOOL _0x5E5D96BE25E9DF68(Hash asset) { return invoke<BOOL>(0x5E5D96BE25E9DF68, asset); } // 0x5E5D96BE25E9DF68 b1207
+	// https://github.com/femga/rdr3_discoveries/tree/master/objects/composites
+	NATIVE_DECL BOOL _REQUEST_HERB_COMPOSITE_ASSET(Hash asset) { return invoke<BOOL>(0x73F0D0327BFA0812, asset); } // 0x73F0D0327BFA0812 b1207
+	// Returns true when requested asset is loaded
+	NATIVE_DECL BOOL ARE_COMPOSITE_LOOTABLE_ENTITY_DEF_ASSETS_LOADED(Hash asset) { return invoke<BOOL>(0x5E5D96BE25E9DF68, asset); } // 0x5E5D96BE25E9DF68 b1207
 	// groundSetting: 0: spawn on ground, 2 (1?): do not spawn on ground
 	// p7: -1 in R* Scripts
 	// Returns compositeId
-	NATIVE_DECL int _0x5B4BBE80AD5972DC(Hash asset, float x, float y, float z, float heading, int groundSetting, Any* p6, int p7) { return invoke<int>(0x5B4BBE80AD5972DC, asset, x, y, z, heading, groundSetting, p6, p7); } // 0x5B4BBE80AD5972DC b1207
-	NATIVE_DECL void _0x5758B1EE0C3FD4AC(int compositeId, BOOL p1) { invoke<Void>(0x5758B1EE0C3FD4AC, compositeId, p1); } // 0x5758B1EE0C3FD4AC b1207
-	NATIVE_DECL int _0x96C6ED22FB742C3E(int compositeId, Any* outEntities) { return invoke<int>(0x96C6ED22FB742C3E, compositeId, outEntities); } // 0x96C6ED22FB742C3E b1207
+	NATIVE_DECL int _CREATE_HERB_COMPOSITES(Hash asset, float x, float y, float z, float heading, int groundSetting, Any* p6, int p7) { return invoke<int>(0x5B4BBE80AD5972DC, asset, x, y, z, heading, groundSetting, p6, p7); } // 0x5B4BBE80AD5972DC b1207
+	// Params: p1 is always false except in script nb_egg_protector
+	NATIVE_DECL void _DELETE_PATCH_OBJECTS_FROM_HERB_COMPOSITES(int compositeId, BOOL p1) { invoke<Void>(0x5758B1EE0C3FD4AC, compositeId, p1); } // 0x5758B1EE0C3FD4AC b1207
+	// Flowers, Stalks or whatever the composite has
+	NATIVE_DECL int _GET_HERB_COMPOSITE_NUM_ENTITIES(int compositeId, Any* outEntities) { return invoke<int>(0x96C6ED22FB742C3E, compositeId, outEntities); } // 0x96C6ED22FB742C3E b1207
 	NATIVE_DECL Any _0xDF56A2B50C04DEA4(Any p0, Any p1) { return invoke<Any>(0xDF56A2B50C04DEA4, p0, p1); } // 0xDF56A2B50C04DEA4 b1207
 	NATIVE_DECL void TASK_LOOT_ENTITY(Ped ped, Entity entity) { invoke<Void>(0x48FAE038401A2888, ped, entity); } // 0x48FAE038401A2888 b1207
 	NATIVE_DECL void TASK_BREAK_VEHICLE_DOOR_LOCK(Ped ped, Vehicle vehicle) { invoke<Void>(0xBB28D1BC9EA8A6A5, ped, vehicle); } // 0xBB28D1BC9EA8A6A5 b1207
@@ -8402,11 +8847,12 @@ namespace TASK
 	NATIVE_DECL void TASK_TURN_TO_FACE_CLOSEST_PED(Ped ped, float p1, float p2, int p3) { invoke<Void>(0x84179419DBDD36F2, ped, p1, p2, p3); } // 0x84179419DBDD36F2 b1207
 	NATIVE_DECL BOOL TASK_CONFRONT(Ped ped, Ped targetPed, int p2) { return invoke<BOOL>(0x3A2A2071DF5CC569, ped, targetPed, p2); } // 0x3A2A2071DF5CC569 b1207
 	NATIVE_DECL BOOL TASK_POLICE(Ped ped, BOOL p1) { return invoke<BOOL>(0x87BE56724650408E, ped, p1); } // 0x87BE56724650408E b1207
-	NATIVE_DECL BOOL TASK_MELEE(Ped ped, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return invoke<BOOL>(0x482C99D0B38D1B0A, ped, p1, p2, p3, p4, p5, p6, p7); } // 0x482C99D0B38D1B0A b1207
+	// Params: p2: AR_TAKEDOWN_FRONT, AR_EXECUTION_FRONT, 0 in R* Scripts
+	NATIVE_DECL BOOL TASK_MELEE(Ped ped, Ped targetPed, Hash p2, Any p3, Any p4, float p5, Any p6, float p7) { return invoke<BOOL>(0x482C99D0B38D1B0A, ped, targetPed, p2, p3, p4, p5, p6, p7); } // 0x482C99D0B38D1B0A b1207
 	// grappleStyle: AR_GRAPPLE_MOUNT_STANDING_FROM_FRONT, AR_GRAPPLE_MOUNT_STANDING_FROM_RIGHT, AR_GRAPPLE_MOUNT_STANDING_FROM_BACK, AR_GRAPPLE_MOUNT_STANDING_FROM_LEFT, AR_GRAPPLE_MOUNT_FROM_FRONT, AR_WOLF_EXECUTION_ENTER_FROM_BACK, AR_GRAPPLE_DRAG_FRONT_ON_ASS, AR_GRAPPLE_FRONT_FROM_LEFT_FAR, AR_BEAR_CHALLENGE_FRONT, AR_GRAPPLE_FRONT_FROM_FRONT, AR_GRAPPLE_MOUNT_FACEUP_FROM_FRONT
 	NATIVE_DECL BOOL TASK_GRAPPLE(Ped ped, Ped targetPed, Hash grappleStyle, int p3, float p4, int p5, int p6) { return invoke<BOOL>(0x779A2FFACEFAEA7B, ped, targetPed, grappleStyle, p3, p4, p5, p6); } // 0x779A2FFACEFAEA7B b1207
 	NATIVE_DECL BOOL _TASK_INTIMIDATED(Any p0, Any p1, Any p2, Any p3, Any p4) { return invoke<BOOL>(0x648B75D44930D6BD, p0, p1, p2, p3, p4); } // 0x648B75D44930D6BD b1207
-	NATIVE_DECL BOOL _TASK_INTIMIDATED_2(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return invoke<BOOL>(0x933ACC1A1771A288, p0, p1, p2, p3, p4, p5, p6, p7, p8); } // 0x933ACC1A1771A288 b1207
+	NATIVE_DECL BOOL _TASK_INTIMIDATED_2(Ped targetPed, Ped ped, int p2, BOOL p3, BOOL p4, BOOL everyFrame, BOOL p6, BOOL p7, int p8) { return invoke<BOOL>(0x933ACC1A1771A288, targetPed, ped, p2, p3, p4, everyFrame, p6, p7, p8); } // 0x933ACC1A1771A288 b1207
 	NATIVE_DECL void _0x2948235DB2058E99(Any p0, Any p1) { invoke<Void>(0x2948235DB2058E99, p0, p1); } // 0x2948235DB2058E99 b1207
 	NATIVE_DECL void _0xB2F47A1AFDFCC595(Any p0, Any p1) { invoke<Void>(0xB2F47A1AFDFCC595, p0, p1); } // 0xB2F47A1AFDFCC595 b1207
 	NATIVE_DECL void _0x41D1331AFAD5A091(Any p0, Any p1, Any p2) { invoke<Void>(0x41D1331AFAD5A091, p0, p1, p2); } // 0x41D1331AFAD5A091 b1207
@@ -8417,16 +8863,17 @@ namespace TASK
 	NATIVE_DECL void _0xE01F55B2896F6B37(Any p0, Any p1) { invoke<Void>(0xE01F55B2896F6B37, p0, p1); } // 0xE01F55B2896F6B37 b1207
 	NATIVE_DECL Any _0xE62754D09354F6CF(Any p0) { return invoke<Any>(0xE62754D09354F6CF, p0); } // 0xE62754D09354F6CF b1207
 	NATIVE_DECL void _0x4BA972D0E5AD8122(Any p0, Any p1) { invoke<Void>(0x4BA972D0E5AD8122, p0, p1); } // 0x4BA972D0E5AD8122 b1207
+	// Fishing Research: https://pastebin.com/NmK5ZLVs
 	// Only used in R* Scripts fishing_core and av_fishing_river
-	NATIVE_DECL BOOL _0xF3735ACD11ACD500(Ped ped, Any* p1) { return invoke<BOOL>(0xF3735ACD11ACD500, ped, p1); } // 0xF3735ACD11ACD500 b1207
+	NATIVE_DECL BOOL _GET_TASK_FISHING(Ped ped, Any* p1) { return invoke<BOOL>(0xF3735ACD11ACD500, ped, p1); } // 0xF3735ACD11ACD500 b1207
 	// Only used in R* Scripts fishing_core and av_fishing_river
-	NATIVE_DECL BOOL _0xF3735ACD11ACD501(Ped ped, Any* p1) { return invoke<BOOL>(0xF3735ACD11ACD501, ped, p1); } // 0xF3735ACD11ACD501 b1207
+	NATIVE_DECL BOOL _SET_TASK_FISHING(Ped ped, Any* p1) { return invoke<BOOL>(0xF3735ACD11ACD501, ped, p1); } // 0xF3735ACD11ACD501 b1207
 	// Baits: see 0x9B0C7FA063E67629
 	NATIVE_DECL void TASK_SWAP_FISHING_BAIT(Ped ped, const char* bait, BOOL withoutBuoy) { invoke<Void>(0x2C28AC30A72722DA, ped, bait, withoutBuoy); } // 0x2C28AC30A72722DA b1207
 	// Baits: p_fishHook02x, p_baitBread01x, p_baitCorn01x, p_baitCheese01x, p_baitWorm01x, p_baitCricket01x, p_crawdad01x, p_finisheDragonfly01x, p_finisdFishlure01x, p_finishdCrawd01x, p_finisheDragonflyLegendary01x, p_finisdFishlureLegendary01x, p_finishdCrawdLegendary01x, p_lgoc_spinner_v4
-	NATIVE_DECL void _0x9B0C7FA063E67629(Ped ped, const char* bait, BOOL withoutBuoy, BOOL instantly) { invoke<Void>(0x9B0C7FA063E67629, ped, bait, withoutBuoy, instantly); } // 0x9B0C7FA063E67629 b1207
+	NATIVE_DECL void _SET_FISHING_BAIT(Ped ped, const char* bait, BOOL withoutBuoy, BOOL instantly) { invoke<Void>(0x9B0C7FA063E67629, ped, bait, withoutBuoy, instantly); } // 0x9B0C7FA063E67629 b1207
 	NATIVE_DECL void _0x1F298C7BD30D1240(Ped ped) { invoke<Void>(0x1F298C7BD30D1240, ped); } // 0x1F298C7BD30D1240 b1207
-	NATIVE_DECL void _0x1A52076D26E09004(Ped ped, Entity entity) { invoke<Void>(0x1A52076D26E09004, ped, entity); } // 0x1A52076D26E09004 b1207
+	NATIVE_DECL void _PED_FISHINGROD_HOOK_ENTITY(Ped ped, Entity entity) { invoke<Void>(0x1A52076D26E09004, ped, entity); } // 0x1A52076D26E09004 b1207
 	NATIVE_DECL void _0xCE71C2F9BAA3F975(Ped ped, Entity entity) { invoke<Void>(0xCE71C2F9BAA3F975, ped, entity); } // 0xCE71C2F9BAA3F975 b1207
 	NATIVE_DECL BOOL _0xB520DBDA7FCF573F(Ped ped) { return invoke<BOOL>(0xB520DBDA7FCF573F, ped); } // 0xB520DBDA7FCF573F b1207
 	NATIVE_DECL void _0x31BB338F64D5C861(Ped ped, BOOL p1) { invoke<Void>(0x31BB338F64D5C861, ped, p1); } // 0x31BB338F64D5C861 b1207
@@ -8435,30 +8882,37 @@ namespace TASK
 	NATIVE_DECL void _0x9050DF2C53801208(Ped ped, float p1) { invoke<Void>(0x9050DF2C53801208, ped, p1); } // 0x9050DF2C53801208 b1207
 	NATIVE_DECL void _0x22CDBF317C40A122(Ped ped) { invoke<Void>(0x22CDBF317C40A122, ped); } // 0x22CDBF317C40A122 b1207
 	NATIVE_DECL Any _0x5952DFA38FA529FE() { return invoke<Any>(0x5952DFA38FA529FE); } // 0x5952DFA38FA529FE b1232
-	// category:
-	// enum class eEmoteCategory
+	// https://github.com/femga/rdr3_discoveries/blob/master/animations/kit_emotes_list.lua
+	// emote: https://alloc8or.re/rdr3/doc/enums/eEmote.txt
+	// 
+	// enum eEmoteType
 	// {
-	// 	Reaction,
-	// 	Action,
-	// 	Taunts,
-	// 	Greets,
-	// 	TwirlGun,
-	// 	Dances
+	// 	EMOTE_TYPE_INVALID = -1,
+	// 	EMOTE_TYPE_REACT,
+	// 	EMOTE_TYPE_ACTION,
+	// 	EMOTE_TYPE_TAUNT,
+	// 	EMOTE_TYPE_GREET,
+	// 	EMOTE_TYPE_TWIRL_GUN,
+	// 	EMOTE_TYPE_DANCE_FLOOR
 	// };
 	// 
-	// p2: usually 2
-	// 
-	// emoteType: https://alloc8or.re/rdr3/doc/enums/eEmoteType.txt
-	NATIVE_DECL void TASK_PLAY_EMOTE_WITH_HASH(Ped ped, int category, int p2, Hash emoteType, BOOL p4, BOOL p5, BOOL p6, BOOL p7, BOOL p8) { invoke<Void>(0xB31A277C1AC7B7FF, ped, category, p2, emoteType, p4, p5, p6, p7, p8); } // 0xB31A277C1AC7B7FF b1207
+	// enum eEmotePlaybackMode
+	// {
+	// 	EMOTE_PM_INVALID = -1,
+	// 	EMOTE_PM_UPPERBODY,
+	// 	EMOTE_PM_UPPERBODY_LOOP,
+	// 	EMOTE_PM_FULLBODY,
+	// };
+	NATIVE_DECL void TASK_PLAY_EMOTE_WITH_HASH(Ped ped, int emoteType, int playbackMode, Hash emote, BOOL isSecondaryTask, BOOL canBreakOut, BOOL disableEarlyOutAnimTag, BOOL ignoreInvalidMainTask, BOOL destroyProps) { invoke<Void>(0xB31A277C1AC7B7FF, ped, emoteType, playbackMode, emote, isSecondaryTask, canBreakOut, disableEarlyOutAnimTag, ignoreInvalidMainTask, destroyProps); } // 0xB31A277C1AC7B7FF b1207
 	// Similar to 0xB31A277C1AC7B7FF but checks if the ped's inventory contains the specified emote kit.
-	NATIVE_DECL void _TASK_PLAY_EMOTE(Ped ped, int category, int p2, Hash emoteType, BOOL p4, BOOL p5, BOOL p6, BOOL p7, BOOL p8) { invoke<Void>(0x884E3436CC1F41DD, ped, category, p2, emoteType, p4, p5, p6, p7, p8); } // 0x884E3436CC1F41DD b1207
+	NATIVE_DECL void _TASK_PLAY_EMOTE(Ped ped, int emoteType, int playbackMode, Hash emote, BOOL isSecondaryTask, BOOL canBreakOut, BOOL disableEarlyOutAnimTag, BOOL ignoreInvalidMainTask, BOOL destroyProps) { invoke<Void>(0x884E3436CC1F41DD, ped, emoteType, playbackMode, emote, isSecondaryTask, canBreakOut, disableEarlyOutAnimTag, ignoreInvalidMainTask, destroyProps); } // 0x884E3436CC1F41DD b1207
 	NATIVE_DECL void _0x6A1AF481407BF6E9(Any p0) { invoke<Void>(0x6A1AF481407BF6E9, p0); } // 0x6A1AF481407BF6E9 b1207
-	NATIVE_DECL void _0xBDFEEB7600BCD938(Any p0) { invoke<Void>(0xBDFEEB7600BCD938, p0); } // 0xBDFEEB7600BCD938 b1207
+	NATIVE_DECL void _TASK_EMOTE_OUTRO(Ped ped) { invoke<Void>(0xBDFEEB7600BCD938, ped); } // 0xBDFEEB7600BCD938 b1207
 	NATIVE_DECL void _0xEC516FE805D2CB2D(Any p0) { invoke<Void>(0xEC516FE805D2CB2D, p0); } // 0xEC516FE805D2CB2D b1207
 	NATIVE_DECL void _0x59AEA4DC640814B9(Any p0, Any p1) { invoke<Void>(0x59AEA4DC640814B9, p0, p1); } // 0x59AEA4DC640814B9 b1207
 	NATIVE_DECL Any _0x11C7CE1AE38911B5(Any p0) { return invoke<Any>(0x11C7CE1AE38911B5, p0); } // 0x11C7CE1AE38911B5 b1207
 	NATIVE_DECL Any _0xD0ABC4EA3B5E21A0(Any p0, Any p1) { return invoke<Any>(0xD0ABC4EA3B5E21A0, p0, p1); } // 0xD0ABC4EA3B5E21A0 b1311
-	NATIVE_DECL BOOL IS_EMOTE_TASK_RUNNING(Any p0, Any p1) { return invoke<BOOL>(0xCF9B71C0AF824036, p0, p1); } // 0xCF9B71C0AF824036 b1355
+	NATIVE_DECL BOOL IS_EMOTE_TASK_RUNNING(Ped ped, Any p1) { return invoke<BOOL>(0xCF9B71C0AF824036, ped, p1); } // 0xCF9B71C0AF824036 b1355
 }
 
 namespace TELEMETRY
@@ -8652,8 +9106,8 @@ namespace UILOG
 	NATIVE_DECL BOOL _UILOG_IS_ENTRY_REGISTERED(int p0, Hash p1) { return invoke<BOOL>(0xB8188CCF52202475, p0, p1); } // 0xB8188CCF52202475 b1207
 	NATIVE_DECL void _UILOG_ADD_ENTRY_HASH(int p0, int p1, float x, float y, float z, Hash p5, Hash p6, Any p7) { invoke<Void>(0x69D5479982355D8F, p0, p1, x, y, z, p5, p6, p7); } // 0x69D5479982355D8F b1207
 	NATIVE_DECL void _0x49C63FDF69744A27(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { invoke<Void>(0x49C63FDF69744A27, p0, p1, p2, p3, p4, p5, p6, p7); } // 0x49C63FDF69744A27 b1207
-	NATIVE_DECL void _UILOG_SET_ENTRY_ICON_TEXTURE(int p0, Hash p1, Hash p2, Hash p3) { invoke<Void>(0x6965469934958D8F, p0, p1, p2, p3); } // 0x6965469934958D8F b1207
-	NATIVE_DECL void _UILOG_SET_ENTRY_BRIEF_TEXTURE(int p0, Hash p1, Hash p2, Hash p3) { invoke<Void>(0x69684D9936958D8F, p0, p1, p2, p3); } // 0x69684D9936958D8F b1207
+	NATIVE_DECL void _UILOG_SET_ENTRY_ICON_TEXTURE(int p0, Hash p1, Hash icon, Hash iconDictionary) { invoke<Void>(0x6965469934958D8F, p0, p1, icon, iconDictionary); } // 0x6965469934958D8F b1207
+	NATIVE_DECL void _UILOG_SET_ENTRY_BRIEF_TEXTURE(int p0, Hash p1, Hash texture, Hash textureDictionary) { invoke<Void>(0x69684D9936958D8F, p0, p1, texture, textureDictionary); } // 0x69684D9936958D8F b1207
 	NATIVE_DECL void _UILOG_UPDATE_ENTRY_SUBHEADER(int p0, Hash p1, const char* p2) { invoke<Void>(0x80D6524190258C3E, p0, p1, p2); } // 0x80D6524190258C3E b1207
 	NATIVE_DECL void _UILOG_SET_ENTRY_PINNED(int p0, Hash p1, BOOL p2) { invoke<Void>(0x72A5CD214B342568, p0, p1, p2); } // 0x72A5CD214B342568 b1207
 	NATIVE_DECL void _UILOG_MARK_MISSION_COMPLETED(Hash p0) { invoke<Void>(0xDE31D66D1E54C471, p0); } // 0xDE31D66D1E54C471 b1207
@@ -8719,7 +9173,7 @@ namespace UISTATEMACHINE
 	NATIVE_DECL Any UI_STATE_MACHINE_CAN_REQUEST_TRANSITION(Any p0) { return invoke<Any>(0xF7C180F57F85D0B8, p0); } // 0xF7C180F57F85D0B8 b1207
 	NATIVE_DECL Any UI_STATE_MACHINE_REQUEST_TRANSITION(Any p0, Any p1) { return invoke<Any>(0x7EA9C3547E80350E, p0, p1); } // 0x7EA9C3547E80350E b1207
 	NATIVE_DECL void UI_STATE_MACHINE_REQUEST_EXIT(Any p0, Any p1) { invoke<Void>(0x6B9FE4F0BA521A19, p0, p1); } // 0x6B9FE4F0BA521A19 b1207
-	NATIVE_DECL Any _0x11E73195E735B25B(Any p0) { return invoke<Any>(0x11E73195E735B25B, p0); } // 0x11E73195E735B25B b1207
+	NATIVE_DECL BOOL _UI_STATE_MACHINE_IS_EXITED(Hash p0) { return invoke<BOOL>(0x11E73195E735B25B, p0); } // 0x11E73195E735B25B b1207
 	NATIVE_DECL void UI_STATE_MACHINE_DESTROY(Any p0) { invoke<Void>(0x4EB122210A90E2D8, p0); } // 0x4EB122210A90E2D8 b1207
 	NATIVE_DECL void UI_STATE_MACHINE_DESTROY_AND_CLEAR(Any* p0) { invoke<Void>(0x2738D68D2B4E09E7, p0); } // 0x2738D68D2B4E09E7 b1207
 }
@@ -8765,10 +9219,12 @@ namespace UNLOCK
 
 namespace VEHICLE
 {
+	// Only used in R* Script beat_train_holdup: p1 = 1
 	NATIVE_DECL void _0x6355602C02EDC6DF(Entity entity, Any p1) { invoke<Void>(0x6355602C02EDC6DF, entity, p1); } // 0x6355602C02EDC6DF b1207
-	NATIVE_DECL void _0xCE1531927AD6C9F8(Vehicle vehicle, BOOL enabled) { invoke<Void>(0xCE1531927AD6C9F8, vehicle, enabled); } // 0xCE1531927AD6C9F8 b1207
-	NATIVE_DECL Vehicle CREATE_VEHICLE(Hash modelHash, float x, float y, float z, float heading, BOOL isNetwork, BOOL bScriptHostVeh, BOOL p7, BOOL p8) { return invoke<Vehicle>(0xAF35D0D2583051B0, modelHash, x, y, z, heading, isNetwork, bScriptHostVeh, p7, p8); } // 0xAF35D0D2583051B0 0xDD75460A b1207
-	NATIVE_DECL Vehicle _CREATE_DRAFT_VEHICLE(Hash modelHash, float x, float y, float z, float heading, BOOL isNetwork, BOOL bScriptHostVeh, BOOL p7, int numHorses, BOOL p9) { return invoke<Vehicle>(0x214651FB1DFEBA89, modelHash, x, y, z, heading, isNetwork, bScriptHostVeh, p7, numHorses, p9); } // 0x214651FB1DFEBA89 b1207
+	NATIVE_DECL void _SET_VEHICLE_IS_IN_HURRY(Vehicle vehicle, BOOL enabled) { invoke<Void>(0xCE1531927AD6C9F8, vehicle, enabled); } // 0xCE1531927AD6C9F8 b1207
+	NATIVE_DECL Vehicle CREATE_VEHICLE(Hash modelHash, float x, float y, float z, float heading, BOOL isNetwork, BOOL bScriptHostVeh, BOOL bDontAutoCreateDraftAnimals, BOOL p8) { return invoke<Vehicle>(0xAF35D0D2583051B0, modelHash, x, y, z, heading, isNetwork, bScriptHostVeh, bDontAutoCreateDraftAnimals, p8); } // 0xAF35D0D2583051B0 0xDD75460A b1207
+	// Identical to CREATE_VEHICLE but allows to set draftAnimalPopGroup (see popgroups.#mt for DRAFT_HORSES_*)
+	NATIVE_DECL Vehicle _CREATE_DRAFT_VEHICLE(Hash modelHash, float x, float y, float z, float heading, BOOL isNetwork, BOOL bScriptHostVeh, BOOL bDontAutoCreateDraftAnimals, Hash draftAnimalPopGroup, BOOL p9) { return invoke<Vehicle>(0x214651FB1DFEBA89, modelHash, x, y, z, heading, isNetwork, bScriptHostVeh, bDontAutoCreateDraftAnimals, draftAnimalPopGroup, p9); } // 0x214651FB1DFEBA89 b1207
 	// Deletes a vehicle.
 	// The vehicle must be a mission entity to delete, so call this before deleting: SET_ENTITY_AS_MISSION_ENTITY(vehicle, true, true);
 	// 
@@ -8778,14 +9234,14 @@ namespace VEHICLE
 	// 
 	// Deletes the specified vehicle, then sets the handle pointed to by the pointer to NULL.
 	NATIVE_DECL void DELETE_VEHICLE(Vehicle* vehicle) { invoke<Void>(0xE20A909D8C4A70F8, vehicle); } // 0xE20A909D8C4A70F8 0x9803AF60 b1207
-	NATIVE_DECL void _0x35DC1877312FBA0F(Vehicle* vehicle) { invoke<Void>(0x35DC1877312FBA0F, vehicle); } // 0x35DC1877312FBA0F b1207
-	NATIVE_DECL Any _0x5136B284B67B35C7(Any p0) { return invoke<Any>(0x5136B284B67B35C7, p0); } // 0x5136B284B67B35C7 b1207
+	NATIVE_DECL void _FADE_AND_DESTROY_VEHICLE(Vehicle* vehicle) { invoke<Void>(0x35DC1877312FBA0F, vehicle); } // 0x35DC1877312FBA0F b1207
+	NATIVE_DECL BOOL _IS_VEHICLE_FADING_OUT(Vehicle vehicle) { return invoke<BOOL>(0x5136B284B67B35C7, vehicle); } // 0x5136B284B67B35C7 b1207
 	// SET_VEHICLE_AL*
 	NATIVE_DECL void _0x1240E8596A8308B9(Any p0, Any p1) { invoke<Void>(0x1240E8596A8308B9, p0, p1); } // 0x1240E8596A8308B9 0xBB54ECCA b1207
 	// Makes the vehicle accept no passengers.
 	NATIVE_DECL void SET_VEHICLE_ALLOW_NO_PASSENGERS_LOCKON(Vehicle veh, BOOL toggle) { invoke<Void>(0xECB9E9BC887E8060, veh, toggle); } // 0xECB9E9BC887E8060 0x8BAAC437 b1207
 	NATIVE_DECL BOOL IS_VEHICLE_MODEL(Vehicle vehicle, Hash model) { return invoke<BOOL>(0x0045A54EC7A22455, vehicle, model); } // 0x0045A54EC7A22455 0x013B10B6 b1207
-	NATIVE_DECL void _0x424FFCB9F0D2D4B5(Any p0, Any p1) { invoke<Void>(0x424FFCB9F0D2D4B5, p0, p1); } // 0x424FFCB9F0D2D4B5 b1207
+	NATIVE_DECL void _SET_ALL_VEHICLE_GENERATORS_DISABLED_FOR_VOLUME(Volume volume, BOOL toggle) { invoke<Void>(0x424FFCB9F0D2D4B5, volume, toggle); } // 0x424FFCB9F0D2D4B5 b1207
 	NATIVE_DECL void SET_ALL_VEHICLE_GENERATORS_ACTIVE_IN_AREA(float x1, float y1, float z1, float x2, float y2, float z2, BOOL p6, BOOL p7) { invoke<Void>(0xBBB134FB9D50C0CC, x1, y1, z1, x2, y2, z2, p6, p7); } // 0xBBB134FB9D50C0CC 0xB4E0E69A b1207
 	NATIVE_DECL void SET_ALL_VEHICLE_GENERATORS_ACTIVE() { invoke<Void>(0x3D596E6E88A02C24); } // 0x3D596E6E88A02C24 0xAB1FDD76 b1207
 	NATIVE_DECL BOOL SET_VEHICLE_ON_GROUND_PROPERLY(Vehicle vehicle, BOOL p1) { return invoke<BOOL>(0x7263332501E07F52, vehicle, p1); } // 0x7263332501E07F52 0xE14FDBA6 b1207
@@ -8826,22 +9282,25 @@ namespace VEHICLE
 	NATIVE_DECL void _0xE78993FF9022C064(Any p0) { invoke<Void>(0xE78993FF9022C064, p0); } // 0xE78993FF9022C064 b1207
 	// nullsub, doesn't do anything
 	NATIVE_DECL void _0x9868C0D0134855F7(Any p0) { invoke<Void>(0x9868C0D0134855F7, p0); } // 0x9868C0D0134855F7 b1207
-	NATIVE_DECL void _0x201B8ED4FF7FE9F5(Any p0) { invoke<Void>(0x201B8ED4FF7FE9F5, p0); } // 0x201B8ED4FF7FE9F5 b1207
-	NATIVE_DECL void _0x41CDA90EE3450921(Any p0) { invoke<Void>(0x41CDA90EE3450921, p0); } // 0x41CDA90EE3450921 b1207
+	NATIVE_DECL void _HIDE_HORSE_REINS(Vehicle vehicle) { invoke<Void>(0x201B8ED4FF7FE9F5, vehicle); } // 0x201B8ED4FF7FE9F5 b1207
+	NATIVE_DECL void _SHOW_HORSE_REINS(Vehicle vehicle) { invoke<Void>(0x41CDA90EE3450921, vehicle); } // 0x41CDA90EE3450921 b1207
 	NATIVE_DECL void _0xD21A3D421E7F09F7(Any p0, Any p1) { invoke<Void>(0xD21A3D421E7F09F7, p0, p1); } // 0xD21A3D421E7F09F7 b1207
 	NATIVE_DECL void _0xA13028E22564A1BD(Any p0, Any p1) { invoke<Void>(0xA13028E22564A1BD, p0, p1); } // 0xA13028E22564A1BD b1207
 	NATIVE_DECL void _0x485B05EF05B9AEE9(Any p0, Any p1) { invoke<Void>(0x485B05EF05B9AEE9, p0, p1); } // 0x485B05EF05B9AEE9 b1207
 	NATIVE_DECL void SET_BOAT_ANCHOR(Vehicle vehicle, BOOL toggle) { invoke<Void>(0xAEAB044F05B92659, vehicle, toggle); } // 0xAEAB044F05B92659 0xA3906284 b1207
-	NATIVE_DECL void _0x6B53F4B811E583D2(Any p0, Any p1) { invoke<Void>(0x6B53F4B811E583D2, p0, p1); } // 0x6B53F4B811E583D2 b1207
+	NATIVE_DECL void _0x6B53F4B811E583D2(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x6B53F4B811E583D2, vehicle, toggle); } // 0x6B53F4B811E583D2 b1207
 	NATIVE_DECL BOOL CAN_ANCHOR_BOAT_HERE(Vehicle vehicle) { return invoke<BOOL>(0xC075176CFB8B4128, vehicle); } // 0xC075176CFB8B4128 0xE97A4F5E b1207
 	NATIVE_DECL void _SET_BOAT_FROZEN_WHEN_ANCHORED(Vehicle vehicle, BOOL p1, BOOL p2) { invoke<Void>(0x286771F3059A37A7, vehicle, p1, p2); } // 0x286771F3059A37A7 0x0ED84792 b1207
+	// Sets boat to be anchored on spawn, called together with SET_BOAT_ANCHOR and _SET_BOAT_ANCHOR_BUOYANCY_COEFFICIENT
 	NATIVE_DECL void _0x75B49ACD73617437(Vehicle vehicle, BOOL p1) { invoke<Void>(0x75B49ACD73617437, vehicle, p1); } // 0x75B49ACD73617437 0xA739012A b1207
 	// Value: mostly 99999.9f
 	NATIVE_DECL void _SET_BOAT_MOVEMENT_RESISTANCE(Vehicle vehicle, float value) { invoke<Void>(0xE3261532550D6A9F, vehicle, value); } // 0xE3261532550D6A9F 0x66FA450C b1207
 	NATIVE_DECL void SET_BOAT_SINKS_WHEN_WRECKED(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x62A6D317A011EA1D, vehicle, toggle); } // 0x62A6D317A011EA1D 0x35614622 b1207
-	NATIVE_DECL void _0x1098CDA477890165(Any p0, Any p1) { invoke<Void>(0x1098CDA477890165, p0, p1); } // 0x1098CDA477890165 b1207
+	NATIVE_DECL void _SET_FORCE_HIGH_LOD_VEHICLE(Vehicle vehicle, BOOL p1) { invoke<Void>(0x1098CDA477890165, vehicle, p1); } // 0x1098CDA477890165 b1207
 	NATIVE_DECL void _0x98A7598C579EE871(Any p0, Any p1, Any p2) { invoke<Void>(0x98A7598C579EE871, p0, p1, p2); } // 0x98A7598C579EE871 b1207
-	NATIVE_DECL void _0x9E8711C81AA17876(Any p0, Any p1) { invoke<Void>(0x9E8711C81AA17876, p0, p1); } // 0x9E8711C81AA17876 b1207
+	// Forcing high LOD buoyancy for vehicle: p1 = false
+	// _SET_A*
+	NATIVE_DECL void _0x9E8711C81AA17876(Vehicle vehicle, BOOL p1) { invoke<Void>(0x9E8711C81AA17876, vehicle, p1); } // 0x9E8711C81AA17876 b1207
 	// If set to true, vehicle will not take crash damage, but is still susceptible to damage from bullets and explosives
 	NATIVE_DECL void SET_VEHICLE_STRONG(Vehicle vehicle, BOOL toggle) { invoke<Void>(0xAB315515C9F8803D, vehicle, toggle); } // 0xAB315515C9F8803D 0xC758D19F b1207
 	// seatIndex: see CREATE_PED_INSIDE_VEHICLE
@@ -8868,7 +9327,8 @@ namespace VEHICLE
 	// 
 	// distance defines how far it will travel until stopping.
 	NATIVE_DECL void BRING_VEHICLE_TO_HALT(Vehicle vehicle, float distance, int duration, BOOL unknown) { invoke<Void>(0x260BE8F09E326A20, vehicle, distance, duration, unknown); } // 0x260BE8F09E326A20 0xCBC7D3C8 b1207
-	NATIVE_DECL Any _0x404527BC03DA0E6C(Any p0) { return invoke<Any>(0x404527BC03DA0E6C, p0); } // 0x404527BC03DA0E6C b1207
+	// Only returns true if BRING_VEHICLE_TO_HALT is called on vehicle beforehand
+	NATIVE_DECL BOOL _IS_VEHICLE_BROUGHT_TO_HALT(Vehicle vehicle) { return invoke<BOOL>(0x404527BC03DA0E6C, vehicle); } // 0x404527BC03DA0E6C b1207
 	NATIVE_DECL void _STOP_BRING_VEHICLE_TO_HALT(Vehicle vehicle) { invoke<Void>(0x7C06330BFDDA182E, vehicle); } // 0x7C06330BFDDA182E b1207
 	NATIVE_DECL void _0xE12F5ED49F44D40D(Any p0) { invoke<Void>(0xE12F5ED49F44D40D, p0); } // 0xE12F5ED49F44D40D b1207
 	NATIVE_DECL void _0xF6E3D38869D0F7AD(Any p0) { invoke<Void>(0xF6E3D38869D0F7AD, p0); } // 0xF6E3D38869D0F7AD b1207
@@ -8896,26 +9356,28 @@ namespace VEHICLE
 	NATIVE_DECL void SET_RANDOM_TRAINS(BOOL toggle) { invoke<Void>(0x1156C6EE7E82A98A, toggle); } // 0x1156C6EE7E82A98A 0xD461CA7F b1207
 	NATIVE_DECL Any _0x331CBD247FC5DAA8(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return invoke<Any>(0x331CBD247FC5DAA8, p0, p1, p2, p3, p4, p5); } // 0x331CBD247FC5DAA8 b1207
 	NATIVE_DECL Any _0x0516FAE561276EFC(Any p0) { return invoke<Any>(0x0516FAE561276EFC, p0); } // 0x0516FAE561276EFC b1207
-	NATIVE_DECL Any _0x45853F4E17D847D5(Any p0) { return invoke<Any>(0x45853F4E17D847D5, p0); } // 0x45853F4E17D847D5 b1207
-	NATIVE_DECL Any _0x6E585A616ABB8401(Any p0) { return invoke<Any>(0x6E585A616ABB8401, p0); } // 0x6E585A616ABB8401 b1207
-	NATIVE_DECL void _0x15206E88FF7617DF(Any p0, Any p1) { invoke<Void>(0x15206E88FF7617DF, p0, p1); } // 0x15206E88FF7617DF b1207
-	NATIVE_DECL void _0xA7966807953A18EE(Any p0, Any p1) { invoke<Void>(0xA7966807953A18EE, p0, p1); } // 0xA7966807953A18EE b1207
+	// Returns trackIndex
+	NATIVE_DECL int _GET_TRAIN_TRACK_FROM_TRAIN_VEHICLE(Vehicle train) { return invoke<int>(0x45853F4E17D847D5, train); } // 0x45853F4E17D847D5 b1207
+	// Returns train
+	NATIVE_DECL Vehicle _GET_TRAIN_VEHICLE_FROM_TRACK_INDEX(int trackIndex) { return invoke<Vehicle>(0x6E585A616ABB8401, trackIndex); } // 0x6E585A616ABB8401 b1207
+	NATIVE_DECL void _0x15206E88FF7617DF(int trackIndex, float p1) { invoke<Void>(0x15206E88FF7617DF, trackIndex, p1); } // 0x15206E88FF7617DF b1207
+	NATIVE_DECL void _0xA7966807953A18EE(int trackIndex, float p1) { invoke<Void>(0xA7966807953A18EE, trackIndex, p1); } // 0xA7966807953A18EE b1207
 	NATIVE_DECL void _0x6B34BE961F639E21(Any p0, Any p1) { invoke<Void>(0x6B34BE961F639E21, p0, p1); } // 0x6B34BE961F639E21 b1207
 	NATIVE_DECL void _0xE6BD7DD3FD474415(Any p0, Any p1) { invoke<Void>(0xE6BD7DD3FD474415, p0, p1); } // 0xE6BD7DD3FD474415 b1207
 	NATIVE_DECL void _0x615B3B8E73634509(Any p0, Any p1) { invoke<Void>(0x615B3B8E73634509, p0, p1); } // 0x615B3B8E73634509 b1207
-	NATIVE_DECL void _0x38E7DD70A242D5CB(Any p0, Any p1) { invoke<Void>(0x38E7DD70A242D5CB, p0, p1); } // 0x38E7DD70A242D5CB b1207
+	NATIVE_DECL void _0x38E7DD70A242D5CB(int trackIndex, Any p1) { invoke<Void>(0x38E7DD70A242D5CB, trackIndex, p1); } // 0x38E7DD70A242D5CB b1207
 	NATIVE_DECL void _0x63509DDF102E08E8(Any p0, Any p1) { invoke<Void>(0x63509DDF102E08E8, p0, p1); } // 0x63509DDF102E08E8 b1207
 	NATIVE_DECL void _0x7408B5C66BA31ADB(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { invoke<Void>(0x7408B5C66BA31ADB, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); } // 0x7408B5C66BA31ADB b1207
 	NATIVE_DECL void _0x41365DB586CD9E8E(Any p0, Any p1) { invoke<Void>(0x41365DB586CD9E8E, p0, p1); } // 0x41365DB586CD9E8E b1207
 	NATIVE_DECL void _0xD0AABE5B9F8FA589(Any p0, Any p1) { invoke<Void>(0xD0AABE5B9F8FA589, p0, p1); } // 0xD0AABE5B9F8FA589 b1207
 	NATIVE_DECL void _0x427C919E9809E370(Any p0, Any p1) { invoke<Void>(0x427C919E9809E370, p0, p1); } // 0x427C919E9809E370 b1207
-	NATIVE_DECL BOOL _0xC29996A337BDD099(int trackIndex) { return invoke<BOOL>(0xC29996A337BDD099, trackIndex); } // 0xC29996A337BDD099 b1207
-	NATIVE_DECL Vector3 _0x1E8A921112891651(int trackIndex) { return invoke<Vector3>(0x1E8A921112891651, trackIndex); } // 0x1E8A921112891651 b1207
+	NATIVE_DECL BOOL _DOES_TRAIN_EXIST_ON_TRACK(int trackIndex) { return invoke<BOOL>(0xC29996A337BDD099, trackIndex); } // 0xC29996A337BDD099 b1207
+	NATIVE_DECL Vector3 _GET_TRAIN_POSITION_ON_TRACK(int trackIndex) { return invoke<Vector3>(0x1E8A921112891651, trackIndex); } // 0x1E8A921112891651 b1207
 	NATIVE_DECL Any _0xB4241AD8F5AEE9ED(Any p0) { return invoke<Any>(0xB4241AD8F5AEE9ED, p0); } // 0xB4241AD8F5AEE9ED b1207
 	NATIVE_DECL void _0xA230A5DDE12ED374(Any p0) { invoke<Void>(0xA230A5DDE12ED374, p0); } // 0xA230A5DDE12ED374 b1207
 	NATIVE_DECL void _0x0D5FDF0D36FA10CD(Any p0) { invoke<Void>(0x0D5FDF0D36FA10CD, p0); } // 0x0D5FDF0D36FA10CD b1207
 	NATIVE_DECL void _0xE682002DB1F30669(Any p0) { invoke<Void>(0xE682002DB1F30669, p0); } // 0xE682002DB1F30669 b1207
-	NATIVE_DECL void _0x718EB706B6E998A0(Any p0) { invoke<Void>(0x718EB706B6E998A0, p0); } // 0x718EB706B6E998A0 b1207
+	NATIVE_DECL void _0x718EB706B6E998A0(int trackIndex) { invoke<Void>(0x718EB706B6E998A0, trackIndex); } // 0x718EB706B6E998A0 b1207
 	NATIVE_DECL Any _0xF05DFAF1ADFEF2CD(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return invoke<Any>(0xF05DFAF1ADFEF2CD, p0, p1, p2, p3, p4, p5); } // 0xF05DFAF1ADFEF2CD b1207
 	NATIVE_DECL Any _0xD1DF5E54F4ACBE1A(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { return invoke<Any>(0xD1DF5E54F4ACBE1A, p0, p1, p2, p3, p4, p5, p6); } // 0xD1DF5E54F4ACBE1A b1207
 	NATIVE_DECL Any _0x0FDDEE66E3465726(Any p0) { return invoke<Any>(0x0FDDEE66E3465726, p0); } // 0x0FDDEE66E3465726 b1207
@@ -8927,8 +9389,10 @@ namespace VEHICLE
 	NATIVE_DECL void _0x6EA1273D525427F4(Any p0, Any p1, Any p2) { invoke<Void>(0x6EA1273D525427F4, p0, p1, p2); } // 0x6EA1273D525427F4 b1207
 	NATIVE_DECL Any _0x7BE0746539DEF0C8(Any p0, Any p1) { return invoke<Any>(0x7BE0746539DEF0C8, p0, p1); } // 0x7BE0746539DEF0C8 b1207
 	NATIVE_DECL void _0x3137EDC899E6DAE4(Any p0, Any p1) { invoke<Void>(0x3137EDC899E6DAE4, p0, p1); } // 0x3137EDC899E6DAE4 b1355
-	NATIVE_DECL Any _0x6C87F49BFA181DB5(Any p0, Any p1, Any p2) { return invoke<Any>(0x6C87F49BFA181DB5, p0, p1, p2); } // 0x6C87F49BFA181DB5 b1207
-	NATIVE_DECL Any _0x85D39F5E3B6D7EB0(Any p0, Any p1, Any p2) { return invoke<Any>(0x85D39F5E3B6D7EB0, p0, p1, p2); } // 0x85D39F5E3B6D7EB0 b1207
+	// Returns trackIndex
+	NATIVE_DECL int _0x6C87F49BFA181DB5(float x, float y, float z) { return invoke<int>(0x6C87F49BFA181DB5, x, y, z); } // 0x6C87F49BFA181DB5 b1207
+	// Returns trackIndex
+	NATIVE_DECL int _0x85D39F5E3B6D7EB0(float x, float y, float z) { return invoke<int>(0x85D39F5E3B6D7EB0, x, y, z); } // 0x85D39F5E3B6D7EB0 b1207
 	NATIVE_DECL Vector3 _GET_NEAREST_TRAIN_TRACK_POSITION(float x, float y, float z) { return invoke<Vector3>(0x6DE03BCC15E81710, x, y, z); } // 0x6DE03BCC15E81710 b1207
 	NATIVE_DECL void DELETE_ALL_TRAINS() { invoke<Void>(0xA3120A1385F17FF7); } // 0xA3120A1385F17FF7 0x83DE7ABF b1207
 	NATIVE_DECL Any _0x0E558D3A49D759D6(Any p0, Any p1) { return invoke<Any>(0x0E558D3A49D759D6, p0, p1); } // 0x0E558D3A49D759D6 b1207
@@ -8938,17 +9402,22 @@ namespace VEHICLE
 	// Maximum possible speed is 30.0 (108 km/h)
 	NATIVE_DECL void _SET_TRAIN_MAX_SPEED(Vehicle train, float speed) { invoke<Void>(0x9F29999DFDF2AEB8, train, speed); } // 0x9F29999DFDF2AEB8 b1207
 	NATIVE_DECL void SET_TRAIN_CRUISE_SPEED(Vehicle train, float speed) { invoke<Void>(0x01021EB2E96B793C, train, speed); } // 0x01021EB2E96B793C 0xB507F51D b1207
-	NATIVE_DECL Any _0x60B7D1DCC312697D(Any p0) { return invoke<Any>(0x60B7D1DCC312697D, p0); } // 0x60B7D1DCC312697D b1207
-	NATIVE_DECL Hash _0x8DF5F6A19F99F0D5(Hash trainConfig, int trainCarIndex) { return invoke<Hash>(0x8DF5F6A19F99F0D5, trainConfig, trainCarIndex); } // 0x8DF5F6A19F99F0D5 b1207
+	// Returns iNumCars - to be used with GET_TRAIN_CARRIAGE (trailerNumber)
+	// _C* (O, P, Q, R)
+	NATIVE_DECL int _GET_TRAIN_CARRIAGE_TRAILER_NUMBER(Vehicle train) { return invoke<int>(0x60B7D1DCC312697D, train); } // 0x60B7D1DCC312697D b1207
+	// Returns modelHash
+	NATIVE_DECL Hash _GET_TRAIN_MODEL_FROM_TRAIN_CONFIG_BY_CAR_INDEX(Hash trainConfig, int trainCarIndex) { return invoke<Hash>(0x8DF5F6A19F99F0D5, trainConfig, trainCarIndex); } // 0x8DF5F6A19F99F0D5 b1207
 	// Returns amount for CAN_REGISTER_MISSION_VEHICLES
-	NATIVE_DECL int _0x635423D55CA84FC8(Hash trainConfig) { return invoke<int>(0x635423D55CA84FC8, trainConfig); } // 0x635423D55CA84FC8 b1207
-	NATIVE_DECL Any _0x671A07C9A1CD50A5(Any p0) { return invoke<Any>(0x671A07C9A1CD50A5, p0); } // 0x671A07C9A1CD50A5 b1207
+	NATIVE_DECL int _GET_NUM_CARS_FROM_TRAIN_CONFIG(Hash trainConfig) { return invoke<int>(0x635423D55CA84FC8, trainConfig); } // 0x635423D55CA84FC8 b1207
+	// Returns train car, use GET_TRAIN_CARRIAGE when trailerNumber is bigger than 0
+	NATIVE_DECL Entity _GET_TRAIN_CAR(Vehicle train) { return invoke<Entity>(0x671A07C9A1CD50A5, train); } // 0x671A07C9A1CD50A5 b1207
 	NATIVE_DECL void _SET_TRAIN_STOPS_FOR_STATIONS(Vehicle train, BOOL toggle) { invoke<Void>(0x4182C037AA1F0091, train, toggle); } // 0x4182C037AA1F0091 b1207
 	NATIVE_DECL void _0xDD100CE1EBBF37E3(Any p0, Any p1) { invoke<Void>(0xDD100CE1EBBF37E3, p0, p1); } // 0xDD100CE1EBBF37E3 b1207
 	NATIVE_DECL void _0x160C1B5AB48AB87C(Any p0, Any p1) { invoke<Void>(0x160C1B5AB48AB87C, p0, p1); } // 0x160C1B5AB48AB87C b1207
 	NATIVE_DECL BOOL IS_TRAIN_WAITING_AT_STATION(Vehicle train) { return invoke<BOOL>(0xE887BD31D97793F6, train); } // 0xE887BD31D97793F6 b1207
-	NATIVE_DECL void _0x3660BCAB3A6BB734(Vehicle train) { invoke<Void>(0x3660BCAB3A6BB734, train); } // 0x3660BCAB3A6BB734 b1207
-	NATIVE_DECL void _0x787E43477746876F(Vehicle train) { invoke<Void>(0x787E43477746876F, train); } // 0x787E43477746876F b1207
+	NATIVE_DECL void _SET_TRAIN_HALT(Vehicle train) { invoke<Void>(0x3660BCAB3A6BB734, train); } // 0x3660BCAB3A6BB734 b1207
+	// Restarts the train
+	NATIVE_DECL void _SET_TRAIN_LEAVE_STATION(Vehicle train) { invoke<Void>(0x787E43477746876F, train); } // 0x787E43477746876F b1207
 	NATIVE_DECL void SET_RANDOM_BOATS(BOOL toggle) { invoke<Void>(0xF44D446D4E36DB87, toggle); } // 0xF44D446D4E36DB87 0xB505BD89 b1207
 	// Request the vehicle recording defined by the lowercase format string "%s%03d.yvr". For example, REQUEST_VEHICLE_RECORDING(1, "FBIs1UBER") corresponds to fbis1uber001.yvr.
 	// For all vehicle recording/playback natives, "script" is a common prefix that usually corresponds to the script/mission the recording is used in, "recording" is its int suffix, and "id" corresponds to a unique identifier within the recording streaming module.
@@ -8984,16 +9453,17 @@ namespace VEHICLE
 	NATIVE_DECL void DELETE_MISSION_TRAIN(Vehicle* train) { invoke<Void>(0x0D3630FB07E8B570, train); } // 0x0D3630FB07E8B570 0x86C9497D b1207
 	NATIVE_DECL void SET_MISSION_TRAIN_AS_NO_LONGER_NEEDED(Vehicle* train, BOOL p1) { invoke<Void>(0xBBE7648349B49BE8, train, p1); } // 0xBBE7648349B49BE8 0x19808560 b1207
 	NATIVE_DECL void SET_MISSION_TRAIN_COORDS(Vehicle train, float x, float y, float z) { invoke<Void>(0x7632755962AB9922, train, x, y, z); } // 0x7632755962AB9922 0xD6D70803 b1207
-	NATIVE_DECL void _0xC9EA26893C9E4024(Vehicle train, float x, float y, float z, BOOL takePassengers) { invoke<Void>(0xC9EA26893C9E4024, train, x, y, z, takePassengers); } // 0xC9EA26893C9E4024 b1207
+	// Notice: BOOL p4 was wrongly named takePassengers (?)
+	NATIVE_DECL void _SET_MISSION_TRAIN_WARP_TO_COORDS(Vehicle train, float x, float y, float z, BOOL direction) { invoke<Void>(0xC9EA26893C9E4024, train, x, y, z, direction); } // 0xC9EA26893C9E4024 b1207
 	NATIVE_DECL void _0xA72B1BF3857B94D7(Any p0, Any p1) { invoke<Void>(0xA72B1BF3857B94D7, p0, p1); } // 0xA72B1BF3857B94D7 b1207
-	NATIVE_DECL BOOL _0xB9D5BDDA88E1BB66(Hash model) { return invoke<BOOL>(0xB9D5BDDA88E1BB66, model); } // 0xB9D5BDDA88E1BB66 b1207
+	NATIVE_DECL BOOL _IS_THIS_MODEL_A_DRAFT_VEHICLE(Hash model) { return invoke<BOOL>(0xB9D5BDDA88E1BB66, model); } // 0xB9D5BDDA88E1BB66 b1207
 	NATIVE_DECL BOOL IS_THIS_MODEL_A_BOAT(Hash model) { return invoke<BOOL>(0x799CFC7C5B743B15, model); } // 0x799CFC7C5B743B15 0x10F6085C b1207
 	NATIVE_DECL BOOL IS_THIS_MODEL_A_TRAIN(Hash model) { return invoke<BOOL>(0xFC08C8F8C1EDF174, model); } // 0xFC08C8F8C1EDF174 0xF87DCFFD b1207
 	NATIVE_DECL void SET_VEHICLE_CAN_BE_TARGETTED(Vehicle vehicle, BOOL state) { invoke<Void>(0x05254BA0B44ADC16, vehicle, state); } // 0x05254BA0B44ADC16 0x64B70B1D b1207
 	NATIVE_DECL void _0x63DC1F22C903B709(Vehicle vehicle, BOOL p1) { invoke<Void>(0x63DC1F22C903B709, vehicle, p1); } // 0x63DC1F22C903B709 0x486C1280 b1207
 	NATIVE_DECL void SET_VEHICLE_CAN_BE_VISIBLY_DAMAGED(Vehicle vehicle, BOOL state) { invoke<Void>(0x4BF8131AE811541C, vehicle, state); } // 0x4BF8131AE811541C 0xC5D94017 b1207
 	NATIVE_DECL void SET_VEHICLE_HAS_UNBREAKABLE_LIGHTS(Vehicle vehicle, BOOL p1) { invoke<Void>(0xC903855E028A05F2, vehicle, p1); } // 0xC903855E028A05F2 0x009AB49E b1207
-	NATIVE_DECL void _0x33992A808DF1C1BA(Vehicle vehicle, BOOL p1) { invoke<Void>(0x33992A808DF1C1BA, vehicle, p1); } // 0x33992A808DF1C1BA 0x758C5E2E b1207
+	NATIVE_DECL void SET_VEHICLE_RESPECTS_LOCKS_WHEN_HAS_DRIVER(Vehicle vehicle, BOOL p1) { invoke<Void>(0x33992A808DF1C1BA, vehicle, p1); } // 0x33992A808DF1C1BA 0x758C5E2E b1207
 	NATIVE_DECL void _0x065D03A9D6B2C6B5(Any p0, Any p1) { invoke<Void>(0x065D03A9D6B2C6B5, p0, p1); } // 0x065D03A9D6B2C6B5 b1207
 	NATIVE_DECL void SET_VEHICLE_DIRT_LEVEL(Vehicle vehicle, float dirtLevel) { invoke<Void>(0x758C3460EE915D0A, vehicle, dirtLevel); } // 0x758C3460EE915D0A 0x2B39128B b1207
 	// doorId: see SET_VEHICLE_DOOR_SHUT
@@ -9038,35 +9508,42 @@ namespace VEHICLE
 	// doorId: see SET_VEHICLE_DOOR_SHUT
 	NATIVE_DECL void _SET_VEHICLE_DOOR_CAN_BREAK(Vehicle vehicle, int doorId, BOOL isBreakable) { invoke<Void>(0x081FB9D6422F804C, vehicle, doorId, isBreakable); } // 0x081FB9D6422F804C 0x065B92B3 b1207
 	NATIVE_DECL BOOL IS_VEHICLE_ON_ALL_WHEELS(Vehicle vehicle) { return invoke<BOOL>(0x0D5D119529654EE0, vehicle); } // 0x0D5D119529654EE0 0x10089F8E b1207
-	NATIVE_DECL Any _0x3C9628A811CBD724(Any p0) { return invoke<Any>(0x3C9628A811CBD724, p0); } // 0x3C9628A811CBD724 b1207
-	NATIVE_DECL BOOL _0x67995318F5FAA496(int trackIndex) { return invoke<BOOL>(0x67995318F5FAA496, trackIndex); } // 0x67995318F5FAA496 b1207
-	NATIVE_DECL Any _0x09034479E6E3E269(Any p0, Any p1, Any p2) { return invoke<Any>(0x09034479E6E3E269, p0, p1, p2); } // 0x09034479E6E3E269 b1207
+	NATIVE_DECL BOOL _GET_TRAIN_DIRECTION(Vehicle train) { return invoke<BOOL>(0x3C9628A811CBD724, train); } // 0x3C9628A811CBD724 b1207
+	NATIVE_DECL BOOL _GET_TRAIN_DIRECTION_FROM_INDEX(int trackIndex) { return invoke<BOOL>(0x67995318F5FAA496, trackIndex); } // 0x67995318F5FAA496 b1207
+	// _RESET_VEHICLE_*
+	NATIVE_DECL Any _0x09034479E6E3E269(Vehicle train, Hash* trainTrack, int* junctionIndex) { return invoke<Any>(0x09034479E6E3E269, train, trainTrack, junctionIndex); } // 0x09034479E6E3E269 b1207
 	// Outputs junctionIndex, to be used with 0xE6C5E2125EB210C1
-	NATIVE_DECL BOOL _0x86AFC343CF7F0B34(Hash trainConfig, float x, float y, float z, int* junctionIndex) { return invoke<BOOL>(0x86AFC343CF7F0B34, trainConfig, x, y, z, junctionIndex); } // 0x86AFC343CF7F0B34 b1207
+	NATIVE_DECL BOOL _GET_TRAIN_TRACK_JUNCTION_AT_COORDS(Hash trainTrack, float x, float y, float z, int* junctionIndex) { return invoke<BOOL>(0x86AFC343CF7F0B34, trainTrack, x, y, z, junctionIndex); } // 0x86AFC343CF7F0B34 b1207
 	NATIVE_DECL Any _0xD9BF3ED8EFB67EA3(Any p0, Any p1, Any p2, Any p3, Any p4) { return invoke<Any>(0xD9BF3ED8EFB67EA3, p0, p1, p2, p3, p4); } // 0xD9BF3ED8EFB67EA3 b1207
 	NATIVE_DECL Vector3 _0x785639D89F8451AB(Any p0, Any p1) { return invoke<Vector3>(0x785639D89F8451AB, p0, p1); } // 0x785639D89F8451AB b1207
-	NATIVE_DECL void _0xE6C5E2125EB210C1(int trackIndex, int junctionIndex, BOOL enabled) { invoke<Void>(0xE6C5E2125EB210C1, trackIndex, junctionIndex, enabled); } // 0xE6C5E2125EB210C1 b1207
-	NATIVE_DECL void _0x3ABFA128F5BF5A70(Any p0, Any p1, Any p2) { invoke<Void>(0x3ABFA128F5BF5A70, p0, p1, p2); } // 0x3ABFA128F5BF5A70 b1207
+	// trainTrack: FREIGHT_GROUP, TRAINS3, BRAITHWAITES2_TRACK_CONFIG, TRAINS_OLD_WEST01, TRAINS_OLD_WEST03, TRAINS_NB1, TRAINS_INTERSECTION1_ANN
+	NATIVE_DECL void _SET_TRAIN_TRACK_JUNCTION_SWITCH(Hash trainTrack, int junctionIndex, BOOL enabled) { invoke<Void>(0xE6C5E2125EB210C1, trainTrack, junctionIndex, enabled); } // 0xE6C5E2125EB210C1 b1207
+	// Called together with 0xE6C5E2125EB210C1 in R* Script medium_update
+	NATIVE_DECL void _0x3ABFA128F5BF5A70(Hash trainTrack, int junctionIndex, BOOL enabled) { invoke<Void>(0x3ABFA128F5BF5A70, trainTrack, junctionIndex, enabled); } // 0x3ABFA128F5BF5A70 b1207
 	NATIVE_DECL Any _0x2C46D2A591D8C322(Any p0, Any p1, Any p2) { return invoke<Any>(0x2C46D2A591D8C322, p0, p1, p2); } // 0x2C46D2A591D8C322 b1207
 	NATIVE_DECL Any _0xCAFF2C9747103C02(Any p0, Any p1, Any p2) { return invoke<Any>(0xCAFF2C9747103C02, p0, p1, p2); } // 0xCAFF2C9747103C02 b1207
-	NATIVE_DECL void _0x138398153824E332() { invoke<Void>(0x138398153824E332); } // 0x138398153824E332 b1207
-	NATIVE_DECL void _0x34BCF6209B9668A7(Any p0, Any p1) { invoke<Void>(0x34BCF6209B9668A7, p0, p1); } // 0x34BCF6209B9668A7 b1207
-	NATIVE_DECL void _0xD0BA1853D76683C8(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0xD0BA1853D76683C8, p0, p1, p2, p3, p4); } // 0xD0BA1853D76683C8 b1207
+	NATIVE_DECL void _SET_ALL_JUNCTIONS_CLEARED() { invoke<Void>(0x138398153824E332); } // 0x138398153824E332 b1207
+	NATIVE_DECL void _0x34BCF6209B9668A7(int trackIndex, Any p1) { invoke<Void>(0x34BCF6209B9668A7, trackIndex, p1); } // 0x34BCF6209B9668A7 b1207
+	NATIVE_DECL void _0xD0BA1853D76683C8(int trackIndex, float x, float y, float z, Any p4) { invoke<Void>(0xD0BA1853D76683C8, trackIndex, x, y, z, p4); } // 0xD0BA1853D76683C8 b1207
 	NATIVE_DECL void SET_TRAIN_OFFSET_FROM_STATION(Vehicle train, float offset) { invoke<Void>(0x8EC47DD4300BF063, train, offset); } // 0x8EC47DD4300BF063 b1207
 	NATIVE_DECL void _0xDC69F6913CCA0B99(Any p0, Any p1) { invoke<Void>(0xDC69F6913CCA0B99, p0, p1); } // 0xDC69F6913CCA0B99 b1207
-	NATIVE_DECL void _0x7840576C50A13DBA(Any p0, Any p1) { invoke<Void>(0x7840576C50A13DBA, p0, p1); } // 0x7840576C50A13DBA b1207
+	NATIVE_DECL void _0x7840576C50A13DBA(Vehicle train, BOOL p1) { invoke<Void>(0x7840576C50A13DBA, train, p1); } // 0x7840576C50A13DBA b1207
 	NATIVE_DECL Any _0xD0116DF21E6C7B36(Any p0, Any p1) { return invoke<Any>(0xD0116DF21E6C7B36, p0, p1); } // 0xD0116DF21E6C7B36 b1207
-	NATIVE_DECL void _0x54CBDD6E1B4CB4DF(Any p0) { invoke<Void>(0x54CBDD6E1B4CB4DF, p0); } // 0x54CBDD6E1B4CB4DF b1207
-	NATIVE_DECL Any _0x1180A2974D251B7B(Any p0) { return invoke<Any>(0x1180A2974D251B7B, p0); } // 0x1180A2974D251B7B b1207
+	// Only used in train_robbery4 R* Script
+	// _C* - _DEL*
+	NATIVE_DECL void _DETACH_WAGON_ENTITY_FROM_TRAIN(Entity entity) { invoke<Void>(0x54CBDD6E1B4CB4DF, entity); } // 0x54CBDD6E1B4CB4DF b1207
+	NATIVE_DECL Any _0x1180A2974D251B7B(Vehicle train) { return invoke<Any>(0x1180A2974D251B7B, train); } // 0x1180A2974D251B7B b1207
 	NATIVE_DECL int GET_CURRENT_STATION_FOR_TRAIN(Vehicle train) { return invoke<int>(0x86FA6D8B48667D75, train); } // 0x86FA6D8B48667D75 b1207
 	NATIVE_DECL Any _0x9CC94A948EAF5372(Any p0, Any p1) { return invoke<Any>(0x9CC94A948EAF5372, p0, p1); } // 0x9CC94A948EAF5372 b1207
-	NATIVE_DECL Any _0xDE8C5B9F65017FA1(Any p0) { return invoke<Any>(0xDE8C5B9F65017FA1, p0); } // 0xDE8C5B9F65017FA1 b1207
-	NATIVE_DECL Any _0xAF787E081AC4A8EE(Any p0) { return invoke<Any>(0xAF787E081AC4A8EE, p0); } // 0xAF787E081AC4A8EE b1207
-	NATIVE_DECL Vector3 _0xBA958F68031DDBFC(Any p0, Any p1) { return invoke<Vector3>(0xBA958F68031DDBFC, p0, p1); } // 0xBA958F68031DDBFC b1207
+	NATIVE_DECL Any _0xDE8C5B9F65017FA1(Vehicle train) { return invoke<Any>(0xDE8C5B9F65017FA1, train); } // 0xDE8C5B9F65017FA1 b1207
+	NATIVE_DECL Any _0xAF787E081AC4A8EE(Vehicle train) { return invoke<Any>(0xAF787E081AC4A8EE, train); } // 0xAF787E081AC4A8EE b1207
+	// Returns Coords of vStation
+	NATIVE_DECL Vector3 _0xBA958F68031DDBFC(int p0, int p1) { return invoke<Vector3>(0xBA958F68031DDBFC, p0, p1); } // 0xBA958F68031DDBFC b1207
 	NATIVE_DECL int GET_TRACK_INDEX_OF_TRAIN(Vehicle train) { return invoke<int>(0x865FEC2FA899F29C, train); } // 0x865FEC2FA899F29C b1207
-	NATIVE_DECL void _0x1A861F899EBBE17C(Any p0, Any p1) { invoke<Void>(0x1A861F899EBBE17C, p0, p1); } // 0x1A861F899EBBE17C b1207
+	NATIVE_DECL void _0x1A861F899EBBE17C(Vehicle train, BOOL p1) { invoke<Void>(0x1A861F899EBBE17C, train, p1); } // 0x1A861F899EBBE17C b1207
 	NATIVE_DECL void _0xF8F7DA13CFBD4532(int trackIndex, BOOL p1) { invoke<Void>(0xF8F7DA13CFBD4532, trackIndex, p1); } // 0xF8F7DA13CFBD4532 b1207
-	NATIVE_DECL void _0xCFE122EC635CC2B2(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xCFE122EC635CC2B2, p0, p1, p2, p3); } // 0xCFE122EC635CC2B2 b1207
+	// whistleSequence: ACKNOWLEDGE, BACKING_UP, CROSSING, DANGER, MOVING, NEXT_STATION, PASSING, STOPPED
+	NATIVE_DECL void _TRIGGER_TRAIN_WHISTLE(Vehicle train, const char* whistleSequence, BOOL p2, BOOL p3) { invoke<Void>(0xCFE122EC635CC2B2, train, whistleSequence, p2, p3); } // 0xCFE122EC635CC2B2 b1207
 	NATIVE_DECL void _0x2BB2B5BCF0DF8008(Any p0, Any p1) { invoke<Void>(0x2BB2B5BCF0DF8008, p0, p1); } // 0x2BB2B5BCF0DF8008 b1207
 	NATIVE_DECL void _0x6703872EC09BC158(Any p0, Any p1) { invoke<Void>(0x6703872EC09BC158, p0, p1); } // 0x6703872EC09BC158 b1207
 	NATIVE_DECL void _0x1BFBAFCC6760FF02(Any p0, Any p1) { invoke<Void>(0x1BFBAFCC6760FF02, p0, p1); } // 0x1BFBAFCC6760FF02 b1207
@@ -9092,6 +9569,7 @@ namespace VEHICLE
 	NATIVE_DECL void SET_VEHICLE_STEER_BIAS(Vehicle vehicle, float value) { invoke<Void>(0x84DAAE11E9EE4FC3, vehicle, value); } // 0x84DAAE11E9EE4FC3 0x7357C1EB b1207
 	NATIVE_DECL BOOL IS_VEHICLE_EXTRA_TURNED_ON(Vehicle vehicle, int extraId) { return invoke<BOOL>(0xFA9A55D9C4351625, vehicle, extraId); } // 0xFA9A55D9C4351625 0x042098B5 b1207
 	// Note: only some vehicle have extras
+	// https://github.com/femga/rdr3_discoveries/blob/master/vehicles/vehicle_modding/vehicle_extras.lua
 	NATIVE_DECL void SET_VEHICLE_EXTRA(Vehicle vehicle, int extraId, BOOL disable) { invoke<Void>(0xBB6F89150BC9D16B, vehicle, extraId, disable); } // 0xBB6F89150BC9D16B 0x642D065C b1207
 	NATIVE_DECL BOOL DOES_EXTRA_EXIST(Vehicle vehicle, int extraId) { return invoke<BOOL>(0xAF5E7E9A7620FFB5, vehicle, extraId); } // 0xAF5E7E9A7620FFB5 0x409411CC b1207
 	// Apply damage to vehicle at a location. Location is relative to vehicle model (not world).
@@ -9125,11 +9603,15 @@ namespace VEHICLE
 	NATIVE_DECL float GET_VEHICLE_PETROL_TANK_HEALTH(Vehicle vehicle) { return invoke<float>(0x1E5A9B356D5098BE, vehicle); } // 0x1E5A9B356D5098BE 0xE41595CE b1207
 	// 1000 is max health
 	NATIVE_DECL void SET_VEHICLE_PETROL_TANK_HEALTH(Vehicle vehicle, float health) { invoke<Void>(0x6AB2918EE3BEC94C, vehicle, health); } // 0x6AB2918EE3BEC94C 0x660A3692 b1207
-	NATIVE_DECL BOOL IS_VEHICLE_STUCK_TIMER_UP(Vehicle vehicle, int p1, int p2) { return invoke<BOOL>(0x1ABA9753939503C5, vehicle, p1, p2); } // 0x1ABA9753939503C5 0x2FCF58C1 b1207
+	// VEH_STUCK_ON_ROOF = 0,
+	// VEH_STUCK_ON_SIDE,
+	// VEH_STUCK_HUNG_UP,
+	// VEH_STUCK_JAMMED
+	NATIVE_DECL BOOL IS_VEHICLE_STUCK_TIMER_UP(Vehicle vehicle, int stuckType, int ms) { return invoke<BOOL>(0x1ABA9753939503C5, vehicle, stuckType, ms); } // 0x1ABA9753939503C5 0x2FCF58C1 b1207
 	NATIVE_DECL void RESET_VEHICLE_STUCK_TIMER(Vehicle vehicle, int nullAttributes) { invoke<Void>(0x23298B468F7D88B6, vehicle, nullAttributes); } // 0x23298B468F7D88B6 0xEF2A6016 b1207
 	NATIVE_DECL BOOL IS_VEHICLE_DRIVEABLE(Vehicle vehicle, BOOL p1, BOOL p2) { return invoke<BOOL>(0xB86D29B10F627379, vehicle, p1, p2); } // 0xB86D29B10F627379 0x41A7267A b1207
 	NATIVE_DECL BOOL IS_VEHICLE_WRECKED(Vehicle vehicle) { return invoke<BOOL>(0xDDBEA5506C848227, vehicle); } // 0xDDBEA5506C848227 b1207
-	NATIVE_DECL Any _0x0E3BF7ED4169EC43(Any p0) { return invoke<Any>(0x0E3BF7ED4169EC43, p0); } // 0x0E3BF7ED4169EC43 b1207
+	NATIVE_DECL BOOL _IS_VEHICLE_ON_FIRE(Vehicle vehicle) { return invoke<BOOL>(0x0E3BF7ED4169EC43, vehicle); } // 0x0E3BF7ED4169EC43 b1207
 	NATIVE_DECL void SET_VEHICLE_HAS_BEEN_OWNED_BY_PLAYER(Vehicle vehicle, BOOL owned) { invoke<Void>(0xBB5A3FA8ED3979C5, vehicle, owned); } // 0xBB5A3FA8ED3979C5 0xB4D3DBFB b1207
 	// Sounds the horn for the specified vehicle.
 	// 
@@ -9145,7 +9627,9 @@ namespace VEHICLE
 	NATIVE_DECL void _SET_VEHICLE_SNOW_LEVEL(Vehicle vehicle, float snowLevel) { invoke<Void>(0x6F73EFAB11651D7F, vehicle, snowLevel); } // 0x6F73EFAB11651D7F b1207
 	// wetLevel: 0.0 - 1.0
 	NATIVE_DECL void _SET_VEHICLE_WET_LEVEL(Vehicle vehicle, float wetLevel) { invoke<Void>(0x5AABB09F6FBD1F87, vehicle, wetLevel); } // 0x5AABB09F6FBD1F87 b1207
+	// https://github.com/femga/rdr3_discoveries/blob/master/vehicles/vehicle_modding/vehicle_tints.lua
 	NATIVE_DECL void _SET_VEHICLE_TINT(Vehicle vehicle, int tintId) { invoke<Void>(0x8268B098F6FCA4E2, vehicle, tintId); } // 0x8268B098F6FCA4E2 b1207
+	// https://github.com/femga/rdr3_discoveries/blob/master/vehicles/vehicle_modding/vehicle_liveries.lua
 	NATIVE_DECL void _SET_VEHICLE_LIVERY(Vehicle vehicle, int liveryIndex) { invoke<Void>(0xF89D82A0582E46ED, vehicle, liveryIndex); } // 0xF89D82A0582E46ED b1207
 	NATIVE_DECL int _GET_VEHICLE_TINT(Vehicle vehicle) { return invoke<int>(0xA44D65E6C624526F, vehicle); } // 0xA44D65E6C624526F b1207
 	NATIVE_DECL int _GET_VEHICLE_LIVERY(Vehicle vehicle) { return invoke<int>(0xBB765B8FD49A796C, vehicle); } // 0xBB765B8FD49A796C b1207
@@ -9166,14 +9650,13 @@ namespace VEHICLE
 	NATIVE_DECL BOOL IS_VEHICLE_IN_BURNOUT(Vehicle vehicle) { return invoke<BOOL>(0x3F5029A8FC060C48, vehicle); } // 0x3F5029A8FC060C48 0x6632BC12 b1207
 	NATIVE_DECL void SET_VEHICLE_HANDBRAKE(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x91BE51AEC4E99710, vehicle, toggle); } // 0x91BE51AEC4E99710 0xBA729A25 b1207
 	NATIVE_DECL void INSTANTLY_FILL_VEHICLE_POPULATION() { invoke<Void>(0x1FF00DB43026B12F); } // 0x1FF00DB43026B12F 0x37BC6ACB b1207
-	// HAS_*
-	NATIVE_DECL BOOL _HAS_FILLED_VEHICLE_POPULATION() { return invoke<BOOL>(0x2701D01D5E18FC31); } // 0x2701D01D5E18FC31 0x71D898EF b1207
+	NATIVE_DECL BOOL HAS_INSTANT_FILL_VEHICLE_POPULATION_FINISHED() { return invoke<BOOL>(0x2701D01D5E18FC31); } // 0x2701D01D5E18FC31 0x71D898EF b1207
 	// Gets the trailer of a vehicle and puts it into the trailer parameter.
 	NATIVE_DECL BOOL GET_VEHICLE_TRAILER_VEHICLE(Vehicle vehicle, Vehicle* trailer) { return invoke<BOOL>(0xCF867A239EC30741, vehicle, trailer); } // 0xCF867A239EC30741 0xAE84D758 b1207
 	NATIVE_DECL float GET_VEHICLE_ESTIMATED_MAX_SPEED(Vehicle vehicle) { return invoke<float>(0xFE52F34491529F0B, vehicle); } // 0xFE52F34491529F0B 0x7D1A0616 b1207
 	NATIVE_DECL int ADD_ROAD_NODE_SPEED_ZONE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { return invoke<int>(0x4C221BAC54D735C3, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); } // 0x4C221BAC54D735C3 0xD6685803 b1207
 	NATIVE_DECL BOOL REMOVE_ROAD_NODE_SPEED_ZONE(int speedzone) { return invoke<BOOL>(0xFE9AB3354ACE6C9C, speedzone); } // 0xFE9AB3354ACE6C9C 0x0C0332A6 b1207
-	NATIVE_DECL BOOL _IS_VEHICLE_SEAT_ACCESSIBLE(Ped ped, Vehicle vehicle, int seatIndex, BOOL side, BOOL onEnter) { return invoke<BOOL>(0x80DDCCB2F4A3EB57, ped, vehicle, seatIndex, side, onEnter); } // 0x80DDCCB2F4A3EB57 0xAB0E79EB b1207
+	NATIVE_DECL BOOL IS_ENTRY_POINT_FOR_SEAT_CLEAR(Ped ped, Vehicle vehicle, int seatIndex, BOOL side, BOOL onEnter) { return invoke<BOOL>(0x80DDCCB2F4A3EB57, ped, vehicle, seatIndex, side, onEnter); } // 0x80DDCCB2F4A3EB57 0xAB0E79EB b1207
 	// seatIndex: see CREATE_PED_INSIDE_VEHICLE
 	NATIVE_DECL BOOL CAN_SHUFFLE_SEAT(Vehicle vehicle, int seatIndex) { return invoke<BOOL>(0xF8B2D32A2231FD24, vehicle, seatIndex); } // 0xF8B2D32A2231FD24 0xB3EB01ED b1207
 	NATIVE_DECL void MODIFY_VEHICLE_TOP_SPEED(Vehicle vehicle, float value) { invoke<Void>(0x35AD938C74CACD6A, vehicle, value); } // 0x35AD938C74CACD6A 0xE943B09C b1207
@@ -9202,15 +9685,15 @@ namespace VEHICLE
 	NATIVE_DECL void SET_VEHICLE_INACTIVE_DURING_PLAYBACK(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x4EA71B4C9DB3C3F1, vehicle, toggle); } // 0x4EA71B4C9DB3C3F1 0x50F89338 b1207
 	NATIVE_DECL void SET_VEHICLE_ENGINE_CAN_DEGRADE(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x48E4C137A71C2688, vehicle, toggle); } // 0x48E4C137A71C2688 0x081DAC12 b1207
 	NATIVE_DECL void SET_VEHICLE_IS_STOLEN(Vehicle vehicle, BOOL isStolen) { invoke<Void>(0x6C32FC81DFF25C9A, vehicle, isStolen); } // 0x6C32FC81DFF25C9A 0x70912E42 b1207
-	NATIVE_DECL void _0xCBF88256E44D5D39(Any p0, Any p1) { invoke<Void>(0xCBF88256E44D5D39, p0, p1); } // 0xCBF88256E44D5D39 b1207
-	NATIVE_DECL void _0xC325A6BAA62CF8A2(Any p0, Any p1) { invoke<Void>(0xC325A6BAA62CF8A2, p0, p1); } // 0xC325A6BAA62CF8A2 b1207
+	NATIVE_DECL void _0xCBF88256E44D5D39(Vehicle vehicle, BOOL p1) { invoke<Void>(0xCBF88256E44D5D39, vehicle, p1); } // 0xCBF88256E44D5D39 b1207
+	NATIVE_DECL void _0xC325A6BAA62CF8A2(Vehicle vehicle, BOOL p1) { invoke<Void>(0xC325A6BAA62CF8A2, vehicle, p1); } // 0xC325A6BAA62CF8A2 b1207
 	NATIVE_DECL void _0x0CD7914D17A970AB(Any p0, Any p1) { invoke<Void>(0x0CD7914D17A970AB, p0, p1); } // 0x0CD7914D17A970AB b1207
 	NATIVE_DECL void _0x23F66C36F8E5EAAB(Any p0, Any p1) { invoke<Void>(0x23F66C36F8E5EAAB, p0, p1); } // 0x23F66C36F8E5EAAB b1207
 	NATIVE_DECL void _0x697DF68F3A761A50(Any p0) { invoke<Void>(0x697DF68F3A761A50, p0); } // 0x697DF68F3A761A50 b1207
 	NATIVE_DECL void _0x27E3F2B57209FA54(Any p0, Any p1) { invoke<Void>(0x27E3F2B57209FA54, p0, p1); } // 0x27E3F2B57209FA54 b1207
 	NATIVE_DECL void DISABLE_VEHICLE_WEAPON(BOOL disabled, Hash weaponHash, Vehicle vehicle, Ped owner) { invoke<Void>(0x94B1E71B144356A5, disabled, weaponHash, vehicle, owner); } // 0x94B1E71B144356A5 0xA688B7D1 b1207
 	NATIVE_DECL void SET_VEHICLE_CAN_BE_USED_BY_FLEEING_PEDS(Vehicle vehicle, BOOL toggle) { invoke<Void>(0xE42952510F84AFDB, vehicle, toggle); } // 0xE42952510F84AFDB 0x5130DB1E b1207
-	NATIVE_DECL void _SET_VEHICLE_JET_ENGINE_ON(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x1549BA7FE83A2383, vehicle, toggle); } // 0x1549BA7FE83A2383 0x51E0064F b1207
+	NATIVE_DECL void SET_VEHICLE_KEEP_ENGINE_ON_WHEN_ABANDONED(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x1549BA7FE83A2383, vehicle, toggle); } // 0x1549BA7FE83A2383 0x51E0064F b1207
 	NATIVE_DECL void SET_VEHICLE_WHEELS_CAN_BREAK_OFF_WHEN_BLOW_UP(Vehicle vehicle, BOOL toggle) { invoke<Void>(0xC462C79379ABBCB1, vehicle, toggle); } // 0xC462C79379ABBCB1 0x670913A4 b1207
 	NATIVE_DECL void _0x15CC8C33D7FFCC4A(Vehicle vehicle, int p1) { invoke<Void>(0x15CC8C33D7FFCC4A, vehicle, p1); } // 0x15CC8C33D7FFCC4A b1436
 	// Used to be incorrectly named SET_VEHICLE_EXCLUSIVE_DRIVER
@@ -9236,18 +9719,19 @@ namespace VEHICLE
 	NATIVE_DECL void _0x012701ED938B85DE(Any p0, Any p1) { invoke<Void>(0x012701ED938B85DE, p0, p1); } // 0x012701ED938B85DE b1207
 	NATIVE_DECL void _0x8379E05871AD24E0() { invoke<Void>(0x8379E05871AD24E0); } // 0x8379E05871AD24E0 b1207
 	NATIVE_DECL void _0xF5FFB08976911B50(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xF5FFB08976911B50, p0, p1, p2, p3); } // 0xF5FFB08976911B50 b1207
-	NATIVE_DECL BOOL _0x316CDB5B6E8F4110(Ped mount, Vehicle draft, int harnessId) { return invoke<BOOL>(0x316CDB5B6E8F4110, mount, draft, harnessId); } // 0x316CDB5B6E8F4110 b1207
-	NATIVE_DECL Any _0x4402960666000E62(Vehicle draft, int harnessId) { return invoke<Any>(0x4402960666000E62, draft, harnessId); } // 0x4402960666000E62 b1207
-	NATIVE_DECL BOOL _0xB36D3EC70963BE60(Vehicle draft, Ped ped) { return invoke<BOOL>(0xB36D3EC70963BE60, draft, ped); } // 0xB36D3EC70963BE60 b1207
+	NATIVE_DECL BOOL _ATTACH_DRAFT_VEHICLE_HARNESS_PED(Ped mount, Vehicle draft, int harnessId) { return invoke<BOOL>(0x316CDB5B6E8F4110, mount, draft, harnessId); } // 0x316CDB5B6E8F4110 b1207
+	NATIVE_DECL Any _DETACH_DRAFT_VEHICLE_HARNESS_FROM_INDEX(Vehicle draft, int harnessId) { return invoke<Any>(0x4402960666000E62, draft, harnessId); } // 0x4402960666000E62 b1207
+	NATIVE_DECL BOOL _DETACH_DRAFT_VEHICLE_HARNESS_PED(Vehicle draft, Ped ped) { return invoke<BOOL>(0xB36D3EC70963BE60, draft, ped); } // 0xB36D3EC70963BE60 b1207
 	NATIVE_DECL void _0x0F7F603BDE08C4D3(Any p0) { invoke<Void>(0x0F7F603BDE08C4D3, p0); } // 0x0F7F603BDE08C4D3 b1207
-	NATIVE_DECL Any _0x5B1A26BB18E7D451(Any p0) { return invoke<Any>(0x5B1A26BB18E7D451, p0); } // 0x5B1A26BB18E7D451 b1207
-	NATIVE_DECL Vector3 _0x35D302397E524939(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return invoke<Vector3>(0x35D302397E524939, p0, p1, p2, p3, p4, p5); } // 0x35D302397E524939 b1207
+	// Returns number of horses a wagon can have
+	NATIVE_DECL int _GET_NUM_DRAFT_VEHICLE_HARNESS_PED(Hash modelHash) { return invoke<int>(0x5B1A26BB18E7D451, modelHash); } // 0x5B1A26BB18E7D451 b1207
+	NATIVE_DECL Vector3 _GET_CHECKPOINT_TRAIN_SPAWN_LOCATION(int trackIndex, float x, float y, float z, float distance, BOOL direction) { return invoke<Vector3>(0x35D302397E524939, trackIndex, x, y, z, distance, direction); } // 0x35D302397E524939 b1207
 	NATIVE_DECL void _0xC399CC89FBA05DA0(Vehicle vehicle, BOOL p1) { invoke<Void>(0xC399CC89FBA05DA0, vehicle, p1); } // 0xC399CC89FBA05DA0 b1207
 	// Returns handles of boat paddles entities.
 	NATIVE_DECL void _GET_ROWING_OARS(Vehicle vehicle, Entity* left, Entity* right) { invoke<Void>(0xA6E210FB4283B767, vehicle, left, right); } // 0xA6E210FB4283B767 b1207
 	NATIVE_DECL Ped GET_DRIVER_OF_VEHICLE(Vehicle vehicle) { return invoke<Ped>(0x2963B5C1637E8A27, vehicle); } // 0x2963B5C1637E8A27 b1207
 	// Hashes: COACH2_BOOT_LOOT_ITEMS_COACHROB_RSC, COACH2_BOOT_LOOT_ITEMS_COACHROB, COACH2_MARY3
-	NATIVE_DECL void _0xF489F94BFEE12BB0(Vehicle vehicle, Hash coachrobberyLoot) { invoke<Void>(0xF489F94BFEE12BB0, vehicle, coachrobberyLoot); } // 0xF489F94BFEE12BB0 b1207
+	NATIVE_DECL void _SET_FORCE_COACH_ROBBERY_LOOT(Vehicle vehicle, Hash coachrobberyLoot) { invoke<Void>(0xF489F94BFEE12BB0, vehicle, coachrobberyLoot); } // 0xF489F94BFEE12BB0 b1207
 	NATIVE_DECL Any _0x0BA4250D20007C2E(Any p0) { return invoke<Any>(0x0BA4250D20007C2E, p0); } // 0x0BA4250D20007C2E b1207
 	NATIVE_DECL void _0x2200AB13CBD10F4E(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0x2200AB13CBD10F4E, p0, p1, p2, p3, p4, p5); } // 0x2200AB13CBD10F4E b1207
 	NATIVE_DECL void _0xB42C87521D1BDD2F(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xB42C87521D1BDD2F, p0, p1, p2, p3); } // 0xB42C87521D1BDD2F b1207
@@ -9264,21 +9748,23 @@ namespace VEHICLE
 	NATIVE_DECL void _0x3D86997A86FEEF0D(Any p0, Any p1) { invoke<Void>(0x3D86997A86FEEF0D, p0, p1); } // 0x3D86997A86FEEF0D b1207
 	NATIVE_DECL void _0xD826690B5CF3BEFF(Vehicle vehicle, Any p1) { invoke<Void>(0xD826690B5CF3BEFF, vehicle, p1); } // 0xD826690B5CF3BEFF b1207
 	// Params: destroyingForce is usually 100f in R* Scripts
-	NATIVE_DECL void _0xC372B6A88F6E4AD8(Vehicle vehicle, int wheelIndex, float destroyingForce) { invoke<Void>(0xC372B6A88F6E4AD8, vehicle, wheelIndex, destroyingForce); } // 0xC372B6A88F6E4AD8 b1207
+	// Similar to 0xD4F5EFB55769D272, _A*
+	NATIVE_DECL void _BREAK_OFF_DRAFT_WHEEL(Vehicle vehicle, int wheelIndex, float destroyingForce) { invoke<Void>(0xC372B6A88F6E4AD8, vehicle, wheelIndex, destroyingForce); } // 0xC372B6A88F6E4AD8 b1207
 	NATIVE_DECL BOOL GET_DRAFT_ANIMAL_COUNT(Vehicle vehicle, int* expected, int* actual) { return invoke<BOOL>(0xA19447D83294E29F, vehicle, expected, actual); } // 0xA19447D83294E29F b1207
 	NATIVE_DECL void _0x165BE2001E5E4B75(Any p0) { invoke<Void>(0x165BE2001E5E4B75, p0); } // 0x165BE2001E5E4B75 b1207
-	NATIVE_DECL void _0x6090A031C69F384E(Any p0, Any p1) { invoke<Void>(0x6090A031C69F384E, p0, p1); } // 0x6090A031C69F384E b1207
-	NATIVE_DECL void _0x226C6A4E3346D288(Vehicle draft, Any p1) { invoke<Void>(0x226C6A4E3346D288, draft, p1); } // 0x226C6A4E3346D288 b1207
-	NATIVE_DECL void _0x41503629D1139ABC(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x41503629D1139ABC, p0, p1, p2, p3, p4); } // 0x41503629D1139ABC b1207
+	NATIVE_DECL void _SET_DRAFT_VEHICLE_ANIMALS_CAN_DETACH(Vehicle draft, BOOL canDetach) { invoke<Void>(0x6090A031C69F384E, draft, canDetach); } // 0x6090A031C69F384E b1207
+	NATIVE_DECL void _SET_DRAFT_VEHICLE_YOKE_CAN_BREAK(Vehicle draft, BOOL canBreak) { invoke<Void>(0x226C6A4E3346D288, draft, canBreak); } // 0x226C6A4E3346D288 b1207
+	NATIVE_DECL void _ADD_TRAIN_TEMPORARY_STOP(Vehicle train, int trackIndex, float x, float y, float z) { invoke<Void>(0x41503629D1139ABC, train, trackIndex, x, y, z); } // 0x41503629D1139ABC b1207
 	NATIVE_DECL void _0x0794199B25E499E1(Any p0, Any p1) { invoke<Void>(0x0794199B25E499E1, p0, p1); } // 0x0794199B25E499E1 b1207
 	NATIVE_DECL void _0x73118A3EE9C9B6DB(Any p0, Any p1, Any p2) { invoke<Void>(0x73118A3EE9C9B6DB, p0, p1, p2); } // 0x73118A3EE9C9B6DB b1207
 	NATIVE_DECL Any _0xE1C0F8781BF130C2(Any p0, Any p1) { return invoke<Any>(0xE1C0F8781BF130C2, p0, p1); } // 0xE1C0F8781BF130C2 b1207
 	NATIVE_DECL Any _0xCB2CA620C48BC875(Any p0, Any p1) { return invoke<Any>(0xCB2CA620C48BC875, p0, p1); } // 0xCB2CA620C48BC875 b1207
 	NATIVE_DECL Any _0x18714953CCED17D3(Any p0) { return invoke<Any>(0x18714953CCED17D3, p0); } // 0x18714953CCED17D3 b1207
 	NATIVE_DECL void _0x41F0B254DDF71473(Any p0) { invoke<Void>(0x41F0B254DDF71473, p0); } // 0x41F0B254DDF71473 b1207
-	NATIVE_DECL void _0x8E5DA070BAD3279E(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x8E5DA070BAD3279E, p0, p1, p2, p3); } // 0x8E5DA070BAD3279E b1207
+	NATIVE_DECL void _SET_VEHICLE_DETERIORATION(Vehicle vehicle, float amount, int p2, BOOL p3) { invoke<Void>(0x8E5DA070BAD3279E, vehicle, amount, p2, p3); } // 0x8E5DA070BAD3279E b1207
 	// doorId: see SET_VEHICLE_DOOR_SHUT
 	NATIVE_DECL BOOL _IS_VEHICLE_DOOR_BROKEN(Vehicle vehicle, int doorId) { return invoke<BOOL>(0xE979BB5602AD3402, vehicle, doorId); } // 0xE979BB5602AD3402 b1207
+	// wheelIndex 0: left, wheelIndex 1: right, 4 & 5: unknown
 	NATIVE_DECL Entity _BREAK_OFF_VEHICLE_WHEEL(Vehicle vehicle, int wheelIndex) { return invoke<Entity>(0xD4F5EFB55769D272, vehicle, wheelIndex); } // 0xD4F5EFB55769D272 b1207
 	NATIVE_DECL Any _0xE1A83D4A3B5D7938(Any p0) { return invoke<Any>(0xE1A83D4A3B5D7938, p0); } // 0xE1A83D4A3B5D7938 b1207
 	NATIVE_DECL void _0x6DE072AC8A95FFC1(Any p0, Any p1) { invoke<Void>(0x6DE072AC8A95FFC1, p0, p1); } // 0x6DE072AC8A95FFC1 b1207
@@ -9295,8 +9781,8 @@ namespace VEHICLE
 	NATIVE_DECL void _0xEF28A614B4B264B8(Any p0, Any p1) { invoke<Void>(0xEF28A614B4B264B8, p0, p1); } // 0xEF28A614B4B264B8 b1207
 	NATIVE_DECL void _0x04F0579DBDD32F34(Any p0) { invoke<Void>(0x04F0579DBDD32F34, p0); } // 0x04F0579DBDD32F34 b1207
 	NATIVE_DECL void _0x12F6C6ED3EFF42DE(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x12F6C6ED3EFF42DE, p0, p1, p2, p3); } // 0x12F6C6ED3EFF42DE b1207
-	NATIVE_DECL void _0x87B974E54C71BA7B(Any p0, Any p1) { invoke<Void>(0x87B974E54C71BA7B, p0, p1); } // 0x87B974E54C71BA7B b1207
-	NATIVE_DECL Any _0xBD3C4A2ED509205E(Any p0) { return invoke<Any>(0xBD3C4A2ED509205E, p0); } // 0xBD3C4A2ED509205E b1207
+	NATIVE_DECL void _0x87B974E54C71BA7B(Vehicle vehicle, BOOL p1) { invoke<Void>(0x87B974E54C71BA7B, vehicle, p1); } // 0x87B974E54C71BA7B b1207
+	NATIVE_DECL BOOL _HAS_TRAIN_LOADED(Vehicle train) { return invoke<BOOL>(0xBD3C4A2ED509205E, train); } // 0xBD3C4A2ED509205E b1207
 	// configHash: https://alloc8or.re/rdr3/doc/enums/eTrainConfig.txt
 	// For more information, see trainconfigs.ymt
 	NATIVE_DECL Vehicle _CREATE_MISSION_TRAIN(Hash configHash, float x, float y, float z, BOOL direction, BOOL passengers, BOOL p6, BOOL conductor) { return invoke<Vehicle>(0xC239DBD9A57D2A71, configHash, x, y, z, direction, passengers, p6, conductor); } // 0xC239DBD9A57D2A71 b1207
@@ -9308,15 +9794,17 @@ namespace VEHICLE
 	NATIVE_DECL void _0xCEB1F1EED484A5B4(Any p0, Any p1) { invoke<Void>(0xCEB1F1EED484A5B4, p0, p1); } // 0xCEB1F1EED484A5B4 b1207
 	NATIVE_DECL Any _0xF57DB8E83DCD8349(Any p0) { return invoke<Any>(0xF57DB8E83DCD8349, p0); } // 0xF57DB8E83DCD8349 b1207
 	NATIVE_DECL void _0x7C9E45A4CED2E8DA(Any p0, Any p1) { invoke<Void>(0x7C9E45A4CED2E8DA, p0, p1); } // 0x7C9E45A4CED2E8DA b1207
-	NATIVE_DECL void _0x87344305778E5415(Any p0, Any p1) { invoke<Void>(0x87344305778E5415, p0, p1); } // 0x87344305778E5415 b1207
+	NATIVE_DECL void _SET_DRAFT_VEHICLE_ALLOW_DRAFT_ANIMAL_AUTO_CREATION(Vehicle vehicle, BOOL allow) { invoke<Void>(0x87344305778E5415, vehicle, allow); } // 0x87344305778E5415 b1207
 	NATIVE_DECL void _0x6835AFEA10E186F4(Any p0, Any p1) { invoke<Void>(0x6835AFEA10E186F4, p0, p1); } // 0x6835AFEA10E186F4 b1207
-	NATIVE_DECL void _0x8C6D9A399126C194(Any p0, Any p1) { invoke<Void>(0x8C6D9A399126C194, p0, p1); } // 0x8C6D9A399126C194 b1207
+	NATIVE_DECL void _SET_DRAFT_ANIMAL_RANDOM_SEED(Vehicle vehicle, int seed) { invoke<Void>(0x8C6D9A399126C194, vehicle, seed); } // 0x8C6D9A399126C194 b1207
 	NATIVE_DECL Any _0x14DA8C4BC2CCD90A(Any p0) { return invoke<Any>(0x14DA8C4BC2CCD90A, p0); } // 0x14DA8C4BC2CCD90A b1207
 	NATIVE_DECL Any _0xCACAB2B123BBDBD6(Any p0, Any p1, Any p2) { return invoke<Any>(0xCACAB2B123BBDBD6, p0, p1, p2); } // 0xCACAB2B123BBDBD6 b1207
 	NATIVE_DECL void _0xFF2B1F59FB892F14(Any p0) { invoke<Void>(0xFF2B1F59FB892F14, p0); } // 0xFF2B1F59FB892F14 b1207
 	NATIVE_DECL void _0x5AADC7BBBB1BCEEB(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0x5AADC7BBBB1BCEEB, p0, p1, p2, p3, p4); } // 0x5AADC7BBBB1BCEEB b1207
-	NATIVE_DECL BOOL _0xD798DF5DB67B1659(Vehicle vehicle) { return invoke<BOOL>(0xD798DF5DB67B1659, vehicle); } // 0xD798DF5DB67B1659 b1207
-	NATIVE_DECL void _0x31F343383F19C987(Vehicle vehicle, float height, BOOL immediately) { invoke<Void>(0x31F343383F19C987, vehicle, height, immediately); } // 0x31F343383F19C987 b1207
+	NATIVE_DECL BOOL _GET_VEHICLE_IS_PROP_SET_APPLIED(Vehicle vehicle) { return invoke<BOOL>(0xD798DF5DB67B1659, vehicle); } // 0xD798DF5DB67B1659 b1207
+	// Total height is calculated using: cargo ratio + pelt ratio (by pelt count)
+	// Screenshot: https://imgur.com/a/nsomtiv
+	NATIVE_DECL void _SET_BATCH_TARP_HEIGHT(Vehicle vehicle, float height, BOOL immediately) { invoke<Void>(0x31F343383F19C987, vehicle, height, immediately); } // 0x31F343383F19C987 b1207
 	NATIVE_DECL void _0x07E2E21E799080A0(Any p0, Any p1) { invoke<Void>(0x07E2E21E799080A0, p0, p1); } // 0x07E2E21E799080A0 b1207
 	NATIVE_DECL void _0xC2E62678D602853C(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { invoke<Void>(0xC2E62678D602853C, p0, p1, p2, p3, p4, p5, p6); } // 0xC2E62678D602853C b1207
 	NATIVE_DECL void _0x873AAF600CC36DAC(Any p0) { invoke<Void>(0x873AAF600CC36DAC, p0); } // 0x873AAF600CC36DAC b1207
@@ -9325,7 +9813,7 @@ namespace VEHICLE
 	NATIVE_DECL void _0xCBC7B6F9A56B79F6(Any p0, Any p1) { invoke<Void>(0xCBC7B6F9A56B79F6, p0, p1); } // 0xCBC7B6F9A56B79F6 b1207
 	NATIVE_DECL Any _0x37D238BE69F7378A(Any p0) { return invoke<Any>(0x37D238BE69F7378A, p0); } // 0x37D238BE69F7378A b1207
 	NATIVE_DECL void _0x703D4FB366DA4452(Any p0, Any p1) { invoke<Void>(0x703D4FB366DA4452, p0, p1); } // 0x703D4FB366DA4452 b1207
-	NATIVE_DECL void _0x762FDC4C19E5A981(Any p0, Any p1) { invoke<Void>(0x762FDC4C19E5A981, p0, p1); } // 0x762FDC4C19E5A981 b1207
+	NATIVE_DECL void _0x762FDC4C19E5A981(Entity trainCarriage, BOOL p1) { invoke<Void>(0x762FDC4C19E5A981, trainCarriage, p1); } // 0x762FDC4C19E5A981 b1207
 	NATIVE_DECL Any _0x2045429505158D1A(Any p0) { return invoke<Any>(0x2045429505158D1A, p0); } // 0x2045429505158D1A b1207
 	NATIVE_DECL void _0x13EB275BF81636D1(Any p0, Any p1) { invoke<Void>(0x13EB275BF81636D1, p0, p1); } // 0x13EB275BF81636D1 b1207
 }
@@ -9362,23 +9850,25 @@ namespace VOICE
 
 namespace VOLUME
 {
-	NATIVE_DECL Volume _CREATE_VOLUME_BY_HASH(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { return invoke<Volume>(0x502022FA1AF9DC86, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); } // 0x502022FA1AF9DC86 b1207
-	NATIVE_DECL Volume _CREATE_VOLUME_BOX(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return invoke<Volume>(0xDF85637F22706891, p0, p1, p2, p3, p4, p5, p6, p7, p8); } // 0xDF85637F22706891 b1207
-	NATIVE_DECL Volume _CREATE_VOLUME_CYLINDER(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return invoke<Volume>(0x0522D4774B82E3E6, p0, p1, p2, p3, p4, p5, p6, p7, p8); } // 0x0522D4774B82E3E6 b1207
-	NATIVE_DECL Volume _CREATE_VOLUME_SPHERE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { return invoke<Volume>(0xB3FB80A32BAE3065, p0, p1, p2, p3, p4, p5, p6, p7, p8); } // 0xB3FB80A32BAE3065 b1207
+	NATIVE_DECL Volume _CREATE_VOLUME_BY_HASH(Hash volumeType, float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ) { return invoke<Volume>(0x502022FA1AF9DC86, volumeType, x, y, z, rotX, rotY, rotZ, scaleX, scaleY, scaleZ); } // 0x502022FA1AF9DC86 b1207
+	NATIVE_DECL Volume _CREATE_VOLUME_BOX(float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ) { return invoke<Volume>(0xDF85637F22706891, x, y, z, rotX, rotY, rotZ, scaleX, scaleY, scaleZ); } // 0xDF85637F22706891 b1207
+	NATIVE_DECL Volume _CREATE_VOLUME_CYLINDER(float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ) { return invoke<Volume>(0x0522D4774B82E3E6, x, y, z, rotX, rotY, rotZ, scaleX, scaleY, scaleZ); } // 0x0522D4774B82E3E6 b1207
+	NATIVE_DECL Volume _CREATE_VOLUME_SPHERE(float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ) { return invoke<Volume>(0xB3FB80A32BAE3065, x, y, z, rotX, rotY, rotZ, scaleX, scaleY, scaleZ); } // 0xB3FB80A32BAE3065 b1207
 	NATIVE_DECL Volume _CREATE_VOLUME_AGGREGATE() { return invoke<Volume>(0x59F6F5C1D129F106); } // 0x59F6F5C1D129F106 b1207
-	NATIVE_DECL Volume _CREATE_VOLUME_BY_HASH_WITH_CUSTOM_NAME(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, const char* name) { return invoke<Volume>(0x1F85E4AC774A201E, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, name); } // 0x1F85E4AC774A201E b1207
-	NATIVE_DECL Any _0x0EB78C2B156635B1(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { return invoke<Any>(0x0EB78C2B156635B1, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); } // 0x0EB78C2B156635B1 b1207
+	NATIVE_DECL Volume _CREATE_VOLUME_BY_HASH_WITH_CUSTOM_NAME(Hash volumeType, float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ, const char* name) { return invoke<Volume>(0x1F85E4AC774A201E, volumeType, x, y, z, rotX, rotY, rotZ, scaleX, scaleY, scaleZ, name); } // 0x1F85E4AC774A201E b1207
+	NATIVE_DECL Volume _CREATE_ANTI_GRIEF_VOLUME(Hash volumeType, float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ) { return invoke<Volume>(0x0EB78C2B156635B1, volumeType, x, y, z, rotX, rotY, rotZ, scaleX, scaleY, scaleZ); } // 0x0EB78C2B156635B1 b1207
 	NATIVE_DECL void _0xBE551C2CC421185D(Any p0, Any p1) { invoke<Void>(0xBE551C2CC421185D, p0, p1); } // 0xBE551C2CC421185D b1207
 	NATIVE_DECL void _0x5B23DFF8E0948BB2(Any p0, Any p1) { invoke<Void>(0x5B23DFF8E0948BB2, p0, p1); } // 0x5B23DFF8E0948BB2 b1207
 	NATIVE_DECL Volume _CREATE_WALK_AND_TALK_VOLUME(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12) { return invoke<Volume>(0xFD0E389CD44434B6, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12); } // 0xFD0E389CD44434B6 b1207
 	NATIVE_DECL Volume _CREATE_SPEED_VOLUME(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12, Any p13, Any p14) { return invoke<Volume>(0xBBE768E3AE76E07C, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14); } // 0xBBE768E3AE76E07C b1207
-	NATIVE_DECL Volume _CREATE_VOLUME_BOX_WITH_CUSTOM_NAME(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { return invoke<Volume>(0xF68485C7495D848E, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); } // 0xF68485C7495D848E b1207
+	NATIVE_DECL Volume _CREATE_VOLUME_BOX_WITH_CUSTOM_NAME(float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ, const char* name) { return invoke<Volume>(0xF68485C7495D848E, x, y, z, rotX, rotY, rotZ, scaleX, scaleY, scaleZ, name); } // 0xF68485C7495D848E b1207
 	NATIVE_DECL Volume _CREATE_VOLUME_CYLINDER_WITH_CUSTOM_NAME(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { return invoke<Volume>(0xDF1E350EDDF06E59, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); } // 0xDF1E350EDDF06E59 b1207
-	NATIVE_DECL Volume _CREATE_VOLUME_SPHERE_WITH_CUSTOM_NAME(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { return invoke<Volume>(0x10157BC3247FF3BA, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); } // 0x10157BC3247FF3BA b1207
+	NATIVE_DECL Volume _CREATE_VOLUME_SPHERE_WITH_CUSTOM_NAME(float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ, const char* name) { return invoke<Volume>(0x10157BC3247FF3BA, x, y, z, rotX, rotY, rotZ, scaleX, scaleY, scaleZ, name); } // 0x10157BC3247FF3BA b1207
 	NATIVE_DECL Volume _CREATE_VOLUME_AGGREGATE_WITH_CUSTOM_NAME(const char* name) { return invoke<Volume>(0x5D580DE6398BB162, name); } // 0x5D580DE6398BB162 b1207
-	NATIVE_DECL void _0x6E0D3C3F828DA773(Any p0, Any p1) { invoke<Void>(0x6E0D3C3F828DA773, p0, p1); } // 0x6E0D3C3F828DA773 b1207
-	NATIVE_DECL void _0xF92FA8890DECECF6(Any p0, Any p1) { invoke<Void>(0xF92FA8890DECECF6, p0, p1); } // 0xF92FA8890DECECF6 b1207
+	// _ADD_R* - _ADD_V(OLUME?)*
+	NATIVE_DECL void _ADD_BOUNDS_TO_AGGREGATE_VOLUME(Volume volume, Volume aggregate) { invoke<Void>(0x6E0D3C3F828DA773, volume, aggregate); } // 0x6E0D3C3F828DA773 b1207
+	// _REMOVE_E* - _REMOVE_R*
+	NATIVE_DECL void _REMOVE_BOUNDS_FROM_AGGREGATE_VOLUME(Volume volume, Volume aggregate) { invoke<Void>(0xF92FA8890DECECF6, volume, aggregate); } // 0xF92FA8890DECECF6 b1207
 	NATIVE_DECL void _ADD_VOLUME_TO_VOLUME_AGGREGATE(Volume aggregate, Hash typeHash, float p2, float p3, float p4, float p5, float p6, float p7, float p8, float p9, float p10) { invoke<Void>(0x12FCAA23F2320422, aggregate, typeHash, p2, p3, p4, p5, p6, p7, p8, p9, p10); } // 0x12FCAA23F2320422 b1207
 	NATIVE_DECL void _ADD_BOX_VOLUME_TO_VOLUME_AGGREGATE(Volume aggregate, float p1, float p2, float p3, float p4, float p5, float p6, float p7, float p8, float p9) { invoke<Void>(0x39816F6F94F385AD, aggregate, p1, p2, p3, p4, p5, p6, p7, p8, p9); } // 0x39816F6F94F385AD b1207
 	NATIVE_DECL void _ADD_CYLINDER_VOLUME_TO_VOLUME_AGGREGATE(Volume aggregate, float p1, float p2, float p3, float p4, float p5, float p6, float p7, float p8, float p9) { invoke<Void>(0xBCE668AAF83608BE, aggregate, p1, p2, p3, p4, p5, p6, p7, p8, p9); } // 0xBCE668AAF83608BE b1207
@@ -9430,7 +9920,7 @@ namespace VOLUME
 	NATIVE_DECL Any _0x77A6E4AD0C496F81(Any p0) { return invoke<Any>(0x77A6E4AD0C496F81, p0); } // 0x77A6E4AD0C496F81 b1207
 	NATIVE_DECL void _0xEC43C2FFB70E3F30(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xEC43C2FFB70E3F30, p0, p1, p2, p3); } // 0xEC43C2FFB70E3F30 b1207
 	NATIVE_DECL void _0x695DAC2DB928F308(Any p0, Any p1) { invoke<Void>(0x695DAC2DB928F308, p0, p1); } // 0x695DAC2DB928F308 b1207
-	NATIVE_DECL void _0xFDFECC6EE4491E11(Any p0) { invoke<Void>(0xFDFECC6EE4491E11, p0); } // 0xFDFECC6EE4491E11 b1207
+	NATIVE_DECL void _RELEASE_LOCK_VOLUME(int volLockRequestId) { invoke<Void>(0xFDFECC6EE4491E11, volLockRequestId); } // 0xFDFECC6EE4491E11 b1207
 	NATIVE_DECL void _0xAC355980681A7F89(Any p0) { invoke<Void>(0xAC355980681A7F89, p0); } // 0xAC355980681A7F89 b1207
 	NATIVE_DECL Any _0x58D3803FA639A3BB(Any p0) { return invoke<Any>(0x58D3803FA639A3BB, p0); } // 0x58D3803FA639A3BB b1311
 	NATIVE_DECL void _0xC61E2FD926DBB406() { invoke<Void>(0xC61E2FD926DBB406); } // 0xC61E2FD926DBB406 b1311
@@ -9452,9 +9942,9 @@ namespace VOLUME
 	NATIVE_DECL void _0x52572B331E693AED(Any p0, Any p1, Any p2) { invoke<Void>(0x52572B331E693AED, p0, p1, p2); } // 0x52572B331E693AED b1207
 	// nullsub, doesn't do anything
 	NATIVE_DECL void _0x128FC3A893BF853A(Any p0) { invoke<Void>(0x128FC3A893BF853A, p0); } // 0x128FC3A893BF853A b1207
-	NATIVE_DECL void _0xFD010A2154B40676(Volume volume, Hash relationshipGroup) { invoke<Void>(0xFD010A2154B40676, volume, relationshipGroup); } // 0xFD010A2154B40676 b1207
+	NATIVE_DECL void _SET_VOLUME_RELATIONSHIP(Volume volume, Hash relationshipGroup) { invoke<Void>(0xFD010A2154B40676, volume, relationshipGroup); } // 0xFD010A2154B40676 b1207
 	// Returns relationshipGroup Hash
-	NATIVE_DECL Hash _0x666C2F53ABEFC952(Volume volume) { return invoke<Hash>(0x666C2F53ABEFC952, volume); } // 0x666C2F53ABEFC952 b1207
+	NATIVE_DECL Hash _GET_VOLUME_RELATIONSHIP_GROUP_FROM_VOLUME(Volume volume) { return invoke<Hash>(0x666C2F53ABEFC952, volume); } // 0x666C2F53ABEFC952 b1207
 }
 
 namespace WATER
@@ -9464,22 +9954,31 @@ namespace WATER
 	NATIVE_DECL void ENABLE_WATER_LOOKUP() { invoke<Void>(0x754616EC6965D1BF); } // 0x754616EC6965D1BF b1207
 	NATIVE_DECL BOOL GET_WATER_HEIGHT(float x, float y, float z, float* height) { return invoke<BOOL>(0xFCA8B23F28813F69, x, y, z, height); } // 0xFCA8B23F28813F69 0xD864E17C b1207
 	NATIVE_DECL BOOL GET_WATER_HEIGHT_NO_WAVES(float x, float y, float z, float* height) { return invoke<BOOL>(0xDCF3690AA262C03F, x, y, z, height); } // 0xDCF3690AA262C03F 0x262017F8 b1207
-	NATIVE_DECL BOOL TEST_PROBE_AGAINST_ALL_WATER(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return invoke<BOOL>(0x8974647ED222EA5F, p0, p1, p2, p3, p4, p5, p6, p7); } // 0x8974647ED222EA5F 0x4A962D55 b1207
+	NATIVE_DECL BOOL TEST_PROBE_AGAINST_ALL_WATER(float x1, float y1, float z1, float x2, float y2, float z2, Any p6, Any* p7) { return invoke<BOOL>(0x8974647ED222EA5F, x1, y1, z1, x2, y2, z2, p6, p7); } // 0x8974647ED222EA5F 0x4A962D55 b1207
 	NATIVE_DECL BOOL TEST_VERTICAL_PROBE_AGAINST_ALL_WATER(float x, float y, float z, Any p3, float* height) { return invoke<BOOL>(0x2B3451FA1E3142E2, x, y, z, p3, height); } // 0x2B3451FA1E3142E2 0x4C71D143 b1207
-	// Most likely REMOVE_CURRENT_*
-	NATIVE_DECL void _REMOVE_CURRENT_RISE(int p0) { invoke<Void>(0x4BEF8DD75AF6C71C, p0); } // 0x4BEF8DD75AF6C71C 0x7DBCEF6F b1207
+	// Only used in rcm_crackpot1 R* Script: p0 = 0
+	NATIVE_DECL void REMOVE_EXTRA_CALMING_QUAD(int p0) { invoke<Void>(0x4BEF8DD75AF6C71C, p0); } // 0x4BEF8DD75AF6C71C 0x45268B6F b1207
+	// Called together with REMOVE_EXTRA_CALMING_QUAD in rcm_crackpot1 R* Script: p0 = 0
+	// _REMOVE_*
 	NATIVE_DECL void _0x09A1C7DFDCE54FBC(int p0) { invoke<Void>(0x09A1C7DFDCE54FBC, p0); } // 0x09A1C7DFDCE54FBC b1207
+	// Only used in fishing_core R* Script
 	NATIVE_DECL void _0xF0FBF193F1F5C0EA(Ped ped) { invoke<Void>(0xF0FBF193F1F5C0EA, ped); } // 0xF0FBF193F1F5C0EA b1207
+	// Only used in fishing_core R* Script
 	NATIVE_DECL void _0xA33F5069B0CB89B8() { invoke<Void>(0xA33F5069B0CB89B8); } // 0xA33F5069B0CB89B8 b1207
+	// Used in bounty1, fanale3, sean1 R* Scripts
 	NATIVE_DECL void _0xB34A6009A0DB80B8(Entity entity) { invoke<Void>(0xB34A6009A0DB80B8, entity); } // 0xB34A6009A0DB80B8 b1207
 	// Only used in R* Script guama1
-	NATIVE_DECL void _0xC63540AEF8384732(float wavesHeight, float p1, int p2, float p3, float p4, float p5, float p6, float wavesStrength, int p8) { invoke<Void>(0xC63540AEF8384732, wavesHeight, p1, p2, p3, p4, p5, p6, wavesStrength, p8); } // 0xC63540AEF8384732 b1207
+	NATIVE_DECL void _SET_OCEAN_GUARMA_WATER_QUADRANT(float wavesHeight, float p1, int p2, float p3, float p4, float p5, float p6, float wavesStrength, int p8) { invoke<Void>(0xC63540AEF8384732, wavesHeight, p1, p2, p3, p4, p5, p6, wavesStrength, p8); } // 0xC63540AEF8384732 b1207
+	// Only used in guama1 / guama3 R* Script
+	// _REQUEST_* or _RESET_*
 	NATIVE_DECL void _0xC63540AEF8384769() { invoke<Void>(0xC63540AEF8384769); } // 0xC63540AEF8384769 b1207
 	// 0 = World
 	// 1 = Guarma
 	NATIVE_DECL void _SET_WORLD_WATER_TYPE(int waterType) { invoke<Void>(0xE8770EE02AEE45C2, waterType); } // 0xE8770EE02AEE45C2 b1207
 	NATIVE_DECL int _GET_WORLD_WATER_TYPE() { return invoke<int>(0x189739A7631C1867); } // 0x189739A7631C1867 b1207
+	// Only used in native_son1 R* Script: p1 = 1
 	NATIVE_DECL void _0x0DCEC6A92E497E17(Entity entity, int p1) { invoke<Void>(0x0DCEC6A92E497E17, entity, p1); } // 0x0DCEC6A92E497E17 b1207
+	// Only used in fussar1 / train_robbery2 R* Script
 	NATIVE_DECL void _0xE8126623008372AA() { invoke<Void>(0xE8126623008372AA); } // 0xE8126623008372AA b1207
 }
 
@@ -9562,7 +10061,7 @@ namespace WEAPON
 	// attachPoint: see SET_CURRENT_PED_WEAPON
 	// addReason: see _ADD_AMMO_TO_PED
 	NATIVE_DECL Hash GIVE_WEAPON_TO_PED(Ped ped, Hash weaponHash, int ammoCount, BOOL bForceInHand, BOOL bForceInHolster, int attachPoint, BOOL bAllowMultipleCopies, float p7, float p8, Hash addReason, BOOL bIgnoreUnlocks, float permanentDegradation, BOOL p12) { return invoke<Hash>(0x5E3BDDBCB83F3D84, ped, weaponHash, ammoCount, bForceInHand, bForceInHolster, attachPoint, bAllowMultipleCopies, p7, p8, addReason, bIgnoreUnlocks, permanentDegradation, p12); } // 0x5E3BDDBCB83F3D84 b1207
-	NATIVE_DECL void _SET_PED_CURRENT_WEAPON_COCKED_STATE(Ped ped, int p1) { invoke<Void>(0x5230D3F6EE56CFE6, ped, p1); } // 0x5230D3F6EE56CFE6 b1207
+	NATIVE_DECL void _SET_FORCE_CURRENT_WEAPON_INTO_COCKED_STATE(Ped ped, int attachPoint) { invoke<Void>(0x5230D3F6EE56CFE6, ped, attachPoint); } // 0x5230D3F6EE56CFE6 b1207
 	NATIVE_DECL Any _0x9F0E1892C7F228A8(Any p0) { return invoke<Any>(0x9F0E1892C7F228A8, p0); } // 0x9F0E1892C7F228A8 b1207
 	NATIVE_DECL void _HOLSTER_PED_WEAPONS(Ped ped, BOOL p1, BOOL p2, BOOL p3, BOOL immediately) { invoke<Void>(0x94A3C1B804D291EC, ped, p1, p2, p3, immediately); } // 0x94A3C1B804D291EC b1207
 	// Unequip current weapon and set current weapon to WEAPON_UNARMED.
@@ -9619,7 +10118,8 @@ namespace WEAPON
 	NATIVE_DECL Any _0x7B98500614C8E8B8(Any p0, Any p1, Any p2) { return invoke<Any>(0x7B98500614C8E8B8, p0, p1, p2); } // 0x7B98500614C8E8B8 b1232
 	NATIVE_DECL void GET_BEST_PED_SHORTARM_GUID(Ped ped, Any* outGUID, BOOL p2, BOOL p3) { invoke<Void>(0xF52BD94B47CCF736, ped, outGUID, p2, p3); } // 0xF52BD94B47CCF736 b1207
 	NATIVE_DECL BOOL GET_PED_WEAPON_GUID_AT_ATTACH_POINT(Ped ped, int attachPoint, Any* weaponGuid) { return invoke<BOOL>(0x6929E22158E52265, ped, attachPoint, weaponGuid); } // 0x6929E22158E52265 b1207
-	NATIVE_DECL Any _0x9F67929D98E7C6E8(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0x9F67929D98E7C6E8, p0, p1, p2, p3); } // 0x9F67929D98E7C6E8 b1207
+	// Returns weaponHash
+	NATIVE_DECL Hash _0x9F67929D98E7C6E8(Ped ped, Hash weaponGroup, BOOL p2, BOOL p3) { return invoke<Hash>(0x9F67929D98E7C6E8, ped, weaponGroup, p2, p3); } // 0x9F67929D98E7C6E8 b1207
 	NATIVE_DECL Any _0x08FF1099ED2E6E21(Any p0) { return invoke<Any>(0x08FF1099ED2E6E21, p0); } // 0x08FF1099ED2E6E21 b1207
 	NATIVE_DECL void _0xBDDA0C290C228159(Any p0, Any p1, Any p2) { invoke<Void>(0xBDDA0C290C228159, p0, p1, p2); } // 0xBDDA0C290C228159 b1207
 	NATIVE_DECL BOOL SET_CURRENT_PED_VEHICLE_WEAPON(Ped ped, Hash weaponHash) { return invoke<BOOL>(0x75C55983C2C39DAA, ped, weaponHash); } // 0x75C55983C2C39DAA 0x8E6F2AF1 b1207
@@ -9667,10 +10167,10 @@ namespace WEAPON
 	NATIVE_DECL void _SET_PED_WEAPON_ATTACH_POINT_VISIBILITY(Ped ped, int attachPoint, BOOL visible) { invoke<Void>(0x67E21ACC5C0C970C, ped, attachPoint, visible); } // 0x67E21ACC5C0C970C b1207
 	NATIVE_DECL void _SET_PED_ALL_WEAPONS_VISIBILITY(Ped ped, BOOL visible) { invoke<Void>(0x4F806A6CFED89468, ped, visible); } // 0x4F806A6CFED89468 b1207
 	NATIVE_DECL void SET_PED_DROPS_WEAPONS_WHEN_DEAD(Ped ped, BOOL toggle) { invoke<Void>(0x476AE72C1D19D1A8, ped, toggle); } // 0x476AE72C1D19D1A8 0x8A444056 b1207
-	NATIVE_DECL void _0x431240A58484D5D0(Any p0, Any p1) { invoke<Void>(0x431240A58484D5D0, p0, p1); } // 0x431240A58484D5D0 b1207
-	NATIVE_DECL void _0x45E57FDD531C9477(Any p0, Any p1) { invoke<Void>(0x45E57FDD531C9477, p0, p1); } // 0x45E57FDD531C9477 b1207
-	NATIVE_DECL void _0xF08D8FEB455F2C8C(Any p0, Any p1) { invoke<Void>(0xF08D8FEB455F2C8C, p0, p1); } // 0xF08D8FEB455F2C8C b1207
-	NATIVE_DECL void _0x16D9841A85FA627E(Any p0, Any p1) { invoke<Void>(0x16D9841A85FA627E, p0, p1); } // 0x16D9841A85FA627E b1207
+	NATIVE_DECL void _0x431240A58484D5D0(Ped ped, BOOL toggle) { invoke<Void>(0x431240A58484D5D0, ped, toggle); } // 0x431240A58484D5D0 b1207
+	NATIVE_DECL void _0x45E57FDD531C9477(Ped ped, BOOL toggle) { invoke<Void>(0x45E57FDD531C9477, ped, toggle); } // 0x45E57FDD531C9477 b1207
+	NATIVE_DECL void _0xF08D8FEB455F2C8C(Ped ped, BOOL toggle) { invoke<Void>(0xF08D8FEB455F2C8C, ped, toggle); } // 0xF08D8FEB455F2C8C b1207
+	NATIVE_DECL void _0x16D9841A85FA627E(Ped ped, BOOL toggle) { invoke<Void>(0x16D9841A85FA627E, ped, toggle); } // 0x16D9841A85FA627E b1207
 	NATIVE_DECL BOOL GET_PED_LAST_WEAPON_IMPACT_COORD(Ped ped, Vector3* coords) { return invoke<BOOL>(0x6C4D0409BA1A2BC2, ped, coords); } // 0x6C4D0409BA1A2BC2 0x9B266079 b1207
 	NATIVE_DECL void _CLEAR_PED_LAST_WEAPON_DAMAGE(Ped ped) { invoke<Void>(0x087D8F4BC65F68E4, ped); } // 0x087D8F4BC65F68E4 b1207
 	NATIVE_DECL BOOL _HAS_ENTITY_BEEN_DAMAGED_BY_WEAPON(Entity entity, Hash weaponName, int weaponType) { return invoke<BOOL>(0xDCF06D0CDFF68424, entity, weaponName, weaponType); } // 0xDCF06D0CDFF68424 b1207
@@ -9680,8 +10180,9 @@ namespace WEAPON
 	NATIVE_DECL void _0x63B83A526329AFBC(Any p0) { invoke<Void>(0x63B83A526329AFBC, p0); } // 0x63B83A526329AFBC b1207
 	NATIVE_DECL Any _MAKE_PED_RELOAD(Ped ped) { return invoke<Any>(0x79E1E511FF7EFB13, ped); } // 0x79E1E511FF7EFB13 b1207
 	NATIVE_DECL Any _0x0A2AB7B7ABC055F4(Any p0) { return invoke<Any>(0x0A2AB7B7ABC055F4, p0); } // 0x0A2AB7B7ABC055F4 b1207
-	NATIVE_DECL Entity _DROP_CURRENT_PED_WEAPON(Ped ped, BOOL p1, BOOL p2, BOOL p3, BOOL p4) { return invoke<Entity>(0xCEF4C65DE502D367, ped, p1, p2, p3, p4); } // 0xCEF4C65DE502D367 b1207
-	NATIVE_DECL Any _0x8425C5F057012DAB(Any p0) { return invoke<Any>(0x8425C5F057012DAB, p0); } // 0x8425C5F057012DAB b1207
+	// Old name: _DROP_CURRENT_PED_WEAPON
+	NATIVE_DECL Entity MAKE_PED_DROP_WEAPON(Ped ped, BOOL p1, int attachPoint, BOOL p3, BOOL p4) { return invoke<Entity>(0xCEF4C65DE502D367, ped, p1, attachPoint, p3, p4); } // 0xCEF4C65DE502D367 b1207
+	NATIVE_DECL Hash _GET_PED_CURRENT_HELD_WEAPON(Ped ped) { return invoke<Hash>(0x8425C5F057012DAB, ped); } // 0x8425C5F057012DAB b1207
 	NATIVE_DECL void SET_ALLOW_ANY_WEAPON_DROP(Ped ped, BOOL toggle) { invoke<Void>(0x78030C7867D8B9B6, ped, toggle); } // 0x78030C7867D8B9B6 b1207
 	NATIVE_DECL void _0xA3716A77DCF17424(Any p0, Any p1, Any p2) { invoke<Void>(0xA3716A77DCF17424, p0, p1, p2); } // 0xA3716A77DCF17424 b1207
 	NATIVE_DECL void _0x457B16951AD77C1B(Any p0) { invoke<Void>(0x457B16951AD77C1B, p0); } // 0x457B16951AD77C1B b1436
@@ -9689,7 +10190,7 @@ namespace WEAPON
 	NATIVE_DECL float _0x79B1A6E780266DB0(Ped ped) { return invoke<float>(0x79B1A6E780266DB0, ped); } // 0x79B1A6E780266DB0 b1207
 	NATIVE_DECL void _REMOVE_WEAPON_COMPONENT_FROM_PED(Ped ped, Hash componentHash, Hash weaponHash) { invoke<Void>(0x19F70C4D80494FF8, ped, componentHash, weaponHash); } // 0x19F70C4D80494FF8 b1207
 	NATIVE_DECL BOOL _HAS_PED_GOT_WEAPON_COMPONENT(Ped ped, Hash componentHash, Hash weaponHash) { return invoke<BOOL>(0xBBC67A6F965C688A, ped, componentHash, weaponHash); } // 0xBBC67A6F965C688A b1207
-	NATIVE_DECL Any _0xBDD9C235D8D1052E(Any p0) { return invoke<Any>(0xBDD9C235D8D1052E, p0); } // 0xBDD9C235D8D1052E b1207
+	NATIVE_DECL BOOL _IS_PED_CURRENT_WEAPON_HOLSTERED(Ped ped) { return invoke<BOOL>(0xBDD9C235D8D1052E, ped); } // 0xBDD9C235D8D1052E b1207
 	NATIVE_DECL Any _0xD2209866B0CB72EA(Any p0, Any p1) { return invoke<Any>(0xD2209866B0CB72EA, p0, p1); } // 0xD2209866B0CB72EA b1207
 	NATIVE_DECL void _REQUEST_WEAPON_ASSET(Hash weaponHash, int p1, BOOL p2) { invoke<Void>(0x72D4CB5DB927009C, weaponHash, p1, p2); } // 0x72D4CB5DB927009C b1207
 	NATIVE_DECL BOOL _HAS_WEAPON_ASSET_LOADED(Hash weaponHash) { return invoke<BOOL>(0xFF07CF465F48B830, weaponHash); } // 0xFF07CF465F48B830 b1207
@@ -9705,7 +10206,8 @@ namespace WEAPON
 	NATIVE_DECL void _0x641351E9AD103890(Any p0, Any p1) { invoke<Void>(0x641351E9AD103890, p0, p1); } // 0x641351E9AD103890 b1207
 	NATIVE_DECL void SET_INSTANTLY_EQUIP_WEAPON_PICKUPS(Ped ped, BOOL toggle) { invoke<Void>(0x739B9C6D0E7F7F93, ped, toggle); } // 0x739B9C6D0E7F7F93 b1207
 	NATIVE_DECL void _0xBE711B14A159E84F(Any p0, Any p1) { invoke<Void>(0xBE711B14A159E84F, p0, p1); } // 0xBE711B14A159E84F b1207
-	NATIVE_DECL void _0xE9BD19F8121ADE3E(Any p0, Any p1) { invoke<Void>(0xE9BD19F8121ADE3E, p0, p1); } // 0xE9BD19F8121ADE3E b1207
+	// Appears to just send specified weapon to your horse
+	NATIVE_DECL void _SEND_WEAPON_TO_INVENTORY(Ped ped, Hash weaponHash) { invoke<Void>(0xE9BD19F8121ADE3E, ped, weaponHash); } // 0xE9BD19F8121ADE3E b1207
 	NATIVE_DECL void _0x14FF0C2545527F9B(Any p0, Any p1, Any p2) { invoke<Void>(0x14FF0C2545527F9B, p0, p1, p2); } // 0x14FF0C2545527F9B b1207
 	NATIVE_DECL void _0xD4C6E24D955FF061(Any p0) { invoke<Void>(0xD4C6E24D955FF061, p0); } // 0xD4C6E24D955FF061 b1311
 	NATIVE_DECL Any _0xAFFD0CCF31F469B8(Any p0) { return invoke<Any>(0xAFFD0CCF31F469B8, p0); } // 0xAFFD0CCF31F469B8 b1207
