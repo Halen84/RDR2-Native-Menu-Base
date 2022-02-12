@@ -1,4 +1,4 @@
-# RDR2-UI-Library
+# RDR2-Native-Menu-Base
 An RDR2 UI Menu Base that uses in-game sprites to make similar menus to how they are in-game
 # Sample Images (Slightly Outdated)
 <details>
