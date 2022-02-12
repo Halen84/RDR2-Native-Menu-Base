@@ -1,29 +1,27 @@
 // Licensed under the MIT License.
 
 
+#include "..\keyboard.h"
+#include "..\pages.h"
 #include "script.h"
-#include "keyboard.h"
 #include "menu.h"
-#include "pages.h"
-#include "footer.h"
 #include <string>
+#include <unordered_map>
 
 
 /*
-################################################################
-# RDR2 UI Library
+####################################################################
+# RDR2 Native UI Menu Base - Old Name: RDR2 UI Library
 # Made by TuffyTown (Halen84)
 # Uses in-game sprites to make similar menus to how they are in-game
 # Credits: Alexander Blade (ScriptHook SDK), GitHub Contributors
-# ==============================================================
+# ==================================================================
 # GitHub: https://github.com/Halen84/RDR2-UI-Library
 # License: MIT
-################################################################
+####################################################################
 */
 
 
-// Feel free to completely rewrite this entire thing lmao
-// I am NOT very good at C++, but I tried my best. So please ignore bad and inconsistent code :(
 // If you have any improvements you would like to make, feel free to make a pull request via GitHub.
 // If you find any bugs with this library, please make an issue report or pull request if you know how to fix it.
 // Be sure to check for updates for this library and Natives DB!
@@ -31,19 +29,16 @@
 
  #pragma region Help & Info
 /*
-	- To create and draw pages, see pages.cpp
-	- To change the footer text, see footer.cpp or use Header::SetFooter()
+	- To create and draw pages, see \Core\pages.cpp
 	- To execute code when an option is pressed/toggled, see functions.cpp
-	- menu.cpp is basically the core UI functionality
-	- script.h contains some enums and constants
+	- menu.cpp is basically the core UI functionality. Edit at your own risk.
+	- script.cpp (this file) is also core. Handles key presses, indexing, drawing, and some other things
 */
 #pragma endregion
 
 
-int selectPrompt;
-int backPrompt;
-
-// Todo: Maybe store pages in a hashmap?
+Prompt selectPrompt;
+Prompt backPrompt;
 
 double pageIndex = 0.0; // Current Page
 double previousPageIndex = 0.0;
@@ -65,60 +60,84 @@ void play_frontend_sound(const char* name, const char* soundset)
 
 void update()
 {
-	// Background & Header Texture
+	// Background, Header, and Footer Textures
 	Draw::DrawSprite("generic_textures", "inkroller_1a", BG_X_OFFSET, BG_Y_OFFSET, BG_WIDTH, BG_HEIGHT, 0.0, 0, 0, 0, 230, false);
 	Draw::DrawSprite("generic_textures", "menu_header_1a", TOP_HEADER_X_POS, TOP_HEADER_Y_POS, TOP_HEADER_WIDTH, TOP_HEADER_HEIGHT, 0, 255, 255, 255, 255, false);
+	GRAPHICS::DRAW_SPRITE("generic_textures", "menu_bar", 0.16, 0.9, 0.23, 0.001, 0, 255, 255, 255, 175, false); // Doesn't draw right with Draw::DrawSprite for some reason
+	// TODO - Scroller Sprites
+	/*
+	- menu_textures
+	scroller_arrow_bottom
+	scroller_arrow_top
+	scroller_left_bottom
+	scroller_left_top
+	scroller_line_down
+	scroller_line_up
+	scroller_right_bottom
+	scroller_right_top
+	*/
 
 
-	// Drawing Pages
-	DrawPage();
+	// Drawing pages
+	if (pageIndex == 0.0) {
+		// The very first page
+		__DrawEntryPage__();
+	}
+	else {
+		// Every other page
+		std::unordered_map<double, void(*)()> structure = getPageStructures();
+		if (structure.contains(pageIndex)) {
+			structure[pageIndex](); // Draw the page
+		}
+	}
+	
+
+	// Option Counter Text
 	int numOptions = Menu::GetNumOptionsInCurrentPage();
-	if (numOptions >= 8) {
-		Draw::DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), Font::Hapna, 0x90, 0x90, 0x90, 230, Alignment::Right, 20, 529.0f, 242.0f + (8 * INCREMENT), 0, 0);
+	int maxVisOptions = Menu::GetMaxVisibleOptions();
+	if (numOptions >= maxVisOptions) {
+		Draw::DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), Font::Hapna, 0x90, 0x90, 0x90, 230, Alignment::Right, 20, 529.0f, 242.0f + (maxVisOptions * INCREMENT), 0, 0);
 	} else {
 		Draw::DrawCSSText(std::to_string(selectedIndex + 1) + " of " + std::to_string(numOptions), Font::Hapna, 0x90, 0x90, 0x90, 230, Alignment::Right, 20, 529.0f, 242.0f + (numOptions * INCREMENT), 0, 0);
 	}
 
 
-	// Footer
-	// Doesn't draw right with Draw::DrawSprite for some reason
-	GRAPHICS::DRAW_SPRITE("generic_textures", "menu_bar", 0.16, 0.9, 0.23, 0.001, 0, 255, 255, 255, 175, false);
-	UpdateFooter();
-
-
 	// Navigation
 	if (HUD::_UI_PROMPT_HAS_STANDARD_MODE_COMPLETED(selectPrompt, 0)) {
 		play_frontend_sound("SELECT", "HUD_SHOP_SOUNDSET");
-		bool bHasPage = Menu::DoesOptionHavePage(pageIndex, selectedIndex);
-		bool bHasToggle = Menu::DoesOptionHaveToggle(pageIndex, selectedIndex);
+		bool bIsPage = Menu::IsOptionAPage(pageIndex, selectedIndex);
+		bool bIsVector = Menu::IsOptionAVector(pageIndex, selectedIndex);
 
-		if (bHasPage && !bHasToggle && pageIndex != 0.0) {
+		if (bIsPage && !bIsVector && pageIndex != 0.0) {
 			// Note: There is still a bug with pages insides of pages.
 			// It should still "mostly" work, but just be aware you can't put too many pages inside of pages if that makes sense
 			
 			// Pages inside of pages are indexed by decimals so thats why its a double
+			resetNextAssignedIndex();
 			previousPageIndex = pageIndex;
 			previousIndex = selectedIndex;
-			pageIndex += (selectedIndex / 10.0) + 0.1; // TODO: Test with 0.01
+			pageIndex += (selectedIndex / 10.0) + 0.1;
+			selectedIndex = 0;
 		}
-		else if (bHasPage && !bHasToggle && pageIndex == 0.0) {
+		else if (bIsPage && !bIsVector && pageIndex == 0.0) {
+			resetNextAssignedIndex();
 			pageIndex = selectedIndex + 1.0;
 			previousIndex = selectedIndex;
 			selectedIndex = 0;
 		}
 		
-		if (!bHasPage && !bHasToggle) {
+		if (!bIsPage && !bIsVector) {
 			Menu::OnSelect();
 		}
-		else if (!bHasPage && bHasToggle) {
-			// Enter has been pressed, but this option is a toggle. Go right.
-			Menu::OnToggle(false, true);
+		else if (!bIsPage && bIsVector) {
+			// Enter has been pressed, but this option is a vector. Go right
+			Menu::OnVectorSwitch(false, true);
 		}
 	}
 
 	if (HUD::_UI_PROMPT_HAS_STANDARD_MODE_COMPLETED(backPrompt, 0)) {
 		play_frontend_sound("BACK", "HUD_SHOP_SOUNDSET");
-		selectedIndex = previousIndex;
+		selectedIndex = previousIndex; // needs to be fixed...
 		if (pageIndex == 0.0) {
 			enabled = false;
 			justClosed = true;
@@ -133,7 +152,8 @@ void update()
 	}
 
 	if (PAD::IS_CONTROL_JUST_PRESSED(0, MISC::GET_HASH_KEY("INPUT_GAME_MENU_UP"))) {
-		selectedIndex -= 1;
+		//selectedIndex -= 1;
+		selectedIndex -= (Menu::IsIndexASeparator(pageIndex, selectedIndex - 1) ? 2 : 1);
 		if (selectedIndex < 0) {
 			selectedIndex = (numOptions - 1);
 		}
@@ -141,7 +161,8 @@ void update()
 	}
 
 	if (PAD::IS_CONTROL_JUST_PRESSED(0, MISC::GET_HASH_KEY("INPUT_GAME_MENU_DOWN"))) {
-		selectedIndex += 1;
+		//selectedIndex += 1;
+		selectedIndex += (Menu::IsIndexASeparator(pageIndex, selectedIndex + 1) ? 2 : 1);
 		if (selectedIndex > (numOptions - 1)) {
 			selectedIndex = 0;
 		}
@@ -149,16 +170,16 @@ void update()
 	}
 	
 	if (PAD::IS_DISABLED_CONTROL_JUST_PRESSED(0, MISC::GET_HASH_KEY("INPUT_GAME_MENU_LEFT"))) {
-		if (Menu::DoesOptionHaveToggle(pageIndex, selectedIndex)) {
+		if (Menu::IsOptionAVector(pageIndex, selectedIndex)) {
 			play_frontend_sound("NAV_LEFT", "PAUSE_MENU_SOUNDSET");
-			Menu::OnToggle(true, false);
+			Menu::OnVectorSwitch(true, false);
 		}
 	}
 
 	if (PAD::IS_DISABLED_CONTROL_JUST_PRESSED(0, MISC::GET_HASH_KEY("INPUT_GAME_MENU_RIGHT"))) {
-		if (Menu::DoesOptionHaveToggle(pageIndex, selectedIndex)) {
+		if (Menu::IsOptionAVector(pageIndex, selectedIndex)) {
 			play_frontend_sound("NAV_RIGHT", "PAUSE_MENU_SOUNDSET");
-			Menu::OnToggle(false, true);
+			Menu::OnVectorSwitch(false, true);
 		}
 	}
 
@@ -177,8 +198,8 @@ void main()
 	const char* CONTROLLER_INPUT_2 = "INPUT_CONTEXT_B"; // B (O)
 	bool firstTimeActivation = true;
 
-	CreateUIPrompt(selectPrompt, MISC::GET_HASH_KEY("INPUT_GAME_MENU_ACCEPT"), MISC::VAR_STRING(10, "LITERAL_STRING", "Select"));
-	CreateUIPrompt(backPrompt, MISC::GET_HASH_KEY("INPUT_GAME_MENU_CANCEL"), MISC::VAR_STRING(10, "LITERAL_STRING", "Back"));
+	RegisterUIPrompt(selectPrompt, MISC::GET_HASH_KEY("INPUT_GAME_MENU_ACCEPT"), MISC::VAR_STRING(10, "LITERAL_STRING", "Select"));
+	RegisterUIPrompt(backPrompt, MISC::GET_HASH_KEY("INPUT_GAME_MENU_CANCEL"), MISC::VAR_STRING(10, "LITERAL_STRING", "Back"));
 
 	while (true)
 	{
@@ -189,7 +210,7 @@ void main()
 			justClosed = !justOpened;
 			if (firstTimeActivation) {
 				firstTimeActivation = false;
-				//ShowSubtitle("First time opening menu");
+				//PrintSubtitle("First time opening menu");
 			}
 		}
 

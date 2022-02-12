@@ -2,12 +2,19 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="script.cpp" />
     <ClCompile Include="keyboard.cpp" />
-    <ClCompile Include="menu.cpp" />
-    <ClCompile Include="pages.cpp" />
-    <ClCompile Include="footer.cpp" />
-    <ClCompile Include="functions.cpp" />
+    <ClCompile Include="Core\menu.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\script.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="pages.cpp">
+      <Filter>Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="functions.cpp">
+      <Filter>Pages</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\inc\enums.h">
@@ -19,19 +26,32 @@
     <ClInclude Include="..\..\inc\types.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="script.h" />
     <ClInclude Include="..\..\inc\main.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="keyboard.h" />
-    <ClInclude Include="menu.h" />
-    <ClInclude Include="pages.h" />
-    <ClInclude Include="footer.h" />
-    <ClInclude Include="functions.h" />
+    <ClInclude Include="Core\menu.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\script.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="pages.h">
+      <Filter>Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="functions.h">
+      <Filter>Pages</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">
       <UniqueIdentifier>{5d58942b-ebbf-4d0a-9526-359e3a556796}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{e770b224-3fb7-4e0e-9809-d82498335638}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pages">
+      <UniqueIdentifier>{0bdaf06f-cb0e-4245-85b8-fd8b32a42e71}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

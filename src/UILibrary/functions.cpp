@@ -1,43 +1,33 @@
 // Licensed under the MIT License.
 
 
-#include "menu.h"
-#include "script.h"
+#include ".\Core\menu.h"
+#include ".\Core\script.h"
 
 
-// This is where you will write your functions when an option is toggled/pressed
+// This is where you will write your functions when an option is pressed/switched
 // Remember to add your new functions to function.h!
 
 
-#pragma region Page 1
-void ExampleBtn1()
+void RegularButtonExample()
 {
-	ShowSubtitle("Example Button 1 Pressed");
+	PrintSubtitle("Regular Option Pressed");
 }
 
-void ExampleBtn2()
+void VectorOption1()
 {
-	ShowSubtitle("Example Button 2 Pressed");
-}
-#pragma endregion
-
-
-#pragma region Page 1.1
-void ToggleOption0()
-{
-	int pos = Menu::GetToggleSelection(*GetCurrentPageIndex(), 0);
-	ShowSubtitle(std::to_string(pos) + " - Toggle Option Vector");
+	int pos = Menu::GetVectorSelection(*GetCurrentPageIndex(), *GetCurrentSelectedIndex());
+	PrintSubtitle(std::to_string(pos) + " - Vector Option");
 }
 
-void ToggleOption1()
+void VectorOption2()
 {
-	int pos = Menu::GetToggleSelection(*GetCurrentPageIndex(), 1);
-	ShowSubtitle(std::to_string(pos) + " - Toggle Option Static");
+	int pos = Menu::GetVectorSelection(*GetCurrentPageIndex(), *GetCurrentSelectedIndex());
+	PrintSubtitle(std::to_string(pos) + " - Static Vector Option");
 }
-#pragma endregion
 
 
-#pragma region Page 2.1
+
 void ChangeWeather()
 {
 	int index = *GetCurrentSelectedIndex();
@@ -115,13 +105,13 @@ void ChangeWeather()
 	}
 
 	MISC::SET_WEATHER_TYPE(weatherType, true, true, false, 0.0f, false);
-	ShowSubtitle("Changed weather to: " + weatherName);
+	PrintSubtitle("Changed weather to: " + weatherName);
 }
 
 void ChangeTime()
 {
 	int selectedIndex = *GetCurrentSelectedIndex();
-	int pos = Menu::GetToggleSelection(*GetCurrentPageIndex(), selectedIndex);
+	int pos = Menu::GetVectorSelection(*GetCurrentPageIndex(), selectedIndex);
 
 	int hrs = CLOCK::GET_CLOCK_HOURS();
 	int min = CLOCK::GET_CLOCK_MINUTES();
@@ -142,4 +132,3 @@ void ChangeTime()
 			break;
 	}
 }
-#pragma endregion

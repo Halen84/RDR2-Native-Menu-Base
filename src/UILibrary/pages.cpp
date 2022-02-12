@@ -1,158 +1,82 @@
 // Licensed under the MIT License.
 
 #include <string>
-#include "script.h"
-#include "menu.h"
+#include ".\Core\menu.h"
 #include "functions.h"
 
 // This file is specifically for drawing and creating pages.
-// Might be a good idea to separate pages using #region
+// Create your functions for options in functions.cpp.
+// 
+// You don't HAVE to put all of your pages here. You can create separate files
+// for each page if you want to, but just be sure to #include them
 
-void DrawPage()
+
+bool exampleBoolean = false;
+void ExampleToggleChange()
 {
-	double pageIndex = *GetCurrentPageIndex();
+	PrintSubtitle(exampleBoolean == true ? "true" : "false");
+}
 
-	if (pageIndex == 0.0) {
-		Header::SetHeader("HEADER");
-		Header::SetSubHeader("Sub Header");
-		// If you set bHasPage to true, make sure to create the page
-		Draw::DrawOption("Option Examples", 0, true);
-		Draw::DrawOption("Function Examples", 1, true);
-		Draw::DrawOption("Page 3", 2, true);
-		Draw::DrawOption("Page 4", 3, true);
-		Draw::DrawOption("Page 5", 4, true);
-		Draw::DrawOption("Page 6", 5, true);
-		Draw::DrawOption("Page 7", 6, true);
-		Draw::DrawOption("Page 8", 7, true);
-	}
 
-	#pragma region Page 1
-	else if (pageIndex == 1.0) {
-		Header::SetHeader("EXAMPLES");
-		Header::SetSubHeader("Examples");
-		Draw::DrawOption("Toggle Option Examples", 0, true);
-		Draw::DrawOption("Example Button 1", 1);
-		Menu::SetFunction(pageIndex, 1, ExampleBtn1);
+void WeatherPage()
+{
+	Header::SetHeader("WEATHER");
+	Header::SetSubHeader("Change Weather");
+	MenuCreate::RegularOption("High Pressure", "", &ChangeWeather);
+	MenuCreate::RegularOption("Rain", "", &ChangeWeather);
+	MenuCreate::RegularOption("Snow", "", &ChangeWeather);
+	MenuCreate::RegularOption("Misty", "", &ChangeWeather);
+	MenuCreate::RegularOption("Fog", "", &ChangeWeather);
+	MenuCreate::RegularOption("Sunny", "", &ChangeWeather);
+	MenuCreate::RegularOption("Clouds", "", &ChangeWeather);
+	MenuCreate::RegularOption("Overcast", "", &ChangeWeather);
+	MenuCreate::RegularOption("Thunderstorm", "", &ChangeWeather);
+	MenuCreate::RegularOption("Hurricane", "", &ChangeWeather);
+	MenuCreate::RegularOption("Thunder", "", &ChangeWeather);
+	MenuCreate::RegularOption("Shower", "", &ChangeWeather);
+	MenuCreate::RegularOption("Blizzard", "", &ChangeWeather);
+	MenuCreate::RegularOption("Snow Light", "", &ChangeWeather);
+	MenuCreate::RegularOption("Whiteout", "", &ChangeWeather);
+	MenuCreate::RegularOption("Hail", "", &ChangeWeather);
+	MenuCreate::RegularOption("Sleet", "", &ChangeWeather);
+	MenuCreate::RegularOption("Drizzle", "", &ChangeWeather);
+	MenuCreate::RegularOption("Sandstorm", "", &ChangeWeather);
+	MenuCreate::RegularOption("Overcast Dark", "", &ChangeWeather);
+	MenuCreate::RegularOption("Ground Blizzard", "", &ChangeWeather);
+}
+void TimePage()
+{
+	Header::SetHeader("TIME");
+	Header::SetSubHeader("Change Time");
+	MenuCreate::VectorOption("Hour", "", 24, "", "", &ChangeTime);
+	Menu::SetVectorSelection(*GetCurrentPageIndex(), 0, CLOCK::GET_CLOCK_HOURS());
 
-		Draw::DrawOption("Example Button 2", 2);
-		Menu::SetFunction(pageIndex, 2, ExampleBtn2);
-	}
+	MenuCreate::VectorOption("Minute", "", 60, "", "", &ChangeTime);
+	Menu::SetVectorSelection(*GetCurrentPageIndex(), 1, CLOCK::GET_CLOCK_MINUTES());
 
-	else if (pageIndex == 1.1) {
-		Header::SetHeader("TOGGLE EXAMPLES");
-		Header::SetSubHeader("Toggle Option Examples");
+	MenuCreate::VectorOption("Second", "", 60, "", "", &ChangeTime);
+	Menu::SetVectorSelection(*GetCurrentPageIndex(), 2, CLOCK::GET_CLOCK_SECONDS());
+}
 
-		Draw::DrawOption("Toggle Option - Vector", 0, false, true);
-		Menu::AddOptionsToToggle(0, std::vector<std::string>{"Red", "Dead", "Redemption", "2"});
-		Menu::SetFunction(pageIndex, 0, ToggleOption0);
 
-		Draw::DrawOption("Toggle Option - Static", 1, false, true);
-		Menu::AddOptionsToToggle(1, 10, "BaseText "); // This will create 10 options
-		Menu::SetFunction(pageIndex, 1, ToggleOption1);
-	}
-	#pragma endregion
+void ExamplesPage()
+{
+	Header::SetHeader("EXAMPLES");
+	Header::SetSubHeader("Function Examples");
+	MenuCreate::PageOption("Change Weather", "", 5.1, &WeatherPage); // 5.1 because it's the 1st option in page 5.0
+	MenuCreate::PageOption("Change Time", "", 5.2, &TimePage);
+}
 
-	#pragma region Page 2
-	else if (pageIndex == 2.0) {
-		Header::SetHeader("FUNCTIONS");
-		Header::SetSubHeader("Function Examples");
-		Draw::DrawOption("Change Weather", 0, true);
-		Draw::DrawOption("Change Time", 1, true);
-	}
 
-	else if (pageIndex == 2.1) {
-		Header::SetHeader("WEATHER");
-		Header::SetSubHeader("Change Weather");
-		Draw::DrawOption("High Pressure", 0);
-		Draw::DrawOption("Rain", 1);
-		Draw::DrawOption("Snow", 2);
-		Draw::DrawOption("Misty", 3);
-		Draw::DrawOption("Fog", 4);
-		Draw::DrawOption("Sunny", 5);
-		Draw::DrawOption("Clouds", 6);
-		Draw::DrawOption("Overcast", 7);
-		Draw::DrawOption("Thunderstorm", 8);
-		Draw::DrawOption("Hurricane", 9);
-		Draw::DrawOption("Thunder", 10);
-		Draw::DrawOption("Shower", 11);
-		Draw::DrawOption("Blizzard", 12);
-		Draw::DrawOption("Snow Light", 13);
-		Draw::DrawOption("Whiteout", 14);
-		Draw::DrawOption("Hail", 15);
-		Draw::DrawOption("Sleet", 16);
-		Draw::DrawOption("Drizzle", 17);
-		Draw::DrawOption("Sandstorm", 18);
-		Draw::DrawOption("Overcast Dark", 19);
-		Draw::DrawOption("Ground Blizzard", 20);
-		Menu::SetFunction(pageIndex, 0, ChangeWeather, 20); // High Pressure + options 1-20 will use function ChangeWeather()
-	}
-	
-	else if (pageIndex == 2.2) {
-		Header::SetHeader("TIME");
-		Header::SetSubHeader("Change Time");
+// Note: This is a required function!
+void __DrawEntryPage__()
+{
+	Header::SetHeader("HEADER");
+	Header::SetSubHeader("Sub Header");
 
-		Draw::DrawOption("Hour", 0, false, true);
-		Menu::AddOptionsToToggle(0, 24, "");
-		Menu::SetToggleSelection(pageIndex, 0, CLOCK::GET_CLOCK_HOURS());
-		Menu::SetFunction(pageIndex, 0, ChangeTime, 2); // Hour + minute and second will use function ChangeTime()
-
-		Draw::DrawOption("Minute", 1, false, true);
-		Menu::AddOptionsToToggle(1, 60, "");
-		Menu::SetToggleSelection(pageIndex, 1, CLOCK::GET_CLOCK_MINUTES());
-
-		Draw::DrawOption("Second", 2, false, true);
-		Menu::AddOptionsToToggle(2, 60, "");
-		Menu::SetToggleSelection(pageIndex, 2, CLOCK::GET_CLOCK_SECONDS());
-	}
-	#pragma endregion
-
-	else if (pageIndex == 3.0) {
-		Header::SetHeader("PAGE 3 HEADER");
-		Header::SetSubHeader("Page 3 Sub Header");
-		Draw::DrawOption("Page 3 - Option 1", 0);
-		Draw::DrawOption("Page 3 - Option 2", 1);
-		Draw::DrawOption("Page 3 - Option 3", 2);
-	}
-
-	else if (pageIndex == 4.0) {
-		Header::SetHeader("PAGE 4 HEADER");
-		Header::SetSubHeader("Page 4 Sub Header");
-		Draw::DrawOption("Page 4 - Option 1", 0);
-		Draw::DrawOption("Page 4 - Option 2", 1);
-		Draw::DrawOption("Page 4 - Option 3", 2);
-	}
-
-	else if (pageIndex == 5.0) {
-		Header::SetHeader("PAGE 5 HEADER");
-		Header::SetSubHeader("Page 5 Sub Header");
-		Draw::DrawOption("Page 5 - Option 1", 0);
-		Draw::DrawOption("Page 5 - Option 2", 1);
-		Draw::DrawOption("Page 5 - Option 3", 2);
-	}
-
-	else if (pageIndex == 6.0) {
-		Header::SetHeader("PAGE 6 HEADER");
-		Header::SetSubHeader("Page 6 Sub Header");
-		Draw::DrawOption("Page 6 - Option 1", 0);
-		Draw::DrawOption("Page 6 - Option 2", 1);
-		Draw::DrawOption("Page 6 - Option 3", 2);
-	}
-
-	else if (pageIndex == 7.0) {
-		Header::SetHeader("PAGE 7 HEADER");
-		Header::SetSubHeader("Page 7 Sub Header");
-		Draw::DrawOption("Page 7 - Option 1", 0);
-		Draw::DrawOption("Page 7 - Option 2", 1);
-		Draw::DrawOption("Page 7 - Option 3", 2);
-	}
-
-	else if (pageIndex == 8.0) {
-		Header::SetHeader("PAGE 8 HEADER");
-		Header::SetSubHeader("Page 8 Sub Header");
-		Draw::DrawOption("Page 8 - Option 1", 0);
-		Draw::DrawOption("Page 8 - Option 2", 1);
-		Draw::DrawOption("Page 8 - Option 3", 2);
-	}
-
-	// Keep in mind that you can have more than 8 options in a page
+	MenuCreate::RegularOption("Regular Option", "Regular Option Example Button", &RegularButtonExample);
+	MenuCreate::ToggleOption("Toggle Option", "Toggle Option Example Button", &exampleBoolean, true, &ExampleToggleChange);
+	MenuCreate::VectorOption("Vector Option 1", "Vector Option Example", std::vector<std::string>{"Option 0", "Option 1", "Option 2"}, &VectorOption1);
+	MenuCreate::VectorOption("Vector Option 2", "\"Static\" Vector Option Example", 3, "", "", &VectorOption2);
+	MenuCreate::PageOption("Examples Page", "Some examples of executing functions", 5.0, &ExamplesPage); // 5.0 because it's the 5th option (1 based for page 0.0)
 }

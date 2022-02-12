@@ -2,9 +2,8 @@
 
 #pragma once
 
-void ExampleBtn1();
-void ExampleBtn2();
-void ToggleOption0();
-void ToggleOption1();
+void RegularButtonExample();
+void VectorOption1();
+void VectorOption2();
 void ChangeWeather();
 void ChangeTime();

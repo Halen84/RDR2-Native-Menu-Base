@@ -7,25 +7,23 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="footer.cpp" />
+    <ClCompile Include="Core\menu.cpp" />
+    <ClCompile Include="Core\script.cpp" />
     <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="menu.cpp" />
     <ClCompile Include="functions.cpp" />
     <ClCompile Include="pages.cpp" />
-    <ClCompile Include="script.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\inc\main.h" />
     <ClInclude Include="..\..\inc\enums.h" />
     <ClInclude Include="..\..\inc\natives.h" />
     <ClInclude Include="..\..\inc\types.h" />
-    <ClInclude Include="footer.h" />
+    <ClInclude Include="Core\menu.h" />
+    <ClInclude Include="Core\script.h" />
     <ClInclude Include="keyboard.h" />
-    <ClInclude Include="menu.h" />
     <ClInclude Include="functions.h" />
     <ClInclude Include="pages.h" />
-    <ClInclude Include="script.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{8D82F34A-1D64-465B-84B1-37F89AD3D20B}</ProjectGuid>
@@ -67,6 +65,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;Pools_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FloatingPointModel>Fast</FloatingPointModel>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

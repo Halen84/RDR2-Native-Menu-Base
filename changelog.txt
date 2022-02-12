@@ -1,8 +1,27 @@
-[Latest Update] Feb 6, 2022
+[Latest Update] Feb 12, 2022
+- Draw::DrawOption() has been replaced by a new MenuCreate namespace
+- Option indexes are now automated (No more hard coded indexes! (mostly))
+- footer.cpp & .h have been deleted in favor of new MenuCreate namespace functions
+- Menu::SetFunction() has been deleted in favor of new MenuCreate namespace functions
+- Toggle Option are now called Vector Options. Toggle Options are now literally on/off functions
+- ShowSubtitle() has been renamed to PrintSubtitle
+- Menu::DoesOptionHavePage() and DoesOptionHaveToggle() have been renamed to IsOptionAPage and IsOptionAToggle. Added function IsOptionAVector
+- Menu::OnToggle() has been renamed to OnVectorSwitch
+- Menu::SetToggleSelection() has been renamed to SetVectorSelection
+- Menu::SetTextAtPos() has been renamed to SetTextForVectorAtPos
+- Menu::AddOptionsToToggle() has been renamed and is no longer a public function
+- Menu::SetFunction() is no longer a public function. Replaced by new MenuCreate namespace
+- Added new parameter to Menu::GetTextAtCurrentSelection()
+- Created "Core" folder. menu.cpp/.h and script.cpp/.h have been moved there
+- You can now set the number of visible options in a page
+- Other misc changes
+
+----------------------------------------------Previous Updates----------------------------------------------
+
+Feb 6, 2022
 - Added another function example
 - Moved Font and Alignment enums to enums.h
 
-----------------------------------------------Previous Updates----------------------------------------------
 
 Feb 5, 2022
 - Rewrite of how menu options use and call functions
