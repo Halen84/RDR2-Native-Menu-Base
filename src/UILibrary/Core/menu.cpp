@@ -259,7 +259,7 @@ void Menu::OnVectorSwitch(bool left, bool right)
 		}
 	}
 
-	// Toggle has been changed
+	// Vector has been changed
 	if (map_optionFunctions[pageIndex][selectedIndex]) {
 		map_optionFunctions[pageIndex][selectedIndex]();
 	} else {
@@ -385,7 +385,6 @@ namespace MenuCreate
 		if (!map_pageStructures[pageIndex]) {
 			map_pageStructures[pageIndex] = pageStructureFunction;
 		}
-		
 
 		assign_index(optionText);
 		int index = map_pageData[*GetCurrentPageIndex()][optionText];

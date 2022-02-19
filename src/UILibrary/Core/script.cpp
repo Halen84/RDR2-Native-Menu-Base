@@ -44,11 +44,13 @@ double pageIndex = 0.0; // Current Page
 double previousPageIndex = 0.0;
 
 int selectedIndex = 0; // Selected Item
-int previousIndex = 0;
 
 bool enabled = false;
 bool justOpened = false;
 bool justClosed = false;
+
+// Keeps track of what selection you were on for a page
+std::unordered_map<double, int> map_selectedIndexes;
 
 
 void play_frontend_sound(const char* name, const char* soundset)
@@ -115,14 +117,13 @@ void update()
 			// Pages inside of pages are indexed by decimals so thats why its a double
 			resetNextAssignedIndex();
 			previousPageIndex = pageIndex;
-			previousIndex = selectedIndex;
+			// TODO: This whole Page Indexing system is like the most fucking broken thing ever and needs to be reworked
 			pageIndex += (selectedIndex / 10.0) + 0.1;
 			selectedIndex = 0;
 		}
 		else if (bIsPage && !bIsVector && pageIndex == 0.0) {
 			resetNextAssignedIndex();
 			pageIndex = selectedIndex + 1.0;
-			previousIndex = selectedIndex;
 			selectedIndex = 0;
 		}
 		
@@ -137,7 +138,6 @@ void update()
 
 	if (HUD::_UI_PROMPT_HAS_STANDARD_MODE_COMPLETED(backPrompt, 0)) {
 		play_frontend_sound("BACK", "HUD_SHOP_SOUNDSET");
-		selectedIndex = previousIndex; // needs to be fixed...
 		if (pageIndex == 0.0) {
 			enabled = false;
 			justClosed = true;
@@ -145,9 +145,11 @@ void update()
 		} else {
 			if ((int)(pageIndex * 10) % 10 == 0) {
 				pageIndex = 0.0;
+				selectedIndex = map_selectedIndexes[pageIndex];
 				return;
 			}
 			pageIndex = previousPageIndex;
+			selectedIndex = map_selectedIndexes[pageIndex];
 		}
 	}
 
@@ -184,6 +186,7 @@ void update()
 	}
 
 	Draw::DrawSelectionBox();
+	map_selectedIndexes[pageIndex] = selectedIndex;
 }
 
 
