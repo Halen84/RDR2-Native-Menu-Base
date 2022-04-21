@@ -1,4 +1,27 @@
-[Latest Update] Feb 12, 2022
+[Latest Update] Apr 21, 2022
+- Another update to core framework
+- New Menu:: nested namespaces. Menu::New, Menu::Util, Menu::Header
+- Menu:: namespace now has global variables you can access like m_pageIndex and m_selectionIndex instead of calling a function to get them
+- Removed some Menu:: functions in favor of global variables
+- MenuCreate:: namespace is now Menu::New
+- Added new Menu::Util function, SetOptionIndex()
+- Added new Menu:: function, SetMenuEnabled()
+- Added enum eInputTypes, and VisibleOptionsInPage
+- menu.cpp has been restructured
+- You can now use Shift + Up & Down arrow keys to scroll 10 options at a time
+- Renamed OnSelect() to ExecuteOptionFunc()
+- Renamed OnVectorSwitch() to ExecuteVectorFunc()
+- Renamed __DrawEntryPage__() to __EntryPage__()
+- Changed controller keybind to RB + A (previously RB + B)
+- Fixed horse whistling issue on controllers when pressing up on dpad
+- Removed Menu::New::Separator() due to it not working properly
+- Added macro PRINT_FUNC_NOT_FOUND in Core/menu.cpp
+- Changed internal folder names
+- Other misc changes
+
+----------------------------------------------Previous Updates----------------------------------------------
+
+Feb 12, 2022
 - Draw::DrawOption() has been replaced by a new MenuCreate namespace
 - Option indexes are now automated (No more hard coded indexes! (mostly))
 - footer.cpp & .h have been deleted in favor of new MenuCreate namespace functions
@@ -16,7 +39,6 @@
 - You can now set the number of visible options in a page
 - Other misc changes
 
-----------------------------------------------Previous Updates----------------------------------------------
 
 Feb 6, 2022
 - Added another function example

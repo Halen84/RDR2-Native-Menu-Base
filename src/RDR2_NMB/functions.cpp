@@ -1,28 +1,23 @@
 // Licensed under the MIT License.
 
-
 #include ".\Core\menu.h"
 #include ".\Core\script.h"
 
+using namespace Menu;
 
 // This is where you will write your functions when an option is pressed/switched
 // Remember to add your new functions to function.h!
 
 
-void RegularButtonExample()
-{
-	PrintSubtitle("Regular Option Pressed");
-}
-
 void VectorOption1()
 {
-	int pos = Menu::GetVectorSelection(*GetCurrentPageIndex(), *GetCurrentSelectedIndex());
+	int pos = Util::GetVectorSelection(m_pageIndex, m_selectionIndex);
 	PrintSubtitle(std::to_string(pos) + " - Vector Option");
 }
 
 void VectorOption2()
 {
-	int pos = Menu::GetVectorSelection(*GetCurrentPageIndex(), *GetCurrentSelectedIndex());
+	int pos = Util::GetVectorSelection(m_pageIndex, m_selectionIndex);
 	PrintSubtitle(std::to_string(pos) + " - Static Vector Option");
 }
 
@@ -30,11 +25,10 @@ void VectorOption2()
 
 void ChangeWeather()
 {
-	int index = *GetCurrentSelectedIndex();
 	Hash weatherType;
-	std::string weatherName = Menu::GetTextAtCurrentSelection();
+	std::string weatherName = Util::GetTextAtCurrentSelection();
 
-	switch (index)
+	switch (m_selectionIndex)
 	{
 		case 0:
 			weatherType = MISC::GET_HASH_KEY("HIGHPRESSURE");
@@ -105,19 +99,18 @@ void ChangeWeather()
 	}
 
 	MISC::SET_WEATHER_TYPE(weatherType, true, true, false, 0.0f, false);
-	PrintSubtitle("Changed weather to: " + weatherName);
+	PrintSubtitle("Set weather to: ~COLOR_OBJECTIVE~" + weatherName + "~s~");
 }
 
 void ChangeTime()
 {
-	int selectedIndex = *GetCurrentSelectedIndex();
-	int pos = Menu::GetVectorSelection(*GetCurrentPageIndex(), selectedIndex);
+	int pos = Util::GetVectorSelection(m_pageIndex, m_selectionIndex);
 
 	int hrs = CLOCK::GET_CLOCK_HOURS();
 	int min = CLOCK::GET_CLOCK_MINUTES();
 	int sec = CLOCK::GET_CLOCK_SECONDS();
 
-	switch (selectedIndex)
+	switch (m_selectionIndex)
 	{
 		case 0:
 			CLOCK::SET_CLOCK_TIME(pos, min, sec); // Change hour

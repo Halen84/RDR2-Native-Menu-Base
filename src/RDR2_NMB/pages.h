@@ -3,4 +3,4 @@
 #pragma once
 
 // Note: This is a required function!
-void __DrawEntryPage__();
+void __EntryPage__();

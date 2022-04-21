@@ -7,6 +7,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="common.cpp" />
     <ClCompile Include="Core\menu.cpp" />
     <ClCompile Include="Core\script.cpp" />
     <ClCompile Include="keyboard.cpp" />
@@ -19,17 +20,19 @@
     <ClInclude Include="..\..\inc\enums.h" />
     <ClInclude Include="..\..\inc\natives.h" />
     <ClInclude Include="..\..\inc\types.h" />
+    <ClInclude Include="common.hpp" />
     <ClInclude Include="Core\menu.h" />
     <ClInclude Include="Core\script.h" />
     <ClInclude Include="keyboard.h" />
     <ClInclude Include="functions.h" />
     <ClInclude Include="pages.h" />
+    <ClInclude Include="settings.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{8D82F34A-1D64-465B-84B1-37F89AD3D20B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>UILibrary</RootNamespace>
-    <ProjectName>UILibrary</ProjectName>
+    <RootNamespace>RDR2_NMB</RootNamespace>
+    <ProjectName>RDR2_NMB</ProjectName>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -52,7 +55,7 @@
     <TargetExt>.asi</TargetExt>
     <OutDir>D:\Games\Red Dead Redemption 2</OutDir>
     <IntDir>tmp\$(Configuration)\</IntDir>
-    <TargetName>UILibrary</TargetName>
+    <TargetName>NativeMenuBase</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -65,7 +68,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;Pools_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FloatingPointModel>Fast</FloatingPointModel>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

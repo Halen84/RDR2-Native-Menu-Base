@@ -6,6 +6,7 @@
 #include "..\..\..\inc\types.h"
 #include "..\..\..\inc\enums.h"
 #include "..\..\..\inc\main.h"
+#include "..\common.hpp"
 
 const float SCREEN_WIDTH = 1920.0f;
 const float SCREEN_HEIGHT = 1080.0f;
@@ -29,5 +30,3 @@ const float FOOTER_LINE_Y_POS = BG_Y_OFFSET + (BG_HEIGHT - ((BG_WIDTH - FOOTER_L
 const float INCREMENT = (SCREEN_HEIGHT * 0.051f); // 55;
 
 void ScriptMain();
-int* GetCurrentSelectedIndex();
-double* GetCurrentPageIndex();
