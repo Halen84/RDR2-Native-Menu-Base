@@ -78,7 +78,7 @@ void __EntryPage__()
 	Header::SetHeader("HEADER");
 	Header::SetSubHeader("Sub Header");
 
-	// You can also use lambdas for smaller functions, or even pages if you feel like it
+	// You can also use lambdas for smaller functions, or even pages if you feel so inclined
 	New::RegularOption("Regular Option", "Regular Option Example Button", [] {
 		PrintSubtitle("Regular Option Pressed");
 	});
@@ -87,7 +87,7 @@ void __EntryPage__()
 		PrintSubtitle(exampleBoolean == true ? "On - true" : "Off - false");
 	});
 
-	New::VectorOption("Vector Option 1", "Vector Option Example", std::vector<std::string>{"Option 0", "Option 1", "Option 2"}, &VectorOption1);
-	New::VectorOption("Vector Option 2", "\"Static\" Vector Option Example", 3, "", "", &VectorOption2);
+	New::VectorOption("Vector Option 1", "Vector Option Example", {"Option 0", "Option 1", "Option 2"}, &VectorOption1);
+	New::VectorOption("Vector Option 2", "\"Static\" Vector Option Example", 3, "Static Option ", "", &VectorOption2);
 	New::PageOption("Examples Page", "Some examples of executing functions", 5.0, &Page_Examples);
 }

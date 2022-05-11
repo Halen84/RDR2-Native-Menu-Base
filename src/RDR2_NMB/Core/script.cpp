@@ -103,8 +103,7 @@ void updateMenu()
 		if (bIsPage && !bIsVector && m_pageIndex != 0.0) {
 			// Note: There is still a bug with pages insides of pages.
 			// It should still "mostly" work, but just be aware you can't put too many pages inside of pages if that makes sense
-			
-			// Pages inside of pages are indexed by decimals so thats why its a double
+
 			resetNextAssignedIndex();
 			previousPageIndex = m_pageIndex;
 			// TODO: This whole Page Indexing system is like the most fucking broken thing ever and needs to be reworked

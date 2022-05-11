@@ -5,10 +5,18 @@
 #include "..\common.hpp"
 #include "script.h"
 
+
+// If true, the menu will print an error if there's no function assigned to the option that you clicked
+#define PRINT_FUNC_NOT_FOUND TRUE
+// If true, the menu will be compatible with game version <= 1311.12
+#define BUILD_1311_COMPATIBLE FALSE
+
+
+
 namespace Draw
 {
 	// Draw CSS styled text
-	void DrawCSSText(std::string text, Font font, int red, int green, int blue, int alpha, Alignment align, int textSize, float posX, float posY, int wrapWidth = 0, int letterSpacing = 0);
+	void DrawCSSText(const std::string& text, Font font, int red, int green, int blue, int alpha, Alignment align, int textSize, float posX, float posY, int wrapWidth = 0, int letterSpacing = 0);
 
 	// Draws background, header, footer, and scroller textures
 	void DrawMenuTextures();
@@ -37,7 +45,7 @@ namespace Menu
 	using std::string;
 
 	extern int m_selectionIndex; // Selected option
-	extern double m_pageIndex; // Current page
+	extern double m_pageIndex; // Current page - Pages inside of pages are indexed by decimals so thats why its a double
 	extern int m_visibleOptionsInThisPage; // Sets how many options should be visible for a page. Recommended max is 12
 	extern int m_numOptionsInThisPage; // Returns the number of options in the current page. DO NOT edit this variable
 	extern bool m_isOpen; // Returns whether the menu is open or not. DO NOT edit this variable directly, use Menu::SetMenuEnabled
@@ -48,21 +56,21 @@ namespace Menu
 	namespace New
 	{
 		// Create an option for a new page via pageStructureFunction parameter.
-		void PageOption(string optionText, string footerText, double pageIndex, void(*pageStructureFunction)());
+		void PageOption(const string& optionText, const string& footerText, double pageIndex, void(*pageStructureFunction)());
 
 		// Regular plain ol' option.
 		// Passed function will execute when option is pressed.
-		void RegularOption(string optionText, string footerText, void(*funcToExecute)());
+		void RegularOption(const string& optionText, const string& footerText, void(*funcToExecute)());
 
 		// An on/off (true/false) toggle option.
 		// Note: bLoopToggle parameter must be an already defined boolean variable.
 		// Passed function will execute when option is pressed.
-		void ToggleOption(string optionText, string footerText, bool* bLoopToggle, bool bUseCheckmark, void(*funcToExecute)());
+		void ToggleOption(const string& optionText, const string& footerText, bool* bLoopToggle, bool bUseCheckmark, void(*funcToExecute)());
 
 		// An option with left and right arrows with multiple options.
 		// Passed function will execute when vector option is changed.
-		void VectorOption(string optionText, string footerText, std::vector<string> vectorOptions, void(*funcToExecute)());
-		void VectorOption(string optionText, string footerText, int numberOfOptions, string startText, string endText, void(*funcToExecute)());
+		void VectorOption(const string& optionText, const string& footerText, std::vector<string> vectorOptions, void(*funcToExecute)());
+		void VectorOption(const string& optionText, const string& footerText, int numberOfOptions, const string& startText, const string& endText, void(*funcToExecute)());
 	}
 
 
@@ -72,9 +80,10 @@ namespace Menu
 		// Sets what selection a vector will be at
 		void SetVectorSelection(double pageIndex, int vectorIndex, int newPos);
 		// Sets the text for a vector at a certain position
-		void SetTextForVectorAtPos(string newText, double pageIndex, int vectorIndex, int pos);
+		void SetTextForVectorAtPos(const string& newText, double pageIndex, int vectorIndex, int pos);
 		// Sets an option to a new index (different spot on the page)
-		void SetOptionIndex(double pageIndex, string optionText, int newIndex);
+		void SetOptionIndex(double pageIndex, const string& optionText, int newIndex);
+		void SetOptionIndex(double pageIndex, int optionIndex, int newIndex);
 
 		// Gets text at current selection
 		string GetTextAtCurrentSelection(bool bGetTextFromVector = false);
@@ -93,9 +102,9 @@ namespace Menu
 	// Contains functions related to the menu header, sub header, and footer
 	namespace Header
 	{
-		void SetHeader(string text, int fontSize = 45, float yPos = 79);
-		void SetSubHeader(string text);
-		void SetFooter(string text); // Not a header, but I don't really care
+		void SetHeader(const string& text, int fontSize = 45, float yPos = 79);
+		void SetSubHeader(const string& text);
+		void SetFooter(const string& text); // Not a header, but I don't really care
 	}
 
 	// Toggle menu on/off

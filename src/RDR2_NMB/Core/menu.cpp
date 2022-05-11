@@ -3,12 +3,9 @@
 #include "script.h"
 #include "menu.h"
 
-// If true, the menu will print an error if there is no function assigned to the option that you clicked
-#define PRINT_FUNC_NOT_FOUND TRUE
 
-
- #pragma region Unordered Maps
-// std::unordered_map is a micro optimization over std::map in this case
+ #pragma region Unordered_Maps
+// std::unordered_map is an optimization over std::map in this case
 
 // Keeps track of text options for each vector
 std::unordered_map<double, std::unordered_map<int, std::vector<std::string>>> map_vectorTextOptions;
@@ -45,7 +42,7 @@ namespace menuPrivate
 	using namespace Menu;
 	int nextAssignedIndex = 0;
 
-	void assign_index(std::string text)
+	void assign_index(const std::string& text)
 	{
 		if (!map_pageData[m_pageIndex].contains(text) && !map_pageData[m_pageIndex][text]) {
 			map_pageData[m_pageIndex][text] = nextAssignedIndex;
@@ -61,14 +58,14 @@ namespace menuPrivate
 	}
 
 	// wrapper function
-	void drawFooter(std::string text, int optionIndex)
+	void drawFooter(const std::string& text, int optionIndex)
 	{
 		if (optionIndex == m_selectionIndex) {
 			Header::SetFooter(text);
 		}
 	}
 
-	void drawOption(std::string text, int index, bool bIsToggleOption = false, bool bIsVectorOption = false, bool bIsPageOption = false, bool bIsSeparator = false)
+	void drawOption(const std::string& text, int index, bool bIsToggleOption = false, bool bIsVectorOption = false, bool bIsPageOption = false, bool bIsSeparator = false)
 	{
 		// Get number of options in the page via highest index
 		if (m_pageIndex != page) { m_numOptionsInThisPage = 1; }
@@ -149,7 +146,7 @@ namespace menuPrivate
 		}
 	}
 
-	void addOptionsToVector(int index, int numberOfOptions, std::string startText, std::string endText)
+	void addOptionsToVector(int index, int numberOfOptions, const std::string& startText, const std::string& endText)
 	{
 		if (map_isOptionAVector[Menu::m_pageIndex][index]) {
 			if (map_vectorTextOptions[Menu::m_pageIndex][index].empty()) { // TODO: Instead of this, check if text already exists
@@ -163,7 +160,7 @@ namespace menuPrivate
 
 	// I didn't want to import a ~200KB format lib, so I just made my own dumbed down version
 	template<typename... Args>
-	std::string format(std::string str, Args... args)
+	void format(std::string& str, const Args&... args)
 	{
 		std::vector<std::string> vec_args = { args... };
 		for (int i = 0; i < (int)vec_args.size(); i++) {
@@ -172,8 +169,6 @@ namespace menuPrivate
 				str.replace(pos, 2, vec_args[i]);
 			}
 		}
-
-		return str;
 	}
 }
 
@@ -183,9 +178,9 @@ namespace menuPrivate
 // -------------------------------
 namespace Draw
 {
-	void DrawCSSText(std::string text, Font font, int red, int green, int blue, int alpha, Alignment align, int textSize, float posX, float posY, int wrapWidth, int letterSpacing)
+	void DrawCSSText(const std::string& text, Font font, int red, int green, int blue, int alpha, Alignment align, int textSize, float posX, float posY, int wrapWidth, int letterSpacing)
 	{
-		std::vector<std::string> fontList = { "util", "catalog5", "body1", "body", "Debug_REG", "catalog4", "chalk", "catalog1", "ledger", "title", "wantedPostersGeneric", "gtaCash", "gamername", "handwritten"};
+		const std::vector<std::string> fontList = { "util", "catalog5", "body1", "body", "Debug_REG", "catalog4", "chalk", "catalog1", "ledger", "title", "wantedPostersGeneric", "gtaCash", "gamername", "handwritten"};
 		std::string _font = fontList[static_cast<int>(font)];
 
 		float x = (posX / SCREEN_WIDTH);
@@ -193,10 +188,11 @@ namespace Draw
 		if (align == Alignment::Right) { x = 0.0f; }
 		if (align == Alignment::Center) { x = -1.0f + (x * 2.0f); }
 
+#if BUILD_1311_COMPATIBLE
+		HUD::_SET_TEXT_COLOR(red, green, blue, alpha);
+#else
 		UIDEBUG::_BG_SET_TEXT_COLOR(red, green, blue, alpha);
-
-		// Use this native instead of UIDEBUG:: if you want your menu to be compatible with game version <= 1311.12
-		//HUD::_SET_TEXT_COLOR(R, G, B, A);
+#endif
 
 		std::string _rightMargin = (align == Alignment::Right ? std::to_string((int)(SCREEN_WIDTH)-(int)(posX)) : (wrapWidth != 0 ? std::to_string((int)(SCREEN_WIDTH) - ((int)(posX) + wrapWidth)) : "0"));
 		std::string _align = (align == Alignment::Left ? "Left" : align == Alignment::Right ? "Right" : "Center");
@@ -204,15 +200,13 @@ namespace Draw
 		std::string _size = std::to_string(textSize);
 
 		std::string format = "<TEXTFORMAT RIGHTMARGIN = '%s'><P ALIGN = '%s'><FONT FACE = '$%s' LETTERSPACING = '%s' SIZE = '%s'>~s~%s</FONT></P><TEXTFORMAT>";
-		std::string result = menuPrivate::format(format, _rightMargin, _align, _font, _letterSpacing, _size, text);
+		menuPrivate::format(format, _rightMargin, _align, _font, _letterSpacing, _size, text);
 
-		//std::string result = "<TEXTFORMAT RIGHTMARGIN ='" + (align == Alignment::Right ? std::to_string(static_cast<int>(SCREEN_WIDTH) - static_cast<int>(posX)) : (wrapWidth != 0 ? std::to_string(static_cast<int>(SCREEN_WIDTH) - (static_cast<int>(posX) + wrapWidth)) : "0")) 
-		//	+ "'><P ALIGN='" + (align == Alignment::Left ? "left" : align == Alignment::Right ? "right" : "center") +  "'><font face='$" + _font + "' letterspacing ='" + std::to_string(letterSpacing) + "' size='" + std::to_string(textSize) + "'>~s~" + text + "</font></P><TEXTFORMAT>";
-
-		UIDEBUG::_BG_DISPLAY_TEXT(MISC::VAR_STRING(10, "LITERAL_STRING", static_cast<char*>(_strdup(result.c_str()))), x, y);
-
-		// Use this native instead of UIDEBUG:: if you want your menu to be compatible with game version <= 1311.12
-		//HUD::_DISPLAY_TEXT(MISC::VAR_STRING(10, "LITERAL_STRING", static_cast<char*>(_strdup(cap.c_str()))), x, y);
+#if BUILD_1311_COMPATIBLE
+		HUD::_DISPLAY_TEXT(MISC::VAR_STRING(10, "LITERAL_STRING", static_cast<char*>(_strdup(format.c_str()))), x, y);
+#else
+		UIDEBUG::_BG_DISPLAY_TEXT(MISC::VAR_STRING(10, "LITERAL_STRING", static_cast<char*>(_strdup(format.c_str()))), x, y);
+#endif
 	}
 
 	void DrawMenuTextures()
@@ -276,14 +270,14 @@ namespace Menu
 	namespace New
 	{
 		
-		void PageOption(string optionText, string footerText, double pageIndex, void(*pageStructureFunction)())
+		void PageOption(const string& optionText, const string& footerText, double pageIndex, void(*pageStructureFunction)())
 		{
 			/*
 			double _pageIndex = 0.0;
 			if (m_pageIndex == 0.0) {
 				_pageIndex = m_selectionIndex + 1.0;
 			} else {
-				// idfk WHY this doesnt work, but it should.
+				// idk WHY this doesnt work, but it should. might be how i assign the func?
 				// Trying to automate page index...
 				_pageIndex = m_pageIndex + ((m_selectionIndex + 1.0) / 10);
 			}
@@ -299,7 +293,7 @@ namespace Menu
 			menuPrivate::drawFooter(footerText, index);
 		}
 
-		void RegularOption(string optionText, string footerText, void(*funcToExecute)())
+		void RegularOption(const string& optionText, const string& footerText, void(*funcToExecute)())
 		{
 			menuPrivate::assign_index(optionText);
 			int index = map_pageData[m_pageIndex][optionText];
@@ -308,7 +302,7 @@ namespace Menu
 			menuPrivate::drawFooter(footerText, index);
 		}
 
-		void ToggleOption(string optionText, string footerText, bool* bLoopToggle, bool bUseCheckmark, void(*funcToExecute)())
+		void ToggleOption(const string& optionText, const string& footerText, bool* bLoopToggle, bool bUseCheckmark, void(*funcToExecute)())
 		{
 			menuPrivate::assign_index(optionText);
 			int index = map_pageData[m_pageIndex][optionText];
@@ -331,7 +325,7 @@ namespace Menu
 			}
 		}
 
-		void VectorOption(string optionText, string footerText, std::vector<string> vectorOptions, void(*funcToExecute)())
+		void VectorOption(const string& optionText, const string& footerText, std::vector<string> vectorOptions, void(*funcToExecute)())
 		{
 			menuPrivate::assign_index(optionText);
 			int index = map_pageData[m_pageIndex][optionText];
@@ -341,7 +335,7 @@ namespace Menu
 			menuPrivate::drawFooter(footerText, index);
 		}
 
-		void VectorOption(string optionText, string footerText, int numberOfOptions, string startText, string endText, void(*funcToExecute)())
+		void VectorOption(const string& optionText, const string& footerText, int numberOfOptions, const string& startText, const string& endText, void(*funcToExecute)())
 		{
 			menuPrivate::assign_index(optionText);
 			int index = map_pageData[m_pageIndex][optionText];
@@ -362,17 +356,27 @@ namespace Menu
 			}
 		}
 
-		void SetTextForVectorAtPos(string newText, double pageIndex, int vectorIndex, int pos)
+		void SetTextForVectorAtPos(const string& newText, double pageIndex, int vectorIndex, int pos)
 		{
 			if (IsOptionAVector(pageIndex, vectorIndex)) {
 				map_vectorTextOptions[pageIndex][vectorIndex][pos] = newText;
 			}
 		}
 
-		void SetOptionIndex(double pageIndex, string optionText, int newIndex)
+		void SetOptionIndex(double pageIndex, const string& optionText, int newIndex)
 		{
 			if (map_pageData[pageIndex].contains(optionText)) {
 				map_pageData[pageIndex][optionText] = newIndex;
+			}
+		}
+
+		void SetOptionIndex(double pageIndex, int optionIndex, int newIndex)
+		{
+			for (auto it = map_pageData[pageIndex].begin(); it != map_pageData[pageIndex].end(); it++) {
+				if (it->second == optionIndex) {
+					map_pageData[pageIndex][it->first] = newIndex;
+					break;
+				}
 			}
 		}
 
@@ -467,15 +471,15 @@ namespace Menu
 
 	namespace Header
 	{
-		void SetHeader(std::string text, int fontSize, float yPos) {
+		void SetHeader(const std::string& text, int fontSize, float yPos) {
 			Draw::DrawCSSText(text, Font::Lino, 0xff, 0xff, 0xff, 0xff, Alignment::Center, fontSize, BG_X_OFFSET + (BG_WIDTH * 0.5f), yPos);
 		}
 
-		void SetSubHeader(std::string text) {
+		void SetSubHeader(const std::string& text) {
 			Draw::DrawCSSText(text, Font::Lino, 0xff, 0xff, 0xff, 0xff, Alignment::Center, 23, BG_X_OFFSET + (BG_WIDTH * 0.5f), 172);
 		}
 
-		void SetFooter(std::string text) {
+		void SetFooter(const std::string& text) {
 			Draw::DrawCSSText(text, Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Center, 19, BG_X_OFFSET + (BG_WIDTH * 0.5f), 980);
 		}
 	}

@@ -1,4 +1,13 @@
-[Latest Update] Apr 21, 2022
+[Latest Update] May 10, 2022
+- String optimizations
+- Moved macros to menu.h
+- Added macro BUILD_1311_COMPATIBLE
+- Overloaded function Menu::Util::SetOptionIndex
+- Other misc changes
+
+----------------------------------------------Previous Updates----------------------------------------------
+
+Apr 21, 2022
 - Another update to core framework
 - New Menu:: nested namespaces. Menu::New, Menu::Util, Menu::Header
 - Menu:: namespace now has global variables you can access like m_pageIndex and m_selectionIndex instead of calling a function to get them
@@ -19,7 +28,6 @@
 - Changed internal folder names
 - Other misc changes
 
-----------------------------------------------Previous Updates----------------------------------------------
 
 Feb 12, 2022
 - Draw::DrawOption() has been replaced by a new MenuCreate namespace
