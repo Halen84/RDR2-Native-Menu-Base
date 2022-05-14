@@ -15,8 +15,8 @@
 
 namespace Draw
 {
-	// Draw CSS styled text
-	void DrawCSSText(const std::string& text, Font font, int red, int green, int blue, int alpha, Alignment align, int textSize, float posX, float posY, int wrapWidth = 0, int letterSpacing = 0);
+	// Draw formatted text to display on screen
+	void DrawFormattedText(const std::string& text, Font font, int red, int green, int blue, int alpha, Alignment align, int textSize, float posX, float posY, int wrapWidth = 0, int letterSpacing = 0);
 
 	// Draws background, header, footer, and scroller textures
 	void DrawMenuTextures();

@@ -88,9 +88,9 @@ void updateMenu()
 
 	// Option Counter Text
 	if (m_numOptionsInThisPage >= m_visibleOptionsInThisPage) {
-		Draw::DrawCSSText(std::to_string(m_selectionIndex + 1) + " of " + std::to_string(m_numOptionsInThisPage), Font::Hapna, 0x90, 0x90, 0x90, 230, Alignment::Right, 20, 529.0f, 242.0f + (m_visibleOptionsInThisPage * INCREMENT), 0, 0);
+		Draw::DrawFormattedText(std::to_string(m_selectionIndex + 1) + " of " + std::to_string(m_numOptionsInThisPage), Font::Hapna, 144, 144, 144, 230, Alignment::Right, 20, 529.0f, 242.0f + (m_visibleOptionsInThisPage * INCREMENT));
 	} else {
-		Draw::DrawCSSText(std::to_string(m_selectionIndex + 1) + " of " + std::to_string(m_numOptionsInThisPage), Font::Hapna, 0x90, 0x90, 0x90, 230, Alignment::Right, 20, 529.0f, 242.0f + (m_numOptionsInThisPage * INCREMENT), 0, 0);
+		Draw::DrawFormattedText(std::to_string(m_selectionIndex + 1) + " of " + std::to_string(m_numOptionsInThisPage), Font::Hapna, 144, 144, 144, 230, Alignment::Right, 20, 529.0f, 242.0f + (m_numOptionsInThisPage * INCREMENT));
 	}
 
 

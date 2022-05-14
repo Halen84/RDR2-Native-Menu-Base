@@ -76,12 +76,12 @@ namespace menuPrivate
 		if (m_selectionIndex <= m_visibleOptionsInThisPage-1 && index <= m_visibleOptionsInThisPage-1) {
 			if (!bIsSeparator) {
 				Draw::DrawSprite("generic_textures", "selection_box_bg_1c", 310, 270 + (index * INCREMENT), TOP_HEADER_WIDTH, 52, 0, 50, 50, 50, 110, true);
-				Draw::DrawCSSText(text, Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Left, 22, 98, 254 + (index * INCREMENT));
+				Draw::DrawFormattedText(text, Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Left, 22, 98, 254 + (index * INCREMENT));
 			}
 		} else if ((index > (m_selectionIndex - m_visibleOptionsInThisPage)) && index <= m_selectionIndex) {
 			if (!bIsSeparator) {
 				Draw::DrawSprite("generic_textures", "selection_box_bg_1c", 310, 270 + ((index - (m_selectionIndex - (m_visibleOptionsInThisPage-1))) * INCREMENT), TOP_HEADER_WIDTH, 52, 0, 50, 50, 50, 110, true);
-				Draw::DrawCSSText(text, Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Left, 22, 98, 254 + ((index - (m_selectionIndex - (m_visibleOptionsInThisPage-1))) * INCREMENT));
+				Draw::DrawFormattedText(text, Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Left, 22, 98, 254 + ((index - (m_selectionIndex - (m_visibleOptionsInThisPage-1))) * INCREMENT));
 			}	
 		}
 
@@ -125,14 +125,14 @@ namespace menuPrivate
 			if (m_selectionIndex <= m_visibleOptionsInThisPage-1 && index <= m_visibleOptionsInThisPage-1) {
 				if (m_selectionIndex == index) {
 					// Only draw arrows if we are selecting [index]
-					Draw::DrawCSSText("<img src='img://menu_textures/selection_arrow_left' height='18' width='18'/> " + curText + " <img src='img://menu_textures/selection_arrow_right' height='18' width='18'/>", Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Right, 22, 520, 254 + (index * INCREMENT));
+					Draw::DrawFormattedText("<img src='img://menu_textures/selection_arrow_left' height='18' width='18'/> " + curText + " <img src='img://menu_textures/selection_arrow_right' height='18' width='18'/>", Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Right, 22, 520, 254 + (index * INCREMENT));
 				}
 				else {
-					Draw::DrawCSSText(curText, Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Right, 22, 520, 254 + (index * INCREMENT));
+					Draw::DrawFormattedText(curText, Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Right, 22, 520, 254 + (index * INCREMENT));
 				}
 			}
 			else if ((index > (m_selectionIndex - m_visibleOptionsInThisPage)) && index <= m_selectionIndex) {
-				Draw::DrawCSSText(curText, Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Right, 22, 520, 254 + ((index - (m_selectionIndex - (m_visibleOptionsInThisPage-1))) * INCREMENT));
+				Draw::DrawFormattedText(curText, Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Right, 22, 520, 254 + ((index - (m_selectionIndex - (m_visibleOptionsInThisPage-1))) * INCREMENT));
 			}
 		}
 	}
@@ -178,7 +178,7 @@ namespace menuPrivate
 // -------------------------------
 namespace Draw
 {
-	void DrawCSSText(const std::string& text, Font font, int red, int green, int blue, int alpha, Alignment align, int textSize, float posX, float posY, int wrapWidth, int letterSpacing)
+	void DrawFormattedText(const std::string& text, Font font, int red, int green, int blue, int alpha, Alignment align, int textSize, float posX, float posY, int wrapWidth, int letterSpacing)
 	{
 		const std::vector<std::string> fontList = { "util", "catalog5", "body1", "body", "Debug_REG", "catalog4", "chalk", "catalog1", "ledger", "title", "wantedPostersGeneric", "gtaCash", "gamername", "handwritten"};
 		std::string _font = fontList[static_cast<int>(font)];
@@ -317,10 +317,10 @@ namespace Menu
 
 			if (bUseCheckmark && *bLoopToggle) {
 				if (m_selectionIndex <= m_visibleOptionsInThisPage-1 && index <= m_visibleOptionsInThisPage-1) {
-					Draw::DrawCSSText("<img src='img://generic_textures/tick' height='30' width='30'/>", Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Right, 22, 520, 250 + (index * INCREMENT));
+					Draw::DrawFormattedText("<img src='img://generic_textures/tick' height='30' width='30'/>", Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Right, 22, 520, 250 + (index * INCREMENT));
 				}
 				else if ((index > (m_selectionIndex - m_visibleOptionsInThisPage)) && index <= m_selectionIndex) {
-					Draw::DrawCSSText("<img src='img://generic_textures/tick' height='30' width='30'/>", Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Right, 22, 520, 250 + ((index - (m_selectionIndex - (m_visibleOptionsInThisPage-1))) * INCREMENT));
+					Draw::DrawFormattedText("<img src='img://generic_textures/tick' height='30' width='30'/>", Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Right, 22, 520, 250 + ((index - (m_selectionIndex - (m_visibleOptionsInThisPage-1))) * INCREMENT));
 				}
 			}
 		}
@@ -472,15 +472,15 @@ namespace Menu
 	namespace Header
 	{
 		void SetHeader(const std::string& text, int fontSize, float yPos) {
-			Draw::DrawCSSText(text, Font::Lino, 0xff, 0xff, 0xff, 0xff, Alignment::Center, fontSize, BG_X_OFFSET + (BG_WIDTH * 0.5f), yPos);
+			Draw::DrawFormattedText(text, Font::Lino, 0xff, 0xff, 0xff, 0xff, Alignment::Center, fontSize, BG_X_OFFSET + (BG_WIDTH * 0.5f), yPos);
 		}
 
 		void SetSubHeader(const std::string& text) {
-			Draw::DrawCSSText(text, Font::Lino, 0xff, 0xff, 0xff, 0xff, Alignment::Center, 23, BG_X_OFFSET + (BG_WIDTH * 0.5f), 172);
+			Draw::DrawFormattedText(text, Font::Lino, 0xff, 0xff, 0xff, 0xff, Alignment::Center, 23, BG_X_OFFSET + (BG_WIDTH * 0.5f), 172);
 		}
 
 		void SetFooter(const std::string& text) {
-			Draw::DrawCSSText(text, Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Center, 19, BG_X_OFFSET + (BG_WIDTH * 0.5f), 980);
+			Draw::DrawFormattedText(text, Font::Hapna, 0xff, 0xff, 0xff, 0xff, Alignment::Center, 19, BG_X_OFFSET + (BG_WIDTH * 0.5f), 980);
 		}
 	}
 
