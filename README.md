@@ -4,14 +4,14 @@ An RDR2 UI Menu Base that uses in-game sprites to make UI menus similar to how t
 # Sample Images
 - These examples are included in the source code, and are easy to remove if needed
 <details>
-  <summary>Basic Samples (Taken on April 2022)</summary>
+  <summary>Basic Samples (Taken on June 15th, 2022)</summary>
   <p>
-    <img src="https://i.imgur.com/oAKUmCe.png" alt="Regular Option" height="600">
-    <img src="https://i.imgur.com/mUBXHm0.png" alt="Bool Option" height="600">
-    <img src="https://i.imgur.com/6m8GGIY.png" alt="Vector Option" height="600">
-	<img src="https://i.imgur.com/01YiWZl.png" alt="Vector Option With Changed Value" height="600">
-	<img src="https://i.imgur.com/a6YVkJ0.png" alt="Submenu" height="600">
-	<img src="https://i.imgur.com/dojQ7G7.png" alt="Another submenu" height="600">
+    <img src="https://i.imgur.com/G8fB6r2.png" alt="Regular Option" height="600">
+    <img src="https://i.imgur.com/ag6g1sG.png" alt="Bool Option" height="600">
+    <img src="https://i.imgur.com/IEH5QkX.png" alt="Vector Option" height="600">
+	<img src="https://i.imgur.com/psHtOkd.png" alt="Vector Option With Changed Value" height="600">
+	<img src="https://i.imgur.com/w8A45pW.png" alt="Submenu Example" height="600">
+	<img src="https://i.imgur.com/vNgMQ5x.png" alt="Another submenu" height="600">
   </p>
 </details>
 
