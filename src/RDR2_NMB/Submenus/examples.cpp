@@ -1,35 +1,49 @@
-// Licensed under the MIT License.
+#include "examples.hpp"
+#include "../UI/util.h"
 
-#include ".\Core\menu.h"
-#include ".\Core\script.h"
-
-using namespace Menu;
-
-// This is where you will write your functions when an option is pressed/switched
-// Remember to add your new functions to function.h!
-
-
-void VectorOption1()
+namespace Menu
 {
-	int pos = Util::GetVectorSelection(m_pageIndex, m_selectionIndex);
-	PrintSubtitle(std::to_string(pos) + " - Vector Option");
-}
-
-void VectorOption2()
-{
-	int pos = Util::GetVectorSelection(m_pageIndex, m_selectionIndex);
-	PrintSubtitle(std::to_string(pos) + " - Static Vector Option");
-}
-
-
-
-void ChangeWeather()
-{
-	Hash weatherType;
-	std::string weatherName = Util::GetTextAtCurrentSelection();
-
-	switch (m_selectionIndex)
+	bool CExampleFuncs::bPauseTime = false;
+	void CExampleFuncs::PauseTime()
 	{
+		CLOCK::PAUSE_CLOCK(bPauseTime, 0);
+		if (bPauseTime)
+			Util::PrintSubtitle("Time paused");
+		else
+			Util::PrintSubtitle("Time unpaused");
+	}
+
+	void CExampleFuncs::SetTime()
+	{
+		Option* option = g_NativeMenu->GetSelectedOption();
+
+		int hrs = CLOCK::GET_CLOCK_HOURS();
+		int min = CLOCK::GET_CLOCK_MINUTES();
+		int sec = CLOCK::GET_CLOCK_SECONDS();
+
+		switch (option->m_Index)
+		{
+		case 0:
+			CLOCK::SET_CLOCK_TIME(option->m_VectorIndex, min, sec); // Change hour
+			break;
+		case 1:
+			CLOCK::SET_CLOCK_TIME(hrs, option->m_VectorIndex, sec); // Change minute
+			break;
+		case 2:
+			CLOCK::SET_CLOCK_TIME(hrs, min, option->m_VectorIndex); // Change second
+			break;
+		default:
+			break;
+		}
+	}
+
+	void CExampleFuncs::SetWeather()
+	{
+		Option* option = g_NativeMenu->GetSelectedOption();
+		Hash weatherType;
+
+		switch (option->m_Index)
+		{
 		case 0:
 			weatherType = MISC::GET_HASH_KEY("HIGHPRESSURE");
 			break;
@@ -96,32 +110,9 @@ void ChangeWeather()
 		default:
 			weatherType = MISC::GET_HASH_KEY("SUNNY");
 			break;
-	}
+		}
 
-	MISC::SET_WEATHER_TYPE(weatherType, true, true, false, 0.0f, false);
-	PrintSubtitle("Set weather to: ~COLOR_OBJECTIVE~" + weatherName + "~s~");
-}
-
-void ChangeTime()
-{
-	int pos = Util::GetVectorSelection(m_pageIndex, m_selectionIndex);
-
-	int hrs = CLOCK::GET_CLOCK_HOURS();
-	int min = CLOCK::GET_CLOCK_MINUTES();
-	int sec = CLOCK::GET_CLOCK_SECONDS();
-
-	switch (m_selectionIndex)
-	{
-		case 0:
-			CLOCK::SET_CLOCK_TIME(pos, min, sec); // Change hour
-			break;
-		case 1:
-			CLOCK::SET_CLOCK_TIME(hrs, pos, sec); // Change minute
-			break;
-		case 2:
-			CLOCK::SET_CLOCK_TIME(hrs, min, pos); // Change second
-			break;
-		default:
-			break;
+		MISC::SET_WEATHER_TYPE(weatherType, true, true, false, 0.0f, false);
+		Util::PrintSubtitle("Set weather type to: ~COLOR_OBJECTIVE~" + option->GetText() + "~s~");
 	}
 }

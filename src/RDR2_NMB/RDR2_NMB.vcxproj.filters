@@ -3,19 +3,20 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="keyboard.cpp" />
-    <ClCompile Include="Core\menu.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\script.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
-    <ClCompile Include="pages.cpp">
-      <Filter>Pages</Filter>
-    </ClCompile>
-    <ClCompile Include="functions.cpp">
-      <Filter>Pages</Filter>
+    <ClCompile Include="UI\menu.cpp">
+      <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="common.cpp" />
+    <ClCompile Include="UI\drawing.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="script.cpp" />
+    <ClCompile Include="Submenus\examples.cpp">
+      <Filter>Submenus</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\util.cpp">
+      <Filter>UI\Other</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\inc\enums.h">
@@ -31,33 +32,45 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="keyboard.h" />
-    <ClInclude Include="Core\menu.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\script.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="pages.h">
-      <Filter>Pages</Filter>
-    </ClInclude>
-    <ClInclude Include="functions.h">
-      <Filter>Pages</Filter>
+    <ClInclude Include="UI\menu.hpp">
+      <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="common.hpp" />
-    <ClInclude Include="settings.h" />
+    <ClInclude Include="UI\option.hpp">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\drawing.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="script.h" />
+    <ClInclude Include="Submenus\examples.hpp">
+      <Filter>Submenus</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\util.h">
+      <Filter>UI\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\submenu_ids.hpp">
+      <Filter>UI\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\submenu.hpp">
+      <Filter>UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">
       <UniqueIdentifier>{5d58942b-ebbf-4d0a-9526-359e3a556796}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core">
-      <UniqueIdentifier>{e770b224-3fb7-4e0e-9809-d82498335638}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Pages">
-      <UniqueIdentifier>{0bdaf06f-cb0e-4245-85b8-fd8b32a42e71}</UniqueIdentifier>
-    </Filter>
     <Filter Include="lib">
       <UniqueIdentifier>{a486e665-ad1e-4ec9-a2ad-27a05f15bb1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{e770b224-3fb7-4e0e-9809-d82498335638}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Other">
+      <UniqueIdentifier>{89913c18-6ba7-4d8f-812b-6b1c2b683d14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submenus">
+      <UniqueIdentifier>{38a25fb7-7440-4dcf-aba1-660893d45af1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

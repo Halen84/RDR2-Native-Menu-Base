@@ -2,11 +2,11 @@
 
 #pragma once
 
-#include "..\..\..\inc\natives.h"
-#include "..\..\..\inc\types.h"
-#include "..\..\..\inc\enums.h"
-#include "..\..\..\inc\main.h"
-#include "..\common.hpp"
+#include "..\..\inc\natives.h"
+#include "..\..\inc\types.h"
+#include "..\..\inc\enums.h"
+#include "..\..\inc\main.h"
+#include "common.hpp"
 
 const float SCREEN_WIDTH = 1920.0f;
 const float SCREEN_HEIGHT = 1080.0f;

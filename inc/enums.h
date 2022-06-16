@@ -1,23 +1,51 @@
 #pragma once
 
-enum class Font : int {
-	Arial,			// $util
-	Cabrito,		// $catalog5
-	DroidSerif,		// $body1
-	Hapna,			// $body
-	Helvetica,		// $Debug_REG
-	Catalogue,		// $catalog4
-	Chalk,			// $chalk
-	Gothica,		// $catalog1
-	Ledger,			// $ledger
-	Lino,			// $title
-	Turri,			// $wantedPostersGeneric
-	Redemption,		// $gtaCash
-	Gamertag,		// $gamername
-	DreamerScript,	// $handwritten
+enum class Font : int
+{
+	Body,						// Hapna Slab Serif DemiBold
+	Body1,						// Droid Serif Pro
+	Body2,						// Hapna Slab Serif DemiBold
+	Body3,						// Hapna Slab Serif DemiBold
+	Catalog1,					// RDR Gothica
+	Catalog2,					// RDR Catalogue Numbers
+	Catalog3,					// Arial DEBUG
+	Catalog4,					// RDR Catalogue Bold
+	Catalog5,					// Cabrito Norm Demi
+	Chalk,						// RDR Chalk Hand
+	CreditNames,				// RDR Lino
+	CreditTitles,				// Redemption
+	Debug_Bold,					// HelveticaNeue LT 47 LightCn
+	Debug_Reg,					// HelveticaNeue LT 47 LightCn
+	FixedWidthNumbers,			// RDR Lino Numbers
+	Font2,						// Arial DEBUG
+	Font2_Cond_Not_Gamername,	// Arial DEBUG
+	Font5,						// Redemption
+	Font5_Limited,				// Redemption
+	GTACash,					// Redemption
+	Gamername,					// Rockstar Gamertag Cond
+	Handwritten,				// 1871 Dreamer Script
+	Ledger,						// RDR Ledger Hand
+	RockstarTag,				// RockstarTAG
+	Social_Club_Cond_Bold,		// Arial
+	Social_Club_Cond_Reg,		// Arial
+	Title,						// RDR Lino
+	Title1,						// RDR Lino
+	Title2,						// RDR Lino
+	Util,						// Arial DEBUG
+	WantedPostersGeneric,		// RDR Turri
 };
 
-enum class Alignment : int {
+// TODO: Use this
+enum class FontSize : int
+{
+	FS_Header = 45,
+	FS_SubHeader = 23,
+	FS_Option = 22,
+	FS_Footer = 19,
+};
+
+enum class Alignment : int
+{
 	Left,
 	Center,
 	Right
@@ -27,6 +55,13 @@ enum VisibleOptionsInPage
 {
 	DEFAULT = 8,
 	MAX = 12,
+};
+
+enum eInputGroup
+{
+	INPUT_GROUP_KEYBOARD = 0,
+	INPUT_GROUP_UNK2,
+	INPUT_GROUP_CONTROLLER,
 };
 
 enum eInputType : Hash

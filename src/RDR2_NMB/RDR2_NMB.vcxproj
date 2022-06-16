@@ -8,25 +8,29 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="common.cpp" />
-    <ClCompile Include="Core\menu.cpp" />
-    <ClCompile Include="Core\script.cpp" />
+    <ClCompile Include="Submenus\examples.cpp" />
+    <ClCompile Include="UI\menu.cpp" />
+    <ClCompile Include="script.cpp" />
+    <ClCompile Include="UI\drawing.cpp" />
     <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="functions.cpp" />
-    <ClCompile Include="pages.cpp" />
+    <ClCompile Include="UI\util.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\inc\main.h" />
     <ClInclude Include="..\..\inc\enums.h" />
     <ClInclude Include="..\..\inc\natives.h" />
     <ClInclude Include="..\..\inc\types.h" />
+    <ClInclude Include="Submenus\examples.hpp" />
+    <ClInclude Include="UI\drawing.h" />
+    <ClInclude Include="UI\option.hpp" />
     <ClInclude Include="common.hpp" />
-    <ClInclude Include="Core\menu.h" />
-    <ClInclude Include="Core\script.h" />
+    <ClInclude Include="UI\menu.hpp" />
+    <ClInclude Include="script.h" />
     <ClInclude Include="keyboard.h" />
-    <ClInclude Include="functions.h" />
-    <ClInclude Include="pages.h" />
-    <ClInclude Include="settings.h" />
+    <ClInclude Include="UI\submenu.hpp" />
+    <ClInclude Include="UI\submenu_ids.hpp" />
+    <ClInclude Include="UI\util.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{8D82F34A-1D64-465B-84B1-37F89AD3D20B}</ProjectGuid>

@@ -1,11 +1,23 @@
-[Latest Update] May 10, 2022
+[Latest Update] Jun 15, 2022
+- Native Menu Base has been completely rewritten from scratch and is wayyyy easier to use and understand
+- Rewritten to use classes
+- Added class "Option". Each option is its own class
+- "Menu" has been rewritten and now includes a new class "CNativeMenu"
+- "CNativeMenu" class has some useful members and functions
+- "Option" class has everything option related to it, including its index, vector, option type, text, etc
+- Removed broken page indexing system, replaced by a new sub menu ID system
+- Added scroller sprites
+- "More fonts"
+- And much more
+
+----------------------------------------------Previous Updates----------------------------------------------
+
+May 10, 2022
 - String optimizations
 - Moved macros to menu.h
 - Added macro BUILD_1311_COMPATIBLE
 - Overloaded function Menu::Util::SetOptionIndex
 - Other misc changes
-
-----------------------------------------------Previous Updates----------------------------------------------
 
 Apr 21, 2022
 - Another update to core framework
