@@ -28,6 +28,7 @@ namespace Menu
 			m_SubMenus[id] = submenu;
 		}
 
+		// NOTE: THIS FUNCTION IS A LITTLE BROKEN
 		// bSetRememberedSelection: Should be TRUE if going backwards
 		void GoToSubmenu(int id, bool bSetRememberedSelection)
 		{
@@ -83,6 +84,15 @@ namespace Menu
 		bool DoesSubMenuExist(int id)
 		{
 			return m_SubMenus.contains(id);
+		}
+
+		void ClearSubmenusAtAndAfterThisID(int id)
+		{
+			for (auto it = m_SubMenus.begin(); it != m_SubMenus.end(); it++) {
+				if (it->first >= id) {
+					m_SubMenus.erase(it);
+				}
+			}
 		}
 
 

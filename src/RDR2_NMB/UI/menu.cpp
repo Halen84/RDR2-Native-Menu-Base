@@ -101,6 +101,8 @@ void CNativeMenu::HandleInput()
 	if (m_IsOpen) {
 		if (m_SelectPromptCompleted) {
 			Option* option = GetSelectedOption();
+			if (option == nullptr) return;
+
 			if (option->m_IsRegularOption) {
 				option->ExecuteFunc();
 			}
@@ -119,7 +121,11 @@ void CNativeMenu::HandleInput()
 				option->ExecuteVectorFunc(false, true);
 			}
 			else if (option->m_IsSubMenuOption) {
-				g_NativeMenu->GoToSubmenu(option->m_SubMenuID, false);
+				//g_NativeMenu->GoToSubmenu(option->m_SubMenuID, false);
+				m_PrevSubMenuIds.push_back(m_CurrentSubMenu->m_ID);
+				m_SubMenuLastSelections[m_CurrentSubMenu->m_ID] = m_SelectionIndex;
+				m_CurrentSubMenu = &m_SubMenus[option->m_SubMenuID];
+				m_SelectionIndex = 0;
 			}
 			playSoundFrontend("SELECT", "HUD_SHOP_SOUNDSET");
 		}
@@ -133,7 +139,11 @@ void CNativeMenu::HandleInput()
 			}
 
 			if (m_PrevSubMenuIds.size() > 0) {
-				g_NativeMenu->GoToSubmenu(m_PrevSubMenuIds[m_PrevSubMenuIds.size() - 1], true);
+				//g_NativeMenu->GoToSubmenu(m_PrevSubMenuIds[m_PrevSubMenuIds.size() - 1], true);
+				m_CurrentSubMenu = &m_SubMenus[m_PrevSubMenuIds[m_PrevSubMenuIds.size() - 1]];
+				m_PrevSubMenuIds.pop_back();
+				m_SelectionIndex = m_SubMenuLastSelections[m_CurrentSubMenu->m_ID];
+				m_SubMenuLastSelections.erase(m_CurrentSubMenu->m_ID);
 			} else {
 				m_CurrentSubMenu = &m_SubMenus[Submenu_EntryMenu];
 				m_SelectionIndex = m_SubMenuLastSelections[Submenu_EntryMenu];
@@ -144,6 +154,8 @@ void CNativeMenu::HandleInput()
 
 
 		if (m_UpKeyPressed) {
+			if (GetSelectedOption() == nullptr) return;
+
 			if (IsKeyDownLong(VK_SHIFT)) {
 				m_SelectionIndex -= 10;
 				if (m_SelectionIndex < 0)
@@ -163,6 +175,8 @@ void CNativeMenu::HandleInput()
 
 
 		if (m_DownKeyPressed) {
+			if (GetSelectedOption() == nullptr) return;
+
 			if (IsKeyDownLong(VK_SHIFT)) {
 				m_SelectionIndex += 10;
 				if (m_SelectionIndex > m_CurrentSubMenu->m_NumOptions - 1)
@@ -240,6 +254,8 @@ void CNativeMenu::RegisterUIPrompts()
 		HUD::_UI_PROMPT_SET_PRIORITY(_prompt, 2); // PP_High
 		HUD::_UI_PROMPT_SET_TEXT(_prompt, MISC::VAR_STRING(10, "LITERAL_STRING", text));
 		HUD::_UI_PROMPT_SET_STANDARD_MODE(_prompt, TRUE);
+		// Allows multiple prompts (>2) of the same type to be shown
+		HUD::_UI_PROMPT_SET_ATTRIBUTE(_prompt, 34, true);
 		HUD::_UI_PROMPT_REGISTER_END(_prompt);
 
 		HUD::_UI_PROMPT_SET_VISIBLE(_prompt, false);

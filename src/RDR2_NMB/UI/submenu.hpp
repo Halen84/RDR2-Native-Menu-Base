@@ -109,7 +109,8 @@ namespace Menu
 
 		Option* GetOption(int optionIndex)
 		{
-			if (optionIndex > m_Options.size()) {
+			// >= because 0 based indexing
+			if (optionIndex >= m_Options.size()) {
 #if ALLOCATE_CONSOLE
 				std::cout << "[Submenu::GetOption] [ERROR]: Invalid optionIndex (" << optionIndex << "). ID: " << m_ID << ", m_Options.size(): " << m_Options.size() << ", returning nullptr" << "\n";
 #endif
@@ -117,6 +118,38 @@ namespace Menu
 			} else {
 				return &m_Options[optionIndex];
 			}
+		}
+
+		// TODO: TEST
+		void DeleteOption(Option* option)
+		{
+			for (auto it = m_Options.begin(); it != m_Options.end(); it++) {
+				if (it->m_Index == option->m_Index) {
+					m_Options.erase(it);
+					m_NumOptions--;
+					break;
+				}
+			}
+		}
+
+		// TODO: TEST
+		void DeleteOption(int optionIndex)
+		{
+			for (auto it = m_Options.begin(); it != m_Options.end(); it++) {
+				if (it->m_Index == optionIndex) {
+					m_Options.erase(it);
+					m_NumOptions--;
+					break;
+				}
+			}
+		}
+
+
+		// Clear all options
+		void Clear()
+		{
+			m_Options.clear();
+			m_NumOptions = 0;
 		}
 
 	private:
