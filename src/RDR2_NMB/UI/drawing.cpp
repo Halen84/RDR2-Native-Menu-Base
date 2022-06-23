@@ -1,6 +1,7 @@
 // Licensed under the MIT License.
 
 #include "drawing.h"
+#include "util.h"
 //#include <format>
 
 const std::vector<const char*> FontList = { "body", "body1", "body2", "body3", "catalog1", "catalog2", "catalog3", "catalog4", "catalog5", "chalk", "creditNames", "creditTitles",
@@ -21,11 +22,41 @@ void format(std::string& str, const Args&... args)
 	}
 }
 
+void correctFontSize(int* fontSize)
+{
+	/*
+	This is from my personal testing. 
+	
+	Let's say fontSize is 22. To properly display font on a 4k (3840) screen,
+	we need to increase fontSize by 10. 22 + 10 = 32. 3840/120 = 32.
+
+	Let's say fontSize is 22. To properly display font on a 1280 screen,
+	we need to decrease fontSize by 6. 22 - 6 = 16. 1280/80 = 16.
+
+	- Decimals get truncated on integer conversion.
+	- This is far from being good, but it works for now.
+	- This should work on all screen sizes. 1920x1080 is unaffected buy this.
+	*/
+
+	int size = -1;
+	if (Menu::Util::g_windowHandle != NULL) {
+		if (Menu::Util::g_screenWidth > 1920) {
+			size = Menu::Util::g_screenWidth / 120;
+		}
+		else if (Menu::Util::g_screenWidth < 1920) {
+			size = Menu::Util::g_screenWidth / 80;
+		}
+	}
+
+	if (size != -1) {
+		*fontSize = size;
+	}
+}
 
 // Used in DrawOption()
 void DrawFooter(const std::string& text)
 {
-	Menu::Drawing::DrawFormattedText(text, Font::Body, 255, 255, 255, 255, Alignment::Center, 19, BG_X_OFFSET + (BG_WIDTH * 0.5f), 980);
+	Menu::Drawing::DrawFormattedText(text, Font::Body, 255, 255, 255, 255, Alignment::Center, 18, BG_X_OFFSET + (BG_WIDTH * 0.5f), 980);
 }
 
 
@@ -45,7 +76,7 @@ namespace Menu
 
 	void Drawing::DrawFormattedText(const std::string& text, Font font, int red, int green, int blue, int alpha, Alignment align, int textSize, float posX, float posY, int wrapWidth, int letterSpacing)
 	{
-		// TODO: Change font size based on display size. Use Menu::Util::g_screenWidth/Height
+		correctFontSize(&textSize); // See comment inside function
 		
 		std::string _font = FontList[static_cast<int>(font)];
 
@@ -81,7 +112,7 @@ namespace Menu
 	void Drawing::DrawOption(Option* option)
 	{
 		int selection = g_NativeMenu->m_SelectionIndex;
-		int visibleOptions = g_NativeMenu->m_CurrentSubMenu->m_NumVisibleOptions;
+		int visibleOptions = g_NativeMenu->CurrentSubmenu->m_NumVisibleOptions;
 		int index = option->m_Index;
 
 		if (option->m_IsSubMenuOption && (option->m_IsBoolOption || option->m_IsVectorOption || option->m_IsRegularOption || option->m_IsPageBreak)) {
@@ -146,8 +177,8 @@ namespace Menu
 
 	void Drawing::DrawMenuTextures()
 	{
-		int numOptions = g_NativeMenu->m_CurrentSubMenu->m_NumOptions;
-		int visOptions = g_NativeMenu->m_CurrentSubMenu->m_NumVisibleOptions;
+		int numOptions = g_NativeMenu->CurrentSubmenu->m_NumOptions;
+		int visOptions = g_NativeMenu->CurrentSubmenu->m_NumVisibleOptions;
 		int selection = g_NativeMenu->m_SelectionIndex;
 
 		// Background
@@ -195,7 +226,7 @@ namespace Menu
 		// just don't look right, so the lines are sized to be touching each other.
 
 		int selection = g_NativeMenu->m_SelectionIndex;
-		int visibleOptions = g_NativeMenu->m_CurrentSubMenu->m_NumVisibleOptions;
+		int visibleOptions = g_NativeMenu->CurrentSubmenu->m_NumVisibleOptions;
 
 		// Left, Right, Top, Bottom
 		if (selection >= visibleOptions-1) {

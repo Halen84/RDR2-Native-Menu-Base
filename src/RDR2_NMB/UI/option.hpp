@@ -13,6 +13,10 @@ namespace Menu
 		std::string m_LeftText = "";
 		std::string m_RightText = "";
 		std::string m_Footer = "";
+		
+		bool bWentLeft = false;
+		bool bWentRight = false;
+		bool bInitialTextSet = false;
 
 		std::vector<std::string> m_Vector;
 		bool* m_BoolPtr = nullptr;
@@ -40,7 +44,7 @@ namespace Menu
 
 		//==================================//
 
-		// bFromRight: Get text from this vector option
+		// bFromRight: Get text from the vector option
 		std::string GetText(bool bFromRight = false)
 		{
 			if (bFromRight)
@@ -58,12 +62,21 @@ namespace Menu
 			return m_BoolPtr;
 		}
 
-		void SetText(std::string text)
+		// bRight: Set text for the vector
+		void SetText(std::string text, bool bRight = false)
 		{
-			m_LeftText = text;
-			// temp
-			if (m_IsVectorOption)
+			if (bRight) {
+				m_RightText = text;
+				m_Vector[m_VectorIndex] = text;
+			}
+			else {
+				m_LeftText = text;
+			}
+			
+			if (!bInitialTextSet && m_IsVectorOption) {
 				m_RightText = m_Vector[0];
+				bInitialTextSet = true;
+			}	
 		}
 
 		void SetFooter(std::string footer)
@@ -86,8 +99,16 @@ namespace Menu
 			m_Func = func;
 		}
 
-		//template<typename T> // TODO
-		void SetVector(std::vector<std::string> vec)
+		template<typename T>
+		void SetVector(std::vector<T> &vec)
+		{
+			std::vector<std::string> _temp;
+			for (int i = 0; i < vec.size(); i++)
+				_temp.push_back(std::to_string(vec[i]));
+			m_Vector.swap(_temp);
+		}
+
+		void SetVector(std::vector<std::string> &vec)
 		{
 			m_Vector.swap(vec);
 		}
@@ -99,6 +120,14 @@ namespace Menu
 				m_RightText = m_Vector[m_VectorIndex];
 			}
 		}
+		
+		// Get which way the vector went when the function was executed
+		// Note: This should be used in the vector function itself
+		void GetVectorDirection(bool &bLeft, bool &bRight)
+		{
+			bLeft = bWentLeft;
+			bRight = bWentRight;
+		}
 
 		void ExecuteFunc()
 		{
@@ -108,6 +137,9 @@ namespace Menu
 
 		void ExecuteVectorFunc(bool bLeft, bool bRight)
 		{
+			bWentLeft = bLeft;
+			bWentRight = bRight;
+			
 			if (bLeft) {
 				m_VectorIndex -= 1;
 				if (m_VectorIndex < 0) 
@@ -123,6 +155,9 @@ namespace Menu
 			
 			if (m_Func != nullptr)
 				m_Func();
+			
+			bWentLeft = false;
+			bWentRight = false;
 		}
 	};
 }

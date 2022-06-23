@@ -25,8 +25,9 @@ HELP & INFO:
 - The UI will look and function the best on 1920x1080 displays
 - The "SubMenus" folder is where you can put your functions for options. Its up to you how you want to organize everything.
 - ^^^ You can also create the options in other files as long as you call it in InitializeMenu()
+- To change keybinds, see UI/menu.cpp in CheckInput()
 - UI/option.hpp is the Option class
-- UI/menu.hpp is the CNativeMenu class
+- UI/menu.hpp is the CNativeMenu class (g_NativeMenu)
 - UI/submenu.hpp is the Submenu class
 - UI/menu.cpp handles keypresses, navigation, some drawing, and other things
 - UI/drawing.cpp does the texture and text drawing for everything
@@ -40,23 +41,33 @@ bool _exampleBool = false;
 std::vector<std::string> _exampleOptionVector = { "First", "Second", "Third", "Last" };
 void InitializeMenu()
 {
-	g_NativeMenu->AddSubmenu("HEADER", "SUB HEADER", Submenu_EntryMenu, DEFAULT, [](Submenu* sub) 
+	g_NativeMenu->AddSubmenu("HEADER", "Sub Header", Submenu_EntryMenu, DEFAULT, [](Submenu* sub) 
 	{
 			sub->AddRegularOption("Regular Option", "Regular Option Example", [] {
 				Util::PrintSubtitle("~COLOR_BLUE~Regular~s~ option function executed");
 			});
 
 			sub->AddBoolOption("Bool Option", "Bool Option Example", &_exampleBool, [] {
-				Util::PrintSubtitle("~COLOR_BLUE~Bool~s~ option function executed. Bool is " + std::string(_exampleBool ? "true" : "false"));
+				Util::PrintSubtitle("~COLOR_BLUE~Bool~s~ option function executed. Bool is: " + std::string(_exampleBool ? "true" : "false"));
 			});
 
-			sub->AddVectorOption("Vector Option", "Vector Option Example", _exampleOptionVector, [] {
-				Util::PrintSubtitle("~COLOR_BLUE~Vector~s~ option function executed. Index: " + std::to_string(g_NativeMenu->GetSelectedOption()->m_VectorIndex));
+			sub->AddVectorOption<std::string>("Vector Option 1", "Vector Option", _exampleOptionVector, [] {
+				Util::PrintSubtitle("~COLOR_BLUE~Vector option 1~s~ function executed. Index: " + std::to_string(g_NativeMenu->GetSelectedOption()->m_VectorIndex));
+			});
+
+			// Note: When using const char* vectors, DONT be explicit about the type here.
+			// There is a seperate function for it.
+			sub->AddVectorOption("Vector Option 2", "Vector Option with an unnamed scope", { "Unnamed", "Scope", "Vector" }, [] {
+				Util::PrintSubtitle("~COLOR_BLUE~Vector option 2~s~ function executed.");
+			});
+
+			sub->AddVectorOption<int>("Vector Option 3", "Vector Option with an unnamed scope as an integer", { 1, 2, 3, 4, 5 }, [] {
+				Util::PrintSubtitle("~COLOR_BLUE~Vector option 3~s~ function executed.");
 			});
 
 			// 0 based indexing, 0 --> 9 is 10 options
-			sub->AddVectorOption("Vector Option 2", "\"Static\" Vector Option Example", 10, "", "", [] {
-				Util::PrintSubtitle("~COLOR_BLUE~Vector option 2~s~ function executed");
+			sub->AddVectorOption("Vector Option 4", "\"Static\" Vector Option", 10, "", "", [] {
+				Util::PrintSubtitle("~COLOR_BLUE~Vector option 4~s~ function executed.");
 			});
 
 			// This submenu is created below (Submenu_Examples). This just creates an option for the page
@@ -65,14 +76,14 @@ void InitializeMenu()
 	});
 
 
-	g_NativeMenu->AddSubmenu("EXAMPLES", "FUNCTIONAL EXAMPLES", Submenu_Examples, DEFAULT, [](Submenu* sub)
+	g_NativeMenu->AddSubmenu("EXAMPLES", "Functional Examples", Submenu_Examples, DEFAULT, [](Submenu* sub)
 	{
 			sub->AddSubmenuOption("Change Weather", "", Submenu_Examples_Weather);
 			sub->AddSubmenuOption("Change Time", "", Submenu_Examples_Time);
 	});
 
 
-	g_NativeMenu->AddSubmenu("EXAMPLES", "CHANGE WEATHER", Submenu_Examples_Weather, MAX, [](Submenu* sub)
+	g_NativeMenu->AddSubmenu("EXAMPLES", "Change Weather", Submenu_Examples_Weather, MAX, [](Submenu* sub)
 	{
 			sub->AddRegularOption("High Pressure", "",		[] { g_ExampleFuncs->SetWeather(); });
 			sub->AddRegularOption("Rain", "",				[] { g_ExampleFuncs->SetWeather(); });
@@ -98,7 +109,7 @@ void InitializeMenu()
 	});
 
 
-	g_NativeMenu->AddSubmenu("EXAMPLES", "CHANGE TIME", Submenu_Examples_Time, DEFAULT, [](Submenu* sub)
+	g_NativeMenu->AddSubmenu("EXAMPLES", "Change Time", Submenu_Examples_Time, DEFAULT, [](Submenu* sub)
 	{
 			sub->AddVectorOption("Hour", "", 24, "", "",	[] { g_ExampleFuncs->SetTime(); });
 			sub->AddVectorOption("Minute", "", 60, "", "",	[] { g_ExampleFuncs->SetTime(); });
@@ -126,10 +137,10 @@ void main()
 		g_NativeMenu->LoopFunc();
 
 		// Update the vectors in real time while we're in the time examples page
-		if (g_NativeMenu->m_CurrentSubMenu->m_ID == Submenu_Examples_Time && g_NativeMenu->DoesSubMenuExist(Submenu_Examples_Time)) {
-			g_NativeMenu->m_CurrentSubMenu->GetOption(0)->SetVectorIndex(CLOCK::GET_CLOCK_HOURS());
-			g_NativeMenu->m_CurrentSubMenu->GetOption(1)->SetVectorIndex(CLOCK::GET_CLOCK_MINUTES());
-			g_NativeMenu->m_CurrentSubMenu->GetOption(2)->SetVectorIndex(CLOCK::GET_CLOCK_SECONDS());
+		if (g_NativeMenu->CurrentSubmenu->m_ID == Submenu_Examples_Time && g_NativeMenu->DoesSubMenuExist(Submenu_Examples_Time)) {
+			g_NativeMenu->CurrentSubmenu->GetOption(0)->SetVectorIndex(CLOCK::GET_CLOCK_HOURS());
+			g_NativeMenu->CurrentSubmenu->GetOption(1)->SetVectorIndex(CLOCK::GET_CLOCK_MINUTES());
+			g_NativeMenu->CurrentSubmenu->GetOption(2)->SetVectorIndex(CLOCK::GET_CLOCK_SECONDS());
 		}
 
 		WAIT(0);

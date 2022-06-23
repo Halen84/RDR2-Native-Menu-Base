@@ -1,4 +1,22 @@
-[Latest Update] Jun 15, 2022
+[Latest Update] Jun 23, 2022
+- Added CNativeMenu::m_CurrentSubmenuID
+- Added CNativeMenu::RemoveSubmenu()
+- Added CNativeMenu::ClearSubmenu()
+- Added CNativeMenu::IsOpen()
+- Added Option::GetVectorDirection()
+- Added experimental font size adjuster based on display size
+- Fixed Option::SetText() and added new parameter "bRight"
+- Vector options now support multiple vector types
+- Vector options now support unnamed scopes
+- Updated example options to use different vector types
+- Renamed CNativeMenu::ClearSubmenusAtAndAfterThisID to "RemoveSubmenusAtAnd..."
+- Changed some variable names
+- Lower footer font size to 18 (Was 19)
+- Other misc change
+
+----------------------------------------------Previous Updates----------------------------------------------
+
+Jun 15, 2022
 - Native Menu Base has been completely rewritten from scratch and is wayyyy easier to use and understand
 - Rewritten to use classes
 - Added class "Option". Each option is its own class
@@ -9,8 +27,6 @@
 - Added scroller sprites
 - "More fonts"
 - And much more
-
-----------------------------------------------Previous Updates----------------------------------------------
 
 May 10, 2022
 - String optimizations

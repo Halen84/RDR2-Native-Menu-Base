@@ -22,25 +22,29 @@ void CNativeMenu::LoopFunc()
 	if (m_IsOpen) {
 		Drawing::DrawMenuTextures();
 		Drawing::DrawSelectionBox();
-		Drawing::DrawHeader(m_CurrentSubMenu->m_Header);
-		Drawing::DrawSubHeader(m_CurrentSubMenu->m_SubHeader);
+		Drawing::DrawHeader(CurrentSubmenu->m_Header);
+		Drawing::DrawSubHeader(CurrentSubmenu->m_SubHeader);
 		
-		for (int i = 0; i < m_CurrentSubMenu->m_NumOptions; i++) {
-			Option* option = m_CurrentSubMenu->GetOption(i);
+		for (int i = 0; i < CurrentSubmenu->m_NumOptions; i++) {
+			Option* option = CurrentSubmenu->GetOption(i);
 			if (option != nullptr) {
 				Drawing::DrawOption(option);
 			} else {
 #if ALLOCATE_CONSOLE
-				std::cout << "[CNativeMenu::LoopFunc] [ERROR]: Option is a nullptr (" << i << ")" << "\n";
+				std::cout << "[CNativeMenu::LoopFunc] [ERROR]: Option is a nullptr at index " << i << "\n";
 #endif
 			}
 		}
 
-		if (m_CurrentSubMenu->m_NumOptions >= m_CurrentSubMenu->m_NumVisibleOptions) {
-			Drawing::DrawFormattedText(std::to_string(m_SelectionIndex + 1) + " of " + std::to_string(m_CurrentSubMenu->m_NumOptions), Font::Body, 144, 144, 144, 230, Alignment::Right, 20, 531.0f, 243.0f + (m_CurrentSubMenu->m_NumVisibleOptions * INCREMENT), 0, -1);
+		if (CurrentSubmenu->m_NumOptions >= CurrentSubmenu->m_NumVisibleOptions) {
+			Drawing::DrawFormattedText(std::to_string(m_SelectionIndex + 1) + " of " + std::to_string(CurrentSubmenu->m_NumOptions), Font::Body, 144, 144, 144, 230, Alignment::Right, 20, 531.0f, 243.0f + (CurrentSubmenu->m_NumVisibleOptions * INCREMENT), 0, -1);
 		} else {
-			Drawing::DrawFormattedText(std::to_string(m_SelectionIndex + 1) + " of " + std::to_string(m_CurrentSubMenu->m_NumOptions), Font::Body, 144, 144, 144, 230, Alignment::Right, 20, 531.0f, 243.0f + (m_CurrentSubMenu->m_NumOptions * INCREMENT), 0, -1);
+			Drawing::DrawFormattedText(std::to_string(m_SelectionIndex + 1) + " of " + std::to_string(CurrentSubmenu->m_NumOptions), Font::Body, 144, 144, 144, 230, Alignment::Right, 20, 531.0f, 243.0f + (CurrentSubmenu->m_NumOptions * INCREMENT), 0, -1);
 		}
+	}
+
+	if (CurrentSubmenu != nullptr) {
+		m_CurrentSubmenuID = CurrentSubmenu->m_ID;
 	}
 
 	HUD::_UI_PROMPT_SET_VISIBLE(m_SelectPrompt, m_IsOpen);
@@ -111,7 +115,7 @@ void CNativeMenu::HandleInput()
 					*option->GetBoolPtr() = !*option->GetBoolPtr(); // Switch value
 				} else {
 #if ALLOCATE_CONSOLE
-					std::cout << "[CNativeMenu::HandleInput] [WARNING]: GetBoolPtr at index " << m_SelectionIndex << " is a nullptr" << "\n";
+					std::cout << "[CNativeMenu::HandleInput] [ERROR]: GetBoolPtr at index " << m_SelectionIndex << " is a nullptr" << "\n";
 #endif
 				}
 
@@ -121,18 +125,25 @@ void CNativeMenu::HandleInput()
 				option->ExecuteVectorFunc(false, true);
 			}
 			else if (option->m_IsSubMenuOption) {
-				//g_NativeMenu->GoToSubmenu(option->m_SubMenuID, false);
-				m_PrevSubMenuIds.push_back(m_CurrentSubMenu->m_ID);
-				m_SubMenuLastSelections[m_CurrentSubMenu->m_ID] = m_SelectionIndex;
-				m_CurrentSubMenu = &m_SubMenus[option->m_SubMenuID];
-				m_SelectionIndex = 0;
+				if (DoesSubMenuExist(option->m_SubMenuID)) {
+					//g_NativeMenu->GoToSubmenu(option->m_SubMenuID, false);
+					m_PrevSubMenuIds.push_back(CurrentSubmenu->m_ID);
+					m_SubMenuLastSelections[CurrentSubmenu->m_ID] = m_SelectionIndex;
+					CurrentSubmenu = &g_SubmenusMap[option->m_SubMenuID];
+					m_SelectionIndex = 0;
+				}
+				else {
+#if ALLOCATE_CONSOLE
+					std::cout << "[CNativeMenu::HandleInput] [ERROR]: Submenu " << option->m_SubMenuID << " doesn't exist." << "\n";
+#endif
+				}
 			}
 			playSoundFrontend("SELECT", "HUD_SHOP_SOUNDSET");
 		}
 
 
 		if (m_BackPromptCompleted) {
-			if (m_CurrentSubMenu->m_ID <= Submenu_EntryMenu) {
+			if (CurrentSubmenu->m_ID <= Submenu_EntryMenu) {
 				playSoundFrontend("BACK", "HUD_SHOP_SOUNDSET");
 				SetEnabled(false, true);
 				return;
@@ -140,12 +151,12 @@ void CNativeMenu::HandleInput()
 
 			if (m_PrevSubMenuIds.size() > 0) {
 				//g_NativeMenu->GoToSubmenu(m_PrevSubMenuIds[m_PrevSubMenuIds.size() - 1], true);
-				m_CurrentSubMenu = &m_SubMenus[m_PrevSubMenuIds[m_PrevSubMenuIds.size() - 1]];
+				CurrentSubmenu = &g_SubmenusMap[m_PrevSubMenuIds[m_PrevSubMenuIds.size() - 1]];
 				m_PrevSubMenuIds.pop_back();
-				m_SelectionIndex = m_SubMenuLastSelections[m_CurrentSubMenu->m_ID];
-				m_SubMenuLastSelections.erase(m_CurrentSubMenu->m_ID);
+				m_SelectionIndex = m_SubMenuLastSelections[CurrentSubmenu->m_ID];
+				m_SubMenuLastSelections.erase(CurrentSubmenu->m_ID);
 			} else {
-				m_CurrentSubMenu = &m_SubMenus[Submenu_EntryMenu];
+				CurrentSubmenu = &g_SubmenusMap[Submenu_EntryMenu];
 				m_SelectionIndex = m_SubMenuLastSelections[Submenu_EntryMenu];
 			}
 
@@ -168,7 +179,7 @@ void CNativeMenu::HandleInput()
 				m_SelectionIndex--;
 
 			if (m_SelectionIndex < 0)
-				m_SelectionIndex = m_CurrentSubMenu->m_NumOptions - 1;
+				m_SelectionIndex = CurrentSubmenu->m_NumOptions - 1;
 
 			playSoundFrontend("NAV_UP", "Ledger_Sounds");
 		}
@@ -179,8 +190,8 @@ void CNativeMenu::HandleInput()
 
 			if (IsKeyDownLong(VK_SHIFT)) {
 				m_SelectionIndex += 10;
-				if (m_SelectionIndex > m_CurrentSubMenu->m_NumOptions - 1)
-					m_SelectionIndex = m_CurrentSubMenu->m_NumOptions - 1; // DONT reset to the TOP of the page
+				if (m_SelectionIndex > CurrentSubmenu->m_NumOptions - 1)
+					m_SelectionIndex = CurrentSubmenu->m_NumOptions - 1; // DONT reset to the TOP of the page
 			} else {
 				m_SelectionIndex++;
 			}
@@ -188,7 +199,7 @@ void CNativeMenu::HandleInput()
 			if (GetSelectedOption()->m_IsPageBreak)
 				m_SelectionIndex++;
 
-			if (m_SelectionIndex > m_CurrentSubMenu->m_NumOptions - 1)
+			if (m_SelectionIndex > CurrentSubmenu->m_NumOptions - 1)
 				m_SelectionIndex = 0;
 
 			playSoundFrontend("NAV_DOWN", "Ledger_Sounds");

@@ -41,7 +41,7 @@ enum class FontSize : int
 	FS_Header = 45,
 	FS_SubHeader = 23,
 	FS_Option = 22,
-	FS_Footer = 19,
+	FS_Footer = 18,
 };
 
 enum class Alignment : int

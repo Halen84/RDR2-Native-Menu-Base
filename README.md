@@ -16,11 +16,11 @@ An RDR2 UI Menu Base that uses in-game sprites to make UI menus similar to how t
 </details>
 
 # Features
-- Easy to configure
-- Easy to add new pages and more options
+- Easy to configure, organize, and use
 - Keyboard and controller support with rebindable keybinds
 - Faster scrolling keybind (up to 10 options at a time)
 - Ability to draw your own custom text on the screen with fonts that Rockstar uses
+- Debug console for testing purposes
 
 # Option Types
 - Submenu Options
@@ -37,6 +37,7 @@ An RDR2 UI Menu Base that uses in-game sprites to make UI menus similar to how t
 - The UI will look and function the best on 1920x1080 displays
 - The "SubMenus" folder is where you can put your functions for options. Its up to you how you want to organize everything.
 - ^^^ You can also create the options in other files as long as you call it in InitializeMenu()
+- To change keybinds, see UI/menu.cpp in CheckInput()
 - UI/option.hpp is the Option class
 - UI/menu.hpp is the CNativeMenu class
 - UI/submenu.hpp is the Submenu class
@@ -45,6 +46,12 @@ An RDR2 UI Menu Base that uses in-game sprites to make UI menus similar to how t
 
 # Changelog
 - See: [changelog.txt](https://github.com/Halen84/RDR2-Native-Menu-Base/blob/master/changelog.txt)
+
+# TODO List/Bugs
+- More support for displays that arent 1920x1080
+- Better/Improved scrolling to feel more natural
+- Fix font sizes on different displays
+- Fix certain UI positions on different displays
 
 # Credits
 - Alexander Blade for the Scripthook SDK for RDR2

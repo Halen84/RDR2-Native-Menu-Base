@@ -60,7 +60,8 @@ namespace Menu
 
 		/// An option with left and right arrows with multiple choosable options.
 		/// Passed function will execute when vector option is switched.
-		void AddVectorOption(const std::string& text, const std::string& footer, std::vector<std::string> &vec, std::function<void()> func = [] {})
+		template<typename T>
+		void AddVectorOption(const std::string& text, const std::string& footer, std::vector<T> vec, std::function<void()> func = [] {})
 		{
 			Option option(false, false, true, false, false);
 			option.SetVector(vec);
@@ -70,6 +71,15 @@ namespace Menu
 			option.m_Index = (int)m_Options.size();
 			m_Options.push_back(option);
 			m_NumOptions++;
+		}
+
+
+		void AddVectorOption(const std::string& text, const std::string& footer, std::vector<const char*> _vec, std::function<void()> func = [] {})
+		{
+			std::vector<std::string> _temp;
+			for (int i = 0; i < _vec.size(); i++)
+				_temp.push_back(std::string(_vec[i]));
+			AddVectorOption(text, footer, _temp, func);
 		}
 
 
