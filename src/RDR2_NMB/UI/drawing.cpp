@@ -115,33 +115,25 @@ namespace Menu
 		int visibleOptions = g_NativeMenu->CurrentSubmenu->m_NumVisibleOptions;
 		int index = option->m_Index;
 
-		if (option->m_IsSubMenuOption && (option->m_IsBoolOption || option->m_IsVectorOption || option->m_IsRegularOption || option->m_IsPageBreak)) {
-			option->m_IsSubMenuOption = false;
-		}
-		if (option->m_IsPageBreak && (option->m_IsBoolOption || option->m_IsVectorOption || option->m_IsRegularOption || option->m_IsSubMenuOption)) {
-			option->m_IsBoolOption = false; option->m_IsVectorOption = false; option->m_IsRegularOption = false; option->m_IsSubMenuOption = false;
-		}
-
 		// Draw background
 		if (selection <= visibleOptions-1 && index <= visibleOptions-1) {
 			if (!option->m_IsPageBreak) {
 				DrawSprite("generic_textures", "selection_box_bg_1c", 310, 270 + (index * INCREMENT), TOP_HEADER_WIDTH, 52, 0, 50, 50, 50, 110, true);
 				DrawFormattedText(option->GetText(), Font::Body, 255, 255, 255, 255, Alignment::Left, 22, 98, 254 + (index * INCREMENT));
 			} else {
-				DrawFormattedText("", Font::Body, 255, 255, 255, 255, Alignment::Center, 22, BG_X_OFFSET + (BG_WIDTH * 0.5f), 254 + (index * INCREMENT));
+				DrawFormattedText(option->GetText(), Font::Title, 255, 255, 255, 255, Alignment::Center, 22, BG_X_OFFSET + (BG_WIDTH * 0.5f), 254 + (index * INCREMENT));
 			}
 		} else if ((index > (selection - visibleOptions)) && index <= selection) {
 			if (!option->m_IsPageBreak) {
 				DrawSprite("generic_textures", "selection_box_bg_1c", 310, 270 + ((index - (selection - (visibleOptions-1))) * INCREMENT), TOP_HEADER_WIDTH, 52, 0, 50, 50, 50, 110, true);
 				DrawFormattedText(option->GetText(), Font::Body, 255, 255, 255, 255, Alignment::Left, 22, 98, 254 + ((index - (selection - (visibleOptions - 1))) * INCREMENT));
 			} else {
-				DrawFormattedText("", Font::Body, 255, 255, 255, 255, Alignment::Center, 22, BG_X_OFFSET + (BG_WIDTH * 0.5f), 254 + ((index - (selection - (visibleOptions - 1))) * INCREMENT));
+				DrawFormattedText(option->GetText(), Font::Title, 255, 255, 255, 255, Alignment::Center, 22, BG_X_OFFSET + (BG_WIDTH * 0.5f), 254 + ((index - (selection - (visibleOptions - 1))) * INCREMENT));
 			}
 		}
 
 		// Draw footer
 		if (selection == index && !option->m_IsPageBreak) {
-			//g_NativeMenu->m_sTextAtCurrSelection = option->GetText();
 			DrawFooter(option->GetFooter());
 		}
 
@@ -162,6 +154,7 @@ namespace Menu
 		}
 
 		// Draw checkmark
+		// TODO: Draw checkmark box
 		if (option->m_IsBoolOption) {
 			if (option->GetBoolPtr() != nullptr && *option->GetBoolPtr() == true) {
 				if (selection <= visibleOptions-1 && index <= visibleOptions-1) {
@@ -187,11 +180,14 @@ namespace Menu
 		// Header
 		DrawSprite("generic_textures", "menu_header_1a", TOP_HEADER_X_POS, TOP_HEADER_Y_POS, TOP_HEADER_WIDTH, TOP_HEADER_HEIGHT, 0, 255, 255, 255, 255, false);
 		
-		// Footer - TODO: Find more accurate texture
+		// Footer
+		// TODO: Find the real texture
 		GRAPHICS::DRAW_SPRITE("generic_textures", "menu_bar", 0.16, 0.9, 0.23, 0.0015, 0, 255, 255, 255, 175, false); // Doesn't draw right with Drawing::DrawSprite for some reason
 		
-		// Scroller Sprites
-
+		//////////////////////
+		// Scroller Sprites //
+		//////////////////////
+		
 		// Top
 		DrawSprite("menu_textures", "scroller_left_top", 90, 215, (TOP_HEADER_WIDTH / 2.0f) - 14.0f, 25, 0, 255, 255, 255, 255, false);
 		DrawSprite("menu_textures", "scroller_right_top", 322, 215, (TOP_HEADER_WIDTH / 2.0f) - 14.0f, 25, 0, 255, 255, 255, 255, false);

@@ -33,13 +33,13 @@ namespace Menu
 		int m_VectorIndex = 0;
 		int m_SubMenuID = Submenu_Invalid;
 
-		Option(bool bRegular, bool bBool, bool bVector, bool bSub, bool bPB)
+		Option(bool bRegularOption, bool bBooleanOption, bool bVectorOption, bool bSubmenuOption, bool bPageBreak)
 		{
-			m_IsRegularOption = bRegular;
-			m_IsBoolOption = bBool;
-			m_IsVectorOption = bVector;
-			m_IsSubMenuOption = bSub;
-			m_IsPageBreak = bPB;
+			m_IsRegularOption = bRegularOption;
+			m_IsBoolOption = bBooleanOption;
+			m_IsVectorOption = bVectorOption;
+			m_IsSubMenuOption = bSubmenuOption;
+			m_IsPageBreak = bPageBreak;
 		}
 
 		//==================================//
@@ -89,7 +89,7 @@ namespace Menu
 			m_BoolPtr = ptr;
 		}
 
-		void SetSubMenuID(int id)
+		void SetSubmenuID(int id)
 		{
 			m_SubMenuID = id;
 		}
@@ -122,7 +122,7 @@ namespace Menu
 		}
 		
 		// Get which way the vector went when the function was executed
-		// Note: This should be used in the vector function itself
+		// Note: This should be used in the function this option called
 		void GetVectorDirection(bool &bLeft, bool &bRight)
 		{
 			bLeft = bWentLeft;

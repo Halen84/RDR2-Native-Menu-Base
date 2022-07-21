@@ -76,6 +76,9 @@ void InitializeMenu()
 	});
 
 
+	// These calls below would preferably go in examples.cpp, but I put them here for simplicity reasons.
+
+
 	g_NativeMenu->AddSubmenu("EXAMPLES", "Functional Examples", Submenu_Examples, DEFAULT, [](Submenu* sub)
 	{
 			sub->AddSubmenuOption("Change Weather", "", Submenu_Examples_Weather);
@@ -85,27 +88,27 @@ void InitializeMenu()
 
 	g_NativeMenu->AddSubmenu("EXAMPLES", "Change Weather", Submenu_Examples_Weather, MAX, [](Submenu* sub)
 	{
-			sub->AddRegularOption("High Pressure", "",		[] { g_ExampleFuncs->SetWeather(); });
-			sub->AddRegularOption("Rain", "",				[] { g_ExampleFuncs->SetWeather(); });
-			sub->AddRegularOption("Snow", "",				[] { g_ExampleFuncs->SetWeather(); });
-			sub->AddRegularOption("Misty", "",				[] { g_ExampleFuncs->SetWeather(); });
-			sub->AddRegularOption("Fog", "",				[] { g_ExampleFuncs->SetWeather(); });
-			sub->AddRegularOption("Sunny", "",				[] { g_ExampleFuncs->SetWeather(); });
-			sub->AddRegularOption("Clouds", "",				[] { g_ExampleFuncs->SetWeather(); });
-			sub->AddRegularOption("Overcast", "",			[] { g_ExampleFuncs->SetWeather(); });
-			sub->AddRegularOption("Thunderstorm", "",		[] { g_ExampleFuncs->SetWeather(); });
-			sub->AddRegularOption("Hurricane", "",			[] { g_ExampleFuncs->SetWeather(); });
-			sub->AddRegularOption("Thunder", "",			[] { g_ExampleFuncs->SetWeather(); });
-			sub->AddRegularOption("Shower", "",				[] { g_ExampleFuncs->SetWeather(); });
-			sub->AddRegularOption("Blizzard", "",			[] { g_ExampleFuncs->SetWeather(); });
-			sub->AddRegularOption("Snow Light", "",			[] { g_ExampleFuncs->SetWeather(); });
-			sub->AddRegularOption("Whiteout", "",			[] { g_ExampleFuncs->SetWeather(); });
-			sub->AddRegularOption("Hail", "",				[] { g_ExampleFuncs->SetWeather(); });
-			sub->AddRegularOption("Sleet", "",				[] { g_ExampleFuncs->SetWeather(); });
-			sub->AddRegularOption("Drizzle", "",			[] { g_ExampleFuncs->SetWeather(); });
-			sub->AddRegularOption("Sandstorm", "",			[] { g_ExampleFuncs->SetWeather(); });
-			sub->AddRegularOption("Overcast Dark", "",		[] { g_ExampleFuncs->SetWeather(); });
-			sub->AddRegularOption("Ground Blizzard", "",	[] { g_ExampleFuncs->SetWeather(); });
+			sub->AddRegularOption("High Pressure", "",		[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("HIGHPRESSURE")); });
+			sub->AddRegularOption("Rain", "",				[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("RAIN")); });
+			sub->AddRegularOption("Snow", "",				[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("SNOW")); });
+			sub->AddRegularOption("Misty", "",				[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("MISTY")); });
+			sub->AddRegularOption("Fog", "",				[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("FOG")); });
+			sub->AddRegularOption("Sunny", "",				[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("SUNNY")); });
+			sub->AddRegularOption("Clouds", "",				[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("CLOUDS")); });
+			sub->AddRegularOption("Overcast", "",			[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("OVERCAST")); });
+			sub->AddRegularOption("Thunderstorm", "",		[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("THUNDERSTORM")); });
+			sub->AddRegularOption("Hurricane", "",			[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("HURRICAN")); });
+			sub->AddRegularOption("Thunder", "",			[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("THUNDER")); });
+			sub->AddRegularOption("Shower", "",				[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("SHOWER")); });
+			sub->AddRegularOption("Blizzard", "",			[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("BLIZZARD")); });
+			sub->AddRegularOption("Snow Light", "",			[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("SNOWLIGHT")); });
+			sub->AddRegularOption("Whiteout", "",			[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("WHITEOUT")); });
+			sub->AddRegularOption("Hail", "",				[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("HAIL")); });
+			sub->AddRegularOption("Sleet", "",				[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("SLEET")); });
+			sub->AddRegularOption("Drizzle", "",			[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("DRIZZLE")); });
+			sub->AddRegularOption("Sandstorm", "",			[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("SANDSTORM")); });
+			sub->AddRegularOption("Overcast Dark", "",		[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("OVERCASTDARK")); });
+			sub->AddRegularOption("Ground Blizzard", "",	[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("GROUNDBLIZZARD")); });
 	});
 
 
@@ -134,10 +137,10 @@ void main()
 
 	while (true)
 	{
-		g_NativeMenu->LoopFunc();
+		g_NativeMenu->Update();
 
 		// Update the vectors in real time while we're in the time examples page
-		if (g_NativeMenu->CurrentSubmenu->m_ID == Submenu_Examples_Time && g_NativeMenu->DoesSubMenuExist(Submenu_Examples_Time)) {
+		if (g_NativeMenu->CurrentSubmenu->m_ID == Submenu_Examples_Time && g_NativeMenu->DoesSubmenuExist(Submenu_Examples_Time)) {
 			g_NativeMenu->CurrentSubmenu->GetOption(0)->SetVectorIndex(CLOCK::GET_CLOCK_HOURS());
 			g_NativeMenu->CurrentSubmenu->GetOption(1)->SetVectorIndex(CLOCK::GET_CLOCK_MINUTES());
 			g_NativeMenu->CurrentSubmenu->GetOption(2)->SetVectorIndex(CLOCK::GET_CLOCK_SECONDS());

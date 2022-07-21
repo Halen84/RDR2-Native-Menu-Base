@@ -12,7 +12,7 @@
 - Renamed CNativeMenu::ClearSubmenusAtAndAfterThisID to "RemoveSubmenusAtAnd..."
 - Changed some variable names
 - Lower footer font size to 18 (Was 19)
-- Other misc change
+- Other misc changes
 
 ----------------------------------------------Previous Updates----------------------------------------------
 
@@ -28,12 +28,14 @@ Jun 15, 2022
 - "More fonts"
 - And much more
 
+
 May 10, 2022
 - String optimizations
 - Moved macros to menu.h
 - Added macro BUILD_1311_COMPATIBLE
 - Overloaded function Menu::Util::SetOptionIndex
 - Other misc changes
+
 
 Apr 21, 2022
 - Another update to core framework

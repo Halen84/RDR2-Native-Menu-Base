@@ -12,7 +12,7 @@ namespace Menu
 		void PauseTime();
 
 		void SetTime();
-		void SetWeather();
+		void SetWeather(Hash weatherType);
 	};
 
 	inline CExampleFuncs* g_ExampleFuncs{};

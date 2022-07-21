@@ -13,7 +13,7 @@ void playSoundFrontend(const char* name, const char* soundset)
 }
 
 
-void CNativeMenu::LoopFunc()
+void CNativeMenu::Update()
 {
 	CheckInput();
 	HandleInput();
@@ -31,7 +31,7 @@ void CNativeMenu::LoopFunc()
 				Drawing::DrawOption(option);
 			} else {
 #if ALLOCATE_CONSOLE
-				std::cout << "[CNativeMenu::LoopFunc] [ERROR]: Option is a nullptr at index " << i << "\n";
+				std::cout << "[CNativeMenu::Update] [ERROR]: Option is a nullptr at index " << i << "\n";
 #endif
 			}
 		}
@@ -112,10 +112,10 @@ void CNativeMenu::HandleInput()
 			}
 			else if (option->m_IsBoolOption) {
 				if (option->GetBoolPtr() != nullptr) {
-					*option->GetBoolPtr() = !*option->GetBoolPtr(); // Switch value
+					*option->GetBoolPtr() = !*option->GetBoolPtr(); // Flip
 				} else {
 #if ALLOCATE_CONSOLE
-					std::cout << "[CNativeMenu::HandleInput] [ERROR]: GetBoolPtr at index " << m_SelectionIndex << " is a nullptr" << "\n";
+					std::cout << "[CNativeMenu::HandleInput] [WARNING]: GetBoolPtr at option index " << m_SelectionIndex << " is a nullptr" << "\n";
 #endif
 				}
 
@@ -125,7 +125,7 @@ void CNativeMenu::HandleInput()
 				option->ExecuteVectorFunc(false, true);
 			}
 			else if (option->m_IsSubMenuOption) {
-				if (DoesSubMenuExist(option->m_SubMenuID)) {
+				if (DoesSubmenuExist(option->m_SubMenuID)) {
 					//g_NativeMenu->GoToSubmenu(option->m_SubMenuID, false);
 					m_PrevSubMenuIds.push_back(CurrentSubmenu->m_ID);
 					m_SubMenuLastSelections[CurrentSubmenu->m_ID] = m_SelectionIndex;
@@ -265,7 +265,7 @@ void CNativeMenu::RegisterUIPrompts()
 		HUD::_UI_PROMPT_SET_PRIORITY(_prompt, 2); // PP_High
 		HUD::_UI_PROMPT_SET_TEXT(_prompt, MISC::VAR_STRING(10, "LITERAL_STRING", text));
 		HUD::_UI_PROMPT_SET_STANDARD_MODE(_prompt, TRUE);
-		// Allows multiple prompts (>2) of the same type to be shown
+		// Allows multiple prompts of the same type to be shown (?)
 		HUD::_UI_PROMPT_SET_ATTRIBUTE(_prompt, 34, true);
 		HUD::_UI_PROMPT_REGISTER_END(_prompt);
 

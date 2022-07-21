@@ -1,3 +1,5 @@
+// Licensed under the MIT License.
+
 #pragma once
 #include "menu.hpp"
 #include "submenu_ids.hpp"
@@ -6,6 +8,9 @@ namespace Menu
 {
 	class Submenu
 	{
+	private:
+		std::function<void(Submenu*)> m_StructureFunc;
+
 	public:
 		std::vector<Option> m_Options;
 
@@ -17,13 +22,13 @@ namespace Menu
 
 
 		Submenu() = default;
-		Submenu(const std::string& header, const std::string& subHeader, int id, int numVisibleOptions, std::function<void(Submenu*)> &func)
+		Submenu(const std::string& header, const std::string& subHeader, int id, int numVisibleOptions, std::function<void(Submenu*)> &submenuFunc)
 		{
 			m_Header = header;
 			m_SubHeader = subHeader;
 			m_ID = id;
 			m_NumVisibleOptions = numVisibleOptions;
-			m_StructureFunc = func;
+			m_StructureFunc = submenuFunc;
 			std::invoke(m_StructureFunc, static_cast<Submenu*>(this));
 		}
 
@@ -43,7 +48,7 @@ namespace Menu
 
 
 		/// An on/off (true/false) boolean toggle option.
-		/// Note: bLoopToggle parameter must be an already defined boolean variable.
+		/// Note: bToggle parameter must be an already defined boolean variable.
 		/// Passed function will execute when option is pressed.
 		void AddBoolOption(const std::string& text, const std::string& footer, bool* bToggle, std::function<void()> func = [] {})
 		{
@@ -98,8 +103,7 @@ namespace Menu
 			Option option(false, false, false, true, false);
 			option.SetText(text);
 			option.SetFooter(footer);
-			//option.SetFunction(func);
-			option.SetSubMenuID(id);
+			option.SetSubmenuID(id);
 			option.m_Index = (int)m_Options.size();
 			m_Options.push_back(option);
 			m_NumOptions++;
@@ -108,9 +112,10 @@ namespace Menu
 
 		/// Inserts a blank spot into a page
 		/// Mainly used for organization purposes
-		void AddPageBreak()
+		void AddPageBreak(const std::string &text = "")
 		{
 			Option option(false, false, false, false, true);
+			option.SetText(text);
 			option.m_Index = (int)m_Options.size();
 			m_Options.push_back(option);
 			m_NumOptions++;
@@ -119,10 +124,9 @@ namespace Menu
 
 		Option* GetOption(int optionIndex)
 		{
-			// >= because 0 based indexing
 			if (optionIndex >= m_Options.size()) {
 #if ALLOCATE_CONSOLE
-				std::cout << "[Submenu::GetOption] [ERROR]: Invalid optionIndex (" << optionIndex << "). ID: " << m_ID << ", m_Options.size(): " << m_Options.size() << ", returning nullptr" << "\n";
+				std::cout << "[Submenu::GetOption] [ERROR]: Bad optionIndex (" << optionIndex << "). Submenu ID: " << m_ID << ", m_Options.size(): " << m_Options.size() << "...returning nullptr" << "\n";
 #endif
 				return nullptr;
 			} else {
@@ -130,7 +134,7 @@ namespace Menu
 			}
 		}
 
-		// TODO: TEST
+
 		void DeleteOption(Option* option)
 		{
 			for (auto it = m_Options.begin(); it != m_Options.end(); it++) {
@@ -142,7 +146,7 @@ namespace Menu
 			}
 		}
 
-		// TODO: TEST
+
 		void DeleteOption(int optionIndex)
 		{
 			for (auto it = m_Options.begin(); it != m_Options.end(); it++) {
@@ -155,14 +159,11 @@ namespace Menu
 		}
 
 
-		// Clear all options
+		// Clear all options in this submenu
 		void Clear()
 		{
 			m_Options.clear();
 			m_NumOptions = 0;
 		}
-
-	private:
-		std::function<void(Submenu*)> m_StructureFunc;
 	};
 }

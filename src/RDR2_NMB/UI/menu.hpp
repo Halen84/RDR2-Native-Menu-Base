@@ -9,6 +9,9 @@
 
 #define BUILD_1311_COMPATIBLE FALSE // If true, the menu will be compatible with game version <= 1311.12
 #define ALLOCATE_CONSOLE FALSE // To be used for debugging purposes
+#if ALLOCATE_CONSOLE
+	#define LOG(msg)(std::cout << msg << std::endl)
+#endif
 
 
 namespace Menu
@@ -23,9 +26,9 @@ namespace Menu
 		int m_CurrentSubmenuID = Submenu_Invalid;	// Current Submenu ID
 		int m_SelectionIndex = 0;					// Current Selected Option Index
 
-		void AddSubmenu(const std::string& header, const std::string& subHeader, int id, int numVisibleOptions, std::function<void(Submenu*)> func)
+		void AddSubmenu(const std::string& header, const std::string& subHeader, int id, int numVisibleOptions, std::function<void(Submenu*)> submenuFunc)
 		{
-			Submenu submenu(header, subHeader, id, numVisibleOptions, func);
+			Submenu submenu(header, subHeader, id, numVisibleOptions, submenuFunc);
 			g_SubmenusMap[id] = submenu;
 		}
 
@@ -82,7 +85,7 @@ namespace Menu
 			return &g_SubmenusMap[CurrentSubmenu->m_ID].m_Options[m_SelectionIndex];
 		}
 
-		bool DoesSubMenuExist(int id)
+		bool DoesSubmenuExist(int id)
 		{
 			return g_SubmenusMap.contains(id);
 		}
@@ -102,7 +105,7 @@ namespace Menu
 		{
 			std::vector<int> toRemove = { id };
 			for (int i = 0; i < toRemove.size(); i++) {
-				if (DoesSubMenuExist(toRemove[i])) {
+				if (DoesSubmenuExist(toRemove[i])) {
 					g_SubmenusMap.erase(toRemove[i]);
 				}
 			}
@@ -113,7 +116,7 @@ namespace Menu
 		{
 			std::vector<Submenu*> toClear = { sub };
 			for (int i = 0; i < toClear.size(); i++) {
-				if (DoesSubMenuExist(toClear[i]->m_ID)) {
+				if (DoesSubmenuExist(toClear[i]->m_ID)) {
 					toClear[i]->Clear();
 				}
 			}
@@ -124,7 +127,7 @@ namespace Menu
 		{
 			std::vector<int> toClear = { id };
 			for (int i = 0; i < toClear.size(); i++) {
-				if (DoesSubMenuExist(toClear[i])) {
+				if (DoesSubmenuExist(toClear[i])) {
 					GetSubmenu(toClear[i])->Clear();
 				}
 			}
@@ -137,7 +140,7 @@ namespace Menu
 
 
 		void SetEnabled(bool bEnabled, bool bPlaySounds);
-		void LoopFunc();
+		void Update();
 		void RegisterUIPrompts();
 
 	private:
