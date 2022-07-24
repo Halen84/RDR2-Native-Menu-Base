@@ -21,6 +21,7 @@ An RDR2 UI Menu Base that uses in-game sprites to make UI menus similar to how t
 - Faster scrolling keybind (up to 10 options at a time)
 - Ability to draw your own custom text on the screen with fonts that Rockstar uses
 - Debug console for testing purposes
+- And more
 
 # Option Types
 - Submenu Options
@@ -31,6 +32,8 @@ An RDR2 UI Menu Base that uses in-game sprites to make UI menus similar to how t
 	- These options are like an on/off switch. When clicked, the passed boolean pointer will be switched from true to false and vice versa, allowing you to execute your custom code.
 - Vector Options
 	- These options contain multiple selections of choosable items. If you know what an std::vector is, then this option is basically that. Everytime this option is switched, your custom code will execute.
+- Page Breaks
+	- These options will insert a blank spot into the page. Mainly used for organization purposes.
 
 # Help & Info
 - script.cpp would be where to look first
@@ -47,7 +50,7 @@ An RDR2 UI Menu Base that uses in-game sprites to make UI menus similar to how t
 # Changelog
 - See: [changelog.txt](https://github.com/Halen84/RDR2-Native-Menu-Base/blob/master/changelog.txt)
 
-# TODO List/Bugs
+# TODO List + Bugs
 - More support for displays that arent 1920x1080
 - Better/Improved scrolling to feel more natural
 - Fix font sizes on different displays
