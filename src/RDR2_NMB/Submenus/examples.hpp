@@ -1,10 +1,10 @@
 #pragma once
-#include "../script.h"
-#include "../common.hpp"
-#include "../UI/menu.hpp"
+#include "common_submenu.h"
 
 namespace Menu
 {
+	// Or something like CExamplesSubmenu
+
 	class CExampleFuncs
 	{
 	public:

@@ -4,6 +4,72 @@
 #include "util.h"
 //#include <format>
 
+
+#pragma region UI_Constants
+// Background Constants
+const float BG_X_OFFSET	= 25.0f;
+const float BG_Y_OFFSET	= 25.0f;
+const float BG_WIDTH	= 576.0f;
+const float BG_HEIGHT	= 1026.0f;
+const float BG_X_MIDDLE = BG_X_OFFSET + (BG_WIDTH * 0.5f); // The center X position for the background
+const float BG_Y_MIDDLE = BG_Y_OFFSET + (BG_HEIGHT / 2.0f); // The center Y position for the background
+
+// Header Constants
+const float TOP_HEADER_WIDTH	= 442.0f;
+const float TOP_HEADER_HEIGHT	= 108.0f;
+const float TOP_HEADER_X_POS	= BG_X_OFFSET + ((BG_WIDTH * 0.5f) - (TOP_HEADER_WIDTH * 0.5f));
+const float TOP_HEADER_Y_POS	= BG_Y_OFFSET + ((BG_WIDTH - TOP_HEADER_WIDTH) * 0.2f);
+
+// Footer Constants
+//const float FOOTER_LINE_WIDTH		= TOP_HEADER_WIDTH 
+//const float FOOTER_LINE_HEIGHT	= 2.0f;
+//const float FOOTER_LINE_X_POS		= BG_X_OFFSET + ((BG_WIDTH * 0.5f) - (FOOTER_LINE_WIDTH * 0.5f));
+//const float FOOTER_LINE_Y_POS		= BG_Y_OFFSET + (BG_HEIGHT - ((BG_WIDTH - FOOTER_LINE_WIDTH) * 0.5f));
+
+// Scroller Constants
+const float SCROLLER_SIZE_OFFSET	= 15.0f;
+const float SCROLLER_LEFT_WIDTH		= (TOP_HEADER_WIDTH / 2.0f) - SCROLLER_SIZE_OFFSET;
+const float SCROLLER_LEFT_X_POS		= (BG_X_MIDDLE - (SCROLLER_LEFT_WIDTH + SCROLLER_SIZE_OFFSET));
+const float SCROLLER_RIGHT_WIDTH	= SCROLLER_LEFT_WIDTH;
+const float SCROLLER_RIGHT_X_POS	= BG_X_MIDDLE + SCROLLER_SIZE_OFFSET;
+const float SCROLLER_MIDDLE_WIDTH	= SCROLLER_SIZE_OFFSET * 2.0f;
+const float SCROLLER_MIDDLE_X_POS	= BG_X_MIDDLE;
+
+// Option Constants
+const float OPTION_WIDTH	= TOP_HEADER_WIDTH;
+const float OPTION_HEIGHT	= 52.0f; // Probably should be adjusted...
+const float OPTION_X_POS	= BG_X_MIDDLE;
+
+// Selection Box Constants
+const float SELECTION_BOX_UD_OFFSET = 12.0f;
+const float SELECTION_BOX_LR_OFFSET = 5.0f;
+// Selection Box Top
+const float SELECTION_BOX_TOP_WIDTH = OPTION_WIDTH + SELECTION_BOX_UD_OFFSET;
+const float SELECTION_BOX_TOP_X_POS = OPTION_X_POS;
+const float SELECTION_BOX_TOP_Y_POS = (270.0f - (OPTION_HEIGHT / 2.0f)) + 3.0f; // 270 because its the option Y position start, and 3 is a funny magic number
+// Selection Box Bottom
+const float SELECTION_BOX_BOTTOM_WIDTH = SELECTION_BOX_TOP_WIDTH;
+const float SELECTION_BOX_BOTTOM_X_POS = OPTION_X_POS;
+const float SELECTION_BOX_BOTTOM_Y_POS = (270.0f + (OPTION_HEIGHT / 2.0f)) - 3.0f; // 270 because its the option Y position start, and 3 is a funny magic number
+// Selection Box Left
+const float SELECTION_BOX_LEFT_HEIGHT	= OPTION_HEIGHT + SELECTION_BOX_LR_OFFSET;
+const float SELECTION_BOX_LEFT_X_POS	= (OPTION_X_POS - (OPTION_WIDTH / 2.0f)) - SELECTION_BOX_LR_OFFSET;
+// Selection Box Right
+const float SELECTION_BOX_RIGHT_HEIGHT	= SELECTION_BOX_LEFT_HEIGHT;
+const float SELECTION_BOX_RIGHT_X_POS	= (OPTION_X_POS + (OPTION_WIDTH / 2.0f)) + SELECTION_BOX_LR_OFFSET;
+
+// Font Size Constants
+//const int HEADER_FONT_SIZE = 45;
+const int SUB_HEADER_FONT_SIZE = 23;
+const int OPTION_FONT_SIZE = 22;
+const int FOOTER_FONT_SIZE = 18;
+const int PAGE_BREAK_FONT_SIZE = 22;
+
+// Other Constants
+const float PAGE_BREAK_TEXT_X_POS = BG_X_MIDDLE;
+#pragma endregion
+
+
 const std::vector<const char*> FontList = { "body", "body1", "body2", "body3", "catalog1", "catalog2", "catalog3", "catalog4", "catalog5", "chalk", "creditNames", "creditTitles",
 "Debug_BOLD", "Debug_REG", "FixedWidthNumbers", "Font2", "Font2_cond_NOT_GAMERNAME", "Font5", "Font5_limited", "gtaCash", "gamername", "handwritten", "ledger", "RockstarTAG",
 "SOCIAL_CLUB_COND_BOLD", "SOCIAL_CLUB_COND_REG", "title", "title1", "title2", "util", "wantedPostersGeneric" };
@@ -11,13 +77,13 @@ const std::vector<const char*> FontList = { "body", "body1", "body2", "body3", "
 
 // I didn't want to import the ~200KB std::format lib, so I just made my own dumbed down version
 template<typename... Args>
-void format(std::string& str, const Args&... args)
+void format(std::string* str, const Args&... args)
 {
-	std::vector<std::string> vec_args = { args... };
+	const std::vector<std::string> vec_args = { args... };
 	for (int i = 0; i < (int)vec_args.size(); i++) {
-		int pos = str.find("%s");
+		int pos = str->find("%s");
 		if (pos != std::string::npos) {
-			str.replace(pos, 2, vec_args[i]);
+			str->replace(pos, 2, vec_args[i]);
 		}
 	}
 }
@@ -25,6 +91,7 @@ void format(std::string& str, const Args&... args)
 void correctFontSize(int* fontSize)
 {
 	/*
+	This is far from being good, but it works for now. Needs to be rewritten.
 	This is from my personal testing. 
 	
 	Let's say fontSize is 22. To properly display font on a 4k (3840) screen,
@@ -34,8 +101,7 @@ void correctFontSize(int* fontSize)
 	we need to decrease fontSize by 6. 22 - 6 = 16. 1280/80 = 16.
 
 	- Decimals get truncated on integer conversion.
-	- This is far from being good, but it works for now.
-	- This should work on all screen sizes. 1920x1080 is unaffected buy this.
+	- This should work on all screen sizes. 1920x1080 is unaffected by this.
 	*/
 
 	int size = -1;
@@ -56,7 +122,8 @@ void correctFontSize(int* fontSize)
 // Used in DrawOption()
 void DrawFooter(const std::string& text)
 {
-	Menu::Drawing::DrawFormattedText(text, Font::Body, 255, 255, 255, 255, Alignment::Center, 18, BG_X_OFFSET + (BG_WIDTH * 0.5f), 980);
+	// TODO: Fix position based on font size
+	Menu::Drawing::DrawFormattedText(text, Font::Body, 255, 255, 255, 255, Alignment::Center, FOOTER_FONT_SIZE, BG_X_OFFSET + (BG_WIDTH * 0.5f), 980);
 }
 
 
@@ -64,13 +131,15 @@ namespace Menu
 {
 	void Drawing::DrawHeader(const std::string& text, int size, float yPos)
 	{
+		// TODO: Fix position based on font size
 		Drawing::DrawFormattedText(text, Font::Title, 255, 255, 255, 255, Alignment::Center, size, BG_X_OFFSET + (BG_WIDTH * 0.5f), yPos);
 	}
 
 
 	void Drawing::DrawSubHeader(const std::string& text)
 	{
-		Drawing::DrawFormattedText(text, Font::Title, 255, 255, 255, 255, Alignment::Center, 23, BG_X_OFFSET + (BG_WIDTH * 0.5f), 172);
+		// TODO: Fix position based on font size
+		Drawing::DrawFormattedText(text, Font::Title, 255, 255, 255, 255, Alignment::Center, SUB_HEADER_FONT_SIZE, BG_X_OFFSET + (BG_WIDTH * 0.5f), 172);
 	}
 
 
@@ -78,7 +147,7 @@ namespace Menu
 	{
 		correctFontSize(&textSize); // See comment inside function
 		
-		std::string _font = FontList[static_cast<int>(font)];
+		const std::string _font = FontList[static_cast<int>(font)];
 
 		float x = (posX / SCREEN_WIDTH);
 		float y = (posY / SCREEN_HEIGHT);
@@ -91,15 +160,15 @@ namespace Menu
 		UIDEBUG::_BG_SET_TEXT_COLOR(red, green, blue, alpha);
 #endif
 
-		std::string _rightMargin = (align == Alignment::Right ? std::to_string((int)(SCREEN_WIDTH)-(int)(posX)) : (wrapWidth != 0 ? std::to_string((int)(SCREEN_WIDTH) - ((int)(posX) + wrapWidth)) : "0"));
-		std::string _align = (align == Alignment::Left ? "Left" : align == Alignment::Right ? "Right" : "Center");
-		std::string _letterSpacing = std::to_string(letterSpacing);
-		std::string _size = std::to_string(textSize);
+		const std::string _rightMargin = (align == Alignment::Right ? std::to_string((int)(SCREEN_WIDTH)-(int)(posX)) : (wrapWidth != 0 ? std::to_string((int)(SCREEN_WIDTH) - ((int)(posX) + wrapWidth)) : "0"));
+		const std::string _align = (align == Alignment::Left ? "Left" : align == Alignment::Right ? "Right" : "Center");
+		const std::string _letterSpacing = std::to_string(letterSpacing);
+		const std::string _size = std::to_string(textSize);
 
 		std::string formatText = "<TEXTFORMAT RIGHTMARGIN = '%s'><P ALIGN = '%s'><FONT FACE = '$%s' LETTERSPACING = '%s' SIZE = '%s'>~s~%s</FONT></P><TEXTFORMAT>";
 		// BASELINE, BLOCKINDENT, CLASS, HEIGHT, WIDTH, HREF, HSPACE, VSPACE, ID, INDENT, KERNING, LEADING, LEFTMARGIN, SRC, TABSTOPS, TARGET, COLOR
 
-		format(formatText, _rightMargin, _align, _font, _letterSpacing, _size, text);
+		format(&formatText, _rightMargin, _align, _font, _letterSpacing, _size, text);
 
 #if BUILD_1311_COMPATIBLE
 		HUD::_DISPLAY_TEXT(MISC::VAR_STRING(10, "LITERAL_STRING", static_cast<char*>(_strdup(formatText.c_str()))), x, y);
@@ -118,17 +187,20 @@ namespace Menu
 		// Draw background
 		if (selection <= visibleOptions-1 && index <= visibleOptions-1) {
 			if (!option->m_IsPageBreak) {
-				DrawSprite("generic_textures", "selection_box_bg_1c", 310, 270 + (index * INCREMENT), TOP_HEADER_WIDTH, 52, 0, 50, 50, 50, 110, true);
-				DrawFormattedText(option->GetText(), Font::Body, 255, 255, 255, 255, Alignment::Left, 22, 98, 254 + (index * INCREMENT));
-			} else {
-				DrawFormattedText(option->GetText(), Font::Title, 255, 255, 255, 255, Alignment::Center, 22, BG_X_OFFSET + (BG_WIDTH * 0.5f), 254 + (index * INCREMENT));
+				DrawSprite("generic_textures", "selection_box_bg_1c", OPTION_X_POS, 270 + (index * INCREMENT), OPTION_WIDTH, OPTION_HEIGHT, 0, 50, 50, 50, 110, true);
+				DrawFormattedText(option->GetText(), Font::Body, 255,255,255,255, Alignment::Left, OPTION_FONT_SIZE, 100, (276 - (OPTION_FONT_SIZE)) + (index * INCREMENT));
 			}
-		} else if ((index > (selection - visibleOptions)) && index <= selection) {
+			else {
+				DrawFormattedText(option->GetText(), Font::Title, 255,255,255,255, Alignment::Center, PAGE_BREAK_FONT_SIZE, PAGE_BREAK_TEXT_X_POS, (276 - (PAGE_BREAK_FONT_SIZE)) + (index * INCREMENT));
+			}
+		}
+		else if ((index > (selection - visibleOptions)) && index <= selection) {
 			if (!option->m_IsPageBreak) {
-				DrawSprite("generic_textures", "selection_box_bg_1c", 310, 270 + ((index - (selection - (visibleOptions-1))) * INCREMENT), TOP_HEADER_WIDTH, 52, 0, 50, 50, 50, 110, true);
-				DrawFormattedText(option->GetText(), Font::Body, 255, 255, 255, 255, Alignment::Left, 22, 98, 254 + ((index - (selection - (visibleOptions - 1))) * INCREMENT));
-			} else {
-				DrawFormattedText(option->GetText(), Font::Title, 255, 255, 255, 255, Alignment::Center, 22, BG_X_OFFSET + (BG_WIDTH * 0.5f), 254 + ((index - (selection - (visibleOptions - 1))) * INCREMENT));
+				DrawSprite("generic_textures", "selection_box_bg_1c", OPTION_X_POS, 270 + ((index - (selection - (visibleOptions-1))) * INCREMENT), OPTION_WIDTH, OPTION_HEIGHT, 0, 50, 50, 50, 110, true);
+				DrawFormattedText(option->GetText(), Font::Body, 255,255,255,255, Alignment::Left, OPTION_FONT_SIZE, 100, (276 - (OPTION_FONT_SIZE)) + ((index - (selection - (visibleOptions - 1))) * INCREMENT));
+			}
+			else {
+				DrawFormattedText(option->GetText(), Font::Title, 255,255,255,255, Alignment::Center, PAGE_BREAK_FONT_SIZE, PAGE_BREAK_TEXT_X_POS, (276 - (PAGE_BREAK_FONT_SIZE)) + ((index - (selection - (visibleOptions - 1))) * INCREMENT));
 			}
 		}
 
@@ -141,15 +213,15 @@ namespace Menu
 		if (option->m_IsVectorOption) {
 			if (selection <= visibleOptions-1 && index <= visibleOptions-1) {
 				if (selection == index)
-					DrawFormattedText("<img src='img://menu_textures/selection_arrow_left' height='18' width='18'/> " + option->GetText(true) + " <img src='img://menu_textures/selection_arrow_right' height='18' width='18'/>", Font::Body, 255, 255, 255, 255, Alignment::Right, 22, 520, 254 + (index * INCREMENT));
+					DrawFormattedText("<img src='img://menu_textures/selection_arrow_left' height='18' width='18'/> " + option->GetText(true) + " <img src='img://menu_textures/selection_arrow_right' height='18' width='18'/>", Font::Body, 255,255,255,255, Alignment::Right, OPTION_FONT_SIZE, 523, (276 - (OPTION_FONT_SIZE)) + (index * INCREMENT));
 				else
-					DrawFormattedText(option->GetText(true), Font::Body, 255, 255, 255, 255, Alignment::Right, 22, 520, 254 + (index * INCREMENT));
+					DrawFormattedText(option->GetText(true), Font::Body, 255,255,255,255, Alignment::Right, OPTION_FONT_SIZE, 523, (276 - (OPTION_FONT_SIZE)) + (index * INCREMENT));
 			}
 			else if ((index > (selection - visibleOptions)) && index <= selection) {
 				if (selection == index)
-					DrawFormattedText("<img src='img://menu_textures/selection_arrow_left' height='18' width='18'/> " + option->GetText(true) + " <img src='img://menu_textures/selection_arrow_right' height='18' width='18'/>", Font::Body, 255, 255, 255, 255, Alignment::Right, 22, 520, 254 + ((index - (selection - (visibleOptions-1))) * INCREMENT));
+					DrawFormattedText("<img src='img://menu_textures/selection_arrow_left' height='18' width='18'/> " + option->GetText(true) + " <img src='img://menu_textures/selection_arrow_right' height='18' width='18'/>", Font::Body, 255,255,255,255, Alignment::Right, OPTION_FONT_SIZE, 523, (276 - (OPTION_FONT_SIZE)) + ((index - (selection - (visibleOptions-1))) * INCREMENT));
 				else
-					DrawFormattedText(option->GetText(true), Font::Body, 255, 255, 255, 255, Alignment::Right, 22, 520, 254 + ((index - (selection - (visibleOptions-1))) * INCREMENT));
+					DrawFormattedText(option->GetText(true), Font::Body, 255,255,255,255, Alignment::Right, OPTION_FONT_SIZE, 523, (276 - (OPTION_FONT_SIZE)) + ((index - (selection - (visibleOptions-1))) * INCREMENT));
 			}
 		}
 
@@ -158,10 +230,10 @@ namespace Menu
 		if (option->m_IsBoolOption) {
 			if (option->GetBoolPtr() != nullptr && *option->GetBoolPtr() == true) {
 				if (selection <= visibleOptions-1 && index <= visibleOptions-1) {
-					DrawFormattedText("<img src='img://generic_textures/tick' height='30' width='30'/>", Font::Body, 255, 255, 255, 255, Alignment::Right, 22, 520, 250 + (index * INCREMENT));
+					DrawFormattedText("<img src='img://generic_textures/tick' height='30' width='30'/>", Font::Body, 255,255,255,255, Alignment::Right, 22, 523, 250 + (index * INCREMENT));
 				}
 				else if ((index > (selection - visibleOptions)) && index <= selection) {
-					DrawFormattedText("<img src='img://generic_textures/tick' height='30' width='30'/>", Font::Body, 255, 255, 255, 255, Alignment::Right, 22, 520, 250 + ((index - (selection - (visibleOptions-1))) * INCREMENT));
+					DrawFormattedText("<img src='img://generic_textures/tick' height='30' width='30'/>", Font::Body, 255,255,255,255, Alignment::Right, 22, 523, 250 + ((index - (selection - (visibleOptions-1))) * INCREMENT));
 				}
 			}
 		}
@@ -189,28 +261,27 @@ namespace Menu
 		//////////////////////
 		
 		// Top
-		DrawSprite("menu_textures", "scroller_left_top", 90, 215, (TOP_HEADER_WIDTH / 2.0f) - 14.0f, 25, 0, 255, 255, 255, 255, false);
-		DrawSprite("menu_textures", "scroller_right_top", 322, 215, (TOP_HEADER_WIDTH / 2.0f) - 14.0f, 25, 0, 255, 255, 255, 255, false);
+		DrawSprite("menu_textures", "scroller_left_top", SCROLLER_LEFT_X_POS, 215, SCROLLER_LEFT_WIDTH, 25, 0, 255,255,255,255, false);
+		DrawSprite("menu_textures", "scroller_right_top", SCROLLER_RIGHT_X_POS, 215, SCROLLER_RIGHT_WIDTH, 25, 0, 255,255,255,255, false);
 		if (selection >= visOptions)
-			DrawSprite("menu_textures", "scroller_arrow_top", 310, 227.5f, 25, 25, 0, 255, 255, 255, 255, true);
+			DrawSprite("menu_textures", "scroller_arrow_top", SCROLLER_MIDDLE_X_POS, 227.5f, SCROLLER_MIDDLE_WIDTH, 25, 0, 255,255,255,255, true);
 		else
-			DrawSprite("menu_textures", "scroller_line_up", 310, 227.5f, 25, 25, 0, 255, 255, 255, 255, true);
+			DrawSprite("menu_textures", "scroller_line_up", SCROLLER_MIDDLE_X_POS, 227.5f, SCROLLER_MIDDLE_WIDTH, 25, 0, 255,255,255,255, true);
 
 		// Bottom
 		if (numOptions <= visOptions) {
-			DrawSprite("menu_textures", "scroller_left_bottom", 90, 244 + (numOptions * INCREMENT), (TOP_HEADER_WIDTH / 2.0f) - 14.0f, 25, 0, 255, 255, 255, 255, false);
-			DrawSprite("menu_textures", "scroller_right_bottom", 319, 244 + (numOptions * INCREMENT), (TOP_HEADER_WIDTH / 2.0f) - 10.0f, 25, 0, 255, 255, 255, 255, false);
-			DrawSprite("menu_textures", "scroller_line_down", 308.5f, 256.5f + (numOptions * INCREMENT), 22, 25, 0, 255, 255, 255, 255, true); // ???
+			DrawSprite("menu_textures", "scroller_left_bottom", SCROLLER_LEFT_X_POS, 244 + (numOptions * INCREMENT), SCROLLER_LEFT_WIDTH, 25, 0, 255,255,255,255, false);
+			DrawSprite("menu_textures", "scroller_right_bottom", SCROLLER_RIGHT_X_POS, 244 + (numOptions * INCREMENT), SCROLLER_RIGHT_WIDTH, 25, 0, 255,255,255,255, false);
+			DrawSprite("menu_textures", "scroller_line_down", SCROLLER_MIDDLE_X_POS, 256.5f + (numOptions * INCREMENT), SCROLLER_MIDDLE_WIDTH, 25, 0, 255,255,255,255, true);
 		}
 		else {
-			DrawSprite("menu_textures", "scroller_left_bottom", 90, 244 + (visOptions * INCREMENT), (TOP_HEADER_WIDTH / 2.0f) - 14.0f, 25, 0, 255, 255, 255, 255, false);
-			DrawSprite("menu_textures", "scroller_right_bottom", 322, 244 + (visOptions * INCREMENT), (TOP_HEADER_WIDTH / 2.0f) - 14.0f, 25, 0, 255, 255, 255, 255, false);
+			DrawSprite("menu_textures", "scroller_left_bottom", SCROLLER_LEFT_X_POS, 244 + (visOptions * INCREMENT), SCROLLER_LEFT_WIDTH, 25, 0, 255,255,255,255, false);
+			DrawSprite("menu_textures", "scroller_right_bottom", SCROLLER_RIGHT_X_POS, 244 + (visOptions * INCREMENT), SCROLLER_RIGHT_WIDTH, 25, 0, 255,255,255,255, false);
 			if (selection == numOptions - 1) // We're at the very last option, don't draw the arrow
-				DrawSprite("menu_textures", "scroller_line_down", 310, 256.5f + (visOptions * INCREMENT), 25, 25, 0, 255, 255, 255, 255, true);
+				DrawSprite("menu_textures", "scroller_line_down", SCROLLER_MIDDLE_X_POS, 256.5f + (visOptions * INCREMENT), SCROLLER_MIDDLE_WIDTH, 25, 0, 255, 255, 255, 255, true);
 			else
-				DrawSprite("menu_textures", "scroller_arrow_bottom", 310, 256.5f + (visOptions * INCREMENT), 25, 25, 0, 255, 255, 255, 255, true);
+				DrawSprite("menu_textures", "scroller_arrow_bottom", SCROLLER_MIDDLE_X_POS, 256.5f + (visOptions * INCREMENT), SCROLLER_MIDDLE_WIDTH, 25, 0, 255, 255, 255, 255, true);
 		}
-		
 	}
 
 
@@ -226,15 +297,15 @@ namespace Menu
 
 		// Left, Right, Top, Bottom
 		if (selection >= visibleOptions-1) {
-			DrawSprite("menu_textures", "crafting_highlight_l",  86, 270 + ((visibleOptions-1) * INCREMENT), 19, 59, 0, 255, 0, 0, 255, true);
-			DrawSprite("menu_textures", "crafting_highlight_r", 534, 270 + ((visibleOptions-1) * INCREMENT), 19, 59, 0, 255, 0, 0, 255, true);
-			DrawSprite("menu_textures", "crafting_highlight_t", 310, 247 + ((visibleOptions-1) * INCREMENT), TOP_HEADER_WIDTH + 6.0f, 22 , 0, 255, 0, 0, 255, true);
-			DrawSprite("menu_textures", "crafting_highlight_b", 310, 293 + ((visibleOptions-1) * INCREMENT), TOP_HEADER_WIDTH + 6.0f, 22 , 0, 255, 0, 0, 255, true);
+			DrawSprite("menu_textures", "crafting_highlight_l", SELECTION_BOX_LEFT_X_POS,   270 + ((visibleOptions-1) * INCREMENT), 19, SELECTION_BOX_LEFT_HEIGHT, 0, 255, 0, 0, 255, true);
+			DrawSprite("menu_textures", "crafting_highlight_r", SELECTION_BOX_RIGHT_X_POS,  270 + ((visibleOptions-1) * INCREMENT), 19, SELECTION_BOX_RIGHT_HEIGHT, 0, 255, 0, 0, 255, true);
+			DrawSprite("menu_textures", "crafting_highlight_t", SELECTION_BOX_TOP_X_POS,    SELECTION_BOX_TOP_Y_POS + ((visibleOptions - 1) * INCREMENT), SELECTION_BOX_TOP_WIDTH, 22, 0, 255, 0, 0, 255, true);
+			DrawSprite("menu_textures", "crafting_highlight_b", SELECTION_BOX_BOTTOM_X_POS, SELECTION_BOX_BOTTOM_Y_POS + ((visibleOptions-1) * INCREMENT), SELECTION_BOX_BOTTOM_WIDTH, 22, 0, 255, 0, 0, 255, true);
 		} else {
-			DrawSprite("menu_textures", "crafting_highlight_l",  86, 270 + (selection * INCREMENT), 19, 59, 0, 255, 0, 0, 255, true);
-			DrawSprite("menu_textures", "crafting_highlight_r", 534, 270 + (selection * INCREMENT), 19, 59, 0, 255, 0, 0, 255, true);
-			DrawSprite("menu_textures", "crafting_highlight_t", 310, 247 + (selection * INCREMENT), TOP_HEADER_WIDTH + 6.0f, 22, 0, 255, 0, 0, 255, true);
-			DrawSprite("menu_textures", "crafting_highlight_b", 310, 293 + (selection * INCREMENT), TOP_HEADER_WIDTH + 6.0f, 22, 0, 255, 0, 0, 255, true);
+			DrawSprite("menu_textures", "crafting_highlight_l", SELECTION_BOX_LEFT_X_POS,   270 + (selection * INCREMENT), 19, SELECTION_BOX_LEFT_HEIGHT, 0, 255, 0, 0, 255, true);
+			DrawSprite("menu_textures", "crafting_highlight_r", SELECTION_BOX_RIGHT_X_POS,  270 + (selection * INCREMENT), 19, SELECTION_BOX_RIGHT_HEIGHT, 0, 255, 0, 0, 255, true);
+			DrawSprite("menu_textures", "crafting_highlight_t", SELECTION_BOX_TOP_X_POS,    SELECTION_BOX_TOP_Y_POS + (selection * INCREMENT), SELECTION_BOX_TOP_WIDTH, 22, 0, 255, 0, 0, 255, true);
+			DrawSprite("menu_textures", "crafting_highlight_b", SELECTION_BOX_BOTTOM_X_POS, SELECTION_BOX_BOTTOM_Y_POS + (selection * INCREMENT), SELECTION_BOX_BOTTOM_WIDTH, 22, 0, 255, 0, 0, 255, true);
 		}
 	}
 }

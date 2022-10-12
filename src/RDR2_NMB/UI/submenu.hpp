@@ -9,7 +9,7 @@ namespace Menu
 	class Submenu
 	{
 	private:
-		std::function<void(Submenu*)> m_StructureFunc;
+		std::function<void(Submenu*)> m_StructureFunc; // The function that sets the submenu layout
 
 	public:
 		std::vector<Option> m_Options;
@@ -29,12 +29,12 @@ namespace Menu
 			m_ID = id;
 			m_NumVisibleOptions = numVisibleOptions;
 			m_StructureFunc = submenuFunc;
-			std::invoke(m_StructureFunc, static_cast<Submenu*>(this));
+			std::invoke(m_StructureFunc, static_cast<Submenu*>(this)); // Create the submenu
 		}
 
 
 		/// Regular plain ol' option.
-		/// Passed function will execute when option is pressed.
+		/// Passed function will execute when the option is pressed.
 		void AddRegularOption(const std::string& text, const std::string& footer, std::function<void()> func = [] {})
 		{
 			Option option(true, false, false, false, false);
@@ -49,7 +49,7 @@ namespace Menu
 
 		/// An on/off (true/false) boolean toggle option.
 		/// Note: bToggle parameter must be an already defined boolean variable.
-		/// Passed function will execute when option is pressed.
+		/// Passed function will execute when the option is pressed.
 		void AddBoolOption(const std::string& text, const std::string& footer, bool* bToggle, std::function<void()> func = [] {})
 		{
 			Option option(false, true, false, false, false);
@@ -64,7 +64,7 @@ namespace Menu
 
 
 		/// An option with left and right arrows with multiple choosable options.
-		/// Passed function will execute when vector option is switched.
+		/// Passed function will execute when the vector option is switched.
 		template<typename T>
 		void AddVectorOption(const std::string& text, const std::string& footer, std::vector<T> vec, std::function<void()> func = [] {})
 		{
@@ -122,15 +122,15 @@ namespace Menu
 		}
 
 
-		Option* GetOption(int optionIndex)
+		Option* GetOption(int index)
 		{
-			if (optionIndex >= m_Options.size()) {
+			if (index >= m_Options.size()) {
 #if ALLOCATE_CONSOLE
-				std::cout << "[Submenu::GetOption] [ERROR]: Bad optionIndex (" << optionIndex << "). Submenu ID: " << m_ID << ", m_Options.size(): " << m_Options.size() << "...returning nullptr" << "\n";
+				std::cout << "[Submenu::GetOption] [ERROR]: Bad index (" << index << "). Submenu ID: " << m_ID << ", m_Options.size(): " << m_Options.size() << ", returning nullptr" << "\n";
 #endif
 				return nullptr;
 			} else {
-				return &m_Options[optionIndex];
+				return &m_Options[index];
 			}
 		}
 

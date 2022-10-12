@@ -1,4 +1,21 @@
-[Latest Update] Jun 23, 2022
+[Latest Update] Oct 12, 2022
+- Added Option::WasJustExecuted() and Option::WasJustPressed() (They do the same thing)
+- Converted Option::GetVectorDirection() to use bool pointers instead of bool references
+- Fixed radar display issues if bPlaySounds was false when calling CNativeMenu::SetEnabled()
+- Fixed not being able to use menu properly if the prompts weren't active (Such as in a cutscene or near a pickup)
+- Fixed many unaligned UI elements
+- "Improved" text being unaligned at different font sizes
+- Moved UI constants to drawing.cpp and drawing.h (from menu.hpp. drawing.cpp has most of them)
+- Added more UI constants
+- Updated natives file
+- Optimizations
+- Other minor fixes and changes
+
+
+---------------------------------------------- [Previous Updates] ----------------------------------------------
+
+
+Jun 23, 2022
 - Added CNativeMenu::m_CurrentSubmenuID
 - Added CNativeMenu::RemoveSubmenu()
 - Added CNativeMenu::ClearSubmenu()
@@ -14,7 +31,6 @@
 - Lower footer font size to 18 (Was 19)
 - Other misc changes
 
-----------------------------------------------Previous Updates----------------------------------------------
 
 Jun 15, 2022
 - Native Menu Base has been completely rewritten from scratch and is wayyyy easier to use and understand
@@ -27,6 +43,9 @@ Jun 15, 2022
 - Added scroller sprites
 - "More fonts"
 - And much more
+
+
+------------------ [Obsolete Changes] ------------------
 
 
 May 10, 2022
@@ -102,7 +121,7 @@ Nov 10, 2021
 - Most functions in menu.h are now in different namespaces for organization purposes (Draw, Header, Menu)
 - New functions in menu.cpp (SetToggleSelection, SetTextAtPos, GetToggleSelection)
 - Pages.cpp has been converted to specifically only to draw and create pages.
-   Functions from there have either been moved to menu.cpp or deleted. By default, the only defined function is DrawPage()
+	- Functions from there have either been moved to menu.cpp or deleted. By default, the only defined function is DrawPage()
 - Improved examples of how to execute code when an option is pressed
 - Updated natives.h
 

@@ -55,6 +55,9 @@
     <ClInclude Include="UI\submenu.hpp">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="Submenus\common_submenu.h">
+      <Filter>Submenus</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">

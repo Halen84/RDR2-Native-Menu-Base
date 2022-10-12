@@ -16,6 +16,7 @@ namespace Menu
 		
 		bool bWentLeft = false;
 		bool bWentRight = false;
+		bool bWasJustExecuted = false;
 		bool bInitialTextSet = false;
 
 		std::vector<std::string> m_Vector;
@@ -26,44 +27,49 @@ namespace Menu
 		bool m_IsRegularOption = false;
 		bool m_IsBoolOption = false;
 		bool m_IsVectorOption = false;
-		bool m_IsSubMenuOption = false;
+		bool m_IsSubmenuOption = false;
 		bool m_IsPageBreak = false;
 
 		int m_Index = 0;
 		int m_VectorIndex = 0;
-		int m_SubMenuID = Submenu_Invalid;
+		int m_SubmenuID = Submenu_Invalid;
 
 		Option(bool bRegularOption, bool bBooleanOption, bool bVectorOption, bool bSubmenuOption, bool bPageBreak)
 		{
 			m_IsRegularOption = bRegularOption;
 			m_IsBoolOption = bBooleanOption;
 			m_IsVectorOption = bVectorOption;
-			m_IsSubMenuOption = bSubmenuOption;
+			m_IsSubmenuOption = bSubmenuOption;
 			m_IsPageBreak = bPageBreak;
 		}
 
+
 		//==================================//
 
+
 		// bFromRight: Get text from the vector option
-		std::string GetText(bool bFromRight = false)
+		std::string GetText(bool bFromRight = false) const
 		{
 			if (bFromRight)
 				return m_RightText;
 			return m_LeftText;
 		}
 
-		std::string GetFooter()
+
+		std::string GetFooter() const
 		{
 			return m_Footer;
 		}
+
 
 		bool* GetBoolPtr()
 		{
 			return m_BoolPtr;
 		}
 
+
 		// bRight: Set text for the vector
-		void SetText(std::string text, bool bRight = false)
+		void SetText(const std::string &text, bool bRight = false)
 		{
 			if (bRight) {
 				m_RightText = text;
@@ -79,28 +85,33 @@ namespace Menu
 			}	
 		}
 
-		void SetFooter(std::string footer)
+
+		void SetFooter(const std::string &footer)
 		{
 			m_Footer = footer;
 		}
+
 
 		void SetBoolPtr(bool* ptr)
 		{
 			m_BoolPtr = ptr;
 		}
 
+
 		void SetSubmenuID(int id)
 		{
-			m_SubMenuID = id;
+			m_SubmenuID = id;
 		}
 
-		void SetFunction(std::function<void()> &func)
+
+		void SetFunction(const std::function<void()> &func)
 		{
 			m_Func = func;
 		}
 
+
 		template<typename T>
-		void SetVector(std::vector<T> &vec)
+		void SetVector(const std::vector<T> &vec)
 		{
 			std::vector<std::string> _temp;
 			for (int i = 0; i < vec.size(); i++)
@@ -108,10 +119,12 @@ namespace Menu
 			m_Vector.swap(_temp);
 		}
 
+
 		void SetVector(std::vector<std::string> &vec)
 		{
 			m_Vector.swap(vec);
 		}
+
 
 		void SetVectorIndex(int newIndex)
 		{
@@ -121,19 +134,29 @@ namespace Menu
 			}
 		}
 		
+
 		// Get which way the vector went when the function was executed
 		// Note: This should be used in the function this option called
-		void GetVectorDirection(bool &bLeft, bool &bRight)
+		void GetVectorDirection(bool* bWentLeft, bool* bWentRight)
 		{
-			bLeft = bWentLeft;
-			bRight = bWentRight;
+			*bWentLeft = this->bWentLeft;
+			*bWentRight = this->bWentRight;
 		}
+
+
+		inline bool WasJustExecuted()	{ return bWasJustExecuted; }
+		inline bool WasJustPressed()	{ return bWasJustExecuted; }
+
 
 		void ExecuteFunc()
 		{
-			if (m_Func != nullptr)
+			if (m_Func != nullptr) {
+				bWasJustExecuted = true;
 				m_Func();
+				bWasJustExecuted = false;
+			}
 		}
+
 
 		void ExecuteVectorFunc(bool bLeft, bool bRight)
 		{
@@ -153,8 +176,11 @@ namespace Menu
 
 			m_RightText = m_Vector[m_VectorIndex];
 			
-			if (m_Func != nullptr)
+			if (m_Func != nullptr) {
+				bWasJustExecuted = true;
 				m_Func();
+				bWasJustExecuted = false;
+			}
 			
 			bWentLeft = false;
 			bWentRight = false;

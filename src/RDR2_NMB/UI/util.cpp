@@ -1,6 +1,8 @@
 #include "util.h"
 #include "../script.h"
 
+// TODO: Rewrite this file or something. Seems useless except for PrintSubtitle()
+
 namespace Menu::Util
 {
 	int g_screenWidth = 1920;

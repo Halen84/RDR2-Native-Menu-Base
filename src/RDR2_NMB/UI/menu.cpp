@@ -59,38 +59,40 @@ void CNativeMenu::SetEnabled(bool bEnabled, bool bPlaySounds)
 	m_IsOpen = bEnabled;
 
 	if (bPlaySounds) {
-		if (m_IsOpen) {
-			MAP::DISPLAY_RADAR(false);
+		if (m_IsOpen)
 			playSoundFrontend("MENU_ENTER", "HUD_PLAYER_MENU");
-		} else {
-			MAP::DISPLAY_RADAR(true);
+		else
 			playSoundFrontend("MENU_CLOSE", "HUD_PLAYER_MENU");
-		}
 	}
+
+	if (m_IsOpen)
+		MAP::DISPLAY_RADAR(false);
+	else
+		MAP::DISPLAY_RADAR(true);
 }
 
 
 void CNativeMenu::CheckInput()
 {
-	m_PadIndex = PAD::_IS_USING_KEYBOARD(0) ? 0 : 2;
+	m_ControlIndex = PAD::IS_USING_KEYBOARD_AND_MOUSE(0) ? 0 : 2;
 
 	m_OpenKeyPressed	= IsKeyJustUp(VK_F5) || PAD::IS_DISABLED_CONTROL_PRESSED(2, INPUT_FRONTEND_RB) && PAD::IS_CONTROL_JUST_RELEASED(2, INPUT_CONTEXT_A);
-	m_EnterKeyPressed	= PAD::IS_CONTROL_JUST_PRESSED(m_PadIndex, INPUT_GAME_MENU_ACCEPT);
-	m_BackKeyPressed	= PAD::IS_CONTROL_JUST_PRESSED(m_PadIndex, INPUT_GAME_MENU_CANCEL);
-	m_UpKeyPressed		= PAD::IS_CONTROL_JUST_PRESSED(m_PadIndex, INPUT_GAME_MENU_UP);
-	m_DownKeyPressed	= PAD::IS_CONTROL_JUST_PRESSED(m_PadIndex, INPUT_GAME_MENU_DOWN);
-	m_LeftKeyPressed	= PAD::IS_DISABLED_CONTROL_JUST_PRESSED(m_PadIndex, INPUT_GAME_MENU_LEFT);
-	m_RightKeyPressed	= PAD::IS_DISABLED_CONTROL_JUST_PRESSED(m_PadIndex, INPUT_GAME_MENU_RIGHT);
+	m_EnterKeyPressed	= PAD::IS_CONTROL_JUST_RELEASED(m_ControlIndex, INPUT_GAME_MENU_ACCEPT);
+	m_BackKeyPressed	= PAD::IS_CONTROL_JUST_RELEASED(m_ControlIndex, INPUT_GAME_MENU_CANCEL);
+	m_UpKeyPressed		= PAD::IS_CONTROL_JUST_PRESSED(m_ControlIndex, INPUT_GAME_MENU_UP);
+	m_DownKeyPressed	= PAD::IS_CONTROL_JUST_PRESSED(m_ControlIndex, INPUT_GAME_MENU_DOWN);
+	m_LeftKeyPressed	= PAD::IS_DISABLED_CONTROL_JUST_PRESSED(m_ControlIndex, INPUT_GAME_MENU_LEFT);
+	m_RightKeyPressed	= PAD::IS_DISABLED_CONTROL_JUST_PRESSED(m_ControlIndex, INPUT_GAME_MENU_RIGHT);
 
-	if (HUD::_UI_PROMPT_IS_VALID(m_SelectPrompt))
+	if (HUD::_UI_PROMPT_IS_VALID(m_SelectPrompt) && HUD::_UI_PROMPT_IS_ACTIVE(m_SelectPrompt))
 		m_SelectPromptCompleted = HUD::_UI_PROMPT_HAS_STANDARD_MODE_COMPLETED(m_SelectPrompt, 0);
 	else
-		m_SelectPromptCompleted = m_EnterKeyPressed; // Prompt doesn't exist for some reason. Fallback to use raw input.
+		m_SelectPromptCompleted = m_EnterKeyPressed; // Fallback to use raw input.
 
-	if (HUD::_UI_PROMPT_IS_VALID(m_BackPrompt))
+	if (HUD::_UI_PROMPT_IS_VALID(m_BackPrompt) && HUD::_UI_PROMPT_IS_ACTIVE(m_SelectPrompt))
 		m_BackPromptCompleted = HUD::_UI_PROMPT_HAS_STANDARD_MODE_COMPLETED(m_BackPrompt, 0);
 	else
-		m_BackPromptCompleted = m_BackKeyPressed; // Prompt doesn't exist for some reason. Fallback to use raw input.
+		m_BackPromptCompleted = m_BackKeyPressed; // Fallback to use raw input.
 }
 
 
@@ -124,17 +126,17 @@ void CNativeMenu::HandleInput()
 			else if (option->m_IsVectorOption) {
 				option->ExecuteVectorFunc(false, true);
 			}
-			else if (option->m_IsSubMenuOption) {
-				if (DoesSubmenuExist(option->m_SubMenuID)) {
-					//g_NativeMenu->GoToSubmenu(option->m_SubMenuID, false);
-					m_PrevSubMenuIds.push_back(CurrentSubmenu->m_ID);
-					m_SubMenuLastSelections[CurrentSubmenu->m_ID] = m_SelectionIndex;
-					CurrentSubmenu = &g_SubmenusMap[option->m_SubMenuID];
+			else if (option->m_IsSubmenuOption) {
+				if (DoesSubmenuExist(option->m_SubmenuID)) {
+					//g_NativeMenu->GoToSubmenu(option->m_SubmenuID, false);
+					m_PrevSubmenuIds.push_back(CurrentSubmenu->m_ID);
+					m_SubmenuLastSelections[CurrentSubmenu->m_ID] = m_SelectionIndex;
+					CurrentSubmenu = &g_SubmenusMap[option->m_SubmenuID];
 					m_SelectionIndex = 0;
 				}
 				else {
 #if ALLOCATE_CONSOLE
-					std::cout << "[CNativeMenu::HandleInput] [ERROR]: Submenu " << option->m_SubMenuID << " doesn't exist." << "\n";
+					std::cout << "[CNativeMenu::HandleInput] [ERROR]: Submenu " << option->m_SubmenuID << " doesn't exist." << "\n";
 #endif
 				}
 			}
@@ -149,15 +151,15 @@ void CNativeMenu::HandleInput()
 				return;
 			}
 
-			if (m_PrevSubMenuIds.size() > 0) {
-				//g_NativeMenu->GoToSubmenu(m_PrevSubMenuIds[m_PrevSubMenuIds.size() - 1], true);
-				CurrentSubmenu = &g_SubmenusMap[m_PrevSubMenuIds[m_PrevSubMenuIds.size() - 1]];
-				m_PrevSubMenuIds.pop_back();
-				m_SelectionIndex = m_SubMenuLastSelections[CurrentSubmenu->m_ID];
-				m_SubMenuLastSelections.erase(CurrentSubmenu->m_ID);
+			if (m_PrevSubmenuIds.size() > 0) {
+				//g_NativeMenu->GoToSubmenu(m_PrevSubmenuIds[m_PrevSubmenuIds.size() - 1], true);
+				CurrentSubmenu = &g_SubmenusMap[m_PrevSubmenuIds[m_PrevSubmenuIds.size() - 1]];
+				m_PrevSubmenuIds.pop_back();
+				m_SelectionIndex = m_SubmenuLastSelections[CurrentSubmenu->m_ID];
+				m_SubmenuLastSelections.erase(CurrentSubmenu->m_ID);
 			} else {
 				CurrentSubmenu = &g_SubmenusMap[Submenu_EntryMenu];
-				m_SelectionIndex = m_SubMenuLastSelections[Submenu_EntryMenu];
+				m_SelectionIndex = m_SubmenuLastSelections[Submenu_EntryMenu];
 			}
 
 			playSoundFrontend("BACK", "HUD_SHOP_SOUNDSET");
@@ -235,23 +237,23 @@ void CNativeMenu::HandleInput()
 void CNativeMenu::DisableCommonInputs()
 {
 	if (m_IsOpen) {
-		if (m_PadIndex == INPUT_GROUP_CONTROLLER) {
+		if (m_ControlIndex == INPUT_GROUP_CONTROLLER) {
 			*getGlobalPtr(1900383 + 316) = 2; // Disables horse whistling this frame. Not sure if this is safe, but it works.
 			PAD::DISABLE_CONTROL_ACTION(INPUT_GROUP_CONTROLLER, INPUT_WHISTLE, false);
 			PAD::DISABLE_CONTROL_ACTION(INPUT_GROUP_CONTROLLER, INPUT_WHISTLE_HORSEBACK, false);
 		}
 
-		PAD::DISABLE_CONTROL_ACTION(m_PadIndex, INPUT_SELECT_RADAR_MODE, false);
-		PAD::DISABLE_CONTROL_ACTION(m_PadIndex, INPUT_REVEAL_HUD, false);
-		PAD::DISABLE_CONTROL_ACTION(m_PadIndex, INPUT_PLAYER_MENU, false);
-		PAD::DISABLE_CONTROL_ACTION(m_PadIndex, INPUT_OPEN_JOURNAL, false);
-		PAD::DISABLE_CONTROL_ACTION(m_PadIndex, INPUT_OPEN_SATCHEL_MENU, false);
-		PAD::DISABLE_CONTROL_ACTION(m_PadIndex, INPUT_OPEN_SATCHEL_HORSE_MENU, false);
-		PAD::DISABLE_CONTROL_ACTION(m_PadIndex, INPUT_OPEN_CRAFTING_MENU, false);
-		PAD::DISABLE_CONTROL_ACTION(m_PadIndex, INPUT_OPEN_EMOTE_WHEEL, false);
-		PAD::DISABLE_CONTROL_ACTION(m_PadIndex, INPUT_EXPAND_RADAR, false);
-		PAD::DISABLE_CONTROL_ACTION(m_PadIndex, INPUT_INTERACTION_MENU, false);
-		PAD::DISABLE_CONTROL_ACTION(m_PadIndex, INPUT_HUD_SPECIAL, false);
+		PAD::DISABLE_CONTROL_ACTION(m_ControlIndex, INPUT_SELECT_RADAR_MODE, false);
+		PAD::DISABLE_CONTROL_ACTION(m_ControlIndex, INPUT_REVEAL_HUD, false);
+		PAD::DISABLE_CONTROL_ACTION(m_ControlIndex, INPUT_PLAYER_MENU, false);
+		PAD::DISABLE_CONTROL_ACTION(m_ControlIndex, INPUT_OPEN_JOURNAL, false);
+		PAD::DISABLE_CONTROL_ACTION(m_ControlIndex, INPUT_OPEN_SATCHEL_MENU, false);
+		PAD::DISABLE_CONTROL_ACTION(m_ControlIndex, INPUT_OPEN_SATCHEL_HORSE_MENU, false);
+		PAD::DISABLE_CONTROL_ACTION(m_ControlIndex, INPUT_OPEN_CRAFTING_MENU, false);
+		PAD::DISABLE_CONTROL_ACTION(m_ControlIndex, INPUT_OPEN_EMOTE_WHEEL, false);
+		PAD::DISABLE_CONTROL_ACTION(m_ControlIndex, INPUT_EXPAND_RADAR, false);
+		PAD::DISABLE_CONTROL_ACTION(m_ControlIndex, INPUT_INTERACTION_MENU, false);
+		PAD::DISABLE_CONTROL_ACTION(m_ControlIndex, INPUT_HUD_SPECIAL, false);
 	}
 }
 

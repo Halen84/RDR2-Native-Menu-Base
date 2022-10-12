@@ -4,6 +4,7 @@
 #include "keyboard.h"
 #include <iostream>
 
+#ifdef ALLOCATE_CONSOLE
 #if ALLOCATE_CONSOLE
 void AllocateConsole(const char* title)
 {
@@ -18,6 +19,7 @@ void AllocateConsole(const char* title)
 	std::cerr.clear();
 }
 #endif
+#endif
 
 BOOL APIENTRY DllMain(HMODULE hInstance, DWORD reason, LPVOID lpReserved)
 {
@@ -27,7 +29,7 @@ BOOL APIENTRY DllMain(HMODULE hInstance, DWORD reason, LPVOID lpReserved)
 		scriptRegister(hInstance, ScriptMain);
 		keyboardHandlerRegister(OnKeyboardMessage);
 #if ALLOCATE_CONSOLE
-		AllocateConsole("RDR2NativeMenuBase");
+		AllocateConsole("NativeMenuBaseDebugConsole");
 #endif
 		break;
 	case DLL_PROCESS_DETACH:

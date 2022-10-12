@@ -88,6 +88,9 @@ void InitializeMenu()
 
 	g_NativeMenu->AddSubmenu("EXAMPLES", "Change Weather", Submenu_Examples_Weather, MAX, [](Submenu* sub)
 	{
+			// In a real scenario, you should use enum hashes
+			// for the weather types instead of GET_HASH_KEY
+
 			sub->AddRegularOption("High Pressure", "",		[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("HIGHPRESSURE")); });
 			sub->AddRegularOption("Rain", "",				[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("RAIN")); });
 			sub->AddRegularOption("Snow", "",				[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("SNOW")); });
@@ -97,7 +100,7 @@ void InitializeMenu()
 			sub->AddRegularOption("Clouds", "",				[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("CLOUDS")); });
 			sub->AddRegularOption("Overcast", "",			[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("OVERCAST")); });
 			sub->AddRegularOption("Thunderstorm", "",		[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("THUNDERSTORM")); });
-			sub->AddRegularOption("Hurricane", "",			[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("HURRICAN")); });
+			sub->AddRegularOption("Hurricane", "",			[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("HURRICANE")); });
 			sub->AddRegularOption("Thunder", "",			[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("THUNDER")); });
 			sub->AddRegularOption("Shower", "",				[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("SHOWER")); });
 			sub->AddRegularOption("Blizzard", "",			[] { g_ExampleFuncs->SetWeather(MISC::GET_HASH_KEY("BLIZZARD")); });
@@ -112,6 +115,9 @@ void InitializeMenu()
 	});
 
 
+	// If you were to implement this in examples.cpp, you wouldn't need to use a lambda.
+	// You also wouldn't need to use "g_ExampleFuncs->..."
+	// But once again, this is just here for simplicity reasons.
 	g_NativeMenu->AddSubmenu("EXAMPLES", "Change Time", Submenu_Examples_Time, DEFAULT, [](Submenu* sub)
 	{
 			sub->AddVectorOption("Hour", "", 24, "", "",	[] { g_ExampleFuncs->SetTime(); });

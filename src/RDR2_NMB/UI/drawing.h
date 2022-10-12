@@ -5,6 +5,10 @@
 #include "../script.h"
 #include "../common.hpp"
 
+const float SCREEN_WIDTH	= 1920.0f;		// TODO: Maybe convert to use g_screenWidth?
+const float SCREEN_HEIGHT	= 1080.0f;		// TODO: Maybe convert to use g_screenHeight?
+// Y increment for option and sprite positions
+const float INCREMENT = (SCREEN_HEIGHT * 0.051f); // 55
 
 namespace Menu::Drawing
 {

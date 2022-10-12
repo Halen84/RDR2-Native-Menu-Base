@@ -21,6 +21,7 @@
     <ClInclude Include="..\..\inc\enums.h" />
     <ClInclude Include="..\..\inc\natives.h" />
     <ClInclude Include="..\..\inc\types.h" />
+    <ClInclude Include="Submenus\common_submenu.h" />
     <ClInclude Include="Submenus\examples.hpp" />
     <ClInclude Include="UI\drawing.h" />
     <ClInclude Include="UI\option.hpp" />
