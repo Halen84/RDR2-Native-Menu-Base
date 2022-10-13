@@ -1,4 +1,14 @@
-[Latest Update] Oct 12, 2022
+[Latest Update] Oct 13, 2022
+- Fixed more unaligned UI elements
+- Improved font size calculation based on display size
+- Added more UI constants
+- Moved the drawing of the option counter to drawing.cpp
+
+
+---------------------------------------------- [Previous Updates] ----------------------------------------------
+
+
+Oct 12, 2022
 - Added Option::WasJustExecuted() and Option::WasJustPressed() (They do the same thing)
 - Converted Option::GetVectorDirection() to use bool pointers instead of bool references
 - Fixed radar display issues if bPlaySounds was false when calling CNativeMenu::SetEnabled()
@@ -10,9 +20,6 @@
 - Updated natives file
 - Optimizations
 - Other minor fixes and changes
-
-
----------------------------------------------- [Previous Updates] ----------------------------------------------
 
 
 Jun 23, 2022

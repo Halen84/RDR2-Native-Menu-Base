@@ -36,11 +36,7 @@ void CNativeMenu::Update()
 			}
 		}
 
-		if (CurrentSubmenu->m_NumOptions >= CurrentSubmenu->m_NumVisibleOptions) {
-			Drawing::DrawFormattedText(std::to_string(m_SelectionIndex + 1) + " of " + std::to_string(CurrentSubmenu->m_NumOptions), Font::Body, 144, 144, 144, 230, Alignment::Right, 20, 531.0f, 243.0f + (CurrentSubmenu->m_NumVisibleOptions * INCREMENT), 0, -1);
-		} else {
-			Drawing::DrawFormattedText(std::to_string(m_SelectionIndex + 1) + " of " + std::to_string(CurrentSubmenu->m_NumOptions), Font::Body, 144, 144, 144, 230, Alignment::Right, 20, 531.0f, 243.0f + (CurrentSubmenu->m_NumOptions * INCREMENT), 0, -1);
-		}
+		Drawing::DrawOptionCounter();
 	}
 
 	if (CurrentSubmenu != nullptr) {

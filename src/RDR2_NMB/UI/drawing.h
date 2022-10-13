@@ -5,10 +5,8 @@
 #include "../script.h"
 #include "../common.hpp"
 
-const float SCREEN_WIDTH	= 1920.0f;		// TODO: Maybe convert to use g_screenWidth?
-const float SCREEN_HEIGHT	= 1080.0f;		// TODO: Maybe convert to use g_screenHeight?
-// Y increment for option and sprite positions
-const float INCREMENT = (SCREEN_HEIGHT * 0.051f); // 55
+const float SCREEN_WIDTH	= 1920.0f;
+const float SCREEN_HEIGHT	= 1080.0f;
 
 namespace Menu::Drawing
 {
@@ -16,6 +14,7 @@ namespace Menu::Drawing
 	void DrawOption(Option* option);
 	void DrawMenuTextures();
 	void DrawSelectionBox();
+	void DrawOptionCounter();
 
 	// GRAPHICS::DRAW_SPRITE Wrapper
 	inline void DrawSprite(const char* textureDict, const char* textureName, float screenX, float screenY, float width, float height, float heading, int red, int green, int blue, int alpha, BOOL centered)
