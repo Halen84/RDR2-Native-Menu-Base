@@ -27,6 +27,7 @@ namespace Menu::Drawing
 			screenX += width * 0.5f;
 			screenY += height * 0.5f;
 		}
+		GRAPHICS::SET_SCRIPT_GFX_DRAW_ORDER(0); // Draw behind vanilla in-game UI items
 		GRAPHICS::DRAW_SPRITE(textureDict, textureName, screenX, screenY, width, height, heading, red, green, blue, alpha, false);
 	}
 

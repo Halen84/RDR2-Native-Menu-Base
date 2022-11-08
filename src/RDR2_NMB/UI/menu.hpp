@@ -16,16 +16,14 @@
 
 namespace Menu
 {
-	// For internal use only. Do not use!
-	inline std::unordered_map<int, Submenu> g_SubmenusMap;
-
-
 	class CNativeMenu
 	{
+	private:
+		static inline std::unordered_map<int, Submenu> g_SubmenusMap;
 	public:
 		Submenu* CurrentSubmenu = nullptr;			// Current Submenu
-		int m_CurrentSubmenuID = Submenu_Invalid;	// Current Submenu ID
-		int m_SelectionIndex = 0;					// Current Selected Option Index
+		int CurrentSubmenuID = Submenu_Invalid;		// Current Submenu ID
+		int SelectionIndex = 0;						// Current Selected Option Index
 
 		void AddSubmenu(const std::string& header, const std::string& subHeader, int id, int numVisibleOptions, std::function<void(Submenu*)> submenuFunc)
 		{
@@ -54,7 +52,7 @@ namespace Menu
 			if (id > CurrentSubmenu->m_ID) {
 				// we went forward
 				m_PrevSubmenuIds.push_back(CurrentSubmenu->m_ID);
-				m_SubmenuLastSelections[CurrentSubmenu->m_ID] = m_SelectionIndex;
+				m_SubmenuLastSelections[CurrentSubmenu->m_ID] = SelectionIndex;
 			}
 			else if (id < CurrentSubmenu->m_ID) {
 				// we went back
@@ -65,9 +63,9 @@ namespace Menu
 			CurrentSubmenu = &g_SubmenusMap[id];
 
 			if (bSetRememberedSelection)
-				m_SelectionIndex = m_SubmenuLastSelections[CurrentSubmenu->m_ID];
+				SelectionIndex = m_SubmenuLastSelections[CurrentSubmenu->m_ID];
 			else
-				m_SelectionIndex = 0;
+				SelectionIndex = 0;
 		}
 
 
@@ -86,7 +84,7 @@ namespace Menu
 
 		Option* GetSelectedOption()
 		{
-			return &g_SubmenusMap[CurrentSubmenu->m_ID].m_Options[m_SelectionIndex];
+			return &g_SubmenusMap[CurrentSubmenu->m_ID].m_Options[SelectionIndex];
 		}
 
 
@@ -187,9 +185,6 @@ namespace Menu
 		void HandleInput();
 		void DisableCommonInputs();
 	};
-
-	// TODO: Give "g_NativeMenu" a better name.
-	// Maybe something like g_UIManager, g_Menu, etc
 	
-	inline std::unique_ptr<CNativeMenu> g_NativeMenu;
+	inline std::unique_ptr<CNativeMenu> g_Menu;
 }

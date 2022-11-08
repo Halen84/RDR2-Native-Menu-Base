@@ -15,7 +15,7 @@ namespace Menu
 
 	void CExampleFuncs::SetTime()
 	{
-		Option* option = g_NativeMenu->GetSelectedOption();
+		Option* option = g_Menu->GetSelectedOption();
 
 		int hrs = CLOCK::GET_CLOCK_HOURS();
 		int min = CLOCK::GET_CLOCK_MINUTES();
@@ -40,9 +40,9 @@ namespace Menu
 
 	void CExampleFuncs::SetWeather(Hash weatherType)
 	{
-		Option* option = g_NativeMenu->GetSelectedOption();
+		Option* option = g_Menu->GetSelectedOption();
 
 		MISC::SET_WEATHER_TYPE(weatherType, true, true, false, 0.0f, false);
-		Util::PrintSubtitle("Set weather type to: ~COLOR_OBJECTIVE~" + option->GetText() + "~s~");
+		Util::PrintSubtitle("Set weather type to ~COLOR_OBJECTIVE~" + option->GetText() + "~s~");
 	}
 }

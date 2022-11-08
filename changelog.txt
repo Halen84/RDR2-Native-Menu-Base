@@ -1,11 +1,22 @@
-[Latest Update] Oct 13, 2022
+[Latest Update] Nov 8, 2022
+- Renamed "g_NativeMenu" singleton variable to "g_Menu"
+- Boolean options now draw a checkbox at all times
+- Changed UI draw order to 0. Game UI will now take priority over the menu
+- CNativeMenu::m_SelectionIndex --> SelectionIndex
+- CNativeMenu::m_CurrentSubmenuID --> CurrentSubmenuID
+- Removed duplicate fonts
+- Fixed issue where opening the menu with a controller would prematurely enter a submenu
+- Other misc changes
+
+
+---------------------------------------------- [Previous Updates] ----------------------------------------------
+
+
+Oct 13, 2022
 - Fixed more unaligned UI elements
 - Improved font size calculation based on display size
 - Added more UI constants
 - Moved the drawing of the option counter to drawing.cpp
-
-
----------------------------------------------- [Previous Updates] ----------------------------------------------
 
 
 Oct 12, 2022

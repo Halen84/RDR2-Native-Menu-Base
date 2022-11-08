@@ -74,9 +74,8 @@ const float INCREMENT = (SCREEN_HEIGHT * 0.051f); // Y increment for option and 
 #pragma endregion
 
 
-const std::vector<const char*> FontList = { "body", "body1", "body2", "body3", "catalog1", "catalog2", "catalog3", "catalog4", "catalog5", "chalk", "creditNames", "creditTitles",
-"Debug_BOLD", "Debug_REG", "FixedWidthNumbers", "Font2", "Font2_cond_NOT_GAMERNAME", "Font5", "Font5_limited", "gtaCash", "gamername", "handwritten", "ledger", "RockstarTAG",
-"SOCIAL_CLUB_COND_BOLD", "SOCIAL_CLUB_COND_REG", "title", "title1", "title2", "util", "wantedPostersGeneric" };
+const std::vector<const char*> FontList = { "body", "body1", "catalog1", "catalog2", "catalog3", "catalog4", "catalog5", "chalk",
+"Debug_BOLD", "FixedWidthNumbers", "Font5", "gamername", "handwritten", "ledger", "RockstarTAG", "SOCIAL_CLUB_COND_BOLD", "title", "wantedPostersGeneric" };
 
 
 // I didn't want to import the ~200KB std::format lib, so I just made my own dumbed down version
@@ -92,14 +91,14 @@ void format(std::string* str, const Args&... args)
 	}
 }
 
-// Correct font size based on display size
-void correctFontSize(int* fontSize)
+// Fix font size based on display size
+inline void calculateFontSize(int* fontSize)
 {
 	*fontSize = (*fontSize * Menu::Util::g_screenWidth) / 1920;
 }
 
 // Used in DrawOption()
-void DrawFooter(const std::string& text)
+inline void DrawFooter(const std::string& text)
 {
 	// TODO: Fix position based on font size
 	Menu::Drawing::DrawFormattedText(text, Font::Body, 255,255,255,255, Alignment::Center, FOOTER_FONT_SIZE, BG_X_MIDDLE, 980);
@@ -124,18 +123,18 @@ namespace Menu
 
 	void Drawing::DrawOptionCounter()
 	{
-		Submenu* currentSubmenu = g_NativeMenu->CurrentSubmenu;
+		Submenu* currentSubmenu = g_Menu->CurrentSubmenu;
 		if (currentSubmenu->m_NumOptions >= currentSubmenu->m_NumVisibleOptions) {
-			Drawing::DrawFormattedText(std::to_string(g_NativeMenu->m_SelectionIndex + 1) + " of " + std::to_string(currentSubmenu->m_NumOptions), Font::Body, 144,144,144,230, Alignment::Right, 20, OPTION_COUNTER_X_POS, 243.0f + (currentSubmenu->m_NumVisibleOptions * INCREMENT), 0, -1);
+			Drawing::DrawFormattedText(std::to_string(g_Menu->SelectionIndex + 1) + " of " + std::to_string(currentSubmenu->m_NumOptions), Font::Body, 144,144,144,230, Alignment::Right, 20, OPTION_COUNTER_X_POS, 243.0f + (currentSubmenu->m_NumVisibleOptions * INCREMENT), 0, -1);
 		} else {
-			Drawing::DrawFormattedText(std::to_string(g_NativeMenu->m_SelectionIndex + 1) + " of " + std::to_string(currentSubmenu->m_NumOptions), Font::Body, 144,144,144,230, Alignment::Right, 20, OPTION_COUNTER_X_POS, 243.0f + (currentSubmenu->m_NumOptions * INCREMENT), 0, -1);
+			Drawing::DrawFormattedText(std::to_string(g_Menu->SelectionIndex + 1) + " of " + std::to_string(currentSubmenu->m_NumOptions), Font::Body, 144,144,144,230, Alignment::Right, 20, OPTION_COUNTER_X_POS, 243.0f + (currentSubmenu->m_NumOptions * INCREMENT), 0, -1);
 		}
 	}
 
 
 	void Drawing::DrawFormattedText(const std::string& text, Font font, int red, int green, int blue, int alpha, Alignment align, int textSize, float posX, float posY, int wrapWidth, int letterSpacing)
 	{
-		correctFontSize(&textSize); // See comment inside function
+		calculateFontSize(&textSize);
 		
 		const std::string _font = FontList[static_cast<int>(font)];
 
@@ -170,12 +169,15 @@ namespace Menu
 
 	void Drawing::DrawOption(Option* option)
 	{
-		int selection = g_NativeMenu->m_SelectionIndex;
-		int visibleOptions = g_NativeMenu->CurrentSubmenu->m_NumVisibleOptions;
+		int selection = g_Menu->SelectionIndex;
+		int visibleOptions = g_Menu->CurrentSubmenu->m_NumVisibleOptions;
 		int index = option->m_Index;
 
+		const bool drawInRange = (selection <= visibleOptions - 1 && index <= visibleOptions - 1);
+		const bool drawOutOfRange = ((index > (selection - visibleOptions)) && index <= selection);
+
 		// Draw option text and background
-		if (selection <= visibleOptions-1 && index <= visibleOptions-1) {
+		if (drawInRange) {
 			if (!option->m_IsPageBreak) {
 				DrawSprite("generic_textures", "selection_box_bg_1c", OPTION_X_POS, 270 + (index * INCREMENT), OPTION_WIDTH, OPTION_HEIGHT, 0, 50,50,50,110, true);
 				DrawFormattedText(option->GetText(), Font::Body, 255,255,255,255, Alignment::Left, OPTION_FONT_SIZE, OPTION_TEXT_LEFT_X_POS, (276 - (OPTION_FONT_SIZE)) + (index * INCREMENT));
@@ -184,7 +186,7 @@ namespace Menu
 				DrawFormattedText(option->GetText(), Font::Title, 255,255,255,255, Alignment::Center, PAGE_BREAK_FONT_SIZE, PAGE_BREAK_TEXT_X_POS, (276 - (PAGE_BREAK_FONT_SIZE)) + (index * INCREMENT));
 			}
 		}
-		else if ((index > (selection - visibleOptions)) && index <= selection) {
+		else if (drawOutOfRange) {
 			if (!option->m_IsPageBreak) {
 				DrawSprite("generic_textures", "selection_box_bg_1c", OPTION_X_POS, 270 + ((index - (selection - (visibleOptions-1))) * INCREMENT), OPTION_WIDTH, OPTION_HEIGHT, 0, 50,50,50,110, true);
 				DrawFormattedText(option->GetText(), Font::Body, 255,255,255,255, Alignment::Left, OPTION_FONT_SIZE, OPTION_TEXT_LEFT_X_POS, (276 - (OPTION_FONT_SIZE)) + ((index - (selection - (visibleOptions - 1))) * INCREMENT));
@@ -201,13 +203,13 @@ namespace Menu
 
 		// Draw the vector option arrows and text
 		if (option->m_IsVectorOption) {
-			if (selection <= visibleOptions-1 && index <= visibleOptions-1) {
+			if (drawInRange) {
 				if (selection == index)
 					DrawFormattedText("<img src='img://menu_textures/selection_arrow_left' height='18' width='18'/> " + option->GetText(true) + " <img src='img://menu_textures/selection_arrow_right' height='18' width='18'/>", Font::Body, 255,255,255,255, Alignment::Right, OPTION_FONT_SIZE, OPTION_TEXT_RIGHT_X_POS, (276 - (OPTION_FONT_SIZE)) + (index * INCREMENT));
 				else
 					DrawFormattedText(option->GetText(true), Font::Body, 255,255,255,255, Alignment::Right, OPTION_FONT_SIZE, OPTION_TEXT_RIGHT_X_POS, (276 - (OPTION_FONT_SIZE)) + (index * INCREMENT));
 			}
-			else if ((index > (selection - visibleOptions)) && index <= selection) {
+			else if (drawOutOfRange) {
 				if (selection == index)
 					DrawFormattedText("<img src='img://menu_textures/selection_arrow_left' height='18' width='18'/> " + option->GetText(true) + " <img src='img://menu_textures/selection_arrow_right' height='18' width='18'/>", Font::Body, 255,255,255,255, Alignment::Right, OPTION_FONT_SIZE, OPTION_TEXT_RIGHT_X_POS, (276 - (OPTION_FONT_SIZE)) + ((index - (selection - (visibleOptions-1))) * INCREMENT));
 				else
@@ -216,15 +218,17 @@ namespace Menu
 		}
 
 		// Draw checkmark
-		// TODO: Draw checkmark box
+		bool drawCheckmark = (option->GetBoolPtr() != nullptr && *option->GetBoolPtr() == true);
 		if (option->m_IsBoolOption) {
-			if (option->GetBoolPtr() != nullptr && *option->GetBoolPtr() == true) {
-				if (selection <= visibleOptions-1 && index <= visibleOptions-1) {
-					DrawFormattedText("<img src='img://generic_textures/tick' height='30' width='30'/>", Font::Body, 255,255,255,255, Alignment::Right, 22, OPTION_TEXT_RIGHT_X_POS, 250 + (index * INCREMENT));
-				}
-				else if ((index > (selection - visibleOptions)) && index <= selection) {
-					DrawFormattedText("<img src='img://generic_textures/tick' height='30' width='30'/>", Font::Body, 255,255,255,255, Alignment::Right, 22, OPTION_TEXT_RIGHT_X_POS, 250 + ((index - (selection - (visibleOptions-1))) * INCREMENT));
-				}
+			if (drawInRange) {
+				if (drawCheckmark)
+					DrawFormattedText("<img src='img://generic_textures/tick' height='30' width='30'/>", Font::Body, 255,255,255,255, Alignment::Right, 22, OPTION_TEXT_RIGHT_X_POS, 253 + (index * INCREMENT));
+				DrawFormattedText("<img src='img://generic_textures/tick_box' height='30' width='30'/>", Font::Body, 255,255,255,255, Alignment::Right, 22, OPTION_TEXT_RIGHT_X_POS, 253 + (index * INCREMENT));
+			}
+			else if (drawOutOfRange) {
+				if (drawCheckmark)
+					DrawFormattedText("<img src='img://generic_textures/tick' height='30' width='30'/>", Font::Body, 255,255,255,255, Alignment::Right, 22, OPTION_TEXT_RIGHT_X_POS, 253 + ((index - (selection - (visibleOptions-1))) * INCREMENT));
+				DrawFormattedText("<img src='img://generic_textures/tick_box' height='30' width='30'/>", Font::Body, 255,255,255,255, Alignment::Right, 22, OPTION_TEXT_RIGHT_X_POS, 253 + ((index - (selection - (visibleOptions-1))) * INCREMENT));
 			}
 		}
 	}
@@ -232,9 +236,9 @@ namespace Menu
 
 	void Drawing::DrawMenuTextures()
 	{
-		int numOptions = g_NativeMenu->CurrentSubmenu->m_NumOptions;
-		int visOptions = g_NativeMenu->CurrentSubmenu->m_NumVisibleOptions;
-		int selection = g_NativeMenu->m_SelectionIndex;
+		int numOptions = g_Menu->CurrentSubmenu->m_NumOptions;
+		int visOptions = g_Menu->CurrentSubmenu->m_NumVisibleOptions;
+		int selection = g_Menu->SelectionIndex;
 
 		// Background
 		DrawSprite("generic_textures", "inkroller_1a", BG_X_OFFSET, BG_Y_OFFSET, BG_WIDTH, BG_HEIGHT, 0, 0,0,0,230, false);
@@ -277,13 +281,11 @@ namespace Menu
 
 	void Drawing::DrawSelectionBox()
 	{
-		// TODO: Micro adjust these
-
 		// Couldn't add the corner textures because they get stretched out and
 		// just don't look right, so the lines are sized to be touching each other.
 
-		int selection = g_NativeMenu->m_SelectionIndex;
-		int visibleOptions = g_NativeMenu->CurrentSubmenu->m_NumVisibleOptions;
+		int selection = g_Menu->SelectionIndex;
+		int visibleOptions = g_Menu->CurrentSubmenu->m_NumVisibleOptions;
 
 		// Left, Right, Top, Bottom
 		if (selection >= visibleOptions-1) {

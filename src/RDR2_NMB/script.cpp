@@ -27,7 +27,7 @@ HELP & INFO:
 - ^^^ You can also create the options in other files as long as you call it in InitializeMenu()
 - To change keybinds, see UI/menu.cpp in CheckInput()
 - UI/option.hpp is the Option class
-- UI/menu.hpp is the CNativeMenu class (g_NativeMenu)
+- UI/menu.hpp is the CNativeMenu class (g_Menu)
 - UI/submenu.hpp is the Submenu class
 - UI/menu.cpp handles keypresses, navigation, some drawing, and other things
 - UI/drawing.cpp does the texture and text drawing for everything
@@ -38,30 +38,30 @@ using namespace Menu;
 
 
 bool _exampleBool = false;
-std::vector<std::string> _exampleOptionVector = { "First", "Second", "Third", "Last" };
+const std::vector<std::string> _exampleOptionVector = { "First", "Second", "Third", "Last" };
 void InitializeMenu()
 {
-	g_NativeMenu->AddSubmenu("HEADER", "Sub Header", Submenu_EntryMenu, DEFAULT, [](Submenu* sub) 
+	g_Menu->AddSubmenu("HEADER", "Sub Header", Submenu_EntryMenu, DEFAULT, [](Submenu* sub) 
 	{
 			sub->AddRegularOption("Regular Option", "Regular Option Example", [] {
 				Util::PrintSubtitle("~COLOR_BLUE~Regular~s~ option function executed");
 			});
 
 			sub->AddBoolOption("Bool Option", "Bool Option Example", &_exampleBool, [] {
-				Util::PrintSubtitle("~COLOR_BLUE~Bool~s~ option function executed. Bool is: " + std::string(_exampleBool ? "true" : "false"));
+				Util::PrintSubtitle("~COLOR_BLUE~Bool~s~ option function executed. Boolean is " + std::string(_exampleBool ? "True" : "False"));
 			});
 
 			sub->AddVectorOption<std::string>("Vector Option 1", "Vector Option", _exampleOptionVector, [] {
-				Util::PrintSubtitle("~COLOR_BLUE~Vector option 1~s~ function executed. Index: " + std::to_string(g_NativeMenu->GetSelectedOption()->m_VectorIndex));
+				Util::PrintSubtitle("~COLOR_BLUE~Vector option 1~s~ function executed.");
 			});
 
 			// Note: When using const char* vectors, DONT be explicit about the type here.
 			// There is a seperate function for it.
-			sub->AddVectorOption("Vector Option 2", "Vector Option with an unnamed scope", { "Unnamed", "Scope", "Vector" }, [] {
+			sub->AddVectorOption("Vector Option 2", "Vector Option with an unnamed scope", { "Very", "Funny", "Vector", "Option" }, [] {
 				Util::PrintSubtitle("~COLOR_BLUE~Vector option 2~s~ function executed.");
 			});
 
-			sub->AddVectorOption<int>("Vector Option 3", "Vector Option with an unnamed scope as an integer", { 1, 2, 3, 4, 5 }, [] {
+			sub->AddVectorOption<int>("Vector Option 3", "Vector Option with an unnamed scope as an int", { 1, 2, 3, 4, 5 }, [] {
 				Util::PrintSubtitle("~COLOR_BLUE~Vector option 3~s~ function executed.");
 			});
 
@@ -79,14 +79,14 @@ void InitializeMenu()
 	// These calls below would preferably go in examples.cpp, but I put them here for simplicity reasons.
 
 
-	g_NativeMenu->AddSubmenu("EXAMPLES", "Functional Examples", Submenu_Examples, DEFAULT, [](Submenu* sub)
+	g_Menu->AddSubmenu("EXAMPLES", "Function Examples", Submenu_Examples, DEFAULT, [](Submenu* sub)
 	{
 			sub->AddSubmenuOption("Change Weather", "", Submenu_Examples_Weather);
 			sub->AddSubmenuOption("Change Time", "", Submenu_Examples_Time);
 	});
 
 
-	g_NativeMenu->AddSubmenu("EXAMPLES", "Change Weather", Submenu_Examples_Weather, MAX, [](Submenu* sub)
+	g_Menu->AddSubmenu("EXAMPLES", "Change Weather", Submenu_Examples_Weather, MAX, [](Submenu* sub)
 	{
 			// In a real scenario, you should use enum hashes
 			// for the weather types instead of GET_HASH_KEY
@@ -116,9 +116,8 @@ void InitializeMenu()
 
 
 	// If you were to implement this in examples.cpp, you wouldn't need to use a lambda.
-	// You also wouldn't need to use "g_ExampleFuncs->..."
 	// But once again, this is just here for simplicity reasons.
-	g_NativeMenu->AddSubmenu("EXAMPLES", "Change Time", Submenu_Examples_Time, DEFAULT, [](Submenu* sub)
+	g_Menu->AddSubmenu("EXAMPLES", "Change Time", Submenu_Examples_Time, DEFAULT, [](Submenu* sub)
 	{
 			sub->AddVectorOption("Hour", "", 24, "", "",	[] { g_ExampleFuncs->SetTime(); });
 			sub->AddVectorOption("Minute", "", 60, "", "",	[] { g_ExampleFuncs->SetTime(); });
@@ -130,10 +129,10 @@ void InitializeMenu()
 
 void main()
 {
-	g_NativeMenu = std::make_unique<CNativeMenu>();
-	g_NativeMenu->RegisterUIPrompts();
-	InitializeMenu(); // Make sure to call InitializeMenu() before calling any other CNativeMenu (g_NativeMenu) function
-	g_NativeMenu->GoToSubmenu(Submenu_EntryMenu, false); // We only need to do this manually ONCE. It's automatic. See comment inside function.
+	g_Menu = std::make_unique<CNativeMenu>();
+	g_Menu->RegisterUIPrompts();
+	InitializeMenu(); // Make sure to call InitializeMenu() before calling any other CNativeMenu (g_Menu) function
+	g_Menu->GoToSubmenu(Submenu_EntryMenu, false); // We only need to do this manually ONCE. It's automatic. See comment inside function.
 
 	if (!Menu::Util::SetResolution()) {
 #if ALLOCATE_CONSOLE
@@ -143,13 +142,15 @@ void main()
 
 	while (true)
 	{
-		g_NativeMenu->Update();
+		// This is required. Do not remove.
+		// This makes the menu render everything.
+		g_Menu->Update();
 
-		// Update the vectors in real time while we're in the time examples page
-		if (g_NativeMenu->CurrentSubmenu->m_ID == Submenu_Examples_Time && g_NativeMenu->DoesSubmenuExist(Submenu_Examples_Time)) {
-			g_NativeMenu->CurrentSubmenu->GetOption(0)->SetVectorIndex(CLOCK::GET_CLOCK_HOURS());
-			g_NativeMenu->CurrentSubmenu->GetOption(1)->SetVectorIndex(CLOCK::GET_CLOCK_MINUTES());
-			g_NativeMenu->CurrentSubmenu->GetOption(2)->SetVectorIndex(CLOCK::GET_CLOCK_SECONDS());
+		// Update the vectors in real time ONLY while we're in the time examples submenu
+		if (g_Menu->CurrentSubmenu->m_ID == Submenu_Examples_Time && g_Menu->DoesSubmenuExist(Submenu_Examples_Time)) {
+			g_Menu->CurrentSubmenu->GetOption(0)->SetVectorIndex(CLOCK::GET_CLOCK_HOURS());
+			g_Menu->CurrentSubmenu->GetOption(1)->SetVectorIndex(CLOCK::GET_CLOCK_MINUTES());
+			g_Menu->CurrentSubmenu->GetOption(2)->SetVectorIndex(CLOCK::GET_CLOCK_SECONDS());
 		}
 
 		WAIT(0);

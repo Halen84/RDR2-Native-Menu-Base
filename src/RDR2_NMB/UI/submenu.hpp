@@ -163,6 +163,7 @@ namespace Menu
 		void Clear()
 		{
 			m_Options.clear();
+			m_Options.shrink_to_fit();
 			m_NumOptions = 0;
 		}
 	};

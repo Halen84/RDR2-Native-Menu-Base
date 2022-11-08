@@ -24,6 +24,7 @@ void CNativeMenu::Update()
 		Drawing::DrawSelectionBox();
 		Drawing::DrawHeader(CurrentSubmenu->m_Header);
 		Drawing::DrawSubHeader(CurrentSubmenu->m_SubHeader);
+		Drawing::DrawOptionCounter();
 		
 		for (int i = 0; i < CurrentSubmenu->m_NumOptions; i++) {
 			Option* option = CurrentSubmenu->GetOption(i);
@@ -36,11 +37,11 @@ void CNativeMenu::Update()
 			}
 		}
 
-		Drawing::DrawOptionCounter();
+		MAP::DISPLAY_RADAR(false); // Always hide radar while the menu is open
 	}
 
 	if (CurrentSubmenu != nullptr) {
-		m_CurrentSubmenuID = CurrentSubmenu->m_ID;
+		CurrentSubmenuID = CurrentSubmenu->m_ID;
 	}
 
 	HUD::_UI_PROMPT_SET_VISIBLE(m_SelectPrompt, m_IsOpen);
@@ -101,7 +102,8 @@ void CNativeMenu::HandleInput()
 
 
 	if (m_IsOpen) {
-		if (m_SelectPromptCompleted) {
+		// !m_OpenKeyPressed is a fix where opening with RB + A would enter/leave a submenu prematurely
+		if (m_SelectPromptCompleted && !m_OpenKeyPressed) {
 			Option* option = GetSelectedOption();
 			if (option == nullptr) return;
 
@@ -113,7 +115,7 @@ void CNativeMenu::HandleInput()
 					*option->GetBoolPtr() = !*option->GetBoolPtr(); // Flip
 				} else {
 #if ALLOCATE_CONSOLE
-					std::cout << "[CNativeMenu::HandleInput] [WARNING]: GetBoolPtr at option index " << m_SelectionIndex << " is a nullptr" << "\n";
+					std::cout << "[CNativeMenu::HandleInput] [WARNING]: GetBoolPtr at option index " << SelectionIndex << " is a nullptr" << "\n";
 #endif
 				}
 
@@ -124,11 +126,11 @@ void CNativeMenu::HandleInput()
 			}
 			else if (option->m_IsSubmenuOption) {
 				if (DoesSubmenuExist(option->m_SubmenuID)) {
-					//g_NativeMenu->GoToSubmenu(option->m_SubmenuID, false);
+					//g_Menu->GoToSubmenu(option->m_SubmenuID, false);
 					m_PrevSubmenuIds.push_back(CurrentSubmenu->m_ID);
-					m_SubmenuLastSelections[CurrentSubmenu->m_ID] = m_SelectionIndex;
+					m_SubmenuLastSelections[CurrentSubmenu->m_ID] = SelectionIndex;
 					CurrentSubmenu = &g_SubmenusMap[option->m_SubmenuID];
-					m_SelectionIndex = 0;
+					SelectionIndex = 0;
 				}
 				else {
 #if ALLOCATE_CONSOLE
@@ -140,7 +142,7 @@ void CNativeMenu::HandleInput()
 		}
 
 
-		if (m_BackPromptCompleted) {
+		if (m_BackPromptCompleted && !m_OpenKeyPressed) {
 			if (CurrentSubmenu->m_ID <= Submenu_EntryMenu) {
 				playSoundFrontend("BACK", "HUD_SHOP_SOUNDSET");
 				SetEnabled(false, true);
@@ -148,14 +150,14 @@ void CNativeMenu::HandleInput()
 			}
 
 			if (m_PrevSubmenuIds.size() > 0) {
-				//g_NativeMenu->GoToSubmenu(m_PrevSubmenuIds[m_PrevSubmenuIds.size() - 1], true);
+				//g_Menu->GoToSubmenu(m_PrevSubmenuIds[m_PrevSubmenuIds.size() - 1], true);
 				CurrentSubmenu = &g_SubmenusMap[m_PrevSubmenuIds[m_PrevSubmenuIds.size() - 1]];
 				m_PrevSubmenuIds.pop_back();
-				m_SelectionIndex = m_SubmenuLastSelections[CurrentSubmenu->m_ID];
+				SelectionIndex = m_SubmenuLastSelections[CurrentSubmenu->m_ID];
 				m_SubmenuLastSelections.erase(CurrentSubmenu->m_ID);
 			} else {
 				CurrentSubmenu = &g_SubmenusMap[Submenu_EntryMenu];
-				m_SelectionIndex = m_SubmenuLastSelections[Submenu_EntryMenu];
+				SelectionIndex = m_SubmenuLastSelections[Submenu_EntryMenu];
 			}
 
 			playSoundFrontend("BACK", "HUD_SHOP_SOUNDSET");
@@ -166,18 +168,18 @@ void CNativeMenu::HandleInput()
 			if (GetSelectedOption() == nullptr) return;
 
 			if (IsKeyDownLong(VK_SHIFT)) {
-				m_SelectionIndex -= 10;
-				if (m_SelectionIndex < 0)
-					m_SelectionIndex = 0; // DONT reset to the BOTTOM of the page
+				SelectionIndex -= 10;
+				if (SelectionIndex < 0)
+					SelectionIndex = 0; // DONT reset to the BOTTOM of the page
 			} else {
-				m_SelectionIndex--;
+				SelectionIndex--;
 			}
 
 			if (GetSelectedOption()->m_IsPageBreak)
-				m_SelectionIndex--;
+				SelectionIndex--;
 
-			if (m_SelectionIndex < 0)
-				m_SelectionIndex = CurrentSubmenu->m_NumOptions - 1;
+			if (SelectionIndex < 0)
+				SelectionIndex = CurrentSubmenu->m_NumOptions - 1;
 
 			playSoundFrontend("NAV_UP", "Ledger_Sounds");
 		}
@@ -187,18 +189,18 @@ void CNativeMenu::HandleInput()
 			if (GetSelectedOption() == nullptr) return;
 
 			if (IsKeyDownLong(VK_SHIFT)) {
-				m_SelectionIndex += 10;
-				if (m_SelectionIndex > CurrentSubmenu->m_NumOptions - 1)
-					m_SelectionIndex = CurrentSubmenu->m_NumOptions - 1; // DONT reset to the TOP of the page
+				SelectionIndex += 10;
+				if (SelectionIndex > CurrentSubmenu->m_NumOptions - 1)
+					SelectionIndex = CurrentSubmenu->m_NumOptions - 1; // DONT reset to the TOP of the page
 			} else {
-				m_SelectionIndex++;
+				SelectionIndex++;
 			}
 
 			if (GetSelectedOption()->m_IsPageBreak)
-				m_SelectionIndex++;
+				SelectionIndex++;
 
-			if (m_SelectionIndex > CurrentSubmenu->m_NumOptions - 1)
-				m_SelectionIndex = 0;
+			if (SelectionIndex > CurrentSubmenu->m_NumOptions - 1)
+				SelectionIndex = 0;
 
 			playSoundFrontend("NAV_DOWN", "Ledger_Sounds");
 		}
@@ -263,7 +265,7 @@ void CNativeMenu::RegisterUIPrompts()
 		HUD::_UI_PROMPT_SET_PRIORITY(_prompt, 2); // PP_High
 		HUD::_UI_PROMPT_SET_TEXT(_prompt, MISC::VAR_STRING(10, "LITERAL_STRING", text));
 		HUD::_UI_PROMPT_SET_STANDARD_MODE(_prompt, TRUE);
-		// Allows multiple prompts of the same type to be shown (?)
+		// Allows multiple prompts of the same type to be shown (kPromptAttrib_ManualResolved?) (?)
 		HUD::_UI_PROMPT_SET_ATTRIBUTE(_prompt, 34, true);
 		HUD::_UI_PROMPT_REGISTER_END(_prompt);
 
