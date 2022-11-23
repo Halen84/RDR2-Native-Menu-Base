@@ -5,7 +5,7 @@
 
 namespace Menu::Util
 {
-	int g_screenWidth = 1920;
+	int g_screenWidth = GetSystemMetrics(SM_CXSCREEN);
 	int g_screenHeight = 1080;
 	HWND g_windowHandle = NULL;
 
