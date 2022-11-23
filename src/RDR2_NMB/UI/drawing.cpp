@@ -94,7 +94,7 @@ void format(std::string* str, const Args&... args)
 // Fix font size based on display size
 inline void calculateFontSize(int* fontSize)
 {
-	*fontSize = (*fontSize * Menu::Util::g_screenWidth) / 1920;
+	*fontSize = (*fontSize * Menu::Util::g_screenWidth) /GetSystemMetrics(SM_CXSCREEN);
 }
 
 // Used in DrawOption()
