@@ -6,7 +6,7 @@
 namespace Menu::Util
 {
 	int g_screenWidth = GetSystemMetrics(SM_CXSCREEN);
-	int g_screenHeight = 1080;
+	int g_screenHeight = GetSystemMetrics(SM_CYSCREEN);
 	HWND g_windowHandle = NULL;
 
 	bool SetResolution()
