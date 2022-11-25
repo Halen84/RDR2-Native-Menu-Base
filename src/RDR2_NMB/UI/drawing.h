@@ -5,8 +5,8 @@
 #include "../script.h"
 #include "../common.hpp"
 
-const float SCREEN_WIDTH	= 1920.0f;
-const float SCREEN_HEIGHT	= 1080.0f;
+const float SCREEN_WIDTH	= static_cast<float>(GetSystemMetrics(SM_CXSCREEN));
+const float SCREEN_HEIGHT	= static_cast<float>(GetSystemMetrics(SM_CYSCREEN));
 
 namespace Menu::Drawing
 {
