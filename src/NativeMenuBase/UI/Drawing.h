@@ -1,20 +1,18 @@
 // Licensed under the MIT License.
 
 #pragma once
-#include "menu.hpp"
+#include "Menu.hpp"
 #include "../script.h"
 #include "../common.hpp"
 
 const float SCREEN_WIDTH	= static_cast<float>(GetSystemMetrics(SM_CXSCREEN));
 const float SCREEN_HEIGHT	= static_cast<float>(GetSystemMetrics(SM_CYSCREEN));
 
-namespace Menu::Drawing
+namespace Drawing
 {
 	void DrawFormattedText(const std::string& text, Font font, int red, int green, int blue, int alpha, Alignment align, int textSize, float posX, float posY, int wrapWidth = 0, int letterSpacing = 0);
 	void DrawOption(Option* option);
-	void DrawMenuTextures();
-	void DrawSelectionBox();
-	void DrawOptionCounter();
+	void DrawMenu();
 
 	// GRAPHICS::DRAW_SPRITE Wrapper
 	inline void DrawSprite(const char* textureDict, const char* textureName, float screenX, float screenY, float width, float height, float heading, int red, int green, int blue, int alpha, BOOL centered)
@@ -27,10 +25,7 @@ namespace Menu::Drawing
 			screenX += width * 0.5f;
 			screenY += height * 0.5f;
 		}
-		GRAPHICS::SET_SCRIPT_GFX_DRAW_ORDER(0); // Draw behind vanilla in-game UI items
+		GRAPHICS::SET_SCRIPT_GFX_DRAW_ORDER(0); // Draw behind in-game UI
 		GRAPHICS::DRAW_SPRITE(textureDict, textureName, screenX, screenY, width, height, heading, red, green, blue, alpha, false);
 	}
-
-	void DrawHeader(const std::string& text, int size = 45, float yPos = 79.0f);
-	void DrawSubHeader(const std::string& text);
 }

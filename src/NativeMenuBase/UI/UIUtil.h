@@ -4,13 +4,13 @@
 #include <windows.h>
 #include "../common.hpp"
 
-namespace Menu::Util
+namespace UIUtil
 {
 	extern int g_screenWidth;
 	extern int g_screenHeight;
 	extern HWND g_windowHandle;
 
-	bool SetResolution();
+	bool GetScreenDimensions();
 
 	void PrintSubtitle(const char* msg);
 	void PrintSubtitle(const std::string& msg);

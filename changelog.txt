@@ -1,4 +1,61 @@
-[Latest Update] Nov 8, 2022
+[Latest Update] Apr 22, 2023
+- Added console.h which allows you to more easily print things to the debug console with some macros
+- Added many debug prints in various functions ( only works if ALLOCATE_CONSOLE is 1 (TRUE) )
+- Added function WaitAndDraw which has the same functionality as WAIT(), but now allows the menu to still function while yielding
+- enum SubmenuID has been changed to eSubmenuID
+- Removed Menu namespace
+- Menu::Util:: renamed to UIUtil::
+- Changed file names to be proper case
+- Renamed solution from RDR2_NMB to NativeMenuBase
+
+- Updated class Option:
+	- Abstract class
+	- This class is meant to be inherited from by other option types
+	- Added option classes all derived from Option:
+		- Class RegularOption
+		- Class BoolOption
+		- Class VectorOption
+		- Class SubmenuOption
+		- Class EmptyOption (PageBreak)
+		- All functions related to options types like VectorOption->SetVectorIndex(), etc, have been moved to their own respective class.
+	- m_LeftText renamed to Text, and made public
+	- m_RightText renamed to RightText, and has been moved to VectorOption, and made public
+	- m_Footer renamed to Footer, and made public
+	- Removed function GetText()
+	- Removed function SetText()
+	- Removed function GetFooter()
+	- Removed function SetFooter()
+	- Comes with As() function to convert between the base class Option and the other options
+	
+- Updated class Submenu:
+	- m_Options renamed to mOptions and is now std::vector<std::unique_ptr<Option>>. Accessibility is now protected
+	- m_Header renamed to Header
+	- m_SubHeader renamed to SubHeader
+	- m_ID renamed to ID and is now eSubmenuID
+	- m_NumVisibleOptions  renamed to NumberOfVisibleOptions
+	- Removed m_NumOptions in favor of function GetNumberOfOptions()
+	- All Add...Option functions now return a pointer to the option it created
+
+- Updated Drawing.cpp & Drawing.h:
+	- Removed some header functions in favor of Drawing::DrawMenu(), which draws everything
+	- Moved constants into their own static structs, and converted names to be proper case
+	- Converted constants to be constexpr instead of const
+	- Added some more constants
+	- Resized and repositioned some ui elements to be more aligned
+	- Fixed checkbox on all displays
+	- Changed some colors
+	- More support for other display sizes
+
+- Updated Menu.hpp:
+	- Removed function RemoveSubmenusAtAndAfterThisID()
+	- Removed function ClearSubmenu()
+	- Removed bool param for GoToSubmenu, it is now handled internally
+	- Added function DeleteSubmenu()
+
+
+---------------------------------------------- [Previous Updates] ----------------------------------------------
+
+Nov 8, 2022
 - Renamed "g_NativeMenu" singleton variable to "g_Menu"
 - Boolean options now draw a checkbox at all times
 - Changed UI draw order to 0. Game UI will now take priority over the menu
@@ -7,9 +64,6 @@
 - Removed duplicate fonts
 - Fixed issue where opening the menu with a controller would prematurely enter a submenu
 - Other misc changes
-
-
----------------------------------------------- [Previous Updates] ----------------------------------------------
 
 
 Oct 13, 2022

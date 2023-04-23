@@ -3,18 +3,18 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="keyboard.cpp" />
-    <ClCompile Include="UI\menu.cpp">
+    <ClCompile Include="UI\Menu.cpp">
       <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="common.cpp" />
-    <ClCompile Include="UI\drawing.cpp">
+    <ClCompile Include="UI\Drawing.cpp">
       <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="script.cpp" />
-    <ClCompile Include="Submenus\examples.cpp">
+    <ClCompile Include="Submenus\Examples.cpp">
       <Filter>Submenus</Filter>
     </ClCompile>
-    <ClCompile Include="UI\util.cpp">
+    <ClCompile Include="UI\UIUtil.cpp">
       <Filter>UI\Other</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,31 +32,47 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="keyboard.h" />
-    <ClInclude Include="UI\menu.hpp">
+    <ClInclude Include="UI\Menu.hpp">
       <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="common.hpp" />
-    <ClInclude Include="UI\option.hpp">
-      <Filter>UI</Filter>
-    </ClInclude>
-    <ClInclude Include="UI\drawing.h">
+    <ClInclude Include="UI\Drawing.h">
       <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="script.h" />
-    <ClInclude Include="Submenus\examples.hpp">
+    <ClInclude Include="Submenus\Examples.hpp">
       <Filter>Submenus</Filter>
     </ClInclude>
-    <ClInclude Include="UI\util.h">
+    <ClInclude Include="UI\UIUtil.h">
       <Filter>UI\Other</Filter>
     </ClInclude>
-    <ClInclude Include="UI\submenu_ids.hpp">
+    <ClInclude Include="UI\SubmenuIDs.h">
       <Filter>UI\Other</Filter>
     </ClInclude>
-    <ClInclude Include="UI\submenu.hpp">
+    <ClInclude Include="UI\Submenu.hpp">
       <Filter>UI</Filter>
     </ClInclude>
-    <ClInclude Include="Submenus\common_submenu.h">
+    <ClInclude Include="Submenus\SubmenuInclude.h">
       <Filter>Submenus</Filter>
+    </ClInclude>
+    <ClInclude Include="console.h" />
+    <ClInclude Include="UI\Options\BoolOption.h">
+      <Filter>UI\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Options\EmptyOption.h">
+      <Filter>UI\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Options\Option.h">
+      <Filter>UI\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Options\RegularOption.h">
+      <Filter>UI\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Options\SubmenuOption.h">
+      <Filter>UI\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Options\VectorOption.h">
+      <Filter>UI\Options</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -74,6 +90,9 @@
     </Filter>
     <Filter Include="Submenus">
       <UniqueIdentifier>{38a25fb7-7440-4dcf-aba1-660893d45af1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Options">
+      <UniqueIdentifier>{eb9ad464-7bb2-4130-97bb-b1b4cafcf708}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

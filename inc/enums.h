@@ -38,8 +38,7 @@ enum VisibleOptionsInPage
 enum eInputGroup
 {
 	INPUT_GROUP_KEYBOARD = 0,
-	INPUT_GROUP_UNK,
-	INPUT_GROUP_CONTROLLER,
+	INPUT_GROUP_GAMEPAD = 2,
 };
 
 enum eInputType : Hash

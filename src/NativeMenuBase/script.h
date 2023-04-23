@@ -9,3 +9,4 @@
 #include "common.hpp"
 
 void ScriptMain();
+void WaitAndDraw(unsigned ms);
