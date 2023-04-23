@@ -23,14 +23,14 @@
 HELP & INFO:
 
 - The UI will look and function the best on 1920x1080 displays
-- The "SubMenus" folder is where you can put your functions for options. Its up to you how you want to organize everything.
+- The "Submenus" folder is where you can put your functions for options. Its up to you how you want to organize everything.
 - ^^^ You can also create the options in other files as long as you call it in InitializeMenu()
-- To change keybinds, see UI/menu.cpp in CheckInput()
-- UI/option.hpp is the Option class
-- UI/menu.hpp is the CNativeMenu class (g_Menu)
-- UI/submenu.hpp is the Submenu class
-- UI/menu.cpp handles keypresses, navigation, some drawing, and other things
-- UI/drawing.cpp does the texture and text drawing for everything
+- To change keybinds, see UI/Menu.cpp in CheckInput()
+- UI/Options/ contains all option types
+- UI/Submenu.hpp is the Submenu class
+- UI/Menu.cpp handles keypresses, navigation, some drawing, and other things
+- UI/Menu.hpp is the CNativeMenu class
+- UI/Drawing.cpp does the texture and text drawing for everything
 */
 
 
