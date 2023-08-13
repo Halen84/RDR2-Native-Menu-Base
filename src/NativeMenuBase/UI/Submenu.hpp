@@ -33,6 +33,8 @@ public:
 
 
 	Submenu() = default;
+	Submenu(Submenu&&) = default;
+	Submenu& operator=(Submenu&&) = default;
 	Submenu(const std::string& header, const std::string& subHeader, eSubmenuID id, int numVisibleOptions, std::function<void(Submenu*)> &submenuFunc)
 	{
 		Header = header;
@@ -40,7 +42,7 @@ public:
 		ID = id;
 		NumberOfVisibleOptions = numVisibleOptions;
 		m_StructureFunc = submenuFunc;
-		std::invoke(m_StructureFunc, static_cast<Submenu*>(this)); // Create the submenu
+		std::invoke(m_StructureFunc, this); // Create the submenu
 	}
 	~Submenu()
 	{

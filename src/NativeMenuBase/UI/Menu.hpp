@@ -12,7 +12,7 @@
 class CNativeMenu
 {
 private:
-	std::unordered_map<int, Submenu*> g_SubmenusMap;
+	std::unordered_map<int, Submenu> g_SubmenusMap{};
 public:
 	Submenu* CurrentSubmenu = nullptr;							// Current Submenu
 	eSubmenuID CurrentSubmenuID = eSubmenuID::Submenu_Invalid;	// Current Submenu ID
@@ -26,12 +26,8 @@ public:
 
 	void AddSubmenu(const std::string& header, const std::string& subHeader, eSubmenuID id, int numVisibleOptions, std::function<void(Submenu*)> submenuFunc)
 	{
-		// Have to use "new" here because "std::vector<std::unique_ptr<Option>> mOptions{};"
-		// complains that the objects are being copied. Now we have to use pointers.
-		// Would rather just store a copy in g_SubmenusMap, and if we need to get the submenu, return a pointer to it.
-
-		Submenu* submenu = new Submenu(header, subHeader, id, numVisibleOptions, submenuFunc);
-		g_SubmenusMap[id] = submenu;
+		Submenu submenu = Submenu(header, subHeader, id, numVisibleOptions, submenuFunc);
+		g_SubmenusMap[id] = std::move(submenu);
 	}
 
 
@@ -50,7 +46,7 @@ public:
 
 		// This should ONLY be the case when the menu is first created
 		if (CurrentSubmenu == nullptr) {
-			CurrentSubmenu = g_SubmenusMap[id];
+			CurrentSubmenu = &g_SubmenusMap[id];
 			return;
 		}
 
@@ -66,7 +62,7 @@ public:
 			setRememberedSelection = true;
 		}
 
-		CurrentSubmenu = g_SubmenusMap[id];
+		CurrentSubmenu = &g_SubmenusMap[id];
 
 		if (setRememberedSelection) {
 			SelectionIndex = m_LastSubmenuSelections[CurrentSubmenu->ID];
@@ -80,7 +76,7 @@ public:
 	Submenu* GetSubmenu(eSubmenuID id)
 	{
 		if (g_SubmenusMap.contains(id)) {
-			return g_SubmenusMap[id];
+			return &g_SubmenusMap[id];
 		}
 
 		PRINT_ERROR("Submenu ID ",(int)id," doesn't exist, returning null");
@@ -90,7 +86,7 @@ public:
 	// Gets the currently selected option in the current submenu
 	Option* GetSelectedOption()
 	{
-		Option* option = g_SubmenusMap[CurrentSubmenu->ID]->GetOption(SelectionIndex);
+		Option* option = g_SubmenusMap[CurrentSubmenu->ID].GetOption(SelectionIndex);
 		if (option == nullptr) {
 			PRINT_ERROR("Failed to find option in submenu ", (int)CurrentSubmenu->ID, " with index ", SelectionIndex, ", returning null");
 		}
@@ -113,7 +109,6 @@ public:
 
 		if (DoesSubmenuExist(pSubmenu->ID)) {
 			pSubmenu->Clear();
-			delete g_SubmenusMap[pSubmenu->ID];
 			g_SubmenusMap.erase(pSubmenu->ID);
 		}
 	}

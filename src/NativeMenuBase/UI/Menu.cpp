@@ -186,7 +186,7 @@ void CNativeMenu::HandleEnterPressed()
 			//g_Menu->GoToSubmenu(submenuOption->SubmenuID);
 			m_PreviousSubmenus.push_back(CurrentSubmenu->ID);
 			m_LastSubmenuSelections[CurrentSubmenu->ID] = SelectionIndex;
-			CurrentSubmenu = g_SubmenusMap[submenuOption->SubmenuID];
+			CurrentSubmenu = &g_SubmenusMap[submenuOption->SubmenuID];
 			SelectionIndex = 0;
 		}
 		else {
@@ -208,13 +208,13 @@ void CNativeMenu::HandleBackPressed()
 
 	if (m_PreviousSubmenus.size() > 0) {
 		//g_Menu->GoToSubmenu(m_PreviousSubmenus[m_PreviousSubmenus.size() - 1]);
-		CurrentSubmenu = g_SubmenusMap[m_PreviousSubmenus[m_PreviousSubmenus.size() - 1]];
+		CurrentSubmenu = &g_SubmenusMap[m_PreviousSubmenus[m_PreviousSubmenus.size() - 1]];
 		m_PreviousSubmenus.pop_back();
 		SelectionIndex = m_LastSubmenuSelections[CurrentSubmenu->ID];
 		m_LastSubmenuSelections.erase(CurrentSubmenu->ID);
 	}
 	else {
-		CurrentSubmenu = g_SubmenusMap[eSubmenuID::Submenu_EntryMenu];
+		CurrentSubmenu = &g_SubmenusMap[eSubmenuID::Submenu_EntryMenu];
 		SelectionIndex = m_LastSubmenuSelections[eSubmenuID::Submenu_EntryMenu];
 	}
 
