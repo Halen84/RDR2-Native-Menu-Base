@@ -1,3 +1,9 @@
+[Latest Update] Aug 13, 2023
+- Fixed the C2280 error that was described in CNativeMenu::AddSubmenu(). No heap allocations are happening anymore
+
+---------------------------------------------- [Previous Updates] ----------------------------------------------
+
+
 [Latest Update] Apr 22, 2023
 - Added console.h which allows you to more easily print things to the debug console with some macros
 - Added many debug prints in various functions ( only works if ALLOCATE_CONSOLE is 1 (TRUE) )
@@ -52,8 +58,6 @@
 	- Removed bool param for GoToSubmenu, it is now handled internally
 	- Added function DeleteSubmenu()
 
-
----------------------------------------------- [Previous Updates] ----------------------------------------------
 
 Nov 8, 2022
 - Renamed "g_NativeMenu" singleton variable to "g_Menu"
