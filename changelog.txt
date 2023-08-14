@@ -1,10 +1,10 @@
-[Latest Update] Aug 13, 2023
+Aug 13, 2023
 - Fixed the C2280 error that was described in CNativeMenu::AddSubmenu(). No heap allocations are happening anymore
 
 ---------------------------------------------- [Previous Updates] ----------------------------------------------
 
 
-[Latest Update] Apr 22, 2023
+Apr 22, 2023
 - Added console.h which allows you to more easily print things to the debug console with some macros
 - Added many debug prints in various functions ( only works if ALLOCATE_CONSOLE is 1 (TRUE) )
 - Added function WaitAndDraw which has the same functionality as WAIT(), but now allows the menu to still function while yielding
