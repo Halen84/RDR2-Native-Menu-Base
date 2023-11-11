@@ -15,6 +15,10 @@ An RDR2 UI Menu Base that uses in-game sprites to make UI menus similar to how t
   </p>
 </details>
 
+# Abstraction Branch
+- The abstraction branch's purpose is to implement more abstraction/polymorphism into this menu base
+- It has its ups and downs, but I implemented this because I thought some people might prefer this over the master branch
+
 # Features
 - Easy to configure, organize, and use
 - Keyboard and controller support with rebindable keybinds

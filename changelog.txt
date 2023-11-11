@@ -1,4 +1,5 @@
 Nov 11, 2023
+- Added "abstraction" branch
 - CNativeMenu::CurrentSubmenu, CurrentSubmenuID, and SelectionIndex are now all private members and have been renamed to have "m_" prefix
 - Added CNativeMenu::GetCurrentSubmenu()
 - Added CNativeMenu::GetSelectionIndex()
