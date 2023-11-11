@@ -15,29 +15,29 @@ void CNativeMenu::Update()
 {
 	CheckInput();
 	HandleInput();
-	DisableCommonInputs(); // Uses m_IsOpen
+	DisableCommonInputs();
 
 	if (m_IsOpen)
 	{
-		if (CurrentSubmenu == nullptr) return;
+		if (m_CurrentSubmenu == nullptr) return;
 
 		Drawing::DrawMenu();
 
-		for (int i = 0; i < CurrentSubmenu->GetNumberOfOptions(); i++) {
-			Option* option = CurrentSubmenu->GetOption(i);
+		for (int i = 0; i < m_CurrentSubmenu->GetNumberOfOptions(); i++) {
+			Option* option = m_CurrentSubmenu->GetOption(i);
 			if (option != nullptr) {
 				Drawing::DrawOption(option);
 			}
 			else {
-				PRINT_ERROR("Option index ", i, " in submenu ", (int)CurrentSubmenuID, " is null");
+				PRINT_ERROR("Option index ", i, " in submenu ", (int)m_CurrentSubmenuID, " is null");
 			}
 		}
 
 		MAP::DISPLAY_RADAR(false); // Always hide radar when the menu is open
 	}
 
-	if (CurrentSubmenu != nullptr) {
-		CurrentSubmenuID = CurrentSubmenu->ID;
+	if (m_CurrentSubmenu != nullptr) {
+		m_CurrentSubmenuID = m_CurrentSubmenu->ID;
 	}
 
 	HUD::_UI_PROMPT_SET_VISIBLE(m_SelectPrompt, m_IsOpen);
@@ -80,7 +80,7 @@ void CNativeMenu::CheckInput()
 	m_DownKeyPressed	= PAD::IS_CONTROL_JUST_PRESSED(m_ControlIndex, INPUT_GAME_MENU_DOWN);
 	m_LeftKeyPressed	= PAD::IS_DISABLED_CONTROL_JUST_PRESSED(m_ControlIndex, INPUT_GAME_MENU_LEFT);
 	m_RightKeyPressed	= PAD::IS_DISABLED_CONTROL_JUST_PRESSED(m_ControlIndex, INPUT_GAME_MENU_RIGHT);
-	m_LMBPressed		= _NAMESPACE30::_0xF7F51A57349739F2();
+	//m_LMBPressed		= _NAMESPACE30::_0xF7F51A57349739F2();
 
 	if (HUD::_UI_PROMPT_IS_VALID(m_SelectPrompt) && HUD::_UI_PROMPT_IS_ACTIVE(m_SelectPrompt)) {
 		m_SelectPromptCompleted = HUD::_UI_PROMPT_HAS_STANDARD_MODE_COMPLETED(m_SelectPrompt, 0);
@@ -108,8 +108,8 @@ int _relativePos = 0;
 int _index = 0;
 void CNativeMenu::HandleMouseInput()
 {
-	int visibleOptions = g_Menu->CurrentSubmenu->NumberOfVisibleOptions;
-	int numOptions = g_Menu->CurrentSubmenu->GetNumberOfOptions();
+	int visibleOptions = g_Menu->m_CurrentSubmenu->NumberOfVisibleOptions;
+	int numOptions = g_Menu->m_CurrentSubmenu->GetNumberOfOptions();
 	bool canScrollInThisPage = visibleOptions < numOptions;
 
 	_NAMESPACE30::SET_MOUSE_CURSOR_THIS_FRAME();
@@ -135,11 +135,11 @@ void CNativeMenu::HandleMouseInput()
 			}*/
 			_index = _relativePos / (50/*option height*/ + _padding);
 
-			if (g_Menu->SelectionIndex > visibleOptions-1 && canScrollInThisPage) {
+			if (g_Menu->m_SelectionIndex > visibleOptions-1 && canScrollInThisPage) {
 				// TODO:
 				// Adjust _index here. At this point in a page, we are scrolling.
-				// Need to somehow account for g_Menu->SelectionIndex and change _index
-				// so it will set g_Menu->SelectionIndex correctly without resetting to the top of the page.
+				// Need to somehow account for g_Menu->m_SelectionIndex and change _index
+				// so it will set g_Menu->m_SelectionIndex correctly without resetting to the top of the page.
 				// Its happening because the mouse is above the last visible option, so it resets.
 			}
 
@@ -151,7 +151,7 @@ void CNativeMenu::HandleMouseInput()
 				_index = numOptions-1;
 			}
 
-			g_Menu->SelectionIndex = _index;
+			g_Menu->m_SelectionIndex = _index;
 		}
 	}
 }
@@ -171,7 +171,7 @@ void CNativeMenu::HandleEnterPressed()
 			*boolOption->pBoolPointer ^= TRUE; // XOR
 		}
 		else {
-			PRINT_ERROR("Bad boolean pointer for option index ", SelectionIndex, ". Executing assigned function, but boolean pointer will not be switched");
+			PRINT_ERROR("Bad boolean pointer for option index ", m_SelectionIndex, ". Executing assigned function, but boolean pointer will not be switched");
 		}
 
 		boolOption->Execute();
@@ -184,10 +184,10 @@ void CNativeMenu::HandleEnterPressed()
 		SubmenuOption* submenuOption = option->As<SubmenuOption*>();
 		if (DoesSubmenuExist(submenuOption->SubmenuID)) {
 			//g_Menu->GoToSubmenu(submenuOption->SubmenuID);
-			m_PreviousSubmenus.push_back(CurrentSubmenu->ID);
-			m_LastSubmenuSelections[CurrentSubmenu->ID] = SelectionIndex;
-			CurrentSubmenu = &g_SubmenusMap[submenuOption->SubmenuID];
-			SelectionIndex = 0;
+			m_PreviousSubmenus.push_back(m_CurrentSubmenu->ID);
+			m_LastSubmenuSelections[m_CurrentSubmenu->ID] = m_SelectionIndex;
+			m_CurrentSubmenu = &m_SubmenusMap[submenuOption->SubmenuID];
+			m_SelectionIndex = 0;
 		}
 		else {
 			PRINT_ERROR("Submenu ID ", (int)submenuOption->SubmenuID, " doesn't exist, make sure this submenu is initialized!");
@@ -200,7 +200,7 @@ void CNativeMenu::HandleEnterPressed()
 
 void CNativeMenu::HandleBackPressed()
 {
-	if (CurrentSubmenu->ID <= eSubmenuID::Submenu_EntryMenu) {
+	if (m_CurrentSubmenu->ID <= eSubmenuID::Submenu_EntryMenu) {
 		playSoundFrontend("BACK", "HUD_SHOP_SOUNDSET");
 		SetEnabled(false);
 		return;
@@ -208,14 +208,14 @@ void CNativeMenu::HandleBackPressed()
 
 	if (m_PreviousSubmenus.size() > 0) {
 		//g_Menu->GoToSubmenu(m_PreviousSubmenus[m_PreviousSubmenus.size() - 1]);
-		CurrentSubmenu = &g_SubmenusMap[m_PreviousSubmenus[m_PreviousSubmenus.size() - 1]];
+		m_CurrentSubmenu = &m_SubmenusMap[m_PreviousSubmenus[m_PreviousSubmenus.size() - 1]];
 		m_PreviousSubmenus.pop_back();
-		SelectionIndex = m_LastSubmenuSelections[CurrentSubmenu->ID];
-		m_LastSubmenuSelections.erase(CurrentSubmenu->ID);
+		m_SelectionIndex = m_LastSubmenuSelections[m_CurrentSubmenu->ID];
+		m_LastSubmenuSelections.erase(m_CurrentSubmenu->ID);
 	}
 	else {
-		CurrentSubmenu = &g_SubmenusMap[eSubmenuID::Submenu_EntryMenu];
-		SelectionIndex = m_LastSubmenuSelections[eSubmenuID::Submenu_EntryMenu];
+		m_CurrentSubmenu = &m_SubmenusMap[eSubmenuID::Submenu_EntryMenu];
+		m_SelectionIndex = m_LastSubmenuSelections[eSubmenuID::Submenu_EntryMenu];
 	}
 
 	playSoundFrontend("BACK", "HUD_SHOP_SOUNDSET");
@@ -225,24 +225,24 @@ void CNativeMenu::HandleBackPressed()
 void CNativeMenu::HandleUpKeyPressed()
 {
 	if (GetSelectedOption() == nullptr) return;
-	int numOptions = CurrentSubmenu->GetNumberOfOptions();
+	int numOptions = m_CurrentSubmenu->GetNumberOfOptions();
 
 	if (IsKeyDownLong(VK_SHIFT)) {
-		SelectionIndex -= 10;
-		if (SelectionIndex < 0) {
-			SelectionIndex = 0; // DONT reset to the BOTTOM of the page
+		m_SelectionIndex -= 10;
+		if (m_SelectionIndex < 0) {
+			m_SelectionIndex = 0; // DONT reset to the BOTTOM of the page
 		}
 	}
 	else {
-		SelectionIndex--;
+		m_SelectionIndex--;
 	}
 
 	// First check
-	if (SelectionIndex < 0) { SelectionIndex = numOptions - 1; }
+	if (m_SelectionIndex < 0) { m_SelectionIndex = numOptions - 1; }
 	// Skip over empty option
-	if (GetSelectedOption()->IsEmptyOption) { SelectionIndex--; }
+	if (GetSelectedOption()->IsEmptyOption) { m_SelectionIndex--; }
 	// Second check
-	if (SelectionIndex < 0) { SelectionIndex = numOptions - 1; }
+	if (m_SelectionIndex < 0) { m_SelectionIndex = numOptions - 1; }
 
 	playSoundFrontend("NAV_UP", "Ledger_Sounds");
 }
@@ -251,24 +251,24 @@ void CNativeMenu::HandleUpKeyPressed()
 void CNativeMenu::HandleDownKeyPressed()
 {
 	if (GetSelectedOption() == nullptr) return;
-	int numOptions = CurrentSubmenu->GetNumberOfOptions();
+	int numOptions = m_CurrentSubmenu->GetNumberOfOptions();
 
 	if (IsKeyDownLong(VK_SHIFT)) {
-		SelectionIndex += 10;
-		if (SelectionIndex > numOptions - 1) {
-			SelectionIndex = numOptions - 1; // DONT reset to the TOP of the page
+		m_SelectionIndex += 10;
+		if (m_SelectionIndex > numOptions - 1) {
+			m_SelectionIndex = numOptions - 1; // DONT reset to the TOP of the page
 		}	
 	}
 	else {
-		SelectionIndex++;
+		m_SelectionIndex++;
 	}
 
 	// First check
-	if (SelectionIndex > numOptions - 1) { SelectionIndex = 0; }
+	if (m_SelectionIndex > numOptions - 1) { m_SelectionIndex = 0; }
 	// Skip over empty option
-	if (GetSelectedOption()->IsEmptyOption) { SelectionIndex++; }
+	if (GetSelectedOption()->IsEmptyOption) { m_SelectionIndex++; }
 	// Second check
-	if (SelectionIndex > numOptions - 1) { SelectionIndex = 0; }
+	if (m_SelectionIndex > numOptions - 1) { m_SelectionIndex = 0; }
 
 	playSoundFrontend("NAV_DOWN", "Ledger_Sounds");
 }

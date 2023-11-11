@@ -12,11 +12,12 @@
 class CNativeMenu
 {
 private:
-	std::unordered_map<int, Submenu> g_SubmenusMap{};
+	std::unordered_map<int, Submenu> m_SubmenusMap{};
+
+	Submenu* m_CurrentSubmenu = nullptr;                          // Current Submenu
+	eSubmenuID m_CurrentSubmenuID = eSubmenuID::Submenu_Invalid;  // Current Submenu ID
+	int m_SelectionIndex = 0;                                     // Current Selected Option Index
 public:
-	Submenu* CurrentSubmenu = nullptr;							// Current Submenu
-	eSubmenuID CurrentSubmenuID = eSubmenuID::Submenu_Invalid;	// Current Submenu ID
-	int SelectionIndex = 0;										// Current Selected Option Index
 
 	// ctor
 	CNativeMenu()
@@ -27,7 +28,7 @@ public:
 	void AddSubmenu(const std::string& header, const std::string& subHeader, eSubmenuID id, int numVisibleOptions, std::function<void(Submenu*)> submenuFunc)
 	{
 		Submenu submenu = Submenu(header, subHeader, id, numVisibleOptions, submenuFunc);
-		g_SubmenusMap[id] = std::move(submenu);
+		m_SubmenusMap[id] = std::move(submenu);
 	}
 
 
@@ -39,44 +40,44 @@ public:
 	{
 		bool setRememberedSelection = false;
 
-		if (!g_SubmenusMap.contains(id)) {
+		if (!m_SubmenusMap.contains(id)) {
 			PRINT_ERROR("Submenu ID ",(int)id," doesn't exist");
 			return;
 		}
 
 		// This should ONLY be the case when the menu is first created
-		if (CurrentSubmenu == nullptr) {
-			CurrentSubmenu = &g_SubmenusMap[id];
+		if (m_CurrentSubmenu == nullptr) {
+			m_CurrentSubmenu = &m_SubmenusMap[id];
 			return;
 		}
 
-		if (id > CurrentSubmenu->ID) {
+		if (id > m_CurrentSubmenu->ID) {
 			// went forward
-			m_PreviousSubmenus.push_back(CurrentSubmenu->ID);
-			m_LastSubmenuSelections[CurrentSubmenu->ID] = SelectionIndex;
+			m_PreviousSubmenus.push_back(m_CurrentSubmenu->ID);
+			m_LastSubmenuSelections[m_CurrentSubmenu->ID] = m_SelectionIndex;
 		}
-		else if (id < CurrentSubmenu->ID) {
+		else if (id < m_CurrentSubmenu->ID) {
 			// went back
 			m_PreviousSubmenus.pop_back();
-			m_LastSubmenuSelections.erase(CurrentSubmenu->ID);
+			m_LastSubmenuSelections.erase(m_CurrentSubmenu->ID);
 			setRememberedSelection = true;
 		}
 
-		CurrentSubmenu = &g_SubmenusMap[id];
+		m_CurrentSubmenu = &m_SubmenusMap[id];
 
 		if (setRememberedSelection) {
-			SelectionIndex = m_LastSubmenuSelections[CurrentSubmenu->ID];
+			m_SelectionIndex = m_LastSubmenuSelections[m_CurrentSubmenu->ID];
 		}
 		else {
-			SelectionIndex = 0;
+			m_SelectionIndex = 0;
 		}
 	}
 
 	// Gets a submenu via its ID
 	Submenu* GetSubmenu(eSubmenuID id)
 	{
-		if (g_SubmenusMap.contains(id)) {
-			return &g_SubmenusMap[id];
+		if (m_SubmenusMap.contains(id)) {
+			return &m_SubmenusMap[id];
 		}
 
 		PRINT_ERROR("Submenu ID ",(int)id," doesn't exist, returning null");
@@ -86,17 +87,39 @@ public:
 	// Gets the currently selected option in the current submenu
 	Option* GetSelectedOption()
 	{
-		Option* option = g_SubmenusMap[CurrentSubmenu->ID].GetOption(SelectionIndex);
+		Option* option = m_SubmenusMap[m_CurrentSubmenu->ID].GetOption(m_SelectionIndex);
 		if (option == nullptr) {
-			PRINT_ERROR("Failed to find option in submenu ", (int)CurrentSubmenu->ID, " with index ", SelectionIndex, ", returning null");
+			PRINT_ERROR("Failed to find option in submenu ", (int)m_CurrentSubmenu->ID, " with index ", m_SelectionIndex, ", returning null");
 		}
 		return option;
 	}
 
-	// Checks if a submenu exists
-	bool DoesSubmenuExist(eSubmenuID id)
+	// Returns a pointer to the current submenu
+	inline Submenu* GetCurrentSubmenu()
 	{
-		return g_SubmenusMap.contains(id);
+		return m_CurrentSubmenu;
+	}
+
+	// Get the current selection index
+	inline int GetSelectionIndex()
+	{
+		return m_SelectionIndex;
+	}
+
+	// Set the current selection index
+	void SetSelectionIndex(int newIndex)
+	{
+		if (newIndex > m_CurrentSubmenu->GetNumberOfOptions() - 1)
+		{
+			newIndex = m_CurrentSubmenu->GetNumberOfOptions() - 1;
+		}
+		m_SelectionIndex = newIndex;
+	}
+
+	// Checks if a submenu exists
+	inline bool DoesSubmenuExist(eSubmenuID id)
+	{
+		return m_SubmenusMap.contains(id);
 	}
 
 	// Delete a submenu
@@ -109,12 +132,12 @@ public:
 
 		if (DoesSubmenuExist(pSubmenu->ID)) {
 			pSubmenu->Clear();
-			g_SubmenusMap.erase(pSubmenu->ID);
+			m_SubmenusMap.erase(pSubmenu->ID);
 		}
 	}
 
 	// Checks if the menu is currently open
-	bool IsOpen() const
+	inline bool IsOpen() const
 	{
 		return m_IsOpen;
 	}

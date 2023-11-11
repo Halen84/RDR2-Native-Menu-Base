@@ -14,7 +14,7 @@
 class Submenu
 {
 protected:
-	std::vector<std::unique_ptr<Option>> mOptions{};
+	std::vector<std::unique_ptr<Option>> m_Options{};
 
 private:
 	std::function<void(Submenu*)> m_StructureFunc; // Function that sets the submenu layout
@@ -22,7 +22,7 @@ private:
 	template<class T>
 	std::enable_if_t<std::is_pointer_v<T>, T> GetBackOption()
 	{
-		return mOptions.back().get()->As<T>();
+		return m_Options.back().get()->As<T>();
 	}
 
 public:
@@ -46,7 +46,7 @@ public:
 	}
 	~Submenu()
 	{
-		mOptions.clear(); // unique_ptr objects are deleted here
+		m_Options.clear(); // unique_ptr objects are deleted here
 	}
 
 
@@ -60,11 +60,11 @@ public:
 	//template <typename Function>
 	RegularOption* AddRegularOption(const std::string& text, const std::string& footer, std::function<void()> func = [] {})
 	{
-		RegularOption option((int)mOptions.size());
+		RegularOption option((int)m_Options.size());
 		option.Text = text;
 		option.Footer = footer;
 		option.SetFunction(func);
-		mOptions.push_back(std::make_unique<RegularOption>(option));
+		m_Options.push_back(std::make_unique<RegularOption>(option));
 		return this->GetBackOption<RegularOption*>();
 	}
 
@@ -78,12 +78,12 @@ public:
 	/// <returns>A pointer to this option instance</returns>
 	BoolOption* AddBoolOption(const std::string& text, const std::string& footer, bool* pBoolVariable, std::function<void()> func = [] {})
 	{
-		BoolOption option((int)mOptions.size());
+		BoolOption option((int)m_Options.size());
 		option.Text = text;
 		option.Footer = footer;
 		option.SetFunction(func);
 		option.pBoolPointer = pBoolVariable;
-		mOptions.push_back(std::make_unique<BoolOption>(option));
+		m_Options.push_back(std::make_unique<BoolOption>(option));
 		return this->GetBackOption<BoolOption*>();
 	}
 
@@ -99,33 +99,30 @@ public:
 	template<typename T>
 	VectorOption* AddVectorOption(const std::string& text, const std::string& footer, std::vector<T> vec, std::function<void()> func = [] {})
 	{
-		VectorOption option((int)mOptions.size());
-		option.Text = text;
-		option.Footer = footer;
-		option.SetFunction(func);
-		option.SetVector(vec);
-		option.SetVectorIndex(0);
-		mOptions.push_back(std::make_unique<VectorOption>(option));
-		return this->GetBackOption<VectorOption*>();
-	}
+		if constexpr (std::is_same_v<const char*, T>)
+		{
+			// Must be treated differently because std::to_string()
+			// does not work with "const char*"
 
-	/// <summary>
-	/// An option with left and right arrows with multiple selections
-	/// </summary>
-	/// <typeparam name="T">Vector Data Type</typeparam>
-	/// <param name="text">- Option text</param>
-	/// <param name="footer">- Option footer text</param>
-	/// <param name="_vec">- The const char* std::vector</param>
-	/// <param name="func">- The function to execute when clicked</param>
-	/// <returns>A pointer to this option instance</returns>
-	VectorOption* AddVectorOption(const std::string& text, const std::string& footer, std::vector<const char*> _vec, std::function<void()> func = [] {})
-	{
-		std::vector<std::string> temp;
-		temp.reserve(_vec.size());
-		for (const auto& str : _vec) {
-			temp.emplace_back(str);
+			std::vector<std::string> temp;
+			temp.reserve(vec.size());
+			for (const auto& str : vec) {
+				temp.emplace_back(str);
+			}
+
+			return AddVectorOption(text, footer, temp, func);
 		}
-		return AddVectorOption(text, footer, temp, func);
+		else
+		{
+			VectorOption option((int)m_Options.size());
+			option.Text = text;
+			option.Footer = footer;
+			option.SetFunction(func);
+			option.SetVector(vec);
+			option.SetVectorIndex(0);
+			m_Options.push_back(std::make_unique<VectorOption>(option));
+			return this->GetBackOption<VectorOption*>();
+		}
 	}
 
 	/// <summary>
@@ -155,11 +152,11 @@ public:
 	/// <returns>A pointer to this option instance</returns>
 	SubmenuOption* AddSubmenuOption(const std::string& text, const std::string& footer, eSubmenuID id)
 	{
-		SubmenuOption option((int)mOptions.size());
+		SubmenuOption option((int)m_Options.size());
 		option.Text = text;
 		option.Footer = footer;
 		option.SubmenuID = id;
-		mOptions.push_back(std::make_unique<SubmenuOption>(option));
+		m_Options.push_back(std::make_unique<SubmenuOption>(option));
 		return this->GetBackOption<SubmenuOption*>();
 	}
 
@@ -185,29 +182,29 @@ public:
 	/// <returns>A pointer to this option instance</returns>
 	EmptyOption* AddEmptyOption(const std::string &text = "")
 	{
-		EmptyOption option((int)mOptions.size());
+		EmptyOption option((int)m_Options.size());
 		option.Text = text;
-		mOptions.push_back(std::make_unique<EmptyOption>(option));
+		m_Options.push_back(std::make_unique<EmptyOption>(option));
 		return this->GetBackOption<EmptyOption*>();
 	}
 
 	// Returns the number of options in this submenu
-	int GetNumberOfOptions()
+	inline int GetNumberOfOptions()
 	{
-		return (int)mOptions.size();
+		return (int)m_Options.size();
 	}
 
 	// Returns a pointer to an option in this submenu via its index
 	Option* GetOption(int index)
 	{
-		if (index >= mOptions.size()) {
-			PRINT_ERROR("Bad option index (", index, "). Submenu ID: ", (int)ID, ", mOptions.size(): ", mOptions.size(), ". Returning null");
+		if (index >= m_Options.size()) {
+			PRINT_ERROR("Bad option index (", index, "). Submenu ID: ", (int)ID, ", m_Options.size(): ", m_Options.size(), ". Returning null");
 			return nullptr;
 		}
 		else {
 			Option* ptr = nullptr;
-			if (mOptions[index] != nullptr) {
-				ptr = mOptions[index].get();
+			if (m_Options[index] != nullptr) {
+				ptr = m_Options[index].get();
 			}
 			else {
 				PRINT_ERROR("unique_ptr for option index ", index, " is null, returning null");
@@ -219,10 +216,10 @@ public:
 	// Delete an option from this submenu
 	void DeleteOption(int index)
 	{
-		for (auto it = mOptions.begin(); it != mOptions.end(); it++) {
+		for (auto it = m_Options.begin(); it != m_Options.end(); it++) {
 			auto option = it->get();
 			if (option->Index == index) {
-				mOptions.erase(it);
+				m_Options.erase(it);
 				break;
 			}
 		}
@@ -242,7 +239,7 @@ public:
 	// Remove all options from this submenu
 	void Clear()
 	{
-		mOptions.clear(); // unique_ptr objects are deleted here
-		mOptions.shrink_to_fit();
+		m_Options.clear(); // unique_ptr objects are deleted here
+		m_Options.shrink_to_fit();
 	}
 };

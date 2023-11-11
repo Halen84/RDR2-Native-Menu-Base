@@ -96,10 +96,10 @@ void main()
 		// 
 		// You could probably put this in a function called CExampleSubmenu::Tick() that gets called every frame
 		// so it doesn't have to be put here
-		if (g_Menu->CurrentSubmenuID == Submenu_Examples_Time) {
-			g_Menu->CurrentSubmenu->GetOption(0)->As<VectorOption*>()->SetVectorIndex(CLOCK::GET_CLOCK_HOURS());
-			g_Menu->CurrentSubmenu->GetOption(1)->As<VectorOption*>()->SetVectorIndex(CLOCK::GET_CLOCK_MINUTES());
-			g_Menu->CurrentSubmenu->GetOption(2)->As<VectorOption*>()->SetVectorIndex(CLOCK::GET_CLOCK_SECONDS());
+		if (g_Menu->GetCurrentSubmenu()->ID == Submenu_Examples_Time) {
+			g_Menu->GetCurrentSubmenu()->GetOption(0)->As<VectorOption*>()->SetVectorIndex(CLOCK::GET_CLOCK_HOURS());
+			g_Menu->GetCurrentSubmenu()->GetOption(1)->As<VectorOption*>()->SetVectorIndex(CLOCK::GET_CLOCK_MINUTES());
+			g_Menu->GetCurrentSubmenu()->GetOption(2)->As<VectorOption*>()->SetVectorIndex(CLOCK::GET_CLOCK_SECONDS());
 		}
 
 		WAIT(0);

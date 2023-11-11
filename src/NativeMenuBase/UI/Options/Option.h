@@ -8,10 +8,8 @@
 class Option
 {
 private:
-	bool bWasJustExecuted = false;
-	bool bInitialTextSet = false;
-
-	std::function<void()> mFunc = nullptr;
+	bool m_bWasJustExecuted = false;
+	std::function<void()> m_Function = nullptr;
 public:
 	std::string Text = "";
 	std::string Footer = "";
@@ -30,7 +28,7 @@ public:
 	// Set the function of this option that will be executed when clicked
 	void SetFunction(const std::function<void()> &func)
 	{
-		mFunc = func;
+		m_Function = func;
 	}
 
 	// Convert between option types. MAKE SURE TO CHECK OPTION TYPE BEFORE USING.
@@ -43,16 +41,16 @@ public:
 	// Execute the assigned function
 	void Execute()
 	{
-		if (mFunc != nullptr) {
-			bWasJustExecuted = true;
-			mFunc();
-			bWasJustExecuted = false;
+		if (m_Function != nullptr) {
+			m_bWasJustExecuted = true;
+			m_Function();
+			m_bWasJustExecuted = false;
 		}
 	}
 
 	// Get if this option was just executed/pressed
-	bool WasJustExecuted()	{ return bWasJustExecuted; }
+	bool WasJustExecuted()	{ return m_bWasJustExecuted; }
 
 	// Get if this option was just executed/pressed
-	bool WasJustPressed()	{ return bWasJustExecuted; }
+	bool WasJustPressed()	{ return m_bWasJustExecuted; }
 };

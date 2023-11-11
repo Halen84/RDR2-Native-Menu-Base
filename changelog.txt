@@ -1,7 +1,29 @@
-Aug 13, 2023
-- Fixed the C2280 error that was described in CNativeMenu::AddSubmenu(). No heap allocations are happening anymore
+Nov 11, 2023
+- CNativeMenu::CurrentSubmenu, CurrentSubmenuID, and SelectionIndex are now all private members and have been renamed to have "m_" prefix
+- Added CNativeMenu::GetCurrentSubmenu()
+- Added CNativeMenu::GetSelectionIndex()
+- Added CNativeMenu::SetSelectionIndex(int)
+- CNativeMenu::g_SubmenusMap renamed to m_SubmenusMap
+- CNativeMenu::DoesSubmenuExist() and CNativeMenu::IsOpen() are now inlined
+- Option::bWasJustExecuted renamed to m_bWasJustExecuted
+- Option::mFunc renamed to m_Function
+- Removed unused variable Option::bInitialTextSet
+- Submenu::mOption renamed to m_Options
+- Submenu::GetNumberOfOptions() is now inlined
+- VectorOption::mVectorContent renamed to m_VectorContent
+- VectorOption::bWentLeft renamed to m_bWentLeft
+- VectorOption::bWentRight renamed to m_bWentRight
+- VectorOption::VectorIndex renamed to m_VectorIndex
+- VectorOption::SetVector() and VectorOption::GetVectorIndex() are now inlined
+- Removed special case Submenu::AddVectorOption() "const char*" overload, now handled in one function.
+- Note: The only renamed variables were private members except the ones in CNativeMenu
+
 
 ---------------------------------------------- [Previous Updates] ----------------------------------------------
+
+
+Aug 13, 2023
+- Fixed the C2280 error that was described in CNativeMenu::AddSubmenu(). No heap allocations are happening anymore
 
 
 Apr 22, 2023

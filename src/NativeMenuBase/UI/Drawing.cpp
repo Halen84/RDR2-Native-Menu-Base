@@ -153,13 +153,13 @@ inline void DrawFooter(const std::string& text)
 
 void DrawOptionCounter()
 {
-	Submenu* sm = g_Menu->CurrentSubmenu;
+	Submenu* sm = g_Menu->GetCurrentSubmenu();
 	int numOptions = sm->GetNumberOfOptions();
 	if (numOptions >= sm->NumberOfVisibleOptions) {
-		Drawing::DrawFormattedText(std::to_string(g_Menu->SelectionIndex + 1) + " of " + std::to_string(numOptions), Font::Body, 144,144,144,230, Alignment::Right, uiFontSizes::OptionCounter, uiOption::OptionCounterPositionX, 243.0f + (sm->NumberOfVisibleOptions * INCREMENT), 0, -1);
+		Drawing::DrawFormattedText(std::to_string(g_Menu->GetSelectionIndex() + 1) + " of " + std::to_string(numOptions), Font::Body, 144, 144, 144, 230, Alignment::Right, uiFontSizes::OptionCounter, uiOption::OptionCounterPositionX, 243.0f + (sm->NumberOfVisibleOptions * INCREMENT), 0, -1);
 	}
 	else {
-		Drawing::DrawFormattedText(std::to_string(g_Menu->SelectionIndex + 1) + " of " + std::to_string(numOptions), Font::Body, 144,144,144,230, Alignment::Right, uiFontSizes::OptionCounter, uiOption::OptionCounterPositionX, 243.0f + (numOptions * INCREMENT), 0, -1);
+		Drawing::DrawFormattedText(std::to_string(g_Menu->GetSelectionIndex() + 1) + " of " + std::to_string(numOptions), Font::Body, 144,144,144,230, Alignment::Right, uiFontSizes::OptionCounter, uiOption::OptionCounterPositionX, 243.0f + (numOptions * INCREMENT), 0, -1);
 	}
 }
 
@@ -193,7 +193,7 @@ void drawVectorOptionInternal(Option* pOption, bool drawInRange, bool drawOutOfR
 {
 	VectorOption* option = pOption->As<VectorOption*>();
 	int index = option->Index;
-	int selection = g_Menu->SelectionIndex;
+	int selection = g_Menu->GetSelectionIndex();
 
 	// Draw the option
 	drawOptionInternal(option, drawInRange, drawOutOfRange, inRangeIncr, outOfRangeIncr);
@@ -287,8 +287,8 @@ void Drawing::DrawFormattedText(const std::string& text, Font font, int red, int
 
 void Drawing::DrawOption(Option* option)
 {
-	int selection = g_Menu->SelectionIndex;
-	int visibleOptions = g_Menu->CurrentSubmenu->NumberOfVisibleOptions;
+	int selection = g_Menu->GetSelectionIndex();
+	int visibleOptions = g_Menu->GetCurrentSubmenu()->NumberOfVisibleOptions;
 	int index = option->Index;
 
 	// Create variables here so they aren't unnecessarily recalculated in the draw internal functions
@@ -318,9 +318,9 @@ void Drawing::DrawOption(Option* option)
 
 void DrawBackground()
 {
-	int numOptions = g_Menu->CurrentSubmenu->GetNumberOfOptions();
-	int visOptions = g_Menu->CurrentSubmenu->NumberOfVisibleOptions;
-	int selection = g_Menu->SelectionIndex;
+	int numOptions = g_Menu->GetCurrentSubmenu()->GetNumberOfOptions();
+	int visOptions = g_Menu->GetCurrentSubmenu()->NumberOfVisibleOptions;
+	int selection = g_Menu->GetSelectionIndex();
 
 	// Background
 	Drawing::DrawSprite("generic_textures", "inkroller_1a", uiBackground::PositionX, uiBackground::PositionY, uiBackground::Width, uiBackground::Height, 0, 0,0,0,230, false);
@@ -369,8 +369,8 @@ void DrawSelectionBox()
 	// Couldn't add the corner textures because they get stretched out and
 	// just don't look right, so the lines are sized to be touching each other.
 
-	int visibleOptions = g_Menu->CurrentSubmenu->NumberOfVisibleOptions;
-	int selection = g_Menu->SelectionIndex;
+	int visibleOptions = g_Menu->GetCurrentSubmenu()->NumberOfVisibleOptions;
+	int selection = g_Menu->GetSelectionIndex();
 
 	// Left, Right, Top, Bottom
 	if (selection >= visibleOptions-1) {
@@ -392,7 +392,7 @@ void Drawing::DrawMenu()
 {
 	DrawBackground();
 	DrawSelectionBox();
-	DrawHeader(g_Menu->CurrentSubmenu->Header);
-	DrawSubHeader(g_Menu->CurrentSubmenu->SubHeader);
+	DrawHeader(g_Menu->GetCurrentSubmenu()->Header);
+	DrawSubHeader(g_Menu->GetCurrentSubmenu()->SubHeader);
 	DrawOptionCounter();
 }
