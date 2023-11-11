@@ -3,10 +3,10 @@
 #pragma once
 #include "Option.h"
 
-class RegularOption : public Option
+class CRegularOption : public COption
 {
 public:
-	RegularOption(int index)
+	CRegularOption(int index)
 	{
 		this->IsRegularOption = true;
 		this->Index = index;

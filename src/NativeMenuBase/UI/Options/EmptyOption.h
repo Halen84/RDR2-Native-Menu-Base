@@ -3,10 +3,10 @@
 #pragma once
 #include "Option.h"
 
-class EmptyOption : public Option
+class CEmptyOption : public COption
 {
 public:
-	EmptyOption(int index)
+	CEmptyOption(int index)
 	{
 		this->IsEmptyOption = true;
 		this->Index = index;

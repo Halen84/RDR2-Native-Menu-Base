@@ -4,12 +4,12 @@
 #include "Option.h"
 #include "../SubmenuIDs.h"
 
-class SubmenuOption : public Option
+class CSubmenuOption : public COption
 {
 public:
-	eSubmenuID SubmenuID = eSubmenuID::Submenu_Invalid;
+	eSubmenuID SubmenuID = eSubmenuID::Invalid;
 
-	SubmenuOption(int index)
+	CSubmenuOption(int index)
 	{
 		this->IsSubmenuOption = true;
 		this->Index = index;

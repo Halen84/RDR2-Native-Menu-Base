@@ -1,7 +1,5 @@
-// Licensed under the MIT License.
-
 #pragma once
-#include "Menu.hpp"
+
 #include "Options/Option.h"
 #include "Options/RegularOption.h"
 #include "Options/BoolOption.h"
@@ -11,14 +9,21 @@
 #include "../console.h"
 
 
-class Submenu
+// This is a little "hack" so I can properly register the submenus in the CNativeSubmenu ctor.
+// This vector gets cleared after the CNativeSubmenu ctor gets called.
+// All submenus get put in this vector initially via CSubmenu ctor
+//
+// I have to do this because I can't use "g_Menu" in this file because msvc is literally retarded.
+// Can't put the ctor in a .cpp file because the script just wont register??????????
+inline std::vector<void*> __submenus = {};
+
+
+class CSubmenu
 {
 protected:
-	std::vector<std::unique_ptr<Option>> m_Options{};
+	std::vector<std::unique_ptr<COption>> m_Options{};
 
 private:
-	std::function<void(Submenu*)> m_StructureFunc; // Function that sets the submenu layout
-
 	template<class T>
 	std::enable_if_t<std::is_pointer_v<T>, T> GetBackOption()
 	{
@@ -26,29 +31,42 @@ private:
 	}
 
 public:
-	std::string Header = "";
-	std::string SubHeader = "";
-	eSubmenuID ID = eSubmenuID::Submenu_Invalid;
+	const char* Header = 0;
+	const char* SubHeader = 0;
+	eSubmenuID ID = eSubmenuID::Invalid;
 	int NumberOfVisibleOptions = 8; // Recommended: 8, Recommended Max: 12
 
+	// Pure virtual function that initializes the submenu and creates the options
+	virtual void Init() = 0;
 
-	Submenu() = default;
-	Submenu(Submenu&&) = default;
-	Submenu& operator=(Submenu&&) = default;
-	Submenu(const std::string& header, const std::string& subHeader, eSubmenuID id, int numVisibleOptions, std::function<void(Submenu*)> &submenuFunc)
+	// Virtual function that will be called only once every time you enter the submenu
+	// 
+	// We can __forceinline only on these implementations to optimize away the function call to just a NOP since these are empty functions here.
+	// The overridden function of these will not be inlined unless specified by user
+	__forceinline virtual void OnEnter() { };
+
+	// Virtual function that will be called only once every time you exit the submenu
+	__forceinline virtual void OnExit() { };
+
+	// Virtual function that will be called every frame while you are in the submenu
+	__forceinline virtual void OnTick() { };
+
+	CSubmenu()
 	{
-		Header = header;
-		SubHeader = subHeader;
-		ID = id;
-		NumberOfVisibleOptions = numVisibleOptions;
-		m_StructureFunc = submenuFunc;
-		std::invoke(m_StructureFunc, this); // Create the submenu
+		__submenus.push_back(this);
 	}
-	~Submenu()
+	~CSubmenu()
 	{
 		m_Options.clear(); // unique_ptr objects are deleted here
 	}
 
+	// Registers/Creates a submenu without a singleton variable
+	template <class T>
+	static void RegisterWithoutSingleton()
+	{
+		// Needs to be static so the object doesn't get destroyed.
+		static T temp{};
+	}
 
 	/// <summary>
 	/// An option with only one purpose: to execute a function when clicked.
@@ -57,15 +75,14 @@ public:
 	/// <param name="footer">- Option footer text</param>
 	/// <param name="func">- The function to execute when clicked</param>
 	/// <returns>A pointer to this option instance</returns>
-	//template <typename Function>
-	RegularOption* AddRegularOption(const std::string& text, const std::string& footer, std::function<void()> func = [] {})
+	CRegularOption* AddRegularOption(const std::string& text, const std::string& footer, std::function<void()> func = [] {})
 	{
-		RegularOption option((int)m_Options.size());
+		CRegularOption option((int)m_Options.size());
 		option.Text = text;
 		option.Footer = footer;
 		option.SetFunction(func);
-		m_Options.push_back(std::make_unique<RegularOption>(option));
-		return this->GetBackOption<RegularOption*>();
+		m_Options.push_back(std::make_unique<CRegularOption>(option));
+		return this->GetBackOption<CRegularOption*>();
 	}
 
 	/// <summary>
@@ -76,15 +93,15 @@ public:
 	/// <param name="pbVariable">- Boolean pointer to toggle</param>
 	/// <param name="func">- The function to execute when clicked</param>
 	/// <returns>A pointer to this option instance</returns>
-	BoolOption* AddBoolOption(const std::string& text, const std::string& footer, bool* pBoolVariable, std::function<void()> func = [] {})
+	CBoolOption* AddBoolOption(const std::string& text, const std::string& footer, bool* pBoolVariable, std::function<void()> func = [] {})
 	{
-		BoolOption option((int)m_Options.size());
+		CBoolOption option((int)m_Options.size());
 		option.Text = text;
 		option.Footer = footer;
 		option.SetFunction(func);
 		option.pBoolPointer = pBoolVariable;
-		m_Options.push_back(std::make_unique<BoolOption>(option));
-		return this->GetBackOption<BoolOption*>();
+		m_Options.push_back(std::make_unique<CBoolOption>(option));
+		return this->GetBackOption<CBoolOption*>();
 	}
 
 	/// <summary>
@@ -97,7 +114,7 @@ public:
 	/// <param name="func">- The function to execute when clicked</param>
 	/// <returns>A pointer to this option instance</returns>
 	template<typename T>
-	VectorOption* AddVectorOption(const std::string& text, const std::string& footer, std::vector<T> vec, std::function<void()> func = [] {})
+	CVectorOption* AddVectorOption(const std::string& text, const std::string& footer, std::vector<T> vec, std::function<void()> func = [] {})
 	{
 		if constexpr (std::is_same_v<const char*, T>)
 		{
@@ -114,14 +131,14 @@ public:
 		}
 		else
 		{
-			VectorOption option((int)m_Options.size());
+			CVectorOption option((int)m_Options.size());
 			option.Text = text;
 			option.Footer = footer;
 			option.SetFunction(func);
 			option.SetVector(vec);
 			option.SetVectorIndex(0);
-			m_Options.push_back(std::make_unique<VectorOption>(option));
-			return this->GetBackOption<VectorOption*>();
+			m_Options.push_back(std::make_unique<CVectorOption>(option));
+			return this->GetBackOption<CVectorOption*>();
 		}
 	}
 
@@ -135,7 +152,7 @@ public:
 	/// <param name="endText">- Text at the end of the right text</param>
 	/// <param name="func">- The function to execute when clicked</param>
 	/// <returns>A pointer to this option instance</returns>
-	VectorOption* AddVectorOption(const std::string& text, const std::string& footer, int numElements, const std::string& startText = "", const std::string& endText = "", std::function<void()> func = [] {})
+	CVectorOption* AddVectorOption(const std::string& text, const std::string& footer, int numElements, const std::string& startText = "", const std::string& endText = "", std::function<void()> func = [] {})
 	{
 		std::vector<std::string> _temp;
 		for (int i = 0; i < numElements; i++)
@@ -150,14 +167,14 @@ public:
 	/// <param name="footer">- Option footer text</param>
 	/// <param name="id">- The id of the submenu that you will be brought to</param>
 	/// <returns>A pointer to this option instance</returns>
-	SubmenuOption* AddSubmenuOption(const std::string& text, const std::string& footer, eSubmenuID id)
+	CSubmenuOption* AddSubmenuOption(const std::string& text, const std::string& footer, eSubmenuID id)
 	{
-		SubmenuOption option((int)m_Options.size());
+		CSubmenuOption option((int)m_Options.size());
 		option.Text = text;
 		option.Footer = footer;
 		option.SubmenuID = id;
-		m_Options.push_back(std::make_unique<SubmenuOption>(option));
-		return this->GetBackOption<SubmenuOption*>();
+		m_Options.push_back(std::make_unique<CSubmenuOption>(option));
+		return this->GetBackOption<CSubmenuOption*>();
 	}
 
 	/// <summary>
@@ -167,7 +184,7 @@ public:
 	/// <param name="footer">- Option footer text</param>
 	/// <param name="submenu">- The submenu that you will be brought to</param>
 	/// <returns>A pointer to this option instance</returns>
-	SubmenuOption* AddSubmenuOption(const std::string& text, const std::string& footer, Submenu* pSubmenu)
+	CSubmenuOption* AddSubmenuOption(const std::string& text, const std::string& footer, CSubmenu* pSubmenu)
 	{
 		if (pSubmenu == nullptr) {
 			PRINT_ERROR("Failed to add submenu option, pSubmenu is null");
@@ -180,12 +197,12 @@ public:
 	/// Inserts a blank spot into this submenu. Mainly used for organization purposes.
 	/// </summary>
 	/// <returns>A pointer to this option instance</returns>
-	EmptyOption* AddEmptyOption(const std::string &text = "")
+	CEmptyOption* AddEmptyOption(const std::string &text = "")
 	{
-		EmptyOption option((int)m_Options.size());
+		CEmptyOption option((int)m_Options.size());
 		option.Text = text;
-		m_Options.push_back(std::make_unique<EmptyOption>(option));
-		return this->GetBackOption<EmptyOption*>();
+		m_Options.push_back(std::make_unique<CEmptyOption>(option));
+		return this->GetBackOption<CEmptyOption*>();
 	}
 
 	// Returns the number of options in this submenu
@@ -195,14 +212,14 @@ public:
 	}
 
 	// Returns a pointer to an option in this submenu via its index
-	Option* GetOption(int index)
+	COption* GetOption(int index)
 	{
 		if (index >= m_Options.size()) {
 			PRINT_ERROR("Bad option index (", index, "). Submenu ID: ", (int)ID, ", m_Options.size(): ", m_Options.size(), ". Returning null");
 			return nullptr;
 		}
 		else {
-			Option* ptr = nullptr;
+			COption* ptr = nullptr;
 			if (m_Options[index] != nullptr) {
 				ptr = m_Options[index].get();
 			}
@@ -226,7 +243,7 @@ public:
 	}
 
 	// Delete an option from this submenu
-	void DeleteOption(Option* pOption)
+	void DeleteOption(COption* pOption)
 	{
 		if (pOption == nullptr) {
 			PRINT_ERROR("Failed to delete option, pOption is null");

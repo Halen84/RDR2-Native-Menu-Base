@@ -15,6 +15,10 @@ An RDR2 UI Menu Base that uses in-game sprites to make UI menus similar to how t
   </p>
 </details>
 
+# Abstraction Branch
+- The abstraction branch's purpose is to implement more abstraction/polymorphism into this menu base
+- It has its ups and downs, but I implemented this because I thought some people might prefer this over the master branch
+
 # Features
 - Easy to configure, organize, and use
 - Keyboard and controller support with rebindable keybinds
@@ -36,19 +40,20 @@ An RDR2 UI Menu Base that uses in-game sprites to make UI menus similar to how t
 	- These options will insert a blank spot into the page. Mainly used for organization purposes.
 
 # Help & Info
-- The UI will look and function the best on 1920x1080 displays
-- script.cpp would be where to look first
-- The "Submenus" folder is where you can put your functions for options. Its up to you how you want to organize everything.
-- ^^^ You can also create the options in other files as long as you call it in InitializeMenu()
-- To change keybinds, see UI/Menu.cpp in CheckInput()
+- script.cpp contains the main loop
+- console.h contains useful macros that print things to the included debug console
+- The "Submenus" folder is where you can create your submenus
+- This folder also contains examples of how you might set submenus up.
+- To change keybinds, see UI/Menu.cpp in CNativeMenu::CheckInput()
 - UI/Options/ contains all option types
-- UI/Submenu.hpp is the Submenu class
+- UI/Menu.hpp is the CNativeMenu singleton class, which contains g_Menu global
 - UI/Menu.cpp handles keypresses, navigation, some drawing, and other things
-- UI/Menu.hpp is the CNativeMenu class
-- UI/Drawing.cpp does the texture and text drawing for everything
+- UI/Submenu.h is the base CSubmenu class, meant to be inherited from by your custom submenus. See Submenus/Examples.h and Submenus/EntryMenu.h
+- UI/Drawing.cpp draws all text, textures, options, etc
+- Note: EntryMenu.h/.cpp is the very first submenu
 
 # Changelog
-- See: [changelog.txt](https://github.com/Halen84/RDR2-Native-Menu-Base/blob/master/changelog.txt)
+- See: [changelog.txt](https://github.com/Halen84/RDR2-Native-Menu-Base/blob/abstraction/changelog.txt)
 
 # TODO List + Bugs
 - More support for displays that arent 1920x1080 (mostly done)

@@ -17,6 +17,9 @@
     <ClCompile Include="UI\UIUtil.cpp">
       <Filter>UI\Other</Filter>
     </ClCompile>
+    <ClCompile Include="Submenus\EntryMenu.cpp">
+      <Filter>Submenus</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\inc\enums.h">
@@ -40,7 +43,7 @@
       <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="script.h" />
-    <ClInclude Include="Submenus\Examples.hpp">
+    <ClInclude Include="Submenus\Examples.h">
       <Filter>Submenus</Filter>
     </ClInclude>
     <ClInclude Include="UI\UIUtil.h">
@@ -51,9 +54,6 @@
     </ClInclude>
     <ClInclude Include="UI\Submenu.hpp">
       <Filter>UI</Filter>
-    </ClInclude>
-    <ClInclude Include="Submenus\SubmenuInclude.h">
-      <Filter>Submenus</Filter>
     </ClInclude>
     <ClInclude Include="console.h" />
     <ClInclude Include="UI\Options\BoolOption.h">
@@ -73,6 +73,9 @@
     </ClInclude>
     <ClInclude Include="UI\Options\VectorOption.h">
       <Filter>UI\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="Submenus\EntryMenu.h">
+      <Filter>Submenus</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

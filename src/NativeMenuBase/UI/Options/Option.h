@@ -5,7 +5,7 @@
 #include <functional>
 #include <vector>
 
-class Option
+class COption
 {
 private:
 	bool m_bWasJustExecuted = false;
@@ -22,8 +22,8 @@ public:
 
 	int Index = 0;
 
-	Option() = default;
-	virtual ~Option() = default;
+	COption() = default;
+	virtual ~COption() = default;
 
 	// Set the function of this option that will be executed when clicked
 	void SetFunction(const std::function<void()> &func)

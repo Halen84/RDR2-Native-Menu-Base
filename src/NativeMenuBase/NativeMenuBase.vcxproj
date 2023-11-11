@@ -8,6 +8,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="common.cpp" />
+    <ClCompile Include="Submenus\EntryMenu.cpp" />
     <ClCompile Include="Submenus\Examples.cpp" />
     <ClCompile Include="UI\Menu.cpp" />
     <ClCompile Include="script.cpp" />
@@ -22,8 +23,8 @@
     <ClInclude Include="..\..\inc\natives.h" />
     <ClInclude Include="..\..\inc\types.h" />
     <ClInclude Include="console.h" />
-    <ClInclude Include="Submenus\SubmenuInclude.h" />
-    <ClInclude Include="Submenus\Examples.hpp" />
+    <ClInclude Include="Submenus\EntryMenu.h" />
+    <ClInclude Include="Submenus\Examples.h" />
     <ClInclude Include="UI\Drawing.h" />
     <ClInclude Include="common.hpp" />
     <ClInclude Include="UI\Menu.hpp" />

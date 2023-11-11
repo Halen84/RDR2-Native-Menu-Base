@@ -16,6 +16,7 @@ void CNativeMenu::Update()
 	CheckInput();
 	HandleInput();
 	DisableCommonInputs();
+	//RunTickFunctions();
 
 	if (m_IsOpen)
 	{
@@ -23,8 +24,13 @@ void CNativeMenu::Update()
 
 		Drawing::DrawMenu();
 
+		// This will make it so the CURRENT submenus "OnTick" function will be called
+		// while the menu is open. If you want ALL submenu tick functions to ALWAYS run, then
+		// uncomment the call a few lines above, and comment out this call.
+		m_CurrentSubmenu->OnTick();
+
 		for (int i = 0; i < m_CurrentSubmenu->GetNumberOfOptions(); i++) {
-			Option* option = m_CurrentSubmenu->GetOption(i);
+			COption* option = m_CurrentSubmenu->GetOption(i);
 			if (option != nullptr) {
 				Drawing::DrawOption(option);
 			}
@@ -131,7 +137,7 @@ void CNativeMenu::HandleMouseInput()
 		{
 			_relativePos = (_cursorPos.y - 245/*option start pos*/);
 			/*if (_relativePos > _MaxRelPos) {
-				_relativePos = _MaxRelPos;
+			_relativePos = _MaxRelPos;
 			}*/
 			_index = _relativePos / (50/*option height*/ + _padding);
 
@@ -159,14 +165,14 @@ void CNativeMenu::HandleMouseInput()
 
 void CNativeMenu::HandleEnterPressed()
 {
-	Option* option = GetSelectedOption();
+	COption* option = GetSelectedOption();
 	if (option == nullptr) return;
 
 	if (option->IsRegularOption) {
 		option->Execute();
 	}
 	else if (option->IsBoolOption) {
-		BoolOption* boolOption = option->As<BoolOption*>();
+		CBoolOption* boolOption = option->As<CBoolOption*>();
 		if (boolOption->pBoolPointer != nullptr) {
 			*boolOption->pBoolPointer ^= TRUE; // XOR
 		}
@@ -177,17 +183,18 @@ void CNativeMenu::HandleEnterPressed()
 		boolOption->Execute();
 	}
 	else if (option->IsVectorOption) {
-		VectorOption* vecOption = option->As<VectorOption*>();
+		CVectorOption* vecOption = option->As<CVectorOption*>();
 		vecOption->ExecuteVectorFunction(false, true);
 	}
 	else if (option->IsSubmenuOption) {
-		SubmenuOption* submenuOption = option->As<SubmenuOption*>();
+		CSubmenuOption* submenuOption = option->As<CSubmenuOption*>();
 		if (DoesSubmenuExist(submenuOption->SubmenuID)) {
 			//g_Menu->GoToSubmenu(submenuOption->SubmenuID);
 			m_PreviousSubmenus.push_back(m_CurrentSubmenu->ID);
 			m_LastSubmenuSelections[m_CurrentSubmenu->ID] = m_SelectionIndex;
-			m_CurrentSubmenu = &m_SubmenusMap[submenuOption->SubmenuID];
+			m_CurrentSubmenu = m_SubmenusMap[submenuOption->SubmenuID];
 			m_SelectionIndex = 0;
+			m_CurrentSubmenu->OnEnter();
 		}
 		else {
 			PRINT_ERROR("Submenu ID ", (int)submenuOption->SubmenuID, " doesn't exist, make sure this submenu is initialized!");
@@ -200,7 +207,7 @@ void CNativeMenu::HandleEnterPressed()
 
 void CNativeMenu::HandleBackPressed()
 {
-	if (m_CurrentSubmenu->ID <= eSubmenuID::Submenu_EntryMenu) {
+	if (m_CurrentSubmenu->ID <= eSubmenuID::EntryMenu) {
 		playSoundFrontend("BACK", "HUD_SHOP_SOUNDSET");
 		SetEnabled(false);
 		return;
@@ -208,14 +215,18 @@ void CNativeMenu::HandleBackPressed()
 
 	if (m_PreviousSubmenus.size() > 0) {
 		//g_Menu->GoToSubmenu(m_PreviousSubmenus[m_PreviousSubmenus.size() - 1]);
-		m_CurrentSubmenu = &m_SubmenusMap[m_PreviousSubmenus[m_PreviousSubmenus.size() - 1]];
+		m_CurrentSubmenu->OnExit();
+		m_CurrentSubmenu = m_SubmenusMap[m_PreviousSubmenus[m_PreviousSubmenus.size() - 1]];
 		m_PreviousSubmenus.pop_back();
 		m_SelectionIndex = m_LastSubmenuSelections[m_CurrentSubmenu->ID];
 		m_LastSubmenuSelections.erase(m_CurrentSubmenu->ID);
+		m_CurrentSubmenu->OnEnter();
 	}
 	else {
-		m_CurrentSubmenu = &m_SubmenusMap[eSubmenuID::Submenu_EntryMenu];
-		m_SelectionIndex = m_LastSubmenuSelections[eSubmenuID::Submenu_EntryMenu];
+		m_CurrentSubmenu->OnExit();
+		m_CurrentSubmenu = m_SubmenusMap[eSubmenuID::EntryMenu];
+		m_SelectionIndex = m_LastSubmenuSelections[eSubmenuID::EntryMenu];
+		m_CurrentSubmenu->OnEnter();
 	}
 
 	playSoundFrontend("BACK", "HUD_SHOP_SOUNDSET");
@@ -225,7 +236,6 @@ void CNativeMenu::HandleBackPressed()
 void CNativeMenu::HandleUpKeyPressed()
 {
 	if (GetSelectedOption() == nullptr) return;
-	int numOptions = m_CurrentSubmenu->GetNumberOfOptions();
 
 	if (IsKeyDownLong(VK_SHIFT)) {
 		m_SelectionIndex -= 10;
@@ -238,11 +248,11 @@ void CNativeMenu::HandleUpKeyPressed()
 	}
 
 	// First check
-	if (m_SelectionIndex < 0) { m_SelectionIndex = numOptions - 1; }
+	if (m_SelectionIndex < 0) { m_SelectionIndex = m_CurrentSubmenu->GetNumberOfOptions() - 1; }
 	// Skip over empty option
 	if (GetSelectedOption()->IsEmptyOption) { m_SelectionIndex--; }
 	// Second check
-	if (m_SelectionIndex < 0) { m_SelectionIndex = numOptions - 1; }
+	if (m_SelectionIndex < 0) { m_SelectionIndex = m_CurrentSubmenu->GetNumberOfOptions() - 1; }
 
 	playSoundFrontend("NAV_UP", "Ledger_Sounds");
 }
@@ -251,12 +261,11 @@ void CNativeMenu::HandleUpKeyPressed()
 void CNativeMenu::HandleDownKeyPressed()
 {
 	if (GetSelectedOption() == nullptr) return;
-	int numOptions = m_CurrentSubmenu->GetNumberOfOptions();
 
 	if (IsKeyDownLong(VK_SHIFT)) {
 		m_SelectionIndex += 10;
-		if (m_SelectionIndex > numOptions - 1) {
-			m_SelectionIndex = numOptions - 1; // DONT reset to the TOP of the page
+		if (m_SelectionIndex > m_CurrentSubmenu->GetNumberOfOptions() - 1) {
+			m_SelectionIndex = m_CurrentSubmenu->GetNumberOfOptions() - 1; // DONT reset to the TOP of the page
 		}	
 	}
 	else {
@@ -264,11 +273,11 @@ void CNativeMenu::HandleDownKeyPressed()
 	}
 
 	// First check
-	if (m_SelectionIndex > numOptions - 1) { m_SelectionIndex = 0; }
+	if (m_SelectionIndex > m_CurrentSubmenu->GetNumberOfOptions() - 1) { m_SelectionIndex = 0; }
 	// Skip over empty option
 	if (GetSelectedOption()->IsEmptyOption) { m_SelectionIndex++; }
 	// Second check
-	if (m_SelectionIndex > numOptions - 1) { m_SelectionIndex = 0; }
+	if (m_SelectionIndex > m_CurrentSubmenu->GetNumberOfOptions() - 1) { m_SelectionIndex = 0; }
 
 	playSoundFrontend("NAV_DOWN", "Ledger_Sounds");
 }
@@ -276,11 +285,11 @@ void CNativeMenu::HandleDownKeyPressed()
 
 void CNativeMenu::HandleLeftKeyPressed()
 {
-	Option* option = GetSelectedOption();
+	COption* option = GetSelectedOption();
 	if (option == nullptr) return;
 
 	if (option->IsVectorOption) {
-		option->As<VectorOption*>()->ExecuteVectorFunction(true, false);
+		option->As<CVectorOption*>()->ExecuteVectorFunction(true, false);
 		playSoundFrontend("NAV_LEFT", "PAUSE_MENU_SOUNDSET");
 	}
 }
@@ -288,11 +297,11 @@ void CNativeMenu::HandleLeftKeyPressed()
 
 void CNativeMenu::HandleRightKeyPressed()
 {
-	Option* option = GetSelectedOption();
+	COption* option = GetSelectedOption();
 	if (option == nullptr) return;
 
 	if (option->IsVectorOption) {
-		option->As<VectorOption*>()->ExecuteVectorFunction(false, true);
+		option->As<CVectorOption*>()->ExecuteVectorFunction(false, true);
 		playSoundFrontend("NAV_RIGHT", "PAUSE_MENU_SOUNDSET");
 	}
 }
@@ -384,4 +393,3 @@ void CNativeMenu::RegisterUIPrompts()
 	if (m_BackPrompt == NULL)
 		reg(m_BackPrompt, "Back", INPUT_GAME_MENU_CANCEL);
 }
-

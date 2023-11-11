@@ -1,103 +1,123 @@
 // Licensed under the MIT License.
 
-#include "Examples.hpp"
-
-bool CExamplesSubmenu::bPauseTime = false;
+#include "Examples.h"
+#include "../UI/UIUtil.h"
 
 void CExamplesSubmenu::Init()
 {
-	// Here, we will create the submenus
-
-	g_Menu->AddSubmenu("EXAMPLES", "Function Examples", Submenu_Examples, 8, [](Submenu* sub)
-	{
-		sub->AddSubmenuOption("Change Weather", "", Submenu_Examples_Weather);
-		sub->AddSubmenuOption("Change Time", "", Submenu_Examples_Time);
-	});
-
-
-	g_Menu->AddSubmenu("EXAMPLES", "Change Weather", Submenu_Examples_Weather, 12, [](Submenu* sub)
-	{
-		// In a real scenario, you should use enum hashes
-		// for the weather types instead of GET_HASH_KEY
-
-		sub->AddRegularOption("High Pressure", "",		[] { g_ExamplesSubmenu->SetWeather(MISC::GET_HASH_KEY("HIGHPRESSURE")); });
-		sub->AddRegularOption("Rain", "",				[] { g_ExamplesSubmenu->SetWeather(MISC::GET_HASH_KEY("RAIN")); });
-		sub->AddRegularOption("Snow", "",				[] { g_ExamplesSubmenu->SetWeather(MISC::GET_HASH_KEY("SNOW")); });
-		sub->AddRegularOption("Misty", "",				[] { g_ExamplesSubmenu->SetWeather(MISC::GET_HASH_KEY("MISTY")); });
-		sub->AddRegularOption("Fog", "",				[] { g_ExamplesSubmenu->SetWeather(MISC::GET_HASH_KEY("FOG")); });
-		sub->AddRegularOption("Sunny", "",				[] { g_ExamplesSubmenu->SetWeather(MISC::GET_HASH_KEY("SUNNY")); });
-		sub->AddRegularOption("Clouds", "",				[] { g_ExamplesSubmenu->SetWeather(MISC::GET_HASH_KEY("CLOUDS")); });
-		sub->AddRegularOption("Overcast", "",			[] { g_ExamplesSubmenu->SetWeather(MISC::GET_HASH_KEY("OVERCAST")); });
-		sub->AddRegularOption("Thunderstorm", "",		[] { g_ExamplesSubmenu->SetWeather(MISC::GET_HASH_KEY("THUNDERSTORM")); });
-		sub->AddRegularOption("Hurricane", "",			[] { g_ExamplesSubmenu->SetWeather(MISC::GET_HASH_KEY("HURRICANE")); });
-		sub->AddRegularOption("Thunder", "",			[] { g_ExamplesSubmenu->SetWeather(MISC::GET_HASH_KEY("THUNDER")); });
-		sub->AddRegularOption("Shower", "",				[] { g_ExamplesSubmenu->SetWeather(MISC::GET_HASH_KEY("SHOWER")); });
-		sub->AddRegularOption("Blizzard", "",			[] { g_ExamplesSubmenu->SetWeather(MISC::GET_HASH_KEY("BLIZZARD")); });
-		sub->AddRegularOption("Snow Light", "",			[] { g_ExamplesSubmenu->SetWeather(MISC::GET_HASH_KEY("SNOWLIGHT")); });
-		sub->AddRegularOption("Whiteout", "",			[] { g_ExamplesSubmenu->SetWeather(MISC::GET_HASH_KEY("WHITEOUT")); });
-		sub->AddRegularOption("Hail", "",				[] { g_ExamplesSubmenu->SetWeather(MISC::GET_HASH_KEY("HAIL")); });
-		sub->AddRegularOption("Sleet", "",				[] { g_ExamplesSubmenu->SetWeather(MISC::GET_HASH_KEY("SLEET")); });
-		sub->AddRegularOption("Drizzle", "",			[] { g_ExamplesSubmenu->SetWeather(MISC::GET_HASH_KEY("DRIZZLE")); });
-		sub->AddRegularOption("Sandstorm", "",			[] { g_ExamplesSubmenu->SetWeather(MISC::GET_HASH_KEY("SANDSTORM")); });
-		sub->AddRegularOption("Overcast Dark", "",		[] { g_ExamplesSubmenu->SetWeather(MISC::GET_HASH_KEY("OVERCASTDARK")); });
-		sub->AddRegularOption("Ground Blizzard", "",	[] { g_ExamplesSubmenu->SetWeather(MISC::GET_HASH_KEY("GROUNDBLIZZARD")); });
-	});
-
-
-	// If you were to implement this in examples.cpp, you wouldn't need to use a lambda.
-	// But once again, this is just here for simplicity reasons.
-	g_Menu->AddSubmenu("EXAMPLES", "Change Time", Submenu_Examples_Time, 8, [](Submenu* sub)
-	{
-		sub->AddVectorOption("Hour", "", 24, "", "",	[] { g_ExamplesSubmenu->SetTime(); });
-		sub->AddVectorOption("Minute", "", 60, "", "",	[] { g_ExamplesSubmenu->SetTime(); });
-		sub->AddVectorOption("Second", "", 60, "", "",	[] { g_ExamplesSubmenu->SetTime(); });
-		sub->AddBoolOption("Pause Time", "", &bPauseTime, [] { g_ExamplesSubmenu->PauseTime(); });
-	});
+	this->AddSubmenuOption("Change Time", "", eSubmenuID::Examples_Time);
+	this->AddSubmenuOption("Change Weather", "", eSubmenuID::Examples_Weather);
 }
 
 
-void CExamplesSubmenu::PauseTime()
+
+
+bool CExamplesSubmenu_Time::bPauseTime = false;
+void CExamplesSubmenu_Time::Init()
+{
+	// Pass in by reference so we can use "this" pointer
+	this->AddVectorOption("Hour", "", 24, "", "", [&] { this->SetTime(); });
+	this->AddVectorOption("Minute", "", 60, "", "", [&] { this->SetTime(); });
+	this->AddVectorOption("Second", "", 60, "", "", [&] { this->SetTime(); });
+	this->AddBoolOption("Pause Time", "", &bPauseTime, [&] { this->PauseTime(); });
+}
+void CExamplesSubmenu_Time::OnEnter()
+{
+	UIUtil::PrintSubtitle("[OnEnter] Entered Examples_Time");
+}
+void CExamplesSubmenu_Time::OnExit()
+{
+	UIUtil::PrintSubtitle("[OnExit] Exited Examples_Time");
+}
+void CExamplesSubmenu_Time::OnTick()
+{
+	// This function is being called every frame as long as we are in this submenu
+
+	this->GetOption(0)->As<CVectorOption*>()->SetVectorIndex(CLOCK::GET_CLOCK_HOURS());
+	this->GetOption(1)->As<CVectorOption*>()->SetVectorIndex(CLOCK::GET_CLOCK_MINUTES());
+	this->GetOption(2)->As<CVectorOption*>()->SetVectorIndex(CLOCK::GET_CLOCK_SECONDS());
+}
+
+
+
+
+void CExamplesSubmenu_Weather::Init()
+{
+	// In a real scenario, you should use enum hashes
+	// for the weather types instead of GET_HASH_KEY
+
+	this->AddRegularOption("High Pressure", "",		[&] { this->SetWeather(MISC::GET_HASH_KEY("HIGHPRESSURE")); });
+	this->AddRegularOption("Rain", "",				[&] { this->SetWeather(MISC::GET_HASH_KEY("RAIN")); });
+	this->AddRegularOption("Snow", "",				[&] { this->SetWeather(MISC::GET_HASH_KEY("SNOW")); });
+	this->AddRegularOption("Misty", "",				[&] { this->SetWeather(MISC::GET_HASH_KEY("MISTY")); });
+	this->AddRegularOption("Fog", "",				[&] { this->SetWeather(MISC::GET_HASH_KEY("FOG")); });
+	this->AddRegularOption("Sunny", "",				[&] { this->SetWeather(MISC::GET_HASH_KEY("SUNNY")); });
+	this->AddRegularOption("Clouds", "",			[&] { this->SetWeather(MISC::GET_HASH_KEY("CLOUDS")); });
+	this->AddRegularOption("Overcast", "",			[&] { this->SetWeather(MISC::GET_HASH_KEY("OVERCAST")); });
+	this->AddRegularOption("Thunderstorm", "",		[&] { this->SetWeather(MISC::GET_HASH_KEY("THUNDERSTORM")); });
+	this->AddRegularOption("Hurricane", "",			[&] { this->SetWeather(MISC::GET_HASH_KEY("HURRICANE")); });
+	this->AddRegularOption("Thunder", "",			[&] { this->SetWeather(MISC::GET_HASH_KEY("THUNDER")); });
+	this->AddRegularOption("Shower", "",			[&] { this->SetWeather(MISC::GET_HASH_KEY("SHOWER")); });
+	this->AddRegularOption("Blizzard", "",			[&] { this->SetWeather(MISC::GET_HASH_KEY("BLIZZARD")); });
+	this->AddRegularOption("Snow Light", "",		[&] { this->SetWeather(MISC::GET_HASH_KEY("SNOWLIGHT")); });
+	this->AddRegularOption("Whiteout", "",			[&] { this->SetWeather(MISC::GET_HASH_KEY("WHITEOUT")); });
+	this->AddRegularOption("Hail", "",				[&] { this->SetWeather(MISC::GET_HASH_KEY("HAIL")); });
+	this->AddRegularOption("Sleet", "",				[&] { this->SetWeather(MISC::GET_HASH_KEY("SLEET")); });
+	this->AddRegularOption("Drizzle", "",			[&] { this->SetWeather(MISC::GET_HASH_KEY("DRIZZLE")); });
+	this->AddRegularOption("Sandstorm", "",			[&] { this->SetWeather(MISC::GET_HASH_KEY("SANDSTORM")); });
+	this->AddRegularOption("Overcast Dark", "",		[&] { this->SetWeather(MISC::GET_HASH_KEY("OVERCASTDARK")); });
+	this->AddRegularOption("Ground Blizzard", "",	[&] { this->SetWeather(MISC::GET_HASH_KEY("GROUNDBLIZZARD")); });
+}
+
+#pragma region Time Submenu
+
+void CExamplesSubmenu_Time::PauseTime()
 {
 	CLOCK::PAUSE_CLOCK(bPauseTime, 0);
-	if (bPauseTime)
-		UIUtil::PrintSubtitle("Time paused");
-	else
-		UIUtil::PrintSubtitle("Time unpaused");
+	if (bPauseTime) {
+		UIUtil::PrintSubtitle("Paused Time");
+	}
+	else {
+		UIUtil::PrintSubtitle("Unpaused Time");
+	}
 }
 
-
-void CExamplesSubmenu::SetTime()
+void CExamplesSubmenu_Time::SetTime()
 {
-	// We know that GetSelectedOption() is a vector option, so convert it to that.
-	// Need to convert to access VectorOption specific functions. e.g GetVectorIndex()
-	VectorOption* option = g_Menu->GetSelectedOption()->As<VectorOption*>();
+	CVectorOption* option = g_Menu->GetSelectedOption()->As<CVectorOption*>();
 
 	int hrs = CLOCK::GET_CLOCK_HOURS();
 	int min = CLOCK::GET_CLOCK_MINUTES();
 	int sec = CLOCK::GET_CLOCK_SECONDS();
 
-	// Use switch case here because multiple options in the submenu use this function
+	// Use switch case here because multiple options use this function.
+	// Dont do this unless this is the case.
 	switch (option->Index)
 	{
-		case 0:
-			CLOCK::SET_CLOCK_TIME(option->GetVectorIndex(), min, sec); // Change hour
-			break;
-		case 1:
-			CLOCK::SET_CLOCK_TIME(hrs, option->GetVectorIndex(), sec); // Change minute
-			break;
-		case 2:
-			CLOCK::SET_CLOCK_TIME(hrs, min, option->GetVectorIndex()); // Change second
-			break;
-		default:
-			break;
+	case 0:
+		CLOCK::SET_CLOCK_TIME(option->GetVectorIndex(), min, sec); // Change hour
+		break;
+	case 1:
+		CLOCK::SET_CLOCK_TIME(hrs, option->GetVectorIndex(), sec); // Change minute
+		break;
+	case 2:
+		CLOCK::SET_CLOCK_TIME(hrs, min, option->GetVectorIndex()); // Change second
+		break;
+	default:
+		break;
 	}
 }
 
+#pragma endregion
 
-void CExamplesSubmenu::SetWeather(Hash weatherType)
+#pragma region Weather Submenu
+
+void CExamplesSubmenu_Weather::SetWeather(unsigned weatherType)
 {
-	Option* option = g_Menu->GetSelectedOption();
+	COption* option = g_Menu->GetSelectedOption();
 
 	MISC::SET_WEATHER_TYPE(weatherType, true, true, false, 0.0f, false);
 	UIUtil::PrintSubtitle("Set weather type to ~COLOR_OBJECTIVE~" + option->Text + "~s~");
 }
+
+#pragma endregion

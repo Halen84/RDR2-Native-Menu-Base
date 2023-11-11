@@ -3,12 +3,12 @@
 #pragma once
 #include "Option.h"
 
-class BoolOption : public Option
+class CBoolOption : public COption
 {
 public:
 	bool* pBoolPointer = nullptr;
 
-	BoolOption(int index)
+	CBoolOption(int index)
 	{
 		this->IsBoolOption = true;
 		this->Index = index;

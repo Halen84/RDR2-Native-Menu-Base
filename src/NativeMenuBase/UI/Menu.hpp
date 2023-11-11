@@ -1,36 +1,61 @@
 // Licensed under the MIT License.
 
 #pragma once
+#include "../script.h"
 #include "Submenu.hpp"
 #include "SubmenuIDs.h"
-#include "../script.h"
-#include "../common.hpp"
 
-#define BUILD_1311_COMPATIBLE 0 // If true, the menu will be compatible with game version <= 1311.12
-#define SUBMENU g_Menu->AddSubmenu
+#define BUILD_1311_COMPATIBLE 1 // If true, the menu will be compatible with game version <= 1311.12
 
 class CNativeMenu
 {
 private:
-	std::unordered_map<int, Submenu> m_SubmenusMap{};
+	std::unordered_map<eSubmenuID, CSubmenu*> m_SubmenusMap{};
 
-	Submenu* m_CurrentSubmenu = nullptr;                          // Current Submenu
-	eSubmenuID m_CurrentSubmenuID = eSubmenuID::Submenu_Invalid;  // Current Submenu ID
-	int m_SelectionIndex = 0;                                     // Current Selected Option Index
+	CSubmenu* m_CurrentSubmenu = nullptr;                // Current Submenu
+	eSubmenuID m_CurrentSubmenuID = eSubmenuID::Invalid; // Current Submenu ID
+	int m_SelectionIndex = 0;                            // Current Selected Option Index
 public:
 
-	// ctor
 	CNativeMenu()
 	{
+		PRINT_INFO("Registering ", __submenus.size(), " submenus");
+		for (int i = 0; i < __submenus.size(); i++) {
+			CSubmenu* sub = static_cast<CSubmenu*>(__submenus[i]);
+			this->RegisterSubmenu(sub, true);
+		}
+		PRINT_INFO("Successfully registered ", m_SubmenusMap.size(), " submenus");
+
+		// We no longer need this
+		__submenus.clear();
+		__submenus.shrink_to_fit();
+
 		this->RegisterUIPrompts();
+		this->GoToSubmenu(eSubmenuID::EntryMenu);
 	}
 
-	void AddSubmenu(const std::string& header, const std::string& subHeader, eSubmenuID id, int numVisibleOptions, std::function<void(Submenu*)> submenuFunc)
+	/// <summary>
+	/// Register a new submenu
+	/// </summary>
+	/// <param name="pSubmenu">- The submenu to register</param>
+	/// <param name="bInitialize">- Automatically initialize the submenu</param>
+	void RegisterSubmenu(CSubmenu* pSubmenu, bool bInitialize)
 	{
-		Submenu submenu = Submenu(header, subHeader, id, numVisibleOptions, submenuFunc);
-		m_SubmenusMap[id] = std::move(submenu);
-	}
+		if (pSubmenu == nullptr) {
+			PRINT_ERROR("Failed to register submenu, pSubmenu is null");
+			return;
+		}
 
+		if (m_SubmenusMap.contains(pSubmenu->ID)) {
+			PRINT_WARN("Submenu with ID ", (int)pSubmenu->ID, " has already been registered");
+			return;
+		}
+
+		m_SubmenusMap[pSubmenu->ID] = pSubmenu;
+		if (bInitialize) {
+			pSubmenu->Init();
+		}
+	}
 
 	// Go to a submenu
 	// 
@@ -47,7 +72,7 @@ public:
 
 		// This should ONLY be the case when the menu is first created
 		if (m_CurrentSubmenu == nullptr) {
-			m_CurrentSubmenu = &m_SubmenusMap[id];
+			m_CurrentSubmenu = m_SubmenusMap[id];
 			return;
 		}
 
@@ -63,7 +88,9 @@ public:
 			setRememberedSelection = true;
 		}
 
-		m_CurrentSubmenu = &m_SubmenusMap[id];
+		m_CurrentSubmenu->OnExit();
+		m_CurrentSubmenu = m_SubmenusMap[id];
+		m_CurrentSubmenu->OnEnter();
 
 		if (setRememberedSelection) {
 			m_SelectionIndex = m_LastSubmenuSelections[m_CurrentSubmenu->ID];
@@ -73,11 +100,26 @@ public:
 		}
 	}
 
-	// Gets a submenu via its ID
-	Submenu* GetSubmenu(eSubmenuID id)
+	// Run all submenu tick functions.
+	// By default, this is not called. If you want your tick functions to always run,
+	// uncomment this line above the if statement in CNativeMenu::Update() in Menu.cpp
+	// 
+	// RunTickFunctions();
+	//
+	// Comment out "m_CurrentSubmenu->OnTick();" in Menu.cpp if you intend on calling this.
+	void RunTickFunctions()
+	{
+		for (auto it = m_SubmenusMap.begin(); it != m_SubmenusMap.end(); it++)
+		{
+			it->second->OnTick();
+		}
+	}
+
+	// Gets a submenu from its ID
+	CSubmenu* GetSubmenu(eSubmenuID id)
 	{
 		if (m_SubmenusMap.contains(id)) {
-			return &m_SubmenusMap[id];
+			return m_SubmenusMap[id];
 		}
 
 		PRINT_ERROR("Submenu ID ",(int)id," doesn't exist, returning null");
@@ -85,9 +127,9 @@ public:
 	}
 
 	// Gets the currently selected option in the current submenu
-	Option* GetSelectedOption()
+	COption* GetSelectedOption()
 	{
-		Option* option = m_SubmenusMap[m_CurrentSubmenu->ID].GetOption(m_SelectionIndex);
+		COption* option = m_SubmenusMap[m_CurrentSubmenu->ID]->GetOption(m_SelectionIndex);
 		if (option == nullptr) {
 			PRINT_ERROR("Failed to find option in submenu ", (int)m_CurrentSubmenu->ID, " with index ", m_SelectionIndex, ", returning null");
 		}
@@ -95,7 +137,7 @@ public:
 	}
 
 	// Returns a pointer to the current submenu
-	inline Submenu* GetCurrentSubmenu()
+	inline CSubmenu* GetCurrentSubmenu()
 	{
 		return m_CurrentSubmenu;
 	}
@@ -123,14 +165,14 @@ public:
 	}
 
 	// Delete a submenu
-	void DeleteSubmenu(Submenu* pSubmenu)
+	void DeleteSubmenu(CSubmenu* pSubmenu)
 	{
 		if (pSubmenu == nullptr) {
 			PRINT_ERROR("Failed to delete submenu, pSubmenu is null");
 			return;
 		}
 
-		if (DoesSubmenuExist(pSubmenu->ID)) {
+		if (this->DoesSubmenuExist(pSubmenu->ID)) {
 			pSubmenu->Clear();
 			m_SubmenusMap.erase(pSubmenu->ID);
 		}
@@ -153,7 +195,6 @@ public:
 	void Update();
 
 private:
-	// Misc Variables
 
 	bool m_IsOpen = false;
 	// Contains submenu IDs you were previously at to properly backtrack

@@ -4,7 +4,7 @@
 #include "Option.h"
 #include "../../console.h"
 
-class VectorOption : public Option
+class CVectorOption : public COption
 {
 private:
 	std::vector<std::string> m_VectorContent = {};
@@ -15,7 +15,7 @@ public:
 
 	std::string RightText = "";
 
-	VectorOption(int index)
+	CVectorOption(int index)
 	{
 		this->IsVectorOption = true;
 		this->Index = index;
@@ -27,7 +27,7 @@ public:
 		std::vector<std::string> _temp;
 		_temp.reserve(vec.size());
 		for (const auto& item : vec) {
-			_temp.emplace_back(std::to_string(item));
+			_temp.push_back(std::to_string(item));
 		}
 		m_VectorContent.swap(_temp);
 	}

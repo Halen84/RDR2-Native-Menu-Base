@@ -2,11 +2,12 @@
 
 #pragma once
 
-enum eSubmenuID : int
+enum class eSubmenuID : int
 {
-	Submenu_Invalid = -1,
-	Submenu_EntryMenu,
-	Submenu_Examples,
-	Submenu_Examples_Time,
-	Submenu_Examples_Weather,
+	Invalid = -1,
+
+	EntryMenu = 0,
+	Examples = 1,
+	Examples_Time = 2,
+	Examples_Weather = 3,
 };
