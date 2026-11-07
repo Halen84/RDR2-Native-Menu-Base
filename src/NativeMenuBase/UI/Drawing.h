@@ -25,7 +25,7 @@ namespace Drawing
 			screenX += width * 0.5f;
 			screenY += height * 0.5f;
 		}
-		GRAPHICS::SET_SCRIPT_GFX_DRAW_ORDER(0); // Draw behind in-game UI
+		GRAPHICS::SET_SCRIPT_GFX_DRAW_ORDER(4); // Draw behind in-game UI
 		GRAPHICS::DRAW_SPRITE(textureDict, textureName, screenX, screenY, width, height, heading, red, green, blue, alpha, false);
 	}
 }
