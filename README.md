@@ -1,3 +1,5 @@
+# 11/8/2026: Please see [issue #9](https://github.com/Halen84/RDR2-Native-Menu-Base/issues/9)
+
 # RDR2 Native Menu Base
 An RDR2 UI Menu Base that uses in-game sprites to make UI menus similar to how they are in-game
 
@@ -15,9 +17,9 @@ An RDR2 UI Menu Base that uses in-game sprites to make UI menus similar to how t
   </p>
 </details>
 
-# Abstraction Branch
-- The abstraction branch's purpose is to implement more abstraction/polymorphism into this menu base
-- It has its ups and downs, but I implemented this because I thought some people might prefer this over the master branch
+# Immediate Branch
+- The immediate branch is supposed to be a immediate mode API similar to how [Dear ImGui](https://github.com/ocornut/imgui) works.
+- Please see [issue #9](https://github.com/Halen84/RDR2-Native-Menu-Base/issues/9)
 
 # Features
 - Easy to configure, organize, and use
