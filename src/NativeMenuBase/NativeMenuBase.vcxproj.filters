@@ -11,11 +11,8 @@
       <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="script.cpp" />
-    <ClCompile Include="Submenus\Examples.cpp">
-      <Filter>Submenus</Filter>
-    </ClCompile>
     <ClCompile Include="UI\UIUtil.cpp">
-      <Filter>UI\Other</Filter>
+      <Filter>UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -32,67 +29,25 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="keyboard.h" />
-    <ClInclude Include="UI\Menu.hpp">
+    <ClInclude Include="UI\Menu.h">
       <Filter>UI</Filter>
     </ClInclude>
-    <ClInclude Include="common.hpp" />
+    <ClInclude Include="common.h" />
     <ClInclude Include="UI\Drawing.h">
       <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="script.h" />
-    <ClInclude Include="Submenus\Examples.hpp">
-      <Filter>Submenus</Filter>
-    </ClInclude>
-    <ClInclude Include="UI\UIUtil.h">
-      <Filter>UI\Other</Filter>
-    </ClInclude>
-    <ClInclude Include="UI\SubmenuIDs.h">
-      <Filter>UI\Other</Filter>
-    </ClInclude>
-    <ClInclude Include="UI\Submenu.hpp">
-      <Filter>UI</Filter>
-    </ClInclude>
-    <ClInclude Include="Submenus\SubmenuInclude.h">
-      <Filter>Submenus</Filter>
-    </ClInclude>
     <ClInclude Include="console.h" />
-    <ClInclude Include="UI\Options\BoolOption.h">
-      <Filter>UI\Options</Filter>
-    </ClInclude>
-    <ClInclude Include="UI\Options\EmptyOption.h">
-      <Filter>UI\Options</Filter>
-    </ClInclude>
-    <ClInclude Include="UI\Options\Option.h">
-      <Filter>UI\Options</Filter>
-    </ClInclude>
-    <ClInclude Include="UI\Options\RegularOption.h">
-      <Filter>UI\Options</Filter>
-    </ClInclude>
-    <ClInclude Include="UI\Options\SubmenuOption.h">
-      <Filter>UI\Options</Filter>
-    </ClInclude>
-    <ClInclude Include="UI\Options\VectorOption.h">
-      <Filter>UI\Options</Filter>
+    <ClInclude Include="UI\UIUtil.h">
+      <Filter>UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">
       <UniqueIdentifier>{5d58942b-ebbf-4d0a-9526-359e3a556796}</UniqueIdentifier>
     </Filter>
-    <Filter Include="lib">
-      <UniqueIdentifier>{a486e665-ad1e-4ec9-a2ad-27a05f15bb1e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="UI">
       <UniqueIdentifier>{e770b224-3fb7-4e0e-9809-d82498335638}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\Other">
-      <UniqueIdentifier>{89913c18-6ba7-4d8f-812b-6b1c2b683d14}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Submenus">
-      <UniqueIdentifier>{38a25fb7-7440-4dcf-aba1-660893d45af1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\Options">
-      <UniqueIdentifier>{eb9ad464-7bb2-4130-97bb-b1b4cafcf708}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

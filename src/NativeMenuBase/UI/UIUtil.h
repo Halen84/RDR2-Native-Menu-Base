@@ -2,7 +2,7 @@
 
 #pragma once
 #include <windows.h>
-#include "../common.hpp"
+#include "../common.h"
 
 namespace UIUtil
 {

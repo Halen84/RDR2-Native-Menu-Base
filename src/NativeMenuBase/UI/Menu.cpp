@@ -1,387 +1,250 @@
 // Licensed under the MIT License.
 
-#include "Menu.hpp"
+#include "Menu.h"
 #include "Drawing.h"
-#include "../common.hpp"
+#include "../common.h"
 
-void playSoundFrontend(const char* name, const char* soundset)
+static void PlaySoundFrontend(const char* name, const char* soundset)
 {
 	AUDIO::_STOP_SOUND_WITH_NAME(name, soundset);
 	AUDIO::PLAY_SOUND_FRONTEND(name, soundset, true, 0);
 }
 
+static constexpr int MAX_VISIBLE = 8;
 
-void CNativeMenu::Update()
+static bool s_IsOpen = false;
+static std::vector<Page> s_Path = {}; // Open pages, root first. Empty = menu closed
+static int s_PathDepth = 0;
+static int s_OptionCount = 0;
+static int s_NextId = 0;
+
+static struct { bool up, down, left, right, select, back; } s_Input;
+static enum class Nav { None, Push, Pop } s_Nav;
+
+// Cheesy way of handling separator options...
+static std::vector<u8> s_IsSep;      // This frame values
+static std::vector<u8> s_PrevIsSep;  // Last frame values, used for cursor skipping
+static const char* s_HoverFooter = "";
+
+struct OptionResult
 {
-	CheckInput();
-	HandleInput();
-	DisableCommonInputs();
+	bool hovered = false;
+	bool selected = false;
+	bool left = false;
+	bool right = false;
+};
 
-	if (m_IsOpen)
+static bool OnVisiblePage() { return s_IsOpen && s_PathDepth == (int)s_Path.size(); }
+
+// +1 down / -1 up
+static void MoveCursor(Page& pg, int dir)
+{
+	const int count = pg.OptionCount;
+	if (count <= 0) return;
+
+	if (dir == -1)
+		PlaySoundFrontend("NAV_UP", "PAUSE_MENU_SOUNDSET");
+	else
+		PlaySoundFrontend("NAV_DOWN", "PAUSE_MENU_SOUNDSET");
+
+	for (int i = 0; i < count; i++) {
+		pg.Cursor = (pg.Cursor + dir + count) % count; // Wrap around
+		bool separator = pg.Cursor < (int)s_PrevIsSep.size() && s_PrevIsSep[pg.Cursor];
+		if (!separator) break;
+	}
+
+	// Keep cursor inside the scrollable view
+	if (pg.Cursor < pg.Scroll)
+		pg.Scroll = pg.Cursor;
+
+	if (pg.Cursor >= pg.Scroll + MAX_VISIBLE)
+		pg.Scroll = pg.Cursor - MAX_VISIBLE + 1;
+}
+
+static void EndPage()
+{
+	Page& pg = CMenu::GetCurrentPage();
+
+	// Update count from last frame to next frame
+	pg.OptionCount = s_OptionCount;
+
+	// Clamp the cursor if options disappeared since last frame
+	if (pg.OptionCount > 0)
+		pg.Cursor = min(pg.Cursor, pg.OptionCount - 1);
+	else
+		pg.Cursor = 0;
+}
+
+static OptionResult BeginOption(const char* label, const char* footer, OptionKind kind, void* extradata = nullptr)
+{
+	Page& pg = CMenu::GetCurrentPage();
+	int idx = s_OptionCount++;
+	OptionResult r{};
+	r.hovered = (idx == pg.Cursor);
+
+	if (r.hovered) {
+		s_HoverFooter = footer;
+		r.selected = s_Input.select;
+		r.left = s_Input.left && kind == OptionKind::List; 
+		r.right = s_Input.right && kind == OptionKind::List;
+		s_Input.select = false;
+	}
+	
+	// Only draw options inside the scrollable view
+	if (idx >= pg.Scroll && idx < pg.Scroll + MAX_VISIBLE) {
+		CDrawing::DrawOption(idx - pg.Scroll, label, footer, r.hovered, kind, extradata);
+	}
+
+	return r;
+}
+
+void CMenu::Open()
+{
+	if (s_Path.empty()) {
+		s_Path.emplace_back((int)SubmenuId::Root);
+	}
+	s_IsOpen = true;
+	PlaySoundFrontend("MENU_ENTER", "HUD_PLAYER_MENU");
+}
+void CMenu::Close()  { s_IsOpen = false; PlaySoundFrontend("MENU_CLOSE", "HUD_PLAYER_MENU"); }
+void CMenu::Reset()  { s_IsOpen = false; s_Path.clear(); }
+bool CMenu::IsOpen() { return s_IsOpen; }
+Page& CMenu::GetCurrentPage() { return s_Path.back(); }
+
+void CMenu::BeginFrame()
+{
+	bool up, down, left, right, select, back, openKeyPressed;
+	up     = PAD::IS_CONTROL_JUST_PRESSED(2, INPUT_GAME_MENU_UP);
+	down   = PAD::IS_CONTROL_JUST_PRESSED(2, INPUT_GAME_MENU_DOWN);
+	left   = PAD::IS_DISABLED_CONTROL_JUST_PRESSED(2, INPUT_GAME_MENU_LEFT);
+	right  = PAD::IS_DISABLED_CONTROL_JUST_PRESSED(2, INPUT_GAME_MENU_RIGHT);
+	select = PAD::IS_CONTROL_JUST_RELEASED(2, INPUT_GAME_MENU_ACCEPT);
+	back   = PAD::IS_CONTROL_JUST_RELEASED(2, INPUT_GAME_MENU_CANCEL);
+	openKeyPressed = IsKeyJustUp(VK_F5) || PAD::IS_DISABLED_CONTROL_PRESSED(2, INPUT_FRONTEND_RB) && PAD::IS_CONTROL_JUST_RELEASED(2, INPUT_CONTEXT_A);
+
+	if (openKeyPressed)
 	{
-		if (m_CurrentSubmenu == nullptr) return;
-
-		Drawing::DrawMenu();
-
-		for (int i = 0; i < m_CurrentSubmenu->GetNumberOfOptions(); i++) {
-			Option* option = m_CurrentSubmenu->GetOption(i);
-			if (option != nullptr) {
-				Drawing::DrawOption(option);
-			}
-			else {
-				PRINT_ERROR("Option index ", i, " in submenu ", (int)m_CurrentSubmenuID, " is null");
-			}
-		}
-
-		MAP::DISPLAY_RADAR(false); // Always hide radar when the menu is open
+		if (CMenu::IsOpen())
+			CMenu::Close();
+		else
+			CMenu::Open();
 	}
 
-	if (m_CurrentSubmenu != nullptr) {
-		m_CurrentSubmenuID = m_CurrentSubmenu->ID;
-	}
+	s_Input = { up, down, left, right, select, back };
+	s_PathDepth = 0;
+	s_OptionCount = 0;
+	s_HoverFooter = nullptr;
+	s_Nav = Nav::None;
+	s_IsSep.clear();
 
-	HUD::_UI_PROMPT_SET_VISIBLE(m_SelectPrompt, m_IsOpen);
-	HUD::_UI_PROMPT_SET_ENABLED(m_SelectPrompt, m_IsOpen);
-	HUD::_UI_PROMPT_SET_VISIBLE(m_BackPrompt, m_IsOpen);
-	HUD::_UI_PROMPT_SET_ENABLED(m_BackPrompt, m_IsOpen);
-}
+	if (!s_IsOpen) return;
 
-
-void CNativeMenu::SetEnabled(bool bEnabled, bool bPlaySounds)
-{
-	m_IsOpen = bEnabled;
-
-	if (bPlaySounds) {
-		if (m_IsOpen) {
-			playSoundFrontend("MENU_ENTER", "HUD_PLAYER_MENU");
-		}
-		else {
-			playSoundFrontend("MENU_CLOSE", "HUD_PLAYER_MENU");
-		}
-	}
-
-	if (m_IsOpen) {
-		MAP::DISPLAY_RADAR(false);
-	}
-	else {
-		MAP::DISPLAY_RADAR(true);
+	Page& pg = GetCurrentPage();
+	if (s_Input.up)     MoveCursor(pg, -1);
+	if (s_Input.down)   MoveCursor(pg, +1);
+	if (s_Input.select) PlaySoundFrontend("SELECT", "HUD_SHOP_SOUNDSET");
+	if (s_Input.back) {
+		s_Nav = Nav::Pop;
+		PlaySoundFrontend("BACK", "HUD_SHOP_SOUNDSET");
 	}
 }
 
-
-void CNativeMenu::CheckInput()
+void CMenu::EndFrame()
 {
-	m_ControlIndex = PAD::IS_USING_KEYBOARD_AND_MOUSE(0) ? 0 : 2;
+	s_PrevIsSep = s_IsSep;
 
-	m_OpenKeyPressed	= IsKeyJustUp(VK_F5) || PAD::IS_DISABLED_CONTROL_PRESSED(2, INPUT_FRONTEND_RB) && PAD::IS_CONTROL_JUST_RELEASED(2, INPUT_CONTEXT_A);
-	m_EnterKeyPressed	= PAD::IS_CONTROL_JUST_RELEASED(m_ControlIndex, INPUT_GAME_MENU_ACCEPT);
-	m_BackKeyPressed	= PAD::IS_CONTROL_JUST_RELEASED(m_ControlIndex, INPUT_GAME_MENU_CANCEL);
-	m_UpKeyPressed		= PAD::IS_CONTROL_JUST_PRESSED(m_ControlIndex, INPUT_GAME_MENU_UP);
-	m_DownKeyPressed	= PAD::IS_CONTROL_JUST_PRESSED(m_ControlIndex, INPUT_GAME_MENU_DOWN);
-	m_LeftKeyPressed	= PAD::IS_DISABLED_CONTROL_JUST_PRESSED(m_ControlIndex, INPUT_GAME_MENU_LEFT);
-	m_RightKeyPressed	= PAD::IS_DISABLED_CONTROL_JUST_PRESSED(m_ControlIndex, INPUT_GAME_MENU_RIGHT);
-	//m_LMBPressed		= _NAMESPACE30::_0xF7F51A57349739F2();
-
-	if (HUD::_UI_PROMPT_IS_VALID(m_SelectPrompt) && HUD::_UI_PROMPT_IS_ACTIVE(m_SelectPrompt)) {
-		m_SelectPromptCompleted = HUD::_UI_PROMPT_HAS_STANDARD_MODE_COMPLETED(m_SelectPrompt, 0);
-	}
-	else {
-		m_SelectPromptCompleted = m_EnterKeyPressed;
-	}
-
-	if (HUD::_UI_PROMPT_IS_VALID(m_BackPrompt) && HUD::_UI_PROMPT_IS_ACTIVE(m_SelectPrompt)) {
-		m_BackPromptCompleted = HUD::_UI_PROMPT_HAS_STANDARD_MODE_COMPLETED(m_BackPrompt, 0);
-	}
-	else {
-		m_BackPromptCompleted = m_BackKeyPressed;
-	}
-}
-
-
-// TODO
-// Attempting to get mouse support working. See comment in function
-// Uncomment this function call to see what I mean.
-// FIRST, scroll down like 15 option in a page, then move your mouse.
-POINT _cursorPos;
-const int _padding = 3;
-int _relativePos = 0;
-int _index = 0;
-void CNativeMenu::HandleMouseInput()
-{
-	int visibleOptions = g_Menu->m_CurrentSubmenu->NumberOfVisibleOptions;
-	int numOptions = g_Menu->m_CurrentSubmenu->GetNumberOfOptions();
-	bool canScrollInThisPage = visibleOptions < numOptions;
-
-	_NAMESPACE30::SET_MOUSE_CURSOR_THIS_FRAME();
-
-	if (PAD::IS_CONTROL_JUST_RELEASED(0, INPUT_GAME_MENU_SCROLL_FORWARD)) {
-		this->HandleUpKeyPressed();
-	}
-	else if (PAD::IS_CONTROL_JUST_RELEASED(0, INPUT_GAME_MENU_SCROLL_BACKWARD)) {
-		this->HandleDownKeyPressed();
-	}
-
-	const int _MaxCursorPos = 245 + (visibleOptions * (50 + _padding));
-	const int _MaxRelPos = (visibleOptions * (50 + _padding)) - 1;
-
-	// Is Mouse Cursor Moving...
-	if (_NAMESPACE30::_0x2B8B605F2A9E64BF())
+	switch (s_Nav)
 	{
-		if (GetCursorPos(&_cursorPos))
-		{
-			_relativePos = (_cursorPos.y - 245/*option start pos*/);
-			/*if (_relativePos > _MaxRelPos) {
-				_relativePos = _MaxRelPos;
-			}*/
-			_index = _relativePos / (50/*option height*/ + _padding);
-
-			if (g_Menu->m_SelectionIndex > visibleOptions-1 && canScrollInThisPage) {
-				// TODO:
-				// Adjust _index here. At this point in a page, we are scrolling.
-				// Need to somehow account for g_Menu->m_SelectionIndex and change _index
-				// so it will set g_Menu->m_SelectionIndex correctly without resetting to the top of the page.
-				// Its happening because the mouse is above the last visible option, so it resets.
-			}
-
-			if (_index < 0) {
-				_index = 0;
-			}
-
-			if (_index > numOptions-1) {
-				_index = numOptions-1;
-			}
-
-			g_Menu->m_SelectionIndex = _index;
-		}
+		case Nav::Push: s_Path.emplace_back(s_NextId); break;
+		case Nav::Pop:
+			s_Path.pop_back();
+			if (s_Path.empty()) Close();
+			break;
+		default: break;
 	}
 }
 
-
-void CNativeMenu::HandleEnterPressed()
+bool CMenu::BeginSubmenu(const char* label, const char* footer, const char* header, const char* subHeader, SubmenuId id)
 {
-	Option* option = GetSelectedOption();
-	if (option == nullptr) return;
+	if (!s_IsOpen) return false;
 
-	if (option->IsRegularOption) {
-		option->Execute();
-	}
-	else if (option->IsBoolOption) {
-		BoolOption* boolOption = option->As<BoolOption*>();
-		if (boolOption->pBoolPointer != nullptr) {
-			*boolOption->pBoolPointer ^= TRUE; // XOR
-		}
-		else {
-			PRINT_ERROR("Bad boolean pointer for option index ", m_SelectionIndex, ". Executing assigned function, but boolean pointer will not be switched");
-		}
+	const int top = (int)s_Path.size();
 
-		boolOption->Execute();
-	}
-	else if (option->IsVectorOption) {
-		VectorOption* vecOption = option->As<VectorOption*>();
-		vecOption->ExecuteVectorFunction(false, true);
-	}
-	else if (option->IsSubmenuOption) {
-		SubmenuOption* submenuOption = option->As<SubmenuOption*>();
-		if (DoesSubmenuExist(submenuOption->SubmenuID)) {
-			//g_Menu->GoToSubmenu(submenuOption->SubmenuID);
-			m_PreviousSubmenus.push_back(m_CurrentSubmenu->ID);
-			m_LastSubmenuSelections[m_CurrentSubmenu->ID] = m_SelectionIndex;
-			m_CurrentSubmenu = &m_SubmenusMap[submenuOption->SubmenuID];
-			m_SelectionIndex = 0;
-		}
-		else {
-			PRINT_ERROR("Submenu ID ", (int)submenuOption->SubmenuID, " doesn't exist, make sure this submenu is initialized!");
-		}
+	// Inside an ancestor of the visible page: just follow the path down
+	if (s_PathDepth < top)
+	{
+		if (s_Path[s_PathDepth].ID != (int)id) return false;
+		s_PathDepth++;
+		if (s_PathDepth == top) CDrawing::DrawMenu(header, subHeader);
+		return true;
 	}
 
-	playSoundFrontend("SELECT", "HUD_SHOP_SOUNDSET");
+	// Inside the visible page: this call is an option that leads to a child
+	OptionResult row = BeginOption(label, footer, OptionKind::Submenu);
+	if (row.selected) {
+		s_Nav = Nav::Push;
+		s_NextId = (int)id;
+	}
+
+	return false;
 }
 
-
-void CNativeMenu::HandleBackPressed()
+void CMenu::EndSubmenu()
 {
-	if (m_CurrentSubmenu->ID <= eSubmenuID::Submenu_EntryMenu) {
-		playSoundFrontend("BACK", "HUD_SHOP_SOUNDSET");
-		SetEnabled(false);
-		return;
-	}
-
-	if (m_PreviousSubmenus.size() > 0) {
-		//g_Menu->GoToSubmenu(m_PreviousSubmenus[m_PreviousSubmenus.size() - 1]);
-		m_CurrentSubmenu = &m_SubmenusMap[m_PreviousSubmenus[m_PreviousSubmenus.size() - 1]];
-		m_PreviousSubmenus.pop_back();
-		m_SelectionIndex = m_LastSubmenuSelections[m_CurrentSubmenu->ID];
-		m_LastSubmenuSelections.erase(m_CurrentSubmenu->ID);
-	}
-	else {
-		m_CurrentSubmenu = &m_SubmenusMap[eSubmenuID::Submenu_EntryMenu];
-		m_SelectionIndex = m_LastSubmenuSelections[eSubmenuID::Submenu_EntryMenu];
-	}
-
-	playSoundFrontend("BACK", "HUD_SHOP_SOUNDSET");
+	if (s_PathDepth == (int)s_Path.size())
+		EndPage();
+	s_PathDepth--;
 }
 
-
-void CNativeMenu::HandleUpKeyPressed()
+bool CMenu::Option(const char* label, const char* footer)
 {
-	if (GetSelectedOption() == nullptr) return;
-	int numOptions = m_CurrentSubmenu->GetNumberOfOptions();
-
-	if (IsKeyDownLong(VK_SHIFT)) {
-		m_SelectionIndex -= 10;
-		if (m_SelectionIndex < 0) {
-			m_SelectionIndex = 0; // DONT reset to the BOTTOM of the page
-		}
-	}
-	else {
-		m_SelectionIndex--;
-	}
-
-	// First check
-	if (m_SelectionIndex < 0) { m_SelectionIndex = numOptions - 1; }
-	// Skip over empty option
-	if (GetSelectedOption()->IsEmptyOption) { m_SelectionIndex--; }
-	// Second check
-	if (m_SelectionIndex < 0) { m_SelectionIndex = numOptions - 1; }
-
-	playSoundFrontend("NAV_UP", "Ledger_Sounds");
+	if (!OnVisiblePage()) return false;
+	s_IsSep.push_back(false);
+	OptionResult r = BeginOption(label, footer, OptionKind::Regular);
+	return r.selected;
 }
 
-
-void CNativeMenu::HandleDownKeyPressed()
+bool CMenu::CheckboxOption(const char* label, const char* footer, bool* toggle)
 {
-	if (GetSelectedOption() == nullptr) return;
-	int numOptions = m_CurrentSubmenu->GetNumberOfOptions();
-
-	if (IsKeyDownLong(VK_SHIFT)) {
-		m_SelectionIndex += 10;
-		if (m_SelectionIndex > numOptions - 1) {
-			m_SelectionIndex = numOptions - 1; // DONT reset to the TOP of the page
-		}	
+	if (!OnVisiblePage()) return false;
+	s_IsSep.push_back(false);
+	OptionResult r = BeginOption(label, footer, OptionKind::Checkbox, toggle);
+	if (toggle != nullptr && r.selected) {
+		*toggle ^= true;
 	}
-	else {
-		m_SelectionIndex++;
-	}
-
-	// First check
-	if (m_SelectionIndex > numOptions - 1) { m_SelectionIndex = 0; }
-	// Skip over empty option
-	if (GetSelectedOption()->IsEmptyOption) { m_SelectionIndex++; }
-	// Second check
-	if (m_SelectionIndex > numOptions - 1) { m_SelectionIndex = 0; }
-
-	playSoundFrontend("NAV_DOWN", "Ledger_Sounds");
+	return r.selected;
 }
 
-
-void CNativeMenu::HandleLeftKeyPressed()
+bool CMenu::ListOption(const char* label, const char* footer, int* currentItem, const char* const* items, int itemCount)
 {
-	Option* option = GetSelectedOption();
-	if (option == nullptr) return;
+	if (!OnVisiblePage() || !currentItem || itemCount <= 0) return false;
+	s_IsSep.push_back(false);
+	OptionResult r = BeginOption(label, footer, OptionKind::List, (void*)items[*currentItem]);
 
-	if (option->IsVectorOption) {
-		option->As<VectorOption*>()->ExecuteVectorFunction(true, false);
-		playSoundFrontend("NAV_LEFT", "PAUSE_MENU_SOUNDSET");
-	}
+	if (r.left)
+		PlaySoundFrontend("NAV_LEFT", "PAUSE_MENU_SOUNDSET");
+	else if (r.right)
+		PlaySoundFrontend("NAV_RIGHT", "PAUSE_MENU_SOUNDSET");
+
+	int old = *currentItem;
+	if (r.left)
+		*currentItem = (*currentItem - 1 + itemCount) % itemCount;
+	if (r.right || r.selected)
+		*currentItem = (*currentItem + 1) % itemCount;
+	
+	return *currentItem != old;   
 }
 
-
-void CNativeMenu::HandleRightKeyPressed()
+void CMenu::Separator(const char* label)
 {
-	Option* option = GetSelectedOption();
-	if (option == nullptr) return;
-
-	if (option->IsVectorOption) {
-		option->As<VectorOption*>()->ExecuteVectorFunction(false, true);
-		playSoundFrontend("NAV_RIGHT", "PAUSE_MENU_SOUNDSET");
+	if (!OnVisiblePage()) return;
+	s_IsSep.push_back(true);
+	Page& pg = GetCurrentPage();
+	int idx = s_OptionCount++;
+	if (idx >= pg.Scroll && idx < pg.Scroll + MAX_VISIBLE) {
+		int slot = idx - pg.Scroll;
+		float y = (slot * (SCREEN_HEIGHT * 0.05f)) + uiOption::PositionYStart;
+		float textY = y - (uiOption::Height * 0.5f) + (uiFontSizes::Option * 0.5f);
+		CDrawing::Text(label, Font::Title, COLOR_WHITE_SMOKE, Alignment::Center, uiFontSizes::Separator, uiOption::SeparatorTextPositionX, textY);
 	}
 }
-
-
-void CNativeMenu::HandleInput()
-{
-	if (m_OpenKeyPressed) {
-		m_IsOpen = !m_IsOpen;
-		SetEnabled(m_IsOpen);
-	}
-
-	if (m_IsOpen) {
-		// !m_OpenKeyPressed is a fix where opening with RB + A would enter/leave a submenu prematurely
-		if ((m_SelectPromptCompleted || m_LMBPressed) && !m_OpenKeyPressed) {
-			this->HandleEnterPressed();
-		}
-
-		if (m_BackPromptCompleted && !m_OpenKeyPressed) {
-			this->HandleBackPressed();
-		}
-
-		if (m_UpKeyPressed) {
-			this->HandleUpKeyPressed();
-		}
-
-		if (m_DownKeyPressed) {
-			this->HandleDownKeyPressed();
-		}
-
-		if (m_LeftKeyPressed) {
-			this->HandleLeftKeyPressed();
-		}
-
-		if (m_RightKeyPressed) {
-			this->HandleRightKeyPressed();
-		}
-
-		//HandleMouseInput();
-	}
-}
-
-
-void CNativeMenu::DisableCommonInputs()
-{
-	if (m_IsOpen) {
-		if (m_ControlIndex == INPUT_GROUP_GAMEPAD) {
-			*getGlobalPtr(1900383 + 316) = 2; // Disables horse whistling this frame. Not sure if this is safe, but it works.
-			PAD::DISABLE_CONTROL_ACTION(INPUT_GROUP_GAMEPAD, INPUT_WHISTLE, false);
-			PAD::DISABLE_CONTROL_ACTION(INPUT_GROUP_GAMEPAD, INPUT_WHISTLE_HORSEBACK, false);
-		}
-
-		PAD::DISABLE_CONTROL_ACTION(m_ControlIndex, INPUT_SELECT_RADAR_MODE, false);
-		PAD::DISABLE_CONTROL_ACTION(m_ControlIndex, INPUT_REVEAL_HUD, false);
-		PAD::DISABLE_CONTROL_ACTION(m_ControlIndex, INPUT_PLAYER_MENU, false);
-		PAD::DISABLE_CONTROL_ACTION(m_ControlIndex, INPUT_OPEN_JOURNAL, false);
-		PAD::DISABLE_CONTROL_ACTION(m_ControlIndex, INPUT_OPEN_SATCHEL_MENU, false);
-		PAD::DISABLE_CONTROL_ACTION(m_ControlIndex, INPUT_OPEN_SATCHEL_HORSE_MENU, false);
-		PAD::DISABLE_CONTROL_ACTION(m_ControlIndex, INPUT_OPEN_CRAFTING_MENU, false);
-		PAD::DISABLE_CONTROL_ACTION(m_ControlIndex, INPUT_OPEN_EMOTE_WHEEL, false);
-		PAD::DISABLE_CONTROL_ACTION(m_ControlIndex, INPUT_OPEN_WHEEL_MENU, false);
-		PAD::DISABLE_CONTROL_ACTION(m_ControlIndex, INPUT_EXPAND_RADAR, false);
-		PAD::DISABLE_CONTROL_ACTION(m_ControlIndex, INPUT_INTERACTION_MENU, false);
-		PAD::DISABLE_CONTROL_ACTION(m_ControlIndex, INPUT_HUD_SPECIAL, false);
-	}
-}
-
-
-void CNativeMenu::RegisterUIPrompts()
-{
-	auto reg = [](Prompt &_prompt, const char* text, Hash control) 
-	{ 
-		_prompt = HUD::_UI_PROMPT_REGISTER_BEGIN();
-		HUD::_UI_PROMPT_SET_CONTROL_ACTION(_prompt, control);
-		HUD::_UI_PROMPT_SET_PRIORITY(_prompt, 2); // PP_High
-		HUD::_UI_PROMPT_SET_TEXT(_prompt, MISC::VAR_STRING(10, "LITERAL_STRING", text));
-		HUD::_UI_PROMPT_SET_STANDARD_MODE(_prompt, true);
-		// Allows multiple prompts of the same type to be shown (kPromptAttrib_ManualResolved) (?)
-		HUD::_UI_PROMPT_SET_ATTRIBUTE(_prompt, 34, true);
-		HUD::_UI_PROMPT_REGISTER_END(_prompt);
-
-		HUD::_UI_PROMPT_SET_VISIBLE(_prompt, false);
-		HUD::_UI_PROMPT_SET_ENABLED(_prompt, false);
-	};
-
-	if (m_SelectPrompt == NULL)
-		reg(m_SelectPrompt, "Select", INPUT_GAME_MENU_ACCEPT);
-
-	if (m_BackPrompt == NULL)
-		reg(m_BackPrompt, "Back", INPUT_GAME_MENU_CANCEL);
-}
-

@@ -6,7 +6,6 @@
 #include "..\..\inc\types.h"
 #include "..\..\inc\enums.h"
 #include "..\..\inc\main.h"
-#include "common.hpp"
+#include "common.h"
 
 void ScriptMain();
-void WaitAndDraw(unsigned ms);

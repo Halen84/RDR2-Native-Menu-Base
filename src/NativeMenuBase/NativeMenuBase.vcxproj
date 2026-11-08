@@ -8,7 +8,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="common.cpp" />
-    <ClCompile Include="Submenus\Examples.cpp" />
     <ClCompile Include="UI\Menu.cpp" />
     <ClCompile Include="script.cpp" />
     <ClCompile Include="UI\Drawing.cpp" />
@@ -22,21 +21,11 @@
     <ClInclude Include="..\..\inc\natives.h" />
     <ClInclude Include="..\..\inc\types.h" />
     <ClInclude Include="console.h" />
-    <ClInclude Include="Submenus\SubmenuInclude.h" />
-    <ClInclude Include="Submenus\Examples.hpp" />
     <ClInclude Include="UI\Drawing.h" />
-    <ClInclude Include="common.hpp" />
-    <ClInclude Include="UI\Menu.hpp" />
+    <ClInclude Include="common.h" />
+    <ClInclude Include="UI\Menu.h" />
     <ClInclude Include="script.h" />
     <ClInclude Include="keyboard.h" />
-    <ClInclude Include="UI\Options\BoolOption.h" />
-    <ClInclude Include="UI\Options\EmptyOption.h" />
-    <ClInclude Include="UI\Options\Option.h" />
-    <ClInclude Include="UI\Options\RegularOption.h" />
-    <ClInclude Include="UI\Options\SubmenuOption.h" />
-    <ClInclude Include="UI\Options\VectorOption.h" />
-    <ClInclude Include="UI\Submenu.hpp" />
-    <ClInclude Include="UI\SubmenuIDs.h" />
     <ClInclude Include="UI\UIUtil.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -50,7 +39,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -64,7 +53,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <TargetExt>.asi</TargetExt>
-    <OutDir>D:\Games\Red Dead Redemption 2</OutDir>
+    <OutDir>C:\Program Files\Rockstar Games\Red Dead Redemption 2</OutDir>
     <IntDir>tmp\$(Configuration)\</IntDir>
     <TargetName>NativeMenuBase</TargetName>
   </PropertyGroup>
